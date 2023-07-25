@@ -7,7 +7,7 @@
 #include "random.h"
 constexpr auto BANA_API_VERSION = "Ver 1.6.1";
 
-constexpr auto hexCharacterTable = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+char hex_characters[] = {'0', '1' , '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E' ,'F'};
 
 bool readerActive = false;
 
@@ -17,7 +17,7 @@ void randomHex(char str[], int length) {
     //hexadecimal characters
     for (int i = 0; i < length; i++)
     {
-        str[i] = Random::get(hexCharacterTable);
+        str[i] = hex_characters[rand()%16];
     }
     str[length] = 0;
 }
@@ -43,14 +43,14 @@ void createCard() {
     }
     else
     {
-        //std::string accessCode = "30764352518498791337";
-        //std::string chipId = "7F5C9744F111111143262C3300040610";
-        char generatedAccessCode[33] = "00000000000000000000000000000000";
-        randomHex(generatedAccessCode, 32);
+        char generatedAccessCode[21] = "00000000000000000000";
+        randomNumberString(generatedAccessCode, 20);
         WritePrivateProfileStringA("card", "accessCode", generatedAccessCode, ".\\card.ini");
-        char generatedChipId[21] = "00000000000000000000";
-        randomNumberString(generatedChipId, 20);
+        
+        char generatedChipId[33] = "00000000000000000000000000000000";
+        randomHex(generatedChipId, 32);
         WritePrivateProfileStringA("card", "chipId", generatedChipId, ".\\card.ini");
+        
         log("New card generated\n");
     }
 }
