@@ -1,0 +1,134 @@
+{
+    "SessionId": "1",
+    "AcidResponse": null,
+    "load_player": {
+        "PilotId": 1,
+        "TotalWin": 0,
+        "TotalLose": 0,
+        "EchelonId": 55,
+        "EchelonExp": 0,
+        "SEchelonFlag": false,
+        "SEchelonMissionFlag": false,
+        "SEchelonProgress": 0,
+        "SCaptainFlag": false,
+        "SBrigadierFlag": false,
+        "VsmAfterRankUp": 0,
+        "ShuffleWin": 0,
+        "ShuffleLose": 0,
+        "TeamWin": 0,
+        "TeamLose": 0,
+        "RankSoloWin": 0,
+        "RankSoloLose": 0,
+        "RankTeamWin": 0,
+        "RankTeamLose": 0,
+        "CasualSoloWin": 0,
+        "CasualSoloLose": 0,
+        "CasualTeamWin": 0,
+        "CasualTeamLose": 0,
+        "RankIdSolo": 1,
+        "RankIdTeam": 1,
+        "AchievedExNumSolo": 0,
+        "AchievedExxNumSolo": 0,
+        "AchievedExNumTeam": 0,
+        "AchievedExxNumTeam": 0
+    },
+    "IsNewCard": false,
+    "AcidError": 1,
+    "User": {
+        "UserId": 1,
+        "PlayerName": "EXVS2XB-POC",
+        "OpenRecord": 1,
+        "OpenEchelon": 0,
+        "OpenSkillpoint": true,
+        "customize_group": {
+            "DefaultTitleCustomize": {
+                "TitleTextId": 0,
+                "TitleOrnamentId": 0,
+                "TitleEffectId": 0,
+                "TitleBackgroundPartsId": 0
+            },
+            "MstMobileSuitId": 123,
+            "MsSkill1": 18,
+            "MsSkill2": 21,
+            "GpBoost": true,
+            "GuestNavBoost": true,
+            "TagSkillPointBoostFlag": true,
+            "BattleNavAdviseFlag": true,
+            "BattleNavNotifyFlag": true,
+            "RandomTitleFlag": false,
+            "GuestNavAnnivFlag": false
+        },
+        "GuestNavs": [{
+                "GuestNavSettingFlag": true,
+                "GuestNavId": 29,
+                "GuestNavCostume": 1,
+                "GuestNavFamiliarity": 50,
+                "GuestNavRemains": 99999,
+                "NewCostumeFlag": false,
+                "BattleNavSettingFlag": true,
+                "BattleNavRemains": 99999
+            }
+        ],
+        "FavoriteMobileSuits": [{
+                "MstMobileSuitId": 123,
+                "MsUsedNum": 5000,
+                "OpenSkillpoint": true,
+                "GaugeDesignId": 0,
+                "BgmSettings": null,
+                "BgmPlayMethod": 0,
+                "BattleNavId": 29,
+                "BurstType": 3,
+                "DefaultTitleCustomize": {
+                    "TitleTextId": 0,
+                    "TitleOrnamentId": 0,
+                    "TitleEffectId": 0,
+                    "TitleBackgroundPartsId": 0
+                },
+                "RankMatchTitleCustomize": {
+                    "TitleTextId": 0,
+                    "TitleOrnamentId": 0,
+                    "TitleEffectId": 0,
+                    "TitleBackgroundPartsId": 0
+                },
+                "TriadTitleCustomize": {
+                    "TitleTextId": 0,
+                    "TitleOrnamentId": 0,
+                    "TitleEffectId": 0,
+                    "TitleBackgroundPartsId": 0
+                }
+            }, {
+                "MstMobileSuitId": 124,
+                "MsUsedNum": 5000,
+                "OpenSkillpoint": true,
+                "GaugeDesignId": 0,
+                "BgmSettings": null,
+                "BgmPlayMethod": 0,
+                "BattleNavId": 29,
+                "BurstType": 3,
+                "DefaultTitleCustomize": {
+                    "TitleTextId": 0,
+                    "TitleOrnamentId": 0,
+                    "TitleEffectId": 0,
+                    "TitleBackgroundPartsId": 0
+                },
+                "RankMatchTitleCustomize": {
+                    "TitleTextId": 0,
+                    "TitleOrnamentId": 0,
+                    "TitleEffectId": 0,
+                    "TitleBackgroundPartsId": 0
+                },
+                "TriadTitleCustomize": {
+                    "TitleTextId":
+                    0,
+                    "TitleOrnamentId": 0,
+                    "TitleEffectId": 0,
+                    "TitleBackgroundPartsId": 0
+                }
+            }
+        ],
+        "ChallengeMisDatas": [],
+        "KeyconfigNumber": 1,
+        "Gp": 1
+    },
+    "MatchingTag": null
+}

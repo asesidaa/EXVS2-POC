@@ -1,0 +1,35 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    defaults:
+          run:
+            working-directory: ./Server
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build -c Release --no-restore
+    - name: dotnet publish
+      run: |
+        dotnet publish -r win-x64 -o publish -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
+    - uses: actions/upload-artifact@v3
+      with:
+        name: exvs2-poc
+        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/

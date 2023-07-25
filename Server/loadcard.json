@@ -1,0 +1,88 @@
+{
+    "pilot_data_group": {
+        "RewardMsIds": null,
+        "MsSkills": [
+            {
+                "MstMobileSuitId": 1,
+                "MsUsedNum": 5000,
+                "CostumeId": 1,
+                "TriadBuddyPoint": 0
+            },
+            {
+                "MstMobileSuitId": 123,
+                "MsUsedNum": 5000,
+                "CostumeId": 1,
+                "TriadBuddyPoint": 0
+            },
+            {
+                "MstMobileSuitId": 124,
+                "MsUsedNum": 5000,
+                "CostumeId": 1,
+                "TriadBuddyPoint": 0
+            }
+        ],
+        "TagTeams": [],
+        "CpuScenes": [],
+        "CpuRibbons": null,
+        "TotalTriadScore": 0,
+        "TotalTriadWantedDefeatNum": 0,
+        "Training": {
+            "MstMobileSuitId": 1,
+            "BurstType": 1,
+            "CpuLevel": 1,
+            "ExBurstGauge": 0,
+            "DamageDisplay": true,
+            "CpuAutoGuard": false,
+            "CommandGuideDisplay": true
+        },
+        "TotalTriadScenePlayNum": 0,
+        "pilot_rank_match": null
+    },
+    "mobile_user_group": {
+        "Customize": {
+            "DefaultGaugeDesignId": 0,
+            "DefaultBgmSettings": null,
+            "DefaultBgmPlayMethod": 0,
+            "StageRandoms": null,
+            "BasePanelId": 0,
+            "CommentPartsAId": 0,
+            "CommentPartsBId": 0
+        },
+        "PlayingMessages": [],
+        "ResultMessages": [],
+        "OnlineShufflePlayingMessages": [],
+        "OnlineShuffleResultMessages": [],
+        "MstMobileSuitId": 123,
+        "ArmorLevel": 100,
+        "ShootAttackLevel": 0,
+        "InfightAttackLevel": 0,
+        "BoosterLevel": 100,
+        "ExGaugeLevel": 100,
+        "AiLevel": 100,
+        "Gamepad": null,
+        "OpeningMessages": [],
+        "OnlineShuffleOpeningMessages": [],
+        "BurstType": 3,
+        "PaidFlag": false,
+        "PcoinTicketNum": 0,
+        "online_tag_info": null,
+        "MessagePosition": 0,
+        "PlayingStampFlag": false,
+        "TriadTeamName": "EXVS2",
+        "TriadBackgroundPartsId": 0,
+        "RankMatchTitleCustomize": {
+            "TitleTextId": 0,
+            "TitleOrnamentId": 0,
+            "TitleEffectId": 0,
+            "TitleBackgroundPartsId": 0
+        },
+        "TriadTitleCustomize": {
+            "TitleTextId": 0,
+            "TitleOrnamentId": 0,
+            "TitleEffectId": 0,
+            "TitleBackgroundPartsId": 0
+        },
+        "MobileUserId": 1,
+        "PartnerRecruitAmIdNglists": null
+    }
+}
