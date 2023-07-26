@@ -23,7 +23,7 @@
         ],
         "TagTeams": [],
         "CpuScenes": [],
-        "CpuRibbons": null,
+        "CpuRibbons": [],
         "TotalTriadScore": 0,
         "TotalTriadWantedDefeatNum": 0,
         "Training": {
