@@ -10,6 +10,16 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
     public Task<Response> Handle(LoadGameDataQuery query, CancellationToken cancellationToken)
     {
         var allMsIds = Enumerable.Range(1, 400).Select(i => (uint)i).ToArray();
+
+        var availableEchelonTables = Enumerable.Range(1, 55)
+            .Select(i => new Response.LoadGameData.EchelonTable
+            {
+                EchelonId = (uint)i,
+                UpDefaultExp = 0,
+                DownDefaultExp = 0
+            })
+            .ToList();
+        
         var request = query.Request;
         var response = new Response
         {
@@ -32,36 +42,10 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                     RuleDamageLevelTeam = 1,
                     RuleDamageLevelShuffle = 1
                 },
-                EchelonTables =
-                {
-                    new Response.LoadGameData.EchelonTable
-                    {
-                        EchelonId = 1
-                    }
-                },
                 ReleaseCpuScenes = new[] { 1u, 2u },
-                MstMobileSuitIds = new[] { 1u, 2u },
-                OfflineWinEchelonNums =
-                {
-                    new Response.LoadGameData.OfflineEchelon
-                    {
-                        Id = 1u,
-                        LowerThreshold = 1,
-                        UpperThreshold = 100,
-                        Point = 1
-                    }
-                },
-                OfflineLoseEchelonNums =
-                {
-                    new Response.LoadGameData.OfflineEchelon
-                    {
-                        Id = 1,
-                        LowerThreshold = 1,
-                        UpperThreshold = 100,
-                        Point = 1
-                    }
-                },
-
+                MstMobileSuitIds = new[] { 1u, 2u }, // For Red-Targeted MSs
+                OfflineWinEchelonNums = {},
+                OfflineLoseEchelonNums = {},
                 ReplayUnderEchelonId = 1,
                 AdvancedReplayUnderEchelonId = 1,
                 TrainingTimeLimit = 12, // training mode's countdown time in minutes
@@ -96,6 +80,10 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 }
             }
         };
+        
+        // Contributing for all available Echelons, otherwise the game will freeze when there are increment of Echelon
+        response.load_game_data.EchelonTables.AddRange(availableEchelonTables);
+        
         response.load_game_data.ReleaseCpuCourses.AddRange(Enumerable.Range(1, 100).Select(i =>
             new Response.LoadGameData.ReleaseCpuCourse
             {
