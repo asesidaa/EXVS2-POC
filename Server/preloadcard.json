@@ -5,7 +5,7 @@
         "PilotId": 1,
         "TotalWin": 0,
         "TotalLose": 0,
-        "EchelonId": 55,
+        "EchelonId": 0,
         "EchelonExp": 0,
         "SEchelonFlag": false,
         "SEchelonMissionFlag": false,
