@@ -19,6 +19,7 @@
 
 #include "injector.hpp"
 #include "MinHook.h"
+#include "Configs.h"
 
 // Local variables
 static bool Windowed = false;
@@ -234,9 +235,9 @@ static HRESULT WINAPI D3D11CreateDeviceAndSwapChainWrap(IDXGIAdapter* pAdapter, 
 	return hr;
 }
 
-void InitDXGIWindowHook(bool windowed)
+void InitDXGIWindowHook(config_struct configs)
 {
-	Windowed = windowed;
+	Windowed = configs.Windowed;
 
 	MH_Initialize();
 	MH_CreateHookApi(L"dxgi.dll", "CreateDXGIFactory", CreateDXGIFactoryWrap, (void**)&g_origCreateDXGIFactory);

@@ -122,5 +122,8 @@
     <ClInclude Include="VirtualKeyMapping.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Configs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

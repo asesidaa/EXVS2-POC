@@ -7,17 +7,16 @@
 #include "WindowedDxgi.h"
 #include "INIReader.h"
 #include "VirtualKeyMapping.h"
-
-struct config_struct {
-    jvs_key_bind key_bind;
-    bool Windowed;
-} config;
+#include "configs.h"
 
 config_struct ReadConfigs(INIReader reader) {
     config_struct config;
 
+    // config reading
     config.Windowed = reader.GetBoolean("config", "windowed", false);
+    config.UseDirectInput = reader.GetBoolean("config", "usedirectinput", false);
 
+    // key bind config reading
     jvs_key_bind key_bind;
     std::string keyMapPlaceholder;
 
@@ -69,7 +68,7 @@ config_struct ReadConfigs(INIReader reader) {
     keyMapPlaceholder = reader.Get("keybind", "ArcadeStartButton", "5");
     key_bind.ArcadeStartButton = std::stoi(keyMapPlaceholder);
 
-    config.key_bind = key_bind;
+    config.KeyBind = key_bind;
     return config;
 }
 
@@ -89,8 +88,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     {
     case DLL_PROCESS_ATTACH:
         InitializeHooks();
-        InitializeJvs(config.key_bind);
-        InitDXGIWindowHook(config.Windowed);
+        InitializeJvs(config);
+        InitDXGIWindowHook(config);
         break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:

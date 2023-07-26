@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banapass.h" />
+    <ClInclude Include="Configs.h" />
     <ClInclude Include="GameHooks.h" />
     <ClInclude Include="INIReader.h" />
     <ClInclude Include="JvsEmu.h" />

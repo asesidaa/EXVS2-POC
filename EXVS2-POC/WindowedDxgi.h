@@ -1,2 +1,4 @@
 ﻿#pragma once
-void InitDXGIWindowHook(bool windowed);
+#include "Configs.h"
+
+void InitDXGIWindowHook(config_struct configs);
