@@ -55,7 +55,7 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 CasualBaseWinPoint = 1,
                 CasualBaseLosePoint = 1,
                 OfflineBaseLosePoint = 1,
-                OfflineBaseWinPoint = 1,
+                OfflineBaseWinPoint = 20, // Determine how many Echelon EXP will be awarded for Offline PvP Win
                 CasualLoseResultBonus = 1,
                 OfflineLoseResultBonus = 1,
                 ReplayUnderRankId = 1,
