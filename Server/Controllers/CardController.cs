@@ -29,11 +29,7 @@ public class CardController : BaseController<CardController>
     [Produces("application/json")]
     public async Task<ActionResult<BasicResponse>> UpsertDefaultNavi([FromBody] UpsertDefaultNaviRequest request)
     {
-        uint defaultBattleNaviId = request.defaultBattleNaviId;
-        var responseBody = new BasicResponse
-        {
-            success = true
-        };
-        return null;
+        var response = await mediator.Send(new UpsertDefaultNaviCommand(request));
+        return response;
     }
 }
