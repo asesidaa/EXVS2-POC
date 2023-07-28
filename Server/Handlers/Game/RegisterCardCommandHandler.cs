@@ -48,6 +48,7 @@ public class RegisterCardCommandHandler : IRequestHandler<RegisterCardCommand, R
         cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(CreatePilotDataGroup());
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(CreatePerLoadMobileUserGroup(Convert.ToUInt32(userId)));
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(CreateMobileUserGroup(Convert.ToUInt32(userId)));
+        cardProfile.IsNewCard = false;
         
         _context.SaveChanges();
         
