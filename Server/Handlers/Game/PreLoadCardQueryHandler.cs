@@ -83,6 +83,19 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
         cardProfile.SessionId = sessionId;
         _context.SaveChanges();
 
+        if (cardProfile.IsNewCard)
+        {
+            logger.LogInformation("ChipId = {} is still a new card, will go to RegisterCard", preLoadCardRequest.ChipId);
+            response.pre_load_card = new Response.PreLoadCard
+            {
+                SessionId = sessionId,
+                AcidResponse = null,
+                AcidError = AcidError.AcidSuccess,
+                IsNewCard = true
+            };
+            return Task.FromResult(response);
+        }
+
         response.pre_load_card = new Response.PreLoadCard
         {
             SessionId = sessionId,

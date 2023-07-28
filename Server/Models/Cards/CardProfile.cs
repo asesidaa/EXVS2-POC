@@ -19,6 +19,9 @@ public class CardProfile
     [Required]
     public string SessionId { get; set; } = string.Empty;
 
+    [Required] 
+    public Boolean IsNewCard { get; set; } = true;
+
     public virtual PilotDomain PilotDomain { get; set; }
 
     public virtual UserDomain UserDomain { get; set; }
