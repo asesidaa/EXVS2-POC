@@ -7,6 +7,7 @@ using Swan.Formatters;
 
 namespace Server.Controllers;
 
+[ApiExplorerSettings(IgnoreApi = true)]
 public class GameController : BaseController<GameController>
 {
     private readonly IMediator mediator;

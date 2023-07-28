@@ -6,6 +6,7 @@ using Swan.Formatters;
 
 namespace Server.Controllers.AmUpdater;
 
+[ApiExplorerSettings(IgnoreApi = true)]
 public class MuchaController : BaseController<MuchaController>
 {
 

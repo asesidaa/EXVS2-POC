@@ -8,6 +8,7 @@ namespace Server.Controllers.AmAuth;
 
 [ApiController]
 [Route("/sys/servlet/PowerOn")]
+[ApiExplorerSettings(IgnoreApi = true)]
 public class PowerOnController : BaseController<PowerOnController>
 {
     private const string GAME_URL = "vsapi.taiko-p.jp";

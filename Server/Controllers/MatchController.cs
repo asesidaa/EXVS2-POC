@@ -4,6 +4,7 @@ using Swan.Formatters;
 
 namespace Server.Controllers;
 
+[ApiExplorerSettings(IgnoreApi = true)]
 public class MatchController : BaseController<MatchController>
 {
     [Route("match")]
