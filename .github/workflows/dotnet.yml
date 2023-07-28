@@ -28,7 +28,7 @@ jobs:
       run: dotnet build -c Release --no-restore
     - name: dotnet publish
       run: |
-        dotnet publish -r win-x64 -o publish -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
+        dotnet publish -r win-x64 -o publish -c Release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
     - uses: actions/upload-artifact@v3
       with:
         name: exvs2-poc
