@@ -46,7 +46,10 @@ try
 		db.Database.Migrate();
 	}
 
+    app.UseBlazorFrameworkFiles();
 	app.MapControllers();
+    app.UseStaticFiles();
+    app.MapFallbackToFile("index.html");
     app.UseWhen(
         context => context.Request.Path.StartsWithSegments("/sys/servlet/PowerOn", StringComparison.InvariantCulture),
         applicationBuilder => applicationBuilder.UseAllNetRequestMiddleware());
