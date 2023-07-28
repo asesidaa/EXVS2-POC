@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Persistence;
 
 namespace Server.Handlers.Game;
 
@@ -8,50 +10,74 @@ public record SaveVscResultCommand(Request Request) : IRequest<Response>;
 
 public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand, Response>
 {
+    private readonly ServerDbContext _context;
+
+    public SaveVscResultCommandHandler(ServerDbContext context)
+    {
+        _context = context;
+    }
+    
     public Task<Response> Handle(SaveVscResultCommand request, CancellationToken cancellationToken)
     {
-        var readPreLoadCardStr = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "preloadcard.json"));
-        var preLoadCard = JsonConvert.DeserializeObject<Response.PreLoadCard>(readPreLoadCardStr);
-        
-        var readLoadCardStr = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "loadcard.json"));
-        var loadCard = JsonConvert.DeserializeObject<Response.LoadCard>(readLoadCardStr);
-        
-        if (preLoadCard == null || loadCard == null)
+        var sessionId = request.Request.save_vsc_result.SessionId;
+
+        var cardProfile = _context.CardProfiles
+            .Include(x => x.PilotDomain)
+            .Include(x => x.UserDomain)
+            .FirstOrDefault(x => x.SessionId == sessionId);
+
+        if (cardProfile == null)
         {
             return Task.FromResult(new Response
             {
                 Type = request.Request.Type,
                 RequestId = request.Request.RequestId,
-                Error = Error.Success,
+                Error = Error.ErrServer,
                 save_vsc_result = new Response.SaveVscResult()
             });
         }
         
         var resultFromRequest = request.Request.save_vsc_result.Result;
-        var favouriteMsList = preLoadCard.User.FavoriteMobileSuits;
-        var pilotDataGroup = loadCard.pilot_data_group;
+        var loadPlayer = JsonConvert.DeserializeObject<Response.PreLoadCard.LoadPlayer>(cardProfile.PilotDomain.LoadPlayerJson);
+        var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
+        var pilotData = JsonConvert.DeserializeObject<Response.LoadCard.PilotDataGroup>(cardProfile.PilotDomain.PilotDataGroupJson);
+        var mobileUser = JsonConvert.DeserializeObject<Response.LoadCard.MobileUserGroup>(cardProfile.UserDomain.MobileUserGroupJson);
         
-        preLoadCard.load_player.EchelonId = resultFromRequest.EchelonId;
-        preLoadCard.load_player.EchelonExp += resultFromRequest.EchelonExp;
-        preLoadCard.load_player.SEchelonFlag = resultFromRequest.SEchelonFlag;
-        preLoadCard.User.Gp += resultFromRequest.Gp;
+        if (loadPlayer == null || user == null || pilotData == null || mobileUser == null)
+        {
+            return Task.FromResult(new Response
+            {
+                Type = request.Request.Type,
+                RequestId = request.Request.RequestId,
+                Error = Error.ErrServer,
+                save_vsc_result = new Response.SaveVscResult()
+            });
+        }
         
-        UpdateNaviFamiliarity(resultFromRequest, preLoadCard);
+        var favouriteMsList = user.FavoriteMobileSuits;
         
-        UpsertMsUsedNum(resultFromRequest, pilotDataGroup, favouriteMsList);
+        loadPlayer.EchelonId = resultFromRequest.EchelonId;
+        loadPlayer.EchelonExp += resultFromRequest.EchelonExp;
+        loadPlayer.SEchelonFlag = resultFromRequest.SEchelonFlag;
+        user.Gp += resultFromRequest.Gp;
+        
+        UpdateNaviFamiliarity(resultFromRequest, user);
+        
+        UpsertMsUsedNum(resultFromRequest, pilotData, favouriteMsList);
 
         if (resultFromRequest.Partner.CpuFlag == 1)
         {
-            UpsertForTriadBuddy(pilotDataGroup, resultFromRequest);
+            UpsertForTriadBuddy(pilotData, resultFromRequest);
         }
         
-        UpsertTriadSceneData(pilotDataGroup, resultFromRequest);
+        UpsertTriadSceneData(pilotData, resultFromRequest);
 
-        String outPreLoadCardJsonStr = JsonConvert.SerializeObject(preLoadCard);
-        File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "preloadcard.json"), outPreLoadCardJsonStr);
-            
-        String outLoadCardJsonStr = JsonConvert.SerializeObject(loadCard);
-        File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "loadcard.json"),outLoadCardJsonStr);
+        cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
+        cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotData);
+        cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(user);
+        cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUser);
+        
+        _context.SaveChanges();
 
         return Task.FromResult(new Response
         {
@@ -62,10 +88,10 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         });
     }
     
-    void UpdateNaviFamiliarity(Request.SaveVscResult.PlayResultGroup resultFromRequest, Response.PreLoadCard preLoadCard)
+    void UpdateNaviFamiliarity(Request.SaveVscResult.PlayResultGroup resultFromRequest, Response.PreLoadCard.MobileUserGroup mobileUserGroup)
     {
         var uiNaviId = resultFromRequest.GuestNavId;
-        var uiNavi = preLoadCard.User.GuestNavs
+        var uiNavi = mobileUserGroup.GuestNavs
             .FirstOrDefault(guestNavi => guestNavi.GuestNavId == uiNaviId);
 
         if (uiNavi != null)
@@ -74,7 +100,7 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         }
 
         var battleNaviId = resultFromRequest.BattleNavId;
-        var battleNavi = preLoadCard.User.GuestNavs
+        var battleNavi = mobileUserGroup.GuestNavs
             .FirstOrDefault(guestNavi => guestNavi.GuestNavId == battleNaviId);
 
         if (battleNavi != null)
@@ -90,13 +116,14 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
 
         var msSkillGroup = pilotDataGroup.MsSkills
             .FirstOrDefault(msSkillGroup => msSkillGroup.MstMobileSuitId == msId);
+        uint msSkillGroupUsedNum = 1;
 
         if (msSkillGroup == null)
         {
             pilotDataGroup.MsSkills.Add(new Response.LoadCard.PilotDataGroup.MSSkillGroup
             {
                 MstMobileSuitId = msId,
-                MsUsedNum = 1,
+                MsUsedNum = msSkillGroupUsedNum,
                 CostumeId = 0,
                 TriadBuddyPoint = 0
             });
@@ -104,6 +131,7 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         else
         {
             msSkillGroup.MsUsedNum++;
+            msSkillGroupUsedNum = msSkillGroup.MsUsedNum;
         }
 
         var favouriteMs = favouriteMsList
@@ -111,12 +139,17 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
 
         if (favouriteMs != null)
         {
-            favouriteMs.MsUsedNum++;
+            favouriteMs.MsUsedNum = msSkillGroupUsedNum;
         }
     }
 
     void UpsertForTriadBuddy(Response.LoadCard.PilotDataGroup pilotDataGroup, Request.SaveVscResult.PlayResultGroup resultFromRequest)
     {
+        if (resultFromRequest.Partner.MobileSetFlag == false)
+        {
+            return;
+        }
+        
         var msSkillGroup = pilotDataGroup.MsSkills
             .FirstOrDefault(msSkillGroup => msSkillGroup.MstMobileSuitId == resultFromRequest.Partner.MstMobileSuitId);
 
@@ -172,10 +205,17 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
 
         if (resultFromRequest.ReleasedRibbonIds != null)
         {
-            pilotDataGroup.CpuRibbons = pilotDataGroup.CpuRibbons
-                .Concat(resultFromRequest.ReleasedRibbonIds)
-                .Distinct()
-                .ToArray();
+            if (pilotDataGroup.CpuRibbons == null)
+            {
+                pilotDataGroup.CpuRibbons = resultFromRequest.ReleasedRibbonIds;
+            }
+            else
+            {
+                pilotDataGroup.CpuRibbons = pilotDataGroup.CpuRibbons
+                    .Concat(resultFromRequest.ReleasedRibbonIds)
+                    .Distinct()
+                    .ToArray();
+            }
         }
     }
 }

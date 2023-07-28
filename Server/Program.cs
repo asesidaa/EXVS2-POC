@@ -1,5 +1,8 @@
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Server.Middlewares;
+using Server.Persistence;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -21,7 +24,9 @@ try
         cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
     });
     builder.Services.AddControllers().AddProtoBufNet();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+    builder.Services.AddDbContext<ServerDbContext>(options => options.UseSqlite(new SqliteConnectionStringBuilder() { DataSource = "Server.db" }.ConnectionString));
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
@@ -50,7 +55,12 @@ try
     });
     app.Run();
 }
-catch (Exception ex)
+catch (Exception ex) when (
+    // https://github.com/dotnet/runtime/issues/60600
+    ex.GetType().Name is not "StopTheHostException"
+    // HostAbortedException was added in .NET 7
+    // need to do it this way until we target .NET 8
+    && ex.GetType().Name is not "HostAbortedException")
 {
     Log.Fatal(ex, "Unhandled exception");
 }
