@@ -110,13 +110,13 @@ public class RegisterCardCommandHandler : IRequestHandler<RegisterCardCommand, R
             TotalTriadScore = 0,
             TotalTriadWantedDefeatNum = 0,
             Training = new Response.LoadCard.PilotDataGroup.TrainingSettingGroup{
-                MstMobileSuitId= 1,
-                BurstType= 1,
-                CpuLevel= 1,
+                MstMobileSuitId = 1,
+                BurstType = 1,
+                CpuLevel = 1,
                 ExBurstGauge= 0,
-                DamageDisplay= true,
-                CpuAutoGuard= false,
-                CommandGuideDisplay= true
+                DamageDisplay = true,
+                CpuAutoGuard = false,
+                CommandGuideDisplay = true
             },
             TotalTriadScenePlayNum = 0,
             pilot_rank_match = null
