@@ -1,6 +1,9 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Models.Cards;
+using Server.Persistence;
 
 namespace Server.Handlers.Game;
 
@@ -9,10 +12,12 @@ public record PreLoadCardQuery(Request Request) : IRequest<Response>;
 public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Response>
 {
     private readonly ILogger<PreLoadCardQueryHandler> logger;
+    private readonly ServerDbContext _context;
 
-    public PreLoadCardQueryHandler(ILogger<PreLoadCardQueryHandler> logger)
+    public PreLoadCardQueryHandler(ILogger<PreLoadCardQueryHandler> logger, ServerDbContext context)
     {
         this.logger = logger;
+        this._context = context;
     }
 
     public Task<Response> Handle(PreLoadCardQuery query, CancellationToken cancellationToken)
@@ -25,14 +30,73 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
             Error = Error.Success
         };
 
-        logger.LogDebug("Current path {Path}", Directory.GetCurrentDirectory());
-        var readStr = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "preloadcard.json"));
-        response.pre_load_card = JsonConvert.DeserializeObject<Response.PreLoadCard>(readStr);
+        var preLoadCardRequest = request.pre_load_card;
+
+        var cardProfile = _context.CardProfiles
+            .Include(x => x.PilotDomain)
+            .Include(x => x.UserDomain)
+            .FirstOrDefault(x => x.AccessCode == preLoadCardRequest.AccessCode && x.ChipId == preLoadCardRequest.ChipId);
+
+        var sessionId = preLoadCardRequest.AccessCode + new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+
+        if (cardProfile != null)
+        {
+            return ReadAndReturn(preLoadCardRequest, cardProfile, sessionId, response);
+        }
         
-        // String jsonStr = JsonConvert.SerializeObject(response.pre_load_card);
-        // Log.Information("JSON String");
-        // Log.Information(jsonStr);
+        logger.LogInformation("Card not exist for ChipId = {}, Now creating...", preLoadCardRequest.ChipId);
+        
+        var newCardProfile = new CardProfile
+        {
+            AccessCode = preLoadCardRequest.AccessCode,
+            ChipId = preLoadCardRequest.ChipId,
+            SessionId = sessionId,
+            PilotDomain = new PilotDomain
+            {
+                LoadPlayerJson = "{}",
+                PilotDataGroupJson = "{}"
+            },
+            UserDomain = new UserDomain
+            {
+                UserJson = "{}",
+                MobileUserGroupJson = "{}"
+            }
+        };
+
+        _context.CardProfiles.Add(newCardProfile);
+        _context.SaveChanges();
+            
+        response.pre_load_card = new Response.PreLoadCard
+        {
+            SessionId = sessionId,
+            AcidResponse = null,
+            AcidError = AcidError.AcidSuccess,
+            IsNewCard = true
+        };
+        
+        return Task.FromResult(response);
+    }
+
+    private Task<Response> ReadAndReturn(Request.PreLoadCard preLoadCardRequest, CardProfile cardProfile, string sessionId, Response response)
+    {
+        logger.LogInformation("Card exists for ChipId = {}, Now reading from Database", preLoadCardRequest.ChipId);
+        cardProfile.SessionId = sessionId;
+        _context.SaveChanges();
+
+        response.pre_load_card = new Response.PreLoadCard
+        {
+            SessionId = sessionId,
+            AcidResponse = null,
+            AcidError = AcidError.AcidSuccess,
+            IsNewCard = false,
+            load_player =
+                JsonConvert.DeserializeObject<Response.PreLoadCard.LoadPlayer>(cardProfile.PilotDomain.LoadPlayerJson),
+            User = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson),
+            MatchingTag = null
+        };
 
         return Task.FromResult(response);
     }
+    
+    
 }

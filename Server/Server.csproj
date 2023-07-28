@@ -7,8 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
+	</ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ErrorOr" Version="1.2.1" />
         <PackageReference Include="MediatR" Version="12.1.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.9" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.8" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="protobuf-net" Version="3.2.26" />
         <PackageReference Include="protobuf-net.AspNetCore" Version="3.2.12" />
@@ -26,6 +37,12 @@
       <None Update="Certificates\cert.pfx">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Extensions\" />
+      <Folder Include="Migrations" />
+      <Folder Include="Services\ServiceErrors\" />
     </ItemGroup>
 
 </Project>
