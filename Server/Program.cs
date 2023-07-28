@@ -39,7 +39,14 @@ try
         app.UseSwaggerUI();
     }
 
-    app.MapControllers();
+    // auto start migration
+	using (var scope = app.Services.CreateScope())
+	{
+		var db = scope.ServiceProvider.GetRequiredService<ServerDbContext>();
+		db.Database.Migrate();
+	}
+
+	app.MapControllers();
     app.UseWhen(
         context => context.Request.Path.StartsWithSegments("/sys/servlet/PowerOn", StringComparison.InvariantCulture),
         applicationBuilder => applicationBuilder.UseAllNetRequestMiddleware());
