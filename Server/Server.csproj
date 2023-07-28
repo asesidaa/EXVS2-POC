@@ -45,4 +45,9 @@
       <Folder Include="Services\ServiceErrors\" />
     </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\WebUI\Client\WebUI.Client.csproj" />
+		<ProjectReference Include="..\WebUI\Shared\WebUI.Shared.csproj" />
+	</ItemGroup>
+
 </Project>
