@@ -60,7 +60,6 @@ public class UpdateBasicProfileCommandHandler : IRequestHandler<UpdateBasicProfi
 
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(preLoadUser);
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUserGroup);
-        cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUserGroup);
 
         context.SaveChanges();
 

@@ -54,15 +54,8 @@ public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileComman
         var defaultUiNavi = navis.LastOrDefault(navi => navi.GuestNavSettingFlag);
         var battleUiNavi = navis.LastOrDefault(navi => navi.BattleNavSettingFlag);
 
-        if (defaultUiNavi != null)
-        {
-            defaultUiNaviId = defaultUiNavi.GuestNavId;
-        }
-        
-        if (battleUiNavi != null)
-        {
-            defaultBattleNaviId = battleUiNavi.GuestNavId;
-        }
+        defaultUiNaviId = defaultUiNavi?.GuestNavId ?? 0;
+        defaultBattleNaviId = battleUiNavi?.GuestNavId ?? 0;
 
         var naviProfile = new NaviProfile
         {
