@@ -24,6 +24,14 @@ public class CardController : BaseController<CardController>
         var response = await mediator.Send(new GetAllBareboneCardCommand());
         return response;
     }
+    
+    [HttpGet("getNaviProfile/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<NaviProfile>> GetNaviProfile(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetNaviProfileCommand(accessCode, chipId));
+        return response;
+    }
 
     [HttpPost("upsertDefaultNavi")]
     [Produces("application/json")]
