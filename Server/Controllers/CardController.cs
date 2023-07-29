@@ -84,4 +84,20 @@ public class CardController : BaseController<CardController>
         var response = await mediator.Send(new UpdateAllFavouriteMsCommand(request));
         return response;
     }
+    
+    [HttpGet("getCustomizeComment/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<CustomizeComment>> GetCustomizeComment(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetCustomizeCommentCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpPost("updateCustomizeComment")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateCustomizeComment([FromBody] UpdateCustomizeCommentRequest request)
+    {
+        var response = await mediator.Send(new UpdateCustomizeCommentCommand(request));
+        return response;
+    }
 }
