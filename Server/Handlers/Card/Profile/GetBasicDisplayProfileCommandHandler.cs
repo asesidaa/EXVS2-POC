@@ -39,7 +39,6 @@ public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisp
         var basicDisplayProfile = new BasicDisplayProfile
         {
             userName = preLoadUser.PlayerName,
-            defaultBurstType = (BurstType) mobileUserGroup.BurstType,
             openEchelon = preLoadUser.OpenEchelon,
             openRecord = preLoadUser.OpenRecord,
             defaultGaugeDesignId = mobileUserGroup.Customize.DefaultGaugeDesignId,

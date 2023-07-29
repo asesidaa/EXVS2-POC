@@ -35,6 +35,14 @@ public class CardController : BaseController<CardController>
         return response;
     }
     
+    [HttpPost("updateBasicProfile")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateBasicProfile([FromBody] UpdateBasicProfileRequest request)
+    {
+        var response = await mediator.Send(new UpdateBasicProfileCommand(request));
+        return response;
+    }
+    
     [HttpGet("getNaviProfile/{accessCode}/{chipId}")]
     [Produces("application/json")]
     public async Task<ActionResult<NaviProfile>> GetNaviProfile(String accessCode, String chipId)
