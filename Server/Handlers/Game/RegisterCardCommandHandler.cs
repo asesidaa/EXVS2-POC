@@ -129,7 +129,7 @@ public class RegisterCardCommandHandler : IRequestHandler<RegisterCardCommand, R
         return new Response.PreLoadCard.MobileUserGroup
         {
             UserId = userId,
-            PlayerName = "XB-PLAYER",
+            PlayerName = "EXVS2-" + GetRandomAlphaNumeric(6),
             OpenRecord = 1,
             OpenEchelon = 0,
             OpenSkillpoint = true,
@@ -165,7 +165,7 @@ public class RegisterCardCommandHandler : IRequestHandler<RegisterCardCommand, R
         {
             Customize = new Response.LoadCard.MobileUserGroup.CustomizeGroup {
                 DefaultGaugeDesignId = 0,
-                DefaultBgmSettings = null,
+                DefaultBgmSettings = Array.Empty<uint>(),
                 DefaultBgmPlayMethod = 0,
                 StageRandoms = null,
                 BasePanelId = 0,
@@ -207,5 +207,13 @@ public class RegisterCardCommandHandler : IRequestHandler<RegisterCardCommand, R
             MobileUserId = userId,
             PartnerRecruitAmIdNglists = null
         };
+    }
+    
+    string GetRandomAlphaNumeric(int length)
+    {
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        var random = new Random();
+        var list = Enumerable.Repeat(0, length).Select(x=>chars[random.Next(chars.Length)]);
+        return string.Join("", list);
     }
 }
