@@ -1,4 +1,4 @@
-﻿namespace Server.Dto.Response;
+﻿namespace WebUI.Shared.Dto.Response;
 
 public class BasicResponse
 {

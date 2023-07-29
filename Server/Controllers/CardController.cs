@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Server.Dto.Request;
-using Server.Dto.Response;
 using Server.Handlers.Card;
+using Server.Handlers.Card.Navi;
+using WebUI.Shared.Dto.Request;
+using WebUI.Shared.Dto.Response;
 
 namespace Server.Controllers;
 

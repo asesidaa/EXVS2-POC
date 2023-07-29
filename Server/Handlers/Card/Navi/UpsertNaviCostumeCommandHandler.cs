@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
-using Server.Dto.Request;
-using Server.Dto.Response;
 using Server.Persistence;
+using WebUI.Shared.Dto.Request;
+using WebUI.Shared.Dto.Response;
 
-namespace Server.Handlers.Card;
+namespace Server.Handlers.Card.Navi;
 
 public record UpsertNaviCostumeCommand(UpsertNaviCostumeRequest Request) : IRequest<BasicResponse>;
 

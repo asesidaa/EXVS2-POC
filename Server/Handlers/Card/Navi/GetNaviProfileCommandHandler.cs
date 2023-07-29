@@ -2,11 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
-using Server.Dto.Response;
 using Server.Persistence;
-using WebUI.Shared.Dto.Common;
+using WebUI.Shared.Dto.Response;
 
-namespace Server.Handlers.Card;
+namespace Server.Handlers.Card.Navi;
 
 public record GetNaviProfileCommand(String accessCode, String chipId) : IRequest<NaviProfile>;
 
@@ -35,7 +34,7 @@ public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileComman
         var navis = user.GuestNavs;
 
         var userNavis = navis
-            .Select(navi => new Navi
+            .Select(navi => new WebUI.Shared.Dto.Common.Navi
             {
                 id = navi.GuestNavId,
                 costumeId = navi.GuestNavCostume.GetValueOrDefault(0),
