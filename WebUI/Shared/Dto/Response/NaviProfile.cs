@@ -1,6 +1,6 @@
 ﻿using WebUI.Shared.Dto.Common;
 
-namespace Server.Dto.Response;
+namespace WebUI.Shared.Dto.Response;
 
 public class NaviProfile
 {

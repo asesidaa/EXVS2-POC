@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
-using Server.Dto.Response;
 using Server.Models.Cards;
 using Server.Persistence;
+using WebUI.Shared.Dto.Response;
 
 namespace Server.Handlers.Card;
 

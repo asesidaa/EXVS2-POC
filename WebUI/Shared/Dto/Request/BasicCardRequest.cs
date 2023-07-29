@@ -1,4 +1,4 @@
-﻿namespace Server.Dto.Request;
+﻿namespace WebUI.Shared.Dto.Request;
 
 public class BasicCardRequest
 {
