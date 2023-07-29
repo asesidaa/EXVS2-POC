@@ -40,4 +40,12 @@ public class CardController : BaseController<CardController>
         var response = await mediator.Send(new UpsertDefaultNaviCommand(request));
         return response;
     }
+    
+    [HttpPost("upsertNaviCostume")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpsertNaviCostume([FromBody] UpsertNaviCostumeRequest request)
+    {
+        var response = await mediator.Send(new UpsertNaviCostumeCommand(request));
+        return response;
+    }
 }
