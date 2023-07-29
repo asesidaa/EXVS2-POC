@@ -7,6 +7,7 @@ using Server.Handlers.Card.Profile;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
+using WebUI.Shared.Validator;
 
 namespace Server.Controllers;
 
@@ -82,6 +83,40 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<BasicResponse>> UpdateAllFavouriteMs([FromBody] UpdateAllFavouriteMsRequest request)
     {
         var response = await mediator.Send(new UpdateAllFavouriteMsCommand(request));
+        return response;
+    }
+    
+    [HttpPost("upsertMsCostume")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpsertMsCostume([FromBody] UpsertMsCostumeRequest request)
+    {
+        var response = await mediator.Send(new UpsertMsCostumeRequestCommand(request));
+        return response;
+    }
+    
+    [HttpGet("getCpuTriadPartner/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<CpuTriadPartner>> GetCpuTriadPartner(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetCpuTriadPartnerCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpPost("updateCpuTriadPartner")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateCpuTriadPartner([FromBody] UpdateCpuTriadPartnerRequest request)
+    {
+        bool validateResult = new CpuTriadPartnerValidator().Validate(request.CpuTriadPartner);
+
+        if (!validateResult)
+        {
+            return BadRequest(new ErrorResponse
+            {
+                ErrorMsg = "Please double check the level... Each of them are maxed at 100, and total is maxed at 500"
+            });
+        }
+        
+        var response = await mediator.Send(new UpdateCpuTriadPartnerCommand(request));
         return response;
     }
     
