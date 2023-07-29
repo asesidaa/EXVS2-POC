@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Server.Handlers.Card;
 using Server.Handlers.Card.Navi;
+using Server.Handlers.Card.Profile;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
 
@@ -23,6 +24,14 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<List<BareboneCardProfile>>> GetAll()
     {
         var response = await mediator.Send(new GetAllBareboneCardCommand());
+        return response;
+    }
+    
+    [HttpGet("getBasicDisplayProfile/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicDisplayProfile>> GetBasicDisplayProfile(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetBasicDisplayProfileCommand(accessCode, chipId));
         return response;
     }
     
