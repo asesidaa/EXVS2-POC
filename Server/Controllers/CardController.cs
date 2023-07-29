@@ -86,6 +86,14 @@ public class CardController : BaseController<CardController>
         return response;
     }
     
+    [HttpPost("upsertMsCostume")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpsertMsCostume([FromBody] UpsertMsCostumeRequest request)
+    {
+        var response = await mediator.Send(new UpsertMsCostumeRequestCommand(request));
+        return response;
+    }
+    
     [HttpGet("getCpuTriadPartner/{accessCode}/{chipId}")]
     [Produces("application/json")]
     public async Task<ActionResult<CpuTriadPartner>> GetCpuTriadPartner(String accessCode, String chipId)
