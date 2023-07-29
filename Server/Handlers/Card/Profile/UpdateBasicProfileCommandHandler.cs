@@ -12,26 +12,26 @@ public record UpdateBasicProfileCommand(UpdateBasicProfileRequest Request) : IRe
 
 public class UpdateBasicProfileCommandHandler : IRequestHandler<UpdateBasicProfileCommand, BasicResponse>
 {
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public UpdateBasicProfileCommandHandler(ServerDbContext context)
     {
-        _context = context;
+        this.context = context;
     }
 
     public Task<BasicResponse> Handle(UpdateBasicProfileCommand request, CancellationToken cancellationToken)
     {
         var updateRequest = request.Request;
 
-        if (updateRequest.basicProfile == null)
+        if (updateRequest.BasicProfile == null)
         {
             throw new NullReferenceException("Basic Profile is null");
         }
 
-        var cardProfile = _context.CardProfiles
+        var cardProfile = context.CardProfiles
             .Include(x => x.UserDomain)
             .Include(x => x.PilotDomain)
-            .FirstOrDefault(x => x.AccessCode == updateRequest.accessCode && x.ChipId == updateRequest.chipId);
+            .FirstOrDefault(x => x.AccessCode == updateRequest.AccessCode && x.ChipId == updateRequest.ChipId);
 
         if (cardProfile == null)
         {
@@ -49,24 +49,24 @@ public class UpdateBasicProfileCommandHandler : IRequestHandler<UpdateBasicProfi
             throw new NullReferenceException("Card Content is invalid");
         }
 
-        var basicProfile = updateRequest.basicProfile;
+        var basicProfile = updateRequest.BasicProfile;
 
-        preLoadUser.PlayerName = basicProfile.userName;
-        preLoadUser.OpenEchelon = basicProfile.openEchelon;
-        preLoadUser.OpenRecord = basicProfile.openRecord;
-        mobileUserGroup.Customize.DefaultGaugeDesignId = basicProfile.defaultGaugeDesignId;
-        mobileUserGroup.Customize.DefaultBgmPlayMethod = (uint)basicProfile.defaultBgmPlayingMethod;
-        mobileUserGroup.Customize.DefaultBgmSettings = basicProfile.defaultBgmList;
+        preLoadUser.PlayerName = basicProfile.UserName;
+        preLoadUser.OpenEchelon = basicProfile.OpenEchelon;
+        preLoadUser.OpenRecord = basicProfile.OpenRecord;
+        mobileUserGroup.Customize.DefaultGaugeDesignId = basicProfile.DefaultGaugeDesignId;
+        mobileUserGroup.Customize.DefaultBgmPlayMethod = (uint)basicProfile.DefaultBgmPlayingMethod;
+        mobileUserGroup.Customize.DefaultBgmSettings = basicProfile.DefaultBgmList;
 
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(preLoadUser);
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUserGroup);
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUserGroup);
 
-        _context.SaveChanges();
+        context.SaveChanges();
 
         return Task.FromResult(new BasicResponse
         {
-            success = true
+            Success = true
         });
     }
 }

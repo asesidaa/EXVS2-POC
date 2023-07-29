@@ -12,11 +12,11 @@ public record UpsertNaviCostumeCommand(UpsertNaviCostumeRequest Request) : IRequ
 
 public class UpsertNaviCostumeCommandHandler : IRequestHandler<UpsertNaviCostumeCommand, BasicResponse>
 {
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public UpsertNaviCostumeCommandHandler(ServerDbContext context)
     {
-        _context = context;
+        this.context = context;
     }
 
     public Task<BasicResponse> Handle(UpsertNaviCostumeCommand request, CancellationToken cancellationToken)
@@ -25,18 +25,18 @@ public class UpsertNaviCostumeCommandHandler : IRequestHandler<UpsertNaviCostume
         
         var response = new BasicResponse
         {
-            success = false
+            Success = false
         };
 
-        if (upsertNaviCostumeRequest.naviId == 0)
+        if (upsertNaviCostumeRequest.NaviId == 0)
         {
             return Task.FromResult(response);
         }
 
-        var cardProfile = _context.CardProfiles
+        var cardProfile = context.CardProfiles
             .Include(x => x.UserDomain)
             .FirstOrDefault(x =>
-                x.AccessCode == upsertNaviCostumeRequest.accessCode && x.ChipId == upsertNaviCostumeRequest.chipId);
+                x.AccessCode == upsertNaviCostumeRequest.AccessCode && x.ChipId == upsertNaviCostumeRequest.ChipId);
 
         if (cardProfile == null)
         {
@@ -44,10 +44,14 @@ public class UpsertNaviCostumeCommandHandler : IRequestHandler<UpsertNaviCostume
         }
         
         var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
+        if (user is null)
+        {
+            throw new NullReferenceException("User is invalid");
+        }
         
         var navis = user.GuestNavs;
         
-        var targetCostumeNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertNaviCostumeRequest.naviId);
+        var targetCostumeNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertNaviCostumeRequest.NaviId);
 
         if (targetCostumeNavi == null)
         {
@@ -55,8 +59,8 @@ public class UpsertNaviCostumeCommandHandler : IRequestHandler<UpsertNaviCostume
                 new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
                 {
                     GuestNavSettingFlag = false,
-                    GuestNavId = upsertNaviCostumeRequest.naviId,
-                    GuestNavCostume = upsertNaviCostumeRequest.costumeId,
+                    GuestNavId = upsertNaviCostumeRequest.NaviId,
+                    GuestNavCostume = upsertNaviCostumeRequest.CostumeId,
                     GuestNavFamiliarity = 0,
                     GuestNavRemains = 99999,
                     NewCostumeFlag = false,
@@ -67,14 +71,14 @@ public class UpsertNaviCostumeCommandHandler : IRequestHandler<UpsertNaviCostume
         }
         else
         {
-            targetCostumeNavi.GuestNavCostume = upsertNaviCostumeRequest.costumeId;
+            targetCostumeNavi.GuestNavCostume = upsertNaviCostumeRequest.CostumeId;
         }
         
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(user);
 
-        _context.SaveChanges();
+        context.SaveChanges();
 
-        response.success = true;
+        response.Success = true;
 
         return Task.FromResult(response);
     }

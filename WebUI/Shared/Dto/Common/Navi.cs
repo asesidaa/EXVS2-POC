@@ -2,7 +2,7 @@
 
 public class Navi
 {
-    public uint id { get; set; }
-    public uint costumeId { get; set; }
-    public uint familiarity { get; set; }
+    public uint Id { get; set; }
+    public uint CostumeId { get; set; }
+    public uint Familiarity { get; set; }
 }

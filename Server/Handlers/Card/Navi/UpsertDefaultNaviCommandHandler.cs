@@ -12,11 +12,11 @@ public record UpsertDefaultNaviCommand(UpsertDefaultNaviRequest Request) : IRequ
 
 public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNaviCommand, BasicResponse>
 {
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public UpsertDefaultNaviCommandHandler(ServerDbContext context)
     {
-        _context = context;
+        this.context = context;
     }
 
     public Task<BasicResponse> Handle(UpsertDefaultNaviCommand request, CancellationToken cancellationToken)
@@ -25,13 +25,13 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
         
         var response = new BasicResponse
         {
-            success = false
+            Success = false
         };
 
-        var cardProfile = _context.CardProfiles
+        var cardProfile = context.CardProfiles
             .Include(x => x.UserDomain)
             .FirstOrDefault(x =>
-                x.AccessCode == upsertDefaultNaviRequest.accessCode && x.ChipId == upsertDefaultNaviRequest.chipId);
+                x.AccessCode == upsertDefaultNaviRequest.AccessCode && x.ChipId == upsertDefaultNaviRequest.ChipId);
 
         if (cardProfile == null)
         {
@@ -39,6 +39,10 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
         }
         
         var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
+        if (user is null)
+        {
+            throw new NullReferenceException("User is invalid");
+        }
         
         var navis = user.GuestNavs;
         
@@ -48,46 +52,52 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
                 navi.BattleNavSettingFlag = false;
             });
 
-        var uiNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertDefaultNaviRequest.defaultUiNaviId);
+        var uiNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertDefaultNaviRequest.DefaultUiNaviId);
 
-        if (uiNavi == null && upsertDefaultNaviRequest.defaultUiNaviId > 0)
+        if (uiNavi == null )
         {
-            navis.Add(
-                new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
-                {
-                    GuestNavSettingFlag = true,
-                    GuestNavId = upsertDefaultNaviRequest.defaultUiNaviId,
-                    GuestNavCostume = 0,
-                    GuestNavFamiliarity = 0,
-                    GuestNavRemains = 99999,
-                    NewCostumeFlag = false,
-                    BattleNavSettingFlag = false,
-                    BattleNavRemains = 99999
-                }
-            );
+            if (upsertDefaultNaviRequest.DefaultUiNaviId > 0)
+            {
+                navis.Add(
+                                new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
+                                {
+                                    GuestNavSettingFlag = true,
+                                    GuestNavId = upsertDefaultNaviRequest.DefaultUiNaviId,
+                                    GuestNavCostume = 0,
+                                    GuestNavFamiliarity = 0,
+                                    GuestNavRemains = 99999,
+                                    NewCostumeFlag = false,
+                                    BattleNavSettingFlag = false,
+                                    BattleNavRemains = 99999
+                                }
+                            );
+            }
         }
         else
         {
             uiNavi.GuestNavSettingFlag = true;
         }
         
-        var battleNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertDefaultNaviRequest.defaultBattleNaviId);
+        var battleNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertDefaultNaviRequest.DefaultBattleNaviId);
         
-        if (battleNavi == null && upsertDefaultNaviRequest.defaultBattleNaviId > 0)
+        if (battleNavi == null)
         {
-            navis.Add(
-                new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
-                {
-                    GuestNavSettingFlag = false,
-                    GuestNavId = upsertDefaultNaviRequest.defaultUiNaviId,
-                    GuestNavCostume = 0,
-                    GuestNavFamiliarity = 0,
-                    GuestNavRemains = 99999,
-                    NewCostumeFlag = false,
-                    BattleNavSettingFlag = true,
-                    BattleNavRemains = 99999
-                }
-            );
+            if (upsertDefaultNaviRequest.DefaultBattleNaviId > 0)
+            {
+                navis.Add(
+                                new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
+                                {
+                                    GuestNavSettingFlag = false,
+                                    GuestNavId = upsertDefaultNaviRequest.DefaultUiNaviId,
+                                    GuestNavCostume = 0,
+                                    GuestNavFamiliarity = 0,
+                                    GuestNavRemains = 99999,
+                                    NewCostumeFlag = false,
+                                    BattleNavSettingFlag = true,
+                                    BattleNavRemains = 99999
+                                }
+                            );
+            }
         }
         else
         {
@@ -96,9 +106,9 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
         
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(user);
 
-        _context.SaveChanges();
+        context.SaveChanges();
 
-        response.success = true;
+        response.Success = true;
 
         return Task.FromResult(response);
     }

@@ -12,20 +12,20 @@ public record GetAllBareboneCardCommand() : IRequest<List<BareboneCardProfile>>;
 
 public class GetAllBareboneCardCommandHandler : IRequestHandler<GetAllBareboneCardCommand, List<BareboneCardProfile>>
 {
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public GetAllBareboneCardCommandHandler(ServerDbContext context)
     {
-        _context = context;
+        this.context = context;
     }
     
     public Task<List<BareboneCardProfile>> Handle(GetAllBareboneCardCommand request, CancellationToken cancellationToken)
     {
-        List<CardProfile> cardProfiles = _context.CardProfiles
+        var cardProfiles = context.CardProfiles
             .Include(x => x.UserDomain)
             .ToList();
 
-        List<BareboneCardProfile> bareboneCardProfiles = cardProfiles
+        var bareboneCardProfiles = cardProfiles
             .Select(ToBareboneCardProfile())
             .ToList();
         
@@ -40,9 +40,9 @@ public class GetAllBareboneCardCommandHandler : IRequestHandler<GetAllBareboneCa
                 
             return new BareboneCardProfile
             {
-                accessCode = cardProfile.AccessCode,
-                chipId = cardProfile.ChipId,
-                userName = user.PlayerName
+                AccessCode = cardProfile.AccessCode,
+                ChipId = cardProfile.ChipId,
+                UserName = user?.PlayerName ?? string.Empty
             };
         };
     }

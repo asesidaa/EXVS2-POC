@@ -22,7 +22,7 @@ public class CardProfile
     [Required] 
     public Boolean IsNewCard { get; set; } = true;
 
-    public virtual PilotDomain PilotDomain { get; set; }
+    public virtual PilotDomain PilotDomain { get; set; } = null!;
 
-    public virtual UserDomain UserDomain { get; set; }
+    public virtual UserDomain UserDomain { get; set; } = null!;
 }

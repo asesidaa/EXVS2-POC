@@ -12,15 +12,15 @@ public record PreLoadCardQuery(Request Request) : IRequest<Response>;
 public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Response>
 {
     private readonly ILogger<PreLoadCardQueryHandler> logger;
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public PreLoadCardQueryHandler(ILogger<PreLoadCardQueryHandler> logger, ServerDbContext context)
     {
         this.logger = logger;
-        this._context = context;
+        this.context = context;
     }
 
-    public Task<Response> Handle(PreLoadCardQuery query, CancellationToken cancellationToken)
+    public async Task<Response> Handle(PreLoadCardQuery query, CancellationToken cancellationToken)
     {
         var request = query.Request;
         var response = new Response
@@ -32,19 +32,21 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
 
         var preLoadCardRequest = request.pre_load_card;
 
-        var cardProfile = _context.CardProfiles
+        var cardProfile = await context.CardProfiles
             .Include(x => x.PilotDomain)
             .Include(x => x.UserDomain)
-            .FirstOrDefault(x => x.AccessCode == preLoadCardRequest.AccessCode && x.ChipId == preLoadCardRequest.ChipId);
+            .FirstOrDefaultAsync(x => x.AccessCode == preLoadCardRequest.AccessCode 
+                                      && x.ChipId == preLoadCardRequest.ChipId,
+                cancellationToken);
 
         var sessionId = preLoadCardRequest.AccessCode + new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
 
         if (cardProfile != null)
         {
-            return ReadAndReturn(preLoadCardRequest, cardProfile, sessionId, response);
+            return await ReadAndReturn(preLoadCardRequest, cardProfile, sessionId, response);
         }
         
-        logger.LogInformation("Card not exist for ChipId = {}, Now creating...", preLoadCardRequest.ChipId);
+        logger.LogInformation("Card not exist for ChipId = {ChipId}, Now creating...", preLoadCardRequest.ChipId);
         
         var newCardProfile = new CardProfile
         {
@@ -63,8 +65,8 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
             }
         };
 
-        _context.CardProfiles.Add(newCardProfile);
-        _context.SaveChanges();
+        context.CardProfiles.Add(newCardProfile);
+        await context.SaveChangesAsync(cancellationToken);
             
         response.pre_load_card = new Response.PreLoadCard
         {
@@ -74,14 +76,14 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
             IsNewCard = true
         };
         
-        return Task.FromResult(response);
+        return response;
     }
 
-    private Task<Response> ReadAndReturn(Request.PreLoadCard preLoadCardRequest, CardProfile cardProfile, string sessionId, Response response)
+    private async Task<Response> ReadAndReturn(Request.PreLoadCard preLoadCardRequest, CardProfile cardProfile, string sessionId, Response response)
     {
-        logger.LogInformation("Card exists for ChipId = {}, Now reading from Database", preLoadCardRequest.ChipId);
+        logger.LogInformation("Card exists for ChipId = {ChipId}, Now reading from Database", preLoadCardRequest.ChipId);
         cardProfile.SessionId = sessionId;
-        _context.SaveChanges();
+        await context.SaveChangesAsync();
 
         if (cardProfile.IsNewCard)
         {
@@ -93,7 +95,7 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
                 AcidError = AcidError.AcidSuccess,
                 IsNewCard = true
             };
-            return Task.FromResult(response);
+            return response;
         }
 
         response.pre_load_card = new Response.PreLoadCard
@@ -108,7 +110,7 @@ public class PreLoadCardQueryHandler : IRequestHandler<PreLoadCardQuery, Respons
             MatchingTag = null
         };
 
-        return Task.FromResult(response);
+        return response;
     }
     
     

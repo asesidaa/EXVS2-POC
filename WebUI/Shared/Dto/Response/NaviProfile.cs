@@ -4,7 +4,7 @@ namespace WebUI.Shared.Dto.Response;
 
 public class NaviProfile
 {
-    public uint defaultUiNaviId { get; set; }
-    public uint defaultBattleNaviId { get; set; }
-    public List<Navi> userNavis { get; set; }
+    public uint       DefaultUiNaviId     { get; set; }
+    public uint       DefaultBattleNaviId { get; set; }
+    public List<Navi> UserNavis           { get; set; } = new();
 }

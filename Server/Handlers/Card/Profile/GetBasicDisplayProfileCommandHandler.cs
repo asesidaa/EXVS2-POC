@@ -8,23 +8,23 @@ using WebUI.Shared.Dto.Response;
 
 namespace Server.Handlers.Card.Profile;
 
-public record GetBasicDisplayProfileCommand(String accessCode, String chipId) : IRequest<BasicDisplayProfile>;
+public record GetBasicDisplayProfileCommand(String AccessCode, String ChipId) : IRequest<BasicDisplayProfile>;
 
 public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisplayProfileCommand, BasicDisplayProfile>
 {
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public GetBasicDisplayProfileCommandHandler(ServerDbContext context)
     {
-        _context = context;
+        this.context = context;
     }
     
     public Task<BasicDisplayProfile> Handle(GetBasicDisplayProfileCommand request, CancellationToken cancellationToken)
     {
-        var cardProfile = _context.CardProfiles
+        var cardProfile = context.CardProfiles
             .Include(x => x.UserDomain)
             .Include(x => x.PilotDomain)
-            .FirstOrDefault(x => x.AccessCode == request.accessCode && x.ChipId == request.chipId);
+            .FirstOrDefault(x => x.AccessCode == request.AccessCode && x.ChipId == request.ChipId);
         
         if (cardProfile == null)
         {
@@ -32,18 +32,26 @@ public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisp
         }
 
         var preLoadUser = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
+        if (preLoadUser is null)
+        {
+            throw new NullReferenceException("Preload user is invalid");
+        }
         var mobileUserGroup =
             JsonConvert.DeserializeObject<Response.LoadCard.MobileUserGroup>(cardProfile.UserDomain
                 .MobileUserGroupJson);
+        if (mobileUserGroup is null)
+        {
+            throw new NullReferenceException("Mobile usergroup is invalid");
+        }
 
         var basicDisplayProfile = new BasicDisplayProfile
         {
-            userName = preLoadUser.PlayerName,
-            openEchelon = preLoadUser.OpenEchelon,
-            openRecord = preLoadUser.OpenRecord,
-            defaultGaugeDesignId = mobileUserGroup.Customize.DefaultGaugeDesignId,
-            defaultBgmPlayingMethod = (BgmPlayingMethod) mobileUserGroup.Customize.DefaultBgmPlayMethod,
-            defaultBgmList = mobileUserGroup.Customize.DefaultBgmSettings
+            UserName = preLoadUser.PlayerName,
+            OpenEchelon = preLoadUser.OpenEchelon,
+            OpenRecord = preLoadUser.OpenRecord,
+            DefaultGaugeDesignId = mobileUserGroup.Customize.DefaultGaugeDesignId,
+            DefaultBgmPlayingMethod = (BgmPlayingMethod) mobileUserGroup.Customize.DefaultBgmPlayMethod,
+            DefaultBgmList = mobileUserGroup.Customize.DefaultBgmSettings
         };
 
         return Task.FromResult(basicDisplayProfile);

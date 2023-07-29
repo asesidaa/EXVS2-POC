@@ -53,7 +53,7 @@ try
     app.UseWhen(
         context => context.Request.Path.StartsWithSegments("/sys/servlet/PowerOn", StringComparison.InvariantCulture),
         applicationBuilder => applicationBuilder.UseAllNetRequestMiddleware());
-    app.UseStatusCodePages(async context =>
+    app.UseStatusCodePages(context =>
     {
         var code = context.HttpContext.Response.StatusCode;
         if (code == 404)
@@ -62,6 +62,8 @@ try
                 context.HttpContext.Request.Path,
                 context.HttpContext.Request.Method);
         }
+
+        return Task.CompletedTask;
     });
     app.Run();
 }

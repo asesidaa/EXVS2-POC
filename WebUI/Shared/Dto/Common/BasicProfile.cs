@@ -4,10 +4,10 @@ namespace WebUI.Shared.Dto.Common;
 
 public class BasicProfile
 {
-    public String userName { get; set; } = "";
-    public uint openRecord { get; set; } = 0;
-    public uint openEchelon { get; set; } = 0;
-    public uint defaultGaugeDesignId { get; set; } = 0;
-    public BgmPlayingMethod defaultBgmPlayingMethod { get; set; } = BgmPlayingMethod.RANDOM;
-    public uint[] defaultBgmList { get; set; } = Array.Empty<uint>();
+    public string UserName { get; set; } = string.Empty;
+    public uint OpenRecord { get; set; } = 0;
+    public uint OpenEchelon { get; set; } = 0;
+    public uint DefaultGaugeDesignId { get; set; } = 0;
+    public BgmPlayingMethod DefaultBgmPlayingMethod { get; set; } = BgmPlayingMethod.Random;
+    public uint[] DefaultBgmList { get; set; } = Array.Empty<uint>();
 }

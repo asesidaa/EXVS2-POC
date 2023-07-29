@@ -2,7 +2,7 @@
 
 public enum BgmPlayingMethod : uint
 {
-    NONE = 0,
-    SEQUENTIAL = 1,
-    RANDOM = 2
+    None = 0,
+    Sequential = 1,
+    Random = 2
 }

@@ -2,6 +2,6 @@
 
 public class UpsertNaviCostumeRequest : BasicCardRequest
 {
-    public uint naviId { get; set; } = 1;
-    public uint costumeId { get; set; } = 0;
+    public uint NaviId { get; set; } = 1;
+    public uint CostumeId { get; set; } = 0;
 }

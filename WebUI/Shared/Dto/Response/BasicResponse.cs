@@ -2,5 +2,5 @@
 
 public class BasicResponse
 {
-    public Boolean success { get; set; }
+    public bool Success { get; set; }
 }

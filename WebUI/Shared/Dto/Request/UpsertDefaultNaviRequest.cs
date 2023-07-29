@@ -2,6 +2,6 @@
 
 public class UpsertDefaultNaviRequest : BasicCardRequest
 {
-    public uint defaultUiNaviId { get; set; }
-    public uint defaultBattleNaviId { get; set; }
+    public uint DefaultUiNaviId { get; set; }
+    public uint DefaultBattleNaviId { get; set; }
 }

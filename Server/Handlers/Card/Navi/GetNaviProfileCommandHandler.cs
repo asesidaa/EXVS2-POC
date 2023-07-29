@@ -7,22 +7,22 @@ using WebUI.Shared.Dto.Response;
 
 namespace Server.Handlers.Card.Navi;
 
-public record GetNaviProfileCommand(String accessCode, String chipId) : IRequest<NaviProfile>;
+public record GetNaviProfileCommand(String AccessCode, String ChipId) : IRequest<NaviProfile>;
 
 public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileCommand, NaviProfile>
 {
-    private readonly ServerDbContext _context;
+    private readonly ServerDbContext context;
 
     public GetNaviProfileCommandHandler(ServerDbContext context)
     {
-        _context = context;
+        this.context = context;
     }
     
     public Task<NaviProfile> Handle(GetNaviProfileCommand request, CancellationToken cancellationToken)
     {
-        var cardProfile = _context.CardProfiles
+        var cardProfile = context.CardProfiles
             .Include(x => x.UserDomain)
-            .FirstOrDefault(x => x.AccessCode == request.accessCode && x.ChipId == request.chipId);
+            .FirstOrDefault(x => x.AccessCode == request.AccessCode && x.ChipId == request.ChipId);
 
         if (cardProfile == null)
         {
@@ -30,17 +30,22 @@ public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileComman
         }
         
         var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
+
+        if (user is null)
+        {
+            throw new NullReferenceException("User is invalid");
+        }
         
         var navis = user.GuestNavs;
 
         var userNavis = navis
             .Select(navi => new WebUI.Shared.Dto.Common.Navi
             {
-                id = navi.GuestNavId,
-                costumeId = navi.GuestNavCostume.GetValueOrDefault(0),
-                familiarity = navi.GuestNavFamiliarity
+                Id = navi.GuestNavId,
+                CostumeId = navi.GuestNavCostume.GetValueOrDefault(0),
+                Familiarity = navi.GuestNavFamiliarity
             })
-            .OrderBy(navi => navi.id)
+            .OrderBy(navi => navi.Id)
             .ToList();
 
         uint defaultUiNaviId = 0;
@@ -61,9 +66,9 @@ public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileComman
 
         var naviProfile = new NaviProfile
         {
-            defaultUiNaviId = defaultUiNaviId,
-            defaultBattleNaviId = defaultBattleNaviId,
-            userNavis = userNavis
+            DefaultUiNaviId = defaultUiNaviId,
+            DefaultBattleNaviId = defaultBattleNaviId,
+            UserNavis = userNavis
         };
         
         return Task.FromResult(naviProfile);

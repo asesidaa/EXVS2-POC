@@ -4,5 +4,5 @@ namespace WebUI.Shared.Dto.Request;
 
 public class UpdateBasicProfileRequest : BasicCardRequest
 {
-    public BasicProfile basicProfile { get; set; }
+    public BasicProfile BasicProfile { get; set; } = new();
 }
