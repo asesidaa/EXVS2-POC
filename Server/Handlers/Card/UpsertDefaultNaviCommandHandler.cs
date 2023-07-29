@@ -50,7 +50,7 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
 
         var uiNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertDefaultNaviRequest.defaultUiNaviId);
 
-        if (uiNavi == null)
+        if (uiNavi == null && upsertDefaultNaviRequest.defaultUiNaviId > 0)
         {
             navis.Add(
                 new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
@@ -73,7 +73,7 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
         
         var battleNavi = navis.FirstOrDefault(navi => navi.GuestNavId == upsertDefaultNaviRequest.defaultBattleNaviId);
         
-        if (battleNavi == null)
+        if (battleNavi == null && upsertDefaultNaviRequest.defaultBattleNaviId > 0)
         {
             navis.Add(
                 new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
