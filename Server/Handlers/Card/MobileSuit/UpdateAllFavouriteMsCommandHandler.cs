@@ -113,21 +113,32 @@ public class UpdateAllFavouriteMsCommandHandler : IRequestHandler<UpdateAllFavou
                 BgmPlayMethod = (uint) favouriteMs.BgmPlayingMethod,
                 BattleNavId = favouriteMs.BattleNaviId,
                 BurstType = (uint) favouriteMs.BurstType,
-                DefaultTitleCustomize = CreateTitleCustomizeTemplate(),
-                TriadTitleCustomize = CreateTitleCustomizeTemplate(),
-                RankMatchTitleCustomize = CreateTitleCustomizeTemplate()
+                DefaultTitleCustomize = CreateTitleCustomize(favouriteMs.DefaultTitle),
+                TriadTitleCustomize = CreateTitleCustomize(favouriteMs.TriadTitle),
+                RankMatchTitleCustomize = CreateTitleCustomize(favouriteMs.RankingTitle)
             };
         };
     }
 
-    TitleCustomize CreateTitleCustomizeTemplate()
+    TitleCustomize CreateTitleCustomize(Title? title)
     {
+        if (title is null)
+        {
+            return new TitleCustomize
+            {
+                TitleTextId = 0,
+                TitleOrnamentId = 0,
+                TitleEffectId = 0,
+                TitleBackgroundPartsId = 0
+            };
+        }
+        
         return new TitleCustomize
         {
-            TitleTextId = 0,
-            TitleOrnamentId = 0,
-            TitleEffectId = 0,
-            TitleBackgroundPartsId = 0
+            TitleTextId = title.TextId,
+            TitleOrnamentId = title.OrnamentId,
+            TitleEffectId = title.EffectId,
+            TitleBackgroundPartsId = title.BackgroundPartsId
         };
     }
 }

@@ -46,7 +46,28 @@ public class GetAllFavouriteMsCommandHandler : IRequestHandler<GetAllFavouriteMs
                 BgmPlayingMethod = (BgmPlayingMethod) favouriteMs.BgmPlayMethod,
                 BgmList = favouriteMs.BgmSettings,
                 BattleNaviId = favouriteMs.BattleNavId,
-                BurstType = (BurstType) favouriteMs.BurstType
+                BurstType = (BurstType) favouriteMs.BurstType,
+                DefaultTitle = new Title
+                {
+                    TextId = favouriteMs.DefaultTitleCustomize.TitleTextId,
+                    EffectId = favouriteMs.DefaultTitleCustomize.TitleEffectId,
+                    OrnamentId = favouriteMs.DefaultTitleCustomize.TitleOrnamentId,
+                    BackgroundPartsId = favouriteMs.DefaultTitleCustomize.TitleBackgroundPartsId
+                },
+                TriadTitle = new Title
+                {
+                    TextId = favouriteMs.TriadTitleCustomize.TitleTextId,
+                    EffectId = favouriteMs.TriadTitleCustomize.TitleEffectId,
+                    OrnamentId = favouriteMs.TriadTitleCustomize.TitleOrnamentId,
+                    BackgroundPartsId = favouriteMs.TriadTitleCustomize.TitleBackgroundPartsId
+                },
+                RankingTitle = new Title
+                {
+                    TextId = favouriteMs.RankMatchTitleCustomize.TitleTextId,
+                    EffectId = favouriteMs.RankMatchTitleCustomize.TitleEffectId,
+                    OrnamentId = favouriteMs.RankMatchTitleCustomize.TitleOrnamentId,
+                    BackgroundPartsId = favouriteMs.RankMatchTitleCustomize.TitleBackgroundPartsId
+                }
             })
             .ToList();
         
