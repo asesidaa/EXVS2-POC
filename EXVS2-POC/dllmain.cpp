@@ -25,7 +25,7 @@ config_struct ReadConfigs(INIReader reader) {
     config.PrimaryDNS = reader.Get("config", "DNS", "8.8.8.8");
     config.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
-    config.AuthServerIp = reader.Get("config", "Server", "127.0.0.1");
+    config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     
 
     // key bind config reading
@@ -108,12 +108,11 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     {
     case DLL_PROCESS_ATTACH:
         {
+            std::thread t(InitThread, config);
+            t.detach();
             InitializeHooks();
             InitializeJvs(config);
             InitDXGIWindowHook(config);
-            std::thread t(InitThread, config);
-            t.detach();
-            Sleep(1000);
         }
         break;
     case DLL_THREAD_ATTACH:

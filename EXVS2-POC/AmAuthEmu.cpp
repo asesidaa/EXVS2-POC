@@ -201,14 +201,14 @@ public:
             .shop_router_status = 1,
             .hop_status = 1
         };
-        /*strcpy_s(result.pcbid, amconfig.PcbId.c_str());
+        strcpy_s(result.pcbid, amconfig.PcbId.c_str());
         strcpy_s(result.dongle_serial, amconfig.Serial.c_str());
         strcpy_s(result.shop_router_ip, amconfig.TenpoRouter.c_str());
         strcpy_s(result.auth_server_ip, amconfig.AuthServerIp.c_str());
         strcpy_s(result.local_ip, amconfig.IpAddress.c_str());
         strcpy_s(result.subnet_mask, amconfig.SubnetMask.c_str());
         strcpy_s(result.gateway, amconfig.Gateway.c_str());
-        strcpy_s(result.primary_dns, amconfig.PrimaryDNS.c_str());*/
+        strcpy_s(result.primary_dns, amconfig.PrimaryDNS.c_str());
         memcpy_s(state, sizeof(amcus_network_state_t), &result, sizeof(amcus_network_state_t));
         return 0;
     }
@@ -268,8 +268,8 @@ public:
             .timezone = "+0900",
             .res_class = "PowerOnResponseVer2"
         };
-        /*strcpy_s(result.uri, amconfig.ServerAddress.c_str());
-        strcpy_s(result.host, amconfig.ServerAddress.c_str());*/
+        strcpy_s(result.uri, amconfig.ServerAddress.c_str());
+        strcpy_s(result.host, amconfig.ServerAddress.c_str());
         memcpy_s(resp, sizeof(amcus_auth_server_resp_t), &result, sizeof(amcus_auth_server_resp_t));
         return 0;
     }
