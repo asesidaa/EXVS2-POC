@@ -56,9 +56,33 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         var resultFromRequest = request.Request.save_vsm_result.Result;
         var favouriteMsList = user.FavoriteMobileSuits;
 
+        if (loadPlayer.EchelonId is 22 or 37)
+        {
+            if (resultFromRequest.EchelonId is 23 or 38)
+            {
+                loadPlayer.SEchelonMissionFlag = true;
+            }
+        }
+        
         loadPlayer.EchelonId = resultFromRequest.EchelonId;
         loadPlayer.EchelonExp += resultFromRequest.EchelonExp;
         loadPlayer.SEchelonFlag = resultFromRequest.SEchelonFlag;
+        loadPlayer.SEchelonProgress = resultFromRequest.SEchelonProgress;
+
+        if (resultFromRequest.SEchelonProgress == 3)
+        {
+            loadPlayer.SEchelonMissionFlag = false;
+            switch(resultFromRequest.EchelonId) 
+            {
+                case 23:
+                    loadPlayer.SCaptainFlag = true;
+                    break;
+                case 38:
+                    loadPlayer.SBrigadierFlag = true;
+                    break;
+            }
+        }
+        
         user.Gp += resultFromRequest.Gp;
 
         UpdateWinLossCount(request, resultFromRequest, loadPlayer);
