@@ -156,12 +156,8 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             msSkillGroupUsedNum = msSkillGroup.MsUsedNum;
         }
 
-        var favouriteMs = favouriteMsList
-            .FirstOrDefault(favouriteMs => favouriteMs.MstMobileSuitId == msId);
-
-        if (favouriteMs != null)
-        {
-            favouriteMs.MsUsedNum = msSkillGroupUsedNum;
-        }
+        favouriteMsList
+            .FindAll(favouriteMs => favouriteMs.MstMobileSuitId == msId)
+            .ForEach(favouriteMs => favouriteMs.MsUsedNum = msSkillGroupUsedNum);
     }
 }

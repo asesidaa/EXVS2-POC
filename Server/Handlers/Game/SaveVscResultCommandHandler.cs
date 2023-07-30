@@ -134,13 +134,9 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             msSkillGroupUsedNum = msSkillGroup.MsUsedNum;
         }
 
-        var favouriteMs = favouriteMsList
-            .FirstOrDefault(favouriteMs => favouriteMs.MstMobileSuitId == msId);
-
-        if (favouriteMs != null)
-        {
-            favouriteMs.MsUsedNum = msSkillGroupUsedNum;
-        }
+        favouriteMsList
+            .FindAll(favouriteMs => favouriteMs.MstMobileSuitId == msId)
+            .ForEach(favouriteMs => favouriteMs.MsUsedNum = msSkillGroupUsedNum);
     }
 
     void UpsertForTriadBuddy(Response.LoadCard.PilotDataGroup pilotDataGroup, Request.SaveVscResult.PlayResultGroup resultFromRequest)
