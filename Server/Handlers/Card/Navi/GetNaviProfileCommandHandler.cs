@@ -7,7 +7,7 @@ using WebUI.Shared.Dto.Response;
 
 namespace Server.Handlers.Card.Navi;
 
-public record GetNaviProfileCommand(String AccessCode, String ChipId) : IRequest<NaviProfile>;
+public record GetNaviProfileCommand(string AccessCode, string ChipId) : IRequest<NaviProfile>;
 
 public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileCommand, NaviProfile>
 {

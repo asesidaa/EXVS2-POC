@@ -2,12 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Mappers;
 using Server.Persistence;
 using WebUI.Shared.Dto.Common;
 
 namespace Server.Handlers.Card.Profile;
 
-public record GetEchelonProfileCommand(String AccessCode, String ChipId) : IRequest<EchelonProfile>;
+public record GetEchelonProfileCommand(string AccessCode, string ChipId) : IRequest<EchelonProfile>;
 
 public class GetEchelonProfileCommandHandler : IRequestHandler<GetEchelonProfileCommand, EchelonProfile>
 {
@@ -36,22 +37,6 @@ public class GetEchelonProfileCommandHandler : IRequestHandler<GetEchelonProfile
             throw new NullReferenceException("User is invalid");
         }
         
-        return Task.FromResult(new EchelonProfile
-        {
-            EchelonId = user.EchelonId,
-            SpecialEchelonFlag = user.SEchelonFlag,
-            EchelonExp = user.EchelonExp,
-            AppliedForSpecialEchelonTest = user.SEchelonMissionFlag,
-            SpecialEchelonTestProgress = user.SEchelonProgress,
-            TotalWin = user.TotalWin,
-            TotalLose = user.TotalLose,
-            TotalRounds = user.TotalWin + user.TeamLose,
-            ShuffleWin = user.ShuffleWin,
-            ShuffleLose = user.ShuffleLose,
-            ShuffleRounds = user.ShuffleWin + user.ShuffleLose,
-            TeamWin = user.TeamWin,
-            TeamLose = user.TeamLose,
-            TeamRounds = user.TeamWin + user.TeamLose
-        });
+        return Task.FromResult(user.ToEchelonProfile());
     }
 }

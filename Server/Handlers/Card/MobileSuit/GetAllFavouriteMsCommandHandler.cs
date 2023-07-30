@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Mappers;
 using Server.Persistence;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Enum;
@@ -47,27 +48,9 @@ public class GetAllFavouriteMsCommandHandler : IRequestHandler<GetAllFavouriteMs
                 BgmList = favouriteMs.BgmSettings,
                 BattleNaviId = favouriteMs.BattleNavId,
                 BurstType = (BurstType) favouriteMs.BurstType,
-                DefaultTitle = new Title
-                {
-                    TextId = favouriteMs.DefaultTitleCustomize.TitleTextId,
-                    EffectId = favouriteMs.DefaultTitleCustomize.TitleEffectId,
-                    OrnamentId = favouriteMs.DefaultTitleCustomize.TitleOrnamentId,
-                    BackgroundPartsId = favouriteMs.DefaultTitleCustomize.TitleBackgroundPartsId
-                },
-                TriadTitle = new Title
-                {
-                    TextId = favouriteMs.TriadTitleCustomize.TitleTextId,
-                    EffectId = favouriteMs.TriadTitleCustomize.TitleEffectId,
-                    OrnamentId = favouriteMs.TriadTitleCustomize.TitleOrnamentId,
-                    BackgroundPartsId = favouriteMs.TriadTitleCustomize.TitleBackgroundPartsId
-                },
-                RankingTitle = new Title
-                {
-                    TextId = favouriteMs.RankMatchTitleCustomize.TitleTextId,
-                    EffectId = favouriteMs.RankMatchTitleCustomize.TitleEffectId,
-                    OrnamentId = favouriteMs.RankMatchTitleCustomize.TitleOrnamentId,
-                    BackgroundPartsId = favouriteMs.RankMatchTitleCustomize.TitleBackgroundPartsId
-                }
+                DefaultTitle = favouriteMs.DefaultTitleCustomize.ToTitle(),
+                TriadTitle = favouriteMs.TriadTitleCustomize.ToTitle(),
+                RankingTitle = favouriteMs.RankMatchTitleCustomize.ToTitle()
             })
             .ToList();
         
