@@ -173,6 +173,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AmAuthEmu.cpp" />
     <ClCompile Include="banapass.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GameHooks.cpp" />
@@ -187,6 +188,7 @@
     <ClCompile Include="WindowedDxgi.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AmAuthEmu.h" />
     <ClInclude Include="banapass.h" />
     <ClInclude Include="Configs.h" />
     <ClInclude Include="GameHooks.h" />

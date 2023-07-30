@@ -1,7 +1,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <string>
+#include <thread>
 
+#include "AmAuthEmu.h"
 #include "GameHooks.h"
 #include "JvsEmu.h"
 #include "WindowedDxgi.h"
@@ -72,6 +74,13 @@ config_struct ReadConfigs(INIReader reader) {
     return config;
 }
 
+[[noreturn]]void InitThread()
+{
+    InitAmAuthEmu();
+    OutputDebugStringA("AmAuth Init");
+    for (;;){}
+}
+
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     // Read config
@@ -87,13 +96,20 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        InitializeHooks();
-        InitializeJvs(config);
-        InitDXGIWindowHook(config);
+        {
+            InitializeHooks();
+            InitializeJvs(config);
+            InitDXGIWindowHook(config);
+            /*std::thread t(InitThread);
+            t.detach();*/
+        }
         break;
     case DLL_THREAD_ATTACH:
+        break;
     case DLL_THREAD_DETACH:
+        break;
     case DLL_PROCESS_DETACH:
+        ExitAmAuthEmu();
         break;
     }
 	
