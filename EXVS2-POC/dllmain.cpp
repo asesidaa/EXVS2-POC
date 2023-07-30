@@ -17,6 +17,16 @@ config_struct ReadConfigs(INIReader reader) {
     // config reading
     config.Windowed = reader.GetBoolean("config", "windowed", false);
     config.UseDirectInput = reader.GetBoolean("config", "usedirectinput", false);
+    config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
+    config.Serial = reader.Get("config", "serial", "284311110001");
+    config.IpAddress = reader.Get("config", "IpAddress", "192.168.50.239");
+    config.Gateway = reader.Get("config", "Gateway", "192.168.50.1");
+    config.SubnetMask = reader.Get("config", "SubnetMask", "255.255.255.0");
+    config.PrimaryDNS = reader.Get("config", "DNS", "8.8.8.8");
+    config.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
+    config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
+    config.AuthServerIp = reader.Get("config", "Server", "127.0.0.1");
+    
 
     // key bind config reading
     jvs_key_bind key_bind;
@@ -74,9 +84,9 @@ config_struct ReadConfigs(INIReader reader) {
     return config;
 }
 
-[[noreturn]]void InitThread()
+[[noreturn]]void InitThread(config_struct config)
 {
-    InitAmAuthEmu();
+    InitAmAuthEmu(config);
     OutputDebugStringA("AmAuth Init");
     for (;;){}
 }
@@ -87,7 +97,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     // todo: consolidate items from GameHooks.cpp
     INIReader reader("config.ini");
 
-    config_struct config;
+    // todo: Give a proper default config
+    config_struct config {};
     if (reader.ParseError() == 0)
     {
         config = ReadConfigs(reader);
@@ -100,8 +111,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             InitializeHooks();
             InitializeJvs(config);
             InitDXGIWindowHook(config);
-            std::thread t(InitThread);
+            std::thread t(InitThread, config);
             t.detach();
+            Sleep(1000);
         }
         break;
     case DLL_THREAD_ATTACH:

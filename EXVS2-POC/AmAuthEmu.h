@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Configs.h"
 
-void InitAmAuthEmu();
+void InitAmAuthEmu(config_struct &config);
 void ExitAmAuthEmu();
