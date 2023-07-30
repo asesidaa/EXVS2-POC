@@ -7,7 +7,7 @@ using WebUI.Shared.Dto.Common;
 
 namespace Server.Handlers.Card.Profile;
 
-public record GetCustomizeCommentCommand(String AccessCode, String ChipId) : IRequest<CustomizeComment>;
+public record GetCustomizeCommentCommand(string AccessCode, string ChipId) : IRequest<CustomizeComment>;
 
 public class GetCustomizeCommentCommandHandler : IRequestHandler<GetCustomizeCommentCommand, CustomizeComment>
 {
