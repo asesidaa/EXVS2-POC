@@ -100,8 +100,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             InitializeHooks();
             InitializeJvs(config);
             InitDXGIWindowHook(config);
-            /*std::thread t(InitThread);
-            t.detach();*/
+            std::thread t(InitThread);
+            t.detach();
         }
         break;
     case DLL_THREAD_ATTACH:
