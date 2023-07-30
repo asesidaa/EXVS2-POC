@@ -23,7 +23,7 @@
     <DialogContent>
         <MudGrid>
             <MudItem xs="8">
-                <MudTable Items="@_bgm" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@_selectedTableBgm"
+                <MudTable Elevation="5" Items="@_bgm" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@_selectedTableBgm"
                       RowClassFunc="@SelectedRowClassFunc" T="Bgm" Hover="true" FixedHeader="true">
                 <ColGroup>
                     <col style="width: 50px;" />
@@ -79,25 +79,25 @@
             </MudStack>
 
             <MudItem xs="3">
-                <MudDropContainer @ref="_container" T="DropItem" @bind-Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)"
+                <MudDropContainer Elevation="5" @ref="_container" T="DropItem" @bind-Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)"
                               ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
-                <ChildContent>
-                    <MudCard Class="flex-grow-1">
-                        <MudCardHeader>
-                            <CardHeaderContent>
-                                <MudText Typo="Typo.h6">Order</MudText>
-                            </CardHeaderContent>
-                            <CardHeaderActions>
-                                <MudDropZone T="DropItem" OnlyZone="true" Identifier="Delete">
-                                    <MudPaper Outlined="true" Class="d-flex align-center pa-3 gap-2">
-                                        <MudIcon Icon="@Icons.Material.Filled.Delete" Color="Color.Error" />Drag here to remove
-                                    </MudPaper>
-                                </MudDropZone>
-                            </CardHeaderActions>
-                        </MudCardHeader>
-                        <MudDropZone AllowReorder="true" T="DropItem" Identifier="Order" Class="rounded-lg border-2 border-solid mud-border-lines-default pa-6 ma-8 flex-grow-1"/>
-                    </MudCard>
-                </ChildContent>
+                    <ChildContent>
+                        <MudCard Class="flex-grow-1">
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h6">Order</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudDropZone T="DropItem" OnlyZone="true" Identifier="Delete">
+                                        <MudPaper Outlined="true" Class="d-flex align-center pa-3 gap-2">
+                                            <MudIcon Icon="@Icons.Material.Filled.Delete" Color="Color.Error" />Drag here to remove
+                                        </MudPaper>
+                                    </MudDropZone>
+                                </CardHeaderActions>
+                            </MudCardHeader>
+                            <MudDropZone AllowReorder="true" T="DropItem" Identifier="Order" Class="rounded-lg border-2 border-solid mud-border-lines-default pa-6 ma-8 flex-grow-1"/>
+                        </MudCard>
+                    </ChildContent>
                 <ItemRenderer>
                     <MudPaper Elevation="25" Class="pa-4 my-4">@context.NameJP</MudPaper>
                 </ItemRenderer>

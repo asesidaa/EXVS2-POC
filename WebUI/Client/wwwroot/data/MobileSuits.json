@@ -1,5 +1,11 @@
 [
   {
+    "Id": 0,
+    "NameEN": "-",
+    "NameJP": "-",
+    "NameCN": "-"
+  },
+  {
     "Id": 1,
     "NameEN": "Gundam RX-78",
     "NameJP": "ガンダム",

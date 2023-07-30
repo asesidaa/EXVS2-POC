@@ -16,7 +16,14 @@
 @using global::Shared.Models;
 
 <PageTitle>Customize</PageTitle>
-<h1>Customization Options</h1>
+<MudStack Row Class="flex-column">
+    <h1>Customization Options</h1>
+
+    <MudStack Row Class="align-self-end">
+        <MudProgressCircular @bind-Class="@_hideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
+        <MudButton OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">Save All</MudButton>
+    </MudStack>
+</MudStack>
 
 @if (errorMessage is not null)
 {
@@ -37,15 +44,18 @@
     return;
 }
 
-<MudStack Class="mt-8">
-    <MudCard>
+<MudStack Class="mt-2">
+    <MudCard Class="my-2" Elevation="5">
         <MudCardHeader>
             <CardHeaderContent>
                 <MudText Typo="Typo.h6">General Card Info</MudText>
             </CardHeaderContent>
             <CardHeaderActions>
-                <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveBasicProfile"
-                            Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@_hideProfileProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveBasicProfile"
+                                   Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
             </CardHeaderActions>
         </MudCardHeader>
         <MudCardContent>
@@ -80,7 +90,7 @@
                                 <MudExpansionPanel Text="Bgm List / Order">
                                     <MudSimpleTable Style="overflow-x: auto;">
                                         <tbody>
-                                            @if(_basicProfile.DefaultBgmList.Count() > 0)
+                                            @if(_basicProfile.DefaultBgmList != null && _basicProfile.DefaultBgmList.Count() > 0)
                                             {
                                                 foreach (var x in _basicProfile.DefaultBgmList)
                                                 {
@@ -91,6 +101,7 @@
                                             }
                                             else
                                             {
+                                                _basicProfile.DefaultBgmList = Array.Empty<uint>();
                                                 <tr>
                                                     <td>No Entries</td>
                                                 </tr>
@@ -122,15 +133,17 @@
             </MudStack>
         </MudCardContent>
     </MudCard>
-
-    <MudCard>
+    <MudCard Class="my-2" Elevation="5">
         <MudCardHeader>
             <CardHeaderContent>
-                <MudText Typo="Typo.h6">Navigator Profile</MudText>
+                <MudText Typo="Typo.h6">Navigators</MudText>
             </CardHeaderContent>
             <CardHeaderActions>
-                <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveNavigatorProfile"
-                            Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@_hideNaviProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveNavigatorProfile"
+                                Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
             </CardHeaderActions>
         </MudCardHeader>
         <MudCardContent>
@@ -164,22 +177,27 @@
             </MudStack>
         </MudCardContent>
     </MudCard>
-    <MudCard>
+    <MudCard Class="my-2" Elevation="5">
         <MudCardHeader>
             <CardHeaderContent>
                 <MudText Typo="Typo.h6">Favourite Mobile Suits</MudText>
             </CardHeaderContent>
             <CardHeaderActions>
-                <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveFavouriteMobileSuits"
-                               Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@_hideFavMsProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveFavouriteMobileSuits"
+                                   Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
             </CardHeaderActions>
         </MudCardHeader>
         <MudCardContent>
             <MudStack Row>
-                <MudButton OnClick="@AddFavouriteMobileSuitItem" Variant="Variant.Filled" Color="@Color.Success" Class="add-item-btn">Add Item</MudButton>
+                <MudButton OnClick="@AddFavouriteMobileSuitItem" Variant="Variant.Filled" Color="@Color.Primary" Class="mb-4 add-item-btn">Add Item</MudButton>
             </MudStack>
             <MudStack>
-                <MudDataGrid @ref="_favMsDataGrid"
+                <MudDataGrid 
+                    Elevation="5"
+                    @ref="_favMsDataGrid"
                     Items="@_favouriteMs"
                     Filterable="false"
                     ReadOnly="false"
@@ -247,7 +265,7 @@
                                         <MudExpansionPanel Text="Order">
                                             <MudSimpleTable Style="overflow-x: auto;">
                                                 <tbody>
-                                                    @if (context.Item.BgmList.Count() > 0)
+                                                    @if (context.Item.BgmList != null && context.Item.BgmList.Count() > 0)
                                                     {
                                                         foreach (var x in context.Item.BgmList)
                                                         {
@@ -258,6 +276,7 @@
                                                     }
                                                     else
                                                     {
+                                                        context.Item.BgmList = Array.Empty<uint>();
                                                         <tr>
                                                             <td>No Entries</td>
                                                         </tr>
@@ -297,7 +316,6 @@
             </MudStack>
         </MudCardContent>
     </MudCard>
-    
 </MudStack>
 
 @code{
@@ -317,9 +335,13 @@
 
     private readonly int _maximumFavouriteMs = 6;
 
-    public BgmPlayingMethod SelecteddefaultBgmPlayingMethod { get; set; }
-    public bool _switchOpenRecord { get; set; }
-    public bool _switchOpenEchelon { get; set; }
+    private bool _switchOpenRecord { get; set; }
+    private bool _switchOpenEchelon { get; set; }
+
+    private string _hideSaveAllProgress { get; set; } = "invisible";
+    private string _hideProfileProgress { get; set; } = "invisible";
+    private string _hideNaviProgress { get; set; } = "invisible";
+    private string _hideFavMsProgress { get; set; } = "invisible";
 
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
@@ -349,8 +371,8 @@
         var favouriteResult = await Http.GetFromJsonAsync<List<FavouriteMs>>($"/card/getAllFavouriteMs/{AccessCode}/{ChipId}");
         favouriteResult.ThrowIfNull();
 
-        var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
-        Logger.LogInformation($"{json}");
+        //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
+        //Logger.LogInformation($"{json}");
 
         _basicProfile = profileResult;
         _naviProfile = naviResult;
@@ -548,8 +570,27 @@
         }
     }
 
+    private async Task SaveAll()
+    {
+        _hideSaveAllProgress = "visible";
+        StateHasChanged();
+
+        await SaveBasicProfile();
+        await SaveNavigatorProfile();
+        await SaveFavouriteMobileSuits();
+
+        _hideSaveAllProgress = "invisible";
+        StateHasChanged();
+    }
+
     private async Task SaveBasicProfile()
     {
+        _hideProfileProgress = "visible";
+        StateHasChanged();
+
+        _basicProfile.OpenEchelon = Convert.ToUInt32(_switchOpenEchelon);
+        _basicProfile.OpenRecord = Convert.ToUInt32(_switchOpenRecord);
+
         var dto = new UpdateBasicProfileRequest()
         {
             AccessCode = AccessCode,
@@ -557,23 +598,23 @@
             BasicProfile = _basicProfile
         };
 
-        var json = System.Text.Json.JsonSerializer.Serialize(dto);
-        Logger.LogInformation($"{json}");
 
         var response = await Http.PostAsJsonAsync("/card/updateBasicProfile", dto);
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        if (result.Success)
-            Snackbar.Add("Update successful!", Severity.Success);
-        else
-            Snackbar.Add("Update failed!", Severity.Error);
+        ShowBasicResponseSnack(result, "card infos");
 
+        _hideProfileProgress = "invisible";
+        StateHasChanged();
         return;
     }
 
     private async Task SaveNavigatorProfile()
     {
+        _hideNaviProgress = "visible";
+        StateHasChanged();
+
         var dto = new UpsertDefaultNaviRequest()
         {
             AccessCode = AccessCode,
@@ -586,16 +627,18 @@
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        if (result.Success)
-            Snackbar.Add("Update successful!", Severity.Success);
-        else
-            Snackbar.Add("Update failed!", Severity.Error);
+        ShowBasicResponseSnack(result, "navigatior infos");
 
+        _hideNaviProgress = "invisible";
+        StateHasChanged();
         return;
     }
 
     private async Task SaveFavouriteMobileSuits()
     {
+        _hideFavMsProgress = "visible";
+        StateHasChanged();
+
         var dto = new UpdateAllFavouriteMsRequest()
         {
             AccessCode = AccessCode,
@@ -607,11 +650,18 @@
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        if (result.Success)
-            Snackbar.Add("Update successful!", Severity.Success);
-        else
-            Snackbar.Add("Update failed!", Severity.Error);
+        ShowBasicResponseSnack(result, "favourite mobile suit infos");
 
+        _hideFavMsProgress = "invisible";
+        StateHasChanged();
         return;
+    }
+
+    private void ShowBasicResponseSnack(BasicResponse result, string context = "")
+    {
+        if (result.Success)
+            Snackbar.Add($"Updatng {context} successful!", Severity.Success);
+        else
+            Snackbar.Add($"Updating {context} failed!", Severity.Error);
     }
 }

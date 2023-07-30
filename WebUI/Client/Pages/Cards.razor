@@ -77,17 +77,6 @@
                                        Color="Color.Primary">
                                 Edit Options
                             </MudButton>
-                            <MudMenu Dense="true"
-                                     Color="Color.Primary"
-                                     Label="View Play Data"
-                                     StartIcon="@Icons.Material.Filled.FeaturedPlayList"
-                                     EndIcon="@Icons.Material.Filled.KeyboardArrowDown"
-                                     FullWidth="true"
-                                     AnchorOrigin="Origin.BottomCenter"
-                                     TransformOrigin="Origin.TopCenter">
-                                <MudMenuItem Href="@($"Cards/TotalResult/{card.ChipId}")">Total Result</MudMenuItem>
-                                <MudMenuItem Href="@($"Cards/PlayRecords/{card.ChipId}")">Song Play Results</MudMenuItem>
-                            </MudMenu>
                         </MudStack>
                     </MudCardActions>
                 </MudCard>

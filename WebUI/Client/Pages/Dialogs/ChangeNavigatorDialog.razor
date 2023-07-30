@@ -21,7 +21,7 @@
 
 <MudDialog>
     <DialogContent>
-        <MudTable Items="@_list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="Navigator" Hover="true" FixedHeader="true">
+        <MudTable Elevation="5" Items="@_list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="Navigator" Hover="true" FixedHeader="true">
             <ColGroup>
                 <col style="width: 50px;" />
                 <col />

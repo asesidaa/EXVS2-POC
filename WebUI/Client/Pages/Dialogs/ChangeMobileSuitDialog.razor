@@ -20,7 +20,7 @@
 
 <MudDialog>
     <DialogContent>
-        <MudTable Items="@_mobileSuits" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@_selectedMobileSuit"
+        <MudTable Elevation="5" Items="@_mobileSuits" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@_selectedMobileSuit"
                   RowClassFunc="@SelectedRowClassFunc" T="MobileSuit" Hover="true" FixedHeader="true">
             <ColGroup>
                 <col style="width: 50px;" />
