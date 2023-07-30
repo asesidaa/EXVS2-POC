@@ -9,7 +9,7 @@ using WebUI.Shared.Exception;
 
 namespace Server.Handlers.Card.MobileSuit;
 
-public record GetAllFavouriteMsCommand(String AccessCode, String ChipId) : IRequest<List<FavouriteMs>>;
+public record GetAllFavouriteMsCommand(string AccessCode, string ChipId) : IRequest<List<FavouriteMs>>;
 
 public class GetAllFavouriteMsCommandHandler : IRequestHandler<GetAllFavouriteMsCommand, List<FavouriteMs>>
 {

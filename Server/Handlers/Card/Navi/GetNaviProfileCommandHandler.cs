@@ -48,14 +48,11 @@ public class GetNaviProfileCommandHandler : IRequestHandler<GetNaviProfileComman
             .OrderBy(navi => navi.Id)
             .ToList();
 
-        uint defaultUiNaviId = 0;
-        uint defaultBattleNaviId = 0;
-
         var defaultUiNavi = navis.LastOrDefault(navi => navi.GuestNavSettingFlag);
         var battleUiNavi = navis.LastOrDefault(navi => navi.BattleNavSettingFlag);
 
-        defaultUiNaviId = defaultUiNavi?.GuestNavId ?? 0;
-        defaultBattleNaviId = battleUiNavi?.GuestNavId ?? 0;
+        var defaultUiNaviId = defaultUiNavi?.GuestNavId   ?? 0;
+        var defaultBattleNaviId = battleUiNavi?.GuestNavId ?? 0;
 
         var naviProfile = new NaviProfile
         {

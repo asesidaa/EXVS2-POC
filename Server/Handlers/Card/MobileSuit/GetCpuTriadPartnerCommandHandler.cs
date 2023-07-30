@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Mappers;
 using Server.Persistence;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Enum;
@@ -9,7 +10,7 @@ using WebUI.Shared.Exception;
 
 namespace Server.Handlers.Card.MobileSuit;
 
-public record GetCpuTriadPartnerCommand(String AccessCode, String ChipId) : IRequest<CpuTriadPartner>;
+public record GetCpuTriadPartnerCommand(string AccessCode, string ChipId) : IRequest<CpuTriadPartner>;
 
 public class GetCpuTriadPartnerCommandHandler : IRequestHandler<GetCpuTriadPartnerCommand, CpuTriadPartner>
 {
@@ -41,21 +42,9 @@ public class GetCpuTriadPartnerCommandHandler : IRequestHandler<GetCpuTriadPartn
             throw new InvalidCardDataException("Card Content is invalid");
         }
 
-        var cpuTriadPartner = new CpuTriadPartner
-        {
-            MobileSuitId = mobileUserGroup.MstMobileSuitId,
-            Skill1 = user.customize_group.MsSkill1,
-            Skill2 = user.customize_group.MsSkill2,
-            BurstType = (BurstType) mobileUserGroup.BurstType,
-            ArmorLevel = mobileUserGroup.ArmorLevel,
-            ShootAttackLevel = mobileUserGroup.ShootAttackLevel,
-            InfightAttackLevel = mobileUserGroup.InfightAttackLevel,
-            BoosterLevel = mobileUserGroup.BoosterLevel,
-            ExGaugeLevel = mobileUserGroup.ExGaugeLevel,
-            AiLevel = mobileUserGroup.AiLevel,
-            TriadTeamName = mobileUserGroup.TriadTeamName,
-            TriadBackgroundPartsId = mobileUserGroup.TriadBackgroundPartsId
-        };
+        var cpuTriadPartner = mobileUserGroup.ToCpuTriadPartner();
+        cpuTriadPartner.Skill1 = user.customize_group.MsSkill1;
+        cpuTriadPartner.Skill2 = user.customize_group.MsSkill2;
         
         return Task.FromResult(cpuTriadPartner);
     }
