@@ -49,15 +49,17 @@ public class UpdateAllFavouriteMsCommandHandler : IRequestHandler<UpdateAllFavou
         }
 
         var msSkills = pilotDataGroup.MsSkills;
+        var navis = user.GuestNavs;
 
         var favoriteMsGroups = updateRequest.FavouriteMsList
-            .Select(ToFavouriteMsGroup(msSkills))
+            .Select(ToFavouriteMsGroup(msSkills, navis))
             .ToList();
 
         user.FavoriteMobileSuits.Clear();
         user.FavoriteMobileSuits.AddRange(favoriteMsGroups);
-        
+
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(user);
+        cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotDataGroup);
         
         context.SaveChanges();
 
@@ -67,12 +69,39 @@ public class UpdateAllFavouriteMsCommandHandler : IRequestHandler<UpdateAllFavou
         });
     }
 
-    Func<FavouriteMs, Response.PreLoadCard.MobileUserGroup.FavoriteMSGroup> ToFavouriteMsGroup(List<Response.LoadCard.PilotDataGroup.MSSkillGroup> msSkills)
+    Func<FavouriteMs, Response.PreLoadCard.MobileUserGroup.FavoriteMSGroup> ToFavouriteMsGroup(List<Response.LoadCard.PilotDataGroup.MSSkillGroup> msSkills, List<Response.PreLoadCard.MobileUserGroup.GuestNavGroup> navis)
     {
         return favouriteMs =>
         {
-            var targetMsUsage = msSkills
-                .FirstOrDefault(msSkill => msSkill.MstMobileSuitId == favouriteMs.MsId);
+            var targetMsUsage = msSkills.FirstOrDefault(msSkill => msSkill.MstMobileSuitId == favouriteMs.MsId);
+
+            if (targetMsUsage is null)
+            {
+                msSkills.Add(new Response.LoadCard.PilotDataGroup.MSSkillGroup
+                {
+                    MstMobileSuitId = favouriteMs.MsId,
+                    CostumeId = 0,
+                    MsUsedNum = 0,
+                    TriadBuddyPoint = 0
+                });
+            }
+
+            var targetNavi = navis.FirstOrDefault(navi => navi.GuestNavId == favouriteMs.BattleNaviId);
+
+            if (targetNavi is null)
+            {
+                navis.Add(new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
+                {
+                    GuestNavSettingFlag = false,
+                    GuestNavId = favouriteMs.BattleNaviId,
+                    GuestNavCostume = 0,
+                    GuestNavFamiliarity = 0,
+                    GuestNavRemains = 99999,
+                    NewCostumeFlag = false,
+                    BattleNavSettingFlag = false,
+                    BattleNavRemains = 99999
+                });
+            }
             
             return new Response.PreLoadCard.MobileUserGroup.FavoriteMSGroup
             {
