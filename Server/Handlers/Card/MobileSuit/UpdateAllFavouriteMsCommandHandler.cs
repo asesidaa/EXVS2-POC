@@ -85,10 +85,10 @@ public class UpdateAllFavouriteMsCommandHandler : IRequestHandler<UpdateAllFavou
                     TriadBuddyPoint = 0
                 });
             }
-
+            
             var targetNavi = navis.FirstOrDefault(navi => navi.GuestNavId == favouriteMs.BattleNaviId);
 
-            if (targetNavi is null)
+            if (favouriteMs.BattleNaviId is not 0 && targetNavi is null)
             {
                 navis.Add(new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
                 {
