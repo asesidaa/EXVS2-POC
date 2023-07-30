@@ -10,4 +10,7 @@ public class BasicProfile
     public uint DefaultGaugeDesignId { get; set; } = 0;
     public BgmPlayingMethod DefaultBgmPlayingMethod { get; set; } = BgmPlayingMethod.Random;
     public uint[] DefaultBgmList { get; set; } = Array.Empty<uint>();
+    public Title? DefaultTitle { get; set; } = new();
+    public Title? TriadTitle { get; set; } = new();
+    public Title? RankingTitle { get; set; } = new();
 }

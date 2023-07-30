@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
 using Server.Persistence;
+using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
 
@@ -54,9 +55,13 @@ public class UpdateBasicProfileCommandHandler : IRequestHandler<UpdateBasicProfi
         preLoadUser.PlayerName = basicProfile.UserName;
         preLoadUser.OpenEchelon = basicProfile.OpenEchelon;
         preLoadUser.OpenRecord = basicProfile.OpenRecord;
+        preLoadUser.customize_group.DefaultTitleCustomize = CreateTitleCustomize(basicProfile.DefaultTitle);
+
         mobileUserGroup.Customize.DefaultGaugeDesignId = basicProfile.DefaultGaugeDesignId;
         mobileUserGroup.Customize.DefaultBgmPlayMethod = (uint)basicProfile.DefaultBgmPlayingMethod;
         mobileUserGroup.Customize.DefaultBgmSettings = basicProfile.DefaultBgmList;
+        mobileUserGroup.TriadTitleCustomize = CreateTitleCustomize(basicProfile.TriadTitle);
+        mobileUserGroup.RankMatchTitleCustomize = CreateTitleCustomize(basicProfile.RankingTitle);
 
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(preLoadUser);
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUserGroup);
@@ -67,5 +72,27 @@ public class UpdateBasicProfileCommandHandler : IRequestHandler<UpdateBasicProfi
         {
             Success = true
         });
+    }
+    
+    TitleCustomize CreateTitleCustomize(Title? title)
+    {
+        if (title is null)
+        {
+            return new TitleCustomize
+            {
+                TitleTextId = 0,
+                TitleOrnamentId = 0,
+                TitleEffectId = 0,
+                TitleBackgroundPartsId = 0
+            };
+        }
+        
+        return new TitleCustomize
+        {
+            TitleTextId = title.TextId,
+            TitleOrnamentId = title.OrnamentId,
+            TitleEffectId = title.EffectId,
+            TitleBackgroundPartsId = title.BackgroundPartsId
+        };
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
 using Server.Persistence;
+using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Enum;
 using WebUI.Shared.Dto.Response;
 
@@ -51,7 +52,28 @@ public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisp
             OpenRecord = preLoadUser.OpenRecord,
             DefaultGaugeDesignId = mobileUserGroup.Customize.DefaultGaugeDesignId,
             DefaultBgmPlayingMethod = (BgmPlayingMethod) mobileUserGroup.Customize.DefaultBgmPlayMethod,
-            DefaultBgmList = mobileUserGroup.Customize.DefaultBgmSettings
+            DefaultBgmList = mobileUserGroup.Customize.DefaultBgmSettings,
+            DefaultTitle = new Title
+            {
+                TextId = preLoadUser.customize_group.DefaultTitleCustomize.TitleTextId,
+                OrnamentId = preLoadUser.customize_group.DefaultTitleCustomize.TitleOrnamentId,
+                EffectId = preLoadUser.customize_group.DefaultTitleCustomize.TitleEffectId,
+                BackgroundPartsId = preLoadUser.customize_group.DefaultTitleCustomize.TitleBackgroundPartsId
+            },
+            TriadTitle = new Title
+            {
+                TextId = mobileUserGroup.TriadTitleCustomize.TitleTextId,
+                OrnamentId = mobileUserGroup.TriadTitleCustomize.TitleOrnamentId,
+                EffectId = mobileUserGroup.TriadTitleCustomize.TitleEffectId,
+                BackgroundPartsId = mobileUserGroup.TriadTitleCustomize.TitleBackgroundPartsId
+            },
+            RankingTitle = new Title
+            {
+                TextId = mobileUserGroup.RankMatchTitleCustomize.TitleTextId,
+                OrnamentId = mobileUserGroup.RankMatchTitleCustomize.TitleOrnamentId,
+                EffectId = mobileUserGroup.RankMatchTitleCustomize.TitleEffectId,
+                BackgroundPartsId = mobileUserGroup.RankMatchTitleCustomize.TitleBackgroundPartsId
+            }
         };
 
         return Task.FromResult(basicDisplayProfile);
