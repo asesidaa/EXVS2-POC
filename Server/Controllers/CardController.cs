@@ -46,6 +46,15 @@ public class CardController : BaseController<CardController>
         return response;
     }
     
+    [HttpGet("getEchelonProfile/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<EchelonProfile>> GetEchelonProfile(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetEchelonProfileCommand(accessCode, chipId));
+        return response;
+    }
+
+    
     [HttpGet("getNaviProfile/{accessCode}/{chipId}")]
     [Produces("application/json")]
     public async Task<ActionResult<NaviProfile>> GetNaviProfile(String accessCode, String chipId)
