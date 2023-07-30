@@ -59,18 +59,18 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
             if (upsertDefaultNaviRequest.DefaultUiNaviId > 0)
             {
                 navis.Add(
-                                new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
-                                {
-                                    GuestNavSettingFlag = true,
-                                    GuestNavId = upsertDefaultNaviRequest.DefaultUiNaviId,
-                                    GuestNavCostume = 0,
-                                    GuestNavFamiliarity = 0,
-                                    GuestNavRemains = 99999,
-                                    NewCostumeFlag = false,
-                                    BattleNavSettingFlag = false,
-                                    BattleNavRemains = 99999
-                                }
-                            );
+                    new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
+                    {
+                        GuestNavSettingFlag = true,
+                        GuestNavId = upsertDefaultNaviRequest.DefaultUiNaviId,
+                        GuestNavCostume = 0,
+                        GuestNavFamiliarity = 0,
+                        GuestNavRemains = 99999,
+                        NewCostumeFlag = false,
+                        BattleNavSettingFlag = false,
+                        BattleNavRemains = 99999
+                    }
+                );
             }
         }
         else
@@ -85,18 +85,18 @@ public class UpsertDefaultNaviCommandHandler : IRequestHandler<UpsertDefaultNavi
             if (upsertDefaultNaviRequest.DefaultBattleNaviId > 0)
             {
                 navis.Add(
-                                new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
-                                {
-                                    GuestNavSettingFlag = false,
-                                    GuestNavId = upsertDefaultNaviRequest.DefaultUiNaviId,
-                                    GuestNavCostume = 0,
-                                    GuestNavFamiliarity = 0,
-                                    GuestNavRemains = 99999,
-                                    NewCostumeFlag = false,
-                                    BattleNavSettingFlag = true,
-                                    BattleNavRemains = 99999
-                                }
-                            );
+                    new Response.PreLoadCard.MobileUserGroup.GuestNavGroup
+                    {
+                        GuestNavSettingFlag = false,
+                        GuestNavId = upsertDefaultNaviRequest.DefaultBattleNaviId,
+                        GuestNavCostume = 0,
+                        GuestNavFamiliarity = 0,
+                        GuestNavRemains = 99999,
+                        NewCostumeFlag = false,
+                        BattleNavSettingFlag = true,
+                        BattleNavRemains = 99999
+                    }
+                );
             }
         }
         else

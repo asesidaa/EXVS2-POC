@@ -1,0 +1,250 @@
+﻿@inject IDataService DataService
+@using Server.Dto.Response;
+@using WebUI.Shared.Dto.Common;
+@using WebUI.Shared.Dto.Json;
+@inject ILogger<ChangeBgmOrderDialog> Logger
+@inject ISnackbar Snackbar
+
+<style>
+    .selected {
+        background-color: #1E88E5 !important;
+    }
+
+        .selected > td {
+            color: white !important;
+        }
+
+            .selected > td .mud-input {
+                color: white !important;
+            }
+</style>
+
+<MudDialog>
+    <DialogContent>
+        <MudGrid>
+            <MudItem xs="8">
+                <MudTable Items="@_bgm" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@_selectedTableBgm"
+                      RowClassFunc="@SelectedRowClassFunc" T="Bgm" Hover="true" FixedHeader="true">
+                <ColGroup>
+                    <col style="width: 50px;" />
+                    <col />
+                </ColGroup>
+                <ToolBarContent>
+                    <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                                  AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0">
+                    </MudTextField>
+                </ToolBarContent>
+                <HeaderContent>
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Id))">
+                            Id
+                        </MudTableSortLabel>
+                    </MudTh>
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.NameEN))">
+                            Name (English)
+                        </MudTableSortLabel>
+                    </MudTh>
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.NameJP))">
+                            Name (Japanese)
+                        </MudTableSortLabel>
+                    </MudTh>
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.NameCN))">
+                            Name (Chinese)
+                        </MudTableSortLabel>
+                    </MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    @{
+#pragma warning disable CS8602
+                    }
+                    <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
+                    <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.NameEN</MudTd>
+                    <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.NameJP</MudTd>
+                    <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.NameCN</MudTd>
+                    @{
+#pragma warning restore CS8602
+                    }
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="@_pageSizeOptions" />
+                </PagerContent>
+            </MudTable>
+            </MudItem>
+
+            <MudStack Row Class="align-center">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddBgm">Add</MudButton>
+            </MudStack>
+
+            <MudItem xs="3">
+                <MudDropContainer @ref="_container" T="DropItem" @bind-Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)"
+                              ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
+                <ChildContent>
+                    <MudCard Class="flex-grow-1">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">Order</MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <MudDropZone T="DropItem" OnlyZone="true" Identifier="Delete">
+                                    <MudPaper Outlined="true" Class="d-flex align-center pa-3 gap-2">
+                                        <MudIcon Icon="@Icons.Material.Filled.Delete" Color="Color.Error" />Drag here to remove
+                                    </MudPaper>
+                                </MudDropZone>
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                        <MudDropZone AllowReorder="true" T="DropItem" Identifier="Order" Class="rounded-lg border-2 border-solid mud-border-lines-default pa-6 ma-8 flex-grow-1"/>
+                    </MudCard>
+                </ChildContent>
+                <ItemRenderer>
+                    <MudPaper Elevation="25" Class="pa-4 my-4">@context.NameJP</MudPaper>
+                </ItemRenderer>
+            </MudDropContainer>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    private MudTable<Bgm> mudTable;
+
+    private Bgm _selectedTableBgm {get; set;}
+
+    private int selectedRowNumber = -1;
+
+    private string _searchString = string.Empty;
+
+    private int[] _pageSizeOptions = new int[] { 10, 25, 50, 100 };
+
+    private MudDropContainer<DropItem> _container;
+
+    [Parameter]
+    public uint[] Data { get; set; }
+
+    private IReadOnlyList<Bgm> _bgm = new List<Bgm>();
+
+    private List<DropItem> _items = new List<DropItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        _bgm = DataService.GetBgmSortedById();
+
+        var selectedBgm = new List<Bgm>();
+        foreach (var bgm in Data)
+        {
+            var bgmObj = DataService.GetBgmById(bgm);
+            if(bgmObj != null)
+                selectedBgm.Add(bgmObj);
+        }
+
+        _items = ConvertToDropItem(selectedBgm);
+    }
+
+    private void Submit()
+    {
+        if (_items != null)
+        {
+            var selectedBgm = _items.Where(x => x.Identifier == "Order").Select(x => x.Id).ToArray();
+
+            Data = selectedBgm;
+        }
+
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void AddBgm()
+    {
+        if (_items.Count(x => x.Identifier == "Order") >= 6)
+        {
+            Snackbar.Add("Cannot add more than 6 Bgm(s)", Severity.Error);
+        }
+        else
+        {
+            if (_selectedTableBgm != null)
+            {
+                _items.Add(
+                    new DropItem
+                        {
+                            Id = _selectedTableBgm.Id,
+                            NameJP = _selectedTableBgm.NameJP,
+                            Identifier = "Order"
+                        }
+                    );
+
+                //update the binding to the container
+                StateHasChanged();
+
+                //the container refreshes the internal state
+                _container.Refresh();
+            }
+        }
+    }
+
+    private string SelectedRowClassFunc(Bgm element, int rowNumber)
+    {
+        if (mudTable.SelectedItem != null && mudTable.SelectedItem.Equals(element))
+        {
+            selectedRowNumber = rowNumber;
+            return "selected";
+        }
+        else
+        {
+            return string.Empty;
+        }
+    }
+
+    private bool Filter(Bgm? bgm)
+    {
+        if (bgm is null)
+        {
+            return false;
+        }
+        var aggregate = $"{bgm.NameEN}{bgm.NameJP}{bgm.NameCN}";
+        return string.IsNullOrEmpty(_searchString) ||
+               aggregate.Contains(_searchString, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private List<DropItem> ConvertToDropItem(List<Bgm> list)
+    {
+        var dropItems = new List<DropItem>();
+
+        foreach (var bgm in list)
+        {
+            dropItems.Add(
+                new DropItem
+                {
+                    Id = bgm.Id,
+                        NameJP = bgm.NameJP,
+                    Identifier = "Order"
+                }
+            );
+        }
+
+        return dropItems;
+    }
+
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
+    {
+        dropItem.Item.Identifier = dropItem.DropzoneIdentifier;
+    }
+
+    public class DropItem
+    {
+        public uint Id { get; init; }
+        public string NameJP { get; init; }
+        public string Identifier { get; set; }
+    }
+}

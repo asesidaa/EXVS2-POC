@@ -1,0 +1,131 @@
+﻿@page "/Cards"
+@inject HttpClient Http
+
+@using MudBlazor;
+@using System.Net.Http.Json;
+@using WebUI.Shared.Dto.Response;
+@using WebUI.Client.Pages.Dialogs;
+@inject IDialogService DialogService
+
+@inject ILogger<Cards> Logger
+
+<PageTitle>Cards</PageTitle>
+
+<h1>Cards</h1>
+
+@*@if (ErrorMessage != string.Empty)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@ErrorMessage</MudText>
+    return;
+}*@
+<MudGrid Class="my-8">
+
+    @if (CardDtos is null)
+    {
+        @for (var i = 0; i < 3; i++)
+        {
+            <MudItem xs="12" md="6" lg="4">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudSkeleton Width="30%" Height="32px;" Class="mb-5"/>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudSkeleton Width="60%"/>
+                        <MudSkeleton Width="100%"/>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudSkeleton Width="128px" Height="32px"/>
+                            <MudSkeleton Width="148px" Height="32px"/>
+                        </MudStack>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+        return;
+    }
+
+    @if (CardDtos.Count != 0)
+    {
+        @foreach (var card in CardDtos)
+        {
+            <MudItem xs="12" md="6" lg="4">
+                <MudCard>
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h5">@card.UserName</MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default"
+                                           OnClick="() => OnEditPlayerNameClicked(card)"/>
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Style="font-weight: bold">Card ID</MudText>
+                        <MudText Style="font-family:monospace">@card.ChipId</MudText>
+
+                        <MudText Style="font-weight: bold">Access Code</MudText>
+                        <MudText Style="font-family:monospace">@card.AccessCode</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudButton Href="@($"Cards/Customize/{card.AccessCode}/{card.ChipId}")"
+                                       Variant="Variant.Text"
+                                       StartIcon="@Icons.Material.Filled.DisplaySettings"
+                                       Color="Color.Primary">
+                                Edit Options
+                            </MudButton>
+                            <MudMenu Dense="true"
+                                     Color="Color.Primary"
+                                     Label="View Play Data"
+                                     StartIcon="@Icons.Material.Filled.FeaturedPlayList"
+                                     EndIcon="@Icons.Material.Filled.KeyboardArrowDown"
+                                     FullWidth="true"
+                                     AnchorOrigin="Origin.BottomCenter"
+                                     TransformOrigin="Origin.TopCenter">
+                                <MudMenuItem Href="@($"Cards/TotalResult/{card.ChipId}")">Total Result</MudMenuItem>
+                                <MudMenuItem Href="@($"Cards/PlayRecords/{card.ChipId}")">Song Play Results</MudMenuItem>
+                            </MudMenu>
+                        </MudStack>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+        return;
+    }
+
+    <MudItem xs="12">
+        <MudText Align="Align.Center" Typo="Typo.h3">
+            No Data
+        </MudText>
+    </MudItem>
+</MudGrid>
+
+@code{
+    private List<BareboneCardProfile>? CardDtos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>("card/getAll");
+    }
+
+    private async Task OnEditPlayerNameClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+            {
+                CloseOnEscapeKey = true,
+                DisableBackdropClick = true,
+                FullWidth = true
+            };
+        var parameters = new DialogParameters { { "Data", card } };
+        var dialog = await DialogService.ShowAsync<ChangePlayerNameDialog>("Change name", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+}
