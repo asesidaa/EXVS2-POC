@@ -55,14 +55,14 @@ public class UpsertMsCostumeRequestCommandHandler : IRequestHandler<UpsertMsCost
             pilotDataGroup.MsSkills.Add(new Response.LoadCard.PilotDataGroup.MSSkillGroup
             {
                 MstMobileSuitId = updateRequest.MobileSuit.MobileSuitId,
-                CostumeId = updateRequest.MobileSuit.AlternativeCostume ? 1u : 0u,
+                CostumeId = updateRequest.MobileSuit.CostumeId,
                 MsUsedNum = 0,
                 TriadBuddyPoint = 0
             });
         }
         else
         {
-            targetMs.CostumeId = updateRequest.MobileSuit.AlternativeCostume ? 1u : 0u;
+            targetMs.CostumeId = updateRequest.MobileSuit.CostumeId;
         }
 
         cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotDataGroup);

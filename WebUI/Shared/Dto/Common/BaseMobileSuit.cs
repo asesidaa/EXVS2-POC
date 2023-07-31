@@ -3,5 +3,5 @@
 public class BaseMobileSuit
 {
     public uint MobileSuitId { get; set; } = 0;
-    public bool AlternativeCostume { get; set; } = false;
+    public uint CostumeId { get; set; } = 0;
 }
