@@ -1,0 +1,58 @@
+﻿@inject NavigationManager NavManager
+@inject ILogger<CardAuthDialog> Logger
+@inject ISnackbar Snackbar
+
+@using System.Text.RegularExpressions;
+@using WebUI.Shared.Dto.Common;
+@using WebUI.Shared.Dto.Request;
+@using WebUI.Shared.Dto.Response;
+@using Throw;
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            Enter Access Code
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudStack>
+            <MudTextField Value="@Data.ChipId" Label="CardId" Variant="Variant.Outlined" ReadOnly="true" />
+            <MudTextField @bind-Value="_accessCode" Label="Access Code" HelperText="from card.ini"
+                          Immediate="true"
+                          Counter="ACCESS_CODE_MAX_LENGTH"
+                          MaxLength="ACCESS_CODE_MAX_LENGTH"
+                          Variant="Variant.Outlined"    />   
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Confirm</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public BareboneCardProfile Data { get; set; } = null!;
+
+    private string _accessCode { get; set; }
+
+    private const int ACCESS_CODE_MAX_LENGTH = 20;
+
+    async Task Submit()
+    {
+        if (_accessCode != Data.AccessCode)
+        {
+            Snackbar.Add("Invalid access code!", Severity.Error);
+            return;
+        }
+        else
+        {
+            NavManager.NavigateTo($"Cards/Customize/{Data.AccessCode}/{Data.ChipId}");
+        }
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+}

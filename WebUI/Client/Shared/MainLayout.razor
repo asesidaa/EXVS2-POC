@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider @bind-IsDarkMode="_darkTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -8,7 +8,10 @@
     <MudAppBar Elevation="0">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/asesidaa/EXVS2-POC/" Target="_blank" />
+        <MudMenu Icon="@Icons.Material.Filled.Settings" Color="Color.Inherit">
+            <MudMenuItem OnClick="DarkThemeToggle">Change to @_darkThemeStr theme</MudMenuItem>
+        </MudMenu>
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="https://github.com/asesidaa/EXVS2-POC/" Target="_blank" />
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
         <MudDrawerHeader>
@@ -25,9 +28,21 @@
 
 @code {
     bool _drawerOpen = true;
+    bool _darkTheme = false;
+    string _darkThemeStr = "dark";
 
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    void DarkThemeToggle()
+    {
+        _darkTheme = !_darkTheme;
+
+        if (_darkTheme)
+            _darkThemeStr = "light";
+        else
+            _darkThemeStr = "dark";
     }
 }

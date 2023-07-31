@@ -65,13 +65,10 @@
                     <MudCardContent>
                         <MudText Style="font-weight: bold">Card ID</MudText>
                         <MudText Style="font-family:monospace">@card.ChipId</MudText>
-
-                        <MudText Style="font-weight: bold">Access Code</MudText>
-                        <MudText Style="font-family:monospace">@card.AccessCode</MudText>
                     </MudCardContent>
                     <MudCardActions>
                         <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
-                            <MudButton Href="@($"Cards/Customize/{card.AccessCode}/{card.ChipId}")"
+                            <MudButton OnClick="() => OnEditCardClicked(card)"
                                        Variant="Variant.Text"
                                        StartIcon="@Icons.Material.Filled.DisplaySettings"
                                        Color="Color.Primary">
@@ -110,6 +107,24 @@
             };
         var parameters = new DialogParameters { { "Data", card } };
         var dialog = await DialogService.ShowAsync<ChangePlayerNameDialog>("Change name", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnEditCardClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+            {
+                CloseOnEscapeKey = true,
+                DisableBackdropClick = true,
+                FullWidth = true
+            };
+        var parameters = new DialogParameters { { "Data", card } };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
         // ReSharper disable once UnusedVariable
         var result = await dialog.Result;
         if (!result.Canceled)
