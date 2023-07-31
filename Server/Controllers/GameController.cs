@@ -23,9 +23,10 @@ public class GameController : BaseController<GameController>
     public async Task<IActionResult> Game([FromBody] Request request)
     {
         Logger.LogInformation("Request is {Request}", request.Stringify());
+        var baseAddress = Request.Host.ToString();
         var response = request.Type switch
         {
-            MethodType.MthdRegisterPcb          => await mediator.Send(new RegisterPcbCommand(request)),
+            MethodType.MthdRegisterPcb          => await mediator.Send(new RegisterPcbCommand(request, baseAddress)),
             MethodType.MthdRegisterPcbAck       => await mediator.Send(new RegisterPcbAckCommand(request)),
             MethodType.MthdSaveInsideData       => await mediator.Send(new SaveInsideDataCommand(request)),
             MethodType.MthdPing                 => await mediator.Send(new PingCommand(request)),

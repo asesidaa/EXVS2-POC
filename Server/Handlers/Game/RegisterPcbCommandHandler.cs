@@ -3,7 +3,7 @@ using nue.protocol.exvs;
 
 namespace Server.Handlers.Game;
 
-public record RegisterPcbCommand(Request Request) : IRequest<Response>;
+public record RegisterPcbCommand(Request Request, string BaseAddress) : IRequest<Response>;
 
 public class RegisterPcbCommandHandler : IRequestHandler<RegisterPcbCommand, Response>
 {
@@ -27,7 +27,7 @@ public class RegisterPcbCommandHandler : IRequestHandler<RegisterPcbCommand, Res
                     new Response.RegisterPcb.ServerInfo
                     {
                         ServerType = ServerType.SrvMatch,
-                        Uri = "vsapi.taiko-p.jp/match",
+                        Uri = $"{command.BaseAddress}/match",
                         Port = 12345
                     }
                 },
