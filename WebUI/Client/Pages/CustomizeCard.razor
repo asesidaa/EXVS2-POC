@@ -14,6 +14,7 @@
 @using WebUI.Shared.Dto.Response;
 @using Throw;
 @using global::Shared.Models;
+@using WebUI.Shared.Dto.Json
 
 <PageTitle>Customize</PageTitle>
 <MudStack Row Class="flex-column">
@@ -316,6 +317,43 @@
             </MudStack>
         </MudCardContent>
     </MudCard>
+    <MudCard Class="my-2" Elevation="5">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">Alternative Costume for Mobile Suit</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@_hideMsCostumeProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveMobileSuitsCostume"
+                                   Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
+            </CardHeaderActions>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudStack Row>
+                <MudSelect @bind-Value="_selectedHasCostumeMsValue" Margin="Margin.Dense" T="MobileSuit"
+                           Label="MS Available For Alternative Costume" Variant="Variant.Outlined">
+                    @foreach (var item in DataService.GetCostumeMobileSuitSortedById())
+                    {
+                        <MudSelectItem Value="item">@item.NameEN</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudStack>
+            @if (_selectedHasCostumeMsValue is not null)
+            {
+                <MudStack Row>
+                    <MudSelect @bind-Value="_selectedMsCostumeValue" Margin="Margin.Dense" T="Costume"
+                               Label="Alternative Costume" Variant="Variant.Outlined">
+                        @foreach (var item in _selectedHasCostumeMsValue.Costumes)
+                        {
+                            <MudSelectItem Value="item">@item.Name</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudStack>
+            }
+        </MudCardContent>
+    </MudCard>
 </MudStack>
 
 @code{
@@ -342,6 +380,10 @@
     private string _hideProfileProgress { get; set; } = "invisible";
     private string _hideNaviProgress { get; set; } = "invisible";
     private string _hideFavMsProgress { get; set; } = "invisible";
+    private string _hideMsCostumeProgress { get; set; } = "invisible";
+    
+    private MobileSuit? _selectedHasCostumeMsValue { get; set; }
+    private Costume? _selectedMsCostumeValue { get; set; }
 
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
@@ -653,6 +695,45 @@
         ShowBasicResponseSnack(result, "favourite mobile suit infos");
 
         _hideFavMsProgress = "invisible";
+        StateHasChanged();
+        return;
+    }
+    
+    private async Task SaveMobileSuitsCostume()
+    {
+        if (_selectedHasCostumeMsValue is null)
+        {
+            Snackbar.Add("Please select MS for Costume Part", Severity.Warning);
+            return;
+        }
+
+        if (_selectedMsCostumeValue is null)
+        {
+            Snackbar.Add("Please select Costume for Costume Part", Severity.Warning);
+            return;
+        }
+
+        _hideMsCostumeProgress = "visible";
+        StateHasChanged();
+
+        var dto = new UpsertMsCostumeRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            MobileSuit = new BaseMobileSuit
+            {
+                MobileSuitId = _selectedHasCostumeMsValue.Id,
+                CostumeId = _selectedMsCostumeValue.Id
+            }
+        };
+
+        var response = await Http.PostAsJsonAsync("/card/upsertMsCostume", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, "mobile suit costume");
+
+        _hideMsCostumeProgress = "invisible";
         StateHasChanged();
         return;
     }

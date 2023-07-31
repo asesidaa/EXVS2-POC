@@ -52,6 +52,11 @@ public class DataService : IDataService
     {
         return _sortedMobileSuitList;
     }
+    
+    public IReadOnlyList<MobileSuit> GetCostumeMobileSuitSortedById()
+    {
+        return _sortedMobileSuitList.FindAll(ms => ms.Costumes.Count > 1);
+    }
 
     public MobileSuit? GetMobileSuitById(uint id)
     {

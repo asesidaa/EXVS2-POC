@@ -7,6 +7,7 @@ public interface IDataService
     public Task InitializeAsync();
 
     public IReadOnlyList<MobileSuit> GetMobileSuitSortedById();
+    public IReadOnlyList<MobileSuit> GetCostumeMobileSuitSortedById();
     
     public MobileSuit? GetMobileSuitById(uint id);
 
