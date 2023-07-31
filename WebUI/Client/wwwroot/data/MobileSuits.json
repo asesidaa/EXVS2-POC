@@ -1,0 +1,1340 @@
+[
+  {
+    "Id": 0,
+    "NameEN": "-",
+    "NameJP": "-",
+    "NameCN": "-"
+  },
+  {
+    "Id": 1,
+    "NameEN": "Gundam RX-78",
+    "NameJP": "ガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 2,
+    "NameEN": "Char's Gelgoog",
+    "NameJP": "シャア専用ゲルググ",
+    "NameCN": ""
+  },
+  {
+    "Id": 3,
+    "NameEN": "Acguy",
+    "NameJP": "アッガイ",
+    "NameCN": ""
+  },
+  {
+    "Id": 4,
+    "NameEN": "Zeong",
+    "NameJP": "ジオング",
+    "NameCN": ""
+  },
+  {
+    "Id": 5,
+    "NameEN": "Gyan",
+    "NameJP": "ギャン",
+    "NameCN": ""
+  },
+  {
+    "Id": 6,
+    "NameEN": "Gundam (G-Mecha)",
+    "NameJP": "ガンダム(Gメカ)",
+    "NameCN": ""
+  },
+  {
+    "Id": 7,
+    "NameEN": "Zaku II Ground Type",
+    "NameJP": "ザクII(ドアン機) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 8,
+    "NameEN": "Char's Zaku II",
+    "NameJP": "シャア専用ザクII",
+    "NameCN": ""
+  },
+  {
+    "Id": 13,
+    "NameEN": "Guncannon",
+    "NameJP": "ガンキャノン [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 19,
+    "NameEN": "Zeta Gundam",
+    "NameJP": "Zガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 20,
+    "NameEN": "Hyashiki",
+    "NameJP": "百式",
+    "NameCN": ""
+  },
+  {
+    "Id": 21,
+    "NameEN": "Messala",
+    "NameJP": "メッサーラ",
+    "NameCN": ""
+  },
+  {
+    "Id": 22,
+    "NameEN": "The-O",
+    "NameJP": "ジ・O",
+    "NameCN": ""
+  },
+  {
+    "Id": 23,
+    "NameEN": "Gundam MK-II",
+    "NameJP": "ガンダムMk-II",
+    "NameCN": ""
+  },
+  {
+    "Id": 24,
+    "NameEN": "Hambrabi",
+    "NameJP": "ハンブラビ",
+    "NameCN": ""
+  },
+  {
+    "Id": 31,
+    "NameEN": "Marasai",
+    "NameJP": "マラサイ",
+    "NameCN": ""
+  },
+  {
+    "Id": 32,
+    "NameEN": "Gabthley",
+    "NameJP": "ガブスレイ",
+    "NameCN": ""
+  },
+  {
+    "Id": 34,
+    "NameEN": "Baund Doc",
+    "NameJP": "バウンド・ドック",
+    "NameCN": ""
+  },
+  {
+    "Id": 36,
+    "NameEN": "Full Armor ZZ Gundam",
+    "NameJP": "フルアーマーZZガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 37,
+    "NameEN": "Qubeley MK-II (Ple Two)",
+    "NameJP": "キュベレイMk-II(プル)",
+    "NameCN": ""
+  },
+  {
+    "Id": 38,
+    "NameEN": "Qubeley",
+    "NameJP": "キュベレイ",
+    "NameCN": ""
+  },
+  {
+    "Id": 39,
+    "NameEN": "Zaku III Custom",
+    "NameJP": "ザクIII改",
+    "NameCN": ""
+  },
+  {
+    "Id": 40,
+    "NameEN": "Acguy (Haman Karn)",
+    "NameJP": "アッガイ(ハマーン搭乗) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 41,
+    "NameEN": "Zeta Gundam (Roux Louka)",
+    "NameJP": "Zガンダム(ルー搭乗) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 47,
+    "NameEN": "ZZ Gundam",
+    "NameJP": "ZZガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 48,
+    "NameEN": "Qubeley MK-II (Elpeo Ple)",
+    "NameJP": "キュベレイMk-II(プルツー)",
+    "NameCN": ""
+  },
+  {
+    "Id": 50,
+    "NameEN": "Doven Wolf",
+    "NameJP": "ドーベン・ウルフ",
+    "NameCN": ""
+  },
+  {
+    "Id": 52,
+    "NameEN": "Nu Gundam",
+    "NameJP": "νガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 53,
+    "NameEN": "Sazabi",
+    "NameJP": "サザビー",
+    "NameCN": ""
+  },
+  {
+    "Id": 54,
+    "NameEN": "Re-GZ",
+    "NameJP": "リ・ガズィ",
+    "NameCN": ""
+  },
+  {
+    "Id": 55,
+    "NameEN": "Jagd Doga",
+    "NameJP": "ヤクト・ドーガ",
+    "NameCN": ""
+  },
+  {
+    "Id": 57,
+    "NameEN": "Gundam F91",
+    "NameJP": "ガンダムF91",
+    "NameCN": ""
+  },
+  {
+    "Id": 58,
+    "NameEN": "Berga Giros",
+    "NameJP": "ベルガ・ギロス",
+    "NameCN": ""
+  },
+  {
+    "Id": 61,
+    "NameEN": "V2 Gundam",
+    "NameJP": "V2ガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 62,
+    "NameEN": "Gun Ez",
+    "NameJP": "ガンイージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 63,
+    "NameEN": "Gottrlatan",
+    "NameJP": "ゴトラタン",
+    "NameCN": ""
+  },
+  {
+    "Id": 64,
+    "NameEN": "Victory Gundam",
+    "NameJP": "ヴィクトリーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 73,
+    "NameEN": "Gedlav",
+    "NameJP": "ゲドラフ",
+    "NameCN": ""
+  },
+  {
+    "Id": 74,
+    "NameEN": "God Gundam",
+    "NameJP": "ゴッドガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 75,
+    "NameEN": "Dragon Gundam",
+    "NameJP": "ドラゴンガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 76,
+    "NameEN": "Master Gundam",
+    "NameJP": "マスターガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 77,
+    "NameEN": "Gundam Spiegel",
+    "NameJP": "ガンダムシュピーゲル",
+    "NameCN": ""
+  },
+  {
+    "Id": 78,
+    "NameEN": "Nobel Gundam",
+    "NameJP": "ノーベルガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 79,
+    "NameEN": "Shining Gundam",
+    "NameJP": "シャイニングガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 80,
+    "NameEN": "Rising Gundam",
+    "NameJP": "ライジングガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 81,
+    "NameEN": "Gundam Maxter",
+    "NameJP": "ガンダムマックスター",
+    "NameCN": ""
+  },
+  {
+    "Id": 82,
+    "NameEN": "Wing Gundam Zero",
+    "NameJP": "ウイングガンダムゼロ",
+    "NameCN": ""
+  },
+  {
+    "Id": 83,
+    "NameEN": "Gundam Epyon",
+    "NameJP": "ガンダムエピオン",
+    "NameCN": ""
+  },
+  {
+    "Id": 90,
+    "NameEN": "Altron Gundam",
+    "NameJP": "アルトロンガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 91,
+    "NameEN": "Gundam Sandrock Custom",
+    "NameJP": "ガンダムサンドロック改",
+    "NameCN": ""
+  },
+  {
+    "Id": 93,
+    "NameEN": "Gundam Deathscythe Hell",
+    "NameJP": "ガンダムデスサイズヘル [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 94,
+    "NameEN": "Tallgeese II",
+    "NameJP": "トールギスII",
+    "NameCN": ""
+  },
+  {
+    "Id": 95,
+    "NameEN": "Tallgeese",
+    "NameJP": "トールギス [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 96,
+    "NameEN": "Wing Gundam Zero EW",
+    "NameJP": "ウイングガンダムゼロ(EW版)",
+    "NameCN": ""
+  },
+  {
+    "Id": 97,
+    "NameEN": "Gundam Heavyarms Custom",
+    "NameJP": "ガンダムヘビーアームズ改(EW版)",
+    "NameCN": ""
+  },
+  {
+    "Id": 98,
+    "NameEN": "Tallgeese III",
+    "NameJP": "トールギスIII",
+    "NameCN": ""
+  },
+  {
+    "Id": 99,
+    "NameEN": "Gundam Deathscythe Hell EW",
+    "NameJP": "ガンダムデスサイズヘル(EW版)",
+    "NameCN": ""
+  },
+  {
+    "Id": 100,
+    "NameEN": "Gundam DX",
+    "NameJP": "ガンダムDX",
+    "NameCN": ""
+  },
+  {
+    "Id": 101,
+    "NameEN": "Gundam Virsago Chest Break",
+    "NameJP": "ガンダムヴァサーゴ・チェストブレイク",
+    "NameCN": ""
+  },
+  {
+    "Id": 102,
+    "NameEN": "Gundam X Divider",
+    "NameJP": "ガンダムXディバイダー",
+    "NameCN": ""
+  },
+  {
+    "Id": 103,
+    "NameEN": "Gundam X",
+    "NameJP": "ガンダムX [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 105,
+    "NameEN": "Turn A Gundam",
+    "NameJP": "∀ガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 106,
+    "NameEN": "Turn X",
+    "NameJP": "ターンX",
+    "NameCN": ""
+  },
+  {
+    "Id": 107,
+    "NameEN": "Gold SUMO",
+    "NameJP": "ゴールドスモー",
+    "NameCN": ""
+  },
+  {
+    "Id": 108,
+    "NameEN": "Kapool",
+    "NameJP": "カプル",
+    "NameCN": ""
+  },
+  {
+    "Id": 109,
+    "NameEN": "Koren's Kapool",
+    "NameJP": "コレンカプル",
+    "NameCN": ""
+  },
+  {
+    "Id": 111,
+    "NameEN": "Strike Gundam",
+    "NameJP": "ストライクガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 112,
+    "NameEN": "Forbidden Gundam",
+    "NameJP": "フォビドゥンガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 113,
+    "NameEN": "Providence Gundam",
+    "NameJP": "プロヴィデンスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 114,
+    "NameEN": "LaGOWE",
+    "NameJP": "ラゴゥ",
+    "NameCN": ""
+  },
+  {
+    "Id": 115,
+    "NameEN": "Freedom Gundam",
+    "NameJP": "フリーダムガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 116,
+    "NameEN": "Duel Gundam",
+    "NameJP": "デュエルガンダムアサルトシュラウド",
+    "NameCN": ""
+  },
+  {
+    "Id": 118,
+    "NameEN": "Perfect Strike Gundam",
+    "NameJP": "パーフェクトストライクガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 119,
+    "NameEN": "Blitz Gundam",
+    "NameJP": "ブリッツガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 120,
+    "NameEN": "Raider Gundam",
+    "NameJP": "レイダーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 121,
+    "NameEN": "Buster Gundam",
+    "NameJP": "バスターガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 122,
+    "NameEN": "Aegis Gundam",
+    "NameJP": "イージスガンダム [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 123,
+    "NameEN": "Strike Freedom Gundam",
+    "NameJP": "ストライクフリーダムガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 124,
+    "NameEN": "Infinite Justice Gundam",
+    "NameJP": "インフィニットジャスティスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 125,
+    "NameEN": "Destiny Gundam",
+    "NameJP": "デスティニーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 126,
+    "NameEN": "Gunner ZAKU Warrior",
+    "NameJP": "ガナーザクウォーリア",
+    "NameCN": ""
+  },
+  {
+    "Id": 127,
+    "NameEN": "Impulse Gundam",
+    "NameJP": "インパルスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 128,
+    "NameEN": "Gaia Gundam",
+    "NameJP": "ガイアガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 129,
+    "NameEN": "Legend Gundam",
+    "NameJP": "レジェンドガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 130,
+    "NameEN": "Impulse Gundam (Lunamaria Hawke)",
+    "NameJP": "インパルスガンダム(ルナマリア搭乗) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 131,
+    "NameEN": "Infinite Justice Gundam (Lacus Clyne)",
+    "NameJP": "インフィニットジャスティスガンダム(ラクス搭乗) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 133,
+    "NameEN": "Gouf Ignited",
+    "NameJP": "グフイグナイテッド",
+    "NameCN": ""
+  },
+  {
+    "Id": 134,
+    "NameEN": "Strike Rogue Ootori",
+    "NameJP": "ストライクルージュ(オオトリ装備)",
+    "NameCN": ""
+  },
+  {
+    "Id": 137,
+    "NameEN": "Akatsuki Gundam",
+    "NameJP": "アカツキ",
+    "NameCN": ""
+  },
+  {
+    "Id": 138,
+    "NameEN": "Gundam Exia",
+    "NameJP": "ガンダムエクシア",
+    "NameCN": ""
+  },
+  {
+    "Id": 139,
+    "NameEN": "00 Gundam",
+    "NameJP": "ダブルオーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 140,
+    "NameEN": "Susanowo",
+    "NameJP": "スサノオ",
+    "NameCN": ""
+  },
+  {
+    "Id": 141,
+    "NameEN": "Cherudim Gundam",
+    "NameJP": "ケルディムガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 142,
+    "NameEN": "Arche Gundam",
+    "NameJP": "アルケーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 143,
+    "NameEN": "Gundam Dynames",
+    "NameJP": "ガンダムデュナメス",
+    "NameCN": ""
+  },
+  {
+    "Id": 144,
+    "NameEN": "Reborns Gundam",
+    "NameJP": "リボーンズガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 145,
+    "NameEN": "Gundam Throne Drei",
+    "NameJP": "ガンダムスローネドライ",
+    "NameCN": ""
+  },
+  {
+    "Id": 146,
+    "NameEN": "Arios Gundam",
+    "NameJP": "アリオスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 148,
+    "NameEN": "Gundam Avalanche Exia",
+    "NameJP": "アヴァランチエクシア",
+    "NameCN": ""
+  },
+  {
+    "Id": 149,
+    "NameEN": "00 Gundam Seven Sword/G",
+    "NameJP": "ダブルオーガンダム セブンソード／G",
+    "NameCN": ""
+  },
+  {
+    "Id": 151,
+    "NameEN": "Tieren Taozi",
+    "NameJP": "ティエレンタオツー",
+    "NameCN": ""
+  },
+  {
+    "Id": 152,
+    "NameEN": "Jagd Arche Gundam",
+    "NameJP": "ヤークトアルケーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 153,
+    "NameEN": "Gundam Kyrios",
+    "NameJP": "ガンダムキュリオス [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 154,
+    "NameEN": "Gundam Virtue",
+    "NameJP": "ガンダムヴァーチェ [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 157,
+    "NameEN": "Graham's Union Flag Custom",
+    "NameJP": "グラハム専用ユニオンフラッグカスタム",
+    "NameCN": ""
+  },
+  {
+    "Id": 162,
+    "NameEN": "00 Quan[T]",
+    "NameJP": "ダブルオークアンタ",
+    "NameCN": ""
+  },
+  {
+    "Id": 163,
+    "NameEN": "Raphael Gundam",
+    "NameJP": "ラファエルガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 164,
+    "NameEN": "Brave (Commander Test Type)",
+    "NameJP": "ブレイヴ指揮官用試験機",
+    "NameCN": ""
+  },
+  {
+    "Id": 165,
+    "NameEN": "00 Quan[T] Full Saber",
+    "NameJP": "ダブルオークアンタ フルセイバー",
+    "NameCN": ""
+  },
+  {
+    "Id": 166,
+    "NameEN": "Gundam Zabanya",
+    "NameJP": "ガンダムサバーニャ",
+    "NameCN": ""
+  },
+  {
+    "Id": 167,
+    "NameEN": "Gundam Harute",
+    "NameJP": "ガンダムハルート",
+    "NameCN": ""
+  },
+  {
+    "Id": 168,
+    "NameEN": "Unicorn Gundam",
+    "NameJP": "ユニコーンガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 169,
+    "NameEN": "Kshatriya",
+    "NameJP": "クシャトリヤ",
+    "NameCN": ""
+  },
+  {
+    "Id": 170,
+    "NameEN": "Sinanju",
+    "NameJP": "シナンジュ",
+    "NameCN": ""
+  },
+  {
+    "Id": 171,
+    "NameEN": "Delta Plus",
+    "NameJP": "デルタプラス",
+    "NameCN": ""
+  },
+  {
+    "Id": 172,
+    "NameEN": "Unicorn Gundam Banshee",
+    "NameJP": "バンシィ",
+    "NameCN": ""
+  },
+  {
+    "Id": 173,
+    "NameEN": "Rozen Zulu",
+    "NameJP": "ローゼン・ズール",
+    "NameCN": ""
+  },
+  {
+    "Id": 175,
+    "NameEN": "Full Armor Unicorn Gundam",
+    "NameJP": "フルアーマー・ユニコーンガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 176,
+    "NameEN": "Unicorn Gundam Banshee Norn",
+    "NameJP": "バンシィ・ノルン",
+    "NameCN": ""
+  },
+  {
+    "Id": 180,
+    "NameEN": "Alex",
+    "NameJP": "アレックス",
+    "NameCN": ""
+  },
+  {
+    "Id": 181,
+    "NameEN": "Zaku II Custom",
+    "NameJP": "ザクII改",
+    "NameCN": ""
+  },
+  {
+    "Id": 183,
+    "NameEN": "Kaempfer",
+    "NameJP": "ケンプファー",
+    "NameCN": ""
+  },
+  {
+    "Id": 184,
+    "NameEN": "Gundam Zephyranthes Full Burnern",
+    "NameJP": "ガンダム試作1号機フルバーニアン",
+    "NameCN": ""
+  },
+  {
+    "Id": 185,
+    "NameEN": "Gundam Prototype No.2",
+    "NameJP": "ガンダム試作2号機",
+    "NameCN": ""
+  },
+  {
+    "Id": 186,
+    "NameEN": "Gerbera Tetra",
+    "NameJP": "ガーベラ・テトラ",
+    "NameCN": ""
+  },
+  {
+    "Id": 187,
+    "NameEN": "Gundam Prototype No. 3",
+    "NameJP": "ガンダム試作3号機",
+    "NameCN": ""
+  },
+  {
+    "Id": 191,
+    "NameEN": "Gundam Ez8",
+    "NameJP": "ガンダムEz8",
+    "NameCN": ""
+  },
+  {
+    "Id": 192,
+    "NameEN": "Gouf Custom",
+    "NameJP": "グフ・カスタム",
+    "NameCN": ""
+  },
+  {
+    "Id": 194,
+    "NameEN": "Zudah",
+    "NameJP": "ヅダ",
+    "NameCN": ""
+  },
+  {
+    "Id": 195,
+    "NameEN": "Hildolfr",
+    "NameJP": "ヒルドルブ",
+    "NameCN": ""
+  },
+  {
+    "Id": 197,
+    "NameEN": "Zaku II High Mobility Type (Johnny Ridden)",
+    "NameJP": "高機動型ザクII後期型(ジョニー・ライデン機) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 198,
+    "NameEN": "Zaku II High Mobility Type (Shin Matsunaga)",
+    "NameJP": "高機動型ザクII改(シン・マツナガ機) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 199,
+    "NameEN": "Crossbone Gundam X1 Kai",
+    "NameJP": "クロスボーン・ガンダムX1改",
+    "NameCN": ""
+  },
+  {
+    "Id": 200,
+    "NameEN": "Crossbone Gundam X2 Kai",
+    "NameJP": "クロスボーン・ガンダムX2改",
+    "NameCN": ""
+  },
+  {
+    "Id": 201,
+    "NameEN": "Crossbone Gundam X3",
+    "NameJP": "クロスボーン・ガンダムX3",
+    "NameCN": ""
+  },
+  {
+    "Id": 205,
+    "NameEN": "Crossbone Gundam X1 Full Cloth",
+    "NameJP": "クロスボーン・ガンダムX1フルクロス",
+    "NameCN": ""
+  },
+  {
+    "Id": 206,
+    "NameEN": "Vigna Ghina II",
+    "NameJP": "ビギナ・ギナII(木星決戦仕様)",
+    "NameCN": ""
+  },
+  {
+    "Id": 207,
+    "NameEN": "Phantom Gundam",
+    "NameJP": "ファントムガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 208,
+    "NameEN": "Blue Destiny Unit 1",
+    "NameJP": "ブルーディスティニー1号機",
+    "NameCN": ""
+  },
+  {
+    "Id": 209,
+    "NameEN": "Efreet Custom",
+    "NameJP": "イフリート改",
+    "NameCN": ""
+  },
+  {
+    "Id": 210,
+    "NameEN": "Hi-Nu Gundam",
+    "NameJP": "Hi-νガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 211,
+    "NameEN": "Nightingale",
+    "NameJP": "ナイチンゲール",
+    "NameCN": ""
+  },
+  {
+    "Id": 212,
+    "NameEN": "Gundam Astray Red Frame",
+    "NameJP": "アストレイレッドフレーム",
+    "NameCN": ""
+  },
+  {
+    "Id": 213,
+    "NameEN": "Gundam Astray Blue Frame Second L",
+    "NameJP": "アストレイブルーフレームセカンドL",
+    "NameCN": ""
+  },
+  {
+    "Id": 214,
+    "NameEN": "Gundam Astray Gold Frame Amatsu",
+    "NameJP": "アストレイゴールドフレーム天",
+    "NameCN": ""
+  },
+  {
+    "Id": 215,
+    "NameEN": "Gundam Astray Gold Frame Amatsu Mina",
+    "NameJP": "アストレイゴールドフレーム天ミナ [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 216,
+    "NameEN": "Dreanought Gundam (X-Astray)",
+    "NameJP": "ドレッドノートガンダム(Xアストレイ)",
+    "NameCN": ""
+  },
+  {
+    "Id": 217,
+    "NameEN": "Hyperion Gundam",
+    "NameJP": "ハイペリオンガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 218,
+    "NameEN": "Gundam Astray Red Frame Kai",
+    "NameJP": "アストレイレッドフレーム改",
+    "NameCN": ""
+  },
+  {
+    "Id": 220,
+    "NameEN": "Gundam Astray Red Frame Dragon",
+    "NameJP": "アストレイレッドフレーム(レッドドラゴン)",
+    "NameCN": ""
+  },
+  {
+    "Id": 221,
+    "NameEN": "Gundam Astray Blue Frame D",
+    "NameJP": "アストレイブルーフレームD",
+    "NameCN": ""
+  },
+  {
+    "Id": 222,
+    "NameEN": "Strike Noir Gundam",
+    "NameJP": "ストライクノワール",
+    "NameCN": ""
+  },
+  {
+    "Id": 223,
+    "NameEN": "Stargazer Gundam",
+    "NameJP": "スターゲイザー",
+    "NameCN": ""
+  },
+  {
+    "Id": 224,
+    "NameEN": "Ex-S Gundam",
+    "NameJP": "Ex-Sガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 225,
+    "NameEN": "Xi Gundam",
+    "NameJP": "Ξガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 226,
+    "NameEN": "Penelope",
+    "NameJP": "ペーネロペー",
+    "NameCN": ""
+  },
+  {
+    "Id": 228,
+    "NameEN": "Gundam AGE-1",
+    "NameJP": "ガンダムAGE-1",
+    "NameCN": ""
+  },
+  {
+    "Id": 229,
+    "NameEN": "Gundam AGE-2",
+    "NameJP": "ガンダムAGE-2",
+    "NameCN": ""
+  },
+  {
+    "Id": 230,
+    "NameEN": "Gundam AGE-3",
+    "NameJP": "ガンダムAGE-3",
+    "NameCN": ""
+  },
+  {
+    "Id": 231,
+    "NameEN": "Gundam AGE-FX",
+    "NameJP": "ガンダムAGE-FX",
+    "NameCN": ""
+  },
+  {
+    "Id": 232,
+    "NameEN": "Zeydra",
+    "NameJP": "ゼイドラ",
+    "NameCN": ""
+  },
+  {
+    "Id": 233,
+    "NameEN": "Farsia",
+    "NameJP": "ファルシア",
+    "NameCN": ""
+  },
+  {
+    "Id": 234,
+    "NameEN": "Gundam Legilis",
+    "NameJP": "ガンダムレギルス",
+    "NameCN": ""
+  },
+  {
+    "Id": 235,
+    "NameEN": "Gundam AGE-2 Dark Hound",
+    "NameJP": "ガンダムAGE-2 ダークハウンド",
+    "NameCN": ""
+  },
+  {
+    "Id": 237,
+    "NameEN": "Gundam AGE-1 Glansa",
+    "NameJP": "ガンダムAGE-1 フルグランサ",
+    "NameCN": ""
+  },
+  {
+    "Id": 238,
+    "NameEN": "Fawn Farsia",
+    "NameJP": "フォーンファルシア",
+    "NameCN": ""
+  },
+  {
+    "Id": 240,
+    "NameEN": "Extreme Gundam Eclipse",
+    "NameJP": "エクストリームガンダム エクリプス-F",
+    "NameCN": ""
+  },
+  {
+    "Id": 241,
+    "NameEN": "Extreme Gundam Xenon",
+    "NameJP": "エクストリームガンダム ゼノン-F",
+    "NameCN": ""
+  },
+  {
+    "Id": 242,
+    "NameEN": "Extreme Gundam Aios",
+    "NameJP": "エクストリームガンダム アイオス-F",
+    "NameCN": ""
+  },
+  {
+    "Id": 243,
+    "NameEN": "Extreme Gundam Leos II VS",
+    "NameJP": "エクストリームガンダム type-レオスII Vs.",
+    "NameCN": ""
+  },
+  {
+    "Id": 244,
+    "NameEN": "Extreme Gundam Sthesia Excellia",
+    "NameJP": "エクストリームガンダム エクセリア",
+    "NameCN": ""
+  },
+  {
+    "Id": 248,
+    "NameEN": "Gundam G-Self",
+    "NameJP": "G-セルフ",
+    "NameCN": ""
+  },
+  {
+    "Id": 249,
+    "NameEN": "Mack Knife",
+    "NameJP": "マックナイフ(マスク機)",
+    "NameCN": ""
+  },
+  {
+    "Id": 250,
+    "NameEN": "Gundam G-Self Perfect Pack",
+    "NameJP": "G-セルフ(パーフェクトパック)",
+    "NameCN": ""
+  },
+  {
+    "Id": 251,
+    "NameEN": "Gundam G-Arcane (Full Dress)",
+    "NameJP": "G-アルケイン(フルドレス)",
+    "NameCN": ""
+  },
+  {
+    "Id": 252,
+    "NameEN": "Montero",
+    "NameJP": "モンテーロ",
+    "NameCN": ""
+  },
+  {
+    "Id": 253,
+    "NameEN": "Gundam Barbatos",
+    "NameJP": "ガンダム・バルバトス",
+    "NameCN": ""
+  },
+  {
+    "Id": 256,
+    "NameEN": "Gundam Kimaris Trooper",
+    "NameJP": "ガンダム・キマリストルーパー",
+    "NameCN": ""
+  },
+  {
+    "Id": 257,
+    "NameEN": "Gundam Barbatos Lupus",
+    "NameJP": "ガンダム・バルバトスルプス",
+    "NameCN": ""
+  },
+  {
+    "Id": 258,
+    "NameEN": "Gundam Gusion Rebake Full City",
+    "NameJP": "ガンダム・グシオンリベイクフルシティ",
+    "NameCN": ""
+  },
+  {
+    "Id": 259,
+    "NameEN": "Gundam Bael",
+    "NameJP": "ガンダム・バエル",
+    "NameCN": ""
+  },
+  {
+    "Id": 260,
+    "NameEN": "Gundam Barbatos Lupus Rex",
+    "NameJP": "ガンダム・バルバトスルプスレクス",
+    "NameCN": ""
+  },
+  {
+    "Id": 261,
+    "NameEN": "Gundam Kimaris Vidar",
+    "NameJP": "ガンダム・キマリスヴィダール",
+    "NameCN": ""
+  },
+  {
+    "Id": 265,
+    "NameEN": "Pale Rider",
+    "NameJP": "ペイルライダー(陸戦重装仕様) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 266,
+    "NameEN": "Vincent's Gelgoog High Mobility Type",
+    "NameJP": "高機動型ゲルググ(ヴィンセント機) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 268,
+    "NameEN": "Efreet (Doug Schneid's Unit)",
+    "NameJP": "イフリート(シュナイド機) [EX]",
+    "NameCN": ""
+  },
+  {
+    "Id": 269,
+    "NameEN": "Full Armor Gundam",
+    "NameJP": "フルアーマー・ガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 270,
+    "NameEN": "Zaku II High Mobility Type (Psycho Zaku)",
+    "NameJP": "サイコ・ザク",
+    "NameCN": ""
+  },
+  {
+    "Id": 271,
+    "NameEN": "Atlas Gundam",
+    "NameJP": "アトラスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 272,
+    "NameEN": "Acguy (Thunderbolt Ver.)",
+    "NameJP": "アッガイ(ダリル搭乗)",
+    "NameCN": ""
+  },
+  {
+    "Id": 279,
+    "NameEN": "Build Strike Gundam Full Package",
+    "NameJP": "ビルドストライクガンダム(フルパッケージ)",
+    "NameCN": ""
+  },
+  {
+    "Id": 280,
+    "NameEN": "Zaku Amazing",
+    "NameJP": "ザクアメイジング",
+    "NameCN": ""
+  },
+  {
+    "Id": 281,
+    "NameEN": "Hot Scramble Gundam",
+    "NameJP": "ホットスクランブルガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 283,
+    "NameEN": "Try Burning Gundam",
+    "NameJP": "トライバーニングガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 284,
+    "NameEN": "Lightning Gundam Full Burnern",
+    "NameJP": "ライトニングガンダムフルバーニアン",
+    "NameCN": ""
+  },
+  {
+    "Id": 285,
+    "NameEN": "Star Winning Gundam",
+    "NameJP": "スターウイニングガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 286,
+    "NameEN": "Gundam X Maoh",
+    "NameJP": "ガンダムX魔王",
+    "NameCN": ""
+  },
+  {
+    "Id": 287,
+    "NameEN": "Gundam G-Lucifer",
+    "NameJP": "G-ルシファー",
+    "NameCN": ""
+  },
+  {
+    "Id": 288,
+    "NameEN": "Knight Gundam",
+    "NameJP": "騎士ガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 289,
+    "NameEN": "Bertigo",
+    "NameJP": "ベルティゴ",
+    "NameCN": ""
+  },
+  {
+    "Id": 290,
+    "NameEN": "Narrative Gundam",
+    "NameJP": "ナラティブガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 291,
+    "NameEN": "Kabakali",
+    "NameJP": "カバカーリー",
+    "NameCN": ""
+  },
+  {
+    "Id": 292,
+    "NameEN": "Wing Gundam Fenice",
+    "NameJP": "ウイングガンダムフェニーチェ",
+    "NameCN": ""
+  },
+  {
+    "Id": 293,
+    "NameEN": "Sinanju Stein",
+    "NameJP": "シナンジュ・スタイン",
+    "NameCN": ""
+  },
+  {
+    "Id": 294,
+    "NameEN": "Gundam 00 Diver Ace",
+    "NameJP": "ガンダムダブルオーダイバーエース",
+    "NameCN": ""
+  },
+  {
+    "Id": 295,
+    "NameEN": "Star Build Strike Gundam",
+    "NameJP": "スタービルドストライクガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 296,
+    "NameEN": "Unicorn Gundam 03 Phenex",
+    "NameJP": "ユニコーンガンダム3号機フェネクス",
+    "NameCN": ""
+  },
+  {
+    "Id": 297,
+    "NameEN": "Gundam Flauros (Ryusei-Go)",
+    "NameJP": "ガンダム・フラウロス",
+    "NameCN": ""
+  },
+  {
+    "Id": 298,
+    "NameEN": "Over.on",
+    "NameJP": "オーヴェロン",
+    "NameCN": ""
+  },
+  {
+    "Id": 299,
+    "NameEN": "RX-Zeromaru",
+    "NameJP": "RX-零丸",
+    "NameCN": ""
+  },
+  {
+    "Id": 300,
+    "NameEN": "Dijeh",
+    "NameJP": "ディジェ",
+    "NameCN": ""
+  },
+  {
+    "Id": 301,
+    "NameEN": "Justice Gundam",
+    "NameJP": "ジャスティスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 302,
+    "NameEN": "Sengoku Astray Gundam",
+    "NameJP": "戦国アストレイ頑駄無",
+    "NameCN": ""
+  },
+  {
+    "Id": 303,
+    "NameEN": "N-Extreme Gundam Explosion",
+    "NameJP": "N-EXTREMEガンダム エクスプロージョン",
+    "NameCN": ""
+  },
+  {
+    "Id": 304,
+    "NameEN": "N-Extreme Gundam Xanadu",
+    "NameJP": "N-EXTREMEガンダム ザナドゥ",
+    "NameCN": ""
+  },
+  {
+    "Id": 305,
+    "NameEN": "N-Extreme Gundam Vicious",
+    "NameJP": "N-EXTREMEガンダム ヴィシャス",
+    "NameCN": ""
+  },
+  {
+    "Id": 306,
+    "NameEN": "N-Extreme Gundam Supremacy",
+    "NameJP": "N-EXTREMEガンダム スプレマシー",
+    "NameCN": ""
+  },
+  {
+    "Id": 307,
+    "NameEN": "Garazzo (Hiling Care Custom)",
+    "NameJP": "ガラッゾ(ヒリング・ケア機)",
+    "NameCN": ""
+  },
+  {
+    "Id": 308,
+    "NameEN": "Dahack",
+    "NameJP": "ダハック",
+    "NameCN": ""
+  },
+  {
+    "Id": 310,
+    "NameEN": "RX-93ff Gundam",
+    "NameJP": "RX-93ff νガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 311,
+    "NameEN": "Calamity Gundam",
+    "NameJP": "カラミティガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 312,
+    "NameEN": "Nu Gundam HWS",
+    "NameJP": "νガンダムHWS",
+    "NameCN": ""
+  }
+]

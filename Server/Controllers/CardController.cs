@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Server.Handlers.Card;
+using Server.Handlers.Card.Message;
 using Server.Handlers.Card.MobileSuit;
 using Server.Handlers.Card.Navi;
 using Server.Handlers.Card.Profile;
@@ -142,6 +143,22 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<BasicResponse>> UpdateCustomizeComment([FromBody] UpdateCustomizeCommentRequest request)
     {
         var response = await mediator.Send(new UpdateCustomizeCommentCommand(request));
+        return response;
+    }
+    
+    [HttpGet("getCustomMessageGroupSetting/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<CustomMessageGroupSetting>> GetCustomMessageGroupSetting(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetCustomMessageGroupSettingCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpPost("upsertCustomMessages")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpsertCustomMessages([FromBody] UpsertCustomMessagesRequest request)
+    {
+        var response = await mediator.Send(new UpsertCustomMessagesCommand(request));
         return response;
     }
 }

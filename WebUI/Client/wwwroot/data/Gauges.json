@@ -1,0 +1,1802 @@
+[
+  {
+    "Id": 0,
+    "NameEN": "VS2XB Blue (Default)",
+    "NameJP": "VS2XB_ブルー",
+    "NameCN": ""
+  },
+  {
+    "Id": 1,
+    "NameEN": "Amuro Ray",
+    "NameJP": "アムロ・レイ",
+    "NameCN": ""
+  },
+  {
+    "Id": 2,
+    "NameEN": "Anaheim Electronics",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 3,
+    "NameEN": "Unicorn Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 4,
+    "NameEN": "Penelope",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 5,
+    "NameEN": "Neo Japan",
+    "NameJP": "ネオジャパン",
+    "NameCN": ""
+  },
+  {
+    "Id": 6,
+    "NameEN": "Dongfang Undefeated",
+    "NameJP": "東方不敗",
+    "NameCN": ""
+  },
+  {
+    "Id": 7,
+    "NameEN": "Wing Zero EW",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 8,
+    "NameEN": "Epyon",
+    "NameJP": "ガンダムエピオン",
+    "NameCN": ""
+  },
+  {
+    "Id": 9,
+    "NameEN": "Gerbera Straight",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 10,
+    "NameEN": "Le Creuset",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 11,
+    "NameEN": "Freedom Gundam",
+    "NameJP": "フリーダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 12,
+    "NameEN": "00 Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 13,
+    "NameEN": "Celestial Being White",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 14,
+    "NameEN": "Celestial Being Black",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 15,
+    "NameEN": "Veda",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 16,
+    "NameEN": "A-Laws",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 17,
+    "NameEN": "Earth Federation Force (00)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 18,
+    "NameEN": "Gundam AGE",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 19,
+    "NameEN": "Extreme Gundam",
+    "NameJP": "エクストリームガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 20,
+    "NameEN": "Type Leos",
+    "NameJP": "TYPE-レオス",
+    "NameCN": ""
+  },
+  {
+    "Id": 21,
+    "NameEN": "Full Armor Unicorn Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 22,
+    "NameEN": "0 Qan[T] Full Saber",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 23,
+    "NameEN": "Gundam AGE-FX Burst",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 24,
+    "NameEN": "Magic Square",
+    "NameJP": "魔方陣",
+    "NameCN": ""
+  },
+  {
+    "Id": 25,
+    "NameEN": "Nightingale",
+    "NameJP": "ナイチンゲール",
+    "NameCN": ""
+  },
+  {
+    "Id": 26,
+    "NameEN": "Farsia",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 27,
+    "NameEN": "Gundam Virtue",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 28,
+    "NameEN": "Celestial Being 1",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 29,
+    "NameEN": "Cockpit (AGE-1)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 30,
+    "NameEN": "Cockpit (NT-D)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 31,
+    "NameEN": "Pirate Corps",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 32,
+    "NameEN": "Akatsuki",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 33,
+    "NameEN": "Tekkadan",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 34,
+    "NameEN": "G-Arcane",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 35,
+    "NameEN": "EFSF",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 36,
+    "NameEN": "Moore's Brotherhood",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 37,
+    "NameEN": "Kimaris Trooper",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 38,
+    "NameEN": "Gjallarhorn",
+    "NameJP": "ギャラルホルン",
+    "NameCN": ""
+  },
+  {
+    "Id": 39,
+    "NameEN": "Psycho Zaku",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 40,
+    "NameEN": "Living Dead Division",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 41,
+    "NameEN": "Hot Scramble?",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 42,
+    "NameEN": "Gunpla Battle",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 43,
+    "NameEN": "Gundam Barbatos Lupus",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 44,
+    "NameEN": "Birdy",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 45,
+    "NameEN": "Space Probe",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 46,
+    "NameEN": "Earth Federation Forces",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 47,
+    "NameEN": "Spartan",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 48,
+    "NameEN": "Atlas Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 49,
+    "NameEN": "Zeon Forces 3",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 50,
+    "NameEN": "Iori Models",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 51,
+    "NameEN": "Build Strike Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 52,
+    "NameEN": "EXVS Gold Rank",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 53,
+    "NameEN": "EXVS Silver Rank",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 54,
+    "NameEN": "EXVS Bronze Rank",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 55,
+    "NameEN": "Try Fighters",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 56,
+    "NameEN": "Gunpla Eve",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 57,
+    "NameEN": "Gundam Maxter",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 58,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 59,
+    "NameEN": "Gundam Barbatos Lupus Rex",
+    "NameJP": "ガンダム・バルバトスルプスレクス",
+    "NameCN": ""
+  },
+  {
+    "Id": 60,
+    "NameEN": "Astray Blue Frame D",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 61,
+    "NameEN": "Gundam AGE-1 Full Glansa",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 62,
+    "NameEN": "Gundam G-Self",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 63,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 64,
+    "NameEN": "Jagd Doga",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 65,
+    "NameEN": "Vidar",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 67,
+    "NameEN": "Acguy (Darryl)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 68,
+    "NameEN": "Galvaria B34M3R",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 69,
+    "NameEN": "Valentine's Day",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 70,
+    "NameEN": "Lightning Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 71,
+    "NameEN": "Guncannon",
+    "NameJP": "ガンキャノン",
+    "NameCN": ""
+  },
+  {
+    "Id": 72,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 73,
+    "NameEN": "SD Gundam 30th Anniversary",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 74,
+    "NameEN": "Fawn Farsia",
+    "NameJP": "フォーンファルシア",
+    "NameCN": ""
+  },
+  {
+    "Id": 75,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 76,
+    "NameEN": "SPRING BATTLE 2019 Champion",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 77,
+    "NameEN": "SPRING BATTLE 2019 Runner-Up",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 78,
+    "NameEN": "Gundam X Demon King",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 79,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 80,
+    "NameEN": "Hades",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 81,
+    "NameEN": "Death Scythe Hell (EW version)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 82,
+    "NameEN": "Banshee Norn",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 83,
+    "NameEN": "Strike Rogue",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 84,
+    "NameEN": "Gundam Dark Hound",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 85,
+    "NameEN": "Gundam Harute",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 86,
+    "NameEN": "Gundam Galvaria",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 87,
+    "NameEN": "G-Lucifer",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 88,
+    "NameEN": "SUMMER BATTLE 2019 Champion",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 89,
+    "NameEN": "SUMMER BATTLE 2019 Runner-Up",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 90,
+    "NameEN": "Star Winning Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 91,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 92,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 93,
+    "NameEN": "Bertigo",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 94,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 95,
+    "NameEN": "Galvaria H4ND3R",
+    "NameJP": "ガルヴァリア H4ND3R",
+    "NameCN": ""
+  },
+  {
+    "Id": 96,
+    "NameEN": "Astray Gold Frame",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 97,
+    "NameEN": "EXVS2 1st Anniversary",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 98,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 99,
+    "NameEN": "AUTUMN BATTLE 2019 Champion",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 100,
+    "NameEN": "AUTUMN BATTLE 2019 Runner-Up",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 101,
+    "NameEN": "Narrative Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 102,
+    "NameEN": "Galvaria W45P3R",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 103,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 104,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 105,
+    "NameEN": "Sleeves Soldier",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 106,
+    "NameEN": "Crossbone Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 107,
+    "NameEN": "Shuffle Club",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 108,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 109,
+    "NameEN": "00 Gundam Seven Sword/G",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 110,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 111,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 112,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 113,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 114,
+    "NameEN": "WINTER BATTLE 2020 Champion",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 115,
+    "NameEN": "WINTER BATTLE 2020 Runner-Up",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 116,
+    "NameEN": "VS2 Red",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 117,
+    "NameEN": "VS2 Green",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 118,
+    "NameEN": "SD Knight Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 119,
+    "NameEN": "Gundam Kyrios",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 120,
+    "NameEN": "PREMIUM DOGFIGHT 2019 Winner",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 121,
+    "NameEN": "PREMIUM DOGFIGHT 2019 runner up",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 122,
+    "NameEN": "PREMIUM DOGFIGHT 2019 best 8",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 123,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 124,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 125,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 126,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 127,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 128,
+    "NameEN": "Aegis Gundam",
+    "NameJP": "イージスガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 129,
+    "NameEN": "High Mobility Zaku II Custom",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 130,
+    "NameEN": "Wing Gundam Fenice",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 131,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 132,
+    "NameEN": "Kabakali",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 133,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 134,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 135,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 136,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 137,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 138,
+    "NameEN": "SUMMER BATTLE 2022 Champion",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 139,
+    "NameEN": "SUMMER BATTLE 2022 Runner-Up",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 140,
+    "NameEN": "Doven Wolf",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 141,
+    "NameEN": "00 Diver Ace",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 142,
+    "NameEN": "Sinanju Stein",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 143,
+    "NameEN": "Bushido",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 144,
+    "NameEN": "Zeta Gundam Biosensor",
+    "NameJP": "Zガンダムバイオセンサー",
+    "NameCN": ""
+  },
+  {
+    "Id": 145,
+    "NameEN": "Zaku II",
+    "NameJP": "ザクⅡ",
+    "NameCN": ""
+  },
+  {
+    "Id": 146,
+    "NameEN": "Red",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 147,
+    "NameEN": "Green",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 148,
+    "NameEN": "Blue",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 149,
+    "NameEN": "Yellow",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 150,
+    "NameEN": "Pink",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 151,
+    "NameEN": "Gundam Spiegel",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 152,
+    "NameEN": "AGE System",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 153,
+    "NameEN": "Astray Red Frame",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 154,
+    "NameEN": "Team Trinity",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 155,
+    "NameEN": "Destiny Gundam",
+    "NameJP": "デスティニーガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 156,
+    "NameEN": "Kshatriya",
+    "NameJP": "クシャトリヤ",
+    "NameCN": ""
+  },
+  {
+    "Id": 157,
+    "NameEN": "Hi-Nu Gundam",
+    "NameJP": "Hi-νガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 158,
+    "NameEN": "Tallgeese III",
+    "NameJP": "トールギスIII",
+    "NameCN": ""
+  },
+  {
+    "Id": 159,
+    "NameEN": "Keldim Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 160,
+    "NameEN": "Neo-Zeon",
+    "NameJP": "ネオ・ジオン",
+    "NameCN": ""
+  },
+  {
+    "Id": 161,
+    "NameEN": "Sazabi",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 162,
+    "NameEN": "Shuffle Masters Gold",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 163,
+    "NameEN": "Shuffle Masters Silver",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 164,
+    "NameEN": "EXVS 10th Anniversary",
+    "NameJP": "EXVS.10周年記念ゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 165,
+    "NameEN": "EXVS",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 166,
+    "NameEN": "EXVSFB",
+    "NameJP": "EXVSFB.",
+    "NameCN": ""
+  },
+  {
+    "Id": 167,
+    "NameEN": "EXVSMB",
+    "NameJP": "EXVSMB.",
+    "NameCN": ""
+  },
+  {
+    "Id": 168,
+    "NameEN": "EXVSMBON",
+    "NameJP": "EXVSMBON.",
+    "NameCN": ""
+  },
+  {
+    "Id": 169,
+    "NameEN": "EXVS2 Default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 170,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 171,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 172,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 173,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 174,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 175,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 176,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 177,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 178,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 179,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 180,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 181,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 182,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 183,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 184,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 185,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 186,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 187,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 188,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 189,
+    "NameEN": "default",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 190,
+    "NameEN": "Star Build Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 191,
+    "NameEN": "Unicorn Gundam Unit 3 Phenex",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 192,
+    "NameEN": "Gundam Flauros (Ryusei-Go)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 193,
+    "NameEN": "Hildolfr",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 194,
+    "NameEN": "Gundam Age?",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 195,
+    "NameEN": "Gundam Deathscythe Hell",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 196,
+    "NameEN": "Sai Sai Sai",
+    "NameJP": "サイ・サイシー",
+    "NameCN": ""
+  },
+  {
+    "Id": 197,
+    "NameEN": "Infinite Justice Gundam?",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 198,
+    "NameEN": "?",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 199,
+    "NameEN": "Dijeh",
+    "NameJP": "ディジェ",
+    "NameCN": ""
+  },
+  {
+    "Id": 200,
+    "NameEN": "High Mobility Type Gelgoog",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 201,
+    "NameEN": "RX-Zeromaru",
+    "NameJP": "RXｰ零丸",
+    "NameCN": ""
+  },
+  {
+    "Id": 202,
+    "NameEN": "Over.On",
+    "NameJP": "オーヴェロン",
+    "NameCN": ""
+  },
+  {
+    "Id": 203,
+    "NameEN": "Efreet (Doug Schneid's Unit)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 204,
+    "NameEN": "pre-season level gauge",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 205,
+    "NameEN": "pre-season level gauge",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 206,
+    "NameEN": "pre-season level gauge Season 3",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 207,
+    "NameEN": "pre-season level gauge Season 2",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 208,
+    "NameEN": "pre-season level gauge Season 4",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 209,
+    "NameEN": "Garazzo (Hiling Care Custom)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 210,
+    "NameEN": "Dahak",
+    "NameJP": "ダハック",
+    "NameCN": ""
+  },
+  {
+    "Id": 211,
+    "NameEN": "Impulse Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 212,
+    "NameEN": "G-Mecha",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 213,
+    "NameEN": "Archangel",
+    "NameJP": "アークエンジェル",
+    "NameCN": ""
+  },
+  {
+    "Id": 214,
+    "NameEN": "Gundam Age-2",
+    "NameJP": "ガンダムAGE-2",
+    "NameCN": ""
+  },
+  {
+    "Id": 215,
+    "NameEN": "Heine Westenflus",
+    "NameJP": "ハイネ・ヴェステンフルス",
+    "NameCN": ""
+  },
+  {
+    "Id": 216,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 217,
+    "NameEN": "Gundam Stargazer",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 218,
+    "NameEN": "Banshee",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 219,
+    "NameEN": "Acguy (Haman Karn)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 220,
+    "NameEN": "Gaia Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 221,
+    "NameEN": "Gundam Exia",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 222,
+    "NameEN": "Standard Gauge (Monochrome)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 223,
+    "NameEN": "Standard Gauge (Green & Purple)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 224,
+    "NameEN": "Zeydra",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 225,
+    "NameEN": "N-Extreme Gundam Explosion",
+    "NameJP": "N-EXTREMEガンダム エクスプロージョン",
+    "NameCN": ""
+  },
+  {
+    "Id": 226,
+    "NameEN": "N-Extreme Gundam Xanadu",
+    "NameJP": "N-EXTREMEガンダム ザナドゥ",
+    "NameCN": ""
+  },
+  {
+    "Id": 227,
+    "NameEN": "N-Extreme Gundam Vicious",
+    "NameJP": "N-EXTREMEガンダム ヴィシャス",
+    "NameCN": ""
+  },
+  {
+    "Id": 228,
+    "NameEN": "N-Extreme Gundam Supremacy",
+    "NameJP": "N-EXTREMEガンダム スプレマシー",
+    "NameCN": ""
+  },
+  {
+    "Id": 229,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 230,
+    "NameEN": "couple",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 231,
+    "NameEN": "Tallgeese",
+    "NameJP": "トールギス",
+    "NameCN": ""
+  },
+  {
+    "Id": 232,
+    "NameEN": "Wing Gundam Zero",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 233,
+    "NameEN": "V2 Gundam",
+    "NameJP": "V2ガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 234,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 235,
+    "NameEN": "Infinite Justice Gundam (Boarding Lacus)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 236,
+    "NameEN": "Standard Gauge (Cross Boost)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 237,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 238,
+    "NameEN": "SUMMER BATTLE winner (2021)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 239,
+    "NameEN": "SUMMER BATTLE runner-up (2021)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 240,
+    "NameEN": "AUTUMN BATTLE winner (2021)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 241,
+    "NameEN": "AUTUMN BATTLE runner-up (2021)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 242,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 243,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 244,
+    "NameEN": "Beginner Gina II (Decisive battle against Jupiter)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 245,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 246,
+    "NameEN": "Calamity Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 247,
+    "NameEN": "Forbidden Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 248,
+    "NameEN": "Raider Gundam",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 249,
+    "NameEN": "EXVS2 DEFAULT red variant",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 250,
+    "NameEN": "Z Gundam (Boarding Lou)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 251,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 252,
+    "NameEN": "Sengoku Astray Gundam [EX]",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 253,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 254,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 255,
+    "NameEN": "EXVS2 DEFAULT red variant",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 256,
+    "NameEN": "EXVS2 DEFAULT red variant",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 257,
+    "NameEN": "Buster Gundam",
+    "NameJP": "バスターガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 258,
+    "NameEN": "Duel Gundam Assault Shroud",
+    "NameJP": "デュエルガンダムアサルトシュラウド",
+    "NameCN": ""
+  },
+  {
+    "Id": 259,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 260,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 261,
+    "NameEN": "Season 5 Level Gauge",
+    "NameJP": "シーズン5レベルゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 262,
+    "NameEN": "Season 6 Level Gauge",
+    "NameJP": "シーズン6レベルゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 263,
+    "NameEN": "Season 7 Level Gauge",
+    "NameJP": "シーズン7レベルゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 264,
+    "NameEN": "Season 8 Level Gauge",
+    "NameJP": "シーズン8レベルゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 265,
+    "NameEN": "Season 9 Level Gauge",
+    "NameJP": "シーズン9レベルゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 266,
+    "NameEN": "WINTER BATTLE winner (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 267,
+    "NameEN": "WINTER BATTLE runner-up (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 268,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 269,
+    "NameEN": "SPRING BATTLE winner (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 270,
+    "NameEN": "SPRING BATTLE runner-up (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 271,
+    "NameEN": "SUMMER BATTLE winner (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 272,
+    "NameEN": "SUMMER BATTLE runner-up (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 273,
+    "NameEN": "AUTUMN BATTLE winner (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 274,
+    "NameEN": "AUTUMN BATTLE runner-up (2022)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 275,
+    "NameEN": "Standard Gauge (Team AA Color)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 276,
+    "NameEN": "Standard Gauge (Team IX Color)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 277,
+    "NameEN": "Blitz Gundam",
+    "NameJP": "ブリッツガンダム",
+    "NameCN": ""
+  },
+  {
+    "Id": 278,
+    "NameEN": "νGundam HWS",
+    "NameJP": "νガンダムHWS",
+    "NameCN": ""
+  },
+  {
+    "Id": 279,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 280,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 281,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 282,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 283,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 284,
+    "NameEN": "Winning WINTER BATTLE (2023)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 285,
+    "NameEN": "WINTER BATTLE runner-up (2023)",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 286,
+    "NameEN": "Original Gundam Motif Gauge",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 287,
+    "NameEN": "Original Gundam Motif Gauge 2",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 289,
+    "NameEN": "Premium Dogfight 2022 gold",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 290,
+    "NameEN": "Premium Dogfight 2022 silver",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 291,
+    "NameEN": "Premium Dogfight 2022 bronze",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 292,
+    "NameEN": "Season 10 Level Gauge",
+    "NameJP": "シーズン10レベルゲージ",
+    "NameCN": ""
+  },
+  {
+    "Id": 293,
+    "NameEN": "PDF2017 Refinement",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 294,
+    "NameEN": "PDF2015 Refinement",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 295,
+    "NameEN": "PDF2022 Winner Prediction Campaign",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 296,
+    "NameEN": "TBD",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 297,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 298,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 299,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 300,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  },
+  {
+    "Id": 301,
+    "NameEN": "EXVS2 DEFAULT",
+    "NameJP": "",
+    "NameCN": ""
+  }
+]
