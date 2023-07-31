@@ -451,6 +451,20 @@ public:
         wchar_t* iid_str;
         StringFromCLSID(riid, &iid_str);
         printf("CreateInstance %ls\n", iid_str);
+        INIReader reader("config.ini");
+        if (reader.ParseError() == 0)
+        {
+            amconfig.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
+            amconfig.Serial = reader.Get("config", "serial", "284311110001");
+            amconfig.IpAddress = reader.Get("config", "IpAddress", "192.168.50.239");
+            amconfig.Gateway = reader.Get("config", "Gateway", "192.168.50.1");
+            amconfig.SubnetMask = reader.Get("config", "SubnetMask", "255.255.255.0");
+            amconfig.PrimaryDNS = reader.Get("config", "DNS", "8.8.8.8");
+            amconfig.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
+            amconfig.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
+            amconfig.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
+        }
+
         CAuth* auth = new CAuth();
         return auth->QueryInterface(riid, object);
     }
@@ -462,7 +476,7 @@ public:
     }
 };
 
-void InitAmAuthEmu(config_struct &config)
+void InitAmAuthEmu(config_struct& config)
 {
     CoInitializeEx(0, 0);
     auto result = CoRegisterClassObject(IID_CAuthFactory, new CAuthFactory(), CLSCTX_LOCAL_SERVER, REGCLS_MULTIPLEUSE,
