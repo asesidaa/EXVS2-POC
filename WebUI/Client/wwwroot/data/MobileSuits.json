@@ -117,7 +117,8 @@
     "Id": 36,
     "NameEN": "Full Armor ZZ Gundam",
     "NameJP": "フルアーマーZZガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 37,
@@ -153,7 +154,8 @@
     "Id": 47,
     "NameEN": "ZZ Gundam",
     "NameJP": "ZZガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 48,
@@ -171,13 +173,15 @@
     "Id": 52,
     "NameEN": "Nu Gundam",
     "NameJP": "νガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 53,
     "NameEN": "Sazabi",
     "NameJP": "サザビー",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 54,
@@ -207,7 +211,8 @@
     "Id": 61,
     "NameEN": "V2 Gundam",
     "NameJP": "V2ガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 62,
@@ -225,7 +230,8 @@
     "Id": 64,
     "NameEN": "Victory Gundam",
     "NameJP": "ヴィクトリーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 73,
@@ -237,7 +243,8 @@
     "Id": 74,
     "NameEN": "God Gundam",
     "NameJP": "ゴッドガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 75,
@@ -249,7 +256,8 @@
     "Id": 76,
     "NameEN": "Master Gundam",
     "NameJP": "マスターガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 77,
@@ -267,7 +275,8 @@
     "Id": 79,
     "NameEN": "Shining Gundam",
     "NameJP": "シャイニングガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 80,
@@ -285,13 +294,15 @@
     "Id": 82,
     "NameEN": "Wing Gundam Zero",
     "NameJP": "ウイングガンダムゼロ",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 83,
     "NameEN": "Gundam Epyon",
     "NameJP": "ガンダムエピオン",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 90,
@@ -327,7 +338,8 @@
     "Id": 96,
     "NameEN": "Wing Gundam Zero EW",
     "NameJP": "ウイングガンダムゼロ(EW版)",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 97,
@@ -339,7 +351,8 @@
     "Id": 98,
     "NameEN": "Tallgeese III",
     "NameJP": "トールギスIII",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 99,
@@ -351,13 +364,15 @@
     "Id": 100,
     "NameEN": "Gundam DX",
     "NameJP": "ガンダムDX",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 101,
     "NameEN": "Gundam Virsago Chest Break",
     "NameJP": "ガンダムヴァサーゴ・チェストブレイク",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 102,
@@ -375,13 +390,15 @@
     "Id": 105,
     "NameEN": "Turn A Gundam",
     "NameJP": "∀ガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 106,
     "NameEN": "Turn X",
     "NameJP": "ターンX",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 107,
@@ -471,19 +488,22 @@
     "Id": 123,
     "NameEN": "Strike Freedom Gundam",
     "NameJP": "ストライクフリーダムガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 124,
     "NameEN": "Infinite Justice Gundam",
     "NameJP": "インフィニットジャスティスガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 125,
     "NameEN": "Destiny Gundam",
     "NameJP": "デスティニーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 126,
@@ -519,7 +539,8 @@
     "Id": 131,
     "NameEN": "Infinite Justice Gundam (Lacus Clyne)",
     "NameJP": "インフィニットジャスティスガンダム(ラクス搭乗) [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 133,
@@ -549,7 +570,8 @@
     "Id": 139,
     "NameEN": "00 Gundam",
     "NameJP": "ダブルオーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 140,
@@ -567,7 +589,8 @@
     "Id": 142,
     "NameEN": "Arche Gundam",
     "NameJP": "アルケーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 143,
@@ -579,7 +602,8 @@
     "Id": 144,
     "NameEN": "Reborns Gundam",
     "NameJP": "リボーンズガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 145,
@@ -603,7 +627,8 @@
     "Id": 149,
     "NameEN": "00 Gundam Seven Sword/G",
     "NameJP": "ダブルオーガンダム セブンソード／G",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 151,
@@ -615,7 +640,8 @@
     "Id": 152,
     "NameEN": "Jagd Arche Gundam",
     "NameJP": "ヤークトアルケーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 153,
@@ -639,7 +665,8 @@
     "Id": 162,
     "NameEN": "00 Quan[T]",
     "NameJP": "ダブルオークアンタ",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 163,
@@ -657,25 +684,29 @@
     "Id": 165,
     "NameEN": "00 Quan[T] Full Saber",
     "NameJP": "ダブルオークアンタ フルセイバー",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 166,
     "NameEN": "Gundam Zabanya",
     "NameJP": "ガンダムサバーニャ",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 167,
     "NameEN": "Gundam Harute",
     "NameJP": "ガンダムハルート",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 168,
     "NameEN": "Unicorn Gundam",
     "NameJP": "ユニコーンガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 169,
@@ -687,7 +718,8 @@
     "Id": 170,
     "NameEN": "Sinanju",
     "NameJP": "シナンジュ",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 171,
@@ -711,13 +743,15 @@
     "Id": 175,
     "NameEN": "Full Armor Unicorn Gundam",
     "NameJP": "フルアーマー・ユニコーンガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 176,
     "NameEN": "Unicorn Gundam Banshee Norn",
     "NameJP": "バンシィ・ノルン",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 180,
@@ -819,7 +853,8 @@
     "Id": 205,
     "NameEN": "Crossbone Gundam X1 Full Cloth",
     "NameJP": "クロスボーン・ガンダムX1フルクロス",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 206,
@@ -849,13 +884,15 @@
     "Id": 210,
     "NameEN": "Hi-Nu Gundam",
     "NameJP": "Hi-νガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 211,
     "NameEN": "Nightingale",
     "NameJP": "ナイチンゲール",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 212,
@@ -927,19 +964,22 @@
     "Id": 224,
     "NameEN": "Ex-S Gundam",
     "NameJP": "Ex-Sガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 225,
     "NameEN": "Xi Gundam",
     "NameJP": "Ξガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 226,
     "NameEN": "Penelope",
     "NameJP": "ペーネロペー",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 228,
@@ -957,13 +997,15 @@
     "Id": 230,
     "NameEN": "Gundam AGE-3",
     "NameJP": "ガンダムAGE-3",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 231,
     "NameEN": "Gundam AGE-FX",
     "NameJP": "ガンダムAGE-FX",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 232,
@@ -981,7 +1023,8 @@
     "Id": 234,
     "NameEN": "Gundam Legilis",
     "NameJP": "ガンダムレギルス",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 235,
@@ -1023,7 +1066,8 @@
     "Id": 243,
     "NameEN": "Extreme Gundam Leos II VS",
     "NameJP": "エクストリームガンダム type-レオスII Vs.",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 244,
@@ -1047,7 +1091,8 @@
     "Id": 250,
     "NameEN": "Gundam G-Self Perfect Pack",
     "NameJP": "G-セルフ(パーフェクトパック)",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 251,
@@ -1065,7 +1110,8 @@
     "Id": 253,
     "NameEN": "Gundam Barbatos",
     "NameJP": "ガンダム・バルバトス",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 256,
@@ -1077,7 +1123,8 @@
     "Id": 257,
     "NameEN": "Gundam Barbatos Lupus",
     "NameJP": "ガンダム・バルバトスルプス",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 258,
@@ -1089,19 +1136,22 @@
     "Id": 259,
     "NameEN": "Gundam Bael",
     "NameJP": "ガンダム・バエル",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 260,
     "NameEN": "Gundam Barbatos Lupus Rex",
     "NameJP": "ガンダム・バルバトスルプスレクス",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 261,
     "NameEN": "Gundam Kimaris Vidar",
     "NameJP": "ガンダム・キマリスヴィダール",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 265,
@@ -1161,7 +1211,8 @@
     "Id": 281,
     "NameEN": "Hot Scramble Gundam",
     "NameJP": "ホットスクランブルガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 283,
@@ -1215,7 +1266,8 @@
     "Id": 291,
     "NameEN": "Kabakali",
     "NameJP": "カバカーリー",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 292,
@@ -1239,7 +1291,8 @@
     "Id": 295,
     "NameEN": "Star Build Strike Gundam",
     "NameJP": "スタービルドストライクガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 296,
@@ -1287,7 +1340,8 @@
     "Id": 303,
     "NameEN": "N-Extreme Gundam Explosion",
     "NameJP": "N-EXTREMEガンダム エクスプロージョン",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   },
   {
     "Id": 304,
@@ -1323,7 +1377,8 @@
     "Id": 310,
     "NameEN": "RX-93ff Gundam",
     "NameJP": "RX-93ff νガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": false
   },
   {
     "Id": 311,
@@ -1335,6 +1390,7 @@
     "Id": 312,
     "NameEN": "Nu Gundam HWS",
     "NameJP": "νガンダムHWS",
-    "NameCN": ""
+    "NameCN": "",
+    "HasAlternativeCostume": true
   }
 ]

@@ -6,4 +6,5 @@ public class MobileSuit
     public string NameEN { get; set; } = string.Empty;
     public string NameJP { get; set; } = string.Empty;
     public string NameCN { get; set; } = string.Empty;
+    public bool? HasAlternativeCostume { get; set; } = false;
 }
