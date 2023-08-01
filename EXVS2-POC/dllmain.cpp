@@ -108,19 +108,18 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     {
     case DLL_PROCESS_ATTACH:
         {
-            std::thread t(InitThread, config);
-            t.detach();
+            /*std::thread t(InitThread, config);
+            t.detach();*/
+            InitAmAuthEmu(config);
+            OutputDebugStringA("AmAuth Init");
             InitializeHooks();
             InitializeJvs(config);
             InitDXGIWindowHook(config);
         }
         break;
     case DLL_THREAD_ATTACH:
-        break;
     case DLL_THREAD_DETACH:
-        break;
     case DLL_PROCESS_DETACH:
-        ExitAmAuthEmu();
         break;
     }
 	
