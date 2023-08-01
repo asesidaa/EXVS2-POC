@@ -1,7 +1,6 @@
 ﻿@inject IDataService DataService
-@using Server.Dto.Response;
-@using WebUI.Shared.Dto.Common;
 @using WebUI.Shared.Dto.Json;
+@using WebUI.Client.Services
 @inject ILogger<ChangeNavigatorDialog> Logger
 @inject ISnackbar Snackbar
 
@@ -21,13 +20,13 @@
 
 <MudDialog>
     <DialogContent>
-        <MudTable Elevation="5" Items="@_list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="Navigator" Hover="true" FixedHeader="true">
+        <MudTable Elevation="5" Items="@list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="Navigator" Hover="true" FixedHeader="true">
             <ColGroup>
                 <col style="width: 50px;" />
                 <col />
             </ColGroup>
             <ToolBarContent>
-                <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
                               AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0">
                 </MudTextField>
             </ToolBarContent>
@@ -66,17 +65,14 @@
                 }
             </RowTemplate>
             <PagerContent>
-                <MudTablePager PageSizeOptions="@_pageSizeOptions" />
+                <MudTablePager PageSizeOptions="@pageSizeOptions" />
             </PagerContent>
         </MudTable>
         <MudText Class="mt-4 d-block" Typo="Typo.caption">
-            @if (_selectedItems != null)
+            <b>Selected Navigator:</b>
+            @foreach (var selectItem in selectedItems)
             {
-                <b>Selected Navigator:</b>
-                @foreach (var selectItem in _selectedItems)
-                {
-                    <b> @selectItem?.NameEN | </b>
-                }
+                <b> @selectItem.NameEN | </b>
             }
         </MudText>
     </DialogContent>
@@ -88,63 +84,64 @@
 
 @code {
 
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
 
     [Parameter]
-    public uint[] Data { get; set; }
+    public uint[] Data { get; set; } = null!;
 
     [Parameter]
     public int MultiSelectCountLimit { get; set; } = 1;
 
-    private HashSet<Navigator> _selectedItems = new HashSet<Navigator>();
+    private HashSet<Navigator> selectedItems = new();
 
-    private int _selectedPage;
+    private int selectedPage;
 
-    private IReadOnlyList<Navigator> _list = new List<Navigator>();
+    private IReadOnlyList<Navigator> list = new List<Navigator>();
 
-    private string _searchString = string.Empty;
+    private string searchString = string.Empty;
 
-    private int[] _pageSizeOptions = new int[] { 5, 10, 25, 50, 100 };
+    private int[] pageSizeOptions = { 5, 10, 25, 50, 100 };
 
-    private MudTable<Navigator> mudTable;
+    private MudTable<Navigator> mudTable = null!;
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        _list = DataService.GetNavigatorSortedById();
+        list = DataService.GetNavigatorSortedById();
         foreach (var selectData in Data)
         {
             var data = DataService.GetNavigatorById(selectData);
             if (data != null)
-                _selectedItems.Add(data);
+                selectedItems.Add(data);
         }
-        var firstPageOption = _pageSizeOptions.ToList().FirstOrDefault();
-        _selectedPage = CalculateCurrentPage(_list, _selectedItems.FirstOrDefault(), firstPageOption);
+        var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
+        selectedPage = CalculateCurrentPage(list, selectedItems.FirstOrDefault(), firstPageOption);
     }
 
     protected override void OnAfterRender(bool firstRender)
     {
-        if (_selectedItems != null && firstRender)
-            mudTable.CurrentPage = _selectedPage;
+        if (firstRender)
+            mudTable.CurrentPage = selectedPage;
     }
 
     private int CalculateCurrentPage<T>(IEnumerable<T> items, T selectedItem, int rowsPerPage)
     {
         // Convert the IEnumerable to a list for better performance (if it's not already a list).
-        List<T> itemList = items.ToList();
+        var itemList = items.ToList();
 
         // Find the index of the selected item in the list.
-        int selectedIndex = itemList.IndexOf(selectedItem);
+        var selectedIndex = itemList.IndexOf(selectedItem);
 
         if (selectedIndex < 0)
         {
             // The selected item is not found in the list.
-            Logger.LogError("Selected item is not part of the provided items list.");
+            Logger.LogError("Selected item is not part of the provided items list");
             selectedIndex = 0;
         }
 
         // Calculate the current page using integer division.
-        int currentPage = selectedIndex / rowsPerPage;
+        var currentPage = selectedIndex / rowsPerPage;
 
         return currentPage;
     }
@@ -156,14 +153,13 @@
             return false;
         }
         var aggregate = $"{item.NameEN}{item.NameJP}{item.NameCN}";
-        return string.IsNullOrEmpty(_searchString) ||
-               aggregate.Contains(_searchString, StringComparison.OrdinalIgnoreCase);
+        return string.IsNullOrEmpty(searchString) ||
+               aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }
 
     private void Submit()
     {
-        if (_selectedItems is not null)
-            Data = _selectedItems.Select(x => x.Id).ToArray();
+        Data = selectedItems.Select(x => x.Id).ToArray();
 
         MudDialog.Close(DialogResult.Ok(Data));
     }
@@ -172,7 +168,7 @@
 
     private string SelectedRowClassFunc(Navigator element, int rowNumber)
     {
-        if (_selectedItems.Contains(element))
+        if (selectedItems.Contains(element))
             return "selected";
         else
             return string.Empty;
@@ -180,18 +176,18 @@
 
     private void OnRowClick(TableRowClickEventArgs<Navigator> args)
     {
-        if (_selectedItems.Any(x => x.Id == args.Item.Id))
+        if (selectedItems.Any(x => x.Id == args.Item.Id))
         {
-            _selectedItems.RemoveWhere(x => x.Id == args.Item.Id);
+            selectedItems.RemoveWhere(x => x.Id == args.Item.Id);
         }
         else
         {
-            if (_selectedItems.Count() >= MultiSelectCountLimit)
+            if (selectedItems.Count() >= MultiSelectCountLimit)
             {
                 if (MultiSelectCountLimit == 1)
                 {
-                    _selectedItems.Clear();
-                    _selectedItems.Add(args.Item);
+                    selectedItems.Clear();
+                    selectedItems.Add(args.Item);
                     StateHasChanged();
                 }
                 else
@@ -200,7 +196,7 @@
                     return;
                 }
             }
-            _selectedItems.Add(args.Item);
+            selectedItems.Add(args.Item);
         }
 
         StateHasChanged();

@@ -1,7 +1,6 @@
 ﻿@inject IDataService DataService
-@using Server.Dto.Response;
-@using WebUI.Shared.Dto.Common;
 @using WebUI.Shared.Dto.Json;
+@using WebUI.Client.Services
 @inject ILogger<ChangeMobileSuitDialog> Logger
 
 <style>
@@ -20,14 +19,14 @@
 
 <MudDialog>
     <DialogContent>
-        <MudTable Elevation="5" Items="@_mobileSuits" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@_selectedMobileSuit"
+        <MudTable Elevation="5" Items="@mobileSuits" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@selectedMobileSuit"
                   RowClassFunc="@SelectedRowClassFunc" T="MobileSuit" Hover="true" FixedHeader="true">
             <ColGroup>
                 <col style="width: 50px;" />
                 <col />
             </ColGroup>
             <ToolBarContent>
-                <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
                               AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0">
                 </MudTextField>
             </ToolBarContent>
@@ -66,11 +65,11 @@
                 }
             </RowTemplate>
             <PagerContent>
-                <MudTablePager PageSizeOptions="@_pageSizeOptions" />
+                <MudTablePager PageSizeOptions="@pageSizeOptions" />
             </PagerContent>
         </MudTable>
         <MudText Class="mt-4 d-block" Typo="Typo.caption">
-            <b>Selected Mobile Suit:</b> @_selectedMobileSuit?.NameEN | @_selectedMobileSuit?.NameJP | @_selectedMobileSuit?.NameCN
+            <b>Selected Mobile Suit:</b> @selectedMobileSuit?.NameEN | @selectedMobileSuit?.NameJP | @selectedMobileSuit?.NameCN
         </MudText>
     </DialogContent>
     <DialogActions>
@@ -81,42 +80,44 @@
 
 @code {
 
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
 
     [Parameter]
     public uint Data { get; set; }
 
-    private MobileSuit? _selectedMobileSuit;
+    private MobileSuit? selectedMobileSuit;
 
-    private int _selectedPage;
+    private int selectedPage;
 
-    private IReadOnlyList<MobileSuit> _mobileSuits = new List<MobileSuit>();
+    private IReadOnlyList<MobileSuit> mobileSuits = new List<MobileSuit>();
 
-    private string _searchString = string.Empty;
+    private string searchString = string.Empty;
 
-    private int[] _pageSizeOptions = new int[] { 5, 10, 25, 50, 100 };
+    private int[] pageSizeOptions = { 5, 10, 25, 50, 100 };
 
-    private MudTable<MobileSuit> mudTable;
+    private MudTable<MobileSuit> mudTable = null!;
 
+    // ReSharper disable once NotAccessedField.Local
     private int selectedRowNumber = -1;
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        _mobileSuits = DataService.GetMobileSuitSortedById();
-        _selectedMobileSuit = DataService.GetMobileSuitById(Data);
-        var firstPageOption = _pageSizeOptions.ToList().FirstOrDefault();
-        _selectedPage = CalculateCurrentPage(_mobileSuits, _selectedMobileSuit, firstPageOption);
+        mobileSuits = DataService.GetMobileSuitSortedById();
+        selectedMobileSuit = DataService.GetMobileSuitById(Data);
+        var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
+        selectedPage = CalculateCurrentPage(mobileSuits, selectedMobileSuit, firstPageOption);
     }
 
     protected override void OnAfterRender(bool firstRender)
     {
-        if (_selectedMobileSuit != null)
+        if (selectedMobileSuit != null)
         {
-            mudTable.SelectedItem = _selectedMobileSuit;
+            mudTable.SelectedItem = selectedMobileSuit;
             if (firstRender)
             {
-                mudTable.CurrentPage = _selectedPage;
+                mudTable.CurrentPage = selectedPage;
             }
         }
     }
@@ -132,7 +133,7 @@
         if (selectedIndex < 0)
         {
             // The selected item is not found in the list.
-            Logger.LogError("Selected item is not part of the provided items list.");
+            Logger.LogError("Selected item is not part of the provided items list");
             selectedIndex = 0;
         }
 
@@ -149,15 +150,15 @@
             return false;
         }
         var aggregate = $"{mobileSuit.NameEN}{mobileSuit.NameJP}{mobileSuit.NameCN}";
-        return string.IsNullOrEmpty(_searchString) ||
-               aggregate.Contains(_searchString, StringComparison.OrdinalIgnoreCase);
+        return string.IsNullOrEmpty(searchString) ||
+               aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }
 
     private void Submit()
     {
-        if (_selectedMobileSuit is not null)
+        if (selectedMobileSuit is not null)
         {
-            Data = _selectedMobileSuit.Id;
+            Data = selectedMobileSuit.Id;
         }
         MudDialog.Close(DialogResult.Ok(Data));
     }

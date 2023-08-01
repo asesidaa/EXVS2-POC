@@ -4,24 +4,19 @@
 @inject ISnackbar Snackbar
 @inject IDataService DataService
 @inject IDialogService DialogService
-
-@using MudBlazor;
-@using System.Collections.ObjectModel;
-@using WebUI.Client.Pages.Dialogs;
 @using WebUI.Shared.Dto.Common;
 @using WebUI.Shared.Dto.Enum;
-@using WebUI.Shared.Dto.Request;
-@using WebUI.Shared.Dto.Response;
-@using Throw;
-@using global::Shared.Models;
 @using WebUI.Shared.Dto.Json
+@using WebUI.Client.Services
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
 
 <PageTitle>Customize</PageTitle>
 <MudStack Row Class="flex-column">
     <h1>Customization Options</h1>
 
     <MudStack Row Class="align-self-end">
-        <MudProgressCircular @bind-Class="@_hideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
+        <MudProgressCircular @bind-Class="@HideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
         <MudButton OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">Save All</MudButton>
     </MudStack>
 </MudStack>
@@ -32,7 +27,7 @@
     return;
 }
 
-@if (_basicProfile is null)
+@if (basicProfile is null)
 {
     <MudStack>
         <MudSkeleton Width="100%"/>
@@ -53,7 +48,7 @@
             </CardHeaderContent>
             <CardHeaderActions>
                 <MudStack Row>
-                    <MudProgressCircular @bind-Class="@_hideProfileProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudProgressCircular @bind-Class="@HideProfileProgress" Color="Color.Default" Indeterminate="true" />
                     <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveBasicProfile"
                                    Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
                 </MudStack>
@@ -63,20 +58,20 @@
             <MudStack>
                 <MudStack Row>
                     <MudStack Row Class="align-center">
-                        <MudToggleIconButton @bind-Toggled="@_switchOpenRecord"
+                        <MudToggleIconButton @bind-Toggled="@SwitchOpenRecord"
                                              Icon="@Icons.Material.Filled.VisibilityOff" Color="@Color.Error" Title="Off"
                                              ToggledIcon="@Icons.Material.Filled.Visibility" ToggledColor="@Color.Success" ToggledTitle="On" />
-                        <span>@(_switchOpenRecord ? "Show" : "Hide") Record </span>
+                        <span>@(SwitchOpenRecord ? "Show" : "Hide") Record </span>
                     </MudStack>
                     <MudStack Row Class="align-center">
-                        <MudToggleIconButton @bind-Toggled="@_switchOpenEchelon"
+                        <MudToggleIconButton @bind-Toggled="@SwitchOpenEchelon"
                                              Icon="@Icons.Material.Filled.GridOff" Color="@Color.Error" Title="Off"
                                              ToggledIcon="@Icons.Material.Filled.GridOn" ToggledColor="@Color.Success" ToggledTitle="On" />
-                        <span>@(_switchOpenEchelon ? "Show" : "Hide") Rank </span>
+                        <span>@(SwitchOpenEchelon ? "Show" : "Hide") Rank </span>
                     </MudStack>
                 </MudStack>
                 <MudItem xs="8">
-                    <MudSelect @bind-Value="_basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Dense" T="BgmPlayingMethod"
+                    <MudSelect @bind-Value="basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Dense" T="BgmPlayingMethod"
                                Label="BGM Play Type" Variant="Variant.Outlined" ToStringFunc="@converter">
                         @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
                         {
@@ -91,18 +86,18 @@
                                 <MudExpansionPanel Text="Bgm List / Order">
                                     <MudSimpleTable Style="overflow-x: auto;">
                                         <tbody>
-                                            @if(_basicProfile.DefaultBgmList != null && _basicProfile.DefaultBgmList.Count() > 0)
+                                            @if(basicProfile.DefaultBgmList != null && basicProfile.DefaultBgmList.Count() > 0)
                                             {
-                                                foreach (var x in _basicProfile.DefaultBgmList)
+                                                foreach (var x in basicProfile.DefaultBgmList)
                                                 {
                                                     <tr>
-                                                        <td>@DataService.GetBgmById(x).NameJP</td>
+                                                        <td>@DataService.GetBgmById(x)?.NameJP</td>
                                                     </tr>
                                                 }
                                             }
                                             else
                                             {
-                                                _basicProfile.DefaultBgmList = Array.Empty<uint>();
+                                                basicProfile.DefaultBgmList = Array.Empty<uint>();
                                                 <tr>
                                                     <td>No Entries</td>
                                                 </tr>
@@ -122,7 +117,7 @@
                     <MudGrid Class="align-center">
                         <MudItem xs="10">
                             <MudField Label="Gauge UI" Variant="Variant.Outlined" InnerPadding="false">
-                                <MudText Class="ma-4" Align="Align.Center">@GetGaugeName(_basicProfile.DefaultGaugeDesignId)</MudText>
+                                <MudText Class="ma-4" Align="Align.Center">@GetGaugeName(basicProfile.DefaultGaugeDesignId)</MudText>
                             </MudField>
                         </MudItem>
                         <MudItem xs="2">
@@ -141,7 +136,7 @@
             </CardHeaderContent>
             <CardHeaderActions>
                 <MudStack Row>
-                    <MudProgressCircular @bind-Class="@_hideNaviProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudProgressCircular @bind-Class="@HideNaviProgress" Color="Color.Default" Indeterminate="true" />
                     <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveNavigatorProfile"
                                 Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
                 </MudStack>
@@ -153,12 +148,12 @@
                     <MudGrid Class="align-center">
                         <MudItem xs="10">
                             <MudField Label="UI Navigator" Variant="Variant.Outlined" InnerPadding="false">
-                                <MudText Class="ma-4" Align="Align.Center">@GetNaviName(_naviProfile.DefaultUiNaviId)</MudText>
+                                <MudText Class="ma-4" Align="Align.Center">@GetNaviName(naviProfile.DefaultUiNaviId)</MudText>
                             </MudField>
                         </MudItem>
                         <MudItem xs="2">
                             <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                           OnClick="() => OpenNaviChangeUIDialog()" />
+                                           OnClick="() => OpenNaviChangeUiDialog()" />
                         </MudItem>
                     </MudGrid>
                 </MudItem>
@@ -166,7 +161,7 @@
                     <MudGrid Class="align-center">
                         <MudItem xs="10">
                             <MudField Label="In Battle Navigator" Variant="Variant.Outlined" InnerPadding="false">
-                                <MudText Class="ma-4" Align="Align.Center">@GetNaviName(_naviProfile.DefaultBattleNaviId)</MudText>
+                                <MudText Class="ma-4" Align="Align.Center">@GetNaviName(naviProfile.DefaultBattleNaviId)</MudText>
                             </MudField>
                         </MudItem>
                         <MudItem xs="2">
@@ -185,7 +180,7 @@
             </CardHeaderContent>
             <CardHeaderActions>
                 <MudStack Row>
-                    <MudProgressCircular @bind-Class="@_hideFavMsProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudProgressCircular @bind-Class="@HideFavMsProgress" Color="Color.Default" Indeterminate="true" />
                     <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveFavouriteMobileSuits"
                                    Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
                 </MudStack>
@@ -198,8 +193,7 @@
             <MudStack>
                 <MudDataGrid 
                     Elevation="5"
-                    @ref="_favMsDataGrid"
-                    Items="@_favouriteMs"
+                    Items="@favouriteMs"
                     Filterable="false"
                     ReadOnly="false"
                     EditMode="@(DataGridEditMode.Cell)"
@@ -271,7 +265,7 @@
                                                         foreach (var x in context.Item.BgmList)
                                                         {
                                                             <tr>
-                                                                <td>@DataService.GetBgmById(x).NameJP</td>
+                                                                <td>@DataService.GetBgmById(x)?.NameJP</td>
                                                             </tr>
                                                         }
                                                     }
@@ -324,7 +318,7 @@
             </CardHeaderContent>
             <CardHeaderActions>
                 <MudStack Row>
-                    <MudProgressCircular @bind-Class="@_hideMsCostumeProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudProgressCircular @bind-Class="@HideMsCostumeProgress" Color="Color.Default" Indeterminate="true" />
                     <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveMobileSuitsCostume"
                                    Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
                 </MudStack>
@@ -332,7 +326,7 @@
         </MudCardHeader>
         <MudCardContent>
             <MudStack Row>
-                <MudSelect @bind-Value="_selectedHasCostumeMsValue" Margin="Margin.Dense" T="MobileSuit"
+                <MudSelect @bind-Value="SelectedHasCostumeMsValue" Margin="Margin.Dense" T="MobileSuit"
                            Label="MS Available For Alternative Costume" Variant="Variant.Outlined">
                     @foreach (var item in DataService.GetCostumeMobileSuitSortedById())
                     {
@@ -340,12 +334,12 @@
                     }
                 </MudSelect>
             </MudStack>
-            @if (_selectedHasCostumeMsValue is not null)
+            @if (SelectedHasCostumeMsValue is not null)
             {
                 <MudStack Row>
-                    <MudSelect @bind-Value="_selectedMsCostumeValue" Margin="Margin.Dense" T="Costume"
+                    <MudSelect @bind-Value="SelectedMsCostumeValue" Margin="Margin.Dense" T="Costume"
                                Label="Alternative Costume" Variant="Variant.Outlined">
-                        @foreach (var item in _selectedHasCostumeMsValue.Costumes)
+                        @foreach (var item in SelectedHasCostumeMsValue!.Costumes)
                         {
                             <MudSelectItem Value="item">@item.Name</MudSelectItem>
                         }
@@ -355,394 +349,3 @@
         </MudCardContent>
     </MudCard>
 </MudStack>
-
-@code{
-
-    [Parameter]
-    public string ChipId { get; set; } = string.Empty;
-    [Parameter]
-    public string AccessCode { get; set; } = string.Empty;
-
-    private MudDataGrid<FavouriteMs> _favMsDataGrid;
-
-    private BasicProfile? _basicProfile;
-    private NaviProfile? _naviProfile;
-    private ObservableCollection<FavouriteMs>? _favouriteMs = new ObservableCollection<FavouriteMs>();
-
-    private string? errorMessage;
-
-    private readonly int _maximumFavouriteMs = 6;
-
-    private bool _switchOpenRecord { get; set; }
-    private bool _switchOpenEchelon { get; set; }
-
-    private string _hideSaveAllProgress { get; set; } = "invisible";
-    private string _hideProfileProgress { get; set; } = "invisible";
-    private string _hideNaviProgress { get; set; } = "invisible";
-    private string _hideFavMsProgress { get; set; } = "invisible";
-    private string _hideMsCostumeProgress { get; set; } = "invisible";
-    
-    private MobileSuit? _selectedHasCostumeMsValue { get; set; }
-    private Costume? _selectedMsCostumeValue { get; set; }
-
-    private readonly List<BreadcrumbItem> breadcrumbs = new()
-    {
-        new BreadcrumbItem("Cards", href: "/Cards"),
-    };
-
-    private static readonly DialogOptions OPTIONS = new()
-    {
-        CloseOnEscapeKey = false,
-        DisableBackdropClick = true,
-        FullWidth = true,
-        MaxWidth = MaxWidth.ExtraExtraLarge
-    };
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        breadcrumbs.Add(new BreadcrumbItem($"Card: {ChipId}", href: null, disabled: true));
-        breadcrumbs.Add(new BreadcrumbItem("Option", href: $"/Cards/Customize/{AccessCode}/{ChipId}", disabled: false));
-
-        var profileResult = await Http.GetFromJsonAsync<BasicProfile>($"/card/getBasicDisplayProfile/{AccessCode}/{ChipId}");
-        profileResult.ThrowIfNull();
-
-        var naviResult = await Http.GetFromJsonAsync<NaviProfile>($"/card/getNaviProfile/{AccessCode}/{ChipId}");
-        naviResult.ThrowIfNull();
-
-        var favouriteResult = await Http.GetFromJsonAsync<List<FavouriteMs>>($"/card/getAllFavouriteMs/{AccessCode}/{ChipId}");
-        favouriteResult.ThrowIfNull();
-
-        //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
-        //Logger.LogInformation($"{json}");
-
-        _basicProfile = profileResult;
-        _naviProfile = naviResult;
-        _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
-
-        _switchOpenRecord = Convert.ToBoolean(_basicProfile.OpenRecord);
-        _switchOpenEchelon = Convert.ToBoolean(_basicProfile.OpenEchelon);
-    }
-
-    Func<BgmPlayingMethod, string> converter = p => p.ToString();
-
-    private string GetMobileSuitName(uint id)
-    {
-        var navigator = DataService.GetMobileSuitById(id);
-
-        return navigator?.NameEN ?? "Unknown Mobile Suit";
-    }
-
-    private string GetNaviName(uint id)
-    {
-        var navigator = DataService.GetNavigatorById(id);
-
-        return navigator?.NameEN ?? "Unknown Navigator";
-    }
-
-    private string GetGaugeName(uint id)
-    {
-        var navigator = DataService.GetGaugeById(id);
-
-        return navigator?.NameEN ?? "Unknown Gauge";
-    }
-
-    private void AddFavouriteMobileSuitItem()
-    {
-        if (_favouriteMs.Count() > _maximumFavouriteMs)
-        {
-            Snackbar.Add($"Cannot add more than {_maximumFavouriteMs} entries!", Severity.Warning);
-            return;
-        }
-
-        var newTitle = new Title
-            {
-                TextId = 1,
-                OrnamentId = 1,
-                EffectId = 1,
-                BackgroundPartsId = 1
-            };
-
-        var newItem = new FavouriteMs
-            {
-                MsId = 1,
-                GaugeDesignId = 1,
-                BgmPlayingMethod = BgmPlayingMethod.None,
-                BgmList = new uint[] { },
-                BattleNaviId = 1,
-                BurstType = BurstType.Covering,
-                DefaultTitle = newTitle,
-                TriadTitle = newTitle,
-                RankingTitle = newTitle
-            };
-
-        _favouriteMs.Add(newItem);
-    }
-
-    private void RemoveFavouriteUnit(CellContext<FavouriteMs> cellContext)
-    {
-        var itemHashCode = cellContext.Item.GetHashCode();
-        var item = _favouriteMs.FirstOrDefault(x => x.GetHashCode() == itemHashCode);
-
-        if (item != null)
-            _favouriteMs.Remove(item);
-    }
-
-    private async Task OpenProfileChangeBgmOrderDialog()
-    {
-        var parameters = new DialogParameters { { "Data", _basicProfile.DefaultBgmList } };
-        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change Bgm Order", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _basicProfile.DefaultBgmList = result.Data as uint[];
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenProfileChangeGaugeDialog()
-    {
-        var parameters = new DialogParameters { { "Data", new uint[] { _basicProfile.DefaultGaugeDesignId } } };
-        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change Gauge UI", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _basicProfile.DefaultGaugeDesignId = (result.Data as uint[]).FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenNaviChangeUIDialog()
-    {
-        var parameters = new DialogParameters { { "Data", new uint[] { _naviProfile.DefaultUiNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change UI navigator", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _naviProfile.DefaultUiNaviId = (result.Data as uint[]).FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenNaviChangeBattleDialog()
-    {
-        var parameters = new DialogParameters { { "Data", new uint[] { _naviProfile.DefaultBattleNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _naviProfile.DefaultBattleNaviId = (result.Data as uint[]).FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenChangeFavouriteMsDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs?.IndexOf(item);
-
-        if (index == -1 || index == null)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters { { "Data", item.MsId } };
-        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change favourite mobile suit", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index.Value].MsId = (uint)result.Data;
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenFavMsChangeBgmOrderDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs?.IndexOf(item);
-
-        if (index == -1 || index == null)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters { { "Data", item.BgmList } };
-        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change bgm order", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index.Value].BgmList = result.Data as uint[];
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenFavMsChangeNaviDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs?.IndexOf(item);
-
-        if (index == -1 || index == null)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters { { "Data", new uint[] { item.BattleNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index.Value].BattleNaviId = (result.Data as uint[]).FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenFavMsChangeGaugeDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs?.IndexOf(item);
-
-        if (index == -1 || index == null)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters {{ "Data", new uint[] { item.GaugeDesignId }}};
-        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change gauge UI", parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index.Value].GaugeDesignId = (result.Data as uint[]).FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task SaveAll()
-    {
-        _hideSaveAllProgress = "visible";
-        StateHasChanged();
-
-        await SaveBasicProfile();
-        await SaveNavigatorProfile();
-        await SaveFavouriteMobileSuits();
-
-        _hideSaveAllProgress = "invisible";
-        StateHasChanged();
-    }
-
-    private async Task SaveBasicProfile()
-    {
-        _hideProfileProgress = "visible";
-        StateHasChanged();
-
-        _basicProfile.OpenEchelon = Convert.ToUInt32(_switchOpenEchelon);
-        _basicProfile.OpenRecord = Convert.ToUInt32(_switchOpenRecord);
-
-        var dto = new UpdateBasicProfileRequest()
-        {
-            AccessCode = AccessCode,
-            ChipId = ChipId,
-            BasicProfile = _basicProfile
-        };
-
-
-        var response = await Http.PostAsJsonAsync("/card/updateBasicProfile", dto);
-        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
-        result.ThrowIfNull();
-
-        ShowBasicResponseSnack(result, "card infos");
-
-        _hideProfileProgress = "invisible";
-        StateHasChanged();
-        return;
-    }
-
-    private async Task SaveNavigatorProfile()
-    {
-        _hideNaviProgress = "visible";
-        StateHasChanged();
-
-        var dto = new UpsertDefaultNaviRequest()
-        {
-            AccessCode = AccessCode,
-            ChipId = ChipId,
-            DefaultBattleNaviId = _naviProfile.DefaultBattleNaviId,
-            DefaultUiNaviId = _naviProfile.DefaultUiNaviId,
-        };
-
-        var response = await Http.PostAsJsonAsync("/card/upsertDefaultNavi", dto);
-        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
-        result.ThrowIfNull();
-
-        ShowBasicResponseSnack(result, "navigatior infos");
-
-        _hideNaviProgress = "invisible";
-        StateHasChanged();
-        return;
-    }
-
-    private async Task SaveFavouriteMobileSuits()
-    {
-        _hideFavMsProgress = "visible";
-        StateHasChanged();
-
-        var dto = new UpdateAllFavouriteMsRequest()
-        {
-            AccessCode = AccessCode,
-            ChipId = ChipId,
-            FavouriteMsList = _favouriteMs.ToList()
-        };
-
-        var response = await Http.PostAsJsonAsync("/card/updateAllFavouriteMs", dto);
-        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
-        result.ThrowIfNull();
-
-        ShowBasicResponseSnack(result, "favourite mobile suit infos");
-
-        _hideFavMsProgress = "invisible";
-        StateHasChanged();
-        return;
-    }
-    
-    private async Task SaveMobileSuitsCostume()
-    {
-        if (_selectedHasCostumeMsValue is null)
-        {
-            Snackbar.Add("Please select MS for Costume Part", Severity.Warning);
-            return;
-        }
-
-        if (_selectedMsCostumeValue is null)
-        {
-            Snackbar.Add("Please select Costume for Costume Part", Severity.Warning);
-            return;
-        }
-
-        _hideMsCostumeProgress = "visible";
-        StateHasChanged();
-
-        var dto = new UpsertMsCostumeRequest()
-        {
-            AccessCode = AccessCode,
-            ChipId = ChipId,
-            MobileSuit = new BaseMobileSuit
-            {
-                MobileSuitId = _selectedHasCostumeMsValue.Id,
-                CostumeId = _selectedMsCostumeValue.Id
-            }
-        };
-
-        var response = await Http.PostAsJsonAsync("/card/upsertMsCostume", dto);
-        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
-        result.ThrowIfNull();
-
-        ShowBasicResponseSnack(result, "mobile suit costume");
-
-        _hideMsCostumeProgress = "invisible";
-        StateHasChanged();
-        return;
-    }
-
-    private void ShowBasicResponseSnack(BasicResponse result, string context = "")
-    {
-        if (result.Success)
-            Snackbar.Add($"Updatng {context} successful!", Severity.Success);
-        else
-            Snackbar.Add($"Updating {context} failed!", Severity.Error);
-    }
-}

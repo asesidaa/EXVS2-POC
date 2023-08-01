@@ -20,7 +20,7 @@
 }*@
 <MudGrid Class="my-8">
 
-    @if (CardDtos is null)
+    @if (cardDtos is null)
     {
         @for (var i = 0; i < 3; i++)
         {
@@ -47,9 +47,9 @@
         return;
     }
 
-    @if (CardDtos.Count != 0)
+    @if (cardDtos.Count != 0)
     {
-        @foreach (var card in CardDtos)
+        @foreach (var card in cardDtos)
         {
             <MudItem xs="12" md="6" lg="4">
                 <MudCard>
@@ -90,11 +90,11 @@
 </MudGrid>
 
 @code{
-    private List<BareboneCardProfile>? CardDtos;
+    private List<BareboneCardProfile>? cardDtos;
 
     protected override async Task OnInitializedAsync()
     {
-        CardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>("card/getAll");
+        cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>("card/getAll");
     }
 
     private async Task OnEditPlayerNameClicked(BareboneCardProfile card)

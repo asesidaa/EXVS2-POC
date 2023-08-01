@@ -1,6 +1,6 @@
 ﻿using WebUI.Shared.Dto.Json;
 
-namespace WebUI.Services;
+namespace WebUI.Client.Services;
 
 public interface IDataService
 {

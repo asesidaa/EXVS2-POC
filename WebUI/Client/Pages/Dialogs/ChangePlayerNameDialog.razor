@@ -31,7 +31,9 @@
 </MudDialog>
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
 
     [Parameter]
     public BareboneCardProfile Data { get; set; } = null!;
@@ -79,7 +81,6 @@
             Snackbar.Add("Username update failed!", Severity.Error);
 
         MudDialog.Close(DialogResult.Ok(result));
-        return;
     }
 
     void Cancel()
