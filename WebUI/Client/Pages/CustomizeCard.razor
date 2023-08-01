@@ -71,7 +71,16 @@
                     </MudStack>
                 </MudStack>
                 <MudItem xs="8">
-                    <MudSelect @bind-Value="basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Dense" T="BgmPlayingMethod"
+                    <MudTextField @bind-Value="basicProfile.UserName"
+                                  Immediate="true"
+                                  Variant="Variant.Outlined"
+                                  Counter="PLAYER_NAME_MAX_LENGTH"
+                                  MaxLength="PLAYER_NAME_MAX_LENGTH"
+                                  Label="Player Name"
+                                  Validation="ValidatePlayerName" />
+                </MudItem>
+                <MudItem xs="8">
+                    <MudSelect @bind-Value="basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
                                Label="BGM Play Type" Variant="Variant.Outlined" ToStringFunc="@converter">
                         @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
                         {
@@ -116,8 +125,8 @@
                 <MudItem xs="10">
                     <MudGrid Class="align-center">
                         <MudItem xs="10">
-                            <MudField Label="Gauge UI" Variant="Variant.Outlined" InnerPadding="false">
-                                <MudText Class="ma-4" Align="Align.Center">@GetGaugeName(basicProfile.DefaultGaugeDesignId)</MudText>
+                            <MudField Label="Gauge UI" Variant="Variant.Outlined">
+                                <MudText Align="Align.Center">@GetGaugeName(basicProfile.DefaultGaugeDesignId)</MudText>
                             </MudField>
                         </MudItem>
                         <MudItem xs="2">
@@ -147,8 +156,8 @@
                 <MudItem xs="10">
                     <MudGrid Class="align-center">
                         <MudItem xs="10">
-                            <MudField Label="UI Navigator" Variant="Variant.Outlined" InnerPadding="false">
-                                <MudText Class="ma-4" Align="Align.Center">@GetNaviName(naviProfile.DefaultUiNaviId)</MudText>
+                            <MudField Label="UI Navigator" Variant="Variant.Outlined">
+                                <MudText Align="Align.Center">@GetNaviName(naviProfile.DefaultUiNaviId)</MudText>
                             </MudField>
                         </MudItem>
                         <MudItem xs="2">
@@ -160,8 +169,8 @@
                 <MudItem xs="10">
                     <MudGrid Class="align-center">
                         <MudItem xs="10">
-                            <MudField Label="In Battle Navigator" Variant="Variant.Outlined" InnerPadding="false">
-                                <MudText Class="ma-4" Align="Align.Center">@GetNaviName(naviProfile.DefaultBattleNaviId)</MudText>
+                            <MudField Label="In Battle Navigator" Variant="Variant.Outlined">
+                                <MudText Align="Align.Center">@GetNaviName(naviProfile.DefaultBattleNaviId)</MudText>
                             </MudField>
                         </MudItem>
                         <MudItem xs="2">
@@ -325,27 +334,38 @@
             </CardHeaderActions>
         </MudCardHeader>
         <MudCardContent>
-            <MudStack Row>
-                <MudSelect @bind-Value="SelectedHasCostumeMsValue" Margin="Margin.Dense" T="MobileSuit"
+            <MudStack>
+@*                <MudItem xs="10">
+                    <MudGrid Class="align-center">
+                        <MudItem xs="10">
+                            <MudField Label="In Battle Navigator" Variant="Variant.Outlined">
+                                <MudText Align="Align.Center">@GetMobileSuitName(costume.DefaultBattleNaviId)</MudText>
+                            </MudField>
+                        </MudItem>
+                        <MudItem xs="2">
+                            <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                           OnClick="() => OpenNaviChangeBattleDialog()" />
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>*@
+              <MudSelect @bind-Value="SelectedHasCostumeMsValue" T="MobileSuit"
                            Label="MS Available For Alternative Costume" Variant="Variant.Outlined">
                     @foreach (var item in DataService.GetCostumeMobileSuitSortedById())
                     {
                         <MudSelectItem Value="item">@item.NameEN</MudSelectItem>
                     }
                 </MudSelect>
-            </MudStack>
-            @if (SelectedHasCostumeMsValue is not null)
-            {
-                <MudStack Row>
-                    <MudSelect @bind-Value="SelectedMsCostumeValue" Margin="Margin.Dense" T="Costume"
-                               Label="Alternative Costume" Variant="Variant.Outlined">
+                @if (SelectedHasCostumeMsValue is not null)
+                {
+                    <MudSelect @bind-Value="SelectedMsCostumeValue" T="Costume"
+                                Label="Alternative Costume" Variant="Variant.Outlined">
                         @foreach (var item in SelectedHasCostumeMsValue!.Costumes)
                         {
                             <MudSelectItem Value="item">@item.Name</MudSelectItem>
                         }
                     </MudSelect>
-                </MudStack>
-            }
+                }
+            </MudStack>
         </MudCardContent>
     </MudCard>
 </MudStack>

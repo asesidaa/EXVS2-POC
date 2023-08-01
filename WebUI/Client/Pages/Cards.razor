@@ -19,7 +19,6 @@
     return;
 }*@
 <MudGrid Class="my-8">
-
     @if (cardDtos is null)
     {
         @for (var i = 0; i < 3; i++)
@@ -47,54 +46,68 @@
         return;
     }
 
-    @if (cardDtos.Count != 0)
-    {
-        @foreach (var card in cardDtos)
-        {
-            <MudItem xs="12" md="6" lg="4">
-                <MudCard>
-                    <MudCardHeader>
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h5">@card.UserName</MudText>
-                        </CardHeaderContent>
-                        <CardHeaderActions>
-                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default"
-                                           OnClick="() => OnEditPlayerNameClicked(card)"/>
-                        </CardHeaderActions>
-                    </MudCardHeader>
-                    <MudCardContent>
-                        <MudText Style="font-weight: bold">Card ID</MudText>
-                        <MudText Style="font-family:monospace">@card.ChipId</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
-                            <MudButton OnClick="() => OnEditCardClicked(card)"
-                                       Variant="Variant.Text"
-                                       StartIcon="@Icons.Material.Filled.DisplaySettings"
-                                       Color="Color.Primary">
-                                Edit Options
-                            </MudButton>
-                        </MudStack>
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
-        }
-        return;
-    }
-
     <MudItem xs="12">
-        <MudText Align="Align.Center" Typo="Typo.h3">
-            No Data
-        </MudText>
+        <MudStack>
+            <MudTextField @bind-Value="_searchText" Label="Search" HelperText="Player Name / Card Id" Variant="Variant.Outlined" Immediate="true" TextChanged="SearchEntered" />
+
+        @if (cardDtos.Count != 0)
+        {
+            @foreach (var card in cardDtos)
+            {
+                <MudItem xs="12" md="6" lg="4">
+                    <MudCard Elevation="4">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h5">@card.UserName</MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+    @*                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default"
+                                                OnClick="() => OnEditPlayerNameClicked(card)"/>*@
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudText Style="font-weight: bold">Card ID</MudText>
+                            <MudText Style="font-family:monospace">@card.ChipId</MudText>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                                <MudButton OnClick="() => OnEditCardClicked(card)"
+                                            Variant="Variant.Text"
+                                            StartIcon="@Icons.Material.Filled.DisplaySettings"
+                                            Color="Color.Primary">
+                                    Edit Options
+                                </MudButton>
+                            </MudStack>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+                }
+                return;
+            }
+            else
+            {
+                <MudItem xs="12">
+                    <MudText Align="Align.Center" Typo="Typo.h3">
+                        No Data
+                    </MudText>
+                </MudItem>
+            }
+        </MudStack>
     </MudItem>
 </MudGrid>
 
 @code{
     private List<BareboneCardProfile>? cardDtos;
 
+    private List<BareboneCardProfile>? originalCardDtos;
+
+    private string _searchText { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>("card/getAll");
+
+        originalCardDtos = cardDtos;
     }
 
     private async Task OnEditPlayerNameClicked(BareboneCardProfile card)
@@ -131,5 +144,11 @@
         {
             StateHasChanged();
         }
+    }
+
+    private void SearchEntered(string input)
+    {
+        cardDtos = originalCardDtos.Where(x => x.UserName.Contains(input) || x.ChipId.Contains(input)).ToList();
+        StateHasChanged();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Http.Json;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using Throw;
@@ -37,7 +38,8 @@ public partial class CustomizeCard
     private string HideNaviProgress { get; set; } = "invisible";
     private string HideFavMsProgress { get; set; } = "invisible";
     private string HideMsCostumeProgress { get; set; } = "invisible";
-    
+    private const int PLAYER_NAME_MAX_LENGTH = 12;
+
     private MobileSuit? SelectedHasCostumeMsValue { get; set; }
     private Costume? SelectedMsCostumeValue { get; set; }
 
@@ -396,5 +398,17 @@ public partial class CustomizeCard
             Snackbar.Add($"Updatng {context} successful!", Severity.Success);
         else
             Snackbar.Add($"Updating {context} failed!", Severity.Error);
+    }
+
+    private static string? ValidatePlayerName(string playerName)
+    {
+        const string pattern = @"^[a-zA-Z0-9!?,./\-+:<>_\\@*#&=() ]{1,12}$";
+
+        return playerName.Length switch
+        {
+            0 => "Player name cannot be empty!",
+            > PLAYER_NAME_MAX_LENGTH => "Player name cannot be longer than 12 characters!",
+            _ => !Regex.IsMatch(playerName, pattern) ? "Player name contains invalid character!" : null
+        };
     }
 }
