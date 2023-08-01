@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using nue.protocol.exvs;
 using Server.Handlers.Card;
 using Server.Handlers.Card.Message;
 using Server.Handlers.Card.MobileSuit;
@@ -93,6 +94,14 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<BasicResponse>> UpdateAllFavouriteMs([FromBody] UpdateAllFavouriteMsRequest request)
     {
         var response = await mediator.Send(new UpdateAllFavouriteMsCommand(request));
+        return response;
+    }
+    
+    [HttpGet("getUsedMobileSuitData/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<List<Response.LoadCard.PilotDataGroup.MSSkillGroup>>> GetUsedMobileSuitData(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetUsedMobileSuitDataCommand(accessCode, chipId));
         return response;
     }
     
