@@ -57,31 +57,81 @@
     "Id": 13,
     "NameEN": "Guncannon",
     "NameJP": "ガンキャノン [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 19,
     "NameEN": "Zeta Gundam",
     "NameJP": "Zガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 20,
     "NameEN": "Hyashiki",
     "NameJP": "百式",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 21,
     "NameEN": "Messala",
     "NameJP": "メッサーラ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 22,
     "NameEN": "The-O",
     "NameJP": "ジ・O",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 23,
@@ -117,19 +167,49 @@
     "Id": 36,
     "NameEN": "Full Armor ZZ Gundam",
     "NameJP": "フルアーマーZZガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 37,
     "NameEN": "Qubeley MK-II (Ple Two)",
     "NameJP": "キュベレイMk-II(プル)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 38,
     "NameEN": "Qubeley",
     "NameJP": "キュベレイ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 39,
@@ -147,13 +227,33 @@
     "Id": 41,
     "NameEN": "Zeta Gundam (Roux Louka)",
     "NameJP": "Zガンダム(ルー搭乗) [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 47,
     "NameEN": "ZZ Gundam",
     "NameJP": "ZZガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 48,
@@ -171,13 +271,33 @@
     "Id": 52,
     "NameEN": "Nu Gundam",
     "NameJP": "νガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 53,
     "NameEN": "Sazabi",
     "NameJP": "サザビー",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 54,
@@ -195,7 +315,17 @@
     "Id": 57,
     "NameEN": "Gundam F91",
     "NameJP": "ガンダムF91",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 58,
@@ -207,7 +337,17 @@
     "Id": 61,
     "NameEN": "V2 Gundam",
     "NameJP": "V2ガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 62,
@@ -225,7 +365,17 @@
     "Id": 64,
     "NameEN": "Victory Gundam",
     "NameJP": "ヴィクトリーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 73,
@@ -237,25 +387,65 @@
     "Id": 74,
     "NameEN": "God Gundam",
     "NameJP": "ゴッドガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 75,
     "NameEN": "Dragon Gundam",
     "NameJP": "ドラゴンガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 76,
     "NameEN": "Master Gundam",
     "NameJP": "マスターガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 77,
     "NameEN": "Gundam Spiegel",
     "NameJP": "ガンダムシュピーゲル",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 78,
@@ -267,7 +457,17 @@
     "Id": 79,
     "NameEN": "Shining Gundam",
     "NameJP": "シャイニングガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 80,
@@ -279,19 +479,49 @@
     "Id": 81,
     "NameEN": "Gundam Maxter",
     "NameJP": "ガンダムマックスター",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 82,
     "NameEN": "Wing Gundam Zero",
     "NameJP": "ウイングガンダムゼロ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 83,
     "NameEN": "Gundam Epyon",
     "NameJP": "ガンダムエピオン",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 90,
@@ -309,7 +539,17 @@
     "Id": 93,
     "NameEN": "Gundam Deathscythe Hell",
     "NameJP": "ガンダムデスサイズヘル [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 94,
@@ -327,7 +567,17 @@
     "Id": 96,
     "NameEN": "Wing Gundam Zero EW",
     "NameJP": "ウイングガンダムゼロ(EW版)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 97,
@@ -339,13 +589,33 @@
     "Id": 98,
     "NameEN": "Tallgeese III",
     "NameJP": "トールギスIII",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 99,
     "NameEN": "Gundam Deathscythe Hell EW",
     "NameJP": "ガンダムデスサイズヘル(EW版)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 100,
@@ -369,13 +639,33 @@
     "Id": 103,
     "NameEN": "Gundam X",
     "NameJP": "ガンダムX [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 105,
     "NameEN": "Turn A Gundam",
     "NameJP": "∀ガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 106,
@@ -393,7 +683,17 @@
     "Id": 108,
     "NameEN": "Kapool",
     "NameJP": "カプル",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 109,
@@ -405,19 +705,49 @@
     "Id": 111,
     "NameEN": "Strike Gundam",
     "NameJP": "ストライクガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 112,
     "NameEN": "Forbidden Gundam",
     "NameJP": "フォビドゥンガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 113,
     "NameEN": "Providence Gundam",
     "NameJP": "プロヴィデンスガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 114,
@@ -429,7 +759,17 @@
     "Id": 115,
     "NameEN": "Freedom Gundam",
     "NameJP": "フリーダムガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 116,
@@ -453,7 +793,17 @@
     "Id": 120,
     "NameEN": "Raider Gundam",
     "NameJP": "レイダーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 121,
@@ -465,67 +815,177 @@
     "Id": 122,
     "NameEN": "Aegis Gundam",
     "NameJP": "イージスガンダム [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 123,
     "NameEN": "Strike Freedom Gundam",
     "NameJP": "ストライクフリーダムガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 124,
     "NameEN": "Infinite Justice Gundam",
     "NameJP": "インフィニットジャスティスガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 125,
     "NameEN": "Destiny Gundam",
     "NameJP": "デスティニーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 126,
     "NameEN": "Gunner ZAKU Warrior",
     "NameJP": "ガナーザクウォーリア",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 127,
     "NameEN": "Impulse Gundam",
     "NameJP": "インパルスガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 128,
     "NameEN": "Gaia Gundam",
     "NameJP": "ガイアガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 129,
     "NameEN": "Legend Gundam",
     "NameJP": "レジェンドガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 130,
     "NameEN": "Impulse Gundam (Lunamaria Hawke)",
     "NameJP": "インパルスガンダム(ルナマリア搭乗) [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 131,
     "NameEN": "Infinite Justice Gundam (Lacus Clyne)",
     "NameJP": "インフィニットジャスティスガンダム(ラクス搭乗) [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 133,
     "NameEN": "Gouf Ignited",
     "NameJP": "グフイグナイテッド",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 134,
@@ -537,7 +997,17 @@
     "Id": 137,
     "NameEN": "Akatsuki Gundam",
     "NameJP": "アカツキ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 138,
@@ -555,19 +1025,49 @@
     "Id": 140,
     "NameEN": "Susanowo",
     "NameJP": "スサノオ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 141,
     "NameEN": "Cherudim Gundam",
     "NameJP": "ケルディムガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 142,
     "NameEN": "Arche Gundam",
     "NameJP": "アルケーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 143,
@@ -579,13 +1079,33 @@
     "Id": 144,
     "NameEN": "Reborns Gundam",
     "NameJP": "リボーンズガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 145,
     "NameEN": "Gundam Throne Drei",
     "NameJP": "ガンダムスローネドライ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 146,
@@ -615,19 +1135,49 @@
     "Id": 152,
     "NameEN": "Jagd Arche Gundam",
     "NameJP": "ヤークトアルケーガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 153,
     "NameEN": "Gundam Kyrios",
     "NameJP": "ガンダムキュリオス [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 154,
     "NameEN": "Gundam Virtue",
     "NameJP": "ガンダムヴァーチェ [EX]",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 157,
@@ -639,7 +1189,17 @@
     "Id": 162,
     "NameEN": "00 Quan[T]",
     "NameJP": "ダブルオークアンタ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 163,
@@ -651,19 +1211,49 @@
     "Id": 164,
     "NameEN": "Brave (Commander Test Type)",
     "NameJP": "ブレイヴ指揮官用試験機",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 165,
     "NameEN": "00 Quan[T] Full Saber",
     "NameJP": "ダブルオークアンタ フルセイバー",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 166,
     "NameEN": "Gundam Zabanya",
     "NameJP": "ガンダムサバーニャ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 167,
@@ -675,19 +1265,49 @@
     "Id": 168,
     "NameEN": "Unicorn Gundam",
     "NameJP": "ユニコーンガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 169,
     "NameEN": "Kshatriya",
     "NameJP": "クシャトリヤ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 170,
     "NameEN": "Sinanju",
     "NameJP": "シナンジュ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 171,
@@ -699,7 +1319,17 @@
     "Id": 172,
     "NameEN": "Unicorn Gundam Banshee",
     "NameJP": "バンシィ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 173,
@@ -711,7 +1341,17 @@
     "Id": 175,
     "NameEN": "Full Armor Unicorn Gundam",
     "NameJP": "フルアーマー・ユニコーンガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 176,
@@ -723,7 +1363,17 @@
     "Id": 180,
     "NameEN": "Alex",
     "NameJP": "アレックス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 181,
@@ -801,7 +1451,17 @@
     "Id": 199,
     "NameEN": "Crossbone Gundam X1 Kai",
     "NameJP": "クロスボーン・ガンダムX1改",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 200,
@@ -819,13 +1479,33 @@
     "Id": 205,
     "NameEN": "Crossbone Gundam X1 Full Cloth",
     "NameJP": "クロスボーン・ガンダムX1フルクロス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 206,
     "NameEN": "Vigna Ghina II",
     "NameJP": "ビギナ・ギナII(木星決戦仕様)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 207,
@@ -849,25 +1529,65 @@
     "Id": 210,
     "NameEN": "Hi-Nu Gundam",
     "NameJP": "Hi-νガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 211,
     "NameEN": "Nightingale",
     "NameJP": "ナイチンゲール",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 212,
     "NameEN": "Gundam Astray Red Frame",
     "NameJP": "アストレイレッドフレーム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 213,
     "NameEN": "Gundam Astray Blue Frame Second L",
     "NameJP": "アストレイブルーフレームセカンドL",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 214,
@@ -897,31 +1617,81 @@
     "Id": 218,
     "NameEN": "Gundam Astray Red Frame Kai",
     "NameJP": "アストレイレッドフレーム改",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 220,
     "NameEN": "Gundam Astray Red Frame Dragon",
     "NameJP": "アストレイレッドフレーム(レッドドラゴン)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 221,
     "NameEN": "Gundam Astray Blue Frame D",
     "NameJP": "アストレイブルーフレームD",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 222,
     "NameEN": "Strike Noir Gundam",
     "NameJP": "ストライクノワール",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 223,
     "NameEN": "Stargazer Gundam",
     "NameJP": "スターゲイザー",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 224,
@@ -945,25 +1715,65 @@
     "Id": 228,
     "NameEN": "Gundam AGE-1",
     "NameJP": "ガンダムAGE-1",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 229,
     "NameEN": "Gundam AGE-2",
     "NameJP": "ガンダムAGE-2",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 230,
     "NameEN": "Gundam AGE-3",
     "NameJP": "ガンダムAGE-3",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 231,
     "NameEN": "Gundam AGE-FX",
     "NameJP": "ガンダムAGE-FX",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 232,
@@ -993,49 +1803,129 @@
     "Id": 237,
     "NameEN": "Gundam AGE-1 Glansa",
     "NameJP": "ガンダムAGE-1 フルグランサ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 238,
     "NameEN": "Fawn Farsia",
     "NameJP": "フォーンファルシア",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 240,
     "NameEN": "Extreme Gundam Eclipse",
     "NameJP": "エクストリームガンダム エクリプス-F",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 241,
     "NameEN": "Extreme Gundam Xenon",
     "NameJP": "エクストリームガンダム ゼノン-F",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 242,
     "NameEN": "Extreme Gundam Aios",
     "NameJP": "エクストリームガンダム アイオス-F",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 243,
     "NameEN": "Extreme Gundam Leos II VS",
     "NameJP": "エクストリームガンダム type-レオスII Vs.",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 244,
     "NameEN": "Extreme Gundam Sthesia Excellia",
     "NameJP": "エクストリームガンダム エクセリア",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 248,
     "NameEN": "Gundam G-Self",
     "NameJP": "G-セルフ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 249,
@@ -1047,13 +1937,33 @@
     "Id": 250,
     "NameEN": "Gundam G-Self Perfect Pack",
     "NameJP": "G-セルフ(パーフェクトパック)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 251,
     "NameEN": "Gundam G-Arcane (Full Dress)",
     "NameJP": "G-アルケイン(フルドレス)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 252,
@@ -1065,7 +1975,17 @@
     "Id": 253,
     "NameEN": "Gundam Barbatos",
     "NameJP": "ガンダム・バルバトス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 256,
@@ -1077,25 +1997,65 @@
     "Id": 257,
     "NameEN": "Gundam Barbatos Lupus",
     "NameJP": "ガンダム・バルバトスルプス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 258,
     "NameEN": "Gundam Gusion Rebake Full City",
     "NameJP": "ガンダム・グシオンリベイクフルシティ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 259,
     "NameEN": "Gundam Bael",
     "NameJP": "ガンダム・バエル",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 260,
     "NameEN": "Gundam Barbatos Lupus Rex",
     "NameJP": "ガンダム・バルバトスルプスレクス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 261,
@@ -1125,13 +2085,33 @@
     "Id": 269,
     "NameEN": "Full Armor Gundam",
     "NameJP": "フルアーマー・ガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 270,
     "NameEN": "Zaku II High Mobility Type (Psycho Zaku)",
     "NameJP": "サイコ・ザク",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 271,
@@ -1143,7 +2123,17 @@
     "Id": 272,
     "NameEN": "Acguy (Thunderbolt Ver.)",
     "NameJP": "アッガイ(ダリル搭乗)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 279,
@@ -1155,7 +2145,17 @@
     "Id": 280,
     "NameEN": "Zaku Amazing",
     "NameJP": "ザクアメイジング",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 281,
@@ -1167,31 +2167,81 @@
     "Id": 283,
     "NameEN": "Try Burning Gundam",
     "NameJP": "トライバーニングガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 284,
     "NameEN": "Lightning Gundam Full Burnern",
     "NameJP": "ライトニングガンダムフルバーニアン",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 285,
     "NameEN": "Star Winning Gundam",
     "NameJP": "スターウイニングガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 286,
     "NameEN": "Gundam X Maoh",
     "NameJP": "ガンダムX魔王",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 287,
     "NameEN": "Gundam G-Lucifer",
     "NameJP": "G-ルシファー",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 288,
@@ -1215,25 +2265,65 @@
     "Id": 291,
     "NameEN": "Kabakali",
     "NameJP": "カバカーリー",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 292,
     "NameEN": "Wing Gundam Fenice",
     "NameJP": "ウイングガンダムフェニーチェ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 293,
     "NameEN": "Sinanju Stein",
     "NameJP": "シナンジュ・スタイン",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 294,
     "NameEN": "Gundam 00 Diver Ace",
     "NameJP": "ガンダムダブルオーダイバーエース",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 295,
@@ -1251,73 +2341,193 @@
     "Id": 297,
     "NameEN": "Gundam Flauros (Ryusei-Go)",
     "NameJP": "ガンダム・フラウロス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 298,
     "NameEN": "Over.on",
     "NameJP": "オーヴェロン",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 299,
     "NameEN": "RX-Zeromaru",
     "NameJP": "RX-零丸",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 300,
     "NameEN": "Dijeh",
     "NameJP": "ディジェ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 301,
     "NameEN": "Justice Gundam",
     "NameJP": "ジャスティスガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 302,
     "NameEN": "Sengoku Astray Gundam",
     "NameJP": "戦国アストレイ頑駄無",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 303,
     "NameEN": "N-Extreme Gundam Explosion",
     "NameJP": "N-EXTREMEガンダム エクスプロージョン",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 304,
     "NameEN": "N-Extreme Gundam Xanadu",
     "NameJP": "N-EXTREMEガンダム ザナドゥ",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 305,
     "NameEN": "N-Extreme Gundam Vicious",
     "NameJP": "N-EXTREMEガンダム ヴィシャス",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 306,
     "NameEN": "N-Extreme Gundam Supremacy",
     "NameJP": "N-EXTREMEガンダム スプレマシー",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 307,
     "NameEN": "Garazzo (Hiling Care Custom)",
     "NameJP": "ガラッゾ(ヒリング・ケア機)",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 308,
     "NameEN": "Dahack",
     "NameJP": "ダハック",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 310,
@@ -1329,12 +2539,32 @@
     "Id": 311,
     "NameEN": "Calamity Gundam",
     "NameJP": "カラミティガンダム",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   },
   {
     "Id": 312,
     "NameEN": "Nu Gundam HWS",
     "NameJP": "νガンダムHWS",
-    "NameCN": ""
+    "NameCN": "",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Name": "Default"
+      },
+      {
+        "Id": 1,
+        "Name": "Alternative"
+      }
+    ]
   }
 ]
