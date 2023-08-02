@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using Throw;
+using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Json;
 
 namespace WebUI.Client.Services;
@@ -10,11 +11,15 @@ public class DataService : IDataService
     private Dictionary<uint, Bgm> bgm = new();
     private Dictionary<uint, Gauge> gauge = new();
     private Dictionary<uint, Navigator> navigator = new();
+    private Dictionary<uint, IdValuePair> triadSkill = new();
+    private Dictionary<uint, IdValuePair> triadTeamBanner = new();
 
     private List<MobileSuit> sortedMobileSuitList = new();
     private List<Bgm> sortedBgmList = new();
     private List<Gauge> sortedGaugeList = new();
     private List<Navigator> sortedNavigatorList = new();
+    private List<IdValuePair> sortedTriadSkillList = new();
+    private List<IdValuePair> sortedTriadTeamBannerList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -46,6 +51,16 @@ public class DataService : IDataService
         naviList.ThrowIfNull();
         navigator = naviList.ToDictionary(ms => ms.Id);
         sortedNavigatorList = naviList.OrderBy(title => title.Id).ToList();
+        
+        var triadSkillList = await client.GetFromJsonAsync<List<IdValuePair>>("data/TriadSkills.json");
+        triadSkillList.ThrowIfNull();
+        triadSkill = triadSkillList.ToDictionary(ms => ms.Id);
+        sortedTriadSkillList = triadSkillList.OrderBy(title => title.Id).ToList();
+        
+        var triadTeamBannerList = await client.GetFromJsonAsync<List<IdValuePair>>("data/TriadTeamBanners.json");
+        triadTeamBannerList.ThrowIfNull();
+        triadTeamBanner = triadTeamBannerList.ToDictionary(ms => ms.Id);
+        sortedTriadTeamBannerList = triadTeamBannerList.OrderBy(title => title.Id).ToList();
     }
 
     public IReadOnlyList<MobileSuit> GetMobileSuitSortedById()
@@ -90,5 +105,21 @@ public class DataService : IDataService
     public Navigator? GetNavigatorById(uint id)
     {
         return navigator.GetValueOrDefault(id);
+    }
+    public IReadOnlyList<IdValuePair> GetSortedTriadSkillList()
+    {
+        return sortedTriadSkillList;
+    }
+    public IdValuePair? GetTriadSkill(uint id)
+    {
+        return triadSkill.GetValueOrDefault(id);
+    }
+    public IReadOnlyList<IdValuePair> GetSortedTriadTeamBannerList()
+    {
+        return sortedTriadTeamBannerList;
+    }
+    public IdValuePair? GetTriadTeamBanner(uint id)
+    {
+        return triadTeamBanner.GetValueOrDefault(id);
     }
 }
