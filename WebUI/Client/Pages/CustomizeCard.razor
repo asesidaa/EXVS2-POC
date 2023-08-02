@@ -368,4 +368,97 @@
             </MudStack>
         </MudCardContent>
     </MudCard>
+    <MudCard Class="my-2" Elevation="5">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">Triad Mode CPU Partner</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@HideTriadCpuPartnerProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTriadCpuPartner"
+                                   Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
+            </CardHeaderActions>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudStack>
+                <MudItem xs="10">
+                    <MudGrid Class="align-center">
+                        <MudItem xs="10">
+                            <MudField Label="CPU Mobile Suit" Variant="Variant.Outlined">
+                                <MudText Align="Align.Center">@GetMobileSuitName(cpuTriadPartner.MobileSuitId)</MudText>
+                            </MudField>
+                        </MudItem>
+                        <MudItem xs="2">
+                            <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                           OnClick="() => OpenCpuTriadMobileSuitUiDialog()" />
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSlider @bind-Value="cpuTriadPartner.ArmorLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Armor (耐久値):</MudSlider>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSlider @bind-Value="cpuTriadPartner.ShootAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Shooting (射撃･攻):</MudSlider>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSlider @bind-Value="cpuTriadPartner.InfightAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Infight (格闘･攻):</MudSlider>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSlider @bind-Value="cpuTriadPartner.BoosterLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Booster (ブースト):</MudSlider>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSlider @bind-Value="cpuTriadPartner.ExGaugeLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">EX Gauge (EXゲージ):</MudSlider>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSlider @bind-Value="cpuTriadPartner.AiLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">AI:</MudSlider>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSelect @bind-Value="SelectedTriadSkill1" T="IdValuePair"
+                               Label="CPU Skill 1" Variant="Variant.Outlined">
+                        @foreach (var item in DataService.GetSortedTriadSkillList())
+                        {
+                            <MudSelectItem Value="item">@item.Value</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSelect @bind-Value="SelectedTriadSkill2" T="IdValuePair"
+                                Label="CPU Skill 2" Variant="Variant.Outlined">
+                        @foreach (var item in DataService.GetSortedTriadSkillList())
+                        {
+                            <MudSelectItem Value="item">@item.Value</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSelect Label="Burst Type" @bind-Value="cpuTriadPartner.BurstType" T="BurstType" Variant="Variant.Outlined">
+                        @foreach (var item in Enum.GetValues<BurstType>())
+                        {
+                            <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="cpuTriadPartner.TriadTeamName"
+                                  Immediate="true"
+                                  Variant="Variant.Outlined"
+                                  Counter="PLAYER_NAME_MAX_LENGTH"
+                                  MaxLength="PLAYER_NAME_MAX_LENGTH"
+                                  Label="Triad Team Name"
+                                  Validation="ValidatePlayerName" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSelect @bind-Value="SelectedTriadTeamBanner" T="IdValuePair"
+                            Label="Triad Team Banner" Variant="Variant.Outlined">
+                         @foreach (var item in DataService.GetSortedTriadTeamBannerList())
+                         {
+                             <MudSelectItem Value="item">@item.Value</MudSelectItem>
+                         }
+                    </MudSelect>
+                </MudItem>
+            </MudStack>
+        </MudCardContent>
+    </MudCard>
 </MudStack>

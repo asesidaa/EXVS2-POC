@@ -47,12 +47,12 @@ public class UpdateCpuTriadPartnerCommandHandler : IRequestHandler<UpdateCpuTria
 
         mobileUserGroup.MstMobileSuitId = updateRequest.CpuTriadPartner.MobileSuitId;
         mobileUserGroup.BurstType = (uint)updateRequest.CpuTriadPartner.BurstType;
-        mobileUserGroup.ArmorLevel = updateRequest.CpuTriadPartner.ArmorLevel;
-        mobileUserGroup.ShootAttackLevel = updateRequest.CpuTriadPartner.ShootAttackLevel;
-        mobileUserGroup.InfightAttackLevel = updateRequest.CpuTriadPartner.InfightAttackLevel;
-        mobileUserGroup.BoosterLevel = updateRequest.CpuTriadPartner.BoosterLevel;
-        mobileUserGroup.ExGaugeLevel = updateRequest.CpuTriadPartner.ExGaugeLevel;
-        mobileUserGroup.AiLevel = updateRequest.CpuTriadPartner.AiLevel;
+        mobileUserGroup.ArmorLevel = (uint)updateRequest.CpuTriadPartner.ArmorLevel;
+        mobileUserGroup.ShootAttackLevel = (uint)updateRequest.CpuTriadPartner.ShootAttackLevel;
+        mobileUserGroup.InfightAttackLevel = (uint)updateRequest.CpuTriadPartner.InfightAttackLevel;
+        mobileUserGroup.BoosterLevel = (uint)updateRequest.CpuTriadPartner.BoosterLevel;
+        mobileUserGroup.ExGaugeLevel = (uint)updateRequest.CpuTriadPartner.ExGaugeLevel;
+        mobileUserGroup.AiLevel = (uint)updateRequest.CpuTriadPartner.AiLevel;
         mobileUserGroup.TriadTeamName = updateRequest.CpuTriadPartner.TriadTeamName;
         mobileUserGroup.TriadBackgroundPartsId = updateRequest.CpuTriadPartner.TriadBackgroundPartsId;
 

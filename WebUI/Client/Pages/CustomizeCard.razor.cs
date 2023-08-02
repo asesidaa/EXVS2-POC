@@ -25,6 +25,8 @@ public partial class CustomizeCard
     private BasicProfile                       basicProfile = null!;
     private NaviProfile                        naviProfile  = null!;
     private ObservableCollection<FavouriteMs> favouriteMs  = new();
+    private CpuTriadPartner cpuTriadPartner = null;
+    
 
     private string? errorMessage = null;
 
@@ -38,10 +40,15 @@ public partial class CustomizeCard
     private string HideNaviProgress { get; set; } = "invisible";
     private string HideFavMsProgress { get; set; } = "invisible";
     private string HideMsCostumeProgress { get; set; } = "invisible";
+    private string HideTriadCpuPartnerProgress { get; set; } = "invisible";
     private const int PLAYER_NAME_MAX_LENGTH = 12;
 
     private MobileSuit? SelectedHasCostumeMsValue { get; set; }
     private Costume? SelectedMsCostumeValue { get; set; }
+
+    private IdValuePair? SelectedTriadSkill1 { get; set; }
+    private IdValuePair? SelectedTriadSkill2 { get; set; }
+    private IdValuePair? SelectedTriadTeamBanner { get; set; }
 
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
@@ -70,6 +77,9 @@ public partial class CustomizeCard
 
         var favouriteResult = await Http.GetFromJsonAsync<List<FavouriteMs>>($"/card/getAllFavouriteMs/{AccessCode}/{ChipId}");
         favouriteResult.ThrowIfNull();
+        
+        var cpuTriadPartnerResult = await Http.GetFromJsonAsync<CpuTriadPartner>($"/card/getCpuTriadPartner/{AccessCode}/{ChipId}");
+        cpuTriadPartnerResult.ThrowIfNull();
 
         //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
         //Logger.LogInformation($"{json}");
@@ -77,6 +87,10 @@ public partial class CustomizeCard
         basicProfile = profileResult;
         naviProfile = naviResult;
         favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
+        cpuTriadPartner = cpuTriadPartnerResult;
+        SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
+        SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
+        SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
 
         SwitchOpenRecord = Convert.ToBoolean(basicProfile.OpenRecord);
         SwitchOpenEchelon = Convert.ToBoolean(basicProfile.OpenEchelon);
@@ -269,7 +283,20 @@ public partial class CustomizeCard
             StateHasChanged();
         }
     }
-
+    
+    private async Task OpenCpuTriadMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters { { "Data", cpuTriadPartner.MobileSuitId } };
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change CPU Triad Partner MS", parameters, OPTIONS);
+        var result = await dialog.Result;
+        
+        if (!result.Canceled && result.Data != null)
+        {
+            cpuTriadPartner.MobileSuitId = (uint)result.Data;
+            StateHasChanged();
+        }
+    }
+    
     private async Task SaveAll()
     {
         HideSaveAllProgress = "visible";
@@ -278,6 +305,7 @@ public partial class CustomizeCard
         await SaveBasicProfile();
         await SaveNavigatorProfile();
         await SaveFavouriteMobileSuits();
+        await SaveTriadCpuPartner();
 
         HideSaveAllProgress = "invisible";
         StateHasChanged();
@@ -391,6 +419,40 @@ public partial class CustomizeCard
         HideMsCostumeProgress = "invisible";
         StateHasChanged();
     }
+    
+    private async Task SaveTriadCpuPartner()
+    {
+        int totalLevel = cpuTriadPartner.ArmorLevel + cpuTriadPartner.ShootAttackLevel + cpuTriadPartner.InfightAttackLevel
+                         + cpuTriadPartner.BoosterLevel + cpuTriadPartner.ExGaugeLevel + cpuTriadPartner.AiLevel;
+        if (totalLevel > 500)
+        {
+            Snackbar.Add("Sum of CPU Level cannot exceed 500", Severity.Warning);
+            return;
+        }
+        
+        HideTriadCpuPartnerProgress = "visible";
+        StateHasChanged();
+
+        cpuTriadPartner.Skill1 = SelectedTriadSkill1?.Id ?? 0;
+        cpuTriadPartner.Skill2 = SelectedTriadSkill2?.Id ?? 0;
+        cpuTriadPartner.TriadBackgroundPartsId = SelectedTriadTeamBanner?.Id ?? 0;
+
+        var dto = new UpdateCpuTriadPartnerRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            CpuTriadPartner = cpuTriadPartner
+        };
+
+        var response = await Http.PostAsJsonAsync("/card/updateCpuTriadPartner", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, "Triad CPU Partner");
+
+        HideTriadCpuPartnerProgress = "invisible";
+        StateHasChanged();
+    }
 
     private void ShowBasicResponseSnack(BasicResponse result, string context = "")
     {
@@ -402,7 +464,7 @@ public partial class CustomizeCard
 
     private static string? ValidatePlayerName(string playerName)
     {
-        const string pattern = @"^[a-zA-Z0-9!?,./\-+:<>_\\@*#&=() ]{1,12}$";
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
 
         return playerName.Length switch
         {

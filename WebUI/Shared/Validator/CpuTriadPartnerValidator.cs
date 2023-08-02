@@ -8,7 +8,7 @@ public class CpuTriadPartnerValidator
     private const uint MaxAggregatedLv = 500;
     public bool Validate(CpuTriadPartner cpuTriadPartner)
     {
-        uint totalLevel = 0;
+        int totalLevel = 0;
         
         if (cpuTriadPartner.ArmorLevel > MaxIndividualLv)
         {

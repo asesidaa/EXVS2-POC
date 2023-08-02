@@ -91,7 +91,7 @@
 
     private static string? ValidatePlayerName(string playerName)
     {
-        const string pattern = @"^[a-zA-Z0-9!?,./\-+:<>_\\@*#&=() ]{1,12}$";
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
 
         return playerName.Length switch
         {
