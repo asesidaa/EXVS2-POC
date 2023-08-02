@@ -1,0 +1,46 @@
+[
+  {
+    "Id": 0,
+    "Value": "Disable Team Banner"
+  },
+  {
+    "Id": 1,
+    "Value": "Dark Blue"
+  },
+  {
+    "Id": 2,
+    "Value": "Bright Blue"
+  },
+  {
+    "Id": 3,
+    "Value": "Yellow"
+  },
+  {
+    "Id": 4,
+    "Value": "Orange"
+  },
+  {
+    "Id": 5,
+    "Value": "White"
+  },
+  {
+    "Id": 6,
+    "Value": "Black/Brown"
+  },
+  {
+    "Id": 7,
+    "Value": "Purple To Blue Gradient"
+  },
+  {
+    "Id": 8,
+    "Value": "Green To Yellow Gradient"
+  },
+  {
+    "Id": 9,
+    "Value": "Orange To Purple Gradient"
+  },
+  {
+    "Id": 10,
+    "Value": "Black and Gold (MASTER)"
+  }
+]
