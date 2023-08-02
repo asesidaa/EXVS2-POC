@@ -18,7 +18,7 @@ void randomHex(char str[], int length) {
     //hexadecimal characters
     for (int i = 0; i < length; i++)
     {
-        str[i] = hex_characters[rand()%16];
+        str[i] = hex_characters[Random::get(0, 128) % 16];
     }
     str[length] = 0;
 }
