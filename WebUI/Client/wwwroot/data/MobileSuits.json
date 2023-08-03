@@ -627,19 +627,19 @@
     "Id": 101,
     "NameEN": "Gundam Virsago Chest Break",
     "NameJP": "ガンダムヴァサーゴ・チェストブレイク",
-    "NameCN": ""
+    "NameCN": "高达华沙哥破坏者（X）"
   },
   {
     "Id": 102,
     "NameEN": "Gundam X Divider",
     "NameJP": "ガンダムXディバイダー",
-    "NameCN": ""
+    "NameCN": "高达X分裂者（X）"
   },
   {
     "Id": 103,
     "NameEN": "Gundam X",
     "NameJP": "ガンダムX [EX]",
-    "NameCN": "",
+    "NameCN": "X高达（X）",
     "Costumes": [
       {
         "Id": 0,
@@ -655,7 +655,7 @@
     "Id": 105,
     "NameEN": "Turn A Gundam",
     "NameJP": "∀ガンダム",
-    "NameCN": "",
+    "NameCN": "逆A高达（逆A）",
     "Costumes": [
       {
         "Id": 0,
@@ -671,19 +671,19 @@
     "Id": 106,
     "NameEN": "Turn X",
     "NameJP": "ターンX",
-    "NameCN": ""
+    "NameCN": "逆X（逆A）"
   },
   {
     "Id": 107,
     "NameEN": "Gold SUMO",
     "NameJP": "ゴールドスモー",
-    "NameCN": ""
+    "NameCN": "金斯摩（逆A）"
   },
   {
     "Id": 108,
     "NameEN": "Kapool",
     "NameJP": "カプル",
-    "NameCN": "",
+    "NameCN": "卡普尔（绿）",
     "Costumes": [
       {
         "Id": 0,
@@ -699,13 +699,13 @@
     "Id": 109,
     "NameEN": "Koren's Kapool",
     "NameJP": "コレンカプル",
-    "NameCN": ""
+    "NameCN": "卡普尔（红）"
   },
   {
     "Id": 111,
     "NameEN": "Strike Gundam",
     "NameJP": "ストライクガンダム",
-    "NameCN": "",
+    "NameCN": "强袭高达（seed）",
     "Costumes": [
       {
         "Id": 0,
