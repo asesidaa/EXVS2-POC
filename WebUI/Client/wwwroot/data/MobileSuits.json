@@ -1041,7 +1041,7 @@
     "Id": 141,
     "NameEN": "Cherudim Gundam",
     "NameJP": "ケルディムガンダム",
-    "NameCN": "",
+    "NameCN": "智天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1057,7 +1057,7 @@
     "Id": 142,
     "NameEN": "Arche Gundam",
     "NameJP": "アルケーガンダム",
-    "NameCN": "",
+    "NameCN": "权天使高达",
     "Costumes": [
       {
         "Id": 0,
@@ -1073,13 +1073,13 @@
     "Id": 143,
     "NameEN": "Gundam Dynames",
     "NameJP": "ガンダムデュナメス",
-    "NameCN": ""
+    "NameCN": "力天使高达（00）"
   },
   {
     "Id": 144,
     "NameEN": "Reborns Gundam",
     "NameJP": "リボーンズガンダム",
-    "NameCN": "",
+    "NameCN": "再生高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1095,7 +1095,7 @@
     "Id": 145,
     "NameEN": "Gundam Throne Drei",
     "NameJP": "ガンダムスローネドライ",
-    "NameCN": "",
+    "NameCN": "座天使高达3号机（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1111,19 +1111,19 @@
     "Id": 146,
     "NameEN": "Arios Gundam",
     "NameJP": "アリオスガンダム",
-    "NameCN": ""
+    "NameCN": "堕天使高达（00）"
   },
   {
     "Id": 148,
     "NameEN": "Gundam Avalanche Exia",
     "NameJP": "アヴァランチエクシア",
-    "NameCN": ""
+    "NameCN": "雪崩型能天使高达（00V）"
   },
   {
     "Id": 149,
     "NameEN": "00 Gundam Seven Sword/G",
     "NameJP": "ダブルオーガンダム セブンソード／G",
-    "NameCN": ""
+    "NameCN": "00高达七剑（00V）"
   },
   {
     "Id": 151,
