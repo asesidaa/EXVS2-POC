@@ -1129,13 +1129,13 @@
     "Id": 151,
     "NameEN": "Tieren Taozi",
     "NameJP": "ティエレンタオツー",
-    "NameCN": ""
+    "NameCN": "铁人桃子（00）"
   },
   {
     "Id": 152,
     "NameEN": "Jagd Arche Gundam",
     "NameJP": "ヤークトアルケーガンダム",
-    "NameCN": "",
+    "NameCN": "猎兵型权天使高达（00V）",
     "Costumes": [
       {
         "Id": 0,
@@ -1151,7 +1151,7 @@
     "Id": 153,
     "NameEN": "Gundam Kyrios",
     "NameJP": "ガンダムキュリオス [EX]",
-    "NameCN": "",
+    "NameCN": "主天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1167,7 +1167,7 @@
     "Id": 154,
     "NameEN": "Gundam Virtue",
     "NameJP": "ガンダムヴァーチェ [EX]",
-    "NameCN": "",
+    "NameCN": "德天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1183,13 +1183,13 @@
     "Id": 157,
     "NameEN": "Graham's Union Flag Custom",
     "NameJP": "グラハム専用ユニオンフラッグカスタム",
-    "NameCN": ""
+    "NameCN": "格拉汉姆专用联合旗帜式（00）"
   },
   {
     "Id": 162,
     "NameEN": "00 Quan[T]",
     "NameJP": "ダブルオークアンタ",
-    "NameCN": "",
+    "NameCN": "00高达量子型（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1205,13 +1205,13 @@
     "Id": 163,
     "NameEN": "Raphael Gundam",
     "NameJP": "ラファエルガンダム",
-    "NameCN": ""
+    "NameCN": "疗天使高达（00）"
   },
   {
     "Id": 164,
     "NameEN": "Brave (Commander Test Type)",
     "NameJP": "ブレイヴ指揮官用試験機",
-    "NameCN": "",
+    "NameCN": "勇气式指挥官用试验机",
     "Costumes": [
       {
         "Id": 0,
@@ -1227,7 +1227,7 @@
     "Id": 165,
     "NameEN": "00 Quan[T] Full Saber",
     "NameJP": "ダブルオークアンタ フルセイバー",
-    "NameCN": "",
+    "NameCN": "00高达量子型全刃式（00V）",
     "Costumes": [
       {
         "Id": 0,
