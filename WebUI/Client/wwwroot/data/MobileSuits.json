@@ -495,7 +495,7 @@
     "Id": 82,
     "NameEN": "Wing Gundam Zero",
     "NameJP": "ウイングガンダムゼロ",
-    "NameCN": "",
+    "NameCN": "飞翼零式高达（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -511,7 +511,7 @@
     "Id": 83,
     "NameEN": "Gundam Epyon",
     "NameJP": "ガンダムエピオン",
-    "NameCN": "",
+    "NameCN": "艾比安高达（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -527,19 +527,19 @@
     "Id": 90,
     "NameEN": "Altron Gundam",
     "NameJP": "アルトロンガンダム",
-    "NameCN": ""
+    "NameCN": "双头龙高达（W）"
   },
   {
     "Id": 91,
     "NameEN": "Gundam Sandrock Custom",
     "NameJP": "ガンダムサンドロック改",
-    "NameCN": ""
+    "NameCN": "沙漠高达改（W）"
   },
   {
     "Id": 93,
     "NameEN": "Gundam Deathscythe Hell",
     "NameJP": "ガンダムデスサイズヘル [EX]",
-    "NameCN": "",
+    "NameCN": "地狱死神高达（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -555,19 +555,19 @@
     "Id": 94,
     "NameEN": "Tallgeese II",
     "NameJP": "トールギスII",
-    "NameCN": ""
+    "NameCN": "托鲁基斯2（W）"
   },
   {
     "Id": 95,
     "NameEN": "Tallgeese",
     "NameJP": "トールギス [EX]",
-    "NameCN": ""
+    "NameCN": "托鲁基斯（积古斯）（W）"
   },
   {
     "Id": 96,
     "NameEN": "Wing Gundam Zero EW",
     "NameJP": "ウイングガンダムゼロ(EW版)",
-    "NameCN": "",
+    "NameCN": "飞翼零式高达EW（EW）",
     "Costumes": [
       {
         "Id": 0,
@@ -583,13 +583,13 @@
     "Id": 97,
     "NameEN": "Gundam Heavyarms Custom",
     "NameJP": "ガンダムヘビーアームズ改(EW版)",
-    "NameCN": ""
+    "NameCN": "重武装高达EW（EW）"
   },
   {
     "Id": 98,
     "NameEN": "Tallgeese III",
     "NameJP": "トールギスIII",
-    "NameCN": "",
+    "NameCN": "托鲁基斯3（EW）",
     "Costumes": [
       {
         "Id": 0,
@@ -605,7 +605,7 @@
     "Id": 99,
     "NameEN": "Gundam Deathscythe Hell EW",
     "NameJP": "ガンダムデスサイズヘル(EW版)",
-    "NameCN": "",
+    "NameCN": "地狱死神高达EW（EW）",
     "Costumes": [
       {
         "Id": 0,
@@ -621,7 +621,7 @@
     "Id": 100,
     "NameEN": "Gundam DX",
     "NameJP": "ガンダムDX",
-    "NameCN": ""
+    "NameCN": "DX高达（X）"
   },
   {
     "Id": 101,
