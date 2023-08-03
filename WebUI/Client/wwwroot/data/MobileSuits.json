@@ -721,7 +721,7 @@
     "Id": 112,
     "NameEN": "Forbidden Gundam",
     "NameJP": "フォビドゥンガンダム",
-    "NameCN": "",
+    "NameCN": "禁断高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -737,7 +737,7 @@
     "Id": 113,
     "NameEN": "Providence Gundam",
     "NameJP": "プロヴィデンスガンダム",
-    "NameCN": "",
+    "NameCN": "神意高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -753,13 +753,13 @@
     "Id": 114,
     "NameEN": "LaGOWE",
     "NameJP": "ラゴゥ",
-    "NameCN": ""
+    "NameCN": "拉古（seed）"
   },
   {
     "Id": 115,
     "NameEN": "Freedom Gundam",
     "NameJP": "フリーダムガンダム",
-    "NameCN": "",
+    "NameCN": "自由高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -775,19 +775,19 @@
     "Id": 116,
     "NameEN": "Duel Gundam",
     "NameJP": "デュエルガンダムアサルトシュラウド",
-    "NameCN": ""
+    "NameCN": "决斗高达强袭尸装（seed）"
   },
   {
     "Id": 118,
     "NameEN": "Perfect Strike Gundam",
     "NameJP": "パーフェクトストライクガンダム",
-    "NameCN": ""
+    "NameCN": "完美强袭高达（seed）"
   },
   {
     "Id": 119,
     "NameEN": "Blitz Gundam",
     "NameJP": "ブリッツガンダム",
-    "NameCN": ""
+    "NameCN": "闪电高达（seed）"
   },
   {
     "Id": 120,
