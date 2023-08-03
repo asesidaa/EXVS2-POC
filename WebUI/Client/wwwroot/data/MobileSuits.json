@@ -1665,7 +1665,7 @@
     "Id": 222,
     "NameEN": "Strike Noir Gundam",
     "NameJP": "ストライクノワール",
-    "NameCN": "漆黑强袭高达（seed Star G",
+    "NameCN": "漆黑强袭高达（seed Stargazer）",
     "Costumes": [
       {
         "Id": 0,
@@ -1681,7 +1681,7 @@
     "Id": 223,
     "NameEN": "Stargazer Gundam",
     "NameJP": "スターゲイザー",
-    "NameCN": "",
+    "NameCN": "观星者高达（seed Stargazer）",
     "Costumes": [
       {
         "Id": 0,
@@ -1697,7 +1697,7 @@
     "Id": 224,
     "NameEN": "Ex-S Gundam",
     "NameJP": "Ex-Sガンダム",
-    "NameCN": ""
+    "NameCN": "EX-S高达（"
   },
   {
     "Id": 225,
