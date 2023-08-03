@@ -2,7 +2,7 @@
 
 public class CustomizeComment
 {
-    public uint BasePhraseId { get; set; } = 0;
-    public uint SubstitutePart1Id { get; set; } = 0;
-    public uint SubstitutePart2Id { get; set; } = 0;
+    public int BasePhraseId { get; set; } = 0;
+    public int SubstitutePart1Id { get; set; } = 0;
+    public int SubstitutePart2Id { get; set; } = 0;
 }
