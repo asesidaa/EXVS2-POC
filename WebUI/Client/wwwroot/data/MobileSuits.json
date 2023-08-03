@@ -2067,25 +2067,25 @@
     "Id": 265,
     "NameEN": "Pale Rider",
     "NameJP": "ペイルライダー(陸戦重装仕様) [EX]",
-    "NameCN": "苍白骑士（陆战重装式样）（"
+    "NameCN": "苍白骑士（陆战重装式样）（失落的节点）"
   },
   {
     "Id": 266,
     "NameEN": "Vincent's Gelgoog High Mobility Type",
     "NameJP": "高機動型ゲルググ(ヴィンセント機) [EX]",
-    "NameCN": ""
+    "NameCN": "高机动型勇士（文森特机）（失落的节点）"
   },
   {
     "Id": 268,
     "NameEN": "Efreet (Doug Schneid's Unit)",
     "NameJP": "イフリート(シュナイド機) [EX]",
-    "NameCN": ""
+    "NameCN": "伊芙利特（施耐德机）（失落的节点）"
   },
   {
     "Id": 269,
     "NameEN": "Full Armor Gundam",
     "NameJP": "フルアーマー・ガンダム",
-    "NameCN": "",
+    "NameCN": "全装甲高达（雷霆宙域）",
     "Costumes": [
       {
         "Id": 0,
@@ -2101,7 +2101,7 @@
     "Id": 270,
     "NameEN": "Zaku II High Mobility Type (Psycho Zaku)",
     "NameJP": "サイコ・ザク",
-    "NameCN": "",
+    "NameCN": "精神力扎古（雷霆宙域）",
     "Costumes": [
       {
         "Id": 0,
@@ -2117,13 +2117,13 @@
     "Id": 271,
     "NameEN": "Atlas Gundam",
     "NameJP": "アトラスガンダム",
-    "NameCN": ""
+    "NameCN": "阿特拉斯高达（雷霆宙域）"
   },
   {
     "Id": 272,
     "NameEN": "Acguy (Thunderbolt Ver.)",
     "NameJP": "アッガイ(ダリル搭乗)",
-    "NameCN": "",
+    "NameCN": "龟霸（达利尔机）（雷霆宙域）",
     "Costumes": [
       {
         "Id": 0,
@@ -2139,13 +2139,13 @@
     "Id": 279,
     "NameEN": "Build Strike Gundam Full Package",
     "NameJP": "ビルドストライクガンダム(フルパッケージ)",
-    "NameCN": ""
+    "NameCN": "创制强袭高达（创战）"
   },
   {
     "Id": 280,
     "NameEN": "Zaku Amazing",
     "NameJP": "ザクアメイジング",
-    "NameCN": "",
+    "NameCN": "惊异扎古（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -2161,13 +2161,13 @@
     "Id": 281,
     "NameEN": "Hot Scramble Gundam",
     "NameJP": "ホットスクランブルガンダム",
-    "NameCN": ""
+    "NameCN": "炽热争夺高达（创战AR）"
   },
   {
     "Id": 283,
     "NameEN": "Try Burning Gundam",
     "NameJP": "トライバーニングガンダム",
-    "NameCN": "",
+    "NameCN": "Try 创制燃焰高达（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2183,7 +2183,7 @@
     "Id": 284,
     "NameEN": "Lightning Gundam Full Burnern",
     "NameJP": "ライトニングガンダムフルバーニアン",
-    "NameCN": "",
+    "NameCN": "闪电高达FB（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2199,7 +2199,7 @@
     "Id": 285,
     "NameEN": "Star Winning Gundam",
     "NameJP": "スターウイニングガンダム",
-    "NameCN": "",
+    "NameCN": "星际凯旋高达（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2215,7 +2215,7 @@
     "Id": 286,
     "NameEN": "Gundam X Maoh",
     "NameJP": "ガンダムX魔王",
-    "NameCN": "",
+    "NameCN": "高达X魔王（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2231,7 +2231,7 @@
     "Id": 287,
     "NameEN": "Gundam G-Lucifer",
     "NameJP": "G-ルシファー",
-    "NameCN": "",
+    "NameCN": "高达G-路西法（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -2247,25 +2247,25 @@
     "Id": 288,
     "NameEN": "Knight Gundam",
     "NameJP": "騎士ガンダム",
-    "NameCN": ""
+    "NameCN": "骑士高达（SD外传）"
   },
   {
     "Id": 289,
     "NameEN": "Bertigo",
     "NameJP": "ベルティゴ",
-    "NameCN": ""
+    "NameCN": "贝迪哥（X）"
   },
   {
     "Id": 290,
     "NameEN": "Narrative Gundam",
     "NameJP": "ナラティブガンダム",
-    "NameCN": ""
+    "NameCN": "NT高达（NT）"
   },
   {
     "Id": 291,
     "NameEN": "Kabakali",
     "NameJP": "カバカーリー",
-    "NameCN": "",
+    "NameCN": "迦巴卡利（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -2281,7 +2281,7 @@
     "Id": 292,
     "NameEN": "Wing Gundam Fenice",
     "NameJP": "ウイングガンダムフェニーチェ",
-    "NameCN": "",
+    "NameCN": "凤凰飞翼高达（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -2297,7 +2297,7 @@
     "Id": 293,
     "NameEN": "Sinanju Stein",
     "NameJP": "シナンジュ・スタイン",
-    "NameCN": "",
+    "NameCN": "新安洲·原石（NT）",
     "Costumes": [
       {
         "Id": 0,
