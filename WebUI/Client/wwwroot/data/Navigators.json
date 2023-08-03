@@ -9,276 +9,276 @@
     "Id": 1,
     "NameEN": "Haro",
     "NameJP": "ハロ",
-    "NameCN": ""
+    "NameCN": "哈罗"
   },
   {
     "Id": 2,
     "NameEN": "Lalah Sune",
     "NameJP": "ララァ・スン",
-    "NameCN": ""
+    "NameCN": "拉拉·辛"
   },
   {
     "Id": 3,
     "NameEN": "Gihren Zabi",
     "NameJP": "ギレン・ザビ",
-    "NameCN": ""
+    "NameCN": "基连·扎比"
   },
   {
     "Id": 4,
     "NameEN": "Haman Karn",
     "NameJP": "ハマーン・カーン",
-    "NameCN": ""
+    "NameCN": "哈曼·卡恩"
   },
   {
     "Id": 5,
     "NameEN": "Cecily Fairchild",
     "NameJP": "セシリー・フェアチャイルド",
-    "NameCN": ""
+    "NameCN": "塞西莉·费亚查尔德"
   },
   {
     "Id": 6,
     "NameEN": "Katejina Loos",
     "NameJP": "カテジナ・ルース",
-    "NameCN": ""
+    "NameCN": "卡提珍娜·露丝"
   },
   {
     "Id": 7,
     "NameEN": "Tiffa Adill",
     "NameJP": "ティファ・アディール",
-    "NameCN": ""
+    "NameCN": "蒂法·亚迪尔"
   },
   {
     "Id": 8,
     "NameEN": "Aina Sahalin",
     "NameJP": "アイナ・サハリン",
-    "NameCN": ""
+    "NameCN": "爱娜·萨哈林"
   },
   {
     "Id": 9,
     "NameEN": "Dianna Soreil",
     "NameJP": "ディアナ・ソレル",
-    "NameCN": ""
+    "NameCN": "迪安娜·索雷尔"
   },
   {
     "Id": 10,
     "NameEN": "Feldt Grace",
     "NameJP": "フェルト・グレイス",
-    "NameCN": ""
+    "NameCN": "菲露特·古蕾斯"
   },
   {
     "Id": 11,
     "NameEN": "Sumeragi Noriega",
     "NameJP": "スメラギ・李・ノリエガ",
-    "NameCN": ""
+    "NameCN": "皇·李·诺瑞加"
   },
   {
     "Id": 12,
     "NameEN": "Nena Trinity",
     "NameJP": "ネーナ・トリニティ",
-    "NameCN": ""
+    "NameCN": "妮娜·崔尼蒂"
   },
   {
     "Id": 13,
     "NameEN": "Soma Peries",
     "NameJP": "ソーマ・ピーリス",
-    "NameCN": ""
+    "NameCN": "索玛·皮里斯"
   },
   {
     "Id": 14,
     "NameEN": "Mileina Vashti",
     "NameJP": "ミレイナ・ヴァスティ",
-    "NameCN": ""
+    "NameCN": "米蕾娜·瓦斯提"
   },
   {
     "Id": 15,
     "NameEN": "Suberoa Zinnerman",
     "NameJP": "スベロア・ジンネマン",
-    "NameCN": ""
+    "NameCN": "斯贝洛亚·辛尼曼"
   },
   {
     "Id": 16,
     "NameEN": "Audrey Burne",
     "NameJP": "オードリー・バーン",
-    "NameCN": ""
+    "NameCN": "奥黛丽·伯恩"
   },
   {
     "Id": 17,
     "NameEN": "Noah Bright",
     "NameJP": "ブライト・ノア",
-    "NameCN": ""
+    "NameCN": "布莱德·诺亚"
   },
   {
     "Id": 18,
     "NameEN": "Relena Darlian",
     "NameJP": "リリーナ・ドーリアン",
-    "NameCN": ""
+    "NameCN": "莉莉娜·多利安"
   },
   {
     "Id": 20,
-    "NameEN": "Miriallia Hawke",
+    "NameEN": "Miriallia Haw",
     "NameJP": "ミリアリア・ハウ",
-    "NameCN": ""
+    "NameCN": "米丽雅莉亚·哈乌"
   },
   {
     "Id": 21,
     "NameEN": "Lacus Clyne",
     "NameJP": "ラクス・クライン",
-    "NameCN": ""
+    "NameCN": "拉克丝·克莱茵"
   },
   {
     "Id": 22,
     "NameEN": "Flay Allster",
     "NameJP": "フレイ・アルスター",
-    "NameCN": ""
+    "NameCN": "芙蕾·阿尔斯达"
   },
   {
     "Id": 23,
     "NameEN": "Murrue Ramius",
     "NameJP": "マリュー・ラミアス",
-    "NameCN": ""
+    "NameCN": "玛琉·拉米亚斯"
   },
   {
     "Id": 24,
     "NameEN": "Meyrin Hawke",
     "NameJP": "メイリン・ホーク",
-    "NameCN": ""
+    "NameCN": "美玲·霍克"
   },
   {
     "Id": 25,
     "NameEN": "Meer Campbell",
     "NameJP": "ミーア・キャンベル",
-    "NameCN": ""
+    "NameCN": "米娅·坎贝尔"
   },
   {
     "Id": 26,
     "NameEN": "Lunamaria Hawke",
     "NameJP": "ルナマリア・ホーク",
-    "NameCN": ""
+    "NameCN": "露娜玛莉亚·霍克"
   },
   {
     "Id": 27,
     "NameEN": "Emily Asuno",
     "NameJP": "エミリー・アモンド",
-    "NameCN": ""
+    "NameCN": "艾蜜莉·明日野"
   },
   {
     "Id": 28,
     "NameEN": "Yurin L'Ciel",
     "NameJP": "ユリン・ルシェル",
-    "NameCN": ""
+    "NameCN": "尤琳·露歇尔"
   },
   {
     "Id": 29,
     "NameEN": "Romary Stone",
     "NameJP": "ロマリー・ストーン",
-    "NameCN": ""
+    "NameCN": "罗玛莉·斯通"
   },
   {
     "Id": 30,
     "NameEN": "Sthesia Awar",
     "NameJP": "セシア・アウェア",
-    "NameCN": ""
+    "NameCN": "赛西娅·阿维亚"
   },
   {
     "Id": 31,
     "NameEN": "Sthesia Awar Acht",
     "NameJP": "セシア・アウェア・アハト",
-    "NameCN": ""
+    "NameCN": "赛西娅·阿维亚·亚哈特"
   },
   {
     "Id": 32,
     "NameEN": "Sthesia Awar Sesto",
     "NameJP": "セシア・アウェア・セスト",
-    "NameCN": ""
+    "NameCN": "赛西娅·阿维亚·赛斯特"
   },
   {
     "Id": 33,
     "NameEN": "Sthesia Awar Nono",
     "NameJP": "セシア・アウェア・ノーノ",
-    "NameCN": ""
+    "NameCN": "赛西娅·阿维亚·诺诺"
   },
   {
     "Id": 34,
     "NameEN": "Sthesia Awar Primo",
     "NameJP": "セシア・アウェア・プリモ",
-    "NameCN": ""
+    "NameCN": "赛西娅·阿维亚·普利摩"
   },
   {
     "Id": 35,
     "NameEN": "Aida Surugan",
     "NameJP": "アイーダ・スルガン",
-    "NameCN": ""
+    "NameCN": "阿依达·休冈"
   },
   {
     "Id": 36,
     "NameEN": "Aila Jyrkiainen",
     "NameJP": "アイラ・ユルキアイネン",
-    "NameCN": ""
+    "NameCN": "艾拉·尤基艾宁"
   },
   {
     "Id": 37,
     "NameEN": "Fumina Hoshino",
     "NameJP": "ホシノ・フミナ",
-    "NameCN": ""
+    "NameCN": "星野文奈"
   },
   {
     "Id": 38,
     "NameEN": "Kudelia Aina Bernstein",
     "NameJP": "クーデリア・藍那・バーンスタイン",
-    "NameCN": ""
+    "NameCN": "古狄莉娅·蓝那·伯恩斯坦"
   },
   {
     "Id": 39,
     "NameEN": "Atra Mixta",
     "NameJP": "アトラ・ミクスタ",
-    "NameCN": ""
+    "NameCN": "阿特拉·米库斯塔"
   },
   {
     "Id": 40,
     "NameEN": "Fumitan Admoss",
     "NameJP": "フミタン・アドモス",
-    "NameCN": ""
+    "NameCN": "芙米塔·阿德莫斯"
   },
   {
     "Id": 41,
     "NameEN": "Fa Yuiry",
     "NameJP": "ファ・ユイリィ",
-    "NameCN": ""
+    "NameCN": "花园丽"
   },
   {
     "Id": 42,
     "NameEN": "Elpeo Ple",
     "NameJP": "エルピー・プル",
-    "NameCN": ""
+    "NameCN": "艾露比·普露"
   },
   {
     "Id": 43,
     "NameEN": "Sochie Heim",
     "NameJP": "ソシエ・ハイム",
-    "NameCN": ""
+    "NameCN": "苏茜娅·海姆"
   },
   {
     "Id": 44,
     "NameEN": "Orga Itsuka",
     "NameJP": "オルガ・イツカ",
-    "NameCN": ""
+    "NameCN": "奥尔加·伊兹卡"
   },
   {
     "Id": 45,
     "NameEN": "Manny Ambassador",
     "NameJP": "マニィ・アンバサダ",
-    "NameCN": ""
+    "NameCN": "玛尼·安巴塞达"
   },
   {
     "Id": 46,
     "NameEN": "Melina Marlon Fitz",
     "NameJP": "メリーナ・マーロンフィッツ",
-    "NameCN": ""
+    "NameCN": "梅莉娜·玛洛菲兹"
   },
   {
     "Id": 47,
     "NameEN": "Kano Clans",
     "NameJP": "カノ・クランズ",
-    "NameCN": ""
+    "NameCN": "卡诺·克兰兹"
   }
 ]
