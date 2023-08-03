@@ -1363,7 +1363,7 @@
     "Id": 180,
     "NameEN": "Alex",
     "NameJP": "アレックス",
-    "NameCN": "",
+    "NameCN": "高达NT-1 阿历克斯（口袋战争）",
     "Costumes": [
       {
         "Id": 0,
@@ -1379,79 +1379,79 @@
     "Id": 181,
     "NameEN": "Zaku II Custom",
     "NameJP": "ザクII改",
-    "NameCN": ""
+    "NameCN": "扎古2改（口袋战争）"
   },
   {
     "Id": 183,
     "NameEN": "Kaempfer",
     "NameJP": "ケンプファー",
-    "NameCN": ""
+    "NameCN": "京宝梵（口袋战争）"
   },
   {
     "Id": 184,
     "NameEN": "Gundam Zephyranthes Full Burnern",
     "NameJP": "ガンダム試作1号機フルバーニアン",
-    "NameCN": ""
+    "NameCN": "高达试作1号机FB（0083）"
   },
   {
     "Id": 185,
     "NameEN": "Gundam Prototype No.2",
     "NameJP": "ガンダム試作2号機",
-    "NameCN": ""
+    "NameCN": "高达试作2号机（0083）"
   },
   {
     "Id": 186,
     "NameEN": "Gerbera Tetra",
     "NameJP": "ガーベラ・テトラ",
-    "NameCN": ""
+    "NameCN": "红色角马（0083）"
   },
   {
     "Id": 187,
     "NameEN": "Gundam Prototype No. 3",
     "NameJP": "ガンダム試作3号機",
-    "NameCN": ""
+    "NameCN": "高达试作3号机（0083）"
   },
   {
     "Id": 191,
     "NameEN": "Gundam Ez8",
     "NameJP": "ガンダムEz8",
-    "NameCN": ""
+    "NameCN": "高达Ez8（08MS）"
   },
   {
     "Id": 192,
     "NameEN": "Gouf Custom",
     "NameJP": "グフ・カスタム",
-    "NameCN": ""
+    "NameCN": "老虎特装型（08MS）"
   },
   {
     "Id": 194,
     "NameEN": "Zudah",
     "NameJP": "ヅダ",
-    "NameCN": ""
+    "NameCN": "兹达（一年战争秘录）"
   },
   {
     "Id": 195,
     "NameEN": "Hildolfr",
     "NameJP": "ヒルドルブ",
-    "NameCN": ""
+    "NameCN": "斗狼（一年战争秘录）"
   },
   {
     "Id": 197,
     "NameEN": "Zaku II High Mobility Type (Johnny Ridden)",
     "NameJP": "高機動型ザクII後期型(ジョニー・ライデン機) [EX]",
-    "NameCN": ""
+    "NameCN": "高机动型扎古2后期型（强尼·莱汀）（MSV）"
   },
   {
     "Id": 198,
     "NameEN": "Zaku II High Mobility Type (Shin Matsunaga)",
     "NameJP": "高機動型ザクII改(シン・マツナガ機) [EX]",
-    "NameCN": ""
+    "NameCN": "高机动型扎古2改（真·松永）（MSV）"
   },
   {
     "Id": 199,
     "NameEN": "Crossbone Gundam X1 Kai",
     "NameJP": "クロスボーン・ガンダムX1改",
-    "NameCN": "",
+    "NameCN": "海盗高达X1改（海盗X）",
     "Costumes": [
       {
         "Id": 0,
@@ -1467,19 +1467,19 @@
     "Id": 200,
     "NameEN": "Crossbone Gundam X2 Kai",
     "NameJP": "クロスボーン・ガンダムX2改",
-    "NameCN": ""
+    "NameCN": "海盗高达X2改（海盗X）"
   },
   {
     "Id": 201,
     "NameEN": "Crossbone Gundam X3",
     "NameJP": "クロスボーン・ガンダムX3",
-    "NameCN": ""
+    "NameCN": "海盗高达X3（海盗X）"
   },
   {
     "Id": 205,
     "NameEN": "Crossbone Gundam X1 Full Cloth",
     "NameJP": "クロスボーン・ガンダムX1フルクロス",
-    "NameCN": "",
+    "NameCN": "海盗高达X1全覆式（海盗X）",
     "Costumes": [
       {
         "Id": 0,
@@ -1495,7 +1495,7 @@
     "Id": 206,
     "NameEN": "Vigna Ghina II",
     "NameJP": "ビギナ・ギナII(木星決戦仕様)",
-    "NameCN": "",
+    "NameCN": "维基娜·吉娜II（木星决战式样）（海盗X）",
     "Costumes": [
       {
         "Id": 0,
@@ -1511,7 +1511,7 @@
     "Id": 207,
     "NameEN": "Phantom Gundam",
     "NameJP": "ファントムガンダム",
-    "NameCN": ""
+    "NameCN": "幻影高达（海盗X）"
   },
   {
     "Id": 208,
