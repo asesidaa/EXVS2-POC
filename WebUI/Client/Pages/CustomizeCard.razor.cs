@@ -10,6 +10,7 @@ using WebUI.Shared.Dto.Enum;
 using WebUI.Shared.Dto.Json;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
+using static MudBlazor.CategoryTypes;
 
 namespace WebUI.Client.Pages;
 
@@ -22,9 +23,10 @@ public partial class CustomizeCard
 
     // private MudDataGrid<FavouriteMs> favMsDataGrid;
 
-    private BasicProfile                       basicProfile = null!;
-    private NaviProfile                        naviProfile  = null!;
-    private ObservableCollection<FavouriteMs> favouriteMs  = new();
+    private BasicProfile _basicProfile = null!;
+    private NaviProfile _naviProfile  = null!;
+    private ObservableCollection<FavouriteMs> _favouriteMs  = new();
+    private ObservableCollection<MobileSuitWithSkillGroup> _mobileSuitsSkillGroups = new();
     private CpuTriadPartner cpuTriadPartner = null;
     
 
@@ -40,12 +42,13 @@ public partial class CustomizeCard
     private string HideNaviProgress { get; set; } = "invisible";
     private string HideFavMsProgress { get; set; } = "invisible";
     private string HideMsCostumeProgress { get; set; } = "invisible";
+    private string _msCostumeSearchString { get; set; }
+
+    private readonly int[] _pageSizeOptions = { 5, 10, 25, 50, 100 };
+
     private string HideTriadCpuPartnerProgress { get; set; } = "invisible";
     private string HideCustomizeCommentProgress { get; set; } = "invisible";
     private const int PLAYER_NAME_MAX_LENGTH = 12;
-
-    private MobileSuit? SelectedHasCostumeMsValue { get; set; }
-    private Costume? SelectedMsCostumeValue { get; set; }
 
     private IdValuePair? SelectedTriadSkill1 { get; set; }
     private IdValuePair? SelectedTriadSkill2 { get; set; }
@@ -86,20 +89,49 @@ public partial class CustomizeCard
         var customizeCommentResult = await Http.GetFromJsonAsync<CustomizeComment>($"/card/getCustomizeComment/{AccessCode}/{ChipId}");
         customizeCommentResult.ThrowIfNull();
 
+        var msSkillGroup = await Http.GetFromJsonAsync<List<MsSkillGroup>>($"/card/getUsedMobileSuitData/{AccessCode}/{ChipId}");
+        msSkillGroup.ThrowIfNull();
+
         //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
         //Logger.LogInformation($"{json}");
 
-        basicProfile = profileResult;
-        naviProfile = naviResult;
-        favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
+        // assign costume selection id from ms skill group to the mobile suit list
+        var mobileSuitList = DataService.GetMobileSuitSortedById().Select(x => new MobileSuitWithSkillGroup { MobileSuit = x }).ToList();
+        var msWithAltCostumes = mobileSuitList
+            .Where(x => x.MobileSuit.Costumes != null && x.MobileSuit.Costumes.Count > 0)
+            .GroupJoin(
+                msSkillGroup,
+                firstItem => firstItem.MobileSuit.Id,
+                secondItem => secondItem.MstMobileSuitId,
+                (firstItem, matchingSecondItems) => new
+                {
+                    FirstItem = firstItem,
+                    MatchingSecondItem = matchingSecondItems.FirstOrDefault()
+                })
+            .Select(joinedItem =>
+            {
+                if (joinedItem.MatchingSecondItem != null)
+                {
+                    joinedItem.FirstItem.SkillGroup = joinedItem.MatchingSecondItem;
+                }
+                return joinedItem.FirstItem;
+            })
+            .ToList();
+
+
+        _basicProfile = profileResult;
+        _naviProfile = naviResult;
+        _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
+        _mobileSuitsSkillGroups = new ObservableCollection<MobileSuitWithSkillGroup>(msWithAltCostumes);
+
         cpuTriadPartner = cpuTriadPartnerResult;
         SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
         SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
         SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
         CustomizeComment = customizeCommentResult;
 
-        SwitchOpenRecord = Convert.ToBoolean(basicProfile.OpenRecord);
-        SwitchOpenEchelon = Convert.ToBoolean(basicProfile.OpenEchelon);
+        SwitchOpenRecord = Convert.ToBoolean(_basicProfile.OpenRecord);
+        SwitchOpenEchelon = Convert.ToBoolean(_basicProfile.OpenEchelon);
     }
 
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
@@ -127,7 +159,7 @@ public partial class CustomizeCard
 
     private void AddFavouriteMobileSuitItem()
     {
-        if (favouriteMs.Count > maximumFavouriteMs)
+        if (_favouriteMs.Count > maximumFavouriteMs)
         {
             Snackbar.Add($"Cannot add more than {maximumFavouriteMs} entries!", Severity.Warning);
             return;
@@ -154,73 +186,73 @@ public partial class CustomizeCard
                 RankingTitle = newTitle
             };
 
-        favouriteMs.Add(newItem);
+        _favouriteMs.Add(newItem);
     }
 
     private void RemoveFavouriteUnit(CellContext<FavouriteMs> cellContext)
     {
         var itemHashCode = cellContext.Item.GetHashCode();
-        var item = favouriteMs.FirstOrDefault(x => x.GetHashCode() == itemHashCode);
+        var item = _favouriteMs.FirstOrDefault(x => x.GetHashCode() == itemHashCode);
 
         if (item != null)
-            favouriteMs.Remove(item);
+            _favouriteMs.Remove(item);
     }
 
     private async Task OpenProfileChangeBgmOrderDialog()
     {
-        var parameters = new DialogParameters { { "Data", basicProfile.DefaultBgmList } };
+        var parameters = new DialogParameters { { "Data", _basicProfile.DefaultBgmList } };
         var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change Bgm Order", parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled)
         {
-            basicProfile.DefaultBgmList = (result.Data as uint[])!;
+            _basicProfile.DefaultBgmList = (result.Data as uint[])!;
             StateHasChanged();
         }
     }
 
     private async Task OpenProfileChangeGaugeDialog()
     {
-        var parameters = new DialogParameters { { "Data", new[] { basicProfile.DefaultGaugeDesignId } } };
+        var parameters = new DialogParameters { { "Data", new[] { _basicProfile.DefaultGaugeDesignId } } };
         var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change Gauge UI", parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
         {
-            basicProfile.DefaultGaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
+            _basicProfile.DefaultGaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
             StateHasChanged();
         }
     }
 
     private async Task OpenNaviChangeUiDialog()
     {
-        var parameters = new DialogParameters { { "Data", new[] { naviProfile.DefaultUiNaviId } } };
+        var parameters = new DialogParameters { { "Data", new[] { _naviProfile.DefaultUiNaviId } } };
         var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change UI navigator", parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
         {
-            naviProfile.DefaultUiNaviId = (result.Data as uint[])!.FirstOrDefault();
+            _naviProfile.DefaultUiNaviId = (result.Data as uint[])!.FirstOrDefault();
             StateHasChanged();
         }
     }
 
     private async Task OpenNaviChangeBattleDialog()
     {
-        var parameters = new DialogParameters { { "Data", new[] { naviProfile.DefaultBattleNaviId } } };
+        var parameters = new DialogParameters { { "Data", new[] { _naviProfile.DefaultBattleNaviId } } };
         var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
         {
-            naviProfile.DefaultBattleNaviId = (result.Data as uint[])!.FirstOrDefault();
+            _naviProfile.DefaultBattleNaviId = (result.Data as uint[])!.FirstOrDefault();
             StateHasChanged();
         }
     }
 
     private async Task OpenChangeFavouriteMsDialog(FavouriteMs item)
     {
-        var index = favouriteMs.IndexOf(item);
+        var index = _favouriteMs.IndexOf(item);
 
         if (index == -1)
             throw new ArgumentException("Selected item is not part of the provided items list.");
@@ -231,14 +263,14 @@ public partial class CustomizeCard
 
         if (!result.Canceled && result.Data != null)
         {
-            favouriteMs[index].MsId = (uint)result.Data;
+            _favouriteMs[index].MsId = (uint)result.Data;
             StateHasChanged();
         }
     }
 
     private async Task OpenFavMsChangeBgmOrderDialog(FavouriteMs item)
     {
-        var index = favouriteMs.IndexOf(item);
+        var index = _favouriteMs.IndexOf(item);
 
         if (index == -1)
             throw new ArgumentException("Selected item is not part of the provided items list.");
@@ -249,14 +281,14 @@ public partial class CustomizeCard
 
         if (!result.Canceled && result.Data != null)
         {
-            favouriteMs[index].BgmList = (result.Data as uint[])!;
+            _favouriteMs[index].BgmList = (result.Data as uint[])!;
             StateHasChanged();
         }
     }
 
     private async Task OpenFavMsChangeNaviDialog(FavouriteMs item)
     {
-        var index = favouriteMs.IndexOf(item);
+        var index = _favouriteMs.IndexOf(item);
 
         if (index == -1)
             throw new ArgumentException("Selected item is not part of the provided items list.");
@@ -267,14 +299,14 @@ public partial class CustomizeCard
 
         if (!result.Canceled && result.Data != null)
         {
-            favouriteMs[index].BattleNaviId = (result.Data as uint[])!.FirstOrDefault();
+            _favouriteMs[index].BattleNaviId = (result.Data as uint[])!.FirstOrDefault();
             StateHasChanged();
         }
     }
 
     private async Task OpenFavMsChangeGaugeDialog(FavouriteMs item)
     {
-        var index = favouriteMs.IndexOf(item);
+        var index = _favouriteMs.IndexOf(item);
 
         if (index == -1)
             throw new ArgumentException("Selected item is not part of the provided items list.");
@@ -285,7 +317,7 @@ public partial class CustomizeCard
 
         if (!result.Canceled && result.Data != null)
         {
-            favouriteMs[index].GaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
+            _favouriteMs[index].GaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
             StateHasChanged();
         }
     }
@@ -323,14 +355,14 @@ public partial class CustomizeCard
         HideProfileProgress = "visible";
         StateHasChanged();
 
-        basicProfile.OpenEchelon = Convert.ToUInt32(SwitchOpenEchelon);
-        basicProfile.OpenRecord = Convert.ToUInt32(SwitchOpenRecord);
+        _basicProfile.OpenEchelon = Convert.ToUInt32(SwitchOpenEchelon);
+        _basicProfile.OpenRecord = Convert.ToUInt32(SwitchOpenRecord);
 
         var dto = new UpdateBasicProfileRequest()
         {
             AccessCode = AccessCode,
             ChipId = ChipId,
-            BasicProfile = basicProfile
+            BasicProfile = _basicProfile
         };
 
 
@@ -353,8 +385,8 @@ public partial class CustomizeCard
         {
             AccessCode = AccessCode,
             ChipId = ChipId,
-            DefaultBattleNaviId = naviProfile.DefaultBattleNaviId,
-            DefaultUiNaviId = naviProfile.DefaultUiNaviId,
+            DefaultBattleNaviId = _naviProfile.DefaultBattleNaviId,
+            DefaultUiNaviId = _naviProfile.DefaultUiNaviId,
         };
 
         var response = await Http.PostAsJsonAsync("/card/upsertDefaultNavi", dto);
@@ -376,7 +408,7 @@ public partial class CustomizeCard
         {
             AccessCode = AccessCode,
             ChipId = ChipId,
-            FavouriteMsList = favouriteMs.ToList()
+            FavouriteMsList = _favouriteMs.ToList()
         };
 
         var response = await Http.PostAsJsonAsync("/card/updateAllFavouriteMs", dto);
@@ -391,33 +423,19 @@ public partial class CustomizeCard
     
     private async Task SaveMobileSuitsCostume()
     {
-        if (SelectedHasCostumeMsValue is null)
-        {
-            Snackbar.Add("Please select MS for Costume Part", Severity.Warning);
-            return;
-        }
-
-        if (SelectedMsCostumeValue is null)
-        {
-            Snackbar.Add("Please select Costume for Costume Part", Severity.Warning);
-            return;
-        }
-
         HideMsCostumeProgress = "visible";
         StateHasChanged();
 
-        var dto = new UpsertMsCostumeRequest()
+        var newSkillGroup = _mobileSuitsSkillGroups.Where(x => x.SkillGroup != null).Select(x => x.SkillGroup).ToList();
+
+        var dto = new UpdateAllMsCostumeRequest()
         {
             AccessCode = AccessCode,
             ChipId = ChipId,
-            MobileSuit = new BaseMobileSuit
-            {
-                MobileSuitId = SelectedHasCostumeMsValue.Id,
-                CostumeId = SelectedMsCostumeValue.Id
-            }
+            MsSkillGroup = newSkillGroup
         };
 
-        var response = await Http.PostAsJsonAsync("/card/upsertMsCostume", dto);
+        var response = await Http.PostAsJsonAsync("/card/updateAllMsCostume", dto);
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
@@ -507,5 +525,48 @@ public partial class CustomizeCard
             > PLAYER_NAME_MAX_LENGTH => "Player name cannot be longer than 12 characters!",
             _ => !Regex.IsMatch(playerName, pattern) ? "Player name contains invalid character!" : null
         };
+    }
+
+    // quick filter - filter gobally across multiple columns with the same input
+    private Func<MobileSuitWithSkillGroup, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_msCostumeSearchString))
+            return true;
+
+        if (x.MobileSuit.NameEN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.NameJP.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.NameCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    };
+
+    private async Task OnCostumeSelectChanged(IEnumerable<uint> selectedIds, MobileSuitWithSkillGroup context)
+    {
+        if (context.SkillGroup == null)
+        {
+            context.SkillGroup = new MsSkillGroup()
+            {
+                MstMobileSuitId = context.MobileSuit.Id,
+                MsUsedNum = 0,
+                CostumeId = selectedIds.FirstOrDefault(),
+                TriadBuddyPoint = 0
+            };
+        }
+        else
+        {
+            context.SkillGroup.CostumeId = selectedIds.FirstOrDefault();
+        }
+    }
+
+    public class MobileSuitWithSkillGroup
+    {
+        public MobileSuit MobileSuit { get; set; }
+
+        public MsSkillGroup? SkillGroup { get; set; }
     }
 }

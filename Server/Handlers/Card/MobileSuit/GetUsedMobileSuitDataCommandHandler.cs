@@ -2,14 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Mappers;
 using Server.Persistence;
+using WebUI.Shared.Dto.Response;
 using WebUI.Shared.Exception;
 
 namespace Server.Handlers.Card.MobileSuit;
 
-public record GetUsedMobileSuitDataCommand(string AccessCode, string ChipId) : IRequest<List<Response.LoadCard.PilotDataGroup.MSSkillGroup>>;
+public record GetUsedMobileSuitDataCommand(string AccessCode, string ChipId) : IRequest<List<MsSkillGroup>>;
 
-public class GetUsedMobileSuitDataCommandHandler : IRequestHandler<GetUsedMobileSuitDataCommand, List<Response.LoadCard.PilotDataGroup.MSSkillGroup>>
+public class GetUsedMobileSuitDataCommandHandler : IRequestHandler<GetUsedMobileSuitDataCommand, List<MsSkillGroup>>
 {
     private readonly ServerDbContext context;
     
@@ -18,7 +20,7 @@ public class GetUsedMobileSuitDataCommandHandler : IRequestHandler<GetUsedMobile
         this.context = context;
     }
     
-    public Task<List<Response.LoadCard.PilotDataGroup.MSSkillGroup>> Handle(GetUsedMobileSuitDataCommand request, CancellationToken cancellationToken)
+    public Task<List<MsSkillGroup>> Handle(GetUsedMobileSuitDataCommand request, CancellationToken cancellationToken)
     {
         var cardProfile = context.CardProfiles
             .Include(x => x.PilotDomain)
@@ -36,6 +38,14 @@ public class GetUsedMobileSuitDataCommandHandler : IRequestHandler<GetUsedMobile
             throw new InvalidCardDataException("Card Content is invalid");
         }
 
-        return Task.FromResult(pilotDataGroup.MsSkills);
+        var ddd = pilotDataGroup.MsSkills;
+
+        List<MsSkillGroup> result = new List<MsSkillGroup>();
+        foreach (var msSkill in pilotDataGroup.MsSkills)
+        {
+            result.Add(msSkill.ToMsSkillGroupMapper());
+        }
+
+        return Task.FromResult(result);
     }
 }

@@ -54,9 +54,10 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'=='Debug'">
-        <ProjectReference Include="..\WebUI\Client\WebUI.Client.csproj" />
-    </ItemGroup>
+
+	</ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\WebUI\Client\WebUI.Client.csproj" />
 		<ProjectReference Include="..\WebUI\Shared\WebUI.Shared.csproj" />
 	</ItemGroup>
 

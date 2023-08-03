@@ -99,12 +99,20 @@ public class CardController : BaseController<CardController>
     
     [HttpGet("getUsedMobileSuitData/{accessCode}/{chipId}")]
     [Produces("application/json")]
-    public async Task<ActionResult<List<Response.LoadCard.PilotDataGroup.MSSkillGroup>>> GetUsedMobileSuitData(String accessCode, String chipId)
+    public async Task<ActionResult<List<MsSkillGroup>>> GetUsedMobileSuitData(String accessCode, String chipId)
     {
         var response = await mediator.Send(new GetUsedMobileSuitDataCommand(accessCode, chipId));
         return response;
     }
-    
+
+    [HttpPost("updateAllMsCostume")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateAllMsCostume([FromBody] UpdateAllMsCostumeRequest request)
+    {
+        var response = await mediator.Send(new UpdateAllMsCostumeRequestCommand(request));
+        return response;
+    }
+
     [HttpPost("upsertMsCostume")]
     [Produces("application/json")]
     public async Task<ActionResult<BasicResponse>> UpsertMsCostume([FromBody] UpsertMsCostumeRequest request)
