@@ -975,7 +975,7 @@
     "Id": 133,
     "NameEN": "Gouf Ignited",
     "NameJP": "グフイグナイテッド",
-    "NameCN": "",
+    "NameCN": "烈焰老虎（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -991,13 +991,13 @@
     "Id": 134,
     "NameEN": "Strike Rogue Ootori",
     "NameJP": "ストライクルージュ(オオトリ装備)",
-    "NameCN": ""
+    "NameCN": "强袭嫣红高达（大鹫装备）（seed destiny）"
   },
   {
     "Id": 137,
     "NameEN": "Akatsuki Gundam",
     "NameJP": "アカツキ",
-    "NameCN": "",
+    "NameCN": "拂晓高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -1013,19 +1013,19 @@
     "Id": 138,
     "NameEN": "Gundam Exia",
     "NameJP": "ガンダムエクシア",
-    "NameCN": ""
+    "NameCN": "能天使高达（00）"
   },
   {
     "Id": 139,
     "NameEN": "00 Gundam",
     "NameJP": "ダブルオーガンダム",
-    "NameCN": ""
+    "NameCN": "00高达（00）"
   },
   {
     "Id": 140,
     "NameEN": "Susanowo",
     "NameJP": "スサノオ",
-    "NameCN": "",
+    "NameCN": "须佐之男（00）",
     "Costumes": [
       {
         "Id": 0,
