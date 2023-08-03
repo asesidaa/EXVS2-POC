@@ -1517,19 +1517,19 @@
     "Id": 208,
     "NameEN": "Blue Destiny Unit 1",
     "NameJP": "ブルーディスティニー1号機",
-    "NameCN": ""
+    "NameCN": "蓝色命运1号机（蓝色命运）"
   },
   {
     "Id": 209,
     "NameEN": "Efreet Custom",
     "NameJP": "イフリート改",
-    "NameCN": ""
+    "NameCN": "伊芙利特改（蓝色命运）"
   },
   {
     "Id": 210,
     "NameEN": "Hi-Nu Gundam",
     "NameJP": "Hi-νガンダム",
-    "NameCN": "",
+    "NameCN": "海牛高达（CCA 贝托蒂嘉的子嗣）",
     "Costumes": [
       {
         "Id": 0,
@@ -1545,7 +1545,7 @@
     "Id": 211,
     "NameEN": "Nightingale",
     "NameJP": "ナイチンゲール",
-    "NameCN": "",
+    "NameCN": "夜莺（CCA 贝托蒂嘉的子嗣）",
     "Costumes": [
       {
         "Id": 0,
@@ -1561,7 +1561,7 @@
     "Id": 212,
     "NameEN": "Gundam Astray Red Frame",
     "NameJP": "アストレイレッドフレーム",
-    "NameCN": "",
+    "NameCN": "红异端（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1577,7 +1577,7 @@
     "Id": 213,
     "NameEN": "Gundam Astray Blue Frame Second L",
     "NameJP": "アストレイブルーフレームセカンドL",
-    "NameCN": "",
+    "NameCN": "蓝异端2L（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1593,31 +1593,31 @@
     "Id": 214,
     "NameEN": "Gundam Astray Gold Frame Amatsu",
     "NameJP": "アストレイゴールドフレーム天",
-    "NameCN": ""
+    "NameCN": "金异端天（seed Astray）"
   },
   {
     "Id": 215,
     "NameEN": "Gundam Astray Gold Frame Amatsu Mina",
     "NameJP": "アストレイゴールドフレーム天ミナ [EX]",
-    "NameCN": ""
+    "NameCN": "金异端天蜜娜（seed Astray）"
   },
   {
     "Id": 216,
     "NameEN": "Dreanought Gundam (X-Astray)",
     "NameJP": "ドレッドノートガンダム(Xアストレイ)",
-    "NameCN": ""
+    "NameCN": "勇士高达（X异端）（seed Astray）"
   },
   {
     "Id": 217,
     "NameEN": "Hyperion Gundam",
     "NameJP": "ハイペリオンガンダム",
-    "NameCN": ""
+    "NameCN": "亥伯龙高达（seed Astray）"
   },
   {
     "Id": 218,
     "NameEN": "Gundam Astray Red Frame Kai",
     "NameJP": "アストレイレッドフレーム改",
-    "NameCN": "",
+    "NameCN": "红异端改（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1633,7 +1633,7 @@
     "Id": 220,
     "NameEN": "Gundam Astray Red Frame Dragon",
     "NameJP": "アストレイレッドフレーム(レッドドラゴン)",
-    "NameCN": "",
+    "NameCN": "红异端（红龙）（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1649,7 +1649,7 @@
     "Id": 221,
     "NameEN": "Gundam Astray Blue Frame D",
     "NameJP": "アストレイブルーフレームD",
-    "NameCN": "",
+    "NameCN": "蓝异端D（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1665,7 +1665,7 @@
     "Id": 222,
     "NameEN": "Strike Noir Gundam",
     "NameJP": "ストライクノワール",
-    "NameCN": "",
+    "NameCN": "漆黑强袭高达（seed Star G",
     "Costumes": [
       {
         "Id": 0,
