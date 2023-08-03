@@ -9,55 +9,55 @@
     "Id": 1,
     "NameEN": "Gundam RX-78",
     "NameJP": "ガンダム",
-    "NameCN": ""
+    "NameCN": "高达（0079）"
   },
   {
     "Id": 2,
     "NameEN": "Char's Gelgoog",
     "NameJP": "シャア専用ゲルググ",
-    "NameCN": ""
+    "NameCN": "夏亚专用勇士（0079）"
   },
   {
     "Id": 3,
     "NameEN": "Acguy",
     "NameJP": "アッガイ",
-    "NameCN": ""
+    "NameCN": "龟霸（0079）"
   },
   {
     "Id": 4,
     "NameEN": "Zeong",
     "NameJP": "ジオング",
-    "NameCN": ""
+    "NameCN": "吉恩号（0079）"
   },
   {
     "Id": 5,
     "NameEN": "Gyan",
     "NameJP": "ギャン",
-    "NameCN": ""
+    "NameCN": "强人（0079）"
   },
   {
     "Id": 6,
     "NameEN": "Gundam (G-Mecha)",
     "NameJP": "ガンダム(Gメカ)",
-    "NameCN": ""
+    "NameCN": "高达（G战机）（0079）"
   },
   {
     "Id": 7,
     "NameEN": "Zaku II Ground Type",
     "NameJP": "ザクII(ドアン機) [EX]",
-    "NameCN": ""
+    "NameCN": "多安扎古2（0079）"
   },
   {
     "Id": 8,
     "NameEN": "Char's Zaku II",
     "NameJP": "シャア専用ザクII",
-    "NameCN": ""
+    "NameCN": "夏亚专用扎古2（0079）"
   },
   {
     "Id": 13,
     "NameEN": "Guncannon",
     "NameJP": "ガンキャノン [EX]",
-    "NameCN": "",
+    "NameCN": "钢加农（0079）",
     "Costumes": [
       {
         "Id": 0,
@@ -73,7 +73,7 @@
     "Id": 19,
     "NameEN": "Zeta Gundam",
     "NameJP": "Zガンダム",
-    "NameCN": "",
+    "NameCN": "Z高达（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -89,7 +89,7 @@
     "Id": 20,
     "NameEN": "Hyashiki",
     "NameJP": "百式",
-    "NameCN": "",
+    "NameCN": "百式（Z）",
     "Costumes": [
       {
         "Id": 0,
