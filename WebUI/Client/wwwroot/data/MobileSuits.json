@@ -183,7 +183,7 @@
     "Id": 37,
     "NameEN": "Qubeley MK-II (Ple Two)",
     "NameJP": "キュベレイMk-II(プル)",
-    "NameCN": "丘贝雷MK-II（普露2）",
+    "NameCN": "丘贝雷MK-II（普露2）（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -199,7 +199,7 @@
     "Id": 38,
     "NameEN": "Qubeley",
     "NameJP": "キュベレイ",
-    "NameCN": "",
+    "NameCN": "丘贝雷（哈曼）（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -215,19 +215,19 @@
     "Id": 39,
     "NameEN": "Zaku III Custom",
     "NameJP": "ザクIII改",
-    "NameCN": ""
+    "NameCN": "扎古3改（ZZ）"
   },
   {
     "Id": 40,
     "NameEN": "Acguy (Haman Karn)",
     "NameJP": "アッガイ(ハマーン搭乗) [EX]",
-    "NameCN": ""
+    "NameCN": "龟霸（哈曼）（ZZ）"
   },
   {
     "Id": 41,
     "NameEN": "Zeta Gundam (Roux Louka)",
     "NameJP": "Zガンダム(ルー搭乗) [EX]",
-    "NameCN": "",
+    "NameCN": "Z高达（露）（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -243,7 +243,7 @@
     "Id": 47,
     "NameEN": "ZZ Gundam",
     "NameJP": "ZZガンダム",
-    "NameCN": "",
+    "NameCN": "ZZ高达（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -259,19 +259,19 @@
     "Id": 48,
     "NameEN": "Qubeley MK-II (Elpeo Ple)",
     "NameJP": "キュベレイMk-II(プルツー)",
-    "NameCN": ""
+    "NameCN": "丘贝雷MK-II（普露）"
   },
   {
     "Id": 50,
     "NameEN": "Doven Wolf",
     "NameJP": "ドーベン・ウルフ",
-    "NameCN": ""
+    "NameCN": "飚狼（ZZ）"
   },
   {
     "Id": 52,
     "NameEN": "Nu Gundam",
     "NameJP": "νガンダム",
-    "NameCN": "",
+    "NameCN": "牛高达（CCA）",
     "Costumes": [
       {
         "Id": 0,
@@ -287,7 +287,7 @@
     "Id": 53,
     "NameEN": "Sazabi",
     "NameJP": "サザビー",
-    "NameCN": "",
+    "NameCN": "沙扎比（CCA）",
     "Costumes": [
       {
         "Id": 0,
@@ -303,19 +303,19 @@
     "Id": 54,
     "NameEN": "Re-GZ",
     "NameJP": "リ・ガズィ",
-    "NameCN": ""
+    "NameCN": "灵格斯（CCA）"
   },
   {
     "Id": 55,
     "NameEN": "Jagd Doga",
     "NameJP": "ヤクト・ドーガ",
-    "NameCN": ""
+    "NameCN": "乍得·多加（CCA）"
   },
   {
     "Id": 57,
     "NameEN": "Gundam F91",
     "NameJP": "ガンダムF91",
-    "NameCN": "",
+    "NameCN": "高达F91（F91）",
     "Costumes": [
       {
         "Id": 0,
@@ -331,13 +331,13 @@
     "Id": 58,
     "NameEN": "Berga Giros",
     "NameJP": "ベルガ・ギロス",
-    "NameCN": ""
+    "NameCN": "贝尔格·基罗斯（F91）"
   },
   {
     "Id": 61,
     "NameEN": "V2 Gundam",
     "NameJP": "V2ガンダム",
-    "NameCN": "",
+    "NameCN": "V2高达（V）",
     "Costumes": [
       {
         "Id": 0,
@@ -353,19 +353,19 @@
     "Id": 62,
     "NameEN": "Gun Ez",
     "NameJP": "ガンイージ",
-    "NameCN": ""
+    "NameCN": "钢伊吉（V）"
   },
   {
     "Id": 63,
     "NameEN": "Gottrlatan",
     "NameJP": "ゴトラタン",
-    "NameCN": ""
+    "NameCN": "高特拉坦（V）"
   },
   {
     "Id": 64,
     "NameEN": "Victory Gundam",
     "NameJP": "ヴィクトリーガンダム",
-    "NameCN": "",
+    "NameCN": "V高达（V）",
     "Costumes": [
       {
         "Id": 0,
@@ -381,13 +381,13 @@
     "Id": 73,
     "NameEN": "Gedlav",
     "NameJP": "ゲドラフ",
-    "NameCN": ""
+    "NameCN": "葛德拉夫（V）"
   },
   {
     "Id": 74,
     "NameEN": "God Gundam",
     "NameJP": "ゴッドガンダム",
-    "NameCN": "",
+    "NameCN": "神高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -403,7 +403,7 @@
     "Id": 75,
     "NameEN": "Dragon Gundam",
     "NameJP": "ドラゴンガンダム",
-    "NameCN": "",
+    "NameCN": "飞龙高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -419,7 +419,7 @@
     "Id": 76,
     "NameEN": "Master Gundam",
     "NameJP": "マスターガンダム",
-    "NameCN": "",
+    "NameCN": "尊者高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -435,7 +435,7 @@
     "Id": 77,
     "NameEN": "Gundam Spiegel",
     "NameJP": "ガンダムシュピーゲル",
-    "NameCN": "",
+    "NameCN": "明镜高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -451,13 +451,13 @@
     "Id": 78,
     "NameEN": "Nobel Gundam",
     "NameJP": "ノーベルガンダム",
-    "NameCN": ""
+    "NameCN": "诺贝尔高达（G武斗传）"
   },
   {
     "Id": 79,
     "NameEN": "Shining Gundam",
     "NameJP": "シャイニングガンダム",
-    "NameCN": "",
+    "NameCN": "闪光高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -473,13 +473,13 @@
     "Id": 80,
     "NameEN": "Rising Gundam",
     "NameJP": "ライジングガンダム",
-    "NameCN": ""
+    "NameCN": "日升高达（G武斗传）"
   },
   {
     "Id": 81,
     "NameEN": "Gundam Maxter",
     "NameJP": "ガンダムマックスター",
-    "NameCN": "",
+    "NameCN": "高达麦克之星（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
