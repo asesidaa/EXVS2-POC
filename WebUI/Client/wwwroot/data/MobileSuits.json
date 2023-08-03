@@ -1189,7 +1189,7 @@
     "Id": 162,
     "NameEN": "00 Quan[T]",
     "NameJP": "ダブルオークアンタ",
-    "NameCN": "00高达量子型（00）",
+    "NameCN": "00高达量子型（00 Awake）",
     "Costumes": [
       {
         "Id": 0,
@@ -1205,13 +1205,13 @@
     "Id": 163,
     "NameEN": "Raphael Gundam",
     "NameJP": "ラファエルガンダム",
-    "NameCN": "疗天使高达（00）"
+    "NameCN": "疗天使高达（00 Awake）"
   },
   {
     "Id": 164,
     "NameEN": "Brave (Commander Test Type)",
     "NameJP": "ブレイヴ指揮官用試験機",
-    "NameCN": "勇气式指挥官用试验机",
+    "NameCN": "勇气式指挥官用试验机（00 Awake）",
     "Costumes": [
       {
         "Id": 0,
@@ -1243,7 +1243,7 @@
     "Id": 166,
     "NameEN": "Gundam Zabanya",
     "NameJP": "ガンダムサバーニャ",
-    "NameCN": "",
+    "NameCN": "狱天使高达（00 Awake）",
     "Costumes": [
       {
         "Id": 0,
@@ -1259,13 +1259,13 @@
     "Id": 167,
     "NameEN": "Gundam Harute",
     "NameJP": "ガンダムハルート",
-    "NameCN": ""
+    "NameCN": "妖天使高达（00 Awake）"
   },
   {
     "Id": 168,
     "NameEN": "Unicorn Gundam",
     "NameJP": "ユニコーンガンダム",
-    "NameCN": "",
+    "NameCN": "独角兽高达（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1281,7 +1281,7 @@
     "Id": 169,
     "NameEN": "Kshatriya",
     "NameJP": "クシャトリヤ",
-    "NameCN": "",
+    "NameCN": "刹帝利（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1297,7 +1297,7 @@
     "Id": 170,
     "NameEN": "Sinanju",
     "NameJP": "シナンジュ",
-    "NameCN": "",
+    "NameCN": "新安洲（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1313,13 +1313,13 @@
     "Id": 171,
     "NameEN": "Delta Plus",
     "NameJP": "デルタプラス",
-    "NameCN": ""
+    "NameCN": "德尔塔Plus（UC）"
   },
   {
     "Id": 172,
     "NameEN": "Unicorn Gundam Banshee",
     "NameJP": "バンシィ",
-    "NameCN": "",
+    "NameCN": "报丧女妖（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1335,13 +1335,13 @@
     "Id": 173,
     "NameEN": "Rozen Zulu",
     "NameJP": "ローゼン・ズール",
-    "NameCN": ""
+    "NameCN": "玫瑰·祖鲁（UC）"
   },
   {
     "Id": 175,
     "NameEN": "Full Armor Unicorn Gundam",
     "NameJP": "フルアーマー・ユニコーンガンダム",
-    "NameCN": "",
+    "NameCN": "全装甲型独角兽高达（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1357,7 +1357,7 @@
     "Id": 176,
     "NameEN": "Unicorn Gundam Banshee Norn",
     "NameJP": "バンシィ・ノルン",
-    "NameCN": ""
+    "NameCN": "报丧女妖·命运女神"
   },
   {
     "Id": 180,
