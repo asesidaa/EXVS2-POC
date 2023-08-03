@@ -991,7 +991,7 @@
     "Id": 134,
     "NameEN": "Strike Rogue Ootori",
     "NameJP": "ストライクルージュ(オオトリ装備)",
-    "NameCN": "强袭嫣红高达（大鹫装备）（seed destiny）"
+    "NameCN": "嫣红强袭高达（大鹫装备）（seed destiny）"
   },
   {
     "Id": 137,
@@ -2555,7 +2555,7 @@
     "Id": 312,
     "NameEN": "Nu Gundam HWS",
     "NameJP": "νガンダムHWS",
-    "NameCN": "重牛（CCA-MSV）",
+    "NameCN": "重牛（CCA MSV）",
     "Costumes": [
       {
         "Id": 0,
