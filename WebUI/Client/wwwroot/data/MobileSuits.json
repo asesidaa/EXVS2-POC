@@ -2313,7 +2313,7 @@
     "Id": 294,
     "NameEN": "Gundam 00 Diver Ace",
     "NameJP": "ガンダムダブルオーダイバーエース",
-    "NameCN": "",
+    "NameCN": "高达00潜行者王牌（创形）",
     "Costumes": [
       {
         "Id": 0,
@@ -2329,19 +2329,19 @@
     "Id": 295,
     "NameEN": "Star Build Strike Gundam",
     "NameJP": "スタービルドストライクガンダム",
-    "NameCN": ""
+    "NameCN": "星际创制强袭高达（创战）"
   },
   {
     "Id": 296,
     "NameEN": "Unicorn Gundam 03 Phenex",
     "NameJP": "ユニコーンガンダム3号機フェネクス",
-    "NameCN": ""
+    "NameCN": "独角兽高达3号机菲尼克斯（NT）"
   },
   {
     "Id": 297,
     "NameEN": "Gundam Flauros (Ryusei-Go)",
     "NameJP": "ガンダム・フラウロス",
-    "NameCN": "",
+    "NameCN": "高达弗洛伦斯（流星号）（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2357,7 +2357,7 @@
     "Id": 298,
     "NameEN": "Over.on",
     "NameJP": "オーヴェロン",
-    "NameCN": "",
+    "NameCN": "欧贝隆（魔女之夜）",
     "Costumes": [
       {
         "Id": 0,
@@ -2373,7 +2373,7 @@
     "Id": 299,
     "NameEN": "RX-Zeromaru",
     "NameJP": "RX-零丸",
-    "NameCN": "",
+    "NameCN": "RX-零丸（创形）",
     "Costumes": [
       {
         "Id": 0,
@@ -2389,7 +2389,7 @@
     "Id": 300,
     "NameEN": "Dijeh",
     "NameJP": "ディジェ",
-    "NameCN": "",
+    "NameCN": "迪杰（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -2405,7 +2405,7 @@
     "Id": 301,
     "NameEN": "Justice Gundam",
     "NameJP": "ジャスティスガンダム",
-    "NameCN": "",
+    "NameCN": "正义高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -2421,7 +2421,7 @@
     "Id": 302,
     "NameEN": "Sengoku Astray Gundam",
     "NameJP": "戦国アストレイ頑駄無",
-    "NameCN": "",
+    "NameCN": "战国异端（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -2437,7 +2437,7 @@
     "Id": 303,
     "NameEN": "N-Extreme Gundam Explosion",
     "NameJP": "N-EXTREMEガンダム エクスプロージョン",
-    "NameCN": "",
+    "NameCN": "N-Extreme E高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2453,7 +2453,7 @@
     "Id": 304,
     "NameEN": "N-Extreme Gundam Xanadu",
     "NameJP": "N-EXTREMEガンダム ザナドゥ",
-    "NameCN": "",
+    "NameCN": "N-Extreme X高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2469,7 +2469,7 @@
     "Id": 305,
     "NameEN": "N-Extreme Gundam Vicious",
     "NameJP": "N-EXTREMEガンダム ヴィシャス",
-    "NameCN": "",
+    "NameCN": "N-Extreme V高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2485,7 +2485,7 @@
     "Id": 306,
     "NameEN": "N-Extreme Gundam Supremacy",
     "NameJP": "N-EXTREMEガンダム スプレマシー",
-    "NameCN": "",
+    "NameCN": "N-Extreme S高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2501,7 +2501,7 @@
     "Id": 307,
     "NameEN": "Garazzo (Hiling Care Custom)",
     "NameJP": "ガラッゾ(ヒリング・ケア機)",
-    "NameCN": "",
+    "NameCN": "加莱佐（希林格机）（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -2517,7 +2517,7 @@
     "Id": 308,
     "NameEN": "Dahack",
     "NameJP": "ダハック",
-    "NameCN": "",
+    "NameCN": "达哈克（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -2533,13 +2533,13 @@
     "Id": 310,
     "NameEN": "RX-93ff Gundam",
     "NameJP": "RX-93ff νガンダム",
-    "NameCN": ""
+    "NameCN": "RX-93ff 福冈牛（CCA）"
   },
   {
     "Id": 311,
     "NameEN": "Calamity Gundam",
     "NameJP": "カラミティガンダム",
-    "NameCN": "",
+    "NameCN": "灾厄高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -2555,7 +2555,7 @@
     "Id": 312,
     "NameEN": "Nu Gundam HWS",
     "NameJP": "νガンダムHWS",
-    "NameCN": "",
+    "NameCN": "重牛（CCA-MSV）",
     "Costumes": [
       {
         "Id": 0,
