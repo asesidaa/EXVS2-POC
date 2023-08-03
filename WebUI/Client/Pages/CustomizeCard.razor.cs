@@ -41,6 +41,7 @@ public partial class CustomizeCard
     private string HideFavMsProgress { get; set; } = "invisible";
     private string HideMsCostumeProgress { get; set; } = "invisible";
     private string HideTriadCpuPartnerProgress { get; set; } = "invisible";
+    private string HideCustomizeCommentProgress { get; set; } = "invisible";
     private const int PLAYER_NAME_MAX_LENGTH = 12;
 
     private MobileSuit? SelectedHasCostumeMsValue { get; set; }
@@ -49,6 +50,7 @@ public partial class CustomizeCard
     private IdValuePair? SelectedTriadSkill1 { get; set; }
     private IdValuePair? SelectedTriadSkill2 { get; set; }
     private IdValuePair? SelectedTriadTeamBanner { get; set; }
+    private CustomizeComment? CustomizeComment { get; set; }
 
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
@@ -80,6 +82,9 @@ public partial class CustomizeCard
         
         var cpuTriadPartnerResult = await Http.GetFromJsonAsync<CpuTriadPartner>($"/card/getCpuTriadPartner/{AccessCode}/{ChipId}");
         cpuTriadPartnerResult.ThrowIfNull();
+        
+        var customizeCommentResult = await Http.GetFromJsonAsync<CustomizeComment>($"/card/getCustomizeComment/{AccessCode}/{ChipId}");
+        customizeCommentResult.ThrowIfNull();
 
         //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
         //Logger.LogInformation($"{json}");
@@ -91,6 +96,7 @@ public partial class CustomizeCard
         SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
         SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
         SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
+        CustomizeComment = customizeCommentResult;
 
         SwitchOpenRecord = Convert.ToBoolean(basicProfile.OpenRecord);
         SwitchOpenEchelon = Convert.ToBoolean(basicProfile.OpenEchelon);
@@ -306,6 +312,7 @@ public partial class CustomizeCard
         await SaveNavigatorProfile();
         await SaveFavouriteMobileSuits();
         await SaveTriadCpuPartner();
+        await SaveCustomizeComment();
 
         HideSaveAllProgress = "invisible";
         StateHasChanged();
@@ -451,6 +458,34 @@ public partial class CustomizeCard
         ShowBasicResponseSnack(result, "Triad CPU Partner");
 
         HideTriadCpuPartnerProgress = "invisible";
+        StateHasChanged();
+    }
+
+    private async Task SaveCustomizeComment()
+    {
+        HideCustomizeCommentProgress = "visible";
+        StateHasChanged();
+
+        if (CustomizeComment is null)
+        {
+            Snackbar.Add("Data Error for Customize Comment", Severity.Error);
+            return;
+        }
+
+        var dto = new UpdateCustomizeCommentRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            CustomizeComment = CustomizeComment
+        };
+
+        var response = await Http.PostAsJsonAsync("/card/updateCustomizeComment", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, "Customize Comment");
+
+        HideCustomizeCommentProgress = "invisible";
         StateHasChanged();
     }
 

@@ -38,9 +38,9 @@ public class GetCustomizeCommentCommandHandler : IRequestHandler<GetCustomizeCom
         
         return Task.FromResult(new CustomizeComment
         {
-            BasePhraseId = mobileUser.Customize.BasePanelId,
-            SubstitutePart1Id = mobileUser.Customize.CommentPartsAId,
-            SubstitutePart2Id = mobileUser.Customize.CommentPartsBId,
+            BasePhraseId = (int) mobileUser.Customize.BasePanelId,
+            SubstitutePart1Id = (int) mobileUser.Customize.CommentPartsAId,
+            SubstitutePart2Id = (int) mobileUser.Customize.CommentPartsBId,
         });
     }
 }

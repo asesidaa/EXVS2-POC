@@ -461,4 +461,38 @@
             </MudStack>
         </MudCardContent>
     </MudCard>
+    <MudCard Class="my-2" Elevation="5">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">Customize Comment (カスタマイズコメント)</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@HideCustomizeCommentProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveCustomizeComment"
+                                   Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
+            </CardHeaderActions>
+        </MudCardHeader>
+         <MudCardContent>
+             <MudStack>
+                 <MudItem xs="12">
+                     Detail refer to: <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/464.html" Target="_blank">Wiki</MudLink>
+                 </MudItem>
+                 <MudItem xs="12">Example of Sentence include: そんな[]、修正してやる！</MudItem>
+                 <MudItem xs="12">Example of Parts include: [Sフリーダム], [キラ], [天然] etc...</MudItem>
+             </MudStack>
+             <MudGrid>
+                 <MudItem xs="4">
+                     <MudNumericField @bind-Value="CustomizeComment.BasePhraseId" Label="Sentence ID" Variant="Variant.Text" Min="0" Max="2000" HelperText="0-2000"/>
+                 </MudItem>
+                 <MudItem xs="4">
+                     <MudNumericField @bind-Value="CustomizeComment.SubstitutePart1Id" Label="Part 1 ID" Variant="Variant.Text" Min="0" Max="3000" HelperText="0-3000"/>
+                 </MudItem>
+                 <MudItem xs="4">
+                     <MudNumericField @bind-Value="CustomizeComment.SubstitutePart2Id" Label="Part 2 ID" Variant="Variant.Text" Min="0" Max="3000" HelperText="0-3000"/>
+                 </MudItem>
+             </MudGrid>
+         </MudCardContent>
+    </MudCard>
 </MudStack>

@@ -39,9 +39,9 @@ public class UpdateCustomizeCommentCommandHandler : IRequestHandler<UpdateCustom
             throw new NullReferenceException("User is invalid");
         }
 
-        mobileUser.Customize.BasePanelId = updateRequest.CustomizeComment.BasePhraseId;
-        mobileUser.Customize.CommentPartsAId = updateRequest.CustomizeComment.SubstitutePart1Id;
-        mobileUser.Customize.CommentPartsBId = updateRequest.CustomizeComment.SubstitutePart2Id;
+        mobileUser.Customize.BasePanelId = (uint) updateRequest.CustomizeComment.BasePhraseId;
+        mobileUser.Customize.CommentPartsAId = (uint) updateRequest.CustomizeComment.SubstitutePart1Id;
+        mobileUser.Customize.CommentPartsBId = (uint) updateRequest.CustomizeComment.SubstitutePart2Id;
 
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUser);
 
