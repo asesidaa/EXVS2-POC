@@ -793,7 +793,7 @@
     "Id": 120,
     "NameEN": "Raider Gundam",
     "NameJP": "レイダーガンダム",
-    "NameCN": "",
+    "NameCN": "强夺高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -809,13 +809,13 @@
     "Id": 121,
     "NameEN": "Buster Gundam",
     "NameJP": "バスターガンダム",
-    "NameCN": ""
+    "NameCN": "暴风高达（seed）"
   },
   {
     "Id": 122,
     "NameEN": "Aegis Gundam",
     "NameJP": "イージスガンダム [EX]",
-    "NameCN": "",
+    "NameCN": "圣盾高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -831,7 +831,7 @@
     "Id": 123,
     "NameEN": "Strike Freedom Gundam",
     "NameJP": "ストライクフリーダムガンダム",
-    "NameCN": "",
+    "NameCN": "强袭自由高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -847,7 +847,7 @@
     "Id": 124,
     "NameEN": "Infinite Justice Gundam",
     "NameJP": "インフィニットジャスティスガンダム",
-    "NameCN": "",
+    "NameCN": "无限正义高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -863,7 +863,7 @@
     "Id": 125,
     "NameEN": "Destiny Gundam",
     "NameJP": "デスティニーガンダム",
-    "NameCN": "",
+    "NameCN": "命运高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -879,7 +879,7 @@
     "Id": 126,
     "NameEN": "Gunner ZAKU Warrior",
     "NameJP": "ガナーザクウォーリア",
-    "NameCN": "",
+    "NameCN": "炮击型扎古勇士（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -895,7 +895,7 @@
     "Id": 127,
     "NameEN": "Impulse Gundam",
     "NameJP": "インパルスガンダム",
-    "NameCN": "",
+    "NameCN": "脉冲高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -911,7 +911,7 @@
     "Id": 128,
     "NameEN": "Gaia Gundam",
     "NameJP": "ガイアガンダム",
-    "NameCN": "",
+    "NameCN": "盖亚高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -927,7 +927,7 @@
     "Id": 129,
     "NameEN": "Legend Gundam",
     "NameJP": "レジェンドガンダム",
-    "NameCN": "",
+    "NameCN": "传说高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -943,7 +943,7 @@
     "Id": 130,
     "NameEN": "Impulse Gundam (Lunamaria Hawke)",
     "NameJP": "インパルスガンダム(ルナマリア搭乗) [EX]",
-    "NameCN": "",
+    "NameCN": "脉冲高达（露娜）（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -959,7 +959,7 @@
     "Id": 131,
     "NameEN": "Infinite Justice Gundam (Lacus Clyne)",
     "NameJP": "インフィニットジャスティスガンダム(ラクス搭乗) [EX]",
-    "NameCN": "",
+    "NameCN": "无限正义高达（拉克丝）（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
