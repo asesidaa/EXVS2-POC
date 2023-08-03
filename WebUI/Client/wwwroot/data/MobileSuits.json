@@ -1697,25 +1697,25 @@
     "Id": 224,
     "NameEN": "Ex-S Gundam",
     "NameJP": "Ex-Sガンダム",
-    "NameCN": "EX-S高达（"
+    "NameCN": "EX-S高达（前哨战）"
   },
   {
     "Id": 225,
     "NameEN": "Xi Gundam",
     "NameJP": "Ξガンダム",
-    "NameCN": ""
+    "NameCN": "柯西高达（闪光的哈萨维）"
   },
   {
     "Id": 226,
     "NameEN": "Penelope",
     "NameJP": "ペーネロペー",
-    "NameCN": ""
+    "NameCN": "佩涅罗佩（闪光的哈萨维）"
   },
   {
     "Id": 228,
     "NameEN": "Gundam AGE-1",
     "NameJP": "ガンダムAGE-1",
-    "NameCN": "",
+    "NameCN": "高达AGE-1（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1731,7 +1731,7 @@
     "Id": 229,
     "NameEN": "Gundam AGE-2",
     "NameJP": "ガンダムAGE-2",
-    "NameCN": "",
+    "NameCN": "高达AGE-2（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1747,7 +1747,7 @@
     "Id": 230,
     "NameEN": "Gundam AGE-3",
     "NameJP": "ガンダムAGE-3",
-    "NameCN": "",
+    "NameCN": "高达AGE-3（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1763,7 +1763,7 @@
     "Id": 231,
     "NameEN": "Gundam AGE-FX",
     "NameJP": "ガンダムAGE-FX",
-    "NameCN": "",
+    "NameCN": "高达AGE-FX（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1779,31 +1779,31 @@
     "Id": 232,
     "NameEN": "Zeydra",
     "NameJP": "ゼイドラ",
-    "NameCN": ""
+    "NameCN": "杰德拉（AGE）"
   },
   {
     "Id": 233,
     "NameEN": "Farsia",
     "NameJP": "ファルシア",
-    "NameCN": ""
+    "NameCN": "法尔西娅（AGE）"
   },
   {
     "Id": 234,
     "NameEN": "Gundam Legilis",
     "NameJP": "ガンダムレギルス",
-    "NameCN": ""
+    "NameCN": "高达列基鲁斯（AGE）"
   },
   {
     "Id": 235,
     "NameEN": "Gundam AGE-2 Dark Hound",
     "NameJP": "ガンダムAGE-2 ダークハウンド",
-    "NameCN": ""
+    "NameCN": "高达AGE-2 黑猎犬（AGE）"
   },
   {
     "Id": 237,
     "NameEN": "Gundam AGE-1 Glansa",
     "NameJP": "ガンダムAGE-1 フルグランサ",
-    "NameCN": "",
+    "NameCN": "高达AGE-1 全备光辉型（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1819,7 +1819,7 @@
     "Id": 238,
     "NameEN": "Fawn Farsia",
     "NameJP": "フォーンファルシア",
-    "NameCN": "",
+    "NameCN": "冯法尔西娅（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1835,7 +1835,7 @@
     "Id": 240,
     "NameEN": "Extreme Gundam Eclipse",
     "NameJP": "エクストリームガンダム エクリプス-F",
-    "NameCN": "",
+    "NameCN": "极限高达日蚀面（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1851,7 +1851,7 @@
     "Id": 241,
     "NameEN": "Extreme Gundam Xenon",
     "NameJP": "エクストリームガンダム ゼノン-F",
-    "NameCN": "",
+    "NameCN": "极限高达异化面（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1867,7 +1867,7 @@
     "Id": 242,
     "NameEN": "Extreme Gundam Aios",
     "NameJP": "エクストリームガンダム アイオス-F",
-    "NameCN": "",
+    "NameCN": "极限高达神圣面（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1883,7 +1883,7 @@
     "Id": 243,
     "NameEN": "Extreme Gundam Leos II VS",
     "NameJP": "エクストリームガンダム type-レオスII Vs.",
-    "NameCN": "",
+    "NameCN": "极限高达 Type-雷欧斯II Vs.（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1899,7 +1899,7 @@
     "Id": 244,
     "NameEN": "Extreme Gundam Sthesia Excellia",
     "NameJP": "エクストリームガンダム エクセリア",
-    "NameCN": "",
+    "NameCN": "极限高达赛西娅Excellia（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1915,7 +1915,7 @@
     "Id": 248,
     "NameEN": "Gundam G-Self",
     "NameJP": "G-セルフ",
-    "NameCN": "",
+    "NameCN": "高达G-self（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -1931,13 +1931,13 @@
     "Id": 249,
     "NameEN": "Mack Knife",
     "NameJP": "マックナイフ(マスク機)",
-    "NameCN": ""
+    "NameCN": "马克刀（马克斯机）（G之复国运动）"
   },
   {
     "Id": 250,
     "NameEN": "Gundam G-Self Perfect Pack",
     "NameJP": "G-セルフ(パーフェクトパック)",
-    "NameCN": "",
+    "NameCN": "高达G-self（完美背包）（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -1953,7 +1953,7 @@
     "Id": 251,
     "NameEN": "Gundam G-Arcane (Full Dress)",
     "NameJP": "G-アルケイン(フルドレス)",
-    "NameCN": "",
+    "NameCN": "高达G-奥秘（盛装式）（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -1969,13 +1969,13 @@
     "Id": 252,
     "NameEN": "Montero",
     "NameJP": "モンテーロ",
-    "NameCN": ""
+    "NameCN": "蒙特罗（G之复国运动）"
   },
   {
     "Id": 253,
     "NameEN": "Gundam Barbatos",
     "NameJP": "ガンダム・バルバトス",
-    "NameCN": "",
+    "NameCN": "高达巴巴托斯（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -1991,13 +1991,13 @@
     "Id": 256,
     "NameEN": "Gundam Kimaris Trooper",
     "NameJP": "ガンダム・キマリストルーパー",
-    "NameCN": ""
+    "NameCN": "高达锡蒙利骑兵（铁血）"
   },
   {
     "Id": 257,
     "NameEN": "Gundam Barbatos Lupus",
     "NameJP": "ガンダム・バルバトスルプス",
-    "NameCN": "",
+    "NameCN": "高达巴巴托斯天狼型（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2013,7 +2013,7 @@
     "Id": 258,
     "NameEN": "Gundam Gusion Rebake Full City",
     "NameJP": "ガンダム・グシオンリベイクフルシティ",
-    "NameCN": "",
+    "NameCN": "高达古辛深度重锻型（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2029,7 +2029,7 @@
     "Id": 259,
     "NameEN": "Gundam Bael",
     "NameJP": "ガンダム・バエル",
-    "NameCN": "",
+    "NameCN": "高达巴耶力（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2045,7 +2045,7 @@
     "Id": 260,
     "NameEN": "Gundam Barbatos Lupus Rex",
     "NameJP": "ガンダム・バルバトスルプスレクス",
-    "NameCN": "",
+    "NameCN": "高达巴巴托斯天狼王型（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2061,13 +2061,13 @@
     "Id": 261,
     "NameEN": "Gundam Kimaris Vidar",
     "NameJP": "ガンダム・キマリスヴィダール",
-    "NameCN": ""
+    "NameCN": "高达锡蒙利维达尔（铁血）"
   },
   {
     "Id": 265,
     "NameEN": "Pale Rider",
     "NameJP": "ペイルライダー(陸戦重装仕様) [EX]",
-    "NameCN": ""
+    "NameCN": "苍白骑士（陆战重装式样）（"
   },
   {
     "Id": 266,
