@@ -105,7 +105,7 @@
     "Id": 21,
     "NameEN": "Messala",
     "NameJP": "メッサーラ",
-    "NameCN": "",
+    "NameCN": "梅萨拉（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -121,7 +121,7 @@
     "Id": 22,
     "NameEN": "The-O",
     "NameJP": "ジ・O",
-    "NameCN": "",
+    "NameCN": "铁奥（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -137,37 +137,37 @@
     "Id": 23,
     "NameEN": "Gundam MK-II",
     "NameJP": "ガンダムMk-II",
-    "NameCN": ""
+    "NameCN": "高达MK-II（Z）"
   },
   {
     "Id": 24,
     "NameEN": "Hambrabi",
     "NameJP": "ハンブラビ",
-    "NameCN": ""
+    "NameCN": "汉谟拉比（Z）"
   },
   {
     "Id": 31,
     "NameEN": "Marasai",
     "NameJP": "マラサイ",
-    "NameCN": ""
+    "NameCN": "马拉赛（Z）"
   },
   {
     "Id": 32,
     "NameEN": "Gabthley",
     "NameJP": "ガブスレイ",
-    "NameCN": ""
+    "NameCN": "加布斯雷（Z）"
   },
   {
     "Id": 34,
     "NameEN": "Baund Doc",
     "NameJP": "バウンド・ドック",
-    "NameCN": ""
+    "NameCN": "猎犬（Z）"
   },
   {
     "Id": 36,
     "NameEN": "Full Armor ZZ Gundam",
     "NameJP": "フルアーマーZZガンダム",
-    "NameCN": "",
+    "NameCN": "全装甲型ZZ高达（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -183,7 +183,7 @@
     "Id": 37,
     "NameEN": "Qubeley MK-II (Ple Two)",
     "NameJP": "キュベレイMk-II(プル)",
-    "NameCN": "",
+    "NameCN": "丘贝雷MK-II（普露2）",
     "Costumes": [
       {
         "Id": 0,
