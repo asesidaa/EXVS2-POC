@@ -63,7 +63,7 @@
     "Id": 10,
     "NameEN": "Le Creuset",
     "NameJP": "ル・クルーゼ",
-    "NameCN": "勒克鲁塞"
+    "NameCN": "劳·鲁·克鲁泽"
   },
   {
     "Id": 11,
@@ -212,8 +212,8 @@
   {
     "Id": 35,
     "NameEN": "EFSF",
-    "NameJP": "",
-    "NameCN": ""
+    "NameJP": "地球連邦軍宇宙軍",
+    "NameCN": "地球联邦军宇宙军（0079）"
   },
   {
     "Id": 36,
@@ -273,7 +273,7 @@
     "Id": 45,
     "NameEN": "Space Probe",
     "NameJP": "",
-    "NameCN": ""
+    "NameCN": "深空探测器"
   },
   {
     "Id": 46,
@@ -327,7 +327,7 @@
     "Id": 54,
     "NameEN": "EXVS Bronze Rank",
     "NameJP": "EXVSブロンズランク",
-    "NameCN": "EXVS 铜级排位"
+    "NameCN": "EXVS 铜级排名"
   },
   {
     "Id": 55,
@@ -453,13 +453,13 @@
     "Id": 76,
     "NameEN": "SPRING BATTLE 2019 Champion",
     "NameJP": "スプリングバトル2019 優勝",
-    "NameCN": "2019年春季之战冠军"
+    "NameCN": "2019年春季大赛 冠军"
   },
   {
     "Id": 77,
     "NameEN": "SPRING BATTLE 2019 Runner-Up",
     "NameJP": "スプリングバトル2019 準優勝",
-    "NameCN": "2019年春季之战 亚军"
+    "NameCN": "2019年春季大赛 亚军"
   },
   {
     "Id": 78,
@@ -525,13 +525,13 @@
     "Id": 88,
     "NameEN": "SUMMER BATTLE 2019 Champion",
     "NameJP": "サマーバトル2019 優勝",
-    "NameCN": "2019年夏季之战冠军"
+    "NameCN": "2019年夏季大赛 冠军"
   },
   {
     "Id": 89,
     "NameEN": "SUMMER BATTLE 2019 Runner-Up",
     "NameJP": "サマーバトル2019 準優勝",
-    "NameCN": "2019年夏季之战亚军"
+    "NameCN": "2019年夏季大赛 亚军"
   },
   {
     "Id": 90,
@@ -591,13 +591,13 @@
     "Id": 99,
     "NameEN": "AUTUMN BATTLE 2019 Champion",
     "NameJP": "オータムバトル2019 優勝",
-    "NameCN": "2019秋季之战冠军"
+    "NameCN": "2019秋季大赛 冠军"
   },
   {
     "Id": 100,
     "NameEN": "AUTUMN BATTLE 2019 Runner-Up",
     "NameJP": "オータムバトル2019 準優勝",
-    "NameCN": "2019秋季之战 亚军"
+    "NameCN": "2019秋季大赛 亚军"
   },
   {
     "Id": 101,
@@ -627,7 +627,7 @@
     "Id": 105,
     "NameEN": "Sleeves Soldier",
     "NameJP": "袖付き",
-    "NameCN": "袖残党"
+    "NameCN": "袖残党/带袖的"
   },
   {
     "Id": 106,
@@ -681,13 +681,13 @@
     "Id": 114,
     "NameEN": "WINTER BATTLE 2020 Champion",
     "NameJP": "WINTER BATTLE 2020 優勝",
-    "NameCN": "2020 年冬季之战冠军"
+    "NameCN": "2020 年冬季大赛 冠军"
   },
   {
     "Id": 115,
     "NameEN": "WINTER BATTLE 2020 Runner-Up",
     "NameJP": "WINTER BATTLE 2020 準優勝",
-    "NameCN": "2020 年冬季之战亚军"
+    "NameCN": "2020 年冬季大赛 亚军"
   },
   {
     "Id": 116,
@@ -717,19 +717,19 @@
     "Id": 120,
     "NameEN": "PREMIUM DOGFIGHT 2019 Winner",
     "NameJP": "プレミアムドッグファイト2019 優勝",
-    "NameCN": "高级混战2019冠军"
+    "NameCN": "PDF2019 冠军"
   },
   {
     "Id": 121,
     "NameEN": "PREMIUM DOGFIGHT 2019 runner up",
     "NameJP": "プレミアムドッグファイト2019 準優勝",
-    "NameCN": "高级混战2019亚军"
+    "NameCN": "PDF2019 亚军"
   },
   {
     "Id": 122,
     "NameEN": "PREMIUM DOGFIGHT 2019 best 8",
     "NameJP": "プレミアムドッグファイト2019 ベスト8",
-    "NameCN": "高级混战2019最佳第8名"
+    "NameCN": "PDF2019 8强"
   },
   {
     "Id": 123,
@@ -825,13 +825,13 @@
     "Id": 138,
     "NameEN": "SUMMER BATTLE 2022 Champion",
     "NameJP": "サマーバトル2022 優勝",
-    "NameCN": "2022 年夏季之战冠军"
+    "NameCN": "2022 年夏季大赛 冠军"
   },
   {
     "Id": 139,
     "NameEN": "SUMMER BATTLE 2022 Runner-Up",
     "NameJP": "サマーバトル2022 準優勝",
-    "NameCN": "2022 年夏季之战亚军"
+    "NameCN": "2022 年夏季大赛 亚军"
   },
   {
     "Id": 140,
@@ -975,7 +975,7 @@
     "Id": 163,
     "NameEN": "Shuffle Masters Silver",
     "NameJP": "シャッフルマスターズシルバー",
-    "NameCN": "随机大师赛银牌"
+    "NameCN": "随机大师赛银奖"
   },
   {
     "Id": 164,
@@ -1425,19 +1425,19 @@
     "Id": 238,
     "NameEN": "SUMMER BATTLE winner (2021)",
     "NameJP": "サマーバトル優勝者（2021）",
-    "NameCN": "夏季之战获胜者（2021）"
+    "NameCN": "夏季大赛冠军（2021）"
   },
   {
     "Id": 239,
     "NameEN": "SUMMER BATTLE runner-up (2021)",
     "NameJP": "サマーバトル準優勝（2021）",
-    "NameCN": "夏季之战亚军（2021）"
+    "NameCN": "夏季大赛亚军（2021）"
   },
   {
     "Id": 240,
     "NameEN": "AUTUMN BATTLE winner (2021)",
     "NameJP": "オータムバトル優勝者（2021）",
-    "NameCN": "秋季之战获胜者（2021）"
+    "NameCN": "秋季大赛冠军（2021）"
   },
   {
     "Id": 241,
@@ -1593,13 +1593,13 @@
     "Id": 266,
     "NameEN": "WINTER BATTLE winner (2022)",
     "NameJP": "WINTER BATTLE 優勝者 (2022)",
-    "NameCN": "冬季之战获胜者（2022）"
+    "NameCN": "冬季大赛冠军（2022）"
   },
   {
     "Id": 267,
     "NameEN": "WINTER BATTLE runner-up (2022)",
     "NameJP": "WINTER BATTLE 準優勝（2022）",
-    "NameCN": "冬季战斗亚军（2022）"
+    "NameCN": "冬季大赛亚军（2022）"
   },
   {
     "Id": 268,
@@ -1611,7 +1611,7 @@
     "Id": 269,
     "NameEN": "SPRING BATTLE winner (2022)",
     "NameJP": "SPRING BATTLE 優勝者（2022）",
-    "NameCN": "春季之战获胜者（2022）"
+    "NameCN": "春季大赛冠军（2022）"
   },
   {
     "Id": 270,
@@ -1623,19 +1623,19 @@
     "Id": 271,
     "NameEN": "SUMMER BATTLE winner (2022)",
     "NameJP": "サマーバトル優勝者（2022）",
-    "NameCN": "夏季之战获胜者（2022）"
+    "NameCN": "夏季大赛冠军（2022）"
   },
   {
     "Id": 272,
     "NameEN": "SUMMER BATTLE runner-up (2022)",
     "NameJP": "サマーバトル準優勝（2022）",
-    "NameCN": "夏季之战亚军（2022）"
+    "NameCN": "夏季大赛亚军（2022）"
   },
   {
     "Id": 273,
     "NameEN": "AUTUMN BATTLE winner (2022)",
     "NameJP": "オータムバトル優勝者（2022）",
-    "NameCN": "秋季之战获胜者（2022）"
+    "NameCN": "秋季大赛冠军（2022）"
   },
   {
     "Id": 274,
@@ -1701,13 +1701,13 @@
     "Id": 284,
     "NameEN": "Winning WINTER BATTLE (2023)",
     "NameJP": "WINTER BATTLE 優勝 (2023)",
-    "NameCN": "冬季之战冠军（2022）"
+    "NameCN": "冬季大赛冠军（2022）"
   },
   {
     "Id": 285,
     "NameEN": "WINTER BATTLE runner-up (2023)",
     "NameJP": "WINTER BATTLE 準優勝（2023）",
-    "NameCN": "冬季之战季军（2023）"
+    "NameCN": "冬季大赛亚军（2023）"
   },
   {
     "Id": 286,
