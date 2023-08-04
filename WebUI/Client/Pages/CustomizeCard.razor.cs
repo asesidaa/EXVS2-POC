@@ -343,6 +343,7 @@ public partial class CustomizeCard
         await SaveBasicProfile();
         await SaveNavigatorProfile();
         await SaveFavouriteMobileSuits();
+        await SaveMobileSuitsCostume();
         await SaveTriadCpuPartner();
         await SaveCustomizeComment();
 

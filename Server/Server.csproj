@@ -53,11 +53,11 @@
       <Folder Include="Migrations" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(Configuration)'=='Debug'">
-
-	</ItemGroup>
-	<ItemGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
 		<ProjectReference Include="..\WebUI\Client\WebUI.Client.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\WebUI\Shared\WebUI.Shared.csproj" />
 	</ItemGroup>
 
