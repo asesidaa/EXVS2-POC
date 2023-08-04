@@ -259,7 +259,7 @@
     "Id": 48,
     "NameEN": "Qubeley MK-II (Elpeo Ple)",
     "NameJP": "キュベレイMk-II(プル)",
-    "NameCN": "丘贝雷MK-II（普露）"
+    "NameCN": "丘贝雷MK-II（普露）（ZZ）"
   },
   {
     "Id": 50,
@@ -1057,7 +1057,7 @@
     "Id": 142,
     "NameEN": "Arche Gundam",
     "NameJP": "アルケーガンダム",
-    "NameCN": "权天使高达",
+    "NameCN": "权天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1357,7 +1357,7 @@
     "Id": 176,
     "NameEN": "Unicorn Gundam Banshee Norn",
     "NameJP": "バンシィ・ノルン",
-    "NameCN": "报丧女妖·命运女神"
+    "NameCN": "报丧女妖·命运女神（UC）"
   },
   {
     "Id": 180,
