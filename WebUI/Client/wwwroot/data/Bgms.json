@@ -9,43 +9,43 @@
     "Id": 1,
     "NameEN": "",
     "NameJP": "颯爽たるシャア",
-    "NameCN": ""
+    "NameCN": "飒爽的夏亚"
   },
   {
     "Id": 2,
     "NameEN": "",
     "NameJP": "窮地に立つガンダム",
-    "NameCN": ""
+    "NameCN": "高达立于大地"
   },
   {
     "Id": 3,
     "NameEN": "",
     "NameJP": "赤い彗星",
-    "NameCN": ""
+    "NameCN": "红色彗星"
   },
   {
     "Id": 4,
     "NameEN": "",
     "NameJP": "めぐりあい",
-    "NameCN": ""
+    "NameCN": "相遇"
   },
   {
     "Id": 5,
     "NameEN": "",
     "NameJP": "モビルスーツ戦",
-    "NameCN": ""
+    "NameCN": "MS战"
   },
   {
     "Id": 6,
     "NameEN": "",
     "NameJP": "艦隊戦",
-    "NameCN": ""
+    "NameCN": "舰队战"
   },
   {
     "Id": 7,
     "NameEN": "",
     "NameJP": "閃光の中のMS",
-    "NameCN": ""
+    "NameCN": "闪光中的MS"
   },
   {
     "Id": 8,
@@ -55,7 +55,7 @@
   },
   {
     "Id": 9,
-    "NameEN": "",
+    "NameEN": "Silent Voice",
     "NameJP": "サイレント・ヴォイス",
     "NameCN": ""
   },
@@ -63,7 +63,7 @@
     "Id": 10,
     "NameEN": "",
     "NameJP": "宇宙のジュドー",
-    "NameCN": ""
+    "NameCN": "宇宙的捷多"
   },
   {
     "Id": 11,
@@ -87,7 +87,7 @@
     "Id": 15,
     "NameEN": "",
     "NameJP": "F91ガンダム出撃",
-    "NameCN": ""
+    "NameCN": "F91高达出击"
   },
   {
     "Id": 16,
@@ -129,7 +129,7 @@
     "Id": 22,
     "NameEN": "",
     "NameJP": "思春期を殺した少年の翼",
-    "NameCN": ""
+    "NameCN": "抹杀思春期的少年之翼"
   },
   {
     "Id": 23,
@@ -171,37 +171,37 @@
     "Id": 29,
     "NameEN": "",
     "NameJP": "STRIKE出撃",
-    "NameCN": ""
+    "NameCN": "强袭出击"
   },
   {
     "Id": 30,
     "NameEN": "",
     "NameJP": "あんなに一緒だったのに",
-    "NameCN": ""
+    "NameCN": "我们曾经是那么的投合"
   },
   {
     "Id": 31,
     "NameEN": "",
     "NameJP": "GUNDAM出撃",
-    "NameCN": ""
+    "NameCN": "高达出击"
   },
   {
     "Id": 32,
     "NameEN": "",
     "NameJP": "攻撃開始",
-    "NameCN": ""
+    "NameCN": "攻击开始"
   },
   {
     "Id": 33,
     "NameEN": "",
     "NameJP": "キラ、その心のままに",
-    "NameCN": ""
+    "NameCN": "煌，随自己的内心而行"
   },
   {
     "Id": 34,
     "NameEN": "",
     "NameJP": "覚醒シン・アスカ",
-    "NameCN": ""
+    "NameCN": "觉醒 真飞鸟"
   },
   {
     "Id": 35,
@@ -339,19 +339,19 @@
     "Id": 61,
     "NameEN": "",
     "NameJP": "嵐の中で輝いて",
-    "NameCN": ""
+    "NameCN": "暴风雨中的光辉"
   },
   {
     "Id": 62,
     "NameEN": "",
     "NameJP": "戦士",
-    "NameCN": ""
+    "NameCN": "战士"
   },
   {
     "Id": 63,
     "NameEN": "",
     "NameJP": "機動戦",
-    "NameCN": ""
+    "NameCN": "机动战"
   },
   {
     "Id": 64,
@@ -387,7 +387,7 @@
     "Id": 69,
     "NameEN": "",
     "NameJP": "ニブンノイチ",
-    "NameCN": ""
+    "NameCN": "二分之一"
   },
   {
     "Id": 70,
@@ -417,31 +417,31 @@
     "Id": 74,
     "NameEN": "",
     "NameJP": "帝国からの襲撃",
-    "NameCN": ""
+    "NameCN": "来自帝国的袭击"
   },
   {
     "Id": 75,
     "NameEN": "",
     "NameJP": "鋼鉄の七人",
-    "NameCN": ""
+    "NameCN": "钢铁的七人"
   },
   {
     "Id": 76,
     "NameEN": "",
     "NameJP": "その名はマフティー・ナビーユ・エリン",
-    "NameCN": ""
+    "NameCN": "其名为马夫蒂·纳比由·艾林"
   },
   {
     "Id": 77,
     "NameEN": "",
     "NameJP": "レーン･エイムのテーマ",
-    "NameCN": ""
+    "NameCN": "雷恩·艾姆"
   },
   {
     "Id": 78,
     "NameEN": "",
     "NameJP": "強襲",
-    "NameCN": ""
+    "NameCN": "强袭"
   },
   {
     "Id": 79,
@@ -453,7 +453,7 @@
     "Id": 80,
     "NameEN": "",
     "NameJP": "戦慄のブルー",
-    "NameCN": ""
+    "NameCN": "战慄之蓝"
   },
   {
     "Id": 81,
@@ -489,13 +489,13 @@
     "Id": 86,
     "NameEN": "",
     "NameJP": "憎悪",
-    "NameCN": ""
+    "NameCN": "憎恶"
   },
   {
     "Id": 87,
     "NameEN": "",
     "NameJP": "運命の子",
-    "NameCN": ""
+    "NameCN": "命运之子"
   },
   {
     "Id": 88,
@@ -531,7 +531,7 @@
     "Id": 93,
     "NameEN": "",
     "NameJP": "ボスをたおせ",
-    "NameCN": ""
+    "NameCN": "击败BOSS"
   },
   {
     "Id": 94,
@@ -555,13 +555,13 @@
     "Id": 97,
     "NameEN": "",
     "NameJP": "暁の車",
-    "NameCN": ""
+    "NameCN": "晓之车"
   },
   {
     "Id": 98,
     "NameEN": "",
     "NameJP": "罠",
-    "NameCN": ""
+    "NameCN": "陷阱"
   },
   {
     "Id": 99,
@@ -597,7 +597,7 @@
     "Id": 104,
     "NameEN": "",
     "NameJP": "Theme of Over.on",
-    "NameCN": ""
+    "NameCN": "欧贝隆"
   },
   {
     "Id": 105,
