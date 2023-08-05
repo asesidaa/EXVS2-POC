@@ -71,6 +71,12 @@ public partial class CustomizeCard
         MaxWidth = MaxWidth.ExtraExtraLarge
     };
 
+    private static readonly DialogOptions LightOptions = new()
+    {
+        CloseOnEscapeKey = false,
+        DisableBackdropClick = true
+    };
+
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -363,7 +369,25 @@ public partial class CustomizeCard
             StateHasChanged();
         }
     }
-    
+
+    private async Task OpenCustomizeFavouriteMsDialog(FavouriteMs item)
+    {
+        var index = _favouriteMs.IndexOf(item);
+
+        if (index == -1)
+            throw new ArgumentException("Selected item is not part of the provided items list.");
+
+        var parameters = new DialogParameters { { "Data", item } };
+        var dialog = await DialogService.ShowAsync<CustomizeFavMsDialog>("Customizing favourite mobile suit", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            _favouriteMs[index] = (result.Data as FavouriteMs);
+            StateHasChanged();
+        }
+    }
+
     private async Task SaveAll()
     {
         HideSaveAllProgress = "visible";

@@ -1,0 +1,273 @@
+﻿@inject IDataService DataService
+@using WebUI.Shared.Dto.Common;
+@using WebUI.Shared.Dto.Enum;
+@using WebUI.Shared.Dto.Json;
+@using WebUI.Client.Services
+@inject ILogger<ChangeGaugeDialog> Logger
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+<MudDialog>
+    <DialogContent>
+        <MudStack>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudField Label="Mobile Suit" Variant="Variant.Outlined">
+                        <MudText>@GetMobileSuitName(Data.MsId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenMobileSuitUiDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudSelect Label="Burst Type" @bind-Value="Data.BurstType" T="BurstType" Variant="Variant.Outlined">
+                        @foreach (var item in Enum.GetValues<BurstType>())
+                        {
+                            <MudSelectItem Value="@(item)" />
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudField Label="In Battle Navi" Variant="Variant.Outlined">
+                        <MudText>@GetNaviName(Data.BattleNaviId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit"
+                                    OnClick="() => OpenNaviChangeBattleDialog()" />
+                </MudItem>
+		    </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudField Label="Gauge" Variant="Variant.Outlined">
+                        <MudText>@GetGaugeName(Data.BattleNaviId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenChangeGaugeDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudSelect Label="Bgm Play Type" @bind-Value="Data.BgmPlayingMethod" T="BgmPlayingMethod" Variant="Variant.Outlined">
+                        @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
+                        {
+                            <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Bgm Play Order">
+                            <MudSimpleTable Style="overflow-x: auto;">
+                                <tbody>
+                                    @if (Data.BgmList != null && Data.BgmList.Count() > 0)
+                                    {
+                                        foreach (var x in Data.BgmList)
+                                        {
+                                            <tr>
+                                                <td>@DataService.GetBgmById(x)?.NameJP</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Data.BgmList = Array.Empty<uint>();
+                                        <tr>
+                                            <td>No Entries</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </MudSimpleTable>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenFavMsChangeBgmOrderDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Titles">
+                            <MudStack>
+                                <MudStack Row>
+                                    <MudText>Detail refer to:</MudText>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">Title</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">Background</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">Ornament</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">Effect</MudLink>
+                                </MudStack>
+                                <MudDivider />
+                                <MudStack>
+                                    <MudField Label="Default Titles" Variant="Variant.Outlined">
+                                        <MudGrid>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                        </MudGrid>
+                                    </MudField>
+                                </MudStack>
+                                <MudStack>
+                                    <MudField Label="Ranking Titles" Variant="Variant.Outlined">
+                                        <MudGrid>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                        </MudGrid>
+                                    </MudField>
+                                </MudStack>
+                                <MudStack>
+                                    <MudField Label="Triad Titles" Variant="Variant.Outlined">
+                                        <MudGrid>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                            </MudItem>
+                                        </MudGrid>
+                                    </MudField>
+                                </MudStack>
+                            </MudStack>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudItem>
+            </MudGrid>
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public FavouriteMs Data { get; set; } = null!;
+
+    private static readonly DialogOptions OPTIONS = new()
+        {
+            CloseOnEscapeKey = false,
+            DisableBackdropClick = true,
+            FullWidth = true,
+            MaxWidth = MaxWidth.ExtraExtraLarge
+        };
+
+    private void Submit()
+    {
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private string GetMobileSuitName(uint id)
+    {
+        var navigator = DataService.GetMobileSuitById(id);
+
+        return navigator?.NameEN ?? "Unknown Mobile Suit";
+    }
+
+    private string GetNaviName(uint id)
+    {
+        var navigator = DataService.GetNavigatorById(id);
+
+        return navigator?.NameEN ?? "Unknown Navigator";
+    }
+
+    private string GetGaugeName(uint id)
+    {
+        var navigator = DataService.GetGaugeById(id);
+
+        return navigator?.NameEN ?? "Unknown Gauge";
+    }
+
+    private async Task OpenMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters { { "Data", Data.MsId } };
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change mobile suit", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.MsId = (uint)result.Data;
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenNaviChangeBattleDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { Data.BattleNaviId } } };
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.BattleNaviId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenChangeGaugeDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { Data.GaugeDesignId } } };
+        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change gauge UI", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.GaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenFavMsChangeBgmOrderDialog()
+    {
+        var parameters = new DialogParameters { { "Data", Data.BgmList } };
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change bgm order", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.BgmList = (result.Data as uint[])!;
+            StateHasChanged();
+        }
+    }
+}

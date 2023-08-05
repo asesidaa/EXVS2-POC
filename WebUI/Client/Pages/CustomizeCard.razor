@@ -135,6 +135,74 @@
                         </MudItem>
                     </MudGrid>
                 </MudItem>
+                <MudExpansionPanels>
+                    <MudExpansionPanel Text="Titles">
+                        <MudStack>
+                            <MudStack Row>
+                                <MudText>Detail refer to:</MudText>
+                                <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">Title</MudLink>
+                                <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">Background</MudLink>
+                                <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">Ornament</MudLink>
+                                <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">Effect</MudLink>
+                            </MudStack>
+                            <MudDivider />
+                            <MudStack>
+                                <MudField Label="Default Titles" Variant="Variant.Outlined">
+                                    <MudGrid>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudField>
+                            </MudStack>
+                            <MudStack>
+                                <MudField Label="Ranking Titles" Variant="Variant.Outlined">
+                                    <MudGrid>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudField>
+                            </MudStack>
+                            <MudStack>
+                                <MudField Label="Triad Titles" Variant="Variant.Outlined">
+                                    <MudGrid>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudField>
+                            </MudStack>
+                        </MudStack>
+                    </MudExpansionPanel>
+                </MudExpansionPanels>
             </MudStack>
         </MudCardContent>
     </MudCard>
@@ -275,116 +343,32 @@
                     Elevation="5"
                     Items="@_favouriteMs"
                     Filterable="false"
-                    ReadOnly="false"
+                    ReadOnly="true"
                     EditMode="@(DataGridEditMode.Cell)"
                     EditTrigger="@(DataGridEditTrigger.OnRowClick)"
                     SortMode="@SortMode.None"
                     Groupable="false">
                 <Columns>
                     <PropertyColumn Property="x => x.MsId" IsEditable="true" Title="Mobile Suit">
-                        <EditTemplate>
-                            <MudGrid Class="align-center">
-                                <MudItem xs="9">
-                                    <MudText Align="Align.Center">@GetMobileSuitName(context.Item.MsId)</MudText>
-                                </MudItem>
-                                <MudItem xs="3">
-                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                                    OnClick="() => OpenChangeFavouriteMsDialog(context.Item)" />
-                                </MudItem>
-                            </MudGrid>
-                        </EditTemplate>
-                    </PropertyColumn>
-                    <PropertyColumn Property="x => x.BurstType" Title="Burst Type">
-                        <EditTemplate>
-                            <MudStack Row>
-                                <MudSelect @bind-Value="context.Item.BurstType" T="BurstType" Variant="Variant.Outlined">
-                                    @foreach (var item in Enum.GetValues<BurstType>())
-                                    {
-                                        <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
-                                    }
-                                </MudSelect>
-                            </MudStack>
-                    </EditTemplate>
-                </PropertyColumn>
-                    <PropertyColumn Property="x => x.BattleNaviId" Title="In Battle Navi">
-                        <EditTemplate>
-                            <MudGrid Class="align-center">
-                                <MudItem xs="9">
-                                    <MudText Align="Align.Center">@GetNaviName(context.Item.BattleNaviId)</MudText>
-                                </MudItem>
-                                <MudItem xs="3">
-                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                                   OnClick="() => OpenFavMsChangeNaviDialog(context.Item)" />
-                                </MudItem>
-                            </MudGrid>
-                        </EditTemplate>
-                    </PropertyColumn>
-                    <PropertyColumn Property="x => x.GaugeDesignId" Title="Gauge UI">
-                        <EditTemplate>
-                            <MudGrid Class="align-center">
-                                <MudItem xs="9">
-                                    <MudText Align="Align.Center">@GetGaugeName(context.Item.GaugeDesignId)</MudText>
-                                </MudItem>
-                                <MudItem xs="3">
-                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                                   OnClick="() => OpenFavMsChangeGaugeDialog(context.Item)" />
-                                </MudItem>
-                            </MudGrid>
-                        </EditTemplate>
-                    </PropertyColumn>
-                    <PropertyColumn Property="x => x.BgmList" IsEditable="false" Title="Bgm Order">
                         <CellTemplate>
-                            <MudGrid Class="align-center">
-                                <MudItem xs="10">
-                                    <MudExpansionPanels>
-                                        <MudExpansionPanel Text="Order">
-                                            <MudSimpleTable Style="overflow-x: auto;">
-                                                <tbody>
-                                                    @if (context.Item.BgmList != null && context.Item.BgmList.Count() > 0)
-                                                    {
-                                                        foreach (var x in context.Item.BgmList)
-                                                        {
-                                                            <tr>
-                                                                <td>@DataService.GetBgmById(x)?.NameJP</td>
-                                                            </tr>
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        context.Item.BgmList = Array.Empty<uint>();
-                                                        <tr>
-                                                            <td>No Entries</td>
-                                                        </tr>
-                                                    }
-                                                </tbody>
-                                            </MudSimpleTable>
-                                        </MudExpansionPanel>
-                                    </MudExpansionPanels>
-                                </MudItem>
-                                <MudItem xs="2">
-                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                                   OnClick="() => OpenFavMsChangeBgmOrderDialog(context.Item)" />
-                                </MudItem>
-                            </MudGrid>
+                            <MudText>@GetMobileSuitName(context.Item.MsId)</MudText>
                         </CellTemplate>
                     </PropertyColumn>
-                    <PropertyColumn Property="x => x.BgmPlayingMethod" Title="BGM Play Type">
-                        <EditTemplate>
-                            <MudStack Row>
-                                <MudSelect @bind-Value="context.Item.BgmPlayingMethod" T="BgmPlayingMethod" Variant="Variant.Outlined">
-                                    @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
-                                    {
-                                        <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
-                                    }
-                                </MudSelect>
-                            </MudStack>
-                        </EditTemplate>
+                    <PropertyColumn Property="x => x.BurstType" Title="Burst Type" />
+                    <PropertyColumn Property="x => x.BattleNaviId" Title="In Battle Navi">
+                        <CellTemplate>
+                            <MudText>@GetNaviName(context.Item.BattleNaviId)</MudText>
+                        </CellTemplate>
                     </PropertyColumn>
                     <PropertyColumn Property="x => x">
-                        <EditTemplate>
+                        <CellTemplate>
+                            <MudStack Row>
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenCustomizeFavouriteMsDialog(context.Item)" />
                                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Color="Color.Error"
-                                               Icon="@Icons.Material.Filled.Delete" OnClick="() => RemoveFavouriteUnit(context)"></MudIconButton>
-                        </EditTemplate>
+                                    Icon="@Icons.Material.Filled.Delete" OnClick="() => RemoveFavouriteUnit(context)"></MudIconButton>
+                            </MudStack>
+                        </CellTemplate>
                     </PropertyColumn>
                 </Columns>
             </MudDataGrid>
@@ -459,39 +443,6 @@
                         <MudDataGridPager PageSizeOptions="@_pageSizeOptions" />
                     </PagerContent>
                 </MudDataGrid>
-            </MudStack>
-
-            <MudStack>
-@*                <MudItem xs="10">
-                    <MudGrid Class="align-center">
-                        <MudItem xs="10">
-                            <MudField Label="In Battle Navigator" Variant="Variant.Outlined">
-                                <MudText Align="Align.Center">@GetMobileSuitName(costume.DefaultBattleNaviId)</MudText>
-                            </MudField>
-                        </MudItem>
-                        <MudItem xs="2">
-                            <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                           OnClick="() => OpenNaviChangeBattleDialog()" />
-                        </MudItem>
-                    </MudGrid>
-                </MudItem>
-              <MudSelect @bind-Value="SelectedHasCostumeMsValue" T="MobileSuit"
-                           Label="MS Available For Alternative Costume" Variant="Variant.Outlined">
-                    @foreach (var item in DataService.GetCostumeMobileSuitSortedById())
-                    {
-                        <MudSelectItem Value="item">@item.NameEN</MudSelectItem>
-                    }
-                </MudSelect>
-                @if (SelectedHasCostumeMsValue is not null)
-                {
-                    <MudSelect @bind-Value="SelectedMsCostumeValue" T="Costume"
-                                Label="Alternative Costume" Variant="Variant.Outlined">
-                        @foreach (var item in SelectedHasCostumeMsValue!.Costumes)
-                        {
-                            <MudSelectItem Value="item">@item.Name</MudSelectItem>
-                        }
-                    </MudSelect>
-                }*@
             </MudStack>
         </MudCardContent>
     </MudCard>
