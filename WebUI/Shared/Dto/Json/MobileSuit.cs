@@ -8,5 +8,5 @@ public class MobileSuit
     public string NameEN { get; set; } = string.Empty;
     public string NameJP { get; set; } = string.Empty;
     public string NameCN { get; set; } = string.Empty;
-    public List<Costume>? Costumes { get; set; } = new ();
+    public List<IdValuePair>? Costumes { get; set; } = new ();
 }

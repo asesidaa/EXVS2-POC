@@ -27,6 +27,7 @@ public partial class CustomizeCard
     private NaviProfile _naviProfile  = null!;
     private ObservableCollection<FavouriteMs> _favouriteMs  = new();
     private ObservableCollection<MobileSuitWithSkillGroup> _mobileSuitsSkillGroups = new();
+    private ObservableCollection<NaviWithNavigatorGroup> _naviObservableCollection = new();
     private CpuTriadPartner cpuTriadPartner = null;
     
 
@@ -42,7 +43,9 @@ public partial class CustomizeCard
     private string HideNaviProgress { get; set; } = "invisible";
     private string HideFavMsProgress { get; set; } = "invisible";
     private string HideMsCostumeProgress { get; set; } = "invisible";
+    private string HideNaviCostumeProgress { get; set; } = "invisible";
     private string _msCostumeSearchString { get; set; }
+    private string _naviCostumeSearchString { get; set; }
 
     private readonly int[] _pageSizeOptions = { 5, 10, 25, 50, 100 };
 
@@ -118,11 +121,37 @@ public partial class CustomizeCard
             })
             .ToList();
 
-
+        var naviList = DataService.GetNavigatorSortedById().Select(navigator => new NaviWithNavigatorGroup()
+        {
+            Navigator = navigator
+        }).ToList();
+        
+        var naviWithAltCostumes = naviList
+            .Where(x => x.Navigator.Costumes != null && x.Navigator.Costumes.Count > 0)
+            .GroupJoin(
+                naviResult.UserNavis,
+                firstItem => firstItem.Navigator.Id,
+                secondItem => secondItem.Id,
+                (firstItem, matchingSecondItems) => new
+                {
+                    FirstItem = firstItem,
+                    MatchingSecondItem = matchingSecondItems.FirstOrDefault()
+                })
+            .Select(joinedItem =>
+            {
+                if (joinedItem.MatchingSecondItem != null)
+                {
+                    joinedItem.FirstItem.Navi = joinedItem.MatchingSecondItem;
+                }
+                return joinedItem.FirstItem;
+            })
+            .ToList();
+        
         _basicProfile = profileResult;
         _naviProfile = naviResult;
         _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
         _mobileSuitsSkillGroups = new ObservableCollection<MobileSuitWithSkillGroup>(msWithAltCostumes);
+        _naviObservableCollection = new ObservableCollection<NaviWithNavigatorGroup>(naviWithAltCostumes);
 
         cpuTriadPartner = cpuTriadPartnerResult;
         SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
@@ -342,6 +371,7 @@ public partial class CustomizeCard
 
         await SaveBasicProfile();
         await SaveNavigatorProfile();
+        await SaveNaviCostume();
         await SaveFavouriteMobileSuits();
         await SaveMobileSuitsCostume();
         await SaveTriadCpuPartner();
@@ -397,6 +427,30 @@ public partial class CustomizeCard
         ShowBasicResponseSnack(result, "navigatior infos");
 
         HideNaviProgress = "invisible";
+        StateHasChanged();
+    }
+    
+    private async Task SaveNaviCostume()
+    {
+        HideNaviCostumeProgress = "visible";
+        StateHasChanged();
+
+        var navis = _naviObservableCollection.Where(x => x.Navi != null).Select(x => x.Navi).ToList();
+
+        var dto = new UpdateAllNaviCostumeRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            Navis = navis
+        };
+
+        var response = await Http.PostAsJsonAsync("/card/updateAllNaviCostume", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, "navi costume");
+
+        HideNaviCostumeProgress = "invisible";
         StateHasChanged();
     }
 
@@ -518,13 +572,23 @@ public partial class CustomizeCard
 
     private static string? ValidatePlayerName(string playerName)
     {
+        return ValidateName(playerName, "Player name");
+    }
+    
+    private static string? ValidateTeamName(string teamName)
+    {
+        return ValidateName(teamName, "Triad CPU Team name");
+    }
+
+    private static String? ValidateName(string name, string errorMessagePart)
+    {
         const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
 
-        return playerName.Length switch
+        return name.Length switch
         {
-            0 => "Player name cannot be empty!",
-            > PLAYER_NAME_MAX_LENGTH => "Player name cannot be longer than 12 characters!",
-            _ => !Regex.IsMatch(playerName, pattern) ? "Player name contains invalid character!" : null
+            0 => errorMessagePart + " cannot be empty!",
+            > PLAYER_NAME_MAX_LENGTH => errorMessagePart + " cannot be longer than 12 characters!",
+            _ => !Regex.IsMatch(name, pattern) ? errorMessagePart + " contains invalid character!" : null
         };
     }
 
@@ -541,6 +605,23 @@ public partial class CustomizeCard
             return true;
 
         if (x.MobileSuit.NameCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    };
+    
+    private Func<NaviWithNavigatorGroup, bool> _naviQuickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_naviCostumeSearchString))
+            return true;
+
+        if (x.Navigator.NameEN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.NameJP.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.NameCN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
         return false;
@@ -563,11 +644,34 @@ public partial class CustomizeCard
             context.SkillGroup.CostumeId = selectedIds.FirstOrDefault();
         }
     }
+    
+    private async Task OnNaviCostumeSelectChanged(IEnumerable<uint> selectedIds, NaviWithNavigatorGroup context)
+    {
+        if (context.Navi == null)
+        {
+            context.Navi = new Navi()
+            {
+                Id = context.Navigator.Id,
+                CostumeId = selectedIds.FirstOrDefault(),
+                Familiarity = 0
+            };
+        }
+        else
+        {
+            context.Navi.CostumeId = selectedIds.FirstOrDefault();
+        }
+    }
 
     public class MobileSuitWithSkillGroup
     {
         public MobileSuit MobileSuit { get; set; }
 
         public MsSkillGroup? SkillGroup { get; set; }
+    }
+    
+    public class NaviWithNavigatorGroup
+    {
+        public Navigator Navigator { get; set; }
+        public Navi? Navi { get; set; }
     }
 }

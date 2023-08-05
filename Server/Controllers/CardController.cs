@@ -81,6 +81,14 @@ public class CardController : BaseController<CardController>
         return response;
     }
     
+    [HttpPost("updateAllNaviCostume")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateAllNaviCostume([FromBody] UpdateAllNaviCostumeRequest request)
+    {
+        var response = await mediator.Send(new UpdateAllNaviCostumeCommand(request));
+        return response;
+    }
+    
     [HttpGet("getAllFavouriteMs/{accessCode}/{chipId}")]
     [Produces("application/json")]
     public async Task<ActionResult<List<FavouriteMs>>> GetAllFavouriteMs(String accessCode, String chipId)

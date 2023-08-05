@@ -32,7 +32,7 @@ public class DataService : IDataService
 
     public async Task InitializeAsync()
     {
-        var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json");
+        var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=2");
         msList.ThrowIfNull();
         mobileSuits = msList.ToDictionary(ms => ms.Id);
         sortedMobileSuitList = msList.OrderBy(title => title.Id).ToList();
@@ -47,7 +47,7 @@ public class DataService : IDataService
         gauge = gaugeList.ToDictionary(ms => ms.Id);
         sortedGaugeList = gaugeList.OrderBy(title => title.Id).ToList();
 
-        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json");
+        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json?v=2");
         naviList.ThrowIfNull();
         navigator = naviList.ToDictionary(ms => ms.Id);
         sortedNavigatorList = naviList.OrderBy(title => title.Id).ToList();
