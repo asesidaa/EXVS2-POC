@@ -32,7 +32,7 @@ public class DataService : IDataService
 
     public async Task InitializeAsync()
     {
-        var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json");
+        var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=2");
         msList.ThrowIfNull();
         mobileSuits = msList.ToDictionary(ms => ms.Id);
         sortedMobileSuitList = msList.OrderBy(title => title.Id).ToList();

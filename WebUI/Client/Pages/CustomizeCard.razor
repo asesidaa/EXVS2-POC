@@ -367,7 +367,7 @@
                                         <MudSelect @bind-Value="context.Item.SkillGroup.CostumeId" T="uint" SelectedValuesChanged="(selectedIds) => OnCostumeSelectChanged(selectedIds, context.Item)" Variant="Variant.Outlined">
                                             @foreach (var costume in context.Item.MobileSuit.Costumes)
                                             {
-                                                <MudSelectItem Value="costume.Id">@costume.Name</MudSelectItem>
+                                                <MudSelectItem Value="costume.Id">@costume.Value</MudSelectItem>
                                             }
                                         </MudSelect>
                                     }
@@ -376,7 +376,7 @@
                                         <MudSelect T="uint" SelectedValuesChanged="(selectedIds) => OnCostumeSelectChanged(selectedIds, context.Item)" Variant="Variant.Outlined">
                                             @foreach(var costume in context.Item.MobileSuit.Costumes)
                                             {
-                                                <MudSelectItem Value="costume.Id">@costume.Name</MudSelectItem>
+                                                <MudSelectItem Value="costume.Id">@costume.Value</MudSelectItem>
                                             }
                                         </MudSelect>                                        
                                     }
