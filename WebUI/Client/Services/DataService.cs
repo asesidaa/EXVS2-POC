@@ -15,6 +15,7 @@ public class DataService : IDataService
     private Dictionary<uint, Navigator> navigator = new();
     private Dictionary<uint, IdValuePair> triadSkill = new();
     private Dictionary<uint, IdValuePair> triadTeamBanner = new();
+    private Dictionary<uint, IdValuePair> gamepadOptions = new();
 
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
@@ -24,6 +25,7 @@ public class DataService : IDataService
     private List<Navigator> sortedNavigatorList = new();
     private List<IdValuePair> sortedTriadSkillList = new();
     private List<IdValuePair> sortedTriadTeamBannerList = new();
+    private List<IdValuePair> sortedGamepadOptionList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -75,6 +77,11 @@ public class DataService : IDataService
         triadTeamBannerList.ThrowIfNull();
         triadTeamBanner = triadTeamBannerList.ToDictionary(ms => ms.Id);
         sortedTriadTeamBannerList = triadTeamBannerList.OrderBy(title => title.Id).ToList();
+        
+        var gamepadOptionList = await client.GetFromJsonAsync<List<IdValuePair>>("data/GamepadOptions.json");
+        gamepadOptionList.ThrowIfNull();
+        gamepadOptions = gamepadOptionList.ToDictionary(gamepadOption => gamepadOption.Id);
+        sortedGamepadOptionList = gamepadOptionList.OrderBy(gamepadOption => gamepadOption.Id).ToList();
     }
 
     public IReadOnlyList<IdValuePair> GetDisplayOptionsSortedById()
@@ -145,5 +152,10 @@ public class DataService : IDataService
     public IdValuePair? GetTriadTeamBanner(uint id)
     {
         return triadTeamBanner.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<IdValuePair> GetSortedGamepadOptionList()
+    {
+        return sortedGamepadOptionList;
     }
 }

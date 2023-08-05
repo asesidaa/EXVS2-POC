@@ -29,6 +29,7 @@ public partial class CustomizeCard
     private ObservableCollection<MobileSuitWithSkillGroup> _mobileSuitsSkillGroups = new();
     private ObservableCollection<NaviWithNavigatorGroup> _naviObservableCollection = new();
     private CpuTriadPartner cpuTriadPartner = null;
+    private GamepadConfig _gamepadConfig = null;
     
 
     private string? errorMessage = null;
@@ -48,6 +49,7 @@ public partial class CustomizeCard
 
     private string HideTriadCpuPartnerProgress { get; set; } = "invisible";
     private string HideCustomizeCommentProgress { get; set; } = "invisible";
+    private string HideGamepadConfigProgress { get; set; } = "invisible";
     private const int PLAYER_NAME_MAX_LENGTH = 12;
 
     private IdValuePair? SelectedTriadSkill1 { get; set; }
@@ -97,6 +99,9 @@ public partial class CustomizeCard
 
         var msSkillGroup = await Http.GetFromJsonAsync<List<MsSkillGroup>>($"/card/getUsedMobileSuitData/{AccessCode}/{ChipId}");
         msSkillGroup.ThrowIfNull();
+        
+        var gamepadConfig = await Http.GetFromJsonAsync<GamepadConfig>($"/card/getGamepadConfig/{AccessCode}/{ChipId}");
+        gamepadConfig.ThrowIfNull();
 
         //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
         //Logger.LogInformation($"{json}");
@@ -155,12 +160,14 @@ public partial class CustomizeCard
         _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
         _mobileSuitsSkillGroups = new ObservableCollection<MobileSuitWithSkillGroup>(msWithAltCostumes);
         _naviObservableCollection = new ObservableCollection<NaviWithNavigatorGroup>(naviWithAltCostumes);
-
+        
         cpuTriadPartner = cpuTriadPartnerResult;
         SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
         SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
         SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
         CustomizeComment = customizeCommentResult;
+        
+        _gamepadConfig = gamepadConfig;
     }
 
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
@@ -394,6 +401,7 @@ public partial class CustomizeCard
         await SaveMobileSuitsCostume();
         await SaveTriadCpuPartner();
         await SaveCustomizeComment();
+        await SaveGamepadConfig();
 
         HideSaveAllProgress = "invisible";
         StateHasChanged();
@@ -574,6 +582,28 @@ public partial class CustomizeCard
         ShowBasicResponseSnack(result, "Customize Comment");
 
         HideCustomizeCommentProgress = "invisible";
+        StateHasChanged();
+    }
+
+    private async Task SaveGamepadConfig()
+    {
+        HideGamepadConfigProgress = "visible";
+        StateHasChanged();
+        
+        var dto = new UpsertGamepadConfigRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            GamepadConfig = _gamepadConfig
+        };
+
+        var response = await Http.PostAsJsonAsync("/card/upsertGamepadConfig", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, "Gamepad Config");
+
+        HideGamepadConfigProgress = "invisible";
         StateHasChanged();
     }
 
