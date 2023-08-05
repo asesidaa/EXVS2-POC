@@ -42,16 +42,49 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
             response.Error = Error.ErrServer;
             return Task.FromResult(response);
         }
-        
+
+        var pilotDataGroup =
+            JsonConvert.DeserializeObject<Response.LoadCard.PilotDataGroup>(cardProfile.PilotDomain.PilotDataGroupJson);
+        var mobileUserGroup =
+            JsonConvert.DeserializeObject<Response.LoadCard.MobileUserGroup>(cardProfile.UserDomain
+                .MobileUserGroupJson);
+
+        if (pilotDataGroup is not null)
+        {
+            pilotDataGroup.pilot_rank_match ??= new Response.LoadCard.PilotDataGroup.PilotRankMatch
+            {
+                PilotRankMatchSolo = CreateNewPilotRankMatchInfo(),
+                PilotRankMatchTeam = CreateNewPilotRankMatchInfo()
+            };
+            cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotDataGroup);
+            _context.SaveChanges();
+        }
+
         response.load_card = new Response.LoadCard
         {
-            pilot_data_group = JsonConvert.DeserializeObject<Response.LoadCard.PilotDataGroup>(cardProfile.PilotDomain.PilotDataGroupJson),
-            mobile_user_group = JsonConvert.DeserializeObject<Response.LoadCard.MobileUserGroup>(cardProfile.UserDomain.MobileUserGroupJson),
+            pilot_data_group = pilotDataGroup,
+            mobile_user_group = mobileUserGroup,
         };
 
         //String readStr = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "loadcard.json"));
         //response.load_card = JsonConvert.DeserializeObject<Response.LoadCard>(loadCard);
 
         return Task.FromResult(response);
+    }
+    
+    Response.LoadCard.PilotDataGroup.PilotRankMatch.PilotRankMatchInfo CreateNewPilotRankMatchInfo()
+    {
+        return new Response.LoadCard.PilotDataGroup.PilotRankMatch.PilotRankMatchInfo
+        {
+            RankId = 0,
+            Level = 0,
+            WinLoseInfoes = new uint[] {},
+            RankPoint = 0,
+            ExRank = 0,
+            ExRankChangeFlag = 0,
+            CpuNum = 0,
+            ExxLockFlag = false,
+            PreTrialExxFlag = false
+        };
     }
 }
