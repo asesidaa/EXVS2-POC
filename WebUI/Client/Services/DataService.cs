@@ -7,6 +7,8 @@ namespace WebUI.Client.Services;
 
 public class DataService : IDataService
 {
+    private Dictionary<uint, IdValuePair> displayOptions= new();
+    private Dictionary<uint, IdValuePair> echelonDisplayOptions = new();
     private Dictionary<uint, MobileSuit> mobileSuits = new();
     private Dictionary<uint, Bgm> bgm = new();
     private Dictionary<uint, Gauge> gauge = new();
@@ -14,6 +16,8 @@ public class DataService : IDataService
     private Dictionary<uint, IdValuePair> triadSkill = new();
     private Dictionary<uint, IdValuePair> triadTeamBanner = new();
 
+    private List<IdValuePair> sortedDisplayOptionList = new();
+    private List<IdValuePair> sortedEchelonDisplayOptionList = new();
     private List<MobileSuit> sortedMobileSuitList = new();
     private List<Bgm> sortedBgmList = new();
     private List<Gauge> sortedGaugeList = new();
@@ -32,6 +36,16 @@ public class DataService : IDataService
 
     public async Task InitializeAsync()
     {
+        var displayOptionList = await client.GetFromJsonAsync<List<IdValuePair>>("data/DisplayOptions.json");
+        displayOptionList.ThrowIfNull();
+        displayOptions = displayOptionList.ToDictionary(pair => pair.Id);
+        sortedDisplayOptionList = displayOptionList.OrderBy(title => title.Id).ToList();
+        
+        var echelonDisplayOptionList = await client.GetFromJsonAsync<List<IdValuePair>>("data/EchelonDisplayOptions.json");
+        echelonDisplayOptionList.ThrowIfNull();
+        echelonDisplayOptions = echelonDisplayOptionList.ToDictionary(pair => pair.Id);
+        sortedEchelonDisplayOptionList = echelonDisplayOptionList.OrderBy(title => title.Id).ToList();
+        
         var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=2");
         msList.ThrowIfNull();
         mobileSuits = msList.ToDictionary(ms => ms.Id);
@@ -63,6 +77,16 @@ public class DataService : IDataService
         sortedTriadTeamBannerList = triadTeamBannerList.OrderBy(title => title.Id).ToList();
     }
 
+    public IReadOnlyList<IdValuePair> GetDisplayOptionsSortedById()
+    {
+        return sortedDisplayOptionList;
+    }
+    
+    public IReadOnlyList<IdValuePair> GetEchelonDisplayOptionsSortedById()
+    {
+        return sortedEchelonDisplayOptionList;
+    }
+    
     public IReadOnlyList<MobileSuit> GetMobileSuitSortedById()
     {
         return sortedMobileSuitList;

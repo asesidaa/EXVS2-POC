@@ -56,20 +56,6 @@
         </MudCardHeader>
         <MudCardContent>
             <MudStack>
-                <MudStack Row>
-                    <MudStack Row Class="align-center">
-                        <MudToggleIconButton @bind-Toggled="@SwitchOpenRecord"
-                                             Icon="@Icons.Material.Filled.VisibilityOff" Color="@Color.Error" Title="Off"
-                                             ToggledIcon="@Icons.Material.Filled.Visibility" ToggledColor="@Color.Success" ToggledTitle="On" />
-                        <span>@(SwitchOpenRecord ? "Show" : "Hide") Record </span>
-                    </MudStack>
-                    <MudStack Row Class="align-center">
-                        <MudToggleIconButton @bind-Toggled="@SwitchOpenEchelon"
-                                             Icon="@Icons.Material.Filled.GridOff" Color="@Color.Error" Title="Off"
-                                             ToggledIcon="@Icons.Material.Filled.GridOn" ToggledColor="@Color.Success" ToggledTitle="On" />
-                        <span>@(SwitchOpenEchelon ? "Show" : "Hide") Rank </span>
-                    </MudStack>
-                </MudStack>
                 <MudItem xs="8">
                     <MudTextField @bind-Value="_basicProfile.UserName"
                                   Immediate="true"
@@ -131,7 +117,26 @@
                         </MudItem>
                         <MudItem xs="2">
                             <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                            OnClick="() => OpenProfileChangeGaugeDialog()" />
+                                           OnClick="() => OpenProfileChangeGaugeDialog()" />
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudSelect Label="Player Record Display" @bind-Value="_basicProfile.OpenRecord" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenRecordChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
+                                @foreach (var openRecord in DataService.GetDisplayOptionsSortedById())
+                                {
+                                    <MudSelectItem Value="openRecord.Id">@openRecord.Value</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="Echelon Display" @bind-Value="_basicProfile.OpenEchelon" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenEchelonChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
+                                @foreach (var openEchelon in DataService.GetEchelonDisplayOptionsSortedById())
+                                {
+                                    <MudSelectItem Value="openEchelon.Id">@openEchelon.Value</MudSelectItem>
+                                }</MudSelect>
                         </MudItem>
                     </MudGrid>
                 </MudItem>

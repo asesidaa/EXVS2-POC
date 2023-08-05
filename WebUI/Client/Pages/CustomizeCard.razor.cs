@@ -34,10 +34,7 @@ public partial class CustomizeCard
     private string? errorMessage = null;
 
     private readonly int maximumFavouriteMs = 6;
-
-    private bool SwitchOpenRecord { get; set; }
-    private bool SwitchOpenEchelon { get; set; }
-
+    
     private string HideSaveAllProgress { get; set; } = "invisible";
     private string HideProfileProgress { get; set; } = "invisible";
     private string HideNaviProgress { get; set; } = "invisible";
@@ -164,9 +161,6 @@ public partial class CustomizeCard
         SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
         SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
         CustomizeComment = customizeCommentResult;
-
-        SwitchOpenRecord = Convert.ToBoolean(_basicProfile.OpenRecord);
-        SwitchOpenEchelon = Convert.ToBoolean(_basicProfile.OpenEchelon);
     }
 
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
@@ -409,10 +403,7 @@ public partial class CustomizeCard
     {
         HideProfileProgress = "visible";
         StateHasChanged();
-
-        _basicProfile.OpenEchelon = Convert.ToUInt32(SwitchOpenEchelon);
-        _basicProfile.OpenRecord = Convert.ToUInt32(SwitchOpenRecord);
-
+        
         var dto = new UpdateBasicProfileRequest()
         {
             AccessCode = AccessCode,
@@ -651,6 +642,16 @@ public partial class CustomizeCard
         return false;
     };
 
+    private async Task OnOpenRecordChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
+    {
+        basicProfile.OpenRecord = selectedIds.FirstOrDefault();
+    }
+    
+    private async Task OnOpenEchelonChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
+    {
+        basicProfile.OpenEchelon = selectedIds.FirstOrDefault();
+    }
+    
     private async Task OnCostumeSelectChanged(IEnumerable<uint> selectedIds, MobileSuitWithSkillGroup context)
     {
         if (context.SkillGroup == null)
