@@ -47,7 +47,7 @@ public class DataService : IDataService
         gauge = gaugeList.ToDictionary(ms => ms.Id);
         sortedGaugeList = gaugeList.OrderBy(title => title.Id).ToList();
 
-        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json");
+        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json?v=2");
         naviList.ThrowIfNull();
         navigator = naviList.ToDictionary(ms => ms.Id);
         sortedNavigatorList = naviList.OrderBy(title => title.Id).ToList();
