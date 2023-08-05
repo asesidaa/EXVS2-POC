@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using nue.protocol.exvs;
 using Server.Handlers.Card;
+using Server.Handlers.Card.Gamepad;
 using Server.Handlers.Card.Message;
 using Server.Handlers.Card.MobileSuit;
 using Server.Handlers.Card.Navi;
@@ -184,6 +185,22 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<BasicResponse>> UpsertCustomMessages([FromBody] UpsertCustomMessagesRequest request)
     {
         var response = await mediator.Send(new UpsertCustomMessagesCommand(request));
+        return response;
+    }
+    
+    [HttpGet("getGamepadConfig/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<GamepadConfig>> GetGamepadConfig(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetGamepadConfigCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpPost("upsertGamepadConfig")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpsertGamepadConfig([FromBody] UpsertGamepadConfigRequest request)
+    {
+        var response = await mediator.Send(new UpsertGamepadConfigCommand(request));
         return response;
     }
 }

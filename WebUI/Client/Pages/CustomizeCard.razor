@@ -578,4 +578,107 @@
              </MudGrid>
          </MudCardContent>
     </MudCard>
+    <MudCard Class="my-2" Elevation="5">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">Gamepad Config</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudStack Row>
+                    <MudProgressCircular @bind-Class="@HideGamepadConfigProgress" Color="Color.Default" Indeterminate="true" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveGamepadConfig"
+                                   Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                </MudStack>
+            </CardHeaderActions>
+        </MudCardHeader>
+         <MudCardContent>
+            <MudStack>
+                <MudItem xs="12">Labels are based on Xbox / PS</MudItem>
+                <MudItem xs="12">Especially useful for the Arcade Stick that support XInput / PC mode (e.g. Victrix Pro FS)</MudItem>
+                <MudItem xs="12"></MudItem>
+            </MudStack>
+             <MudGrid>
+                 <MudItem xs="6">
+                     <MudSelect Label="X / □ Button" @bind-Value="_gamepadConfig.XKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="Y / △ Button" @bind-Value="_gamepadConfig.YKey" T="uint" Variant="Variant.Outlined">
+                          @foreach (var button in DataService.GetSortedGamepadOptionList())
+                          {
+                              <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                          }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="A / × Button" @bind-Value="_gamepadConfig.AKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="B / ○ Button" @bind-Value="_gamepadConfig.BKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="LB / L1 Button" @bind-Value="_gamepadConfig.LbKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="RB / R1 Button" @bind-Value="_gamepadConfig.RbKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="LT / L2 Button" @bind-Value="_gamepadConfig.LtKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="RT / R2 Button" @bind-Value="_gamepadConfig.RtKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="LSB / L3 Button" @bind-Value="_gamepadConfig.LsbKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+                 <MudItem xs="6">
+                     <MudSelect Label="RSB / R3 Button" @bind-Value="_gamepadConfig.RsbKey" T="uint" Variant="Variant.Outlined">
+                         @foreach (var button in DataService.GetSortedGamepadOptionList())
+                         {
+                             <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                         }
+                     </MudSelect>
+                 </MudItem>
+             </MudGrid>
+         </MudCardContent>
+    </MudCard>
 </MudStack>

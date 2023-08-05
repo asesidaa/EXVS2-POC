@@ -29,4 +29,5 @@ public interface IDataService
     public IdValuePair? GetTriadSkill(uint id);
     public IReadOnlyList<IdValuePair> GetSortedTriadTeamBannerList();
     public IdValuePair? GetTriadTeamBanner(uint id);
+    public IReadOnlyList<IdValuePair> GetSortedGamepadOptionList();
 }
