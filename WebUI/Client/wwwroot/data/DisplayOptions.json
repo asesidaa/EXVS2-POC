@@ -1,0 +1,46 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "Offline Echelon, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 1,
+    "Value": "Offline Echelon, No. Matches (Win %)"
+  },
+  {
+    "Id": 2,
+    "Value": "Offline Echelon, No. Wins (Win %)"
+  },
+  {
+    "Id": 3,
+    "Value": "Offline Echelon, No. Matches"
+  },
+  {
+    "Id": 4,
+    "Value": "Offline Echelon, No. Wins"
+  },
+  {
+    "Id": 5,
+    "Value": "Win % only"
+  },
+  {
+    "Id": 6,
+    "Value": "Private/Hide"
+  },
+  {
+    "Id": 7,
+    "Value": "Online Solo Rank, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 8,
+    "Value": "Online Team Rank, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 9,
+    "Value": "Solo Casual, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 10,
+    "Value": "Team Casual, No. Matches, No. Win (Win %)"
+  }
+]

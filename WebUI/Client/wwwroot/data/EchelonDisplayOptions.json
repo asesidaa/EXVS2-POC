@@ -1,0 +1,102 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "Default (Show Echelon)",
+    "ValueJP": "階級"
+  },
+  {
+    "Id": 1,
+    "Value": "EXVS2XB",
+    "ValueJP": "EXVS2XB"
+  },
+  {
+    "Id": 2,
+    "Value": "I'm a beginner!",
+    "ValueJP": "初心者です"
+  },
+  {
+    "Id": 3,
+    "Value": "Everyone is welcome",
+    "ValueJP": "誰でも歓迎"
+  },
+  {
+    "Id": 4,
+    "Value": "Looking for partner",
+    "ValueJP": "相方募集中"
+  },
+  {
+    "Id": 5,
+    "Value": "Co-op welcome",
+    "ValueJP": "協力プレイ歓迎"
+  },
+  {
+    "Id": 6,
+    "Value": "Battle Welcome",
+    "ValueJP": "対戦歓迎"
+  },
+  {
+    "Id": 7,
+    "Value": "Battle Welcome",
+    "ValueJP": "フレンド募集中"
+  },
+  {
+    "Id": 8,
+    "Value": "Triad Specialist",
+    "ValueJP": "トライアド専門"
+  },
+  {
+    "Id": 9,
+    "Value": "トライアド入門",
+    "ValueJP": "トライアド入門"
+  },
+  {
+    "Id": 10,
+    "Value": "兵長",
+    "ValueJP": "兵長"
+  },
+  {
+    "Id": 11,
+    "Value": "小隊長",
+    "ValueJP": "小隊長"
+  },
+  {
+    "Id": 12,
+    "Value": "中隊長",
+    "ValueJP": "中隊長"
+  },
+  {
+    "Id": 13,
+    "Value": "大隊長",
+    "ValueJP": "大隊長"
+  },
+  {
+    "Id": 14,
+    "Value": "艦長",
+    "ValueJP": "艦長"
+  },
+  {
+    "Id": 15,
+    "Value": "提督",
+    "ValueJP": "提督"
+  },
+  {
+    "Id": 16,
+    "Value": "将軍",
+    "ValueJP": "将軍"
+  },
+  {
+    "Id": 17,
+    "Value": "指揮官",
+    "ValueJP": "指揮官"
+  },
+  {
+    "Id": 18,
+    "Value": "司令官",
+    "ValueJP": "司令官"
+  },
+  {
+    "Id": 19,
+    "Value": "トライアドマスター",
+    "ValueJP": "トライアドマスター"
+  }
+]
