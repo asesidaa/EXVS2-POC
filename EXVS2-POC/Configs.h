@@ -23,7 +23,7 @@ struct jvs_key_bind {
 struct config_struct {
 	jvs_key_bind KeyBind;
 	bool Windowed;
-	bool UseDirectInput;
+	std::string InputMode;
 	std::string Serial;
 	std::string PcbId;
 	std::string TenpoRouter;

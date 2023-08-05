@@ -16,7 +16,7 @@ config_struct ReadConfigs(INIReader reader) {
 
     // config reading
     config.Windowed = reader.GetBoolean("config", "windowed", false);
-    config.UseDirectInput = reader.GetBoolean("config", "usedirectinput", false);
+    config.InputMode = reader.Get("config", "InputMode", "Keyboard");
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
     config.Serial = reader.Get("config", "serial", "284311110001");
     config.IpAddress = reader.Get("config", "IpAddress", "192.168.50.239");
