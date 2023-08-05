@@ -179,9 +179,9 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             {
                 CourseId = resultFromRequest.CourseId,
                 ReleasedAt = 0,
-                TotalPlayNum = 0,
-                TotalClearNum = 0,
-                Highscore = 0
+                TotalPlayNum = resultFromRequest.CourseClearFlag.GetValueOrDefault(false) ? 1u : 0u,
+                TotalClearNum = resultFromRequest.CourseClearFlag.GetValueOrDefault(false) ? 1u : 0u,
+                Highscore = resultFromRequest.SceneScore
             });
         }
         else

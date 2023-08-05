@@ -120,7 +120,27 @@ public class RegisterCardCommandHandler : IRequestHandler<RegisterCardCommand, R
                 CommandGuideDisplay = true
             },
             TotalTriadScenePlayNum = 0,
-            pilot_rank_match = null
+            pilot_rank_match = new Response.LoadCard.PilotDataGroup.PilotRankMatch
+            {
+                PilotRankMatchSolo = CreateNewPilotRankMatchInfo(),
+                PilotRankMatchTeam = CreateNewPilotRankMatchInfo()
+            },
+        };
+    }
+
+    Response.LoadCard.PilotDataGroup.PilotRankMatch.PilotRankMatchInfo CreateNewPilotRankMatchInfo()
+    {
+        return new Response.LoadCard.PilotDataGroup.PilotRankMatch.PilotRankMatchInfo
+        {
+            RankId = 0,
+            Level = 0,
+            WinLoseInfoes = new uint[] {},
+            RankPoint = 0,
+            ExRank = 0,
+            ExRankChangeFlag = 0,
+            CpuNum = 0,
+            ExxLockFlag = false,
+            PreTrialExxFlag = false
         };
     }
 

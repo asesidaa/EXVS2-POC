@@ -77,6 +77,17 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                     DownScoreTimes = 1,
                     Last30CountScoreTimes = 1,
                     NoAttackDecreaseScore = 1
+                },
+                // Fes Setting is used to unlock CPU F Route
+                FesSetting = new Response.LoadGameData.XrossFesSetting
+                {
+                    RuleType = 1, // Rule Type, 1 = Dual Select
+                    StartDate = (ulong)(DateTimeOffset.Now - TimeSpan.FromDays(10)).ToUnixTimeSeconds(),
+                    EndDate = (ulong)(DateTimeOffset.Now + TimeSpan.FromDays(365)).ToUnixTimeSeconds(),
+                    BurstXrossFlag = true,
+                    Timer = 420,
+                    MatchingBorder = 0,
+                    MobileSuitBlocklists = Array.Empty<uint>()
                 }
             }
         };
@@ -84,7 +95,8 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
         // Contributing for all available Echelons, otherwise the game will freeze when there are increment of Echelon
         response.load_game_data.EchelonTables.AddRange(availableEchelonTables);
         
-        response.load_game_data.ReleaseCpuCourses.AddRange(Enumerable.Range(1, 100).Select(i =>
+        // 200 - 206 are F Course 1-7, needs Fes Setting above 
+        response.load_game_data.ReleaseCpuCourses.AddRange(Enumerable.Range(1, 206).Select(i =>
             new Response.LoadGameData.ReleaseCpuCourse
             {
                 CourseId = (uint)i,

@@ -6,6 +6,8 @@ namespace WebUI.Client.Services;
 public interface IDataService
 {
     public Task InitializeAsync();
+    public IReadOnlyList<IdValuePair> GetDisplayOptionsSortedById();
+    public IReadOnlyList<IdValuePair> GetEchelonDisplayOptionsSortedById();
 
     public IReadOnlyList<MobileSuit> GetMobileSuitSortedById();
     public IReadOnlyList<MobileSuit> GetCostumeMobileSuitSortedById();
