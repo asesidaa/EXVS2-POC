@@ -43,9 +43,8 @@ public class UpdateAllMsCostumeRequestCommandHandler : IRequestHandler<UpdateAll
 
         // reverse map
         var msSkills = updateRequest.MsSkillGroup.Select(x => x.ToMsSkillGroupMapper()).ToList();
-
-        pilotDataGroup.MsSkills.Clear();
-        pilotDataGroup.MsSkills.AddRange(msSkills);
+        
+        msSkills.ForEach(UpsertMsSkill(pilotDataGroup));
 
         cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotDataGroup);
         
@@ -55,5 +54,21 @@ public class UpdateAllMsCostumeRequestCommandHandler : IRequestHandler<UpdateAll
         {
             Success = true
         });
+    }
+
+    Action<Response.LoadCard.PilotDataGroup.MSSkillGroup> UpsertMsSkill(Response.LoadCard.PilotDataGroup pilotDataGroup)
+    {
+        return msSkill =>
+        {
+            var existingMsSkill = pilotDataGroup.MsSkills.FirstOrDefault(pilotMsSkill => pilotMsSkill.MstMobileSuitId == msSkill.MstMobileSuitId);
+
+            if (existingMsSkill is null)
+            {
+                pilotDataGroup.MsSkills.Add(msSkill);
+                return;
+            }
+
+            existingMsSkill.CostumeId = msSkill.CostumeId;
+        };
     }
 }
