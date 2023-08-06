@@ -9,13 +9,13 @@
     "Id": 1,
     "NameEN": "Haro",
     "NameJP": "ハロ",
-    "NameCN": "哈罗"
+    "NameCN": "哈罗（0079）"
   },
   {
     "Id": 2,
     "NameEN": "Lalah Sune",
     "NameJP": "ララァ・スン",
-    "NameCN": "拉拉·辛",
+    "NameCN": "拉拉·辛（0079）",
     "Costumes": [
       {
         "Id": 0,
@@ -33,13 +33,13 @@
     "Id": 3,
     "NameEN": "Gihren Zabi",
     "NameJP": "ギレン・ザビ",
-    "NameCN": "基连·扎比"
+    "NameCN": "基连·扎比（0079）"
   },
   {
     "Id": 4,
     "NameEN": "Haman Karn",
     "NameJP": "ハマーン・カーン",
-    "NameCN": "哈曼·卡恩",
+    "NameCN": "哈曼·卡恩（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -57,7 +57,7 @@
     "Id": 5,
     "NameEN": "Cecily Fairchild",
     "NameJP": "セシリー・フェアチャイルド",
-    "NameCN": "塞西莉·费亚查尔德",
+    "NameCN": "塞西莉·费亚查尔德（F91）",
     "Costumes": [
       {
         "Id": 0,
@@ -75,7 +75,7 @@
     "Id": 6,
     "NameEN": "Katejina Loos",
     "NameJP": "カテジナ・ルース",
-    "NameCN": "卡提珍娜·露丝",
+    "NameCN": "卡提珍娜·露丝（V）",
     "Costumes": [
       {
         "Id": 0,
@@ -93,7 +93,7 @@
     "Id": 7,
     "NameEN": "Tiffa Adill",
     "NameJP": "ティファ・アディール",
-    "NameCN": "蒂法·亚迪尔",
+    "NameCN": "蒂法·亚迪尔（X）",
     "Costumes": [
       {
         "Id": 0,
@@ -116,7 +116,7 @@
     "Id": 8,
     "NameEN": "Aina Sahalin",
     "NameJP": "アイナ・サハリン",
-    "NameCN": "爱娜·萨哈林",
+    "NameCN": "爱娜·萨哈林（08MS）",
     "Costumes": [
       {
         "Id": 0,
@@ -134,7 +134,7 @@
     "Id": 9,
     "NameEN": "Dianna Soreil",
     "NameJP": "ディアナ・ソレル",
-    "NameCN": "迪安娜·索雷尔",
+    "NameCN": "迪安娜·索雷尔（逆A）",
     "Costumes": [
       {
         "Id": 0,
@@ -157,7 +157,7 @@
     "Id": 10,
     "NameEN": "Feldt Grace",
     "NameJP": "フェルト・グレイス",
-    "NameCN": "菲露特·古蕾斯",
+    "NameCN": "菲露特·古蕾斯（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -175,7 +175,7 @@
     "Id": 11,
     "NameEN": "Sumeragi Noriega",
     "NameJP": "スメラギ・李・ノリエガ",
-    "NameCN": "皇·李·诺瑞加",
+    "NameCN": "皇·李·诺瑞加（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -193,7 +193,7 @@
     "Id": 12,
     "NameEN": "Nena Trinity",
     "NameJP": "ネーナ・トリニティ",
-    "NameCN": "妮娜·崔尼蒂",
+    "NameCN": "妮娜·崔尼蒂（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -211,7 +211,7 @@
     "Id": 13,
     "NameEN": "Soma Peries",
     "NameJP": "ソーマ・ピーリス",
-    "NameCN": "索玛·皮里斯",
+    "NameCN": "索玛·皮里斯（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -229,7 +229,7 @@
     "Id": 14,
     "NameEN": "Mileina Vashti",
     "NameJP": "ミレイナ・ヴァスティ",
-    "NameCN": "米蕾娜·瓦斯提",
+    "NameCN": "米蕾娜·瓦斯提（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -247,13 +247,13 @@
     "Id": 15,
     "NameEN": "Suberoa Zinnerman",
     "NameJP": "スベロア・ジンネマン",
-    "NameCN": "斯贝洛亚·辛尼曼"
+    "NameCN": "斯贝洛亚·辛尼曼（UC）"
   },
   {
     "Id": 16,
     "NameEN": "Audrey Burne",
     "NameJP": "オードリー・バーン",
-    "NameCN": "奥黛丽·伯恩",
+    "NameCN": "奥黛丽·伯恩（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -271,13 +271,13 @@
     "Id": 17,
     "NameEN": "Noah Bright",
     "NameJP": "ブライト・ノア",
-    "NameCN": "布莱德·诺亚"
+    "NameCN": "布莱德·诺亚（UC）"
   },
   {
     "Id": 18,
     "NameEN": "Relena Darlian",
     "NameJP": "リリーナ・ドーリアン",
-    "NameCN": "莉莉娜·多利安",
+    "NameCN": "莉莉娜·多利安（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -295,7 +295,7 @@
     "Id": 20,
     "NameEN": "Miriallia Haw",
     "NameJP": "ミリアリア・ハウ",
-    "NameCN": "米丽雅莉亚·哈乌",
+    "NameCN": "米丽雅莉亚·哈乌（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -313,7 +313,7 @@
     "Id": 21,
     "NameEN": "Lacus Clyne",
     "NameJP": "ラクス・クライン",
-    "NameCN": "拉克丝·克莱茵",
+    "NameCN": "拉克丝·克莱茵（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -336,7 +336,7 @@
     "Id": 22,
     "NameEN": "Flay Allster",
     "NameJP": "フレイ・アルスター",
-    "NameCN": "芙蕾·阿尔斯达",
+    "NameCN": "芙蕾·阿尔斯达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -354,13 +354,13 @@
     "Id": 23,
     "NameEN": "Murrue Ramius",
     "NameJP": "マリュー・ラミアス",
-    "NameCN": "玛琉·拉米亚斯"
+    "NameCN": "玛琉·拉米亚斯（seed）"
   },
   {
     "Id": 24,
     "NameEN": "Meyrin Hawke",
     "NameJP": "メイリン・ホーク",
-    "NameCN": "美玲·霍克",
+    "NameCN": "美玲·霍克（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -378,7 +378,7 @@
     "Id": 25,
     "NameEN": "Meer Campbell",
     "NameJP": "ミーア・キャンベル",
-    "NameCN": "米娅·坎贝尔",
+    "NameCN": "米娅·坎贝尔（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -396,7 +396,7 @@
     "Id": 26,
     "NameEN": "Lunamaria Hawke",
     "NameJP": "ルナマリア・ホーク",
-    "NameCN": "露娜玛莉亚·霍克",
+    "NameCN": "露娜玛莉亚·霍克（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -414,7 +414,7 @@
     "Id": 27,
     "NameEN": "Emily Asuno",
     "NameJP": "エミリー・アモンド",
-    "NameCN": "艾蜜莉·明日野",
+    "NameCN": "艾蜜莉·明日野（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -432,7 +432,7 @@
     "Id": 28,
     "NameEN": "Yurin L'Ciel",
     "NameJP": "ユリン・ルシェル",
-    "NameCN": "尤琳·露歇尔",
+    "NameCN": "尤琳·露歇尔（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -450,7 +450,7 @@
     "Id": 29,
     "NameEN": "Romary Stone",
     "NameJP": "ロマリー・ストーン",
-    "NameCN": "罗玛莉·斯通",
+    "NameCN": "罗玛莉·斯通（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -468,7 +468,7 @@
     "Id": 30,
     "NameEN": "Sthesia Awar",
     "NameJP": "セシア・アウェア",
-    "NameCN": "赛西娅·阿维亚",
+    "NameCN": "赛西娅·阿维亚（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -501,7 +501,7 @@
     "Id": 31,
     "NameEN": "Sthesia Awar Acht",
     "NameJP": "セシア・アウェア・アハト",
-    "NameCN": "赛西娅·阿维亚·亚哈特",
+    "NameCN": "赛西娅·阿维亚·亚哈特（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -529,7 +529,7 @@
     "Id": 32,
     "NameEN": "Sthesia Awar Sesto",
     "NameJP": "セシア・アウェア・セスト",
-    "NameCN": "赛西娅·阿维亚·赛斯特",
+    "NameCN": "赛西娅·阿维亚·赛斯特（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -557,7 +557,7 @@
     "Id": 33,
     "NameEN": "Sthesia Awar Nono",
     "NameJP": "セシア・アウェア・ノーノ",
-    "NameCN": "赛西娅·阿维亚·诺诺",
+    "NameCN": "赛西娅·阿维亚·诺诺（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -585,7 +585,7 @@
     "Id": 34,
     "NameEN": "Sthesia Awar Primo",
     "NameJP": "セシア・アウェア・プリモ",
-    "NameCN": "赛西娅·阿维亚·普利摩",
+    "NameCN": "赛西娅·阿维亚·普利摩（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -613,7 +613,7 @@
     "Id": 35,
     "NameEN": "Aida Surugan",
     "NameJP": "アイーダ・スルガン",
-    "NameCN": "阿依达·休冈",
+    "NameCN": "阿依达·休冈（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -631,7 +631,7 @@
     "Id": 36,
     "NameEN": "Aila Jyrkiainen",
     "NameJP": "アイラ・ユルキアイネン",
-    "NameCN": "艾拉·尤基艾宁",
+    "NameCN": "艾拉·尤基艾宁（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -649,7 +649,7 @@
     "Id": 37,
     "NameEN": "Fumina Hoshino",
     "NameJP": "ホシノ・フミナ",
-    "NameCN": "星野文奈",
+    "NameCN": "星野文奈（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -667,43 +667,43 @@
     "Id": 38,
     "NameEN": "Kudelia Aina Bernstein",
     "NameJP": "クーデリア・藍那・バーンスタイン",
-    "NameCN": "古狄莉娅·蓝那·伯恩斯坦"
+    "NameCN": "古狄莉娅·蓝那·伯恩斯坦（铁血）"
   },
   {
     "Id": 39,
     "NameEN": "Atra Mixta",
     "NameJP": "アトラ・ミクスタ",
-    "NameCN": "阿特拉·米库斯塔"
+    "NameCN": "阿特拉·米库斯塔（铁血）"
   },
   {
     "Id": 40,
     "NameEN": "Fumitan Admoss",
     "NameJP": "フミタン・アドモス",
-    "NameCN": "芙米塔·阿德莫斯"
+    "NameCN": "芙米塔·阿德莫斯（铁血）"
   },
   {
     "Id": 41,
     "NameEN": "Fa Yuiry",
     "NameJP": "ファ・ユイリィ",
-    "NameCN": "花园丽"
+    "NameCN": "花园丽（Z）"
   },
   {
     "Id": 42,
     "NameEN": "Elpeo Ple",
     "NameJP": "エルピー・プル",
-    "NameCN": "艾露比·普露"
+    "NameCN": "艾露比·普露（Z）"
   },
   {
     "Id": 43,
     "NameEN": "Sochie Heim",
     "NameJP": "ソシエ・ハイム",
-    "NameCN": "苏茜娅·海姆"
+    "NameCN": "苏茜娅·海姆（逆A）"
   },
   {
     "Id": 44,
     "NameEN": "Orga Itsuka",
     "NameJP": "オルガ・イツカ",
-    "NameCN": "奥尔加·伊兹卡",
+    "NameCN": "奥尔加·伊兹卡（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -721,7 +721,7 @@
     "Id": 45,
     "NameEN": "Manny Ambassador",
     "NameJP": "マニィ・アンバサダ",
-    "NameCN": "玛尼·安巴塞达",
+    "NameCN": "玛尼·安巴塞达（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -739,7 +739,7 @@
     "Id": 46,
     "NameEN": "Melina Marlon Fitz",
     "NameJP": "メリーナ・マーロンフィッツ",
-    "NameCN": "梅莉娜·玛洛菲兹",
+    "NameCN": "梅莉娜·玛洛菲兹（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -767,7 +767,7 @@
     "Id": 47,
     "NameEN": "Kano Clans",
     "NameJP": "カノ・クランズ",
-    "NameCN": "卡诺·克兰兹",
+    "NameCN": "卡诺·克兰兹（EXVS）",
     "Costumes": [
       {
         "Id": 0,
