@@ -6,6 +6,11 @@
 #include <string>
 #include "random.h"
 #include "INIReader.h"
+#include <Windows.h>
+#include <joystickapi.h>
+
+#include "VirtualKeyMapping.h"
+
 constexpr auto BANA_API_VERSION = "Ver 1.6.1";
 
 char hex_characters[] = {'0', '1' , '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E' ,'F'};
@@ -86,7 +91,33 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
         using namespace std::chrono_literals;
         std::this_thread::sleep_for(100ms);
 
-        if (GetAsyncKeyState('P'))
+        bool button_state = false;
+
+        INIReader config_reader("config.ini");
+        std::string input_mode = config_reader.Get("config", "InputMode", "Keyboard");
+
+        if(input_mode != "DirectInput")
+        {
+            std::string card_key = config_reader.Get("keybind", "Card", "P");
+            button_state = GetAsyncKeyState(findKeyByValue(card_key));
+        }
+        else
+        {
+            std::string card_button_placeholder = config_reader.Get("keybind", "ArcadeCard", "8");
+            JOYINFOEX joy;
+            joy.dwSize = sizeof(joy);
+            joy.dwFlags = JOY_RETURNALL;
+            for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+            {
+                if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+                {
+                    int intJoyDwButtons = (int)joy.dwButtons;
+                    button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
+                }
+            }
+        }
+
+        if (button_state)
         {
             // Raw card data and some other stuff, who cares
             unsigned char rawCardData[168] = {

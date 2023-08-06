@@ -379,7 +379,7 @@ int handleTaito05Call(jprot_encoder *r)
 jvs_key_bind key_bind;
 std::string input_mode;
 
-void handleDirectInputGamePlay(BYTE &byte1, BYTE &byte2)
+void handleDirectInputGamePlay(BYTE &byte0, BYTE &byte1, BYTE &byte2)
 {
 	if(input_mode != "DirectInput")
 	{
@@ -463,24 +463,28 @@ void handleDirectInputGamePlay(BYTE &byte1, BYTE &byte2)
 				log("Start Button Detected from Joystick");
 				byte1 |= static_cast<char>(1 << 7);
 			}
+			if (intJoyDwButtons & key_bind.ArcadeTest)
+			{
+				log("Test Button Detected from Joystick");
+				byte0 |= static_cast<char>(1 << 7);
+			}
 		}
 	}
 }
 
 void handleSupportKeyInputs(BYTE &byte0, BYTE &byte1)
 {
+	if(input_mode == "DirectInput")
+	{
+		return;
+	}
+	
 	if (GetAsyncKeyState(key_bind.Test) & 0x8000)
 	{
 		log("Test Pressed");
 		byte0 |= static_cast<char>(1 << 7);
 	}
-
-	if (GetAsyncKeyState(key_bind.Start) & 0x8000)
-	{
-		log("Start Pressed");
-		byte1 |= static_cast<char>(1 << 7);
-	}
-
+	
 	if (GetAsyncKeyState(key_bind.Service) & 0x8000)
 	{
 		log("Service Pressed");
@@ -493,6 +497,12 @@ void handleKeyboardGamePlay(BYTE &byte1, BYTE &byte2)
 	if(input_mode != "Keyboard")
 	{
 		return;
+	}
+
+	if (GetAsyncKeyState(key_bind.Start) & 0x8000)
+	{
+		log("Start Pressed");
+		byte1 |= static_cast<char>(1 << 7);
 	}
 
 	if (GetAsyncKeyState(key_bind.Up) & 0x8000)
@@ -550,7 +560,7 @@ int handleReadSwitchInputs(jprot_encoder *r)
 	BYTE byte1 = 0;
 	BYTE byte2 = 0;
 
-	handleDirectInputGamePlay(byte1, byte2);
+	handleDirectInputGamePlay(byte0, byte1, byte2);
 	handleKeyboardGamePlay(byte1, byte2);
 	handleSupportKeyInputs(byte0, byte1);
 	
@@ -563,25 +573,41 @@ int handleReadSwitchInputs(jprot_encoder *r)
 
 int handleReadCoinInputs(jprot_encoder *r)
 {
-	int currstate = 0;// inputMgr.GetState(P1_COIN);
-	if (!coinstate[0] && (currstate)) {
+	log("Entered Coin Handling");
+
+	bool currstate = false;
+
+	if(input_mode != "DirectInput")
+	{
+		currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
+	}
+	else
+	{
+		JOYINFOEX joy;
+		joy.dwSize = sizeof(joy);
+		joy.dwFlags = JOY_RETURNALL;
+		for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+		{
+			if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+			{
+				int intJoyDwButtons = (int)joy.dwButtons;
+				if (intJoyDwButtons & key_bind.ArcadeCoin)
+				{
+					log("Coin Detected from Joystick");
+					currstate = true;
+				}
+			}
+		}
+	}
+	
+	if (!coinstate[0] && currstate) {
 		++p1coin;
 	}
 	coinstate[0] = currstate;
-
-	currstate = 0;// inputMgr.GetState(P2_COIN);
-	if (!coinstate[1] && (currstate)) {
-		++p2coin;
-
-	}
-	coinstate[1] = currstate;
-
-	//logcmd("Lendo o ficheiro... \n");
+	
 	r->report(JVS_REPORT_OK);
 	r->push(p1coin >> 8);
 	r->push(p1coin & 0xFF);
-	/*r->push(p2coin >> 8);
-	r->push(p2coin & 0xFF);*/
 	return 2;
 }
 
