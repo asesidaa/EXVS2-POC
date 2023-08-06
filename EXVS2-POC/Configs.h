@@ -26,6 +26,7 @@ struct jvs_key_bind {
 struct config_struct {
 	jvs_key_bind KeyBind;
 	bool Windowed;
+	std::string Mode;
 	std::string InputMode;
 	std::string Serial;
 	std::string PcbId;

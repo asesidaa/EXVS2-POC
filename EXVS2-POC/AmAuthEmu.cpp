@@ -252,6 +252,14 @@ public:
     IAuth_GetAuthServerResp(amcus_auth_server_resp_t* resp)
     {
         OutputDebugStringA("IAuth_GetAuthServerResp");
+
+        std::string region_name_0 = "1";
+
+        if(amconfig.Mode == "3" || amconfig.Mode == "4")
+        {
+            region_name_0 = "01035";
+        }
+        
         amcus_auth_server_resp_t result
         {
             .uri = "127.0.0.1",
@@ -271,6 +279,7 @@ public:
         };
         strcpy_s(result.uri, amconfig.ServerAddress.c_str());
         strcpy_s(result.host, amconfig.ServerAddress.c_str());
+        strcpy_s(result.region0, region_name_0.c_str());
         memcpy_s(resp, sizeof(amcus_auth_server_resp_t), &result, sizeof(amcus_auth_server_resp_t));
         return 0;
     }
