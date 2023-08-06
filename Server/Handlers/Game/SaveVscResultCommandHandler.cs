@@ -272,14 +272,20 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         releaseCourseIdList
             .ForEach(courseId =>
             {
-                pilotDataGroup.CpuScenes.Add(new Response.LoadCard.PilotDataGroup.CpuSceneData
+                var existingCpuScene = pilotDataGroup.CpuScenes
+                    .FirstOrDefault(data => data.CourseId == resultFromRequest.CourseId);
+
+                if (existingCpuScene is null)
                 {
-                    CourseId = courseId,
-                    ReleasedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds(),
-                    TotalPlayNum = 0,
-                    TotalClearNum = 0,
-                    Highscore = 0
-                });
+                    pilotDataGroup.CpuScenes.Add(new Response.LoadCard.PilotDataGroup.CpuSceneData
+                    {
+                        CourseId = courseId,
+                        ReleasedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds(),
+                        TotalPlayNum = 0,
+                        TotalClearNum = 0,
+                        Highscore = 0
+                    });
+                }
             });
     }
 
