@@ -6,13 +6,13 @@
 <MudDialog>
     <TitleContent>
         <MudText Typo="Typo.h6">
-            Enter Access Code
+            @localizer["enteraccesscode"]
         </MudText>
     </TitleContent>
     <DialogContent>
         <MudStack>
-            <MudTextField Value="@Data.ChipId" Label="CardId" Variant="Variant.Outlined" ReadOnly="true" />
-            <MudTextField @bind-Value="AccessCode" Label="Access Code" HelperText="from card.ini"
+            <MudTextField Value="@Data.ChipId" Label="@localizer["cardid"]" Variant="Variant.Outlined" ReadOnly="true" />
+            <MudTextField @ref="mudTextField" @bind-Value="AccessCode" Label="@localizer["accesscode"]"
                           Immediate="true"
                           Counter="ACCESS_CODE_MAX_LENGTH"
                           MaxLength="ACCESS_CODE_MAX_LENGTH"
@@ -33,9 +33,20 @@
     [Parameter]
     public BareboneCardProfile Data { get; set; } = null!;
 
+    private MudTextField<string> mudTextField { get; set; }
+
     private string AccessCode { get; set; } = string.Empty;
 
     private const int ACCESS_CODE_MAX_LENGTH = 20;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            mudTextField.HelperText = $"{localizer["fromcardini"]}";
+            StateHasChanged();
+        }
+    }
 
     public async Task Submit()
     {

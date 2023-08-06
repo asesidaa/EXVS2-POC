@@ -20,6 +20,18 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+
+    <script>
+        window.blazorCulture = {
+            get: () => localStorage['BlazorCulture'],
+            set: (value) => localStorage['BlazorCulture'] = value
+        };
+
+        window.blazorDarkTheme = {
+            get: () => localStorage['BlazorDarkTheme'],
+            set: (value) => localStorage['BlazorDarkTheme'] = value
+        };
+    </script>
 </body>
 
 </html>
