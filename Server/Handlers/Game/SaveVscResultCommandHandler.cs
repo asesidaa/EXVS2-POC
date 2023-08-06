@@ -72,6 +72,8 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         
         UpsertTriadSceneData(pilotData, resultFromRequest);
 
+        UpsertRankData(resultFromRequest, loadPlayer, pilotData);
+        
         cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
         cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotData);
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(user);
@@ -87,7 +89,49 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             save_vsc_result = new Response.SaveVscResult()
         });
     }
-    
+
+    private void UpsertRankData(Request.SaveVscResult.PlayResultGroup resultFromRequest, Response.PreLoadCard.LoadPlayer loadPlayer, Response.LoadCard.PilotDataGroup pilotData)
+    {
+        if (resultFromRequest.rank_match_info is null)
+        {
+            return;
+        }
+
+        loadPlayer.RankIdSolo = resultFromRequest.rank_match_info.RankIdSolo;
+        loadPlayer.RankIdTeam = resultFromRequest.rank_match_info.RankIdTeam;
+
+        if (pilotData.pilot_rank_match is null)
+        {
+            pilotData.pilot_rank_match = new Response.LoadCard.PilotDataGroup.PilotRankMatch
+            {
+                PilotRankMatchSolo = CreateNewPilotRankMatchInfo(resultFromRequest.rank_match_info.RankIdSolo),
+                PilotRankMatchTeam = CreateNewPilotRankMatchInfo(resultFromRequest.rank_match_info.RankIdTeam)
+            };
+        }
+        else
+        {
+            if (pilotData.pilot_rank_match.PilotRankMatchSolo is null)
+            {
+                pilotData.pilot_rank_match.PilotRankMatchSolo =
+                    CreateNewPilotRankMatchInfo(resultFromRequest.rank_match_info.RankIdSolo);
+            }
+            else
+            {
+                pilotData.pilot_rank_match.PilotRankMatchSolo.RankId = resultFromRequest.rank_match_info.RankIdSolo;
+            }
+
+            if (pilotData.pilot_rank_match.PilotRankMatchTeam is null)
+            {
+                pilotData.pilot_rank_match.PilotRankMatchTeam =
+                    CreateNewPilotRankMatchInfo(resultFromRequest.rank_match_info.RankIdTeam);
+            }
+            else
+            {
+                pilotData.pilot_rank_match.PilotRankMatchTeam.RankId = resultFromRequest.rank_match_info.RankIdTeam;
+            }
+        }
+    }
+
     void UpdateNaviFamiliarity(Request.SaveVscResult.PlayResultGroup resultFromRequest, Response.PreLoadCard.MobileUserGroup mobileUserGroup)
     {
         var uiNaviId = resultFromRequest.GuestNavId;
@@ -178,7 +222,7 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             pilotDataGroup.CpuScenes.Add(new Response.LoadCard.PilotDataGroup.CpuSceneData
             {
                 CourseId = resultFromRequest.CourseId,
-                ReleasedAt = 0,
+                ReleasedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds(),
                 TotalPlayNum = resultFromRequest.CourseClearFlag.GetValueOrDefault(false) ? 1u : 0u,
                 TotalClearNum = resultFromRequest.CourseClearFlag.GetValueOrDefault(false) ? 1u : 0u,
                 Highscore = resultFromRequest.SceneScore
@@ -213,5 +257,45 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
                     .ToArray();
             }
         }
+
+        UpsertForReleaseCourse(pilotDataGroup, resultFromRequest);
+    }
+
+    void UpsertForReleaseCourse(Response.LoadCard.PilotDataGroup pilotDataGroup, Request.SaveVscResult.PlayResultGroup resultFromRequest)
+    {
+        if (resultFromRequest.ReleasedCourseIds is null)
+        {
+            return;
+        }
+        
+        var releaseCourseIdList = resultFromRequest.ReleasedCourseIds.ToList();
+        releaseCourseIdList
+            .ForEach(courseId =>
+            {
+                pilotDataGroup.CpuScenes.Add(new Response.LoadCard.PilotDataGroup.CpuSceneData
+                {
+                    CourseId = courseId,
+                    ReleasedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds(),
+                    TotalPlayNum = 0,
+                    TotalClearNum = 0,
+                    Highscore = 0
+                });
+            });
+    }
+
+    Response.LoadCard.PilotDataGroup.PilotRankMatch.PilotRankMatchInfo CreateNewPilotRankMatchInfo(uint rankId)
+    {
+        return new Response.LoadCard.PilotDataGroup.PilotRankMatch.PilotRankMatchInfo
+        {
+            RankId = rankId,
+            Level = 0,
+            WinLoseInfoes = new uint[] {},
+            RankPoint = 0,
+            ExRank = 0,
+            ExRankChangeFlag = 0,
+            CpuNum = 0,
+            ExxLockFlag = false,
+            PreTrialExxFlag = false
+        };
     }
 }
