@@ -5,6 +5,7 @@ struct jvs_key_bind {
 	int Test;
 	int Start;
 	int Service;
+	int Coin;
 	int Up;
 	int Left;
 	int Down;
@@ -18,6 +19,8 @@ struct jvs_key_bind {
 	int ArcadeButton3;
 	int ArcadeButton4;
 	int ArcadeStartButton;
+	int ArcadeCoin;
+	int ArcadeTest;
 };
 
 struct config_struct {

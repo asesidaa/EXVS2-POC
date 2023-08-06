@@ -41,6 +41,9 @@ config_struct ReadConfigs(INIReader reader) {
     keyMapPlaceholder = reader.Get("keybind", "Service", "S");
     key_bind.Service = findKeyByValue(keyMapPlaceholder);
 
+    keyMapPlaceholder = reader.Get("keybind", "Coin", "M");
+    key_bind.Coin = findKeyByValue(keyMapPlaceholder);
+
     keyMapPlaceholder = reader.Get("keybind", "Up", "Up");
     key_bind.Up = findKeyByValue(keyMapPlaceholder);
 
@@ -79,6 +82,12 @@ config_struct ReadConfigs(INIReader reader) {
 
     keyMapPlaceholder = reader.Get("keybind", "ArcadeStartButton", "5");
     key_bind.ArcadeStartButton = std::stoi(keyMapPlaceholder);
+    
+    keyMapPlaceholder = reader.Get("keybind", "ArcadeCoin", "6");
+    key_bind.ArcadeCoin = std::stoi(keyMapPlaceholder);
+
+    keyMapPlaceholder = reader.Get("keybind", "ArcadeTest", "7");
+    key_bind.ArcadeTest = std::stoi(keyMapPlaceholder);
 
     config.KeyBind = key_bind;
     return config;
