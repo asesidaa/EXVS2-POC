@@ -26,6 +26,7 @@ config_struct ReadConfigs(INIReader reader) {
     config.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
+    config.Mode = reader.Get("config", "mode", "1");
     
 
     // key bind config reading
