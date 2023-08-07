@@ -10,8 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  publish-server:
     runs-on: ubuntu-latest
     defaults:
           run:
@@ -29,7 +28,34 @@ jobs:
     - name: dotnet publish
       run: |
         dotnet publish -r win-x64 -o publish -c Release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
+
+  publish-wasm:
+    runs-on: ubuntu-latest
+    defaults:
+          run:
+            working-directory: ./WebUI
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build -c Release --no-restore
+    - name: dotnet publish
+      run: |
+        dotnet publish -r win-x64 -o "../../Server/publish" -c Release
+
+  upload-artifacts:
+    runs-on: ubuntu-latest
+    defaults:
+          run:
+            working-directory: ./Server
+    steps:
     - uses: actions/upload-artifact@v3
       with:
-        name: exvs2-poc
+        name: exvs2-poc-server
         path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
+        
