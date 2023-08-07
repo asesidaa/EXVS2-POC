@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   build-dll:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./EXVS2-POC
