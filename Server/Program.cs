@@ -49,6 +49,7 @@ try
     app.UseBlazorFrameworkFiles();
 	app.MapControllers();
     app.UseStaticFiles();
+    app.Map("/", () => Results.Redirect("/index"));
     app.MapFallbackToFile("index.html");
     app.UseWhen(
         context => context.Request.Path.StartsWithSegments("/sys/servlet/PowerOn", StringComparison.InvariantCulture),

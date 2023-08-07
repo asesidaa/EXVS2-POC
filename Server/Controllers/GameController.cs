@@ -74,11 +74,4 @@ public class GameController : BaseController<GameController>
             ErrorMsg = "Unhandled case"
         };
     }
-
-    [Route("")]
-    [HttpGet]
-    public IActionResult Get()
-    {
-        return Ok("Hello");
-    }
 }
