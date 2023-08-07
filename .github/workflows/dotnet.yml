@@ -1,13 +1,19 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: vs2-POC
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+
+env:
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+  PLATFORM: x64
+permissions:
+  contents: read
 
 jobs:
   publish-server:
@@ -77,4 +83,23 @@ jobs:
       with:
         name: exvs2-poc-server
         path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
-        
+
+  build-dll:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: msbuild EXVS2-POC/EXVS2-POC.vcxproj /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.PLATFORM}}
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: exvs2-poc-dll
+        path: D:\a\EXVS2-POC\EXVS2-POC\EXVS2-POC\x64\Release
+
