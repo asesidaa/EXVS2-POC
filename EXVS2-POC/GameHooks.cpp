@@ -1,6 +1,7 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticMicrosoftCast
 #include "GameHooks.h"
 
+#include <filesystem>
 #include <string>
 #include <windows.h>
 
@@ -84,8 +85,21 @@ HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
     log("CreateFileA with name %s", name.data());
     if (name.starts_with("G:") || name.starts_with("F:"))
     {
+        auto path = name.substr(3);
+        log("Redirect to %s", path.data());
+        
+        std::filesystem::path p{path};
+        if (p.has_extension())
+        {
+            create_directories(p.parent_path());
+        }
+        else
+        {
+            create_directories(p);
+        }
+        
         //DebugBreak();
-        return CreateFileAOri(name.substr(3).data(),
+        return CreateFileAOri(path.data(),
             dwDesiredAccess,
             dwShareMode,
             lpSecurityAttributes,
@@ -196,7 +210,7 @@ void InitializeHooks()
     MH_EnableHook(MH_ALL_HOOKS);
 
     // Create the 25 folder first if it doesn't exist
-    CreateDirectoryA("25" , nullptr);
+    // CreateDirectoryA("25" , nullptr);
     
     INIReader reader("config.ini");
     if (reader.ParseError() == 0)
