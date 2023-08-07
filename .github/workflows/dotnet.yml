@@ -28,11 +28,10 @@ jobs:
     - name: dotnet publish
       run: |
         dotnet publish -r win-x64 -o publish -c Release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
-    - uses: actions/cache@v3
+    - uses: actions/cache/save@v3
       with:
         path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
         key: ${{ runner.os }}-server-${{ github.sha }}
-
 
   publish-wasm:
     needs: publish-server
@@ -41,11 +40,6 @@ jobs:
           run:
             working-directory: ./WebUI/Client
     steps:
-    - uses: actions/cache/restore@v3
-      id: cache
-      with:
-        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
-        key: ${{ runner.os }}-server-${{ github.sha }}
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -55,10 +49,14 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build -c Release --no-restore
+    - uses: actions/cache/restore@v3
+      with:
+        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
+        key: ${{ runner.os }}-server-${{ github.sha }}
     - name: dotnet publish
       run: |
         dotnet publish -r win-x64 -o "../../Server/publish" -c Release
-    - uses: actions/cache@v3
+    - uses: actions/cache/save@v3
       with:
         path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
         key: ${{ runner.os }}-wasm-${{ github.sha }}
