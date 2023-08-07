@@ -55,7 +55,7 @@ jobs:
         key: ${{ runner.os }}-server-${{ github.sha }}
     - name: dotnet publish
       run: |
-        dotnet publish -r win-x64 -o "../../Server/publish" -c Release
+        dotnet publish -r win-x64 -o "../../Server/publish" -c Release --self-contained
     - uses: actions/cache/save@v3
       with:
         path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
