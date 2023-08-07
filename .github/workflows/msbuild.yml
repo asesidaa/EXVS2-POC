@@ -24,10 +24,6 @@ permissions:
 jobs:
   build-dll:
     runs-on: windows-latest
-    defaults:
-      run:
-        working-directory: .\EXVS2-POC
-        
     steps:
     - uses: actions/checkout@v3
 
@@ -38,9 +34,9 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild EXVS2-POC.vcxproj /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.PLATFORM}}
+      run: msbuild EXVS2-POC/EXVS2-POC.vcxproj /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.PLATFORM}}
 
     - uses: actions/upload-artifact@v3
       with:
         name: exvs2-poc-server
-        path: D:\a\EXVS2-POC\EXVS2-POC\x64\Release
+        path: D:\a\EXVS2-POC\EXVS2-POC\EXVS2-POC\x64\Release
