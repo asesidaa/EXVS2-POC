@@ -7,11 +7,8 @@ on:
     branches: [ "master" ]
 
 env:
-  # Configuration type to build.
-  # You can convert this to a build matrix if you need coverage of multiple configuration types.
-  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
-  PLATFORM: x64
+  DLLPLATFORM: x64
 permissions:
   contents: read
 
@@ -30,55 +27,22 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build -c Release --no-restore
+      run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
     - name: dotnet publish
       run: |
-        dotnet publish -r win-x64 -o publish -c Release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
-    - uses: actions/cache/save@v3
-      with:
-        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
-        key: ${{ runner.os }}-server-${{ github.sha }}
+        dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
 
-  publish-wasm:
-    needs: publish-server
-    runs-on: ubuntu-latest
-    defaults:
-          run:
-            working-directory: ./WebUI/Client
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 7.0.x
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: ./WebUI/Client
     - name: Build
-      run: dotnet build -c Release --no-restore
-    - uses: actions/cache/restore@v3
-      with:
-        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
-        key: ${{ runner.os }}-server-${{ github.sha }}
+      run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
+      working-directory: ./WebUI/Client
     - name: dotnet publish
       run: |
-        dotnet publish -r win-x64 -o "../../Server/publish" -c Release --self-contained
-    - uses: actions/cache/save@v3
-      with:
-        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
-        key: ${{ runner.os }}-wasm-${{ github.sha }}
+        dotnet publish -r win-x64 -o "../../Server/publish" -c ${{env.BUILD_CONFIGURATION}} --self-contained
+      working-directory: ./WebUI/Client
 
-  upload-artifacts:
-    needs: publish-wasm
-    runs-on: ubuntu-latest
-    defaults:
-          run:
-            working-directory: ./Server
-    steps:
-    - uses: actions/cache/restore@v3
-      id: cache
-      with:
-        path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
-        key: ${{ runner.os }}-wasm-${{ github.sha }}
     - uses: actions/upload-artifact@v3
       with:
         name: exvs2-poc-server
@@ -96,7 +60,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild EXVS2-POC/EXVS2-POC.vcxproj /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.PLATFORM}}
+      run: msbuild EXVS2-POC/EXVS2-POC.vcxproj /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.DLLPLATFORM}}
 
     - uses: actions/upload-artifact@v3
       with:
