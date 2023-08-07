@@ -26,7 +26,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: /EXVS2-POC
+        working-directory: .\EXVS2-POC
         
     steps:
     - uses: actions/checkout@v3
@@ -43,4 +43,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: exvs2-poc-server
-        path: /home/runner/work/EXVS2-POC/EXVS2-POC/x64/Release/
+        path: D:\a\EXVS2-POC\EXVS2-POC\x64\Release
