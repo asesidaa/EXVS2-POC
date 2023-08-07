@@ -38,5 +38,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: exvs2-poc-server
+        name: exvs2-poc-lib
         path: D:\a\EXVS2-POC\EXVS2-POC\EXVS2-POC\x64\Release
