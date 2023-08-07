@@ -23,10 +23,10 @@ permissions:
 
 jobs:
   build-dll:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     defaults:
       run:
-        working-directory: ./EXVS2-POC
+        working-directory: /EXVS2-POC
         
     steps:
     - uses: actions/checkout@v3
