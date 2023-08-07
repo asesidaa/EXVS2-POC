@@ -30,10 +30,11 @@ jobs:
         dotnet publish -r win-x64 -o publish -c Release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
 
   publish-wasm:
+    needs: publish-server
     runs-on: ubuntu-latest
     defaults:
           run:
-            working-directory: ./WebUI
+            working-directory: ./WebUI/Client
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -49,6 +50,7 @@ jobs:
         dotnet publish -r win-x64 -o "../../Server/publish" -c Release
 
   upload-artifacts:
+    needs: publish-wasm
     runs-on: ubuntu-latest
     defaults:
           run:
