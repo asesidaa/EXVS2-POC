@@ -777,7 +777,8 @@
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
                                                           Label="Up Verbal Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Validation="ValidateCustomizeMessage" 
+                                                          Disabled="@(!CanCustomizeInBattleUpTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -791,7 +792,8 @@
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
                                                           Label="Down Verbal Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Validation="ValidateCustomizeMessage" 
+                                                          Disabled="@(!CanCustomizeInBattleDownTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -805,7 +807,8 @@
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
                                                           Label="Left Verbal Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeInBattleLeftTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -819,7 +822,8 @@
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
                                                           Label="Right Verbal Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeInBattleRightTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>

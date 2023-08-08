@@ -60,6 +60,18 @@ public partial class CustomizeCard
     private IdValuePair? SelectedTriadTeamBanner { get; set; }
     private CustomizeComment? CustomizeComment { get; set; }
 
+    private bool CanCustomizeInBattleUpTextMessage =>
+        _customMessageGroupSetting?.InBattleGroup?.UpMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeInBattleDownTextMessage =>
+        _customMessageGroupSetting?.InBattleGroup?.DownMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeInBattleLeftTextMessage =>
+        _customMessageGroupSetting?.InBattleGroup?.LeftMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeInBattleRightTextMessage =>
+        _customMessageGroupSetting?.InBattleGroup?.RightMessage?.UniqueMessageId == 0;
+
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
         new BreadcrumbItem("Cards", href: "/Cards"),
