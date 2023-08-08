@@ -31,8 +31,18 @@ try
     builder.Services.AddSwaggerGen();
 
     var app = builder.Build();
+    
+    app.UseSerilogRequestLogging(options =>
+    {
+        options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms, " +
+                                  "request host: {RequestHost}";
+        options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+        {
+            diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
+        };
+    });
 
-// Configure the HTTP request pipeline.
+    // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
