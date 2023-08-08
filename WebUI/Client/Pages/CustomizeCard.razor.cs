@@ -30,6 +30,7 @@ public partial class CustomizeCard
     private ObservableCollection<NaviWithNavigatorGroup> _naviObservableCollection = new();
     private CpuTriadPartner cpuTriadPartner = null;
     private GamepadConfig _gamepadConfig = null;
+    private CustomMessageGroupSetting _customMessageGroupSetting = null!;
     
 
     private string? errorMessage = null;
@@ -50,7 +51,9 @@ public partial class CustomizeCard
     private string HideTriadCpuPartnerProgress { get; set; } = "invisible";
     private string HideCustomizeCommentProgress { get; set; } = "invisible";
     private string HideGamepadConfigProgress { get; set; } = "invisible";
+    private string HideCommunicationMessageProgress { get; set; } = "invisible";
     private const int PLAYER_NAME_MAX_LENGTH = 12;
+    private const int MESSAGE_MAX_LENGTH = 10;
 
     private IdValuePair? SelectedTriadSkill1 { get; set; }
     private IdValuePair? SelectedTriadSkill2 { get; set; }
@@ -102,6 +105,9 @@ public partial class CustomizeCard
         
         var gamepadConfig = await Http.GetFromJsonAsync<GamepadConfig>($"/card/getGamepadConfig/{AccessCode}/{ChipId}");
         gamepadConfig.ThrowIfNull();
+        
+        var customMessageGroupSetting = await Http.GetFromJsonAsync<CustomMessageGroupSetting>($"/card/getCustomMessageGroupSetting/{AccessCode}/{ChipId}");
+        customMessageGroupSetting.ThrowIfNull();
 
         //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
         //Logger.LogInformation($"{json}");
@@ -168,6 +174,8 @@ public partial class CustomizeCard
         CustomizeComment = customizeCommentResult;
         
         _gamepadConfig = gamepadConfig;
+        
+        _customMessageGroupSetting = customMessageGroupSetting;
     }
 
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
@@ -402,6 +410,7 @@ public partial class CustomizeCard
         await SaveTriadCpuPartner();
         await SaveCustomizeComment();
         await SaveGamepadConfig();
+        await SaveCommunicationMessageConfig();
 
         HideSaveAllProgress = "invisible";
         StateHasChanged();
@@ -606,6 +615,28 @@ public partial class CustomizeCard
         HideGamepadConfigProgress = "invisible";
         StateHasChanged();
     }
+    
+    private async Task SaveCommunicationMessageConfig()
+    {
+        HideCommunicationMessageProgress = "visible";
+        StateHasChanged();
+        
+        var dto = new UpsertCustomMessagesRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            MessageSetting = _customMessageGroupSetting
+        };
+        
+        var response = await Http.PostAsJsonAsync("/card/upsertCustomMessages", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, "Communication Message Config");
+
+        HideCommunicationMessageProgress = "invisible";
+        StateHasChanged();
+    }
 
     private void ShowBasicResponseSnack(BasicResponse result, string context = "")
     {
@@ -624,6 +655,11 @@ public partial class CustomizeCard
     {
         return ValidateName(teamName, "Triad CPU Team name");
     }
+    
+    private static string? ValidateCustomizeMessage(string message)
+    {
+        return ValidateMessage(message, "Message");
+    }
 
     private static String? ValidateName(string name, string errorMessagePart)
     {
@@ -634,6 +670,18 @@ public partial class CustomizeCard
             0 => errorMessagePart + " cannot be empty!",
             > PLAYER_NAME_MAX_LENGTH => errorMessagePart + " cannot be longer than 12 characters!",
             _ => !Regex.IsMatch(name, pattern) ? errorMessagePart + " contains invalid character!" : null
+        };
+    }
+    
+    private static String? ValidateMessage(string message, string errorMessagePart)
+    {
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
+
+        return message.Length switch
+        {
+            0 => null,
+            > MESSAGE_MAX_LENGTH => errorMessagePart + " cannot be longer than 10 characters!",
+            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + " contains invalid character!" : null
         };
     }
 
