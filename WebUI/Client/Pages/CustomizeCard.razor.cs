@@ -663,7 +663,7 @@ public partial class CustomizeCard
 
     private static String? ValidateName(string name, string errorMessagePart)
     {
-        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９-_ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
 
         return name.Length switch
         {
