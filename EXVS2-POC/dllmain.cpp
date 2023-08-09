@@ -27,6 +27,7 @@ config_struct ReadConfigs(INIReader reader) {
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config.Mode = reader.Get("config", "mode", "1");
+    config.RegionCode = reader.Get("config", "Region", "1");
     
 
     // key bind config reading
