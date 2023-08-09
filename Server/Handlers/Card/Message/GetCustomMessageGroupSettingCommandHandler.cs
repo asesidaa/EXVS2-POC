@@ -41,9 +41,9 @@ public class GetCustomMessageGroupSettingCommandHandler : IRequestHandler<GetCus
         
         var customMessageGroupSetting = new CustomMessageGroupSetting
         {
-            StartGroup = CreateCustomMessageGroup(ToCustomMessages(mobileUserGroup.OpeningMessages)),
+            StartGroup = CreateStartCustomMessageGroup(ToCustomMessages(mobileUserGroup.OpeningMessages)),
             InBattleGroup = CreateCustomMessageGroup(ToCustomMessages(mobileUserGroup.PlayingMessages)),
-            ResultGroup = CreateCustomMessageGroup(ToCustomMessages(mobileUserGroup.ResultMessages))
+            ResultGroup = CreateResultCustomMessageGroup(ToCustomMessages(mobileUserGroup.ResultMessages))
         };
         
         return Task.FromResult(customMessageGroupSetting);
@@ -55,6 +55,17 @@ public class GetCustomMessageGroupSettingCommandHandler : IRequestHandler<GetCus
             .Select(message => message.ToCustomMessage())
             .ToList();
     }
+    
+    CustomMessageGroup CreateStartCustomMessageGroup(List<CustomMessage> messageList)
+    {
+        return new CustomMessageGroup
+        {
+            UpMessage = CreateDefaultCustomMessage(messageList, Command.StartUp),
+            DownMessage = CreateDefaultCustomMessage(messageList, Command.StartDown),
+            LeftMessage = CreateDefaultCustomMessage(messageList, Command.StartLeft),
+            RightMessage = CreateDefaultCustomMessage(messageList, Command.StartRight)
+        };
+    }
         
     CustomMessageGroup CreateCustomMessageGroup(List<CustomMessage> messageList)
     {
@@ -64,6 +75,17 @@ public class GetCustomMessageGroupSettingCommandHandler : IRequestHandler<GetCus
             DownMessage = CreateDefaultCustomMessage(messageList, Command.Down),
             LeftMessage = CreateDefaultCustomMessage(messageList, Command.Left),
             RightMessage = CreateDefaultCustomMessage(messageList, Command.Right)
+        };
+    }
+    
+    CustomMessageGroup CreateResultCustomMessageGroup(List<CustomMessage> messageList)
+    {
+        return new CustomMessageGroup
+        {
+            UpMessage = CreateDefaultCustomMessage(messageList, Command.ResultUp),
+            DownMessage = CreateDefaultCustomMessage(messageList, Command.ResultDown),
+            LeftMessage = CreateDefaultCustomMessage(messageList, Command.ResultLeft),
+            RightMessage = CreateDefaultCustomMessage(messageList, Command.ResultRight)
         };
     }
 

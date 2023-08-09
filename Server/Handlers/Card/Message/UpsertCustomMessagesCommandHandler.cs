@@ -45,9 +45,9 @@ public class UpsertCustomMessagesCommandHandler : IRequestHandler<UpsertCustomMe
 
         var messageSetting = updateRequest.MessageSetting;
         
-        UpsertCommandMessageGroup(messageSetting.StartGroup, mobileUserGroup.OpeningMessages);
-        UpsertCommandMessageGroup(messageSetting.InBattleGroup, mobileUserGroup.PlayingMessages);
-        UpsertCommandMessageGroup(messageSetting.ResultGroup, mobileUserGroup.ResultMessages);
+        UpsertCommandMessageGroup(messageSetting.StartGroup, mobileUserGroup.OpeningMessages, Command.StartUp, Command.StartDown, Command.StartLeft, Command.StartRight);
+        UpsertCommandMessageGroup(messageSetting.InBattleGroup, mobileUserGroup.PlayingMessages, Command.Up, Command.Down, Command.Left, Command.Right);
+        UpsertCommandMessageGroup(messageSetting.ResultGroup, mobileUserGroup.ResultMessages, Command.ResultUp, Command.ResultDown, Command.ResultLeft, Command.ResultRight);
 
         cardProfile.UserDomain.MobileUserGroupJson = JsonConvert.SerializeObject(mobileUserGroup);
         
@@ -59,7 +59,7 @@ public class UpsertCustomMessagesCommandHandler : IRequestHandler<UpsertCustomMe
         });
     }
 
-    void UpsertCommandMessageGroup(CustomMessageGroup? customMessageGroup, List<Response.LoadCard.MobileUserGroup.CommandMessageGroup> commandMessageGroups)
+    void UpsertCommandMessageGroup(CustomMessageGroup? customMessageGroup, List<Response.LoadCard.MobileUserGroup.CommandMessageGroup> commandMessageGroups, Command up, Command down, Command left, Command right)
     {
         if (customMessageGroup is null)
         {
@@ -70,22 +70,22 @@ public class UpsertCustomMessagesCommandHandler : IRequestHandler<UpsertCustomMe
 
         if (customMessageGroup.UpMessage is not null)
         {
-            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.UpMessage, Command.Up));
+            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.UpMessage, up));
         } 
         
         if (customMessageGroup.DownMessage is not null)
         {
-            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.DownMessage, Command.Down));
+            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.DownMessage, down));
         } 
         
         if (customMessageGroup.LeftMessage is not null)
         {
-            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.LeftMessage, Command.Left));
+            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.LeftMessage, left));
         } 
         
         if (customMessageGroup.RightMessage is not null)
         {
-            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.RightMessage, Command.Right));
+            newCommandMessageGroup.Add(ToWithDirection(customMessageGroup.RightMessage, right));
         }
 
         if (newCommandMessageGroup.Count == 0)
