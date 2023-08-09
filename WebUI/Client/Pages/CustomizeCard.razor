@@ -702,14 +702,19 @@
                             <MudExpansionPanels>
                                 <MudExpansionPanel Text="Before Battle Message">
                                     <MudGrid>
+                                        <MudItem xs="12">
+                                            Put Stamp ID = 0 if you want to use Verbal Message
+                                        </MudItem>
+                                    </MudGrid>
+                                    <MudGrid>
                                         <MudItem xs="8">
                                             <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.MessageText"
                                                           Immediate="true"
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Up Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Up Verbal Message"
+                                                          Disabled="@(!CanCustomizeBeforeBattleUpTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -722,8 +727,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Down Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Down Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeBeforeBattleDownTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -736,8 +742,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Left Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Left Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeBeforeBattleLeftTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -750,8 +757,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Right Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Right Verbal Message"
+                                                          Validation="ValidateCustomizeMessage" 
+                                                          Disabled="@(!CanCustomizeBeforeBattleRightTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -760,14 +768,20 @@
                                 </MudExpansionPanel>
                                 <MudExpansionPanel Text="In Battle Message">
                                     <MudGrid>
+                                        <MudItem xs="12">
+                                            Put Stamp ID = 0 if you want to use Verbal Message
+                                        </MudItem>
+                                    </MudGrid>
+                                    <MudGrid>
                                         <MudItem xs="8">
                                             <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.MessageText"
                                                           Immediate="true"
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Up Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Up Verbal Message"
+                                                          Validation="ValidateCustomizeMessage" 
+                                                          Disabled="@(!CanCustomizeInBattleUpTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -780,8 +794,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Down Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Down Verbal Message"
+                                                          Validation="ValidateCustomizeMessage" 
+                                                          Disabled="@(!CanCustomizeInBattleDownTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -794,8 +809,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Left Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Left Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeInBattleLeftTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -808,8 +824,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Right Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Right Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeInBattleRightTextMessage)"/>
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -818,14 +835,20 @@
                                 </MudExpansionPanel>
                                 <MudExpansionPanel Text="End Battle Message">
                                     <MudGrid>
+                                        <MudItem xs="12">
+                                            Put Stamp ID = 0 if you want to use Verbal Message
+                                        </MudItem>
+                                    </MudGrid>
+                                    <MudGrid>
                                         <MudItem xs="8">
                                             <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.MessageText"
                                                           Immediate="true"
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Up Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Up Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeAfterBattleUpTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -838,8 +861,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Down Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Down Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeAfterBattleDownTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -852,8 +876,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Left Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Left Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeAfterBattleLeftTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
@@ -866,8 +891,9 @@
                                                           Variant="Variant.Outlined"
                                                           Counter="MESSAGE_MAX_LENGTH"
                                                           MaxLength="MESSAGE_MAX_LENGTH"
-                                                          Label="Right Message"
-                                                          Validation="ValidateCustomizeMessage" />
+                                                          Label="Right Verbal Message"
+                                                          Validation="ValidateCustomizeMessage"
+                                                          Disabled="@(!CanCustomizeAfterBattleRightTextMessage)" />
                                         </MudItem>
                                         <MudItem xs="4">
                                             <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
