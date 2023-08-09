@@ -37,4 +37,5 @@ struct config_struct {
 	std::string Gateway;
 	std::string PrimaryDNS;
 	std::string ServerAddress;
+	std::string RegionCode;
 };

@@ -253,7 +253,7 @@ public:
     {
         OutputDebugStringA("IAuth_GetAuthServerResp");
 
-        std::string region_name_0 = "1";
+        std::string region_name_0 = amconfig.RegionCode;
 
         if(amconfig.Mode == "3" || amconfig.Mode == "4")
         {
