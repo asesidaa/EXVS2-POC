@@ -60,6 +60,18 @@ public partial class CustomizeCard
     private IdValuePair? SelectedTriadTeamBanner { get; set; }
     private CustomizeComment? CustomizeComment { get; set; }
 
+    private bool CanCustomizeBeforeBattleUpTextMessage =>
+        _customMessageGroupSetting?.StartGroup?.UpMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeBeforeBattleDownTextMessage =>
+        _customMessageGroupSetting?.StartGroup?.DownMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeBeforeBattleLeftTextMessage =>
+        _customMessageGroupSetting?.StartGroup?.LeftMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeBeforeBattleRightTextMessage =>
+        _customMessageGroupSetting?.StartGroup?.RightMessage?.UniqueMessageId == 0;
+    
     private bool CanCustomizeInBattleUpTextMessage =>
         _customMessageGroupSetting?.InBattleGroup?.UpMessage?.UniqueMessageId == 0;
     
@@ -71,6 +83,18 @@ public partial class CustomizeCard
     
     private bool CanCustomizeInBattleRightTextMessage =>
         _customMessageGroupSetting?.InBattleGroup?.RightMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeAfterBattleUpTextMessage =>
+        _customMessageGroupSetting?.ResultGroup?.UpMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeAfterBattleDownTextMessage =>
+        _customMessageGroupSetting?.ResultGroup?.DownMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeAfterBattleLeftTextMessage =>
+        _customMessageGroupSetting?.ResultGroup?.LeftMessage?.UniqueMessageId == 0;
+    
+    private bool CanCustomizeAfterBattleRightTextMessage =>
+        _customMessageGroupSetting?.ResultGroup?.RightMessage?.UniqueMessageId == 0;
 
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
