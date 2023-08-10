@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 [Table("card_profile")]
-public class CardProfile
+public class CardProfile : BaseEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,6 +21,14 @@ public class CardProfile
 
     [Required] 
     public Boolean IsNewCard { get; set; } = true;
+    
+    [Required]
+    public string UploadToken { get; set; } = string.Empty;
+
+    [Required]
+    public DateTime UploadTokenExpiry { get; set; } = DateTime.Now;
+    
+    public ICollection<UploadImage> UploadImages { get; } = new List<UploadImage>(); 
 
     public virtual PilotDomain PilotDomain { get; set; } = null!;
 

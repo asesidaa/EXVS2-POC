@@ -153,4 +153,90 @@
   <data name="search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <!-- Card Customization UI -->
+  <data name="generalcardinfo" xml:space="preserve">
+    <value>General Card Info</value>
+  </data>
+  <data name="navisetting" xml:space="preserve">
+    <value>Navigator</value>
+  </data>
+  <!-- Favourite MS Setting -->
+  <data name="favmssetting" xml:space="preserve">
+    <value>Favourite Mobile Suits</value>
+  </data>
+  <!-- Pilot alternative costumes, done -->
+  <data name="mscostumesetting" xml:space="preserve">
+    <value>Pilot Alternative Costumes</value>
+  </data>
+  <data name="mscostumehint" xml:space="preserve">
+    <value>Mobile Suits without alternate costumes are not in the list.</value>
+  </data>
+  <data name="mscostumemsheader" xml:space="preserve">
+    <value>Mobile Suit</value>
+  </data>
+  <data name="mscostumecostumeheader" xml:space="preserve">
+    <value>Costume</value>
+  </data>
+  <!-- CPU Triad Setting -->
+  <data name="cputriadpartner" xml:space="preserve">
+    <value>Triad Mode CPU Partner</value>
+  </data>
+  <!-- Customize Comment Setting -->
+  <data name="customizecomment" xml:space="preserve">
+    <value>Customize Comment</value>
+  </data>
+  <!-- Communication Message Setting -->
+  <data name="communicationmessage" xml:space="preserve">
+    <value>Communication Message Config</value>
+  </data>
+  <!-- Game Pad Config, done -->
+  <data name="gamepadconfig" xml:space="preserve">
+    <value>Gamepad Config</value>
+  </data>
+  <data name="gamepadhint1" xml:space="preserve">
+    <value>Labels are based on Xbox / PS</value>
+  </data>
+  <data name="gamepadhint2" xml:space="preserve">
+    <value>Especially useful for the Arcade Stick that support XInput / PC mode (e.g. Victrix Pro FS)</value>
+  </data>
+  <data name="gamepadsquare" xml:space="preserve">
+    <value>X / □ Button</value>
+  </data>
+  <data name="gamepadtriangle" xml:space="preserve">
+    <value>Y / △ Button</value>
+  </data>
+  <data name="gamepadcross" xml:space="preserve">
+    <value>A / × Button</value>
+  </data>
+  <data name="gamepadcircle" xml:space="preserve">
+    <value>B / ○ Button</value>
+  </data>
+  <data name="gamepadl1" xml:space="preserve">
+    <value>LB / L1 Button</value>
+  </data>
+  <data name="gamepadr1" xml:space="preserve">
+    <value>RB / R1 Button</value>
+  </data>
+  <data name="gamepadl2" xml:space="preserve">
+    <value>LT / L2 Button</value>
+  </data>
+  <data name="gamepadr2" xml:space="preserve">
+    <value>RT / R2 Button</value>
+  </data>
+  <data name="gamepadl3" xml:space="preserve">
+    <value>LSB / L3 Button</value>
+  </data>
+  <data name="gamepadr3" xml:space="preserve">
+    <value>RSB / R3 Button</value>
+  </data>
+  <!-- View -->
+  <data name="viewcarddetailtitle" xml:space="preserve">
+    <value>View Player Detail</value>
+  </data>
+  <data name="cardviewdetail" xml:space="preserve">
+    <value>View Player Detail</value>
+  </data>
+  <data name="screencaptures" xml:space="preserve">
+    <value>Screen Captures</value>
+  </data>
 </root>

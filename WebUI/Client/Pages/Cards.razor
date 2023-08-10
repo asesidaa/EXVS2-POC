@@ -19,8 +19,10 @@
     return;
 }*@
 <MudGrid Class="my-8">
-    <MudTextField @ref="mudTextField" @bind-Value="_searchText" Label="@localizer["search"]" Variant="Variant.Outlined" Immediate="true" TextChanged="SearchEntered" />
-
+    <MudItem xs="12">
+        <MudTextField @ref="mudTextField" @bind-Value="_searchText" Label="@localizer["search"]" Variant="Variant.Outlined" Immediate="true" TextChanged="SearchEntered" />
+    </MudItem>
+    
     @if (cardDtos is null)
     {
         @for (var i = 0; i < 3; i++)
@@ -47,10 +49,7 @@
         }
         return;
     }
-
-    <MudItem xs="12">
-        <MudStack>
-
+    
             @if (cardDtos.Count != 0)
             {
                 @foreach (var card in cardDtos)
@@ -73,10 +72,18 @@
                             <MudCardActions>
                                 <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
                                     <MudButton OnClick="() => OnEditCardClicked(card)"
-                                                Variant="Variant.Text"
-                                                StartIcon="@Icons.Material.Filled.DisplaySettings"
-                                                Color="Color.Primary">
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.DisplaySettings"
+                                               Color="Color.Primary">
                                         Edit Options
+                                    </MudButton>
+                                </MudStack>
+                                <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                                    <MudButton OnClick="() => OnViewDetailClicked(card)"
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.Details"
+                                               Color="Color.Primary">
+                                        @localizer["cardviewdetail"]
                                     </MudButton>
                                 </MudStack>
                             </MudCardActions>
@@ -93,8 +100,6 @@
                     </MudText>
                 </MudItem>
             }
-        </MudStack>
-    </MudItem>
 </MudGrid>
 
 @code{
@@ -148,7 +153,11 @@
                 DisableBackdropClick = true,
                 FullWidth = true
             };
-        var parameters = new DialogParameters { { "Data", card } };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "EditCard"}
+        };
         var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
         // ReSharper disable once UnusedVariable
         var result = await dialog.Result;
@@ -157,6 +166,29 @@
             StateHasChanged();
         }
     }
+
+    private async Task OnViewDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "ViewDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+    // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
 
     private void SearchEntered(string input)
     {

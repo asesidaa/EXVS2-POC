@@ -1,0 +1,80 @@
+﻿@page "/Cards/ViewDetail/{AccessCode}/{ChipId}"
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject IDataService DataService
+@inject IDialogService DialogService
+@using WebUI.Shared.Dto.Common;
+@using WebUI.Shared.Dto.Enum;
+@using WebUI.Shared.Dto.Json
+@using WebUI.Client.Services
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["viewcarddetailtitle"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["viewcarddetailtitle"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+@if (_basicProfile is null)
+{
+    <MudStack>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+    </MudStack>
+    return;
+}
+
+<MudStack Class="mt-2">
+<MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+<MudTabPanel Text="@localizer["screencaptures"]">
+    <MudGrid xs="12">
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["screencaptures"]</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudGrid xs="12">
+                            @foreach (var image in _uploadedImages)
+                            {
+                                var imageLink = $"uploadimage/{image.Filename}";
+                                var imageName = image.CreateTime.ToString("yyyy'/'MM'/'dd' 'HH':'mm':'ss");
+                                
+                                <MudItem xs="12" sm="6" md="4">
+                                    <MudLink Href="@imageLink" Target="_blank">
+                                        <MudGrid>
+                                            <MudItem>
+                                                <MudImage Fluid="true" Src="@imageLink" Alt="@imageName" Class="rounded-lg"/>
+                                            </MudItem>
+                                            <MudItem Class="mx-auto">
+                                                <MudText Align="Align.Center">
+                                                    @imageName
+                                                </MudText>
+                                            </MudItem>
+                                        </MudGrid>
+                                    </MudLink>
+                                </MudItem>
+                            }
+                        </MudGrid>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudTabPanel>
+</MudTabs>
+</MudStack>

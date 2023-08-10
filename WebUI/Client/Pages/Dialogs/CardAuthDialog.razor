@@ -32,6 +32,9 @@
 
     [Parameter]
     public BareboneCardProfile Data { get; set; } = null!;
+    
+    [Parameter]
+    public string Mode { get; set; } = null!;
 
     private MudTextField<string> mudTextField { get; set; }
 
@@ -56,7 +59,14 @@
         }
         else
         {
-            NavManager.NavigateTo($"Cards/Customize/{Data.AccessCode}/{Data.ChipId}");
+            if (Mode == "EditCard")
+            {
+                NavManager.NavigateTo($"Cards/Customize/{Data.AccessCode}/{Data.ChipId}");   
+            }
+            else
+            {
+                NavManager.NavigateTo($"Cards/ViewDetail/{Data.AccessCode}/{Data.ChipId}"); 
+            }
         }
     }
 

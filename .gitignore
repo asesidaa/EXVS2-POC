@@ -25,6 +25,9 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 
+# Datasource
+.idea/.idea.EXVS2-POC/.idea/dataSources/*
+
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
@@ -474,3 +477,9 @@ FodyWeavers.xsd
 *.db3
 *.db-shm
 *.db-wal
+
+# User image files
+Server/wwwroot/uploadimage/
+
+# HTTP Request Sample
+*.http

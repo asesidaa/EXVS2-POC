@@ -153,4 +153,90 @@
   <data name="search" xml:space="preserve">
     <value>搜索</value>
   </data>
+  <!-- Card Customization UI -->
+  <data name="generalcardinfo" xml:space="preserve">
+    <value>基本卡片资料</value>
+  </data>
+  <data name="navisetting" xml:space="preserve">
+    <value>领航员设定</value>
+  </data>
+  <!-- Favourite MS Setting -->
+  <data name="favmssetting" xml:space="preserve">
+    <value>偏好机体</value>
+  </data>
+  <!-- Pilot alternative costumes, done -->
+  <data name="mscostumesetting" xml:space="preserve">
+    <value>驾驶员换装</value>
+  </data>
+  <data name="mscostumehint" xml:space="preserve">
+    <value>表中不含无换装驾驶员</value>
+  </data>
+  <data name="mscostumemsheader" xml:space="preserve">
+    <value>机动战士</value>
+  </data>
+  <data name="mscostumecostumeheader" xml:space="preserve">
+    <value>衣服</value>
+  </data>
+  <!-- CPU Triad Setting -->
+  <data name="cputriadpartner" xml:space="preserve">
+    <value>街机模式CPU队友</value>
+  </data>
+  <!-- Customize Comment Setting -->
+  <data name="customizecomment" xml:space="preserve">
+    <value>自定义签名</value>
+  </data>
+  <!-- Communication Message Setting -->
+  <data name="communicationmessage" xml:space="preserve">
+    <value>通讯设置</value>
+  </data>
+  <!-- Game Pad Config, done -->
+  <data name="gamepadconfig" xml:space="preserve">
+    <value>手柄键位设置</value>
+  </data>
+  <data name="gamepadhint1" xml:space="preserve">
+    <value>键位是基于Xbox及PS手柄</value>
+  </data>
+  <data name="gamepadhint2" xml:space="preserve">
+    <value>对于部分支持XInput / PC模式的街机摇杆也适用 (如Victrix Pro FS)</value>
+  </data>
+  <data name="gamepadsquare" xml:space="preserve">
+    <value>X / □ 键</value>
+  </data>
+  <data name="gamepadtriangle" xml:space="preserve">
+    <value>Y / △ 键</value>
+  </data>
+  <data name="gamepadcross" xml:space="preserve">
+    <value>A / × 键</value>
+  </data>
+  <data name="gamepadcircle" xml:space="preserve">
+    <value>B / ○ 键</value>
+  </data>
+  <data name="gamepadl1" xml:space="preserve">
+    <value>LB / L1 键</value>
+  </data>
+  <data name="gamepadr1" xml:space="preserve">
+    <value>RB / R1 键</value>
+  </data>
+  <data name="gamepadl2" xml:space="preserve">
+    <value>LT / L2 键</value>
+  </data>
+  <data name="gamepadr2" xml:space="preserve">
+    <value>RT / R2 键</value>
+  </data>
+  <data name="gamepadl3" xml:space="preserve">
+    <value>LSB / L3 键</value>
+  </data>
+  <data name="gamepadr3" xml:space="preserve">
+    <value>RSB / R3 键</value>
+  </data>
+  <!-- View -->
+  <data name="viewcarddetailtitle" xml:space="preserve">
+    <value>显示玩家资料</value>
+  </data>
+  <data name="cardviewdetail" xml:space="preserve">
+    <value>显示玩家资料</value>
+  </data>
+  <data name="screencaptures" xml:space="preserve">
+    <value>截图</value>
+  </data>
 </root>

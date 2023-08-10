@@ -17,7 +17,9 @@ public class CardProfileConfigurations : IEntityTypeConfiguration<CardProfile>
             .WithOne(e => e.CardProfile)
             .HasForeignKey<UserDomain>(e => e.CardId)
             .IsRequired();
-        // builder.OwnsOne(x => x.PilotDomain);
-        // builder.OwnsOne(x => x.UserDomain);
+        builder.HasMany(e => e.UploadImages)
+            .WithOne(e => e.CardProfile)
+            .HasForeignKey(e => e.CardId)
+            .IsRequired(false);
     }
 }
