@@ -157,12 +157,64 @@
   <data name="generalcardinfo" xml:space="preserve">
     <value>基本卡片资料</value>
   </data>
+  <data name="bgmtype_None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="bgmtype_Sequential" xml:space="preserve">
+    <value>顺序</value>
+  </data>
+  <data name="bgmtype_Random" xml:space="preserve">
+    <value>随机</value>
+  </data>
+  <!-- Navi Customization UI -->
   <data name="navisetting" xml:space="preserve">
     <value>领航员设定</value>
+  </data>
+  <data name="navisetting_uinavigator" xml:space="preserve">
+    <value>介面领航员</value>
+  </data>
+  <data name="navisetting_battlenavigator" xml:space="preserve">
+    <value>战斗领航员</value>
+  </data>
+  <data name="navisetting_navicostume" xml:space="preserve">
+    <value>领航员换装</value>
+  </data>
+  <data name="navisetting_navicostumehint" xml:space="preserve">
+    <value>表中不含无换装领航员</value>
+  </data>
+  <data name="navisetting_navi" xml:space="preserve">
+    <value>领航员</value>
+  </data>
+  <data name="navisetting_costume" xml:space="preserve">
+    <value>衣服</value>
   </data>
   <!-- Favourite MS Setting -->
   <data name="favmssetting" xml:space="preserve">
     <value>偏好机体</value>
+  </data>
+  <data name="favmsdialog_mstitle" xml:space="preserve">
+    <value>机体</value>
+  </data>
+  <data name="unknownms" xml:space="preserve">
+    <value>不明机体</value>
+  </data>
+  <data name="unknownnavi" xml:space="preserve">
+    <value>不明领航员</value>
+  </data>
+  <data name="favmsdialog_bursttype" xml:space="preserve">
+    <value>觉醒种类</value>
+  </data>
+  <data name="favmsdialog_inbattlenavi" xml:space="preserve">
+    <value>战斗领航员</value>
+  </data>
+  <data name="favmsdialog_gauge" xml:space="preserve">
+    <value>战斗界面UI</value>
+  </data>
+  <data name="favmsdialog_bgmreplaytype" xml:space="preserve">
+    <value>BGM播放形式</value>
+  </data>
+  <data name="favmsdialog_bgmlistorder" xml:space="preserve">
+    <value>BGM列表 / 顺序</value>
   </data>
   <!-- Pilot alternative costumes, done -->
   <data name="mscostumesetting" xml:space="preserve">

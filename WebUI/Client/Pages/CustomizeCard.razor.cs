@@ -1,16 +1,17 @@
-﻿using System.Collections.ObjectModel;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using MudBlazor;
+using System.Collections.ObjectModel;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Components;
-using MudBlazor;
 using Throw;
+using WebUI.Client.Helpers;
 using WebUI.Client.Pages.Dialogs;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Enum;
 using WebUI.Shared.Dto.Json;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
-using static MudBlazor.CategoryTypes;
 
 namespace WebUI.Client.Pages;
 
@@ -32,7 +33,6 @@ public partial class CustomizeCard
     private GamepadConfig _gamepadConfig = null;
     private CustomMessageGroupSetting _customMessageGroupSetting = null!;
     
-
     private string? errorMessage = null;
 
     private readonly int maximumFavouriteMs = 6;
@@ -218,24 +218,24 @@ public partial class CustomizeCard
 
     private string GetMobileSuitName(uint id)
     {
-        var navigator = DataService.GetMobileSuitById(id);
-
-        return navigator?.NameEN ?? "Unknown Mobile Suit";
+        var ms = DataService.GetMobileSuitById(id);
+        var localizedName = GetLocalizedFriendlyName.GetLocalizedName(ms);
+        return localizedName ?? "Unknown Mobile Suit";
     }
 
     private string GetNaviName(uint id)
     {
         var navigator = DataService.GetNavigatorById(id);
-
-        return navigator?.NameEN ?? "Unknown Navigator";
+        var localizedName = GetLocalizedFriendlyName.GetLocalizedName(navigator);
+        return localizedName ?? "Unknown Navigator";
     }
 
     private string GetGaugeName(uint id)
     {
-        var navigator = DataService.GetGaugeById(id);
-
-        return navigator?.NameEN ?? "Unknown Gauge";
-    }
+        var gauge = DataService.GetGaugeById(id);
+		var localizedName = GetLocalizedFriendlyName.GetLocalizedName(gauge);
+		return localizedName ?? "Unknown Gauge";
+	}
 
     private void AddFavouriteMobileSuitItem()
     {

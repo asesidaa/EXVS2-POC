@@ -157,12 +157,64 @@
   <data name="generalcardinfo" xml:space="preserve">
     <value>General Card Info</value>
   </data>
+  <data name="bgmtype_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="bgmtype_Sequential" xml:space="preserve">
+    <value>Sequential</value>
+  </data>
+  <data name="bgmtype_Random" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <!-- Navi Customization UI -->
   <data name="navisetting" xml:space="preserve">
     <value>Navigator</value>
+  </data>
+  <data name="navisetting_uinavigator" xml:space="preserve">
+    <value>UI Navigator</value>
+  </data>
+  <data name="navisetting_battlenavigator" xml:space="preserve">
+    <value>In Battle Navigator</value>
+  </data>
+  <data name="navisetting_navicostume" xml:space="preserve">
+    <value>Navigator Alternative Costumes</value>
+  </data>
+  <data name="navisetting_navicostumehint" xml:space="preserve">
+    <value>Navis without alternate costumes are not in the list.</value>
+  </data>
+  <data name="navisetting_navi" xml:space="preserve">
+    <value>Navigator</value>
+  </data>
+  <data name="navisetting_costume" xml:space="preserve">
+    <value>Costume</value>
   </data>
   <!-- Favourite MS Setting -->
   <data name="favmssetting" xml:space="preserve">
     <value>Favourite Mobile Suits</value>
+  </data>
+  <data name="favmsdialog_mstitle" xml:space="preserve">
+    <value>Mobile Suit</value>
+  </data>
+  <data name="unknownms" xml:space="preserve">
+    <value>Unknown Mobile Suit</value>
+  </data>
+  <data name="unknownnavi" xml:space="preserve">
+    <value>Unknown Navigator</value>
+  </data>
+  <data name="favmsdialog_bursttype" xml:space="preserve">
+    <value>Burst Type</value>
+  </data>
+  <data name="favmsdialog_inbattlenavi" xml:space="preserve">
+    <value>In Battle Navi</value>
+  </data>
+  <data name="favmsdialog_gauge" xml:space="preserve">
+    <value>Gauge</value>
+  </data>
+  <data name="favmsdialog_bgmreplaytype" xml:space="preserve">
+    <value>Bgm Play Type</value>
+  </data>
+  <data name="favmsdialog_bgmlistorder" xml:space="preserve">
+    <value>Bgm Play List Order</value>
   </data>
   <!-- Pilot alternative costumes, done -->
   <data name="mscostumesetting" xml:space="preserve">
