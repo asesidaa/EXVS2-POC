@@ -57,6 +57,7 @@ public class GameController : BaseController<GameController>
             MethodType.MthdRegisterCard         => await mediator.Send(new RegisterCardCommand(request)),
             MethodType.MthdLoadCard             => await mediator.Send(new LoadCardQuery(request)),
             MethodType.MthdUsePCoinTicket       => await mediator.Send(new UsePCoinTicketCommand(request)),
+            MethodType.MthdSaveResultCapture    => await mediator.Send(new SaveResultCaptureCommand(request, baseAddress)),
             _ => UnhandledResponse(request)
         };
 
