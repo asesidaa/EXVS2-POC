@@ -229,4 +229,14 @@
   <data name="gamepadr3" xml:space="preserve">
     <value>RSB / R3 键</value>
   </data>
+  <!-- View -->
+  <data name="viewcarddetailtitle" xml:space="preserve">
+    <value>显示玩家资料</value>
+  </data>
+  <data name="cardviewdetail" xml:space="preserve">
+    <value>显示玩家资料</value>
+  </data>
+  <data name="screencaptures" xml:space="preserve">
+    <value>截图</value>
+  </data>
 </root>
