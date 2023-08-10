@@ -1,13 +1,15 @@
 ﻿@page "/Cards/Customize/{AccessCode}/{ChipId}"
+@using WebUI.Client.Helpers;
 @inject HttpClient Http
 @inject ILogger<CustomizeCard> Logger
 @inject ISnackbar Snackbar
 @inject IDataService DataService
 @inject IDialogService DialogService
+@using WebUI.Client.Extensions;
 @using WebUI.Shared.Dto.Common;
 @using WebUI.Shared.Dto.Enum;
-@using WebUI.Shared.Dto.Json
-@using WebUI.Client.Services
+@using WebUI.Shared.Dto.Json;
+@using WebUI.Client.Services;
 
 <MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
 
@@ -532,7 +534,7 @@
                                        Label="CPU Skill 1" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadSkillList())
                                 {
-                                    <MudSelectItem Value="item">@item.Value</MudSelectItem>
+                                    <MudSelectItem Value="item">@GetLocalizedFriendlyName.GetLocalizedName(item)</MudSelectItem>
                                 }
                             </MudSelect>
                         </MudItem>
@@ -541,7 +543,7 @@
                                        Label="CPU Skill 2" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadSkillList())
                                 {
-                                    <MudSelectItem Value="item">@item.Value</MudSelectItem>
+                                    <MudSelectItem Value="item">@GetLocalizedFriendlyName.GetLocalizedName(item)</MudSelectItem>
                                 }
                             </MudSelect>
                         </MudItem>

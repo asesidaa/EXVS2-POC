@@ -5,15 +5,18 @@
   },
   {
     "Id": 1,
-    "Value": "Lockon Range Lv. 1"
+    "Value": "Lockon Range Lv. 1",
+    "ValueCN": "红锁距离 Lv. 1"
   },
   {
     "Id": 2,
-    "Value": "Lockon Range Lv. 2"
+    "Value": "Lockon Range Lv. 2",
+    "ValueCN": "红锁距离 Lv. 2"
   },
   {
     "Id": 3,
-    "Value": "Lockon Range Lv. 3"
+    "Value": "Lockon Range Lv. 3",
+    "ValueCN": "红锁距离 Lv. 3"
   },
   {
     "Id": 4,
