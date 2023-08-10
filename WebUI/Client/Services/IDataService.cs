@@ -1,5 +1,4 @@
 ﻿using WebUI.Shared.Dto.Common;
-using WebUI.Shared.Dto.Json;
 
 namespace WebUI.Client.Services;
 
@@ -14,13 +13,13 @@ public interface IDataService
     
     public MobileSuit? GetMobileSuitById(uint id);
 
-    public IReadOnlyList<Bgm> GetBgmSortedById();
+    public IReadOnlyList<IdValuePair> GetBgmSortedById();
 
-    public Bgm? GetBgmById(uint id);
+    public IdValuePair? GetBgmById(uint id);
 
-    public IReadOnlyList<Gauge> GetGaugeSortedById();
+    public IReadOnlyList<IdValuePair> GetGaugeSortedById();
 
-    public Gauge? GetGaugeById(uint id);
+    public IdValuePair? GetGaugeById(uint id);
 
     public IReadOnlyList<Navigator> GetNavigatorSortedById();
 

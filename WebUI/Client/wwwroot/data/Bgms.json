@@ -1,632 +1,632 @@
 [
   {
     "Id": 0,
-    "NameEN": "-",
-    "NameJP": "-",
-    "NameCN": "-"
+    "Value": "-",
+    "ValueJP": "-",
+    "ValueCN": "-"
   },
   {
     "Id": 1,
-    "NameEN": "",
-    "NameJP": "颯爽たるシャア",
-    "NameCN": "飒爽的夏亚"
+    "Value": "",
+    "ValueJP": "颯爽たるシャア",
+    "ValueCN": "飒爽的夏亚"
   },
   {
     "Id": 2,
-    "NameEN": "",
-    "NameJP": "窮地に立つガンダム",
-    "NameCN": "高达立于大地"
+    "Value": "",
+    "ValueJP": "窮地に立つガンダム",
+    "ValueCN": "高达立于大地"
   },
   {
     "Id": 3,
-    "NameEN": "",
-    "NameJP": "赤い彗星",
-    "NameCN": "红色彗星"
+    "Value": "",
+    "ValueJP": "赤い彗星",
+    "ValueCN": "红色彗星"
   },
   {
     "Id": 4,
-    "NameEN": "",
-    "NameJP": "めぐりあい",
-    "NameCN": "相遇"
+    "Value": "",
+    "ValueJP": "めぐりあい",
+    "ValueCN": "相遇"
   },
   {
     "Id": 5,
-    "NameEN": "",
-    "NameJP": "モビルスーツ戦",
-    "NameCN": "MS战"
+    "Value": "",
+    "ValueJP": "モビルスーツ戦",
+    "ValueCN": "MS战"
   },
   {
     "Id": 6,
-    "NameEN": "",
-    "NameJP": "艦隊戦",
-    "NameCN": "舰队战"
+    "Value": "",
+    "ValueJP": "艦隊戦",
+    "ValueCN": "舰队战"
   },
   {
     "Id": 7,
-    "NameEN": "",
-    "NameJP": "閃光の中のMS",
-    "NameCN": "闪光中的MS"
+    "Value": "",
+    "ValueJP": "閃光の中のMS",
+    "ValueCN": "闪光中的MS"
   },
   {
     "Id": 8,
-    "NameEN": "",
-    "NameJP": "宇宙を駆ける",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "宇宙を駆ける",
+    "ValueCN": ""
   },
   {
     "Id": 9,
-    "NameEN": "Silent Voice",
-    "NameJP": "サイレント・ヴォイス",
-    "NameCN": ""
+    "Value": "Silent Voice",
+    "ValueJP": "サイレント・ヴォイス",
+    "ValueCN": ""
   },
   {
     "Id": 10,
-    "NameEN": "",
-    "NameJP": "宇宙のジュドー",
-    "NameCN": "宇宙的捷多"
+    "Value": "",
+    "ValueJP": "宇宙のジュドー",
+    "ValueCN": "宇宙的捷多"
   },
   {
     "Id": 11,
-    "NameEN": "",
-    "NameJP": "SALLY <出撃>",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "SALLY <出撃>",
+    "ValueCN": ""
   },
   {
     "Id": 12,
-    "NameEN": "",
-    "NameJP": "SWAN <白鳥>",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "SWAN <白鳥>",
+    "ValueCN": ""
   },
   {
     "Id": 14,
-    "NameEN": "",
-    "NameJP": "君を見つめて-The time I’m seeing you-",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "君を見つめて-The time I’m seeing you-",
+    "ValueCN": ""
   },
   {
     "Id": 15,
-    "NameEN": "",
-    "NameJP": "F91ガンダム出撃",
-    "NameCN": "F91高达出击"
+    "Value": "",
+    "ValueJP": "F91ガンダム出撃",
+    "ValueCN": "F91高达出击"
   },
   {
     "Id": 16,
-    "NameEN": "",
-    "NameJP": "STAND UP TO THE VICTORY ～トゥ・ザ・ヴィクトリー～",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "STAND UP TO THE VICTORY ～トゥ・ザ・ヴィクトリー～",
+    "ValueCN": ""
   },
   {
     "Id": 17,
-    "NameEN": "",
-    "NameJP": "夏に春の祭典を！",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "夏に春の祭典を！",
+    "ValueCN": ""
   },
   {
     "Id": 18,
-    "NameEN": "",
-    "NameJP": "FLYING IN THE SKY",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "FLYING IN THE SKY",
+    "ValueCN": ""
   },
   {
     "Id": 19,
-    "NameEN": "",
-    "NameJP": "我が心 明鏡止水 ～されどこの掌は烈火の如く",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "我が心 明鏡止水 ～されどこの掌は烈火の如く",
+    "ValueCN": ""
   },
   {
     "Id": 20,
-    "NameEN": "",
-    "NameJP": "燃え上がれ闘志 -忌まわしき宿命を越えて",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "燃え上がれ闘志 -忌まわしき宿命を越えて",
+    "ValueCN": ""
   },
   {
     "Id": 21,
-    "NameEN": "",
-    "NameJP": "Enforcement Rush",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Enforcement Rush",
+    "ValueCN": ""
   },
   {
     "Id": 22,
-    "NameEN": "",
-    "NameJP": "思春期を殺した少年の翼",
-    "NameCN": "抹杀思春期的少年之翼"
+    "Value": "",
+    "ValueJP": "思春期を殺した少年の翼",
+    "ValueCN": "抹杀思春期的少年之翼"
   },
   {
     "Id": 23,
-    "NameEN": "",
-    "NameJP": "JUST COMMUNICATION",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "JUST COMMUNICATION",
+    "ValueCN": ""
   },
   {
     "Id": 24,
-    "NameEN": "",
-    "NameJP": "LAST IMPRESSION",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "LAST IMPRESSION",
+    "ValueCN": ""
   },
   {
     "Id": 25,
-    "NameEN": "",
-    "NameJP": "死線",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "死線",
+    "ValueCN": ""
   },
   {
     "Id": 26,
-    "NameEN": "",
-    "NameJP": "DREAMS",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "DREAMS",
+    "ValueCN": ""
   },
   {
     "Id": 27,
-    "NameEN": "",
-    "NameJP": "光軸のなぞるもの",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "光軸のなぞるもの",
+    "ValueCN": ""
   },
   {
     "Id": 28,
-    "NameEN": "",
-    "NameJP": "地よりはずめと",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "地よりはずめと",
+    "ValueCN": ""
   },
   {
     "Id": 29,
-    "NameEN": "",
-    "NameJP": "STRIKE出撃",
-    "NameCN": "强袭出击"
+    "Value": "",
+    "ValueJP": "STRIKE出撃",
+    "ValueCN": "强袭出击"
   },
   {
     "Id": 30,
-    "NameEN": "",
-    "NameJP": "あんなに一緒だったのに",
-    "NameCN": "我们曾经是那么的投合"
+    "Value": "",
+    "ValueJP": "あんなに一緒だったのに",
+    "ValueCN": "我们曾经是那么的投合"
   },
   {
     "Id": 31,
-    "NameEN": "",
-    "NameJP": "GUNDAM出撃",
-    "NameCN": "高达出击"
+    "Value": "",
+    "ValueJP": "GUNDAM出撃",
+    "ValueCN": "高达出击"
   },
   {
     "Id": 32,
-    "NameEN": "",
-    "NameJP": "攻撃開始",
-    "NameCN": "攻击开始"
+    "Value": "",
+    "ValueJP": "攻撃開始",
+    "ValueCN": "攻击开始"
   },
   {
     "Id": 33,
-    "NameEN": "",
-    "NameJP": "キラ、その心のままに",
-    "NameCN": "煌，随自己的内心而行"
+    "Value": "",
+    "ValueJP": "キラ、その心のままに",
+    "ValueCN": "煌，随自己的内心而行"
   },
   {
     "Id": 34,
-    "NameEN": "",
-    "NameJP": "覚醒シン・アスカ",
-    "NameCN": "觉醒 真飞鸟"
+    "Value": "",
+    "ValueJP": "覚醒シン・アスカ",
+    "ValueCN": "觉醒 真飞鸟"
   },
   {
     "Id": 35,
-    "NameEN": "",
-    "NameJP": "Life Goes On",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Life Goes On",
+    "ValueCN": ""
   },
   {
     "Id": 36,
-    "NameEN": "",
-    "NameJP": "GAIA×CHAOS×ABYSS",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "GAIA×CHAOS×ABYSS",
+    "ValueCN": ""
   },
   {
     "Id": 37,
-    "NameEN": "",
-    "NameJP": "出撃! インパルス",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "出撃! インパルス",
+    "ValueCN": ""
   },
   {
     "Id": 38,
-    "NameEN": "",
-    "NameJP": "TRANS-AM RAISER",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "TRANS-AM RAISER",
+    "ValueCN": ""
   },
   {
     "Id": 39,
-    "NameEN": "",
-    "NameJP": "O-RAISER",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "O-RAISER",
+    "ValueCN": ""
   },
   {
     "Id": 40,
-    "NameEN": "",
-    "NameJP": "FORWARD",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "FORWARD",
+    "ValueCN": ""
   },
   {
     "Id": 42,
-    "NameEN": "",
-    "NameJP": "FIGHT",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "FIGHT",
+    "ValueCN": ""
   },
   {
     "Id": 43,
-    "NameEN": "",
-    "NameJP": "FINAL MISSION ～ QUANTAM BURST",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "FINAL MISSION ～ QUANTAM BURST",
+    "ValueCN": ""
   },
   {
     "Id": 44,
-    "NameEN": "",
-    "NameJP": "INNOVADE & INNOVATOR",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "INNOVADE & INNOVATOR",
+    "ValueCN": ""
   },
   {
     "Id": 45,
-    "NameEN": "",
-    "NameJP": "UNICORN",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "UNICORN",
+    "ValueCN": ""
   },
   {
     "Id": 46,
-    "NameEN": "",
-    "NameJP": "MOBILE SUIT",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "MOBILE SUIT",
+    "ValueCN": ""
   },
   {
     "Id": 48,
-    "NameEN": "",
-    "NameJP": "ガンダムAGE-2～運命の先へ",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "ガンダムAGE-2～運命の先へ",
+    "ValueCN": ""
   },
   {
     "Id": 49,
-    "NameEN": "",
-    "NameJP": "ガンダムAGE-3～覚醒",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "ガンダムAGE-3～覚醒",
+    "ValueCN": ""
   },
   {
     "Id": 51,
-    "NameEN": "",
-    "NameJP": "コア・ファイターと共に",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "コア・ファイターと共に",
+    "ValueCN": ""
   },
   {
     "Id": 52,
-    "NameEN": "",
-    "NameJP": "ふたりのまほう",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "ふたりのまほう",
+    "ValueCN": ""
   },
   {
     "Id": 53,
-    "NameEN": "",
-    "NameJP": "あなたのお相手～I'm your baby～",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "あなたのお相手～I'm your baby～",
+    "ValueCN": ""
   },
   {
     "Id": 54,
-    "NameEN": "",
-    "NameJP": "Groovy Duel",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Groovy Duel",
+    "ValueCN": ""
   },
   {
     "Id": 55,
-    "NameEN": "",
-    "NameJP": "色悪",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "色悪",
+    "ValueCN": ""
   },
   {
     "Id": 56,
-    "NameEN": "",
-    "NameJP": "Mobile Suit Gundam:Iron-Blooded Orphans",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Mobile Suit Gundam:Iron-Blooded Orphans",
+    "ValueCN": ""
   },
   {
     "Id": 57,
-    "NameEN": "",
-    "NameJP": "Surface of the Iron-Blooded Orphans",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Surface of the Iron-Blooded Orphans",
+    "ValueCN": ""
   },
   {
     "Id": 59,
-    "NameEN": "",
-    "NameJP": "いつか空に届いて",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "いつか空に届いて",
+    "ValueCN": ""
   },
   {
     "Id": 60,
-    "NameEN": "",
-    "NameJP": "MEN OF DESTINY",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "MEN OF DESTINY",
+    "ValueCN": ""
   },
   {
     "Id": 61,
-    "NameEN": "",
-    "NameJP": "嵐の中で輝いて",
-    "NameCN": "暴风雨中的光辉"
+    "Value": "",
+    "ValueJP": "嵐の中で輝いて",
+    "ValueCN": "暴风雨中的光辉"
   },
   {
     "Id": 62,
-    "NameEN": "",
-    "NameJP": "戦士",
-    "NameCN": "战士"
+    "Value": "",
+    "ValueJP": "戦士",
+    "ValueCN": "战士"
   },
   {
     "Id": 63,
-    "NameEN": "",
-    "NameJP": "機動戦",
-    "NameCN": "机动战"
+    "Value": "",
+    "ValueJP": "機動戦",
+    "ValueCN": "机动战"
   },
   {
     "Id": 64,
-    "NameEN": "",
-    "NameJP": "進出ス!",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "進出ス!",
+    "ValueCN": ""
   },
   {
     "Id": 65,
-    "NameEN": "",
-    "NameJP": "SPRING ATTACK",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "SPRING ATTACK",
+    "ValueCN": ""
   },
   {
     "Id": 66,
-    "NameEN": "",
-    "NameJP": "STARGAZER ～星の扉",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "STARGAZER ～星の扉",
+    "ValueCN": ""
   },
   {
     "Id": 67,
-    "NameEN": "",
-    "NameJP": "M05",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "M05",
+    "ValueCN": ""
   },
   {
     "Id": 68,
-    "NameEN": "",
-    "NameJP": "build－fight",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "build－fight",
+    "ValueCN": ""
   },
   {
     "Id": 69,
-    "NameEN": "",
-    "NameJP": "ニブンノイチ",
-    "NameCN": "二分之一"
+    "Value": "",
+    "ValueJP": "ニブンノイチ",
+    "ValueCN": "二分之一"
   },
   {
     "Id": 70,
-    "NameEN": "",
-    "NameJP": "セルリアン",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "セルリアン",
+    "ValueCN": ""
   },
   {
     "Id": 71,
-    "NameEN": "",
-    "NameJP": "トライファイターズ",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "トライファイターズ",
+    "ValueCN": ""
   },
   {
     "Id": 72,
-    "NameEN": "",
-    "NameJP": "宇宙海賊クロスボーンバンガード戦闘テーマ",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "宇宙海賊クロスボーンバンガード戦闘テーマ",
+    "ValueCN": ""
   },
   {
     "Id": 73,
-    "NameEN": "",
-    "NameJP": "スカルハート見参",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "スカルハート見参",
+    "ValueCN": ""
   },
   {
     "Id": 74,
-    "NameEN": "",
-    "NameJP": "帝国からの襲撃",
-    "NameCN": "来自帝国的袭击"
+    "Value": "",
+    "ValueJP": "帝国からの襲撃",
+    "ValueCN": "来自帝国的袭击"
   },
   {
     "Id": 75,
-    "NameEN": "",
-    "NameJP": "鋼鉄の七人",
-    "NameCN": "钢铁的七人"
+    "Value": "",
+    "ValueJP": "鋼鉄の七人",
+    "ValueCN": "钢铁的七人"
   },
   {
     "Id": 76,
-    "NameEN": "",
-    "NameJP": "その名はマフティー・ナビーユ・エリン",
-    "NameCN": "其名为马夫蒂·纳比由·艾林"
+    "Value": "",
+    "ValueJP": "その名はマフティー・ナビーユ・エリン",
+    "ValueCN": "其名为马夫蒂·纳比由·艾林"
   },
   {
     "Id": 77,
-    "NameEN": "",
-    "NameJP": "レーン･エイムのテーマ",
-    "NameCN": "雷恩·艾姆"
+    "Value": "",
+    "ValueJP": "レーン･エイムのテーマ",
+    "ValueCN": "雷恩·艾姆"
   },
   {
     "Id": 78,
-    "NameEN": "",
-    "NameJP": "強襲",
-    "NameCN": "强袭"
+    "Value": "",
+    "ValueJP": "強襲",
+    "ValueCN": "强袭"
   },
   {
     "Id": 79,
-    "NameEN": "",
-    "NameJP": "THE FRONT",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "THE FRONT",
+    "ValueCN": ""
   },
   {
     "Id": 80,
-    "NameEN": "",
-    "NameJP": "戦慄のブルー",
-    "NameCN": "战慄之蓝"
+    "Value": "",
+    "ValueJP": "戦慄のブルー",
+    "ValueCN": "战慄之蓝"
   },
   {
     "Id": 81,
-    "NameEN": "",
-    "NameJP": "Superior Attack",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Superior Attack",
+    "ValueCN": ""
   },
   {
     "Id": 82,
-    "NameEN": "",
-    "NameJP": "New Desides",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "New Desides",
+    "ValueCN": ""
   },
   {
     "Id": 83,
-    "NameEN": "",
-    "NameJP": "赤い一撃",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "赤い一撃",
+    "ValueCN": ""
   },
   {
     "Id": 84,
-    "NameEN": "",
-    "NameJP": "サーペントテール:ミッション開始",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "サーペントテール:ミッション開始",
+    "ValueCN": ""
   },
   {
     "Id": 85,
-    "NameEN": "",
-    "NameJP": "選ばれし者",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "選ばれし者",
+    "ValueCN": ""
   },
   {
     "Id": 86,
-    "NameEN": "",
-    "NameJP": "憎悪",
-    "NameCN": "憎恶"
+    "Value": "",
+    "ValueJP": "憎悪",
+    "ValueCN": "憎恶"
   },
   {
     "Id": 87,
-    "NameEN": "",
-    "NameJP": "運命の子",
-    "NameCN": "命运之子"
+    "Value": "",
+    "ValueJP": "運命の子",
+    "ValueCN": "命运之子"
   },
   {
     "Id": 88,
-    "NameEN": "",
-    "NameJP": "Divine Act -The EXTREME-",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Divine Act -The EXTREME-",
+    "ValueCN": ""
   },
   {
     "Id": 89,
-    "NameEN": "",
-    "NameJP": "The End of Authority",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "The End of Authority",
+    "ValueCN": ""
   },
   {
     "Id": 90,
-    "NameEN": "",
-    "NameJP": "Divine Act -The EXTREME- revised",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Divine Act -The EXTREME- revised",
+    "ValueCN": ""
   },
   {
     "Id": 91,
-    "NameEN": "",
-    "NameJP": "Divine Act-The EXTREME-MAXI BOOST",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Divine Act-The EXTREME-MAXI BOOST",
+    "ValueCN": ""
   },
   {
     "Id": 92,
-    "NameEN": "",
-    "NameJP": "The End of Authority -revised",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "The End of Authority -revised",
+    "ValueCN": ""
   },
   {
     "Id": 93,
-    "NameEN": "",
-    "NameJP": "ボスをたおせ",
-    "NameCN": "击败BOSS"
+    "Value": "",
+    "ValueJP": "ボスをたおせ",
+    "ValueCN": "击败BOSS"
   },
   {
     "Id": 94,
-    "NameEN": "",
-    "NameJP": "Vigilante",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Vigilante",
+    "ValueCN": ""
   },
   {
     "Id": 95,
-    "NameEN": "",
-    "NameJP": "フォース・ビルドダイバーズ！",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "フォース・ビルドダイバーズ！",
+    "ValueCN": ""
   },
   {
     "Id": 96,
-    "NameEN": "",
-    "NameJP": "SACRIFICE",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "SACRIFICE",
+    "ValueCN": ""
   },
   {
     "Id": 97,
-    "NameEN": "",
-    "NameJP": "暁の車",
-    "NameCN": "晓之车"
+    "Value": "",
+    "ValueJP": "暁の車",
+    "ValueCN": "晓之车"
   },
   {
     "Id": 98,
-    "NameEN": "",
-    "NameJP": "罠",
-    "NameCN": "陷阱"
+    "Value": "",
+    "ValueJP": "罠",
+    "ValueCN": "陷阱"
   },
   {
     "Id": 99,
-    "NameEN": "",
-    "NameJP": "閉ざされた世界",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "閉ざされた世界",
+    "ValueCN": ""
   },
   {
     "Id": 100,
-    "NameEN": "",
-    "NameJP": "君の中の英雄",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "君の中の英雄",
+    "ValueCN": ""
   },
   {
     "Id": 101,
-    "NameEN": "",
-    "NameJP": "All Out",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "All Out",
+    "ValueCN": ""
   },
   {
     "Id": 102,
-    "NameEN": "",
-    "NameJP": "GUNDAM BUILD FIGHTERS",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "GUNDAM BUILD FIGHTERS",
+    "ValueCN": ""
   },
   {
     "Id": 103,
-    "NameEN": "",
-    "NameJP": "RedZone",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "RedZone",
+    "ValueCN": ""
   },
   {
     "Id": 104,
-    "NameEN": "",
-    "NameJP": "Theme of Over.on",
-    "NameCN": "欧贝隆"
+    "Value": "",
+    "ValueJP": "Theme of Over.on",
+    "ValueCN": "欧贝隆"
   },
   {
     "Id": 105,
-    "NameEN": "",
-    "NameJP": "Battle of NEXTREME",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Battle of NEXTREME",
+    "ValueCN": ""
   },
   {
     "Id": 106,
-    "NameEN": "",
-    "NameJP": "on the E.D.G.E.",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "on the E.D.G.E.",
+    "ValueCN": ""
   },
   {
     "Id": 107,
-    "NameEN": "",
-    "NameJP": "Jump in X in Luck",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Jump in X in Luck",
+    "ValueCN": ""
   },
   {
     "Id": 108,
-    "NameEN": "",
-    "NameJP": "Vreak jaggies",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "Vreak jaggies",
+    "ValueCN": ""
   },
   {
     "Id": 109,
-    "NameEN": "",
-    "NameJP": "S-ec-RE-CY",
-    "NameCN": ""
+    "Value": "",
+    "ValueJP": "S-ec-RE-CY",
+    "ValueCN": ""
   }
 ]

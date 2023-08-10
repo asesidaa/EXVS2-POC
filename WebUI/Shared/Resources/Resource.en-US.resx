@@ -153,7 +153,6 @@
   <data name="search" xml:space="preserve">
     <value>Search</value>
   </data>
-  <!-- Card Customization UI -->
   <data name="generalcardinfo" xml:space="preserve">
     <value>General Card Info</value>
   </data>
@@ -166,7 +165,6 @@
   <data name="bgmtype_Random" xml:space="preserve">
     <value>Random</value>
   </data>
-  <!-- Navi Customization UI -->
   <data name="navisetting" xml:space="preserve">
     <value>Navigator</value>
   </data>
@@ -188,7 +186,6 @@
   <data name="navisetting_costume" xml:space="preserve">
     <value>Costume</value>
   </data>
-  <!-- Favourite MS Setting -->
   <data name="favmssetting" xml:space="preserve">
     <value>Favourite Mobile Suits</value>
   </data>
@@ -216,7 +213,6 @@
   <data name="favmsdialog_bgmlistorder" xml:space="preserve">
     <value>Bgm Play List Order</value>
   </data>
-  <!-- Pilot alternative costumes, done -->
   <data name="mscostumesetting" xml:space="preserve">
     <value>Pilot Alternative Costumes</value>
   </data>
@@ -229,19 +225,15 @@
   <data name="mscostumecostumeheader" xml:space="preserve">
     <value>Costume</value>
   </data>
-  <!-- CPU Triad Setting -->
   <data name="cputriadpartner" xml:space="preserve">
     <value>Triad Mode CPU Partner</value>
   </data>
-  <!-- Customize Comment Setting -->
   <data name="customizecomment" xml:space="preserve">
     <value>Customize Comment</value>
   </data>
-  <!-- Communication Message Setting -->
   <data name="communicationmessage" xml:space="preserve">
     <value>Communication Message Config</value>
   </data>
-  <!-- Game Pad Config, done -->
   <data name="gamepadconfig" xml:space="preserve">
     <value>Gamepad Config</value>
   </data>
@@ -281,7 +273,6 @@
   <data name="gamepadr3" xml:space="preserve">
     <value>RSB / R3 Button</value>
   </data>
-  <!-- View -->
   <data name="viewcarddetailtitle" xml:space="preserve">
     <value>View Player Detail</value>
   </data>
@@ -290,5 +281,107 @@
   </data>
   <data name="screencaptures" xml:space="preserve">
     <value>Screen Captures</value>
+  </data>
+  <data name="communicationmessage_hint" xml:space="preserve">
+    <value>Put Stamp ID = 0 if you want to use Verbal Message</value>
+  </data>
+  <data name="communicationmessage_inbattle" xml:space="preserve">
+    <value>In Battle Message</value>
+  </data>
+  <data name="communicationmessage_postbattle" xml:space="preserve">
+    <value>Post Battle Message</value>
+  </data>
+  <data name="communicationmessage_prebattle" xml:space="preserve">
+    <value>Pre Battle Message</value>
+  </data>
+  <data name="communicationmessage_stampid" xml:space="preserve">
+    <value>Stamp ID</value>
+  </data>
+  <data name="communicationmessage_verbalmessagedown" xml:space="preserve">
+    <value>Down Verbal Message</value>
+  </data>
+  <data name="communicationmessage_verbalmessageleft" xml:space="preserve">
+    <value>Left Verbal Message</value>
+  </data>
+  <data name="communicationmessage_verbalmessageright" xml:space="preserve">
+    <value>Right Verbal Message</value>
+  </data>
+  <data name="communicationmessage_verbalmessageup" xml:space="preserve">
+    <value>Up Verbal Message</value>
+  </data>
+  <data name="customizationheader" xml:space="preserve">
+    <value>Customization Options</value>
+  </data>
+  <data name="additem" xml:space="preserve">
+    <value>Add Item</value>
+  </data>
+  <data name="bgmlistorder" xml:space="preserve">
+    <value>BGM Play List / Order</value>
+  </data>
+  <data name="bgmplaytype" xml:space="preserve">
+    <value>BGM Play Type</value>
+  </data>
+  <data name="communicationmessage_stampiddown" xml:space="preserve">
+    <value>Down Stamp ID</value>
+  </data>
+  <data name="communicationmessage_stampidleft" xml:space="preserve">
+    <value>Left Stamp ID</value>
+  </data>
+  <data name="communicationmessage_stampidright" xml:space="preserve">
+    <value>Right Stamp ID</value>
+  </data>
+  <data name="communicationmessage_stampidup" xml:space="preserve">
+    <value>Up Stamp ID</value>
+  </data>
+  <data name="defaulttitles" xml:space="preserve">
+    <value>Default Titles</value>
+  </data>
+  <data name="echelondisplay" xml:space="preserve">
+    <value>Echelon Display</value>
+  </data>
+  <data name="gauge" xml:space="preserve">
+    <value>Gauge UI</value>
+  </data>
+  <data name="playerrecorddisplay" xml:space="preserve">
+    <value>Player Record Display</value>
+  </data>
+  <data name="rankingtitles" xml:space="preserve">
+    <value>Ranking Titles</value>
+  </data>
+  <data name="saveall" xml:space="preserve">
+    <value>Save All</value>
+  </data>
+  <data name="titles" xml:space="preserve">
+    <value>Titles</value>
+  </data>
+  <data name="titles_backgroundid" xml:space="preserve">
+    <value>Background Id</value>
+  </data>
+  <data name="titles_effectid" xml:space="preserve">
+    <value>Effect Id</value>
+  </data>
+  <data name="titles_hint" xml:space="preserve">
+    <value>Detail refer to:</value>
+  </data>
+  <data name="titles_hintbackground" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="titles_hinteffect" xml:space="preserve">
+    <value>Effect</value>
+  </data>
+  <data name="titles_hintornament" xml:space="preserve">
+    <value>Ornament</value>
+  </data>
+  <data name="titles_hinttext" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="titles_ornamentid" xml:space="preserve">
+    <value>Ornament Id</value>
+  </data>
+  <data name="titles_textid" xml:space="preserve">
+    <value>Text Id</value>
+  </data>
+  <data name="triadtitles" xml:space="preserve">
+    <value>Triad Titles</value>
   </data>
 </root>

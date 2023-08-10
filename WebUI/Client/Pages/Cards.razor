@@ -61,8 +61,6 @@
                                     <MudText Typo="Typo.h5">@card.UserName</MudText>
                                 </CardHeaderContent>
                                 <CardHeaderActions>
-        @*                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default"
-                                                    OnClick="() => OnEditPlayerNameClicked(card)"/>*@
                                 </CardHeaderActions>
                             </MudCardHeader>
                             <MudCardContent>
@@ -123,24 +121,6 @@
         if (firstRender)
         {
             mudTextField.HelperText = $"{localizer["playername"]} / {localizer["cardid"]}";
-            StateHasChanged();
-        }
-    }
-
-    private async Task OnEditPlayerNameClicked(BareboneCardProfile card)
-    {
-        var options = new DialogOptions
-            {
-                CloseOnEscapeKey = true,
-                DisableBackdropClick = true,
-                FullWidth = true
-            };
-        var parameters = new DialogParameters { { "Data", card } };
-        var dialog = await DialogService.ShowAsync<ChangePlayerNameDialog>("Change name", parameters, options);
-        // ReSharper disable once UnusedVariable
-        var result = await dialog.Result;
-        if (!result.Canceled)
-        {
             StateHasChanged();
         }
     }
