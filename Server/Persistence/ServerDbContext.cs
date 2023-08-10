@@ -17,5 +17,25 @@ namespace Server.Persistence
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        public override int SaveChanges()
+        {
+            var entityEntries = ChangeTracker.Entries().ToList();
+
+            entityEntries.ForEach(entityEntry =>
+            {
+                if (entityEntry.State == EntityState.Added)
+                {
+                    Entry(entityEntry.Entity).Property(nameof(BaseEntity.CreateTime)).CurrentValue = DateTime.Now;
+                    Entry(entityEntry.Entity).Property(nameof(BaseEntity.UpdateTime)).CurrentValue = DateTime.Now;
+                }
+                if (entityEntry.State == EntityState.Modified)
+                {
+                    Entry(entityEntry.Entity).Property(nameof(BaseEntity.UpdateTime)).CurrentValue = DateTime.Now;
+                }
+            });
+            
+            return base.SaveChanges();
+        }
     }
 }

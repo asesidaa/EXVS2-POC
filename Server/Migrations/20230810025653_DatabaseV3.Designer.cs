@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server.Persistence;
 
@@ -10,9 +11,11 @@ using Server.Persistence;
 namespace Server.Migrations
 {
     [DbContext(typeof(ServerDbContext))]
-    partial class ServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230810025653_DatabaseV3")]
+    partial class DatabaseV3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -31,17 +34,11 @@ namespace Server.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("IsNewCard")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SessionId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("UpdateTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UploadToken")
@@ -65,18 +62,12 @@ namespace Server.Migrations
                     b.Property<int>("CardId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("LoadPlayerJson")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PilotDataGroupJson")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("UpdateTime")
                         .HasColumnType("TEXT");
 
                     b.HasKey("PilotId");
@@ -96,14 +87,8 @@ namespace Server.Migrations
                     b.Property<int>("CardId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Filename")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("UpdateTime")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ImageId");
@@ -122,14 +107,8 @@ namespace Server.Migrations
                     b.Property<int>("CardId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("MobileUserGroupJson")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("UpdateTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserJson")
