@@ -239,7 +239,7 @@
                         <MudItem xs="10">
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
-                                    <MudField Label="UI Navigator" Variant="Variant.Outlined">
+                                    <MudField Label="@localizer["navisetting_uinavigator"]" Variant="Variant.Outlined">
                                         <MudText Align="Align.Center">@GetNaviName(_naviProfile.DefaultUiNaviId)</MudText>
                                     </MudField>
                                 </MudItem>
@@ -252,7 +252,7 @@
                         <MudItem xs="10">
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
-                                    <MudField Label="In Battle Navigator" Variant="Variant.Outlined">
+                                    <MudField Label="@localizer["navisetting_battlenavigator"]" Variant="Variant.Outlined">
                                         <MudText Align="Align.Center">@GetNaviName(_naviProfile.DefaultBattleNaviId)</MudText>
                                     </MudField>
                                 </MudItem>
@@ -270,7 +270,7 @@
             <MudCard Class="my-2" Elevation="5">
                 <MudCardHeader>
                     <CardHeaderContent>
-                        <MudText Typo="Typo.h6">Navigator alternative costumes</MudText>
+                        <MudText Typo="Typo.h6">@localizer["navisetting_navicostume"]</MudText>
                     </CardHeaderContent>
                     <CardHeaderActions>
                         <MudStack Row>
@@ -293,20 +293,20 @@
                                      ColumnResizeMode="ResizeMode.None"
                                      Groupable="false">
                             <ToolBarContent>
-                                <MudTextField @bind-Value="_naviCostumeSearchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                                <MudTextField @bind-Value="_naviCostumeSearchString" Placeholder="@localizer["search"]" Adornment="Adornment.Start" Immediate="false"
                                               AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-4" Variant="Variant.Outlined">
                                 </MudTextField>
-                                <MudTooltip Text="Navis without alternate costumes are not in the list.">
+                                <MudTooltip Text="@localizer["navisetting_navicostumehint"]">
                                     <MudIconButton Class="mx-2" Icon="@Icons.Material.Outlined.Info" />
                                 </MudTooltip>
                             </ToolBarContent>
                             <Columns>
-                                <PropertyColumn Property="x => x.Navigator.Id" IsEditable="true" Title="Navigator">
+                                <PropertyColumn Property="x => x.Navigator.Id" IsEditable="true" Title="@localizer["navisetting_navi"]">
                                     <EditTemplate>
                                         <MudText>@GetNaviName(context.Item.Navigator.Id)</MudText>
                                     </EditTemplate>
                                 </PropertyColumn>
-                                <PropertyColumn Property="x => x.Navi" Title="Costume">
+                                <PropertyColumn Property="x => x.Navi" Title="@localizer["navisetting_costume"]">
                                     <EditTemplate>
                                         <MudStack Row>
                                             @if(context.Item.Navi != null)
@@ -372,13 +372,13 @@
                             SortMode="@SortMode.None"
                             Groupable="false">
                             <Columns>
-                                <PropertyColumn Property="x => x.MsId" IsEditable="true" Title="Mobile Suit">
+                                <PropertyColumn Property="x => x.MsId" IsEditable="true" Title="@localizer["favmsdialog_mstitle"]">
                                     <CellTemplate>
                                         <MudText>@GetMobileSuitName(context.Item.MsId)</MudText>
                                     </CellTemplate>
                                 </PropertyColumn>
-                                <PropertyColumn Property="x => x.BurstType" Title="Burst Type" />
-                                <PropertyColumn Property="x => x.BattleNaviId" Title="In Battle Navi">
+                                <PropertyColumn Property="x => x.BurstType" Title="@localizer["favmsdialog_bursttype"]" />
+                                <PropertyColumn Property="x => x.BattleNaviId" Title="@localizer["favmsdialog_inbattlenavi"]">
                                     <CellTemplate>
                                         <MudText>@GetNaviName(context.Item.BattleNaviId)</MudText>
                                     </CellTemplate>
@@ -430,10 +430,10 @@
                                      ColumnResizeMode="ResizeMode.None"
                                      Groupable="false">
                             <ToolBarContent>
-                                <MudTextField @bind-Value="_msCostumeSearchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                                <MudTextField @bind-Value="_msCostumeSearchString" Placeholder="@localizer["search"]" Adornment="Adornment.Start" Immediate="false"
                                               AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-4" Variant="Variant.Outlined">
                                 </MudTextField>
-                                <MudTooltip Text="@localizer["mscostumesetting"]">
+                                <MudTooltip Text="@localizer["mscostumehint"]">
                                     <MudIconButton Class="mx-2" Icon="@Icons.Material.Outlined.Info" />
                                 </MudTooltip>
                             </ToolBarContent>

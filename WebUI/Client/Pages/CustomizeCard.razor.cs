@@ -218,16 +218,46 @@ public partial class CustomizeCard
 
     private string GetMobileSuitName(uint id)
     {
-        var navigator = DataService.GetMobileSuitById(id);
+        var ms = DataService.GetMobileSuitById(id);
 
-        return navigator?.NameEN ?? "Unknown Mobile Suit";
+        if (ms is null)
+        {
+            return localizer["unknownms"];
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms.NameEN;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms.NameJP != "" ? ms.NameJP : ms.NameEN;
+        }
+
+        return ms.NameCN != "" ? ms.NameCN : ms.NameEN;
     }
 
     private string GetNaviName(uint id)
     {
         var navigator = DataService.GetNavigatorById(id);
+        
+        if (navigator is null)
+        {
+            return localizer["unknownnavi"];
+        }
+        
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return navigator.NameEN;
+        }
 
-        return navigator?.NameEN ?? "Unknown Navigator";
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return navigator.NameJP != "" ? navigator.NameJP : navigator.NameEN;
+        }
+
+        return navigator.NameCN != "" ? navigator.NameCN : navigator.NameEN;
     }
 
     private string GetGaugeName(uint id)

@@ -12,7 +12,7 @@
         <MudStack>
             <MudGrid Class="align-center">
                 <MudItem xs="10">
-                    <MudField Label="Mobile Suit" Variant="Variant.Outlined">
+                    <MudField Label="@localizer["favmsdialog_mstitle"]" Variant="Variant.Outlined">
                         <MudText>@GetMobileSuitName(Data.MsId)</MudText>
                     </MudField>
                 </MudItem>
@@ -23,7 +23,7 @@
             </MudGrid>
             <MudGrid Class="align-center">
                 <MudItem xs="10">
-                    <MudSelect Label="Burst Type" @bind-Value="Data.BurstType" T="BurstType" Variant="Variant.Outlined">
+                    <MudSelect Label="@localizer["favmsdialog_bursttype"]" @bind-Value="Data.BurstType" T="BurstType" Variant="Variant.Outlined">
                         @foreach (var item in Enum.GetValues<BurstType>())
                         {
                             <MudSelectItem Value="@(item)" />
@@ -33,7 +33,7 @@
             </MudGrid>
             <MudGrid Class="align-center">
                 <MudItem xs="10">
-                    <MudField Label="In Battle Navi" Variant="Variant.Outlined">
+                    <MudField Label="@localizer["favmsdialog_inbattlenavi"]" Variant="Variant.Outlined">
                         <MudText>@GetNaviName(Data.BattleNaviId)</MudText>
                     </MudField>
                 </MudItem>
@@ -44,7 +44,7 @@
 		    </MudGrid>
             <MudGrid Class="align-center">
                 <MudItem xs="10">
-                    <MudField Label="Gauge" Variant="Variant.Outlined">
+                    <MudField Label="@localizer["favmsdialog_gauge"]" Variant="Variant.Outlined">
                         <MudText>@GetGaugeName(Data.GaugeDesignId)</MudText>
                     </MudField>
                 </MudItem>
@@ -55,10 +55,11 @@
             </MudGrid>
             <MudGrid Class="align-center">
                 <MudItem xs="10">
-                    <MudSelect Label="Bgm Play Type" @bind-Value="Data.BgmPlayingMethod" T="BgmPlayingMethod" Variant="Variant.Outlined">
+                    <MudSelect Label="@localizer["favmsdialog_bgmreplaytype"]" @bind-Value="Data.BgmPlayingMethod" T="BgmPlayingMethod" Variant="Variant.Outlined">
                         @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
                         {
-                            <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
+                            var bgmTypeDisplayStr = localizer["bgmtype_" + item];
+                            <MudSelectItem Value="item">@bgmTypeDisplayStr</MudSelectItem>
                         }
                     </MudSelect>
                 </MudItem>
@@ -66,7 +67,7 @@
             <MudGrid Class="align-center">
                 <MudItem xs="10">
                     <MudExpansionPanels>
-                        <MudExpansionPanel Text="Bgm Play Order">
+                        <MudExpansionPanel Text="@localizer["favmsdialog_bgmlistorder"]">
                             <MudSimpleTable Style="overflow-x: auto;">
                                 <tbody>
                                     @if (Data.BgmList != null && Data.BgmList.Count() > 0)
@@ -200,16 +201,46 @@
 
     private string GetMobileSuitName(uint id)
     {
-        var navigator = DataService.GetMobileSuitById(id);
+        var ms = DataService.GetMobileSuitById(id);
 
-        return navigator?.NameEN ?? "Unknown Mobile Suit";
+        if (ms is null)
+        {
+            return localizer["unknownms"];
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms.NameEN;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms.NameJP != "" ? ms.NameJP : ms.NameEN;
+        }
+
+        return ms.NameCN != "" ? ms.NameCN : ms.NameEN;
     }
 
     private string GetNaviName(uint id)
     {
         var navigator = DataService.GetNavigatorById(id);
+        
+        if (navigator is null)
+        {
+            return localizer["unknownnavi"];
+        }
+        
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return navigator.NameEN;
+        }
 
-        return navigator?.NameEN ?? "Unknown Navigator";
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return navigator.NameJP != "" ? navigator.NameJP : navigator.NameEN;
+        }
+
+        return navigator.NameCN != "" ? navigator.NameCN : navigator.NameEN;
     }
 
     private string GetGaugeName(uint id)
