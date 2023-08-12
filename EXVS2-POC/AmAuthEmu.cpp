@@ -4,6 +4,7 @@
 
 #include "MinHook.h"
 #include "INIReader.h"
+#include "log.h"
 
 /*
  * Reference: https://gitea.tendokyu.moe/Hay1tsme/bananatools/src/branch/master/amcus/iauth.c
@@ -87,7 +88,9 @@ public:
     {
         wchar_t* iid_str;
         StringFromCLSID(riid, &iid_str);
+#ifdef _DEBUG
         OutputDebugStringW(std::format(L"QueryInterface {}\n", iid_str).c_str());
+#endif
 
         if (riid == IID_IUnknown || riid == IID_CAuth)
         {
@@ -117,49 +120,49 @@ public:
     virtual int64_t
     Unk3(uint32_t a1)
     {
-        OutputDebugStringA("Unk3");
+        log("Unk3");
         return 1;
     }
 
     virtual int64_t
     Unk4()
     {
-        OutputDebugStringA("Unk4");
+        log("Unk4");
         return 1;
     }
 
     virtual int32_t
     Unk5()
     {
-        OutputDebugStringA("Unk5");
+        log("Unk5");
         return 0;
     }
 
     virtual int64_t
     Unk6()
     {
-        OutputDebugStringA("Unk6");
+        log("Unk6");
         return 1;
     }
 
     virtual int32_t
     Unk7()
     {
-        OutputDebugStringA("Unk7");
+        log("Unk7");
         return 0;
     }
 
     virtual int32_t
     Unk8()
     {
-        OutputDebugStringA("Unk8");
+        log("Unk8");
         return 0;
     }
 
     virtual int32_t
     Unk9(int32_t* a1)
     {
-        OutputDebugStringA("Unk9");
+        log("Unk9");
         memset(a1, 0, sizeof(int32_t) * 0x31);
         a1[0] = 15;
         a1[2] = 2;
@@ -183,7 +186,7 @@ public:
     virtual int32_t
     IAuth_GetCabinetConfig(amcus_network_state_t* state)
     {
-        OutputDebugStringA("IAuth_GetCabinetConfig");
+        log("IAuth_GetCabinetConfig");
         amcus_network_state_t result
         {
             .mode = "CLIENT",
@@ -217,7 +220,7 @@ public:
     virtual int32_t
     IAuth_GetVersionInfo(amcus_version_info_t* version)
     {
-        OutputDebugStringA("IAuth_GetVersionInfo");
+        log("IAuth_GetVersionInfo");
         amcus_version_info_t version_info
         {
             .game_rev = "1",
@@ -237,21 +240,21 @@ public:
     virtual int32_t
     Unk12()
     {
-        OutputDebugStringA("Unk12");
+        log("Unk12");
         return 1;
     }
 
     virtual int32_t
     Unk13()
     {
-        OutputDebugStringA("Unk13");
+        log("Unk13");
         return 1;
     }
 
     virtual int32_t
     IAuth_GetAuthServerResp(amcus_auth_server_resp_t* resp)
     {
-        OutputDebugStringA("IAuth_GetAuthServerResp");
+        log("IAuth_GetAuthServerResp");
 
         std::string region_name_0 = amconfig.RegionCode;
 
@@ -287,35 +290,35 @@ public:
     virtual int32_t
     Unk15()
     {
-        OutputDebugStringA("Unk15");
+        log("Unk15");
         return 0;
     }
 
     virtual int32_t
     Unk16()
     {
-        OutputDebugStringA("Unk16");
+        log("Unk16");
         return 0;
     }
 
     virtual int32_t
     Unk17()
     {
-        OutputDebugStringA("Unk17");
+        log("Unk17");
         return 0;
     }
 
     virtual int32_t
     Unk18(void* a1)
     {
-        OutputDebugStringA("Unk18");
+        log("Unk18");
         return 0;
     }
 
     virtual int32_t
     Unk19(uint8_t* a1)
     {
-        OutputDebugStringA("Unk19");
+        log("Unk19");
         memset(a1, 0, 0x38);
         a1[0] = 1;
         return 1;
@@ -324,77 +327,77 @@ public:
     virtual int32_t
     Unk20()
     {
-        OutputDebugStringA("Unk20");
+        log("Unk20");
         return 0;
     }
 
     virtual int32_t
     Unk21()
     {
-        OutputDebugStringA("Unk21");
+        log("Unk21");
         return 1;
     }
 
     virtual int32_t
     Unk22()
     {
-        OutputDebugStringA("Unk22");
+        log("Unk22");
         return 0;
     }
 
     virtual int32_t
     Unk23()
     {
-        OutputDebugStringA("Unk23");
+        log("Unk23");
         return 0;
     }
 
     virtual int32_t
     Unk24()
     {
-        OutputDebugStringA("Unk24");
+        log("Unk24");
         return 0;
     }
 
     virtual int32_t
     Unk25()
     {
-        OutputDebugStringA("Unk25");
+        log("Unk25");
         return 1;
     }
 
     virtual int32_t
     Unk26()
     {
-        OutputDebugStringA("Unk26");
+        log("Unk26");
         return 0;
     }
 
     virtual int32_t
     Unk27()
     {
-        OutputDebugStringA("Unk27");
+        log("Unk27");
         return 1;
     }
 
     virtual int32_t
     Unk28()
     {
-        OutputDebugStringA("Unk28");
+        log("Unk28");
         return 0;
     }
 
     virtual int32_t
     Unk29()
     {
-        OutputDebugStringA("Unk29");
+        log("Unk29");
         return 0;
     }
 
     virtual int32_t
     Unk30()
     {
-        OutputDebugStringA("Unk30");
+        log("Unk30");
         return 0;
     }
 
@@ -437,7 +440,9 @@ public:
     {
         wchar_t* iid_str;
         StringFromCLSID(riid, &iid_str);
+#ifdef _DEBUG
         OutputDebugStringW(std::format(L"QueryInterface {}\n", iid_str).c_str());
+#endif
 
         if (riid == IID_IUnknown || riid == IID_IClassFactory || riid == IID_CAuthFactory)
         {
@@ -460,7 +465,9 @@ public:
         if (outer != nullptr) return CLASS_E_NOAGGREGATION;
         wchar_t* iid_str;
         StringFromCLSID(riid, &iid_str);
+#ifdef _DEBUG
         OutputDebugStringW(std::format(L"CreateInstance {}", iid_str).c_str());
+#endif
 
         CAuth* auth = new CAuth();
         return auth->QueryInterface(riid, object);
@@ -491,10 +498,10 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
 {
     if (IsEqualGUID(*rclsid, IID_CAuthFactory))
     {
-        OutputDebugStringA("GUID CAuthFactory match");
+        log("GUID CAuthFactory match");
         if (IsEqualGUID(*riid, IID_CAuth))
         {
-            OutputDebugStringA("GUID CAuth Match");
+            log("GUID CAuth Match");
             auto cauth = new CAuth();
             return cauth->QueryInterface(*riid, ppv);
         }

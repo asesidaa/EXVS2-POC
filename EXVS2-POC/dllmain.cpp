@@ -5,6 +5,7 @@
 
 #include "AmAuthEmu.h"
 #include "GameHooks.h"
+#include "ClockHooks.h"
 #include "JvsEmu.h"
 #include "WindowedDxgi.h"
 #include "INIReader.h"
@@ -101,7 +102,6 @@ config_struct ReadConfigs(INIReader reader) {
 [[noreturn]]void InitThread(config_struct config)
 {
     InitAmAuthEmu(config);
-    OutputDebugStringA("AmAuth Init");
     for (;;){}
 }
 
@@ -122,11 +122,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     {
     case DLL_PROCESS_ATTACH:
         {
-            /*std::thread t(InitThread, config);
-            t.detach();*/
             InitAmAuthEmu(config);
-            OutputDebugStringA("AmAuth Init");
             InitializeHooks();
+            InitClockHooks();
             InitializeJvs(config);
             InitDXGIWindowHook(config);
         }

@@ -10,6 +10,7 @@
 
 void log(const char* format, ...)
 {
+#ifdef _DEBUG
 	char buffer[1024];
 	va_list args;
 	va_start(args, format);
@@ -19,4 +20,5 @@ void log(const char* format, ...)
 	OutputDebugStringA(buffer);
 	std::cout << buffer << std::endl;
 	va_end(args);
+#endif
 }
