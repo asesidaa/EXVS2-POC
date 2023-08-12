@@ -37,7 +37,7 @@
   },
   {
     "Id": 6,
-    "Value": "Dongfang Undefeated",
+    "Value": "Master Asia",
     "ValueJP": "東方不敗",
     "ValueCN": "东方不败"
   },
@@ -61,9 +61,9 @@
   },
   {
     "Id": 10,
-    "Value": "Le Creuset",
-    "ValueJP": "ル・クルーゼ",
-    "ValueCN": "劳·鲁·克鲁泽"
+    "Value": "ZAFT",
+    "ValueJP": "ザフト軍",
+    "ValueCN": "扎夫特"
   },
   {
     "Id": 11,
@@ -99,7 +99,7 @@
     "Id": 16,
     "Value": "A-Laws",
     "ValueJP": "アロウズ",
-    "ValueCN": ""
+    "ValueCN": "A-Laws"
   },
   {
     "Id": 17,
@@ -247,9 +247,9 @@
   },
   {
     "Id": 41,
-    "Value": "Hot Scramble?",
-    "ValueJP": "ホットスクランブル？",
-    "ValueCN": "炽热争夺？"
+    "Value": "Hot Scramble Gundam",
+    "ValueJP": "ホットスクランブルガンダム",
+    "ValueCN": "炽热争夺高达"
   },
   {
     "Id": 42,
@@ -348,12 +348,6 @@
     "ValueCN": "高达麦克斯特"
   },
   {
-    "Id": 58,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 59,
     "Value": "Gundam Barbatos Lupus Rex",
     "ValueJP": "ガンダム・バルバトスルプスレクス",
@@ -379,21 +373,21 @@
   },
   {
     "Id": 63,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Gundam Fight",
+    "ValueJP": "ガンダムファイト",
+    "ValueCN": "高达擂台赛"
   },
   {
     "Id": 64,
-    "Value": "Jagd Doga",
-    "ValueJP": "ヤクト・ドーガ",
-    "ValueCN": "贾格德·多加"
+    "Value": "Jagd Arche Gundam",
+    "ValueJP": "ヤークトアルケーガンダム",
+    "ValueCN": "驱逐型权天使高达"
   },
   {
     "Id": 65,
-    "Value": "Vidar",
-    "ValueJP": "ヴィダル",
-    "ValueCN": "维达尔"
+    "Value": "Gundam Kimaris Vidar",
+    "ValueJP": "ガンダム・キマリスヴィダール",
+    "ValueCN": "高达锡蒙利维达尔"
   },
   {
     "Id": 67,
@@ -426,12 +420,6 @@
     "ValueCN": "钢加农"
   },
   {
-    "Id": 72,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 73,
     "Value": "SD Gundam 30th Anniversary",
     "ValueJP": "SDガンダム30周年記念",
@@ -442,12 +430,6 @@
     "Value": "Fawn Farsia",
     "ValueJP": "フォーンファルシア",
     "ValueCN": "梵·法尔西亚"
-  },
-  {
-    "Id": 75,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
   },
   {
     "Id": 76,
@@ -468,16 +450,10 @@
     "ValueCN": "高达X魔王"
   },
   {
-    "Id": 79,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 80,
-    "Value": "Hades",
-    "ValueJP": "ハデス",
-    "ValueCN": "哈迪斯"
+    "Value": "HADES",
+    "ValueJP": "HADES",
+    "ValueCN": "HADES [苍白骑士（陆战重装式样）]"
   },
   {
     "Id": 81,
@@ -494,25 +470,25 @@
   {
     "Id": 83,
     "Value": "Strike Rogue",
-    "ValueJP": "ストライクローグ",
+    "ValueJP": "ストライクルージュ",
     "ValueCN": "强袭嫣红"
   },
   {
     "Id": 84,
-    "Value": "Gundam Dark Hound",
+    "Value": "Gundam AGE-2 Dark Hound",
     "ValueJP": "ガンダムダークハウンド",
     "ValueCN": "高达AGE-2黑猎犬"
   },
   {
     "Id": 85,
     "Value": "Gundam Harute",
-    "ValueJP": "ガンダムハルテ",
+    "ValueJP": "ガンダムハルート",
     "ValueCN": "妖天使高达"
   },
   {
     "Id": 86,
     "Value": "Gundam Galvaria",
-    "ValueJP": "ガンダムガルバリア",
+    "ValueJP": "ガンダムガルヴァリア",
     "ValueCN": "高达·加尔瓦里亚"
   },
   {
@@ -540,28 +516,10 @@
     "ValueCN": "星际凯旋高达"
   },
   {
-    "Id": 91,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 92,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 93,
     "Value": "Bertigo",
     "ValueJP": "ベルティゴ",
     "ValueCN": "贝尔蒂戈"
-  },
-  {
-    "Id": 94,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
   },
   {
     "Id": 95,
@@ -580,12 +538,6 @@
     "Value": "EXVS2 1st Anniversary",
     "ValueJP": "EXVS2 1周年",
     "ValueCN": "EXVS2 一周年纪念"
-  },
-  {
-    "Id": 98,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
   },
   {
     "Id": 99,
@@ -608,20 +560,8 @@
   {
     "Id": 102,
     "Value": "Galvaria W45P3R",
-    "ValueJP": "ガルバリア W45P3R",
+    "ValueJP": "ガルヴァリア W45P3R",
     "ValueCN": "加尔瓦利亚 W45P3R"
-  },
-  {
-    "Id": 103,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 104,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
   },
   {
     "Id": 105,
@@ -643,39 +583,15 @@
   },
   {
     "Id": 108,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Gundam Astray Red Dragon",
+    "ValueJP": "アストレイレッドフレーム(レッドドラゴン)",
+    "ValueCN": "アストレイレッドフレーム(レッドドラゴン)"
   },
   {
     "Id": 109,
     "Value": "00 Gundam Seven Sword/G",
     "ValueJP": "ダブルオーガンダムセブンソード/G",
     "ValueCN": "00高达七剑/G"
-  },
-  {
-    "Id": 110,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 111,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 112,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 113,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
   },
   {
     "Id": 114,
@@ -732,36 +648,6 @@
     "ValueCN": "PDF2019 8强"
   },
   {
-    "Id": 123,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 124,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 125,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 126,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 127,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 128,
     "Value": "Aegis Gundam",
     "ValueJP": "イージスガンダム",
@@ -780,46 +666,10 @@
     "ValueCN": "凤凰飞翼高达"
   },
   {
-    "Id": 131,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 132,
     "Value": "Kabakali",
     "ValueJP": "カバカリ",
     "ValueCN": "卡巴卡利"
-  },
-  {
-    "Id": 133,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 134,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 135,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 136,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 137,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
   },
   {
     "Id": 138,
@@ -913,8 +763,8 @@
   },
   {
     "Id": 153,
-    "Value": "Astray Red Frame",
-    "ValueJP": "アストレイレッドフレーム",
+    "Value": "Astray Red Frame (All)",
+    "ValueJP": "レッドフレーム（全部載せ）",
     "ValueCN": "异端高达红色机"
   },
   {
@@ -949,7 +799,7 @@
   },
   {
     "Id": 159,
-    "Value": "Keldim Gundam",
+    "Value": "Cherudim Gundam",
     "ValueJP": "ケルディムガンダム",
     "ValueCN": "智天使高达"
   },
@@ -1014,126 +864,6 @@
     "ValueCN": "EXVS2 默认"
   },
   {
-    "Id": 170,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 171,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 172,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 173,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 174,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 175,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 176,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 177,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 178,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 179,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 180,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 181,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 182,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 183,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 184,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 185,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 186,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 187,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 188,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 189,
-    "Value": "default",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 190,
     "Value": "Star Build Gundam",
     "ValueJP": "スタービルドガンダム",
@@ -1159,9 +889,9 @@
   },
   {
     "Id": 194,
-    "Value": "Gundam Age?",
-    "ValueJP": "ガンダムエイジ？",
-    "ValueCN": "高达AGE?"
+    "Value": "Gundam AGE + Ribbon",
+    "ValueJP": "ガンダムAGE + リボン",
+    "ValueCN": "高达AGE + 丝带"
   },
   {
     "Id": 195,
@@ -1171,21 +901,21 @@
   },
   {
     "Id": 196,
-    "Value": "Sai Sai Sai",
+    "Value": "Sai Saici",
     "ValueJP": "サイ・サイシー",
     "ValueCN": "蔡采施"
   },
   {
     "Id": 197,
-    "Value": "Infinite Justice Gundam?",
-    "ValueJP": "インフィニットジャスティスガンダム?",
-    "ValueCN": "无限正义高达？"
+    "Value": "Infinite Justice Gundam",
+    "ValueJP": "インフィニットジャスティスガンダム",
+    "ValueCN": "无限正义高达"
   },
   {
     "Id": 198,
-    "Value": "?",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Radish",
+    "ValueJP": "ラーディッシュ",
+    "ValueCN": "拉迪修号"
   },
   {
     "Id": 199,
@@ -1214,8 +944,8 @@
   {
     "Id": 203,
     "Value": "Efreet (Doug Schneid's Unit)",
-    "ValueJP": "イフリート (ダグ・シュナイド部隊)",
-    "ValueCN": "伊芙利特（道格·施奈德部队）"
+    "ValueJP": "イフリート(シュナイド機)",
+    "ValueCN": "伊芙利特（施耐德机）"
   },
   {
     "Id": 204,
@@ -1291,9 +1021,9 @@
   },
   {
     "Id": 216,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Wing Gundam Snow White Prelude",
+    "ValueJP": "ウイングガンダムスノーホワイトプレリュード",
+    "ValueCN": "飞翼高达白雪公主前奏曲"
   },
   {
     "Id": 217,
@@ -1328,13 +1058,13 @@
   {
     "Id": 222,
     "Value": "Standard Gauge (Monochrome)",
-    "ValueJP": "標準ゲージ（モノクロ）",
+    "ValueJP": "スタンダードゲージ（モノクロ）",
     "ValueCN": "标准仪表（单色）"
   },
   {
     "Id": 223,
     "Value": "Standard Gauge (Green & Purple)",
-    "ValueJP": "標準ゲージ（緑＆紫）",
+    "ValueJP": "標スタンダードゲージ（グリーン&パープル）",
     "ValueCN": "标准仪表（绿色和紫色）"
   },
   {
@@ -1369,9 +1099,9 @@
   },
   {
     "Id": 229,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Justice Gundam",
+    "ValueJP": "ジャスティスガンダム",
+    "ValueCN": "正义高达"
   },
   {
     "Id": 230,
@@ -1399,9 +1129,9 @@
   },
   {
     "Id": 234,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Lockon Stratos",
+    "ValueJP": "ロックオン・ストラトス",
+    "ValueCN": "洛克昂・史特拉托斯"
   },
   {
     "Id": 235,
@@ -1412,14 +1142,14 @@
   {
     "Id": 236,
     "Value": "Standard Gauge (Cross Boost)",
-    "ValueJP": "標準ゲージ(クロスブースト)",
+    "ValueJP": "スタンダードゲージ（クロスブースト）",
     "ValueCN": "标准仪表（Cross Boost）"
   },
   {
     "Id": 237,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Season 11 Level Gauge",
+    "ValueJP": "シーズン11レベルゲージ",
+    "ValueCN": "第11赛季等级仪表"
   },
   {
     "Id": 238,
@@ -1446,18 +1176,6 @@
     "ValueCN": "秋季大赛亚军（2021）"
   },
   {
-    "Id": 242,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 243,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 244,
     "Value": "Beginner Gina II (Decisive battle against Jupiter)",
     "ValueJP": "ビギナ・ギナII(木星決戦仕様)",
@@ -1465,9 +1183,9 @@
   },
   {
     "Id": 245,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Graham's Union Flag Custom",
+    "ValueJP": "グラハム専用ユニオンフラッグカスタム",
+    "ValueCN": "格拉汉姆专用联合旗帜式"
   },
   {
     "Id": 246,
@@ -1488,12 +1206,6 @@
     "ValueCN": "劫掠高达"
   },
   {
-    "Id": 249,
-    "Value": "EXVS2 DEFAULT red variant",
-    "ValueJP": "EXVS2 DEFAULT 赤バージョン",
-    "ValueCN": "EXVS2 默认红色版本"
-  },
-  {
     "Id": 250,
     "Value": "Z Gundam (Boarding Lou)",
     "ValueJP": "Zガンダム（ルー搭乗）",
@@ -1501,9 +1213,9 @@
   },
   {
     "Id": 251,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "アースリィガンダム",
+    "ValueJP": "Earthree Gundam",
+    "ValueCN": "地球三型高达"
   },
   {
     "Id": 252,
@@ -1513,27 +1225,15 @@
   },
   {
     "Id": 253,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Season 12 Level Gauge",
+    "ValueJP": "シーズン12レベルゲージ",
+    "ValueCN": "第12赛季等级仪表"
   },
   {
     "Id": 254,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 255,
-    "Value": "EXVS2 DEFAULT red variant",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 256,
-    "Value": "EXVS2 DEFAULT red variant",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Dreadnought H",
+    "ValueJP": "ドレッドノートイータ",
+    "ValueCN": "勇士高达Η"
   },
   {
     "Id": 257,
@@ -1548,16 +1248,10 @@
     "ValueCN": "决斗高达强袭尸装"
   },
   {
-    "Id": 259,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
     "Id": 260,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "RX-93ff νGundam",
+    "ValueJP": "RX-93ff νガンダム",
+    "ValueCN": "RX-93ff 福冈牛"
   },
   {
     "Id": 261,
@@ -1603,9 +1297,9 @@
   },
   {
     "Id": 268,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Gold Sumo",
+    "ValueJP": "ゴールドスモー",
+    "ValueCN": "金斯摩"
   },
   {
     "Id": 269,
@@ -1646,13 +1340,13 @@
   {
     "Id": 275,
     "Value": "Standard Gauge (Team AA Color)",
-    "ValueJP": "標準ゲージ（チームAAカラー）",
+    "ValueJP": "スタンダードゲージ（チームAAカラー）",
     "ValueCN": "标准规格（A队A颜色）"
   },
   {
     "Id": 276,
     "Value": "Standard Gauge (Team IX Color)",
-    "ValueJP": "標準ゲージ（チームIXカラー）",
+    "ValueJP": "スタンダードゲージ（チームIXカラー）",
     "ValueCN": "标准规格（Team IX 颜色）"
   },
   {
@@ -1669,33 +1363,15 @@
   },
   {
     "Id": 279,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 280,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 281,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Vigna Ghina",
+    "ValueJP": "ビギナ・ギナ",
+    "ValueCN": "维基娜·吉娜"
   },
   {
     "Id": 282,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 283,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Todesritter",
+    "ValueJP": "トーリスリッター",
+    "ValueCN": "死亡骑士"
   },
   {
     "Id": 284,
@@ -1748,13 +1424,13 @@
   {
     "Id": 293,
     "Value": "PDF2017 Refinement",
-    "ValueJP": "PDF2017優雅",
+    "ValueJP": "PDF2017リファイン",
     "ValueCN": "PDF2017优雅"
   },
   {
     "Id": 294,
     "Value": "PDF2015 Refinement",
-    "ValueJP": "PDF2015優雅",
+    "ValueJP": "PDF2015リファイン",
     "ValueCN": "PDF2015优雅"
   },
   {
@@ -1765,38 +1441,8 @@
   },
   {
     "Id": 296,
-    "Value": "TBD",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 297,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 298,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 299,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 300,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
-  },
-  {
-    "Id": 301,
-    "Value": "EXVS2 DEFAULT",
-    "ValueJP": "",
-    "ValueCN": ""
+    "Value": "Tanabata",
+    "ValueJP": "七夕",
+    "ValueCN": "七夕"
   }
 ]
