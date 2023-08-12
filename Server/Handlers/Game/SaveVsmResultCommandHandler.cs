@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Models.Cards;
 using Server.Persistence;
 
 namespace Server.Handlers.Game;
@@ -53,8 +54,32 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             });
         }
         
+        
         var resultFromRequest = request.Request.save_vsm_result.Result;
         var favouriteMsList = user.FavoriteMobileSuits;
+        
+        var oldEchelonId = loadPlayer.EchelonId;
+
+        var pvpBattleResult = new OfflinePvpBattleResult()
+        {
+            Mode = "OfflinePvp",
+            OfflineBattleMode = request.Request.save_vsm_result.ShuffleFlag ? "Shuffle" : "Team",
+            WinFlag = resultFromRequest.WinFlag,
+            Score = resultFromRequest.ResultScore,
+            UsedMsId = resultFromRequest.MstMobileSuitId,
+            UsedBurstType = resultFromRequest.Burst,
+            ElapsedSecond = resultFromRequest.VsElapsedTime,
+            PastEchelonId = oldEchelonId,
+            EchelonExpChange = resultFromRequest.EchelonExp,
+            EchelonIdAfterBattle = resultFromRequest.EchelonId,
+            TotalEchelonExp = resultFromRequest.EchelonExp + loadPlayer.EchelonExp,
+            SEchelonFlag = resultFromRequest.SEchelonFlag,
+            SEchelonProgress = resultFromRequest.SEchelonProgress,
+            
+            FullBattleResultJson = JsonConvert.SerializeObject(resultFromRequest)
+        };
+
+        SavePartnerAndFoeData(resultFromRequest, pvpBattleResult);
 
         if (loadPlayer.EchelonId is 22 or 37)
         {
@@ -89,6 +114,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         UpdateNaviFamiliarity(resultFromRequest, user);
         UpsertMsUsedNum(resultFromRequest, pilotData, favouriteMsList);
         
+        cardProfile.OfflinePvpBattleResults.Add(pvpBattleResult);
         cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
         cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotData);
         cardProfile.UserDomain.UserJson = JsonConvert.SerializeObject(user);
@@ -104,7 +130,57 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             save_vsm_on_result = new Response.SaveVsmOnResult()
         });
     }
-    
+
+    void SavePartnerAndFoeData(Request.SaveVsmResult.PlayResultGroup resultFromRequest, OfflinePvpBattleResult pvpBattleResult)
+    {
+        if (resultFromRequest.Partner is not null)
+        {
+            if (resultFromRequest.Partner.CpuFlag == 0)
+            {
+                pvpBattleResult.PartnerPilotId = resultFromRequest.Partner.PilotId;
+                pvpBattleResult.PartnerMsId = resultFromRequest.Partner.MstMobileSuitId;
+                pvpBattleResult.PartnerEchelonId = resultFromRequest.Partner.EchelonId;
+                pvpBattleResult.PartnerBurstType = resultFromRequest.Partner.BurstType;
+            }
+        }
+
+        if (resultFromRequest.Foes is null)
+        {
+            return;
+        }
+
+        if (resultFromRequest.Foes.Count == 0)
+        {
+            return;
+        }
+
+        var foe1 = resultFromRequest.Foes.ElementAt(0);
+
+        if (foe1 is not null)
+        {
+            if (foe1.CpuFlag == 0)
+            {
+                pvpBattleResult.Foe1PilotId = foe1.PilotId;
+                pvpBattleResult.Foe1MsId = foe1.MstMobileSuitId;
+                pvpBattleResult.Foe1EchelonId = foe1.EchelonId;
+                pvpBattleResult.Foe1BurstType = foe1.BurstType;
+            }
+        }
+
+        var foe2 = resultFromRequest.Foes.ElementAt(1);
+
+        if (foe2 is not null)
+        {
+            if (foe2.CpuFlag == 0)
+            {
+                pvpBattleResult.Foe2PilotId = foe2.PilotId;
+                pvpBattleResult.Foe2MsId = foe2.MstMobileSuitId;
+                pvpBattleResult.Foe2EchelonId = foe2.EchelonId;
+                pvpBattleResult.Foe2BurstType = foe2.BurstType;
+            }
+        }
+    }
+
     void UpdateWinLossCount(SaveVsmResultCommand request, Request.SaveVsmResult.PlayResultGroup resultFromRequest,
         Response.PreLoadCard.LoadPlayer loadPlayer)
     {

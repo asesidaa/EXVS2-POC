@@ -21,5 +21,13 @@ public class CardProfileConfigurations : IEntityTypeConfiguration<CardProfile>
             .WithOne(e => e.CardProfile)
             .HasForeignKey(e => e.CardId)
             .IsRequired(false);
+        builder.HasMany(e => e.TriadBattleResults)
+            .WithOne(e => e.CardProfile)
+            .HasForeignKey(e => e.CardId)
+            .IsRequired(false);
+        builder.HasMany(e => e.OfflinePvpBattleResults)
+            .WithOne(e => e.CardProfile)
+            .HasForeignKey(e => e.CardId)
+            .IsRequired(false);
     }
 }

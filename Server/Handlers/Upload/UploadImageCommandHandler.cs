@@ -11,14 +11,21 @@ public record UploadImageCommand(string CardId, string AccessToken, HttpRequest 
 public class UploadImageCommandHandler : IRequestHandler<UploadImageCommand, string>
 {
     private readonly ServerDbContext _context;
+    private readonly IConfiguration _config;
 
-    public UploadImageCommandHandler(ServerDbContext context)
+    public UploadImageCommandHandler(ServerDbContext context, IConfiguration config)
     {
         _context = context;
+        _config = config;
     }
     
     public async Task<string> Handle(UploadImageCommand request, CancellationToken cancellationToken)
     {
+        if (_config.GetValue<bool>("CardServerConfig:IgnoreUploadSaving"))
+        {
+            return await Task.FromResult("Done");
+        }
+        
         var cardProfile = _context.CardProfiles
             .Include(x => x.UploadImages)
             .FirstOrDefault(x => x.Id.ToString() == request.CardId 
