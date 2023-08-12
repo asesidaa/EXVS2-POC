@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Models.Cards;
 using Server.Persistence;
 
 namespace Server.Handlers.Game;
@@ -54,6 +55,25 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             });
         }
         
+        var oldEchelonId = loadPlayer.EchelonId;
+
+        var triadBattleResult = new TriadBattleResult()
+        {
+            CourseId = resultFromRequest.CourseId,
+            SceneId = resultFromRequest.SceneId,
+            Mode = "Triad",
+            WinFlag = resultFromRequest.WinFlag,
+            Score = resultFromRequest.SceneScore,
+            UsedMsId = resultFromRequest.MstMobileSuitId,
+            UsedBurstType = resultFromRequest.Burst,
+            ElapsedSecond = resultFromRequest.VsElapsedTime,
+            PastEchelonId = oldEchelonId,
+            EchelonExpChange = resultFromRequest.EchelonExp,
+            EchelonIdAfterBattle = resultFromRequest.EchelonId,
+            TotalEchelonExp = resultFromRequest.EchelonExp + loadPlayer.EchelonExp,
+            FullBattleResultJson = JsonConvert.SerializeObject(resultFromRequest)
+        };
+        
         var favouriteMsList = user.FavoriteMobileSuits;
         
         loadPlayer.EchelonId = resultFromRequest.EchelonId;
@@ -73,6 +93,8 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         UpsertTriadSceneData(pilotData, resultFromRequest);
 
         UpsertRankData(resultFromRequest, loadPlayer, pilotData);
+        
+        cardProfile.TriadBattleResults.Add(triadBattleResult);
         
         cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
         cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotData);

@@ -29,6 +29,10 @@ public class CardProfile : BaseEntity
     public DateTime UploadTokenExpiry { get; set; } = DateTime.Now;
     
     public ICollection<UploadImage> UploadImages { get; } = new List<UploadImage>(); 
+    
+    public ICollection<TriadBattleResult> TriadBattleResults { get; } = new List<TriadBattleResult>(); 
+    
+    public ICollection<OfflinePvpBattleResult> OfflinePvpBattleResults { get; } = new List<OfflinePvpBattleResult>(); 
 
     public virtual PilotDomain PilotDomain { get; set; } = null!;
 
