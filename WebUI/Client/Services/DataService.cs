@@ -57,7 +57,7 @@ public class DataService : IDataService
         bgm = bgmList.ToDictionary(ms => ms.Id);
         sortedBgmList = bgmList.OrderBy(title => title.Id).ToList();
 
-        var gaugeList = await client.GetFromJsonAsync<List<IdValuePair>>("data/Gauges.json");
+        var gaugeList = await client.GetFromJsonAsync<List<IdValuePair>>("data/Gauges.json?v=2");
         gaugeList.ThrowIfNull();
         gauge = gaugeList.ToDictionary(ms => ms.Id);
         sortedGaugeList = gaugeList.OrderBy(title => title.Id).ToList();
