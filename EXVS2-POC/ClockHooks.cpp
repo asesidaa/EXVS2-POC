@@ -139,23 +139,17 @@ static __time64_t time64Hook(time_t* destTime)
     
     auto now =
         system_clock::now();
-    
+    auto today = floor<days>(now);
+
     zoned_time jpZonedTime{"Asia/Tokyo", now};
     
-    auto timeInfo = jpZonedTime.get_local_time();
-    auto dayPoint = floor<days>(timeInfo);
-    year_month_day ymd{dayPoint};
-    hh_mm_ss time{floor<milliseconds>(timeInfo-dayPoint)};
-    
-    auto hours = time.hours();
-    if (hours.count() >= 2 && hours.count() <= 7)
+    const zoned_time notBefore{"Asia/Tokyo", today + 1h + 45min};
+    const zoned_time notAfter{"Asia/Tokyo", today + 7h};
+
+    if (jpZonedTime.get_local_time() >= notBefore.get_local_time() &&
+        jpZonedTime.get_local_time() <= notAfter.get_local_time())
     {
         now += {5h};
-        //log("Time in range, skipping...");
-        std::stringstream ss;
-        ss << now;
-        //log("Current time: %s", ss.str().c_str());
-        //log("Since epoch %lld", duration_cast<seconds>(now.time_since_epoch()).count());
     }
 
     auto ret = duration_cast<seconds>(now.time_since_epoch()).count();
