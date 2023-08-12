@@ -144,13 +144,21 @@ static __time64_t time64Hook(time_t* destTime)
     auto jpTimePoint = jpZonedTime.get_local_time();
     auto today = floor<days>(jpTimePoint);
     
-    const auto notBefore = today + 1h + 45min;
+    const auto notBefore = today;
     const auto notAfter = today + 7h;
 
     if (jpTimePoint >= notBefore &&
         jpTimePoint <= notAfter)
     {
-        now += {5h};
+        now += (notAfter - jpTimePoint) + 1h;
+    }
+
+    const auto notBeforeNight = today + 18h + 45min;
+    const auto notAfterNight = today + 31h;
+
+    if (jpTimePoint >= notBeforeNight && jpTimePoint <= notAfterNight)
+    {
+        now += (notAfterNight - jpTimePoint) + 1h;
     }
 
     auto ret = duration_cast<seconds>(now.time_since_epoch()).count();
