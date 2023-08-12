@@ -1,25 +1,26 @@
 ﻿@page "/Cards/Customize/{AccessCode}/{ChipId}"
-@using WebUI.Client.Helpers;
+
 @inject HttpClient Http
 @inject ILogger<CustomizeCard> Logger
 @inject ISnackbar Snackbar
 @inject IDataService DataService
+@inject INameService NameService
 @inject IDialogService DialogService
+
 @using WebUI.Client.Extensions;
 @using WebUI.Shared.Dto.Common;
-@using WebUI.Shared.Dto.Enum;
-@using WebUI.Shared.Dto.Json;
 @using WebUI.Client.Services;
+@using WebUI.Shared.Dto.Enum;
 
 <MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
 
 <PageTitle>Customize</PageTitle>
 <MudStack Row Class="flex-column">
-    <h1>Customization Options</h1>
+    <h1>@localizer["customizationheader"]</h1>
 
     <MudStack Row Class="align-self-end">
         <MudProgressCircular @bind-Class="@HideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
-        <MudButton OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">Save All</MudButton>
+        <MudButton OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">@localizer["saveall"]</MudButton>
     </MudStack>
 </MudStack>
 
@@ -68,12 +69,12 @@
                                           Variant="Variant.Outlined"
                                           Counter="PLAYER_NAME_MAX_LENGTH"
                                           MaxLength="PLAYER_NAME_MAX_LENGTH"
-                                          Label="Player Name"
+                                          Label="@localizer["playername"]"
                                           Validation="ValidatePlayerName" />
                         </MudItem>
                         <MudItem xs="8">
                             <MudSelect @bind-Value="_basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
-                                       Label="BGM Play Type" Variant="Variant.Outlined" ToStringFunc="@converter">
+                                               Label="@localizer["bgmplaytype"]" Variant="Variant.Outlined" ToStringFunc="@converter">
                                 @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
                                 {
                                     <MudSelectItem Value="@(item)" />
@@ -84,7 +85,7 @@
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
                                     <MudExpansionPanels>
-                                        <MudExpansionPanel Text="Bgm List / Order">
+                                                <MudExpansionPanel Text="@localizer["bgmlistorder"]">
                                             <MudSimpleTable Style="overflow-x: auto;">
                                                 <tbody>
                                                 @if(_basicProfile.DefaultBgmList != null && _basicProfile.DefaultBgmList.Count() > 0)
@@ -92,7 +93,7 @@
                                                     foreach (var x in _basicProfile.DefaultBgmList)
                                                     {
                                                         <tr>
-                                                            <td>@DataService.GetBgmById(x)?.NameJP</td>
+                                                            <td>@DataService.GetBgmById(x)?.ValueJP</td>
                                                         </tr>
                                                     }
                                                 }
@@ -117,8 +118,8 @@
                         <MudItem xs="10">
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
-                                    <MudField Label="Gauge UI" Variant="Variant.Outlined">
-                                        <MudText Align="Align.Center">@GetGaugeName(_basicProfile.DefaultGaugeDesignId)</MudText>
+                                            <MudField Label="@localizer["gauge"]" Variant="Variant.Outlined">
+                                        <MudText Align="Align.Center">@NameService.GetGaugeName(_basicProfile.DefaultGaugeDesignId)</MudText>
                                     </MudField>
                                 </MudItem>
                                 <MudItem xs="2">
@@ -130,7 +131,7 @@
                         <MudItem xs="12">
                             <MudGrid>
                                 <MudItem xs="6">
-                                    <MudSelect Label="Player Record Display" @bind-Value="_basicProfile.OpenRecord" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenRecordChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
+                                    <MudSelect Label="@localizer["playerrecorddisplay"]" @bind-Value="_basicProfile.OpenRecord" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenRecordChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
                                         @foreach (var openRecord in DataService.GetDisplayOptionsSortedById())
                                         {
                                             <MudSelectItem Value="openRecord.Id">@openRecord.Value</MudSelectItem>
@@ -138,7 +139,7 @@
                                     </MudSelect>
                                 </MudItem>
                                 <MudItem xs="6">
-                                    <MudSelect Label="Echelon Display" @bind-Value="_basicProfile.OpenEchelon" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenEchelonChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
+                                    <MudSelect Label="@localizer["echelondisplay"]" @bind-Value="_basicProfile.OpenEchelon" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenEchelonChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
                                         @foreach (var openEchelon in DataService.GetEchelonDisplayOptionsSortedById())
                                         {
                                             <MudSelectItem Value="openEchelon.Id">@openEchelon.Value</MudSelectItem>
@@ -147,66 +148,66 @@
                             </MudGrid>
                         </MudItem>
                         <MudExpansionPanels>
-                            <MudExpansionPanel Text="Titles">
+                            <MudExpansionPanel Text="@localizer["titles"]">
                                 <MudStack>
                                     <MudStack Row>
-                                        <MudText>Detail refer to:</MudText>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">Title</MudLink>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">Background</MudLink>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">Ornament</MudLink>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">Effect</MudLink>
+                                        <MudText>@localizer["titles_hint"]</MudText>
+                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">@localizer["titles_hinttext"]</MudLink>
+                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">@localizer["titles_hintbackground"]</MudLink>
+                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">@localizer["titles_hintornament"]</MudLink>
+                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">@localizer["titles_hinteffect"]</MudLink>
                                     </MudStack>
                                     <MudDivider />
                                     <MudStack>
-                                        <MudField Label="Default Titles" Variant="Variant.Outlined">
+                                        <MudField Label="@localizer["defaulttitles"]" Variant="Variant.Outlined">
                                             <MudGrid>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                            <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                             </MudGrid>
                                         </MudField>
                                     </MudStack>
                                     <MudStack>
-                                        <MudField Label="Ranking Titles" Variant="Variant.Outlined">
+                                        <MudField Label="@localizer["rankingtitles"]" Variant="Variant.Outlined">
                                             <MudGrid>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                             </MudGrid>
                                         </MudField>
                                     </MudStack>
                                     <MudStack>
-                                        <MudField Label="Triad Titles" Variant="Variant.Outlined">
+                                        <MudField Label="@localizer["triadtitles"]" Variant="Variant.Outlined">
                                             <MudGrid>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                                 <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
+                                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
                                                 </MudItem>
                                             </MudGrid>
                                         </MudField>
@@ -242,7 +243,7 @@
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
                                     <MudField Label="@localizer["navisetting_uinavigator"]" Variant="Variant.Outlined">
-                                        <MudText Align="Align.Center">@GetNaviName(_naviProfile.DefaultUiNaviId)</MudText>
+                                        <MudText Align="Align.Center">@NameService.GetNavigatorName(_naviProfile.DefaultUiNaviId)</MudText>
                                     </MudField>
                                 </MudItem>
                                 <MudItem xs="2">
@@ -255,7 +256,7 @@
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
                                     <MudField Label="@localizer["navisetting_battlenavigator"]" Variant="Variant.Outlined">
-                                        <MudText Align="Align.Center">@GetNaviName(_naviProfile.DefaultBattleNaviId)</MudText>
+                                                <MudText Align="Align.Center">@NameService.GetNavigatorName(_naviProfile.DefaultBattleNaviId)</MudText>
                                     </MudField>
                                 </MudItem>
                                 <MudItem xs="2">
@@ -305,7 +306,7 @@
                             <Columns>
                                 <PropertyColumn Property="x => x.Navigator.Id" IsEditable="true" Title="@localizer["navisetting_navi"]">
                                     <EditTemplate>
-                                        <MudText>@GetNaviName(context.Item.Navigator.Id)</MudText>
+                                        <MudText>@NameService.GetNavigatorName(context.Item.Navigator.Id)</MudText>
                                     </EditTemplate>
                                 </PropertyColumn>
                                 <PropertyColumn Property="x => x.Navi" Title="@localizer["navisetting_costume"]">
@@ -361,7 +362,7 @@
                 </MudCardHeader>
                 <MudCardContent>
                     <MudStack Row>
-                        <MudButton OnClick="@AddFavouriteMobileSuitItem" Variant="Variant.Filled" Color="@Color.Primary" Class="mb-4 add-item-btn">Add Item</MudButton>
+                                <MudButton OnClick="@AddFavouriteMobileSuitItem" Variant="Variant.Filled" Color="@Color.Primary" Class="mb-4 add-item-btn">@localizer["additem"]</MudButton>
                     </MudStack>
                     <MudStack>
                         <MudDataGrid 
@@ -376,13 +377,13 @@
                             <Columns>
                                 <PropertyColumn Property="x => x.MsId" IsEditable="true" Title="@localizer["favmsdialog_mstitle"]">
                                     <CellTemplate>
-                                        <MudText>@GetMobileSuitName(context.Item.MsId)</MudText>
+                                        <MudText>@NameService.GetMobileSuitName(context.Item.MsId)</MudText>
                                     </CellTemplate>
                                 </PropertyColumn>
                                 <PropertyColumn Property="x => x.BurstType" Title="@localizer["favmsdialog_bursttype"]" />
                                 <PropertyColumn Property="x => x.BattleNaviId" Title="@localizer["favmsdialog_inbattlenavi"]">
                                     <CellTemplate>
-                                        <MudText>@GetNaviName(context.Item.BattleNaviId)</MudText>
+                                                <MudText>@NameService.GetNavigatorName(context.Item.BattleNaviId)</MudText>
                                     </CellTemplate>
                                 </PropertyColumn>
                                 <PropertyColumn Property="x => x">
@@ -442,7 +443,7 @@
                             <Columns>
                                 <PropertyColumn Property="x => x.MobileSuit.Id" IsEditable="true" Title="@localizer["mscostumemsheader"]">
                                     <EditTemplate>
-                                        <MudText>@GetMobileSuitName(context.Item.MobileSuit.Id)</MudText>
+                                        <MudText>@NameService.GetMobileSuitName(context.Item.MobileSuit.Id)</MudText>
                                     </EditTemplate>
                                 </PropertyColumn>
                                 <PropertyColumn Property="x => x.SkillGroup" Title="@localizer["mscostumecostumeheader"]">
@@ -502,7 +503,7 @@
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
                                     <MudField Label="CPU Mobile Suit" Variant="Variant.Outlined">
-                                        <MudText Align="Align.Center">@GetMobileSuitName(cpuTriadPartner.MobileSuitId)</MudText>
+                                        <MudText Align="Align.Center">@NameService.GetMobileSuitName(cpuTriadPartner.MobileSuitId)</MudText>
                                     </MudField>
                                 </MudItem>
                                 <MudItem xs="2">
@@ -534,7 +535,7 @@
                                        Label="CPU Skill 1" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadSkillList())
                                 {
-                                    <MudSelectItem Value="item">@GetLocalizedFriendlyName.GetLocalizedName(item)</MudSelectItem>
+                                    <MudSelectItem Value="item">@NameService.GetLocalizedName(item)</MudSelectItem>
                                 }
                             </MudSelect>
                         </MudItem>
@@ -543,7 +544,7 @@
                                        Label="CPU Skill 2" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadSkillList())
                                 {
-                                    <MudSelectItem Value="item">@GetLocalizedFriendlyName.GetLocalizedName(item)</MudSelectItem>
+                                    <MudSelectItem Value="item">@NameService.GetLocalizedName(item)</MudSelectItem>
                                 }
                             </MudSelect>
                         </MudItem>
@@ -641,10 +642,10 @@
                                 <MudGrid Class="align-center">
                                     <MudItem xs="12">
                                         <MudExpansionPanels>
-                                            <MudExpansionPanel Text="Before Battle Message">
+                                                <MudExpansionPanel Text="@localizer["communicationmessage_prebattle"]">
                                                 <MudGrid>
                                                     <MudItem xs="12">
-                                                        Put Stamp ID = 0 if you want to use Verbal Message
+                                                        @localizer["communicationmessage_hint"]
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -654,11 +655,11 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Up Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageup"]"
                                                                       Disabled="@(!CanCustomizeBeforeBattleUpTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -668,12 +669,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Down Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessagedown"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeBeforeBattleDownTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -683,12 +684,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Left Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageleft"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeBeforeBattleLeftTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -698,19 +699,19 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Right Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageright"]"
                                                                       Validation="ValidateCustomizeMessage" 
                                                                       Disabled="@(!CanCustomizeBeforeBattleRightTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                             </MudExpansionPanel>
-                                            <MudExpansionPanel Text="In Battle Message">
+                                            <MudExpansionPanel Text="@localizer["communicationmessage_inbattle"]">
                                                 <MudGrid>
                                                     <MudItem xs="12">
-                                                        Put Stamp ID = 0 if you want to use Verbal Message
+                                                        @localizer["communicationmessage_hint"]
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -720,12 +721,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Up Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageup"]"
                                                                       Validation="ValidateCustomizeMessage" 
                                                                       Disabled="@(!CanCustomizeInBattleUpTextMessage)"/>
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -735,12 +736,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Down Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessagedown"]"
                                                                       Validation="ValidateCustomizeMessage" 
                                                                       Disabled="@(!CanCustomizeInBattleDownTextMessage)"/>
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -750,12 +751,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Left Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageleft"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeInBattleLeftTextMessage)"/>
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -765,19 +766,19 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Right Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageright"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeInBattleRightTextMessage)"/>
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                             </MudExpansionPanel>
-                                            <MudExpansionPanel Text="End Battle Message">
+                                            <MudExpansionPanel Text="@localizer["communicationmessage_postbattle"]">
                                                 <MudGrid>
                                                     <MudItem xs="12">
-                                                        Put Stamp ID = 0 if you want to use Verbal Message
+                                                        @localizer["communicationmessage_hint"]
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -787,12 +788,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Up Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageup"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeAfterBattleUpTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.UniqueMessageId" Label="Up Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -802,12 +803,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Down Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessagedown"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeAfterBattleDownTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.UniqueMessageId" Label="Down Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -817,12 +818,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Left Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageleft"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeAfterBattleLeftTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.UniqueMessageId" Label="Left Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                                 <MudGrid>
@@ -832,12 +833,12 @@
                                                                       Variant="Variant.Outlined"
                                                                       Counter="MESSAGE_MAX_LENGTH"
                                                                       MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="Right Verbal Message"
+                                                                      Label="@localizer["communicationmessage_verbalmessageright"]"
                                                                       Validation="ValidateCustomizeMessage"
                                                                       Disabled="@(!CanCustomizeAfterBattleRightTextMessage)" />
                                                     </MudItem>
                                                     <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.UniqueMessageId" Label="Right Stamp ID" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
                                                     </MudItem>
                                                 </MudGrid>
                                             </MudExpansionPanel>

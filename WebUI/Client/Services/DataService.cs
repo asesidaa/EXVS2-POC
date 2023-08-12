@@ -1,7 +1,6 @@
 ﻿using System.Net.Http.Json;
 using Throw;
 using WebUI.Shared.Dto.Common;
-using WebUI.Shared.Dto.Json;
 
 namespace WebUI.Client.Services;
 
@@ -10,8 +9,8 @@ public class DataService : IDataService
     private Dictionary<uint, IdValuePair> displayOptions= new();
     private Dictionary<uint, IdValuePair> echelonDisplayOptions = new();
     private Dictionary<uint, MobileSuit> mobileSuits = new();
-    private Dictionary<uint, Bgm> bgm = new();
-    private Dictionary<uint, Gauge> gauge = new();
+    private Dictionary<uint, IdValuePair> bgm = new();
+    private Dictionary<uint, IdValuePair> gauge = new();
     private Dictionary<uint, Navigator> navigator = new();
     private Dictionary<uint, IdValuePair> triadSkill = new();
     private Dictionary<uint, IdValuePair> triadTeamBanner = new();
@@ -20,8 +19,8 @@ public class DataService : IDataService
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
     private List<MobileSuit> sortedMobileSuitList = new();
-    private List<Bgm> sortedBgmList = new();
-    private List<Gauge> sortedGaugeList = new();
+    private List<IdValuePair> sortedBgmList = new();
+    private List<IdValuePair> sortedGaugeList = new();
     private List<Navigator> sortedNavigatorList = new();
     private List<IdValuePair> sortedTriadSkillList = new();
     private List<IdValuePair> sortedTriadTeamBannerList = new();
@@ -53,12 +52,12 @@ public class DataService : IDataService
         mobileSuits = msList.ToDictionary(ms => ms.Id);
         sortedMobileSuitList = msList.OrderBy(title => title.Id).ToList();
 
-        var bgmList = await client.GetFromJsonAsync<List<Bgm>>("data/Bgms.json");
+        var bgmList = await client.GetFromJsonAsync<List<IdValuePair>>("data/Bgms.json");
         bgmList.ThrowIfNull();
         bgm = bgmList.ToDictionary(ms => ms.Id);
         sortedBgmList = bgmList.OrderBy(title => title.Id).ToList();
 
-        var gaugeList = await client.GetFromJsonAsync<List<Gauge>>("data/Gauges.json");
+        var gaugeList = await client.GetFromJsonAsync<List<IdValuePair>>("data/Gauges.json");
         gaugeList.ThrowIfNull();
         gauge = gaugeList.ToDictionary(ms => ms.Id);
         sortedGaugeList = gaugeList.OrderBy(title => title.Id).ToList();
@@ -109,22 +108,22 @@ public class DataService : IDataService
         return mobileSuits.GetValueOrDefault(id);
     }
 
-    public IReadOnlyList<Bgm> GetBgmSortedById()
+    public IReadOnlyList<IdValuePair> GetBgmSortedById()
     {
         return sortedBgmList;
     }
 
-    public Bgm? GetBgmById(uint id)
+    public IdValuePair? GetBgmById(uint id)
     {
         return bgm.GetValueOrDefault(id);
     }
 
-    public IReadOnlyList<Gauge> GetGaugeSortedById()
+    public IReadOnlyList<IdValuePair> GetGaugeSortedById()
     {
         return sortedGaugeList;
     }
 
-    public Gauge? GetGaugeById(uint id)
+    public IdValuePair? GetGaugeById(uint id)
     {
         return gauge.GetValueOrDefault(id);
     }

@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 using MudBlazor;
 using System.Collections.ObjectModel;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
 using Throw;
-using WebUI.Client.Helpers;
 using WebUI.Client.Pages.Dialogs;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Enum;
-using WebUI.Shared.Dto.Json;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
 
@@ -216,30 +213,9 @@ public partial class CustomizeCard
 
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
 
-    private string GetMobileSuitName(uint id)
-    {
-        var ms = DataService.GetMobileSuitById(id);
-        var localizedName = GetLocalizedFriendlyName.GetLocalizedName(ms);
-        return localizedName ?? "Unknown Mobile Suit";
-    }
-
-    private string GetNaviName(uint id)
-    {
-        var navigator = DataService.GetNavigatorById(id);
-        var localizedName = GetLocalizedFriendlyName.GetLocalizedName(navigator);
-        return localizedName ?? "Unknown Navigator";
-    }
-
-    private string GetGaugeName(uint id)
-    {
-        var gauge = DataService.GetGaugeById(id);
-		var localizedName = GetLocalizedFriendlyName.GetLocalizedName(gauge);
-		return localizedName ?? "Unknown Gauge";
-	}
-
     private void AddFavouriteMobileSuitItem()
     {
-        if (_favouriteMs.Count > maximumFavouriteMs)
+        if (_favouriteMs.Count >= maximumFavouriteMs)
         {
             Snackbar.Add($"Cannot add more than {maximumFavouriteMs} entries!", Severity.Warning);
             return;
@@ -727,13 +703,13 @@ public partial class CustomizeCard
         if (string.IsNullOrWhiteSpace(_msCostumeSearchString))
             return true;
 
-        if (x.MobileSuit.NameEN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+        if (x.MobileSuit.Value.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (x.MobileSuit.NameJP.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+        if (x.MobileSuit.ValueJP.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (x.MobileSuit.NameCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+        if (x.MobileSuit.ValueCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
         return false;
@@ -744,13 +720,13 @@ public partial class CustomizeCard
         if (string.IsNullOrWhiteSpace(_naviCostumeSearchString))
             return true;
 
-        if (x.Navigator.NameEN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+        if (x.Navigator.Value.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (x.Navigator.NameJP.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+        if (x.Navigator.ValueJP.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (x.Navigator.NameCN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+        if (x.Navigator.ValueCN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
         return false;

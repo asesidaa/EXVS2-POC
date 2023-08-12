@@ -1,16 +1,9 @@
-﻿using System.Collections.ObjectModel;
-using System.Net.Http.Json;
-using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System.Net.Http.Json;
 using Throw;
-using WebUI.Client.Pages.Dialogs;
 using WebUI.Shared.Dto.Common;
-using WebUI.Shared.Dto.Enum;
-using WebUI.Shared.Dto.Json;
-using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
-using static MudBlazor.CategoryTypes;
 
 namespace WebUI.Client.Pages;
 

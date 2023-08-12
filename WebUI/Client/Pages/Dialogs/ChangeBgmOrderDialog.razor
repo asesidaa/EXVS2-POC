@@ -1,8 +1,8 @@
 ﻿@inject IDataService DataService
-@using WebUI.Shared.Dto.Json;
-@using WebUI.Client.Services
 @inject ILogger<ChangeBgmOrderDialog> Logger
 @inject ISnackbar Snackbar
+@using WebUI.Client.Services
+@using WebUI.Shared.Dto.Common;
 
 <style>
     .selected {
@@ -23,7 +23,7 @@
         <MudGrid>
             <MudItem xs="8">
                 <MudTable Elevation="5" Items="@bgmList" Filter="@Filter" @ref="mudTable" @bind-SelectedItem="@SelectedTableBgm"
-                          RowClassFunc="@SelectedRowClassFunc" T="Bgm" Hover="true" FixedHeader="true">
+                          RowClassFunc="@SelectedRowClassFunc" T="IdValuePair" Hover="true" FixedHeader="true">
                     <ColGroup>
                         <col style="width: 50px;"/>
                         <col/>
@@ -40,17 +40,17 @@
                             </MudTableSortLabel>
                         </MudTh>
                         <MudTh>
-                            <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.NameEN))">
+                            <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Value))">
                                 Name (English)
                             </MudTableSortLabel>
                         </MudTh>
                         <MudTh>
-                            <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.NameJP))">
+                            <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueJP))">
                                 Name (Japanese)
                             </MudTableSortLabel>
                         </MudTh>
                         <MudTh>
-                            <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.NameCN))">
+                            <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueCN))">
                                 Name (Chinese)
                             </MudTableSortLabel>
                         </MudTh>
@@ -60,9 +60,9 @@
                             #pragma warning disable CS8602
                         }
                         <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
-                        <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.NameEN</MudTd>
-                        <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.NameJP</MudTd>
-                        <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.NameCN</MudTd>
+                        <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.Value</MudTd>
+                        <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.ValueJP</MudTd>
+                        <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.ValueCN</MudTd>
                         @{
                             #pragma warning restore CS8602
                         }
@@ -98,7 +98,7 @@
                         </MudCard>
                     </ChildContent>
                     <ItemRenderer>
-                        <MudPaper Elevation="25" Class="pa-4 my-4">@context.NameJp</MudPaper>
+                        <MudPaper Elevation="25" Class="pa-4 my-4">@context.ValueJP</MudPaper>
                     </ItemRenderer>
                 </MudDropContainer>
             </MudItem>
@@ -115,9 +115,9 @@
     [CascadingParameter]
     MudDialogInstance MudDialog { get; set; } = null!;
 
-    private MudTable<Bgm> mudTable = null!;
+    private MudTable<IdValuePair> mudTable = null!;
 
-    private Bgm? SelectedTableBgm { get; set; }
+    private IdValuePair? SelectedTableBgm { get; set; }
 
     // ReSharper disable once NotAccessedField.Local
     private int selectedRowNumber = -1;
@@ -131,7 +131,7 @@
     [Parameter]
     public uint[] Data { get; set; } = null!;
 
-    private IReadOnlyList<Bgm> bgmList = new List<Bgm>();
+    private IReadOnlyList<IdValuePair> bgmList = new List<IdValuePair>();
 
     private List<DropItem> items = new();
 
@@ -170,7 +170,7 @@
                 new DropItem
                 {
                     Id = SelectedTableBgm.Id,
-                    NameJp = SelectedTableBgm.NameJP,
+                    ValueJP = SelectedTableBgm.ValueJP,
                     Identifier = "Order"
                 }
                 );
@@ -183,30 +183,30 @@
         }
     }
 
-    private string SelectedRowClassFunc(Bgm element, int rowNumber)
+    private string SelectedRowClassFunc(IdValuePair element, int rowNumber)
     {
         if (mudTable.SelectedItem == null || !mudTable.SelectedItem.Equals(element)) return string.Empty;
         selectedRowNumber = rowNumber;
         return "selected";
     }
 
-    private bool Filter(Bgm? bgm)
+    private bool Filter(IdValuePair? bgm)
     {
         if (bgm is null)
         {
             return false;
         }
-        var aggregate = $"{bgm.NameEN}{bgm.NameJP}{bgm.NameCN}";
+        var aggregate = $"{bgm.Value}{bgm.ValueJP}{bgm.ValueCN}";
         return string.IsNullOrEmpty(searchString) ||
                aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }
 
-    private List<DropItem> ConvertToDropItem(List<Bgm> list)
+    private List<DropItem> ConvertToDropItem(List<IdValuePair> list)
     {
         return list.Select(bgm => new DropItem
         {
             Id = bgm.Id,
-            NameJp = bgm.NameJP,
+            ValueJP = bgm.ValueJP,
             Identifier = "Order"
         }).ToList();
     }
@@ -222,7 +222,7 @@
     public class DropItem
     {
         public uint Id { get; init; }
-        public string NameJp { get; init; } = string.Empty;
+        public string ValueJP { get; init; } = string.Empty;
         public string Identifier { get; set; } = string.Empty;
     }
 

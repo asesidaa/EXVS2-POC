@@ -1,11 +1,12 @@
-﻿@inject IDataService DataService
+﻿@inject ILogger<ChangeGaugeDialog> Logger
+@inject IDialogService DialogService
+@inject IDataService DataService
+@inject INameService NameService
+@inject ISnackbar Snackbar
+
 @using WebUI.Shared.Dto.Common;
 @using WebUI.Shared.Dto.Enum;
-@using WebUI.Shared.Dto.Json;
-@using WebUI.Client.Services
-@inject ILogger<ChangeGaugeDialog> Logger
-@inject IDialogService DialogService
-@inject ISnackbar Snackbar
+@using WebUI.Client.Services;
 
 <MudDialog>
     <DialogContent>
@@ -13,7 +14,7 @@
             <MudGrid Class="align-center">
                 <MudItem xs="10">
                     <MudField Label="@localizer["favmsdialog_mstitle"]" Variant="Variant.Outlined">
-                        <MudText>@GetMobileSuitName(Data.MsId)</MudText>
+                        <MudText>@NameService.GetMobileSuitName(Data.MsId)</MudText>
                     </MudField>
                 </MudItem>
                 <MudItem xs="2">
@@ -34,7 +35,7 @@
             <MudGrid Class="align-center">
                 <MudItem xs="10">
                     <MudField Label="@localizer["favmsdialog_inbattlenavi"]" Variant="Variant.Outlined">
-                        <MudText>@GetNaviName(Data.BattleNaviId)</MudText>
+                        <MudText>@NameService.GetNavigatorName(Data.BattleNaviId)</MudText>
                     </MudField>
                 </MudItem>
                 <MudItem xs="2">
@@ -45,7 +46,7 @@
             <MudGrid Class="align-center">
                 <MudItem xs="10">
                     <MudField Label="@localizer["favmsdialog_gauge"]" Variant="Variant.Outlined">
-                        <MudText>@GetGaugeName(Data.GaugeDesignId)</MudText>
+                        <MudText>@NameService.GetGaugeName(Data.GaugeDesignId)</MudText>
                     </MudField>
                 </MudItem>
                 <MudItem xs="2">
@@ -75,7 +76,7 @@
                                         foreach (var x in Data.BgmList)
                                         {
                                             <tr>
-                                                <td>@DataService.GetBgmById(x)?.NameJP</td>
+                                                <td>@DataService.GetBgmById(x)?.ValueJP</td>
                                             </tr>
                                         }
                                     }
@@ -198,57 +199,6 @@
     }
 
     private void Cancel() => MudDialog.Cancel();
-
-    private string GetMobileSuitName(uint id)
-    {
-        var ms = DataService.GetMobileSuitById(id);
-
-        if (ms is null)
-        {
-            return localizer["unknownms"];
-        }
-
-        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
-        {
-            return ms.NameEN;
-        }
-
-        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
-        {
-            return ms.NameJP != "" ? ms.NameJP : ms.NameEN;
-        }
-
-        return ms.NameCN != "" ? ms.NameCN : ms.NameEN;
-    }
-
-    private string GetNaviName(uint id)
-    {
-        var navigator = DataService.GetNavigatorById(id);
-        
-        if (navigator is null)
-        {
-            return localizer["unknownnavi"];
-        }
-        
-        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
-        {
-            return navigator.NameEN;
-        }
-
-        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
-        {
-            return navigator.NameJP != "" ? navigator.NameJP : navigator.NameEN;
-        }
-
-        return navigator.NameCN != "" ? navigator.NameCN : navigator.NameEN;
-    }
-
-    private string GetGaugeName(uint id)
-    {
-        var navigator = DataService.GetGaugeById(id);
-
-        return navigator?.NameEN ?? "Unknown Gauge";
-    }
 
     private async Task OpenMobileSuitUiDialog()
     {

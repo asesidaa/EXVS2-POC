@@ -1,63 +1,63 @@
 [
   {
     "Id": 0,
-    "NameEN": "-",
-    "NameJP": "-",
-    "NameCN": "-"
+    "Value": "-",
+    "ValueJP": "-",
+    "ValueCN": "-"
   },
   {
     "Id": 1,
-    "NameEN": "Gundam RX-78",
-    "NameJP": "ガンダム",
-    "NameCN": "高达（0079）"
+    "Value": "Gundam RX-78",
+    "ValueJP": "ガンダム",
+    "ValueCN": "高达（0079）"
   },
   {
     "Id": 2,
-    "NameEN": "Char's Gelgoog",
-    "NameJP": "シャア専用ゲルググ",
-    "NameCN": "夏亚专用勇士（0079）"
+    "Value": "Char's Gelgoog",
+    "ValueJP": "シャア専用ゲルググ",
+    "ValueCN": "夏亚专用勇士（0079）"
   },
   {
     "Id": 3,
-    "NameEN": "Acguy",
-    "NameJP": "アッガイ",
-    "NameCN": "龟霸（0079）"
+    "Value": "Acguy",
+    "ValueJP": "アッガイ",
+    "ValueCN": "龟霸（0079）"
   },
   {
     "Id": 4,
-    "NameEN": "Zeong",
-    "NameJP": "ジオング",
-    "NameCN": "吉恩号（0079）"
+    "Value": "Zeong",
+    "ValueJP": "ジオング",
+    "ValueCN": "吉恩号（0079）"
   },
   {
     "Id": 5,
-    "NameEN": "Gyan",
-    "NameJP": "ギャン",
-    "NameCN": "强人（0079）"
+    "Value": "Gyan",
+    "ValueJP": "ギャン",
+    "ValueCN": "强人（0079）"
   },
   {
     "Id": 6,
-    "NameEN": "Gundam (G-Mecha)",
-    "NameJP": "ガンダム(Gメカ)",
-    "NameCN": "高达（G战机）（0079）"
+    "Value": "Gundam (G-Mecha)",
+    "ValueJP": "ガンダム(Gメカ)",
+    "ValueCN": "高达（G战机）（0079）"
   },
   {
     "Id": 7,
-    "NameEN": "Zaku II Ground Type",
-    "NameJP": "ザクII(ドアン機) [EX]",
-    "NameCN": "多安扎古2（0079）"
+    "Value": "Zaku II Ground Type",
+    "ValueJP": "ザクII(ドアン機) [EX]",
+    "ValueCN": "多安扎古2（0079）"
   },
   {
     "Id": 8,
-    "NameEN": "Char's Zaku II",
-    "NameJP": "シャア専用ザクII",
-    "NameCN": "夏亚专用扎古2（0079）"
+    "Value": "Char's Zaku II",
+    "ValueJP": "シャア専用ザクII",
+    "ValueCN": "夏亚专用扎古2（0079）"
   },
   {
     "Id": 13,
-    "NameEN": "Guncannon",
-    "NameJP": "ガンキャノン [EX]",
-    "NameCN": "钢加农（0079）",
+    "Value": "Guncannon",
+    "ValueJP": "ガンキャノン [EX]",
+    "ValueCN": "钢加农（0079）",
     "Costumes": [
       {
         "Id": 0,
@@ -71,9 +71,9 @@
   },
   {
     "Id": 19,
-    "NameEN": "Zeta Gundam",
-    "NameJP": "Zガンダム",
-    "NameCN": "Z高达（Z）",
+    "Value": "Zeta Gundam",
+    "ValueJP": "Zガンダム",
+    "ValueCN": "Z高达（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -87,9 +87,9 @@
   },
   {
     "Id": 20,
-    "NameEN": "Hyashiki",
-    "NameJP": "百式",
-    "NameCN": "百式（Z）",
+    "Value": "Hyashiki",
+    "ValueJP": "百式",
+    "ValueCN": "百式（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -103,9 +103,9 @@
   },
   {
     "Id": 21,
-    "NameEN": "Messala",
-    "NameJP": "メッサーラ",
-    "NameCN": "梅萨拉（Z）",
+    "Value": "Messala",
+    "ValueJP": "メッサーラ",
+    "ValueCN": "梅萨拉（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -119,9 +119,9 @@
   },
   {
     "Id": 22,
-    "NameEN": "The-O",
-    "NameJP": "ジ・O",
-    "NameCN": "铁奥（Z）",
+    "Value": "The-O",
+    "ValueJP": "ジ・O",
+    "ValueCN": "铁奥（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -135,39 +135,39 @@
   },
   {
     "Id": 23,
-    "NameEN": "Gundam MK-II",
-    "NameJP": "ガンダムMk-II",
-    "NameCN": "高达MK-II（Z）"
+    "Value": "Gundam MK-II",
+    "ValueJP": "ガンダムMk-II",
+    "ValueCN": "高达MK-II（Z）"
   },
   {
     "Id": 24,
-    "NameEN": "Hambrabi",
-    "NameJP": "ハンブラビ",
-    "NameCN": "汉谟拉比（Z）"
+    "Value": "Hambrabi",
+    "ValueJP": "ハンブラビ",
+    "ValueCN": "汉谟拉比（Z）"
   },
   {
     "Id": 31,
-    "NameEN": "Marasai",
-    "NameJP": "マラサイ",
-    "NameCN": "马拉赛（Z）"
+    "Value": "Marasai",
+    "ValueJP": "マラサイ",
+    "ValueCN": "马拉赛（Z）"
   },
   {
     "Id": 32,
-    "NameEN": "Gabthley",
-    "NameJP": "ガブスレイ",
-    "NameCN": "加布斯雷（Z）"
+    "Value": "Gabthley",
+    "ValueJP": "ガブスレイ",
+    "ValueCN": "加布斯雷（Z）"
   },
   {
     "Id": 34,
-    "NameEN": "Baund Doc",
-    "NameJP": "バウンド・ドック",
-    "NameCN": "猎犬（Z）"
+    "Value": "Baund Doc",
+    "ValueJP": "バウンド・ドック",
+    "ValueCN": "猎犬（Z）"
   },
   {
     "Id": 36,
-    "NameEN": "Full Armor ZZ Gundam",
-    "NameJP": "フルアーマーZZガンダム",
-    "NameCN": "全装甲型ZZ高达（ZZ）",
+    "Value": "Full Armor ZZ Gundam",
+    "ValueJP": "フルアーマーZZガンダム",
+    "ValueCN": "全装甲型ZZ高达（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -181,9 +181,9 @@
   },
   {
     "Id": 37,
-    "NameEN": "Qubeley MK-II (Ple Two)",
-    "NameJP": "キュベレイMk-II(プルツー)",
-    "NameCN": "丘贝雷MK-II（普露2）（ZZ）",
+    "Value": "Qubeley MK-II (Ple Two)",
+    "ValueJP": "キュベレイMk-II(プルツー)",
+    "ValueCN": "丘贝雷MK-II（普露2）（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -197,9 +197,9 @@
   },
   {
     "Id": 38,
-    "NameEN": "Qubeley",
-    "NameJP": "キュベレイ",
-    "NameCN": "丘贝雷（哈曼）（ZZ）",
+    "Value": "Qubeley",
+    "ValueJP": "キュベレイ",
+    "ValueCN": "丘贝雷（哈曼）（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -213,21 +213,21 @@
   },
   {
     "Id": 39,
-    "NameEN": "Zaku III Custom",
-    "NameJP": "ザクIII改",
-    "NameCN": "扎古3改（ZZ）"
+    "Value": "Zaku III Custom",
+    "ValueJP": "ザクIII改",
+    "ValueCN": "扎古3改（ZZ）"
   },
   {
     "Id": 40,
-    "NameEN": "Acguy (Haman Karn)",
-    "NameJP": "アッガイ(ハマーン搭乗) [EX]",
-    "NameCN": "龟霸（哈曼）（ZZ）"
+    "Value": "Acguy (Haman Karn)",
+    "ValueJP": "アッガイ(ハマーン搭乗) [EX]",
+    "ValueCN": "龟霸（哈曼）（ZZ）"
   },
   {
     "Id": 41,
-    "NameEN": "Zeta Gundam (Roux Louka)",
-    "NameJP": "Zガンダム(ルー搭乗) [EX]",
-    "NameCN": "Z高达（露）（ZZ）",
+    "Value": "Zeta Gundam (Roux Louka)",
+    "ValueJP": "Zガンダム(ルー搭乗) [EX]",
+    "ValueCN": "Z高达（露）（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -241,9 +241,9 @@
   },
   {
     "Id": 47,
-    "NameEN": "ZZ Gundam",
-    "NameJP": "ZZガンダム",
-    "NameCN": "ZZ高达（ZZ）",
+    "Value": "ZZ Gundam",
+    "ValueJP": "ZZガンダム",
+    "ValueCN": "ZZ高达（ZZ）",
     "Costumes": [
       {
         "Id": 0,
@@ -257,21 +257,21 @@
   },
   {
     "Id": 48,
-    "NameEN": "Qubeley MK-II (Elpeo Ple)",
-    "NameJP": "キュベレイMk-II(プル)",
-    "NameCN": "丘贝雷MK-II（普露）（ZZ）"
+    "Value": "Qubeley MK-II (Elpeo Ple)",
+    "ValueJP": "キュベレイMk-II(プル)",
+    "ValueCN": "丘贝雷MK-II（普露）（ZZ）"
   },
   {
     "Id": 50,
-    "NameEN": "Doven Wolf",
-    "NameJP": "ドーベン・ウルフ",
-    "NameCN": "飚狼（ZZ）"
+    "Value": "Doven Wolf",
+    "ValueJP": "ドーベン・ウルフ",
+    "ValueCN": "飚狼（ZZ）"
   },
   {
     "Id": 52,
-    "NameEN": "Nu Gundam",
-    "NameJP": "νガンダム",
-    "NameCN": "牛高达（CCA）",
+    "Value": "Nu Gundam",
+    "ValueJP": "νガンダム",
+    "ValueCN": "牛高达（CCA）",
     "Costumes": [
       {
         "Id": 0,
@@ -285,9 +285,9 @@
   },
   {
     "Id": 53,
-    "NameEN": "Sazabi",
-    "NameJP": "サザビー",
-    "NameCN": "沙扎比（CCA）",
+    "Value": "Sazabi",
+    "ValueJP": "サザビー",
+    "ValueCN": "沙扎比（CCA）",
     "Costumes": [
       {
         "Id": 0,
@@ -301,21 +301,21 @@
   },
   {
     "Id": 54,
-    "NameEN": "Re-GZ",
-    "NameJP": "リ・ガズィ",
-    "NameCN": "灵格斯（CCA）"
+    "Value": "Re-GZ",
+    "ValueJP": "リ・ガズィ",
+    "ValueCN": "灵格斯（CCA）"
   },
   {
     "Id": 55,
-    "NameEN": "Jagd Doga",
-    "NameJP": "ヤクト・ドーガ",
-    "NameCN": "乍得·多加（CCA）"
+    "Value": "Jagd Doga",
+    "ValueJP": "ヤクト・ドーガ",
+    "ValueCN": "乍得·多加（CCA）"
   },
   {
     "Id": 57,
-    "NameEN": "Gundam F91",
-    "NameJP": "ガンダムF91",
-    "NameCN": "高达F91（F91）",
+    "Value": "Gundam F91",
+    "ValueJP": "ガンダムF91",
+    "ValueCN": "高达F91（F91）",
     "Costumes": [
       {
         "Id": 0,
@@ -329,15 +329,15 @@
   },
   {
     "Id": 58,
-    "NameEN": "Berga Giros",
-    "NameJP": "ベルガ・ギロス",
-    "NameCN": "贝尔格·基罗斯（F91）"
+    "Value": "Berga Giros",
+    "ValueJP": "ベルガ・ギロス",
+    "ValueCN": "贝尔格·基罗斯（F91）"
   },
   {
     "Id": 61,
-    "NameEN": "V2 Gundam",
-    "NameJP": "V2ガンダム",
-    "NameCN": "V2高达（V）",
+    "Value": "V2 Gundam",
+    "ValueJP": "V2ガンダム",
+    "ValueCN": "V2高达（V）",
     "Costumes": [
       {
         "Id": 0,
@@ -351,21 +351,21 @@
   },
   {
     "Id": 62,
-    "NameEN": "Gun Ez",
-    "NameJP": "ガンイージ",
-    "NameCN": "钢伊吉（V）"
+    "Value": "Gun Ez",
+    "ValueJP": "ガンイージ",
+    "ValueCN": "钢伊吉（V）"
   },
   {
     "Id": 63,
-    "NameEN": "Gottrlatan",
-    "NameJP": "ゴトラタン",
-    "NameCN": "高特拉坦（V）"
+    "Value": "Gottrlatan",
+    "ValueJP": "ゴトラタン",
+    "ValueCN": "高特拉坦（V）"
   },
   {
     "Id": 64,
-    "NameEN": "Victory Gundam",
-    "NameJP": "ヴィクトリーガンダム",
-    "NameCN": "V高达（V）",
+    "Value": "Victory Gundam",
+    "ValueJP": "ヴィクトリーガンダム",
+    "ValueCN": "V高达（V）",
     "Costumes": [
       {
         "Id": 0,
@@ -379,15 +379,15 @@
   },
   {
     "Id": 73,
-    "NameEN": "Gedlav",
-    "NameJP": "ゲドラフ",
-    "NameCN": "葛德拉夫（V）"
+    "Value": "Gedlav",
+    "ValueJP": "ゲドラフ",
+    "ValueCN": "葛德拉夫（V）"
   },
   {
     "Id": 74,
-    "NameEN": "God Gundam",
-    "NameJP": "ゴッドガンダム",
-    "NameCN": "神高达（G武斗传）",
+    "Value": "God Gundam",
+    "ValueJP": "ゴッドガンダム",
+    "ValueCN": "神高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -401,9 +401,9 @@
   },
   {
     "Id": 75,
-    "NameEN": "Dragon Gundam",
-    "NameJP": "ドラゴンガンダム",
-    "NameCN": "飞龙高达（G武斗传）",
+    "Value": "Dragon Gundam",
+    "ValueJP": "ドラゴンガンダム",
+    "ValueCN": "飞龙高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -417,9 +417,9 @@
   },
   {
     "Id": 76,
-    "NameEN": "Master Gundam",
-    "NameJP": "マスターガンダム",
-    "NameCN": "尊者高达（G武斗传）",
+    "Value": "Master Gundam",
+    "ValueJP": "マスターガンダム",
+    "ValueCN": "尊者高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -433,9 +433,9 @@
   },
   {
     "Id": 77,
-    "NameEN": "Gundam Spiegel",
-    "NameJP": "ガンダムシュピーゲル",
-    "NameCN": "明镜高达（G武斗传）",
+    "Value": "Gundam Spiegel",
+    "ValueJP": "ガンダムシュピーゲル",
+    "ValueCN": "明镜高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -449,15 +449,15 @@
   },
   {
     "Id": 78,
-    "NameEN": "Nobel Gundam",
-    "NameJP": "ノーベルガンダム",
-    "NameCN": "诺贝尔高达（G武斗传）"
+    "Value": "Nobel Gundam",
+    "ValueJP": "ノーベルガンダム",
+    "ValueCN": "诺贝尔高达（G武斗传）"
   },
   {
     "Id": 79,
-    "NameEN": "Shining Gundam",
-    "NameJP": "シャイニングガンダム",
-    "NameCN": "闪光高达（G武斗传）",
+    "Value": "Shining Gundam",
+    "ValueJP": "シャイニングガンダム",
+    "ValueCN": "闪光高达（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -471,15 +471,15 @@
   },
   {
     "Id": 80,
-    "NameEN": "Rising Gundam",
-    "NameJP": "ライジングガンダム",
-    "NameCN": "日升高达（G武斗传）"
+    "Value": "Rising Gundam",
+    "ValueJP": "ライジングガンダム",
+    "ValueCN": "日升高达（G武斗传）"
   },
   {
     "Id": 81,
-    "NameEN": "Gundam Maxter",
-    "NameJP": "ガンダムマックスター",
-    "NameCN": "高达麦克之星（G武斗传）",
+    "Value": "Gundam Maxter",
+    "ValueJP": "ガンダムマックスター",
+    "ValueCN": "高达麦克之星（G武斗传）",
     "Costumes": [
       {
         "Id": 0,
@@ -493,9 +493,9 @@
   },
   {
     "Id": 82,
-    "NameEN": "Wing Gundam Zero",
-    "NameJP": "ウイングガンダムゼロ",
-    "NameCN": "飞翼零式高达（W）",
+    "Value": "Wing Gundam Zero",
+    "ValueJP": "ウイングガンダムゼロ",
+    "ValueCN": "飞翼零式高达（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -509,9 +509,9 @@
   },
   {
     "Id": 83,
-    "NameEN": "Gundam Epyon",
-    "NameJP": "ガンダムエピオン",
-    "NameCN": "艾比安高达（W）",
+    "Value": "Gundam Epyon",
+    "ValueJP": "ガンダムエピオン",
+    "ValueCN": "艾比安高达（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -525,21 +525,21 @@
   },
   {
     "Id": 90,
-    "NameEN": "Altron Gundam",
-    "NameJP": "アルトロンガンダム",
-    "NameCN": "双头龙高达（W）"
+    "Value": "Altron Gundam",
+    "ValueJP": "アルトロンガンダム",
+    "ValueCN": "双头龙高达（W）"
   },
   {
     "Id": 91,
-    "NameEN": "Gundam Sandrock Custom",
-    "NameJP": "ガンダムサンドロック改",
-    "NameCN": "沙漠高达改（W）"
+    "Value": "Gundam Sandrock Custom",
+    "ValueJP": "ガンダムサンドロック改",
+    "ValueCN": "沙漠高达改（W）"
   },
   {
     "Id": 93,
-    "NameEN": "Gundam Deathscythe Hell",
-    "NameJP": "ガンダムデスサイズヘル [EX]",
-    "NameCN": "地狱死神高达（W）",
+    "Value": "Gundam Deathscythe Hell",
+    "ValueJP": "ガンダムデスサイズヘル [EX]",
+    "ValueCN": "地狱死神高达（W）",
     "Costumes": [
       {
         "Id": 0,
@@ -553,21 +553,21 @@
   },
   {
     "Id": 94,
-    "NameEN": "Tallgeese II",
-    "NameJP": "トールギスII",
-    "NameCN": "托鲁基斯2（W）"
+    "Value": "Tallgeese II",
+    "ValueJP": "トールギスII",
+    "ValueCN": "托鲁基斯2（W）"
   },
   {
     "Id": 95,
-    "NameEN": "Tallgeese",
-    "NameJP": "トールギス [EX]",
-    "NameCN": "托鲁基斯（积古斯）（W）"
+    "Value": "Tallgeese",
+    "ValueJP": "トールギス [EX]",
+    "ValueCN": "托鲁基斯（积古斯）（W）"
   },
   {
     "Id": 96,
-    "NameEN": "Wing Gundam Zero EW",
-    "NameJP": "ウイングガンダムゼロ(EW版)",
-    "NameCN": "飞翼零式高达EW（EW）",
+    "Value": "Wing Gundam Zero EW",
+    "ValueJP": "ウイングガンダムゼロ(EW版)",
+    "ValueCN": "飞翼零式高达EW（EW）",
     "Costumes": [
       {
         "Id": 0,
@@ -581,15 +581,15 @@
   },
   {
     "Id": 97,
-    "NameEN": "Gundam Heavyarms Custom",
-    "NameJP": "ガンダムヘビーアームズ改(EW版)",
-    "NameCN": "重武装高达EW（EW）"
+    "Value": "Gundam Heavyarms Custom",
+    "ValueJP": "ガンダムヘビーアームズ改(EW版)",
+    "ValueCN": "重武装高达EW（EW）"
   },
   {
     "Id": 98,
-    "NameEN": "Tallgeese III",
-    "NameJP": "トールギスIII",
-    "NameCN": "托鲁基斯3（EW）",
+    "Value": "Tallgeese III",
+    "ValueJP": "トールギスIII",
+    "ValueCN": "托鲁基斯3（EW）",
     "Costumes": [
       {
         "Id": 0,
@@ -603,9 +603,9 @@
   },
   {
     "Id": 99,
-    "NameEN": "Gundam Deathscythe Hell EW",
-    "NameJP": "ガンダムデスサイズヘル(EW版)",
-    "NameCN": "地狱死神高达EW（EW）",
+    "Value": "Gundam Deathscythe Hell EW",
+    "ValueJP": "ガンダムデスサイズヘル(EW版)",
+    "ValueCN": "地狱死神高达EW（EW）",
     "Costumes": [
       {
         "Id": 0,
@@ -619,27 +619,27 @@
   },
   {
     "Id": 100,
-    "NameEN": "Gundam DX",
-    "NameJP": "ガンダムDX",
-    "NameCN": "DX高达（X）"
+    "Value": "Gundam DX",
+    "ValueJP": "ガンダムDX",
+    "ValueCN": "DX高达（X）"
   },
   {
     "Id": 101,
-    "NameEN": "Gundam Virsago Chest Break",
-    "NameJP": "ガンダムヴァサーゴ・チェストブレイク",
-    "NameCN": "高达华沙哥破坏者（X）"
+    "Value": "Gundam Virsago Chest Break",
+    "ValueJP": "ガンダムヴァサーゴ・チェストブレイク",
+    "ValueCN": "高达华沙哥破坏者（X）"
   },
   {
     "Id": 102,
-    "NameEN": "Gundam X Divider",
-    "NameJP": "ガンダムXディバイダー",
-    "NameCN": "高达X分裂者（X）"
+    "Value": "Gundam X Divider",
+    "ValueJP": "ガンダムXディバイダー",
+    "ValueCN": "高达X分裂者（X）"
   },
   {
     "Id": 103,
-    "NameEN": "Gundam X",
-    "NameJP": "ガンダムX [EX]",
-    "NameCN": "X高达（X）",
+    "Value": "Gundam X",
+    "ValueJP": "ガンダムX [EX]",
+    "ValueCN": "X高达（X）",
     "Costumes": [
       {
         "Id": 0,
@@ -653,9 +653,9 @@
   },
   {
     "Id": 105,
-    "NameEN": "Turn A Gundam",
-    "NameJP": "∀ガンダム",
-    "NameCN": "逆A高达（逆A）",
+    "Value": "Turn A Gundam",
+    "ValueJP": "∀ガンダム",
+    "ValueCN": "逆A高达（逆A）",
     "Costumes": [
       {
         "Id": 0,
@@ -669,21 +669,21 @@
   },
   {
     "Id": 106,
-    "NameEN": "Turn X",
-    "NameJP": "ターンX",
-    "NameCN": "逆X（逆A）"
+    "Value": "Turn X",
+    "ValueJP": "ターンX",
+    "ValueCN": "逆X（逆A）"
   },
   {
     "Id": 107,
-    "NameEN": "Gold SUMO",
-    "NameJP": "ゴールドスモー",
-    "NameCN": "金斯摩（逆A）"
+    "Value": "Gold SUMO",
+    "ValueJP": "ゴールドスモー",
+    "ValueCN": "金斯摩（逆A）"
   },
   {
     "Id": 108,
-    "NameEN": "Kapool",
-    "NameJP": "カプル",
-    "NameCN": "卡普尔（绿）",
+    "Value": "Kapool",
+    "ValueJP": "カプル",
+    "ValueCN": "卡普尔（绿）",
     "Costumes": [
       {
         "Id": 0,
@@ -697,15 +697,15 @@
   },
   {
     "Id": 109,
-    "NameEN": "Koren's Kapool",
-    "NameJP": "コレンカプル",
-    "NameCN": "卡普尔（红）"
+    "Value": "Koren's Kapool",
+    "ValueJP": "コレンカプル",
+    "ValueCN": "卡普尔（红）"
   },
   {
     "Id": 111,
-    "NameEN": "Strike Gundam",
-    "NameJP": "ストライクガンダム",
-    "NameCN": "强袭高达（seed）",
+    "Value": "Strike Gundam",
+    "ValueJP": "ストライクガンダム",
+    "ValueCN": "强袭高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -719,9 +719,9 @@
   },
   {
     "Id": 112,
-    "NameEN": "Forbidden Gundam",
-    "NameJP": "フォビドゥンガンダム",
-    "NameCN": "禁断高达（seed）",
+    "Value": "Forbidden Gundam",
+    "ValueJP": "フォビドゥンガンダム",
+    "ValueCN": "禁断高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -735,9 +735,9 @@
   },
   {
     "Id": 113,
-    "NameEN": "Providence Gundam",
-    "NameJP": "プロヴィデンスガンダム",
-    "NameCN": "神意高达（seed）",
+    "Value": "Providence Gundam",
+    "ValueJP": "プロヴィデンスガンダム",
+    "ValueCN": "神意高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -751,15 +751,15 @@
   },
   {
     "Id": 114,
-    "NameEN": "LaGOWE",
-    "NameJP": "ラゴゥ",
-    "NameCN": "拉古（seed）"
+    "Value": "LaGOWE",
+    "ValueJP": "ラゴゥ",
+    "ValueCN": "拉古（seed）"
   },
   {
     "Id": 115,
-    "NameEN": "Freedom Gundam",
-    "NameJP": "フリーダムガンダム",
-    "NameCN": "自由高达（seed）",
+    "Value": "Freedom Gundam",
+    "ValueJP": "フリーダムガンダム",
+    "ValueCN": "自由高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -773,27 +773,27 @@
   },
   {
     "Id": 116,
-    "NameEN": "Duel Gundam",
-    "NameJP": "デュエルガンダムアサルトシュラウド",
-    "NameCN": "决斗高达强袭尸装（seed）"
+    "Value": "Duel Gundam",
+    "ValueJP": "デュエルガンダムアサルトシュラウド",
+    "ValueCN": "决斗高达强袭尸装（seed）"
   },
   {
     "Id": 118,
-    "NameEN": "Perfect Strike Gundam",
-    "NameJP": "パーフェクトストライクガンダム",
-    "NameCN": "完美强袭高达（seed）"
+    "Value": "Perfect Strike Gundam",
+    "ValueJP": "パーフェクトストライクガンダム",
+    "ValueCN": "完美强袭高达（seed）"
   },
   {
     "Id": 119,
-    "NameEN": "Blitz Gundam",
-    "NameJP": "ブリッツガンダム",
-    "NameCN": "闪电高达（seed）"
+    "Value": "Blitz Gundam",
+    "ValueJP": "ブリッツガンダム",
+    "ValueCN": "闪电高达（seed）"
   },
   {
     "Id": 120,
-    "NameEN": "Raider Gundam",
-    "NameJP": "レイダーガンダム",
-    "NameCN": "强夺高达（seed）",
+    "Value": "Raider Gundam",
+    "ValueJP": "レイダーガンダム",
+    "ValueCN": "强夺高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -807,15 +807,15 @@
   },
   {
     "Id": 121,
-    "NameEN": "Buster Gundam",
-    "NameJP": "バスターガンダム",
-    "NameCN": "暴风高达（seed）"
+    "Value": "Buster Gundam",
+    "ValueJP": "バスターガンダム",
+    "ValueCN": "暴风高达（seed）"
   },
   {
     "Id": 122,
-    "NameEN": "Aegis Gundam",
-    "NameJP": "イージスガンダム [EX]",
-    "NameCN": "圣盾高达（seed）",
+    "Value": "Aegis Gundam",
+    "ValueJP": "イージスガンダム [EX]",
+    "ValueCN": "圣盾高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -829,9 +829,9 @@
   },
   {
     "Id": 123,
-    "NameEN": "Strike Freedom Gundam",
-    "NameJP": "ストライクフリーダムガンダム",
-    "NameCN": "强袭自由高达（seed destiny）",
+    "Value": "Strike Freedom Gundam",
+    "ValueJP": "ストライクフリーダムガンダム",
+    "ValueCN": "强袭自由高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -845,9 +845,9 @@
   },
   {
     "Id": 124,
-    "NameEN": "Infinite Justice Gundam",
-    "NameJP": "インフィニットジャスティスガンダム",
-    "NameCN": "无限正义高达（seed destiny）",
+    "Value": "Infinite Justice Gundam",
+    "ValueJP": "インフィニットジャスティスガンダム",
+    "ValueCN": "无限正义高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -861,9 +861,9 @@
   },
   {
     "Id": 125,
-    "NameEN": "Destiny Gundam",
-    "NameJP": "デスティニーガンダム",
-    "NameCN": "命运高达（seed destiny）",
+    "Value": "Destiny Gundam",
+    "ValueJP": "デスティニーガンダム",
+    "ValueCN": "命运高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -877,9 +877,9 @@
   },
   {
     "Id": 126,
-    "NameEN": "Gunner ZAKU Warrior",
-    "NameJP": "ガナーザクウォーリア",
-    "NameCN": "炮击型扎古勇士（seed destiny）",
+    "Value": "Gunner ZAKU Warrior",
+    "ValueJP": "ガナーザクウォーリア",
+    "ValueCN": "炮击型扎古勇士（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -893,9 +893,9 @@
   },
   {
     "Id": 127,
-    "NameEN": "Impulse Gundam",
-    "NameJP": "インパルスガンダム",
-    "NameCN": "脉冲高达（seed destiny）",
+    "Value": "Impulse Gundam",
+    "ValueJP": "インパルスガンダム",
+    "ValueCN": "脉冲高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -909,9 +909,9 @@
   },
   {
     "Id": 128,
-    "NameEN": "Gaia Gundam",
-    "NameJP": "ガイアガンダム",
-    "NameCN": "盖亚高达（seed destiny）",
+    "Value": "Gaia Gundam",
+    "ValueJP": "ガイアガンダム",
+    "ValueCN": "盖亚高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -925,9 +925,9 @@
   },
   {
     "Id": 129,
-    "NameEN": "Legend Gundam",
-    "NameJP": "レジェンドガンダム",
-    "NameCN": "传说高达（seed destiny）",
+    "Value": "Legend Gundam",
+    "ValueJP": "レジェンドガンダム",
+    "ValueCN": "传说高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -941,9 +941,9 @@
   },
   {
     "Id": 130,
-    "NameEN": "Impulse Gundam (Lunamaria Hawke)",
-    "NameJP": "インパルスガンダム(ルナマリア搭乗) [EX]",
-    "NameCN": "脉冲高达（露娜）（seed destiny）",
+    "Value": "Impulse Gundam (Lunamaria Hawke)",
+    "ValueJP": "インパルスガンダム(ルナマリア搭乗) [EX]",
+    "ValueCN": "脉冲高达（露娜）（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -957,9 +957,9 @@
   },
   {
     "Id": 131,
-    "NameEN": "Infinite Justice Gundam (Lacus Clyne)",
-    "NameJP": "インフィニットジャスティスガンダム(ラクス搭乗) [EX]",
-    "NameCN": "无限正义高达（拉克丝）（seed destiny）",
+    "Value": "Infinite Justice Gundam (Lacus Clyne)",
+    "ValueJP": "インフィニットジャスティスガンダム(ラクス搭乗) [EX]",
+    "ValueCN": "无限正义高达（拉克丝）（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -973,9 +973,9 @@
   },
   {
     "Id": 133,
-    "NameEN": "Gouf Ignited",
-    "NameJP": "グフイグナイテッド",
-    "NameCN": "烈焰老虎（seed destiny）",
+    "Value": "Gouf Ignited",
+    "ValueJP": "グフイグナイテッド",
+    "ValueCN": "烈焰老虎（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -989,15 +989,15 @@
   },
   {
     "Id": 134,
-    "NameEN": "Strike Rogue Ootori",
-    "NameJP": "ストライクルージュ(オオトリ装備)",
-    "NameCN": "嫣红强袭高达（大鹫装备）（seed destiny）"
+    "Value": "Strike Rogue Ootori",
+    "ValueJP": "ストライクルージュ(オオトリ装備)",
+    "ValueCN": "嫣红强袭高达（大鹫装备）（seed destiny）"
   },
   {
     "Id": 137,
-    "NameEN": "Akatsuki Gundam",
-    "NameJP": "アカツキ",
-    "NameCN": "拂晓高达（seed destiny）",
+    "Value": "Akatsuki Gundam",
+    "ValueJP": "アカツキ",
+    "ValueCN": "拂晓高达（seed destiny）",
     "Costumes": [
       {
         "Id": 0,
@@ -1011,21 +1011,21 @@
   },
   {
     "Id": 138,
-    "NameEN": "Gundam Exia",
-    "NameJP": "ガンダムエクシア",
-    "NameCN": "能天使高达（00）"
+    "Value": "Gundam Exia",
+    "ValueJP": "ガンダムエクシア",
+    "ValueCN": "能天使高达（00）"
   },
   {
     "Id": 139,
-    "NameEN": "00 Gundam",
-    "NameJP": "ダブルオーガンダム",
-    "NameCN": "00高达（00）"
+    "Value": "00 Gundam",
+    "ValueJP": "ダブルオーガンダム",
+    "ValueCN": "00高达（00）"
   },
   {
     "Id": 140,
-    "NameEN": "Susanowo",
-    "NameJP": "スサノオ",
-    "NameCN": "须佐之男（00）",
+    "Value": "Susanowo",
+    "ValueJP": "スサノオ",
+    "ValueCN": "须佐之男（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1039,9 +1039,9 @@
   },
   {
     "Id": 141,
-    "NameEN": "Cherudim Gundam",
-    "NameJP": "ケルディムガンダム",
-    "NameCN": "智天使高达（00）",
+    "Value": "Cherudim Gundam",
+    "ValueJP": "ケルディムガンダム",
+    "ValueCN": "智天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1055,9 +1055,9 @@
   },
   {
     "Id": 142,
-    "NameEN": "Arche Gundam",
-    "NameJP": "アルケーガンダム",
-    "NameCN": "权天使高达（00）",
+    "Value": "Arche Gundam",
+    "ValueJP": "アルケーガンダム",
+    "ValueCN": "权天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1071,15 +1071,15 @@
   },
   {
     "Id": 143,
-    "NameEN": "Gundam Dynames",
-    "NameJP": "ガンダムデュナメス",
-    "NameCN": "力天使高达（00）"
+    "Value": "Gundam Dynames",
+    "ValueJP": "ガンダムデュナメス",
+    "ValueCN": "力天使高达（00）"
   },
   {
     "Id": 144,
-    "NameEN": "Reborns Gundam",
-    "NameJP": "リボーンズガンダム",
-    "NameCN": "再生高达（00）",
+    "Value": "Reborns Gundam",
+    "ValueJP": "リボーンズガンダム",
+    "ValueCN": "再生高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1093,9 +1093,9 @@
   },
   {
     "Id": 145,
-    "NameEN": "Gundam Throne Drei",
-    "NameJP": "ガンダムスローネドライ",
-    "NameCN": "座天使高达3号机（00）",
+    "Value": "Gundam Throne Drei",
+    "ValueJP": "ガンダムスローネドライ",
+    "ValueCN": "座天使高达3号机（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1109,33 +1109,33 @@
   },
   {
     "Id": 146,
-    "NameEN": "Arios Gundam",
-    "NameJP": "アリオスガンダム",
-    "NameCN": "堕天使高达（00）"
+    "Value": "Arios Gundam",
+    "ValueJP": "アリオスガンダム",
+    "ValueCN": "堕天使高达（00）"
   },
   {
     "Id": 148,
-    "NameEN": "Gundam Avalanche Exia",
-    "NameJP": "アヴァランチエクシア",
-    "NameCN": "雪崩型能天使高达（00V）"
+    "Value": "Gundam Avalanche Exia",
+    "ValueJP": "アヴァランチエクシア",
+    "ValueCN": "雪崩型能天使高达（00V）"
   },
   {
     "Id": 149,
-    "NameEN": "00 Gundam Seven Sword/G",
-    "NameJP": "ダブルオーガンダム セブンソード／G",
-    "NameCN": "00高达七剑（00V）"
+    "Value": "00 Gundam Seven Sword/G",
+    "ValueJP": "ダブルオーガンダム セブンソード／G",
+    "ValueCN": "00高达七剑（00V）"
   },
   {
     "Id": 151,
-    "NameEN": "Tieren Taozi",
-    "NameJP": "ティエレンタオツー",
-    "NameCN": "铁人桃子（00）"
+    "Value": "Tieren Taozi",
+    "ValueJP": "ティエレンタオツー",
+    "ValueCN": "铁人桃子（00）"
   },
   {
     "Id": 152,
-    "NameEN": "Jagd Arche Gundam",
-    "NameJP": "ヤークトアルケーガンダム",
-    "NameCN": "猎兵型权天使高达（00V）",
+    "Value": "Jagd Arche Gundam",
+    "ValueJP": "ヤークトアルケーガンダム",
+    "ValueCN": "猎兵型权天使高达（00V）",
     "Costumes": [
       {
         "Id": 0,
@@ -1149,9 +1149,9 @@
   },
   {
     "Id": 153,
-    "NameEN": "Gundam Kyrios",
-    "NameJP": "ガンダムキュリオス [EX]",
-    "NameCN": "主天使高达（00）",
+    "Value": "Gundam Kyrios",
+    "ValueJP": "ガンダムキュリオス [EX]",
+    "ValueCN": "主天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1165,9 +1165,9 @@
   },
   {
     "Id": 154,
-    "NameEN": "Gundam Virtue",
-    "NameJP": "ガンダムヴァーチェ [EX]",
-    "NameCN": "德天使高达（00）",
+    "Value": "Gundam Virtue",
+    "ValueJP": "ガンダムヴァーチェ [EX]",
+    "ValueCN": "德天使高达（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -1181,15 +1181,15 @@
   },
   {
     "Id": 157,
-    "NameEN": "Graham's Union Flag Custom",
-    "NameJP": "グラハム専用ユニオンフラッグカスタム",
-    "NameCN": "格拉汉姆专用联合旗帜式（00）"
+    "Value": "Graham's Union Flag Custom",
+    "ValueJP": "グラハム専用ユニオンフラッグカスタム",
+    "ValueCN": "格拉汉姆专用联合旗帜式（00）"
   },
   {
     "Id": 162,
-    "NameEN": "00 Quan[T]",
-    "NameJP": "ダブルオークアンタ",
-    "NameCN": "00高达量子型（00 Awake）",
+    "Value": "00 Quan[T]",
+    "ValueJP": "ダブルオークアンタ",
+    "ValueCN": "00高达量子型（00 Awake）",
     "Costumes": [
       {
         "Id": 0,
@@ -1203,15 +1203,15 @@
   },
   {
     "Id": 163,
-    "NameEN": "Raphael Gundam",
-    "NameJP": "ラファエルガンダム",
-    "NameCN": "疗天使高达（00 Awake）"
+    "Value": "Raphael Gundam",
+    "ValueJP": "ラファエルガンダム",
+    "ValueCN": "疗天使高达（00 Awake）"
   },
   {
     "Id": 164,
-    "NameEN": "Brave (Commander Test Type)",
-    "NameJP": "ブレイヴ指揮官用試験機",
-    "NameCN": "勇气式指挥官用试验机（00 Awake）",
+    "Value": "Brave (Commander Test Type)",
+    "ValueJP": "ブレイヴ指揮官用試験機",
+    "ValueCN": "勇气式指挥官用试验机（00 Awake）",
     "Costumes": [
       {
         "Id": 0,
@@ -1225,9 +1225,9 @@
   },
   {
     "Id": 165,
-    "NameEN": "00 Quan[T] Full Saber",
-    "NameJP": "ダブルオークアンタ フルセイバー",
-    "NameCN": "00高达量子型全刃式（00V）",
+    "Value": "00 Quan[T] Full Saber",
+    "ValueJP": "ダブルオークアンタ フルセイバー",
+    "ValueCN": "00高达量子型全刃式（00V）",
     "Costumes": [
       {
         "Id": 0,
@@ -1241,9 +1241,9 @@
   },
   {
     "Id": 166,
-    "NameEN": "Gundam Zabanya",
-    "NameJP": "ガンダムサバーニャ",
-    "NameCN": "狱天使高达（00 Awake）",
+    "Value": "Gundam Zabanya",
+    "ValueJP": "ガンダムサバーニャ",
+    "ValueCN": "狱天使高达（00 Awake）",
     "Costumes": [
       {
         "Id": 0,
@@ -1257,15 +1257,15 @@
   },
   {
     "Id": 167,
-    "NameEN": "Gundam Harute",
-    "NameJP": "ガンダムハルート",
-    "NameCN": "妖天使高达（00 Awake）"
+    "Value": "Gundam Harute",
+    "ValueJP": "ガンダムハルート",
+    "ValueCN": "妖天使高达（00 Awake）"
   },
   {
     "Id": 168,
-    "NameEN": "Unicorn Gundam",
-    "NameJP": "ユニコーンガンダム",
-    "NameCN": "独角兽高达（UC）",
+    "Value": "Unicorn Gundam",
+    "ValueJP": "ユニコーンガンダム",
+    "ValueCN": "独角兽高达（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1279,9 +1279,9 @@
   },
   {
     "Id": 169,
-    "NameEN": "Kshatriya",
-    "NameJP": "クシャトリヤ",
-    "NameCN": "刹帝利（UC）",
+    "Value": "Kshatriya",
+    "ValueJP": "クシャトリヤ",
+    "ValueCN": "刹帝利（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1295,9 +1295,9 @@
   },
   {
     "Id": 170,
-    "NameEN": "Sinanju",
-    "NameJP": "シナンジュ",
-    "NameCN": "新安洲（UC）",
+    "Value": "Sinanju",
+    "ValueJP": "シナンジュ",
+    "ValueCN": "新安洲（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1311,15 +1311,15 @@
   },
   {
     "Id": 171,
-    "NameEN": "Delta Plus",
-    "NameJP": "デルタプラス",
-    "NameCN": "德尔塔Plus（UC）"
+    "Value": "Delta Plus",
+    "ValueJP": "デルタプラス",
+    "ValueCN": "德尔塔Plus（UC）"
   },
   {
     "Id": 172,
-    "NameEN": "Unicorn Gundam Banshee",
-    "NameJP": "バンシィ",
-    "NameCN": "报丧女妖（UC）",
+    "Value": "Unicorn Gundam Banshee",
+    "ValueJP": "バンシィ",
+    "ValueCN": "报丧女妖（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1333,15 +1333,15 @@
   },
   {
     "Id": 173,
-    "NameEN": "Rozen Zulu",
-    "NameJP": "ローゼン・ズール",
-    "NameCN": "玫瑰·祖鲁（UC）"
+    "Value": "Rozen Zulu",
+    "ValueJP": "ローゼン・ズール",
+    "ValueCN": "玫瑰·祖鲁（UC）"
   },
   {
     "Id": 175,
-    "NameEN": "Full Armor Unicorn Gundam",
-    "NameJP": "フルアーマー・ユニコーンガンダム",
-    "NameCN": "全装甲型独角兽高达（UC）",
+    "Value": "Full Armor Unicorn Gundam",
+    "ValueJP": "フルアーマー・ユニコーンガンダム",
+    "ValueCN": "全装甲型独角兽高达（UC）",
     "Costumes": [
       {
         "Id": 0,
@@ -1355,15 +1355,15 @@
   },
   {
     "Id": 176,
-    "NameEN": "Unicorn Gundam Banshee Norn",
-    "NameJP": "バンシィ・ノルン",
-    "NameCN": "报丧女妖·命运女神（UC）"
+    "Value": "Unicorn Gundam Banshee Norn",
+    "ValueJP": "バンシィ・ノルン",
+    "ValueCN": "报丧女妖·命运女神（UC）"
   },
   {
     "Id": 180,
-    "NameEN": "Alex",
-    "NameJP": "アレックス",
-    "NameCN": "高达NT-1 阿历克斯（口袋战争）",
+    "Value": "Alex",
+    "ValueJP": "アレックス",
+    "ValueCN": "高达NT-1 阿历克斯（口袋战争）",
     "Costumes": [
       {
         "Id": 0,
@@ -1377,81 +1377,81 @@
   },
   {
     "Id": 181,
-    "NameEN": "Zaku II Custom",
-    "NameJP": "ザクII改",
-    "NameCN": "扎古2改（口袋战争）"
+    "Value": "Zaku II Custom",
+    "ValueJP": "ザクII改",
+    "ValueCN": "扎古2改（口袋战争）"
   },
   {
     "Id": 183,
-    "NameEN": "Kaempfer",
-    "NameJP": "ケンプファー",
-    "NameCN": "京宝梵（口袋战争）"
+    "Value": "Kaempfer",
+    "ValueJP": "ケンプファー",
+    "ValueCN": "京宝梵（口袋战争）"
   },
   {
     "Id": 184,
-    "NameEN": "Gundam Zephyranthes Full Burnern",
-    "NameJP": "ガンダム試作1号機フルバーニアン",
-    "NameCN": "高达试作1号机FB（0083）"
+    "Value": "Gundam Zephyranthes Full Burnern",
+    "ValueJP": "ガンダム試作1号機フルバーニアン",
+    "ValueCN": "高达试作1号机FB（0083）"
   },
   {
     "Id": 185,
-    "NameEN": "Gundam Prototype No.2",
-    "NameJP": "ガンダム試作2号機",
-    "NameCN": "高达试作2号机（0083）"
+    "Value": "Gundam Prototype No.2",
+    "ValueJP": "ガンダム試作2号機",
+    "ValueCN": "高达试作2号机（0083）"
   },
   {
     "Id": 186,
-    "NameEN": "Gerbera Tetra",
-    "NameJP": "ガーベラ・テトラ",
-    "NameCN": "红色角马（0083）"
+    "Value": "Gerbera Tetra",
+    "ValueJP": "ガーベラ・テトラ",
+    "ValueCN": "红色角马（0083）"
   },
   {
     "Id": 187,
-    "NameEN": "Gundam Prototype No. 3",
-    "NameJP": "ガンダム試作3号機",
-    "NameCN": "高达试作3号机（0083）"
+    "Value": "Gundam Prototype No. 3",
+    "ValueJP": "ガンダム試作3号機",
+    "ValueCN": "高达试作3号机（0083）"
   },
   {
     "Id": 191,
-    "NameEN": "Gundam Ez8",
-    "NameJP": "ガンダムEz8",
-    "NameCN": "高达Ez8（08MS）"
+    "Value": "Gundam Ez8",
+    "ValueJP": "ガンダムEz8",
+    "ValueCN": "高达Ez8（08MS）"
   },
   {
     "Id": 192,
-    "NameEN": "Gouf Custom",
-    "NameJP": "グフ・カスタム",
-    "NameCN": "老虎特装型（08MS）"
+    "Value": "Gouf Custom",
+    "ValueJP": "グフ・カスタム",
+    "ValueCN": "老虎特装型（08MS）"
   },
   {
     "Id": 194,
-    "NameEN": "Zudah",
-    "NameJP": "ヅダ",
-    "NameCN": "兹达（一年战争秘录）"
+    "Value": "Zudah",
+    "ValueJP": "ヅダ",
+    "ValueCN": "兹达（一年战争秘录）"
   },
   {
     "Id": 195,
-    "NameEN": "Hildolfr",
-    "NameJP": "ヒルドルブ",
-    "NameCN": "斗狼（一年战争秘录）"
+    "Value": "Hildolfr",
+    "ValueJP": "ヒルドルブ",
+    "ValueCN": "斗狼（一年战争秘录）"
   },
   {
     "Id": 197,
-    "NameEN": "Zaku II High Mobility Type (Johnny Ridden)",
-    "NameJP": "高機動型ザクII後期型(ジョニー・ライデン機) [EX]",
-    "NameCN": "高机动型扎古2后期型（强尼·莱汀）（MSV）"
+    "Value": "Zaku II High Mobility Type (Johnny Ridden)",
+    "ValueJP": "高機動型ザクII後期型(ジョニー・ライデン機) [EX]",
+    "ValueCN": "高机动型扎古2后期型（强尼·莱汀）（MSV）"
   },
   {
     "Id": 198,
-    "NameEN": "Zaku II High Mobility Type (Shin Matsunaga)",
-    "NameJP": "高機動型ザクII改(シン・マツナガ機) [EX]",
-    "NameCN": "高机动型扎古2改（真·松永）（MSV）"
+    "Value": "Zaku II High Mobility Type (Shin Matsunaga)",
+    "ValueJP": "高機動型ザクII改(シン・マツナガ機) [EX]",
+    "ValueCN": "高机动型扎古2改（真·松永）（MSV）"
   },
   {
     "Id": 199,
-    "NameEN": "Crossbone Gundam X1 Kai",
-    "NameJP": "クロスボーン・ガンダムX1改",
-    "NameCN": "海盗高达X1改（海盗X）",
+    "Value": "Crossbone Gundam X1 Kai",
+    "ValueJP": "クロスボーン・ガンダムX1改",
+    "ValueCN": "海盗高达X1改（海盗X）",
     "Costumes": [
       {
         "Id": 0,
@@ -1465,21 +1465,21 @@
   },
   {
     "Id": 200,
-    "NameEN": "Crossbone Gundam X2 Kai",
-    "NameJP": "クロスボーン・ガンダムX2改",
-    "NameCN": "海盗高达X2改（海盗X）"
+    "Value": "Crossbone Gundam X2 Kai",
+    "ValueJP": "クロスボーン・ガンダムX2改",
+    "ValueCN": "海盗高达X2改（海盗X）"
   },
   {
     "Id": 201,
-    "NameEN": "Crossbone Gundam X3",
-    "NameJP": "クロスボーン・ガンダムX3",
-    "NameCN": "海盗高达X3（海盗X）"
+    "Value": "Crossbone Gundam X3",
+    "ValueJP": "クロスボーン・ガンダムX3",
+    "ValueCN": "海盗高达X3（海盗X）"
   },
   {
     "Id": 205,
-    "NameEN": "Crossbone Gundam X1 Full Cloth",
-    "NameJP": "クロスボーン・ガンダムX1フルクロス",
-    "NameCN": "海盗高达X1全覆式（海盗X）",
+    "Value": "Crossbone Gundam X1 Full Cloth",
+    "ValueJP": "クロスボーン・ガンダムX1フルクロス",
+    "ValueCN": "海盗高达X1全覆式（海盗X）",
     "Costumes": [
       {
         "Id": 0,
@@ -1493,9 +1493,9 @@
   },
   {
     "Id": 206,
-    "NameEN": "Vigna Ghina II",
-    "NameJP": "ビギナ・ギナII(木星決戦仕様)",
-    "NameCN": "维基娜·吉娜II（木星决战式样）（海盗X）",
+    "Value": "Vigna Ghina II",
+    "ValueJP": "ビギナ・ギナII(木星決戦仕様)",
+    "ValueCN": "维基娜·吉娜II（木星决战式样）（海盗X）",
     "Costumes": [
       {
         "Id": 0,
@@ -1509,27 +1509,27 @@
   },
   {
     "Id": 207,
-    "NameEN": "Phantom Gundam",
-    "NameJP": "ファントムガンダム",
-    "NameCN": "幻影高达（海盗X）"
+    "Value": "Phantom Gundam",
+    "ValueJP": "ファントムガンダム",
+    "ValueCN": "幻影高达（海盗X）"
   },
   {
     "Id": 208,
-    "NameEN": "Blue Destiny Unit 1",
-    "NameJP": "ブルーディスティニー1号機",
-    "NameCN": "蓝色命运1号机（蓝色命运）"
+    "Value": "Blue Destiny Unit 1",
+    "ValueJP": "ブルーディスティニー1号機",
+    "ValueCN": "蓝色命运1号机（蓝色命运）"
   },
   {
     "Id": 209,
-    "NameEN": "Efreet Custom",
-    "NameJP": "イフリート改",
-    "NameCN": "伊芙利特改（蓝色命运）"
+    "Value": "Efreet Custom",
+    "ValueJP": "イフリート改",
+    "ValueCN": "伊芙利特改（蓝色命运）"
   },
   {
     "Id": 210,
-    "NameEN": "Hi-Nu Gundam",
-    "NameJP": "Hi-νガンダム",
-    "NameCN": "海牛高达（CCA 贝托蒂嘉的子嗣）",
+    "Value": "Hi-Nu Gundam",
+    "ValueJP": "Hi-νガンダム",
+    "ValueCN": "海牛高达（CCA 贝托蒂嘉的子嗣）",
     "Costumes": [
       {
         "Id": 0,
@@ -1543,9 +1543,9 @@
   },
   {
     "Id": 211,
-    "NameEN": "Nightingale",
-    "NameJP": "ナイチンゲール",
-    "NameCN": "夜莺（CCA 贝托蒂嘉的子嗣）",
+    "Value": "Nightingale",
+    "ValueJP": "ナイチンゲール",
+    "ValueCN": "夜莺（CCA 贝托蒂嘉的子嗣）",
     "Costumes": [
       {
         "Id": 0,
@@ -1559,9 +1559,9 @@
   },
   {
     "Id": 212,
-    "NameEN": "Gundam Astray Red Frame",
-    "NameJP": "アストレイレッドフレーム",
-    "NameCN": "红异端（seed Astray）",
+    "Value": "Gundam Astray Red Frame",
+    "ValueJP": "アストレイレッドフレーム",
+    "ValueCN": "红异端（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1575,9 +1575,9 @@
   },
   {
     "Id": 213,
-    "NameEN": "Gundam Astray Blue Frame Second L",
-    "NameJP": "アストレイブルーフレームセカンドL",
-    "NameCN": "蓝异端2L（seed Astray）",
+    "Value": "Gundam Astray Blue Frame Second L",
+    "ValueJP": "アストレイブルーフレームセカンドL",
+    "ValueCN": "蓝异端2L（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1591,33 +1591,33 @@
   },
   {
     "Id": 214,
-    "NameEN": "Gundam Astray Gold Frame Amatsu",
-    "NameJP": "アストレイゴールドフレーム天",
-    "NameCN": "金异端天（seed Astray）"
+    "Value": "Gundam Astray Gold Frame Amatsu",
+    "ValueJP": "アストレイゴールドフレーム天",
+    "ValueCN": "金异端天（seed Astray）"
   },
   {
     "Id": 215,
-    "NameEN": "Gundam Astray Gold Frame Amatsu Mina",
-    "NameJP": "アストレイゴールドフレーム天ミナ [EX]",
-    "NameCN": "金异端天蜜娜（seed Astray）"
+    "Value": "Gundam Astray Gold Frame Amatsu Mina",
+    "ValueJP": "アストレイゴールドフレーム天ミナ [EX]",
+    "ValueCN": "金异端天蜜娜（seed Astray）"
   },
   {
     "Id": 216,
-    "NameEN": "Dreanought Gundam (X-Astray)",
-    "NameJP": "ドレッドノートガンダム(Xアストレイ)",
-    "NameCN": "勇士高达（X异端）（seed Astray）"
+    "Value": "Dreanought Gundam (X-Astray)",
+    "ValueJP": "ドレッドノートガンダム(Xアストレイ)",
+    "ValueCN": "勇士高达（X异端）（seed Astray）"
   },
   {
     "Id": 217,
-    "NameEN": "Hyperion Gundam",
-    "NameJP": "ハイペリオンガンダム",
-    "NameCN": "亥伯龙高达（seed Astray）"
+    "Value": "Hyperion Gundam",
+    "ValueJP": "ハイペリオンガンダム",
+    "ValueCN": "亥伯龙高达（seed Astray）"
   },
   {
     "Id": 218,
-    "NameEN": "Gundam Astray Red Frame Kai",
-    "NameJP": "アストレイレッドフレーム改",
-    "NameCN": "红异端改（seed Astray）",
+    "Value": "Gundam Astray Red Frame Kai",
+    "ValueJP": "アストレイレッドフレーム改",
+    "ValueCN": "红异端改（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1631,9 +1631,9 @@
   },
   {
     "Id": 220,
-    "NameEN": "Gundam Astray Red Frame Dragon",
-    "NameJP": "アストレイレッドフレーム(レッドドラゴン)",
-    "NameCN": "红异端（红龙）（seed Astray）",
+    "Value": "Gundam Astray Red Frame Dragon",
+    "ValueJP": "アストレイレッドフレーム(レッドドラゴン)",
+    "ValueCN": "红异端（红龙）（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1647,9 +1647,9 @@
   },
   {
     "Id": 221,
-    "NameEN": "Gundam Astray Blue Frame D",
-    "NameJP": "アストレイブルーフレームD",
-    "NameCN": "蓝异端D（seed Astray）",
+    "Value": "Gundam Astray Blue Frame D",
+    "ValueJP": "アストレイブルーフレームD",
+    "ValueCN": "蓝异端D（seed Astray）",
     "Costumes": [
       {
         "Id": 0,
@@ -1663,9 +1663,9 @@
   },
   {
     "Id": 222,
-    "NameEN": "Strike Noir Gundam",
-    "NameJP": "ストライクノワール",
-    "NameCN": "漆黑强袭高达（seed Stargazer）",
+    "Value": "Strike Noir Gundam",
+    "ValueJP": "ストライクノワール",
+    "ValueCN": "漆黑强袭高达（seed Stargazer）",
     "Costumes": [
       {
         "Id": 0,
@@ -1679,9 +1679,9 @@
   },
   {
     "Id": 223,
-    "NameEN": "Stargazer Gundam",
-    "NameJP": "スターゲイザー",
-    "NameCN": "观星者高达（seed Stargazer）",
+    "Value": "Stargazer Gundam",
+    "ValueJP": "スターゲイザー",
+    "ValueCN": "观星者高达（seed Stargazer）",
     "Costumes": [
       {
         "Id": 0,
@@ -1695,27 +1695,27 @@
   },
   {
     "Id": 224,
-    "NameEN": "Ex-S Gundam",
-    "NameJP": "Ex-Sガンダム",
-    "NameCN": "EX-S高达（前哨战）"
+    "Value": "Ex-S Gundam",
+    "ValueJP": "Ex-Sガンダム",
+    "ValueCN": "EX-S高达（前哨战）"
   },
   {
     "Id": 225,
-    "NameEN": "Xi Gundam",
-    "NameJP": "Ξガンダム",
-    "NameCN": "柯西高达（闪光的哈萨维）"
+    "Value": "Xi Gundam",
+    "ValueJP": "Ξガンダム",
+    "ValueCN": "柯西高达（闪光的哈萨维）"
   },
   {
     "Id": 226,
-    "NameEN": "Penelope",
-    "NameJP": "ペーネロペー",
-    "NameCN": "佩涅罗佩（闪光的哈萨维）"
+    "Value": "Penelope",
+    "ValueJP": "ペーネロペー",
+    "ValueCN": "佩涅罗佩（闪光的哈萨维）"
   },
   {
     "Id": 228,
-    "NameEN": "Gundam AGE-1",
-    "NameJP": "ガンダムAGE-1",
-    "NameCN": "高达AGE-1（AGE）",
+    "Value": "Gundam AGE-1",
+    "ValueJP": "ガンダムAGE-1",
+    "ValueCN": "高达AGE-1（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1729,9 +1729,9 @@
   },
   {
     "Id": 229,
-    "NameEN": "Gundam AGE-2",
-    "NameJP": "ガンダムAGE-2",
-    "NameCN": "高达AGE-2（AGE）",
+    "Value": "Gundam AGE-2",
+    "ValueJP": "ガンダムAGE-2",
+    "ValueCN": "高达AGE-2（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1745,9 +1745,9 @@
   },
   {
     "Id": 230,
-    "NameEN": "Gundam AGE-3",
-    "NameJP": "ガンダムAGE-3",
-    "NameCN": "高达AGE-3（AGE）",
+    "Value": "Gundam AGE-3",
+    "ValueJP": "ガンダムAGE-3",
+    "ValueCN": "高达AGE-3（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1761,9 +1761,9 @@
   },
   {
     "Id": 231,
-    "NameEN": "Gundam AGE-FX",
-    "NameJP": "ガンダムAGE-FX",
-    "NameCN": "高达AGE-FX（AGE）",
+    "Value": "Gundam AGE-FX",
+    "ValueJP": "ガンダムAGE-FX",
+    "ValueCN": "高达AGE-FX（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1777,33 +1777,33 @@
   },
   {
     "Id": 232,
-    "NameEN": "Zeydra",
-    "NameJP": "ゼイドラ",
-    "NameCN": "杰德拉（AGE）"
+    "Value": "Zeydra",
+    "ValueJP": "ゼイドラ",
+    "ValueCN": "杰德拉（AGE）"
   },
   {
     "Id": 233,
-    "NameEN": "Farsia",
-    "NameJP": "ファルシア",
-    "NameCN": "法尔西娅（AGE）"
+    "Value": "Farsia",
+    "ValueJP": "ファルシア",
+    "ValueCN": "法尔西娅（AGE）"
   },
   {
     "Id": 234,
-    "NameEN": "Gundam Legilis",
-    "NameJP": "ガンダムレギルス",
-    "NameCN": "高达列基鲁斯（AGE）"
+    "Value": "Gundam Legilis",
+    "ValueJP": "ガンダムレギルス",
+    "ValueCN": "高达列基鲁斯（AGE）"
   },
   {
     "Id": 235,
-    "NameEN": "Gundam AGE-2 Dark Hound",
-    "NameJP": "ガンダムAGE-2 ダークハウンド",
-    "NameCN": "高达AGE-2 黑猎犬（AGE）"
+    "Value": "Gundam AGE-2 Dark Hound",
+    "ValueJP": "ガンダムAGE-2 ダークハウンド",
+    "ValueCN": "高达AGE-2 黑猎犬（AGE）"
   },
   {
     "Id": 237,
-    "NameEN": "Gundam AGE-1 Glansa",
-    "NameJP": "ガンダムAGE-1 フルグランサ",
-    "NameCN": "高达AGE-1 全备光辉型（AGE）",
+    "Value": "Gundam AGE-1 Glansa",
+    "ValueJP": "ガンダムAGE-1 フルグランサ",
+    "ValueCN": "高达AGE-1 全备光辉型（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1817,9 +1817,9 @@
   },
   {
     "Id": 238,
-    "NameEN": "Fawn Farsia",
-    "NameJP": "フォーンファルシア",
-    "NameCN": "冯法尔西娅（AGE）",
+    "Value": "Fawn Farsia",
+    "ValueJP": "フォーンファルシア",
+    "ValueCN": "冯法尔西娅（AGE）",
     "Costumes": [
       {
         "Id": 0,
@@ -1833,9 +1833,9 @@
   },
   {
     "Id": 240,
-    "NameEN": "Extreme Gundam Eclipse",
-    "NameJP": "エクストリームガンダム エクリプス-F",
-    "NameCN": "极限高达日蚀面（EXA）",
+    "Value": "Extreme Gundam Eclipse",
+    "ValueJP": "エクストリームガンダム エクリプス-F",
+    "ValueCN": "极限高达日蚀面（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1849,9 +1849,9 @@
   },
   {
     "Id": 241,
-    "NameEN": "Extreme Gundam Xenon",
-    "NameJP": "エクストリームガンダム ゼノン-F",
-    "NameCN": "极限高达异化面（EXA）",
+    "Value": "Extreme Gundam Xenon",
+    "ValueJP": "エクストリームガンダム ゼノン-F",
+    "ValueCN": "极限高达异化面（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1865,9 +1865,9 @@
   },
   {
     "Id": 242,
-    "NameEN": "Extreme Gundam Aios",
-    "NameJP": "エクストリームガンダム アイオス-F",
-    "NameCN": "极限高达神圣面（EXA）",
+    "Value": "Extreme Gundam Aios",
+    "ValueJP": "エクストリームガンダム アイオス-F",
+    "ValueCN": "极限高达神圣面（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1881,9 +1881,9 @@
   },
   {
     "Id": 243,
-    "NameEN": "Extreme Gundam Leos II VS",
-    "NameJP": "エクストリームガンダム type-レオスII Vs.",
-    "NameCN": "极限高达 Type-雷欧斯II Vs.（EXA）",
+    "Value": "Extreme Gundam Leos II VS",
+    "ValueJP": "エクストリームガンダム type-レオスII Vs.",
+    "ValueCN": "极限高达 Type-雷欧斯II Vs.（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1897,9 +1897,9 @@
   },
   {
     "Id": 244,
-    "NameEN": "Extreme Gundam Sthesia Excellia",
-    "NameJP": "エクストリームガンダム エクセリア",
-    "NameCN": "极限高达赛西娅Excellia（EXA）",
+    "Value": "Extreme Gundam Sthesia Excellia",
+    "ValueJP": "エクストリームガンダム エクセリア",
+    "ValueCN": "极限高达赛西娅Excellia（EXA）",
     "Costumes": [
       {
         "Id": 0,
@@ -1913,9 +1913,9 @@
   },
   {
     "Id": 248,
-    "NameEN": "Gundam G-Self",
-    "NameJP": "G-セルフ",
-    "NameCN": "高达G-self（G之复国运动）",
+    "Value": "Gundam G-Self",
+    "ValueJP": "G-セルフ",
+    "ValueCN": "高达G-self（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -1929,15 +1929,15 @@
   },
   {
     "Id": 249,
-    "NameEN": "Mack Knife",
-    "NameJP": "マックナイフ(マスク機)",
-    "NameCN": "马克刀（马克斯机）（G之复国运动）"
+    "Value": "Mack Knife",
+    "ValueJP": "マックナイフ(マスク機)",
+    "ValueCN": "马克刀（马克斯机）（G之复国运动）"
   },
   {
     "Id": 250,
-    "NameEN": "Gundam G-Self Perfect Pack",
-    "NameJP": "G-セルフ(パーフェクトパック)",
-    "NameCN": "高达G-self（完美背包）（G之复国运动）",
+    "Value": "Gundam G-Self Perfect Pack",
+    "ValueJP": "G-セルフ(パーフェクトパック)",
+    "ValueCN": "高达G-self（完美背包）（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -1951,9 +1951,9 @@
   },
   {
     "Id": 251,
-    "NameEN": "Gundam G-Arcane (Full Dress)",
-    "NameJP": "G-アルケイン(フルドレス)",
-    "NameCN": "高达G-奥秘（盛装式）（G之复国运动）",
+    "Value": "Gundam G-Arcane (Full Dress)",
+    "ValueJP": "G-アルケイン(フルドレス)",
+    "ValueCN": "高达G-奥秘（盛装式）（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -1967,15 +1967,15 @@
   },
   {
     "Id": 252,
-    "NameEN": "Montero",
-    "NameJP": "モンテーロ",
-    "NameCN": "蒙特罗（G之复国运动）"
+    "Value": "Montero",
+    "ValueJP": "モンテーロ",
+    "ValueCN": "蒙特罗（G之复国运动）"
   },
   {
     "Id": 253,
-    "NameEN": "Gundam Barbatos",
-    "NameJP": "ガンダム・バルバトス",
-    "NameCN": "高达巴巴托斯（铁血）",
+    "Value": "Gundam Barbatos",
+    "ValueJP": "ガンダム・バルバトス",
+    "ValueCN": "高达巴巴托斯（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -1989,15 +1989,15 @@
   },
   {
     "Id": 256,
-    "NameEN": "Gundam Kimaris Trooper",
-    "NameJP": "ガンダム・キマリストルーパー",
-    "NameCN": "高达锡蒙利骑兵（铁血）"
+    "Value": "Gundam Kimaris Trooper",
+    "ValueJP": "ガンダム・キマリストルーパー",
+    "ValueCN": "高达锡蒙利骑兵（铁血）"
   },
   {
     "Id": 257,
-    "NameEN": "Gundam Barbatos Lupus",
-    "NameJP": "ガンダム・バルバトスルプス",
-    "NameCN": "高达巴巴托斯天狼型（铁血）",
+    "Value": "Gundam Barbatos Lupus",
+    "ValueJP": "ガンダム・バルバトスルプス",
+    "ValueCN": "高达巴巴托斯天狼型（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2011,9 +2011,9 @@
   },
   {
     "Id": 258,
-    "NameEN": "Gundam Gusion Rebake Full City",
-    "NameJP": "ガンダム・グシオンリベイクフルシティ",
-    "NameCN": "高达古辛深度重锻型（铁血）",
+    "Value": "Gundam Gusion Rebake Full City",
+    "ValueJP": "ガンダム・グシオンリベイクフルシティ",
+    "ValueCN": "高达古辛深度重锻型（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2027,9 +2027,9 @@
   },
   {
     "Id": 259,
-    "NameEN": "Gundam Bael",
-    "NameJP": "ガンダム・バエル",
-    "NameCN": "高达巴耶力（铁血）",
+    "Value": "Gundam Bael",
+    "ValueJP": "ガンダム・バエル",
+    "ValueCN": "高达巴耶力（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2043,9 +2043,9 @@
   },
   {
     "Id": 260,
-    "NameEN": "Gundam Barbatos Lupus Rex",
-    "NameJP": "ガンダム・バルバトスルプスレクス",
-    "NameCN": "高达巴巴托斯天狼王型（铁血）",
+    "Value": "Gundam Barbatos Lupus Rex",
+    "ValueJP": "ガンダム・バルバトスルプスレクス",
+    "ValueCN": "高达巴巴托斯天狼王型（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2059,33 +2059,33 @@
   },
   {
     "Id": 261,
-    "NameEN": "Gundam Kimaris Vidar",
-    "NameJP": "ガンダム・キマリスヴィダール",
-    "NameCN": "高达锡蒙利维达尔（铁血）"
+    "Value": "Gundam Kimaris Vidar",
+    "ValueJP": "ガンダム・キマリスヴィダール",
+    "ValueCN": "高达锡蒙利维达尔（铁血）"
   },
   {
     "Id": 265,
-    "NameEN": "Pale Rider",
-    "NameJP": "ペイルライダー(陸戦重装仕様) [EX]",
-    "NameCN": "苍白骑士（陆战重装式样）（失落的节点）"
+    "Value": "Pale Rider",
+    "ValueJP": "ペイルライダー(陸戦重装仕様) [EX]",
+    "ValueCN": "苍白骑士（陆战重装式样）（失落的节点）"
   },
   {
     "Id": 266,
-    "NameEN": "Vincent's Gelgoog High Mobility Type",
-    "NameJP": "高機動型ゲルググ(ヴィンセント機) [EX]",
-    "NameCN": "高机动型勇士（文森特机）（失落的节点）"
+    "Value": "Vincent's Gelgoog High Mobility Type",
+    "ValueJP": "高機動型ゲルググ(ヴィンセント機) [EX]",
+    "ValueCN": "高机动型勇士（文森特机）（失落的节点）"
   },
   {
     "Id": 268,
-    "NameEN": "Efreet (Doug Schneid's Unit)",
-    "NameJP": "イフリート(シュナイド機) [EX]",
-    "NameCN": "伊芙利特（施耐德机）（失落的节点）"
+    "Value": "Efreet (Doug Schneid's Unit)",
+    "ValueJP": "イフリート(シュナイド機) [EX]",
+    "ValueCN": "伊芙利特（施耐德机）（失落的节点）"
   },
   {
     "Id": 269,
-    "NameEN": "Full Armor Gundam",
-    "NameJP": "フルアーマー・ガンダム",
-    "NameCN": "全装甲高达（雷霆宙域）",
+    "Value": "Full Armor Gundam",
+    "ValueJP": "フルアーマー・ガンダム",
+    "ValueCN": "全装甲高达（雷霆宙域）",
     "Costumes": [
       {
         "Id": 0,
@@ -2099,9 +2099,9 @@
   },
   {
     "Id": 270,
-    "NameEN": "Zaku II High Mobility Type (Psycho Zaku)",
-    "NameJP": "サイコ・ザク",
-    "NameCN": "精神力扎古（雷霆宙域）",
+    "Value": "Zaku II High Mobility Type (Psycho Zaku)",
+    "ValueJP": "サイコ・ザク",
+    "ValueCN": "精神力扎古（雷霆宙域）",
     "Costumes": [
       {
         "Id": 0,
@@ -2115,15 +2115,15 @@
   },
   {
     "Id": 271,
-    "NameEN": "Atlas Gundam",
-    "NameJP": "アトラスガンダム",
-    "NameCN": "阿特拉斯高达（雷霆宙域）"
+    "Value": "Atlas Gundam",
+    "ValueJP": "アトラスガンダム",
+    "ValueCN": "阿特拉斯高达（雷霆宙域）"
   },
   {
     "Id": 272,
-    "NameEN": "Acguy (Thunderbolt Ver.)",
-    "NameJP": "アッガイ(ダリル搭乗)",
-    "NameCN": "龟霸（达利尔机）（雷霆宙域）",
+    "Value": "Acguy (Thunderbolt Ver.)",
+    "ValueJP": "アッガイ(ダリル搭乗)",
+    "ValueCN": "龟霸（达利尔机）（雷霆宙域）",
     "Costumes": [
       {
         "Id": 0,
@@ -2137,15 +2137,15 @@
   },
   {
     "Id": 279,
-    "NameEN": "Build Strike Gundam Full Package",
-    "NameJP": "ビルドストライクガンダム(フルパッケージ)",
-    "NameCN": "创制强袭高达（创战）"
+    "Value": "Build Strike Gundam Full Package",
+    "ValueJP": "ビルドストライクガンダム(フルパッケージ)",
+    "ValueCN": "创制强袭高达（创战）"
   },
   {
     "Id": 280,
-    "NameEN": "Zaku Amazing",
-    "NameJP": "ザクアメイジング",
-    "NameCN": "惊异扎古（创战）",
+    "Value": "Zaku Amazing",
+    "ValueJP": "ザクアメイジング",
+    "ValueCN": "惊异扎古（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -2159,15 +2159,15 @@
   },
   {
     "Id": 281,
-    "NameEN": "Hot Scramble Gundam",
-    "NameJP": "ホットスクランブルガンダム",
-    "NameCN": "炽热争夺高达（创战AR）"
+    "Value": "Hot Scramble Gundam",
+    "ValueJP": "ホットスクランブルガンダム",
+    "ValueCN": "炽热争夺高达（创战AR）"
   },
   {
     "Id": 283,
-    "NameEN": "Try Burning Gundam",
-    "NameJP": "トライバーニングガンダム",
-    "NameCN": "Try 创制燃焰高达（创战Try）",
+    "Value": "Try Burning Gundam",
+    "ValueJP": "トライバーニングガンダム",
+    "ValueCN": "Try 创制燃焰高达（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2181,9 +2181,9 @@
   },
   {
     "Id": 284,
-    "NameEN": "Lightning Gundam Full Burnern",
-    "NameJP": "ライトニングガンダムフルバーニアン",
-    "NameCN": "闪电高达FB（创战Try）",
+    "Value": "Lightning Gundam Full Burnern",
+    "ValueJP": "ライトニングガンダムフルバーニアン",
+    "ValueCN": "闪电高达FB（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2197,9 +2197,9 @@
   },
   {
     "Id": 285,
-    "NameEN": "Star Winning Gundam",
-    "NameJP": "スターウイニングガンダム",
-    "NameCN": "星际凯旋高达（创战Try）",
+    "Value": "Star Winning Gundam",
+    "ValueJP": "スターウイニングガンダム",
+    "ValueCN": "星际凯旋高达（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2213,9 +2213,9 @@
   },
   {
     "Id": 286,
-    "NameEN": "Gundam X Maoh",
-    "NameJP": "ガンダムX魔王",
-    "NameCN": "高达X魔王（创战Try）",
+    "Value": "Gundam X Maoh",
+    "ValueJP": "ガンダムX魔王",
+    "ValueCN": "高达X魔王（创战Try）",
     "Costumes": [
       {
         "Id": 0,
@@ -2229,9 +2229,9 @@
   },
   {
     "Id": 287,
-    "NameEN": "Gundam G-Lucifer",
-    "NameJP": "G-ルシファー",
-    "NameCN": "高达G-路西法（G之复国运动）",
+    "Value": "Gundam G-Lucifer",
+    "ValueJP": "G-ルシファー",
+    "ValueCN": "高达G-路西法（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -2245,27 +2245,27 @@
   },
   {
     "Id": 288,
-    "NameEN": "Knight Gundam",
-    "NameJP": "騎士ガンダム",
-    "NameCN": "骑士高达（SD外传）"
+    "Value": "Knight Gundam",
+    "ValueJP": "騎士ガンダム",
+    "ValueCN": "骑士高达（SD外传）"
   },
   {
     "Id": 289,
-    "NameEN": "Bertigo",
-    "NameJP": "ベルティゴ",
-    "NameCN": "贝迪哥（X）"
+    "Value": "Bertigo",
+    "ValueJP": "ベルティゴ",
+    "ValueCN": "贝迪哥（X）"
   },
   {
     "Id": 290,
-    "NameEN": "Narrative Gundam",
-    "NameJP": "ナラティブガンダム",
-    "NameCN": "NT高达（NT）"
+    "Value": "Narrative Gundam",
+    "ValueJP": "ナラティブガンダム",
+    "ValueCN": "NT高达（NT）"
   },
   {
     "Id": 291,
-    "NameEN": "Kabakali",
-    "NameJP": "カバカーリー",
-    "NameCN": "迦巴卡利（G之复国运动）",
+    "Value": "Kabakali",
+    "ValueJP": "カバカーリー",
+    "ValueCN": "迦巴卡利（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -2279,9 +2279,9 @@
   },
   {
     "Id": 292,
-    "NameEN": "Wing Gundam Fenice",
-    "NameJP": "ウイングガンダムフェニーチェ",
-    "NameCN": "凤凰飞翼高达（创战）",
+    "Value": "Wing Gundam Fenice",
+    "ValueJP": "ウイングガンダムフェニーチェ",
+    "ValueCN": "凤凰飞翼高达（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -2295,9 +2295,9 @@
   },
   {
     "Id": 293,
-    "NameEN": "Sinanju Stein",
-    "NameJP": "シナンジュ・スタイン",
-    "NameCN": "新安洲·原石（NT）",
+    "Value": "Sinanju Stein",
+    "ValueJP": "シナンジュ・スタイン",
+    "ValueCN": "新安洲·原石（NT）",
     "Costumes": [
       {
         "Id": 0,
@@ -2311,9 +2311,9 @@
   },
   {
     "Id": 294,
-    "NameEN": "Gundam 00 Diver Ace",
-    "NameJP": "ガンダムダブルオーダイバーエース",
-    "NameCN": "高达00潜行者王牌（创形）",
+    "Value": "Gundam 00 Diver Ace",
+    "ValueJP": "ガンダムダブルオーダイバーエース",
+    "ValueCN": "高达00潜行者王牌（创形）",
     "Costumes": [
       {
         "Id": 0,
@@ -2327,21 +2327,21 @@
   },
   {
     "Id": 295,
-    "NameEN": "Star Build Strike Gundam",
-    "NameJP": "スタービルドストライクガンダム",
-    "NameCN": "星际创制强袭高达（创战）"
+    "Value": "Star Build Strike Gundam",
+    "ValueJP": "スタービルドストライクガンダム",
+    "ValueCN": "星际创制强袭高达（创战）"
   },
   {
     "Id": 296,
-    "NameEN": "Unicorn Gundam 03 Phenex",
-    "NameJP": "ユニコーンガンダム3号機フェネクス",
-    "NameCN": "独角兽高达3号机菲尼克斯（NT）"
+    "Value": "Unicorn Gundam 03 Phenex",
+    "ValueJP": "ユニコーンガンダム3号機フェネクス",
+    "ValueCN": "独角兽高达3号机菲尼克斯（NT）"
   },
   {
     "Id": 297,
-    "NameEN": "Gundam Flauros (Ryusei-Go)",
-    "NameJP": "ガンダム・フラウロス",
-    "NameCN": "高达弗洛伦斯（流星号）（铁血）",
+    "Value": "Gundam Flauros (Ryusei-Go)",
+    "ValueJP": "ガンダム・フラウロス",
+    "ValueCN": "高达弗洛伦斯（流星号）（铁血）",
     "Costumes": [
       {
         "Id": 0,
@@ -2355,9 +2355,9 @@
   },
   {
     "Id": 298,
-    "NameEN": "Over.on",
-    "NameJP": "オーヴェロン",
-    "NameCN": "欧贝隆（魔女之夜）",
+    "Value": "Over.on",
+    "ValueJP": "オーヴェロン",
+    "ValueCN": "欧贝隆（魔女之夜）",
     "Costumes": [
       {
         "Id": 0,
@@ -2371,9 +2371,9 @@
   },
   {
     "Id": 299,
-    "NameEN": "RX-Zeromaru",
-    "NameJP": "RX-零丸",
-    "NameCN": "RX-零丸（创形）",
+    "Value": "RX-Zeromaru",
+    "ValueJP": "RX-零丸",
+    "ValueCN": "RX-零丸（创形）",
     "Costumes": [
       {
         "Id": 0,
@@ -2387,9 +2387,9 @@
   },
   {
     "Id": 300,
-    "NameEN": "Dijeh",
-    "NameJP": "ディジェ",
-    "NameCN": "迪杰（Z）",
+    "Value": "Dijeh",
+    "ValueJP": "ディジェ",
+    "ValueCN": "迪杰（Z）",
     "Costumes": [
       {
         "Id": 0,
@@ -2403,9 +2403,9 @@
   },
   {
     "Id": 301,
-    "NameEN": "Justice Gundam",
-    "NameJP": "ジャスティスガンダム",
-    "NameCN": "正义高达（seed）",
+    "Value": "Justice Gundam",
+    "ValueJP": "ジャスティスガンダム",
+    "ValueCN": "正义高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -2419,9 +2419,9 @@
   },
   {
     "Id": 302,
-    "NameEN": "Sengoku Astray Gundam",
-    "NameJP": "戦国アストレイ頑駄無",
-    "NameCN": "战国异端（创战）",
+    "Value": "Sengoku Astray Gundam",
+    "ValueJP": "戦国アストレイ頑駄無",
+    "ValueCN": "战国异端（创战）",
     "Costumes": [
       {
         "Id": 0,
@@ -2435,9 +2435,9 @@
   },
   {
     "Id": 303,
-    "NameEN": "N-Extreme Gundam Explosion",
-    "NameJP": "N-EXTREMEガンダム エクスプロージョン",
-    "NameCN": "N-Extreme E高达（EXVS）",
+    "Value": "N-Extreme Gundam Explosion",
+    "ValueJP": "N-EXTREMEガンダム エクスプロージョン",
+    "ValueCN": "N-Extreme E高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2451,9 +2451,9 @@
   },
   {
     "Id": 304,
-    "NameEN": "N-Extreme Gundam Xanadu",
-    "NameJP": "N-EXTREMEガンダム ザナドゥ",
-    "NameCN": "N-Extreme X高达（EXVS）",
+    "Value": "N-Extreme Gundam Xanadu",
+    "ValueJP": "N-EXTREMEガンダム ザナドゥ",
+    "ValueCN": "N-Extreme X高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2467,9 +2467,9 @@
   },
   {
     "Id": 305,
-    "NameEN": "N-Extreme Gundam Vicious",
-    "NameJP": "N-EXTREMEガンダム ヴィシャス",
-    "NameCN": "N-Extreme V高达（EXVS）",
+    "Value": "N-Extreme Gundam Vicious",
+    "ValueJP": "N-EXTREMEガンダム ヴィシャス",
+    "ValueCN": "N-Extreme V高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2483,9 +2483,9 @@
   },
   {
     "Id": 306,
-    "NameEN": "N-Extreme Gundam Supremacy",
-    "NameJP": "N-EXTREMEガンダム スプレマシー",
-    "NameCN": "N-Extreme S高达（EXVS）",
+    "Value": "N-Extreme Gundam Supremacy",
+    "ValueJP": "N-EXTREMEガンダム スプレマシー",
+    "ValueCN": "N-Extreme S高达（EXVS）",
     "Costumes": [
       {
         "Id": 0,
@@ -2499,9 +2499,9 @@
   },
   {
     "Id": 307,
-    "NameEN": "Garazzo (Hiling Care Custom)",
-    "NameJP": "ガラッゾ(ヒリング・ケア機)",
-    "NameCN": "加莱佐（希林格机）（00）",
+    "Value": "Garazzo (Hiling Care Custom)",
+    "ValueJP": "ガラッゾ(ヒリング・ケア機)",
+    "ValueCN": "加莱佐（希林格机）（00）",
     "Costumes": [
       {
         "Id": 0,
@@ -2515,9 +2515,9 @@
   },
   {
     "Id": 308,
-    "NameEN": "Dahack",
-    "NameJP": "ダハック",
-    "NameCN": "达哈克（G之复国运动）",
+    "Value": "Dahack",
+    "ValueJP": "ダハック",
+    "ValueCN": "达哈克（G之复国运动）",
     "Costumes": [
       {
         "Id": 0,
@@ -2531,15 +2531,15 @@
   },
   {
     "Id": 310,
-    "NameEN": "RX-93ff Gundam",
-    "NameJP": "RX-93ff νガンダム",
-    "NameCN": "RX-93ff 福冈牛（CCA）"
+    "Value": "RX-93ff Gundam",
+    "ValueJP": "RX-93ff νガンダム",
+    "ValueCN": "RX-93ff 福冈牛（CCA）"
   },
   {
     "Id": 311,
-    "NameEN": "Calamity Gundam",
-    "NameJP": "カラミティガンダム",
-    "NameCN": "灾厄高达（seed）",
+    "Value": "Calamity Gundam",
+    "ValueJP": "カラミティガンダム",
+    "ValueCN": "灾厄高达（seed）",
     "Costumes": [
       {
         "Id": 0,
@@ -2553,9 +2553,9 @@
   },
   {
     "Id": 312,
-    "NameEN": "Nu Gundam HWS",
-    "NameJP": "νガンダムHWS",
-    "NameCN": "重牛（CCA MSV）",
+    "Value": "Nu Gundam HWS",
+    "ValueJP": "νガンダムHWS",
+    "ValueCN": "重牛（CCA MSV）",
     "Costumes": [
       {
         "Id": 0,

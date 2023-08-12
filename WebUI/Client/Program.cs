@@ -13,6 +13,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddMudServices();
 builder.Services.AddSingleton<IDataService, DataService>();
+builder.Services.AddSingleton<INameService, NameService>();
 
 builder.Services.AddLocalization();
 builder.Services.AddTransient<MudLocalizer, ResXMudLocalizer>();
