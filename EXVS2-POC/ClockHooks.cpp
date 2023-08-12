@@ -139,15 +139,16 @@ static __time64_t time64Hook(time_t* destTime)
     
     auto now =
         system_clock::now();
-    auto today = floor<days>(now);
 
     zoned_time jpZonedTime{"Asia/Tokyo", now};
+    auto time_point = floor<days>(jpZonedTime.get_local_time());
+    auto today = time_point;
     
-    const zoned_time notBefore{"Asia/Tokyo", today + 1h + 45min};
-    const zoned_time notAfter{"Asia/Tokyo", today + 7h};
+    const auto notBefore = today + 1h + 45min;
+    const auto notAfter = today + 7h;
 
-    if (jpZonedTime.get_local_time() >= notBefore.get_local_time() &&
-        jpZonedTime.get_local_time() <= notAfter.get_local_time())
+    if (jpZonedTime.get_local_time() >= notBefore &&
+        jpZonedTime.get_local_time() <= notAfter)
     {
         now += {5h};
     }
