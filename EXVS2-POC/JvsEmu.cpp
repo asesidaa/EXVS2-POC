@@ -379,6 +379,85 @@ int handleTaito05Call(jprot_encoder *r)
 jvs_key_bind key_bind;
 std::string input_mode;
 
+void capture_direct_input_action(BYTE& byte0, BYTE& byte1, BYTE& byte2, JOYINFOEX joy)
+{
+	if (joy.dwPOV == 0)
+	{
+		log("Up Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 5);
+	}
+	if (joy.dwPOV == 4500)
+	{
+		log("Up Right Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 5);
+		byte1 |= static_cast<char>(1 << 2);
+	}
+	if (joy.dwPOV == 9000)
+	{
+		log("Right Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 2);
+	}
+	if (joy.dwPOV == 13500)
+	{
+		log("Right Down Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 2);
+		byte1 |= static_cast<char>(1 << 4);
+	}
+	if (joy.dwPOV == 18000)
+	{
+		log("Down Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 4);
+	}
+	if (joy.dwPOV == 22500)
+	{
+		log("Down Left Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 4);
+		byte1 |= static_cast<char>(1 << 3);
+	}
+	if (joy.dwPOV == 27000)
+	{
+		log("Left Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 3);
+	}
+	if (joy.dwPOV == 31500)
+	{
+		log("Top Left Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 3);
+		byte1 |= static_cast<char>(1 << 5);
+	}
+	int intJoyDwButtons = (int)joy.dwButtons;
+	if (intJoyDwButtons & key_bind.ArcadeButton1)
+	{
+		log("Button 1 Detected from Joystick");
+		byte1 |= static_cast<char> (1 << 1);
+	}
+	if (intJoyDwButtons & key_bind.ArcadeButton2)
+	{
+		log("Button 2 Detected from Joystick");
+		byte1 |= static_cast<char> (1);
+	}
+	if (intJoyDwButtons & key_bind.ArcadeButton3)
+	{
+		log("Button 3 Detected from Joystick");
+		byte2 |= static_cast<char> (1 << 7);
+	}
+	if (intJoyDwButtons & key_bind.ArcadeButton4)
+	{
+		log("Button 4 Detected from Joystick");
+		byte2 |= static_cast<char> (1 << 6);
+	}
+	if (intJoyDwButtons & key_bind.ArcadeStartButton)
+	{
+		log("Start Button Detected from Joystick");
+		byte1 |= static_cast<char>(1 << 7);
+	}
+	if (intJoyDwButtons & key_bind.ArcadeTest)
+	{
+		log("Test Button Detected from Joystick");
+		byte0 |= static_cast<char>(1 << 7);
+	}
+}
+
 void handleDirectInputGamePlay(BYTE &byte0, BYTE &byte1, BYTE &byte2)
 {
 	if(input_mode != "DirectInput")
@@ -389,84 +468,18 @@ void handleDirectInputGamePlay(BYTE &byte0, BYTE &byte1, BYTE &byte2)
 	JOYINFOEX joy;
 	joy.dwSize = sizeof(joy);
 	joy.dwFlags = JOY_RETURNALL;
-	for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+	
+	if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
 	{
-		if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+		capture_direct_input_action(byte0, byte1, byte2, joy);
+	}
+	else
+	{
+		for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
 		{
-			if (joy.dwPOV == 0)
+			if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
 			{
-				log("Up Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 5);
-			}
-			if (joy.dwPOV == 4500)
-			{
-				log("Up Right Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 5);
-				byte1 |= static_cast<char>(1 << 2);
-			}
-			if (joy.dwPOV == 9000)
-			{
-				log("Right Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 2);
-			}
-			if (joy.dwPOV == 13500)
-			{
-				log("Right Down Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 2);
-				byte1 |= static_cast<char>(1 << 4);
-			}
-			if (joy.dwPOV == 18000)
-			{
-				log("Down Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 4);
-			}
-			if (joy.dwPOV == 22500)
-			{
-				log("Down Left Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 4);
-				byte1 |= static_cast<char>(1 << 3);
-			}
-			if (joy.dwPOV == 27000)
-			{
-				log("Left Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 3);
-			}
-			if (joy.dwPOV == 31500)
-			{
-				log("Top Left Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 3);
-				byte1 |= static_cast<char>(1 << 5);
-			}
-			int intJoyDwButtons = (int)joy.dwButtons;
-			if (intJoyDwButtons & key_bind.ArcadeButton1)
-			{
-				log("Button 1 Detected from Joystick");
-				byte1 |= static_cast<char> (1 << 1);
-			}
-			if (intJoyDwButtons & key_bind.ArcadeButton2)
-			{
-				log("Button 2 Detected from Joystick");
-				byte1 |= static_cast<char> (1);
-			}
-			if (intJoyDwButtons & key_bind.ArcadeButton3)
-			{
-				log("Button 3 Detected from Joystick");
-				byte2 |= static_cast<char> (1 << 7);
-			}
-			if (intJoyDwButtons & key_bind.ArcadeButton4)
-			{
-				log("Button 4 Detected from Joystick");
-				byte2 |= static_cast<char> (1 << 6);
-			}
-			if (intJoyDwButtons & key_bind.ArcadeStartButton)
-			{
-				log("Start Button Detected from Joystick");
-				byte1 |= static_cast<char>(1 << 7);
-			}
-			if (intJoyDwButtons & key_bind.ArcadeTest)
-			{
-				log("Test Button Detected from Joystick");
-				byte0 |= static_cast<char>(1 << 7);
+				capture_direct_input_action(byte0, byte1, byte2, joy);
 			}
 		}
 	}
@@ -586,15 +599,28 @@ int handleReadCoinInputs(jprot_encoder *r)
 		JOYINFOEX joy;
 		joy.dwSize = sizeof(joy);
 		joy.dwFlags = JOY_RETURNALL;
-		for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+
+		if(key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
 		{
-			if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+			int intJoyDwButtons = (int)joy.dwButtons;
+			if (intJoyDwButtons & key_bind.ArcadeCoin)
 			{
-				int intJoyDwButtons = (int)joy.dwButtons;
-				if (intJoyDwButtons & key_bind.ArcadeCoin)
+				log("Coin Detected from Joystick");
+				currstate = true;
+			}
+		}
+		else
+		{
+			for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+			{
+				if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
 				{
-					log("Coin Detected from Joystick");
-					currstate = true;
+					int intJoyDwButtons = (int)joy.dwButtons;
+					if (intJoyDwButtons & key_bind.ArcadeCoin)
+					{
+						log("Coin Detected from Joystick");
+						currstate = true;
+					}
 				}
 			}
 		}
