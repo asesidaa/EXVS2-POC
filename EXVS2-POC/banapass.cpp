@@ -104,15 +104,27 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
         else
         {
             std::string card_button_placeholder = config_reader.Get("keybind", "ArcadeCard", "8");
+            std::string joystickIndex_placeholder = config_reader.Get("keybind", "DirectInputDeviceId", "16");
+            int overrideJoystickIndex = std::stoi(joystickIndex_placeholder);
+            
             JOYINFOEX joy;
             joy.dwSize = sizeof(joy);
             joy.dwFlags = JOY_RETURNALL;
-            for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+
+            if(overrideJoystickIndex < 16 && joyGetPosEx(std::stoi(joystickIndex_placeholder), &joy) == JOYERR_NOERROR)
             {
-                if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+                int intJoyDwButtons = (int)joy.dwButtons;
+                button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
+            }
+            else
+            {
+                for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
                 {
-                    int intJoyDwButtons = (int)joy.dwButtons;
-                    button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
+                    if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+                    {
+                        int intJoyDwButtons = (int)joy.dwButtons;
+                        button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
+                    }
                 }
             }
         }

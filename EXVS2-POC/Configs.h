@@ -14,6 +14,7 @@ struct jvs_key_bind {
 	int Button2;
 	int Button3;
 	int Button4;
+	int DirectInputDeviceId;
 	int ArcadeButton1;
 	int ArcadeButton2;
 	int ArcadeButton3;
