@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "VirtualKeyMapping.h"
 
 struct jvs_key_bind {
 	int Test;
@@ -22,6 +23,29 @@ struct jvs_key_bind {
 	int ArcadeStartButton;
 	int ArcadeCoin;
 	int ArcadeTest;
+
+	jvs_key_bind():
+		Test(findKeyByValue("T")),
+		Start(findKeyByValue("O")),
+		Service(findKeyByValue("S")),
+		Coin(findKeyByValue("M")),
+		Up(findKeyByValue("Up")),
+		Left(findKeyByValue("Left")),
+		Down(findKeyByValue("Down")),
+		Right(findKeyByValue("Right")),
+		Button1(findKeyByValue("Z")),
+		Button2(findKeyByValue("X")),
+		Button3(findKeyByValue("C")),
+		Button4(findKeyByValue("V")),
+		DirectInputDeviceId(16),
+		ArcadeButton1(1),
+		ArcadeButton2(2),
+		ArcadeButton3(3),
+		ArcadeButton4(4),
+		ArcadeStartButton(5),
+		ArcadeCoin(6),
+		ArcadeTest(7)
+	{}
 };
 
 struct config_struct {
@@ -40,26 +64,10 @@ struct config_struct {
 	std::string ServerAddress;
 	std::string RegionCode;
 
-	config_struct(const config_struct& other)
-		: KeyBind(other.KeyBind),
-		  Windowed(other.Windowed),
-		  Mode(other.Mode),
-		  InputMode(other.InputMode),
-		  Serial(other.Serial),
-		  PcbId(other.PcbId),
-		  TenpoRouter(other.TenpoRouter),
-		  AuthServerIp(other.AuthServerIp),
-		  IpAddress(other.IpAddress),
-		  SubnetMask(other.SubnetMask),
-		  Gateway(other.Gateway),
-		  PrimaryDNS(other.PrimaryDNS),
-		  ServerAddress(other.ServerAddress),
-		  RegionCode(other.RegionCode)
-	{
-	}
+	config_struct(const config_struct& other) = default;
 
 	config_struct(config_struct&& other) noexcept
-		: KeyBind(std::move(other.KeyBind)),
+		: KeyBind(other.KeyBind),
 		  Windowed(other.Windowed),
 		  Mode(std::move(other.Mode)),
 		  InputMode(std::move(other.InputMode)),
@@ -101,7 +109,7 @@ struct config_struct {
 	{
 		if (this == &other)
 			return *this;
-		KeyBind = std::move(other.KeyBind);
+		KeyBind = other.KeyBind;
 		Windowed = other.Windowed;
 		Mode = std::move(other.Mode);
 		InputMode = std::move(other.InputMode);
@@ -119,7 +127,6 @@ struct config_struct {
 	}
 
 	config_struct() :
-		KeyBind(),
 		Windowed(false),
 		Mode("2"),
 		InputMode("Keyboard"),

@@ -71,38 +71,24 @@ config_struct ReadConfigs(INIReader reader) {
     keyMapPlaceholder = reader.Get("keybind", "Button4", "V");
     key_bind.Button4 = findKeyByValue(keyMapPlaceholder);
 
-    keyMapPlaceholder = reader.Get("keybind", "DirectInputDeviceId", "16");
-    key_bind.DirectInputDeviceId = std::stoi(keyMapPlaceholder);
+    key_bind.DirectInputDeviceId = reader.GetInteger("keybind", "DirectInputDeviceId", 16);
 
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeButton1", "1");
-    key_bind.ArcadeButton1 = std::stoi(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeButton2", "2");
-    key_bind.ArcadeButton2 = std::stoi(keyMapPlaceholder);
+    key_bind.ArcadeButton1 = reader.GetInteger("keybind", "ArcadeButton1", 1);
     
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeButton3", "3");
-    key_bind.ArcadeButton3 = std::stoi(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeButton4", "4");
-    key_bind.ArcadeButton4 = std::stoi(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeStartButton", "5");
-    key_bind.ArcadeStartButton = std::stoi(keyMapPlaceholder);
+    key_bind.ArcadeButton2 = reader.GetInteger("keybind", "ArcadeButton2", 2);
     
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeCoin", "6");
-    key_bind.ArcadeCoin = std::stoi(keyMapPlaceholder);
+    key_bind.ArcadeButton3 = reader.GetInteger("keybind", "ArcadeButton3", 3);
 
-    keyMapPlaceholder = reader.Get("keybind", "ArcadeTest", "7");
-    key_bind.ArcadeTest = std::stoi(keyMapPlaceholder);
+    key_bind.ArcadeButton4 = reader.GetInteger("keybind", "ArcadeButton4", 4);
+
+    key_bind.ArcadeStartButton = reader.GetInteger("keybind", "ArcadeStartButton", 5);
+    
+    key_bind.ArcadeCoin = reader.GetInteger("keybind", "ArcadeCoin", 6);
+
+    key_bind.ArcadeTest = reader.GetInteger("keybind", "ArcadeTest", 7);
 
     config.KeyBind = key_bind;
     return config;
-}
-
-[[noreturn]]void InitThread(config_struct config)
-{
-    InitAmAuthEmu(config);
-    for (;;){}
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
@@ -111,7 +97,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     // todo: consolidate items from GameHooks.cpp
     INIReader reader("config.ini");
 
-    // todo: Give a proper default config
     config_struct config {};
     if (reader.ParseError() == 0)
     {
@@ -129,10 +114,11 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             InitDXGIWindowHook(config);
         }
         break;
-    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_ATTACH:  // NOLINT(bugprone-branch-clone)
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
         break;
+    default: break;
     }
 	
     return TRUE;

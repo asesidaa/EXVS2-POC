@@ -433,9 +433,10 @@ private:
 };
 
 
-class CAuthFactory : public IClassFactory
+class CAuthFactory final : public IClassFactory
 {
 public:
+    virtual ~CAuthFactory() = default;
     STDMETHODIMP
     QueryInterface(REFIID riid, LPVOID* ppvObj)
     {
@@ -513,10 +514,9 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
 void InitAmAuthEmu(const config_struct& config)
 {
     MH_Initialize();
-    MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&gOriCoCreateInstance));
+    MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&gOriCoCreateInstance));  // NOLINT(clang-diagnostic-microsoft-cast)
     MH_EnableHook(nullptr);
     
-    //memcpy_s(&amconfig, sizeof(config_struct), &config, sizeof(config_struct));
     amconfig = config;
     log("AMconfig Server address: %s", amconfig.ServerAddress.c_str());
 }
