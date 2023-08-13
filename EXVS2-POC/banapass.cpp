@@ -95,10 +95,10 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
 
         INIReader config_reader("config.ini");
         std::string input_mode = config_reader.Get("config", "InputMode", "Keyboard");
+        std::string card_key = config_reader.Get("keybind", "Card", "P");
 
         if(input_mode != "DirectInput")
         {
-            std::string card_key = config_reader.Get("keybind", "Card", "P");
             button_state = GetAsyncKeyState(findKeyByValue(card_key));
         }
         else
@@ -126,6 +126,11 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                         button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
                     }
                 }
+            }
+
+            if(button_state == false)
+            {
+                button_state = GetAsyncKeyState(findKeyByValue(card_key));
             }
         }
 
