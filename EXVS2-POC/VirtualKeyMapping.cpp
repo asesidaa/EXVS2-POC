@@ -5,6 +5,7 @@ std::map<int, std::string> keyNames = {
     {0x9, "Tab"},
     {0xd, "Return"},
     {0x13, "Pause"},
+    {0x1b, "Esc"},
     {0x20, "Space"},
     {0x21, "PgUp"},
     {0x22, "PgDown"},

@@ -573,6 +573,12 @@ int handleReadSwitchInputs(jprot_encoder *r)
 	BYTE byte1 = 0;
 	BYTE byte2 = 0;
 
+	// By Default, if without any Config, KillProcess = ESC
+	if (GetAsyncKeyState(key_bind.KillProcess) & 0x8000)
+	{
+		exit(0);
+	}
+
 	handleDirectInputGamePlay(byte0, byte1, byte2);
 	handleKeyboardGamePlay(byte1, byte2);
 	handleSupportKeyInputs(byte0, byte1);
