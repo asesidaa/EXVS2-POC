@@ -487,11 +487,6 @@ void handleDirectInputGamePlay(BYTE &byte0, BYTE &byte1, BYTE &byte2)
 
 void handleSupportKeyInputs(BYTE &byte0, BYTE &byte1)
 {
-	if(input_mode == "DirectInput")
-	{
-		return;
-	}
-	
 	if (GetAsyncKeyState(key_bind.Test) & 0x8000)
 	{
 		log("Test Pressed");
@@ -628,6 +623,11 @@ int handleReadCoinInputs(jprot_encoder *r)
 						currstate = true;
 					}
 				}
+			}
+
+			if(currstate == false)
+			{
+				currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
 			}
 		}
 	}
