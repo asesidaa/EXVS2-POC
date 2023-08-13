@@ -969,7 +969,7 @@ BOOL __stdcall CloseHandleWrap(HANDLE hObject)
 	return TRUE;
 }
 
-void InitializeJvs(config_struct configs)
+void InitializeJvs(const config_struct& configs)
 {
 	key_bind = configs.KeyBind;
 	input_mode = configs.InputMode;

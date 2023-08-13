@@ -235,7 +235,7 @@ static HRESULT WINAPI D3D11CreateDeviceAndSwapChainWrap(IDXGIAdapter* pAdapter, 
 	return hr;
 }
 
-void InitDXGIWindowHook(config_struct configs)
+void InitDXGIWindowHook(const config_struct& configs)
 {
 	Windowed = configs.Windowed;
 
