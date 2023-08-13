@@ -25,6 +25,7 @@ public class DataService : IDataService
     private List<IdValuePair> sortedTriadSkillList = new();
     private List<IdValuePair> sortedTriadTeamBannerList = new();
     private List<IdValuePair> sortedGamepadOptionList = new();
+    private List<TriadCourseConfig> triadCourseConfigList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -81,6 +82,10 @@ public class DataService : IDataService
         gamepadOptionList.ThrowIfNull();
         gamepadOptions = gamepadOptionList.ToDictionary(gamepadOption => gamepadOption.Id);
         sortedGamepadOptionList = gamepadOptionList.OrderBy(gamepadOption => gamepadOption.Id).ToList();
+        
+        var triadCourseConfigs = await client.GetFromJsonAsync<List<TriadCourseConfig>>("data/TriadCourseConfigs.json");
+        triadCourseConfigs.ThrowIfNull();
+        triadCourseConfigList = triadCourseConfigs;
     }
 
     public IReadOnlyList<IdValuePair> GetDisplayOptionsSortedById()
@@ -156,5 +161,10 @@ public class DataService : IDataService
     public IReadOnlyList<IdValuePair> GetSortedGamepadOptionList()
     {
         return sortedGamepadOptionList;
+    }
+    
+    public List<TriadCourseConfig> GetTriadStageConfigs()
+    {
+        return triadCourseConfigList;
     }
 }
