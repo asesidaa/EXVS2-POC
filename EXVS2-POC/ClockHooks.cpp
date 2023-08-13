@@ -137,30 +137,29 @@ static __time64_t time64Hook(time_t* destTime)
     using namespace std::literals;
     using namespace std::chrono;
     
-    auto now =
-        system_clock::now();
+    auto now = system_clock::now();
 
-    zoned_time jpZonedTime{"Asia/Tokyo", now};
-    auto jpTimePoint = jpZonedTime.get_local_time();
-    auto today = floor<days>(jpTimePoint);
+    // zoned_time jpZonedTime{"Asia/Tokyo", now};
+    // auto jpTimePoint = jpZonedTime.get_local_time();
+    // auto today = floor<days>(jpTimePoint);
+    //
+    // const auto notBefore = today;
+    // const auto notAfter = today + 7h;
+    //
+    // if (jpTimePoint >= notBefore &&
+    //     jpTimePoint <= notAfter)
+    // {
+    //     now += (notAfter - jpTimePoint) + 1h;
+    // }
+    //
+    // const auto notBeforeNight = today + 18h + 45min;
+    // const auto notAfterNight = today + 31h;
+    //
+    // if (jpTimePoint >= notBeforeNight && jpTimePoint <= notAfterNight)
+    // {
+    //     now += (notAfterNight - jpTimePoint) + 1h;
+    // }
     
-    const auto notBefore = today;
-    const auto notAfter = today + 7h;
-
-    if (jpTimePoint >= notBefore &&
-        jpTimePoint <= notAfter)
-    {
-        now += (notAfter - jpTimePoint) + 1h;
-    }
-
-    const auto notBeforeNight = today + 18h + 45min;
-    const auto notAfterNight = today + 31h;
-
-    if (jpTimePoint >= notBeforeNight && jpTimePoint <= notAfterNight)
-    {
-        now += (notAfterNight - jpTimePoint) + 1h;
-    }
-
     auto ret = duration_cast<seconds>(now.time_since_epoch()).count();
     if (destTime != nullptr)
     {
@@ -178,7 +177,7 @@ void InitClockHooks()
     MH_CreateHookApi(L"kernel32.dll", "GetSystemTime", GetSystemTimeHook, reinterpret_cast<void**>(&GetSystemTimeOri));
     MH_CreateHookApi(L"kernel32.dll", "GetTimeZoneInformation", GetTimeZoneInformationHook, reinterpret_cast<void**>(&GetTimeZoneInformationOri));
     MH_CreateHookApi(L"api-ms-win-crt-time-l1-1-0.dll", "_time64", time64Hook, reinterpret_cast<void**>(&time64Ori));
-    
+
     MH_EnableHook(nullptr);
 }
 

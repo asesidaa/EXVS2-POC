@@ -78,7 +78,7 @@ typedef struct amcus_version_info
 } amcus_version_info_t;
 
 DWORD reg = 0;
-static config_struct amconfig;
+static config_struct amconfig {};
 
 class CAuth : public IUnknown
 {
@@ -255,6 +255,7 @@ public:
     IAuth_GetAuthServerResp(amcus_auth_server_resp_t* resp)
     {
         log("IAuth_GetAuthServerResp");
+        log("Server address %s", amconfig.ServerAddress.c_str());
 
         std::string region_name_0 = amconfig.RegionCode;
 
@@ -509,11 +510,13 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
     return gOriCoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
 }
 
-void InitAmAuthEmu(config_struct& config)
+void InitAmAuthEmu(const config_struct& config)
 {
     MH_Initialize();
     MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&gOriCoCreateInstance));
     MH_EnableHook(nullptr);
     
-    memcpy_s(&amconfig, sizeof(config_struct), &config, sizeof(config_struct));
+    //memcpy_s(&amconfig, sizeof(config_struct), &config, sizeof(config_struct));
+    amconfig = config;
+    log("AMconfig Server address: %s", amconfig.ServerAddress.c_str());
 }

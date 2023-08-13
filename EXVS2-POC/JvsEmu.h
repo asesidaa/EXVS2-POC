@@ -1,4 +1,4 @@
 ﻿#pragma once
 #include "Configs.h"
 
-void InitializeJvs(config_struct configs);
+void InitializeJvs(const config_struct& configs);
