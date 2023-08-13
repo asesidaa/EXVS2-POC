@@ -3,6 +3,7 @@
 
 @using MudBlazor;
 @using System.Net.Http.Json;
+@using System.Text;
 @using WebUI.Shared.Dto.Response;
 @using WebUI.Client.Pages.Dialogs;
 @inject IDialogService DialogService;
@@ -58,7 +59,7 @@
                         <MudCard Elevation="4">
                             <MudCardHeader>
                                 <CardHeaderContent>
-                                    <MudText Typo="Typo.h5">@card.UserName</MudText>
+                                    <MudText Typo="Typo.h5">@ObfuscateName(card.UserName)</MudText>
                                 </CardHeaderContent>
                                 <CardHeaderActions>
                                 </CardHeaderActions>
@@ -73,7 +74,7 @@
                                                Variant="Variant.Text"
                                                StartIcon="@Icons.Material.Filled.DisplaySettings"
                                                Color="Color.Primary">
-                                        Edit Options
+                                    @localizer["cardseditoptions"]
                                     </MudButton>
                                 </MudStack>
                                 <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
@@ -120,7 +121,7 @@
     {
         if (firstRender)
         {
-            mudTextField.HelperText = $"{localizer["playername"]} / {localizer["cardid"]}";
+            mudTextField.HelperText = $"{localizer["cardid"]}";
             StateHasChanged();
         }
     }
@@ -161,7 +162,7 @@
             { "Mode", "ViewDetail"}
         };
         var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
-    // ReSharper disable once UnusedVariable
+        // ReSharper disable once UnusedVariable
         var result = await dialog.Result;
         if (!result.Canceled)
         {
@@ -169,10 +170,32 @@
         }
     }
 
-
     private void SearchEntered(string input)
     {
-        cardDtos = originalCardDtos.Where(x => x.UserName.Contains(input) || x.ChipId.Contains(input)).ToList();
+        cardDtos = originalCardDtos.Where(x => x.ChipId.Contains(input)).ToList();
         StateHasChanged();
+    }
+
+    private string ObfuscateName(string name)
+    {
+        int minLength = 3;
+        string obfuscationChar = "*";
+
+        if (string.IsNullOrEmpty(name))
+        {
+            return new string('*', minLength);
+        }
+
+        int fillCount = Math.Max(minLength - name.Length, 0);
+        string filledInput = name.PadRight(minLength, obfuscationChar[0]);
+
+        string prefix = filledInput.Substring(0, minLength);
+        string obfuscatedPart = new string('*', 7);
+
+        StringBuilder resultBuilder = new StringBuilder(minLength + obfuscatedPart.Length);
+        resultBuilder.Append(prefix);
+        resultBuilder.Append(obfuscatedPart);
+
+        return resultBuilder.ToString();
     }
 }

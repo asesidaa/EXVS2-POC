@@ -381,6 +381,9 @@
   <data name="triadtitles" xml:space="preserve">
     <value>街机模式称号</value>
   </data>
+  <data name="cardseditoptions" xml:space="preserve">
+    <value>修改卡信息</value>
+  </data>
   <data name="comment_hint" xml:space="preserve">
     <value>详细请浏览：</value>
   </data>

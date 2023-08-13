@@ -384,6 +384,9 @@
   <data name="triadtitles" xml:space="preserve">
     <value>Triad Titles</value>
   </data>
+  <data name="cardseditoptions" xml:space="preserve">
+    <value>Edit Options</value>
+  </data>
   <data name="comment_hint" xml:space="preserve">
     <value>Detail refer to:</value>
   </data>
