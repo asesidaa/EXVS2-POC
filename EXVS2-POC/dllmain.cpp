@@ -13,7 +13,7 @@
 #include "configs.h"
 
 config_struct ReadConfigs(INIReader reader) {
-    config_struct config;
+    config_struct config {};
 
     // config reading
     config.Windowed = reader.GetBoolean("config", "windowed", false);
@@ -47,16 +47,16 @@ config_struct ReadConfigs(INIReader reader) {
     keyMapPlaceholder = reader.Get("keybind", "Coin", "M");
     key_bind.Coin = findKeyByValue(keyMapPlaceholder);
 
-    keyMapPlaceholder = reader.Get("keybind", "Up", "Up");
+    keyMapPlaceholder = reader.Get("keybind", "Up", "UpArr");
     key_bind.Up = findKeyByValue(keyMapPlaceholder);
 
-    keyMapPlaceholder = reader.Get("keybind", "Left", "Left");
+    keyMapPlaceholder = reader.Get("keybind", "Left", "LeftArr");
     key_bind.Left = findKeyByValue(keyMapPlaceholder);
 
-    keyMapPlaceholder = reader.Get("keybind", "Down", "Down");
+    keyMapPlaceholder = reader.Get("keybind", "Down", "DownArr");
     key_bind.Down = findKeyByValue(keyMapPlaceholder);
 
-    keyMapPlaceholder = reader.Get("keybind", "Right", "Right");
+    keyMapPlaceholder = reader.Get("keybind", "Right", "RightArr");
     key_bind.Right = findKeyByValue(keyMapPlaceholder);
 
     keyMapPlaceholder = reader.Get("keybind", "Button1", "Z");
