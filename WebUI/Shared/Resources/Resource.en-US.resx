@@ -384,4 +384,67 @@
   <data name="triadtitles" xml:space="preserve">
     <value>Triad Titles</value>
   </data>
+  <data name="comment_hint" xml:space="preserve">
+    <value>Detail refer to:</value>
+  </data>
+  <data name="comment_part1id" xml:space="preserve">
+    <value>Part 1 ID</value>
+  </data>
+  <data name="comment_part2id" xml:space="preserve">
+    <value>Part 2 ID</value>
+  </data>
+  <data name="comment_parts_example" xml:space="preserve">
+    <value>Example of Parts include:</value>
+  </data>
+  <data name="comment_sentenceid" xml:space="preserve">
+    <value>Sentence ID</value>
+  </data>
+  <data name="comment_sentence_example" xml:space="preserve">
+    <value>Example of Sentence include:</value>
+  </data>
+  <data name="comment_wiki" xml:space="preserve">
+    <value>Wiki</value>
+  </data>
+  <data name="index_update" xml:space="preserve">
+    <value>Please check for updates on:</value>
+  </data>
+  <data name="index_warn" xml:space="preserve">
+    <value>This project is open source and will forever remain freely accessible. Any attempts at monetization are not endorsed by the project and should be promptly reported through the designated platform.</value>
+  </data>
+  <data name="triad_ai" xml:space="preserve">
+    <value>ai</value>
+  </data>
+  <data name="triad_armor" xml:space="preserve">
+    <value>Armor</value>
+  </data>
+  <data name="triad_boost" xml:space="preserve">
+    <value>Boost</value>
+  </data>
+  <data name="triad_bursttype" xml:space="preserve">
+    <value>Burst Type</value>
+  </data>
+  <data name="triad_cpums" xml:space="preserve">
+    <value>CPU Mobile Suit</value>
+  </data>
+  <data name="triad_cpuskill1" xml:space="preserve">
+    <value>CPU Skill 1</value>
+  </data>
+  <data name="triad_cpuskill2" xml:space="preserve">
+    <value>CPU Skill 2</value>
+  </data>
+  <data name="triad_exgauge" xml:space="preserve">
+    <value>EX Gauge</value>
+  </data>
+  <data name="triad_infight" xml:space="preserve">
+    <value>Infight</value>
+  </data>
+  <data name="triad_shooting" xml:space="preserve">
+    <value>Shooting</value>
+  </data>
+  <data name="triad_teambanner" xml:space="preserve">
+    <value>Triad Team Banner</value>
+  </data>
+  <data name="triad_teamname" xml:space="preserve">
+    <value>Triad Team Name</value>
+  </data>
 </root>

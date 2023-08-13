@@ -381,4 +381,67 @@
   <data name="triadtitles" xml:space="preserve">
     <value>街机模式称号</value>
   </data>
+  <data name="comment_hint" xml:space="preserve">
+    <value>详细请浏览：</value>
+  </data>
+  <data name="comment_part1id" xml:space="preserve">
+    <value>备件ID 1</value>
+  </data>
+  <data name="comment_part2id" xml:space="preserve">
+    <value>备件ID 2</value>
+  </data>
+  <data name="comment_parts_example" xml:space="preserve">
+    <value>句子备件列子：</value>
+  </data>
+  <data name="comment_sentenceid" xml:space="preserve">
+    <value>句子ID</value>
+  </data>
+  <data name="comment_sentence_example" xml:space="preserve">
+    <value>句子列子：</value>
+  </data>
+  <data name="comment_wiki" xml:space="preserve">
+    <value>维基</value>
+  </data>
+  <data name="index_update" xml:space="preserve">
+    <value>最新更新：</value>
+  </data>
+  <data name="index_warn" xml:space="preserve">
+    <value>本项目为开放源代码，将永远保持免费开放。请将任何试图进行盈利的行为都列为非官方行为，并应该立即通过指定平台进行举报。</value>
+  </data>
+  <data name="triad_ai" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="triad_armor" xml:space="preserve">
+    <value>装甲</value>
+  </data>
+  <data name="triad_boost" xml:space="preserve">
+    <value>气槽</value>
+  </data>
+  <data name="triad_bursttype" xml:space="preserve">
+    <value>觉醒种类</value>
+  </data>
+  <data name="triad_cpums" xml:space="preserve">
+    <value>CPU 队友机体</value>
+  </data>
+  <data name="triad_cpuskill1" xml:space="preserve">
+    <value>CPU 技能 1</value>
+  </data>
+  <data name="triad_cpuskill2" xml:space="preserve">
+    <value>CPU 技能 2</value>
+  </data>
+  <data name="triad_exgauge" xml:space="preserve">
+    <value>觉醒槽</value>
+  </data>
+  <data name="triad_infight" xml:space="preserve">
+    <value>格斗</value>
+  </data>
+  <data name="triad_shooting" xml:space="preserve">
+    <value>射击</value>
+  </data>
+  <data name="triad_teambanner" xml:space="preserve">
+    <value>Triad 队横幅</value>
+  </data>
+  <data name="triad_teamname" xml:space="preserve">
+    <value>Triad 队名字</value>
+  </data>
 </root>

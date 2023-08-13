@@ -1,4 +1,4 @@
-﻿@page "/Cards/Customize/{AccessCode}/{ChipId}"
+﻿@page "/Cards/Customize/{ChipId}"
 
 @inject HttpClient Http
 @inject ILogger<CustomizeCard> Logger
@@ -502,7 +502,7 @@
                         <MudItem xs="10">
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
-                                    <MudField Label="CPU Mobile Suit" Variant="Variant.Outlined">
+                                            <MudField Label="@localizer["triad_cpums"]" Variant="Variant.Outlined">
                                         <MudText Align="Align.Center">@NameService.GetMobileSuitName(cpuTriadPartner.MobileSuitId)</MudText>
                                     </MudField>
                                 </MudItem>
@@ -513,26 +513,26 @@
                             </MudGrid>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSlider @bind-Value="cpuTriadPartner.ArmorLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Armor (耐久値):</MudSlider>
+                            <MudSlider @bind-Value="cpuTriadPartner.ArmorLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_armor"]</MudSlider>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSlider @bind-Value="cpuTriadPartner.ShootAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Shooting (射撃･攻):</MudSlider>
+                            <MudSlider @bind-Value="cpuTriadPartner.ShootAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_shooting"]</MudSlider>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSlider @bind-Value="cpuTriadPartner.InfightAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Infight (格闘･攻):</MudSlider>
+                            <MudSlider @bind-Value="cpuTriadPartner.InfightAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_infight"]</MudSlider>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSlider @bind-Value="cpuTriadPartner.BoosterLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">Booster (ブースト):</MudSlider>
+                            <MudSlider @bind-Value="cpuTriadPartner.BoosterLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_boost"]</MudSlider>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSlider @bind-Value="cpuTriadPartner.ExGaugeLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">EX Gauge (EXゲージ):</MudSlider>
+                            <MudSlider @bind-Value="cpuTriadPartner.ExGaugeLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_exgauge"]</MudSlider>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSlider @bind-Value="cpuTriadPartner.AiLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">AI:</MudSlider>
+                            <MudSlider @bind-Value="cpuTriadPartner.AiLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_ai"]</MudSlider>
                         </MudItem>
                         <MudItem xs="12">
                             <MudSelect @bind-Value="SelectedTriadSkill1" T="IdValuePair"
-                                       Label="CPU Skill 1" Variant="Variant.Outlined">
+                                       Label="@localizer["triad_cpuskill1"]" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadSkillList())
                                 {
                                     <MudSelectItem Value="item">@NameService.GetLocalizedName(item)</MudSelectItem>
@@ -541,7 +541,7 @@
                         </MudItem>
                         <MudItem xs="12">
                             <MudSelect @bind-Value="SelectedTriadSkill2" T="IdValuePair"
-                                       Label="CPU Skill 2" Variant="Variant.Outlined">
+                                       Label="@localizer["triad_cpuskill2"]" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadSkillList())
                                 {
                                     <MudSelectItem Value="item">@NameService.GetLocalizedName(item)</MudSelectItem>
@@ -549,7 +549,7 @@
                             </MudSelect>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudSelect Label="Burst Type" @bind-Value="cpuTriadPartner.BurstType" T="BurstType" Variant="Variant.Outlined">
+                            <MudSelect Label="@localizer["triad_bursttype"]" @bind-Value="cpuTriadPartner.BurstType" T="BurstType" Variant="Variant.Outlined">
                                 @foreach (var item in Enum.GetValues<BurstType>())
                                 {
                                     <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
@@ -562,12 +562,12 @@
                                           Variant="Variant.Outlined"
                                           Counter="PLAYER_NAME_MAX_LENGTH"
                                           MaxLength="PLAYER_NAME_MAX_LENGTH"
-                                          Label="Triad Team Name"
+                                          Label="@localizer["triad_teamname"]"
                                           Validation="ValidateTeamName" />
                         </MudItem>
                         <MudItem xs="12">
                             <MudSelect @bind-Value="SelectedTriadTeamBanner" T="IdValuePair"
-                                       Label="Triad Team Banner" Variant="Variant.Outlined">
+                                       Label="@localizer["triad_teambanner"]" Variant="Variant.Outlined">
                                 @foreach (var item in DataService.GetSortedTriadTeamBannerList())
                                 {
                                     <MudSelectItem Value="item">@item.Value</MudSelectItem>
@@ -599,20 +599,20 @@
                 <MudCardContent>
                     <MudStack>
                         <MudItem xs="12">
-                            Detail refer to: <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/464.html" Target="_blank">Wiki</MudLink>
+                            @localizer["comment_hint"] <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/464.html" Target="_blank">@localizer["comment_wiki"]</MudLink>
                         </MudItem>
-                        <MudItem xs="12">Example of Sentence include: そんな[]、修正してやる！</MudItem>
-                        <MudItem xs="12">Example of Parts include: [Sフリーダム], [キラ], [天然] etc...</MudItem>
+                            <MudItem xs="12">@localizer["comment_sentence_example"] そんな[]、修正してやる！</MudItem>
+                            <MudItem xs="12">@localizer["comment_parts_example"] [Sフリーダム], [キラ], [天然]</MudItem>
                     </MudStack>
                     <MudGrid>
                         <MudItem xs="4">
-                            <MudNumericField @bind-Value="CustomizeComment.BasePhraseId" Label="Sentence ID" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
+                            <MudNumericField @bind-Value="CustomizeComment.BasePhraseId" Label="@localizer["comment_sentenceid"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
                         </MudItem>
                         <MudItem xs="4">
-                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart1Id" Label="Part 1 ID" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
+                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart1Id" Label="@localizer["comment_part1id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
                         </MudItem>
                         <MudItem xs="4">
-                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart2Id" Label="Part 2 ID" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
+                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart2Id" Label="@localizer["comment_part2id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
                         </MudItem>
                     </MudGrid>
                 </MudCardContent>

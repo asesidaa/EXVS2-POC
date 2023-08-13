@@ -36,6 +36,9 @@
     [Parameter]
     public string Mode { get; set; } = null!;
 
+    [Inject]
+    private IJSRuntime _jsRuntime { get; set; }
+
     private MudTextField<string> mudTextField { get; set; }
 
     private string AccessCode { get; set; } = string.Empty;
@@ -59,13 +62,15 @@
         }
         else
         {
+            await _jsRuntime.InvokeVoidAsync("accessCode.set", AccessCode);
+
             if (Mode == "EditCard")
             {
-                NavManager.NavigateTo($"Cards/Customize/{Data.AccessCode}/{Data.ChipId}");   
+                NavManager.NavigateTo($"Cards/Customize/{Data.ChipId}");   
             }
             else
             {
-                NavManager.NavigateTo($"Cards/ViewDetail/{Data.AccessCode}/{Data.ChipId}"); 
+                NavManager.NavigateTo($"Cards/ViewDetail/{Data.ChipId}"); 
             }
         }
     }

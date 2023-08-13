@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using MudBlazor;
 using System.Collections.ObjectModel;
 using System.Net.Http.Json;
@@ -19,7 +20,8 @@ public partial class CustomizeCard
     [Parameter]
     public string AccessCode { get; set; } = string.Empty;
 
-    // private MudDataGrid<FavouriteMs> favMsDataGrid;
+    [Inject]
+    private IJSRuntime? _jsRuntime { get; set; }
 
     private BasicProfile _basicProfile = null!;
     private NaviProfile _naviProfile  = null!;
@@ -116,99 +118,108 @@ public partial class CustomizeCard
     {
         await base.OnInitializedAsync();
         breadcrumbs.Add(new BreadcrumbItem($"Card: {ChipId}", href: null, disabled: true));
-        breadcrumbs.Add(new BreadcrumbItem("Option", href: $"/Cards/Customize/{AccessCode}/{ChipId}", disabled: false));
+        breadcrumbs.Add(new BreadcrumbItem("Option", href: $"/Cards/Customize/{ChipId}", disabled: false));
 
-        var profileResult = await Http.GetFromJsonAsync<BasicProfile>($"/card/getBasicDisplayProfile/{AccessCode}/{ChipId}");
-        profileResult.ThrowIfNull();
+        AccessCode = await _jsRuntime.InvokeAsync<string>("accessCode.get");
 
-        var naviResult = await Http.GetFromJsonAsync<NaviProfile>($"/card/getNaviProfile/{AccessCode}/{ChipId}");
-        naviResult.ThrowIfNull();
-
-        var favouriteResult = await Http.GetFromJsonAsync<List<FavouriteMs>>($"/card/getAllFavouriteMs/{AccessCode}/{ChipId}");
-        favouriteResult.ThrowIfNull();
-        
-        var cpuTriadPartnerResult = await Http.GetFromJsonAsync<CpuTriadPartner>($"/card/getCpuTriadPartner/{AccessCode}/{ChipId}");
-        cpuTriadPartnerResult.ThrowIfNull();
-        
-        var customizeCommentResult = await Http.GetFromJsonAsync<CustomizeComment>($"/card/getCustomizeComment/{AccessCode}/{ChipId}");
-        customizeCommentResult.ThrowIfNull();
-
-        var msSkillGroup = await Http.GetFromJsonAsync<List<MsSkillGroup>>($"/card/getUsedMobileSuitData/{AccessCode}/{ChipId}");
-        msSkillGroup.ThrowIfNull();
-        
-        var gamepadConfig = await Http.GetFromJsonAsync<GamepadConfig>($"/card/getGamepadConfig/{AccessCode}/{ChipId}");
-        gamepadConfig.ThrowIfNull();
-        
-        var customMessageGroupSetting = await Http.GetFromJsonAsync<CustomMessageGroupSetting>($"/card/getCustomMessageGroupSetting/{AccessCode}/{ChipId}");
-        customMessageGroupSetting.ThrowIfNull();
-
-        //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
-        //Logger.LogInformation($"{json}");
-
-        // assign costume selection id from ms skill group to the mobile suit list
-        var mobileSuitList = DataService.GetMobileSuitSortedById().Select(x => new MobileSuitWithSkillGroup { MobileSuit = x }).ToList();
-        var msWithAltCostumes = mobileSuitList
-            .Where(x => x.MobileSuit.Costumes != null && x.MobileSuit.Costumes.Count > 0)
-            .GroupJoin(
-                msSkillGroup,
-                firstItem => firstItem.MobileSuit.Id,
-                secondItem => secondItem.MstMobileSuitId,
-                (firstItem, matchingSecondItems) => new
-                {
-                    FirstItem = firstItem,
-                    MatchingSecondItem = matchingSecondItems.FirstOrDefault()
-                })
-            .Select(joinedItem =>
-            {
-                if (joinedItem.MatchingSecondItem != null)
-                {
-                    joinedItem.FirstItem.SkillGroup = joinedItem.MatchingSecondItem;
-                }
-                return joinedItem.FirstItem;
-            })
-            .ToList();
-
-        var naviList = DataService.GetNavigatorSortedById().Select(navigator => new NaviWithNavigatorGroup()
+        if (string.IsNullOrEmpty(AccessCode))
         {
-            Navigator = navigator
-        }).ToList();
-        
-        var naviWithAltCostumes = naviList
-            .Where(x => x.Navigator.Costumes != null && x.Navigator.Costumes.Count > 0)
-            .GroupJoin(
-                naviResult.UserNavis,
-                firstItem => firstItem.Navigator.Id,
-                secondItem => secondItem.Id,
-                (firstItem, matchingSecondItems) => new
+            Snackbar.Add($"Invalid access code!", Severity.Error);
+        }
+        else
+        {
+            var profileResult = await Http.GetFromJsonAsync<BasicProfile>($"/card/getBasicDisplayProfile/{AccessCode}/{ChipId}");
+            profileResult.ThrowIfNull();
+
+            var naviResult = await Http.GetFromJsonAsync<NaviProfile>($"/card/getNaviProfile/{AccessCode}/{ChipId}");
+            naviResult.ThrowIfNull();
+
+            var favouriteResult = await Http.GetFromJsonAsync<List<FavouriteMs>>($"/card/getAllFavouriteMs/{AccessCode}/{ChipId}");
+            favouriteResult.ThrowIfNull();
+
+            var cpuTriadPartnerResult = await Http.GetFromJsonAsync<CpuTriadPartner>($"/card/getCpuTriadPartner/{AccessCode}/{ChipId}");
+            cpuTriadPartnerResult.ThrowIfNull();
+
+            var customizeCommentResult = await Http.GetFromJsonAsync<CustomizeComment>($"/card/getCustomizeComment/{AccessCode}/{ChipId}");
+            customizeCommentResult.ThrowIfNull();
+
+            var msSkillGroup = await Http.GetFromJsonAsync<List<MsSkillGroup>>($"/card/getUsedMobileSuitData/{AccessCode}/{ChipId}");
+            msSkillGroup.ThrowIfNull();
+
+            var gamepadConfig = await Http.GetFromJsonAsync<GamepadConfig>($"/card/getGamepadConfig/{AccessCode}/{ChipId}");
+            gamepadConfig.ThrowIfNull();
+
+            var customMessageGroupSetting = await Http.GetFromJsonAsync<CustomMessageGroupSetting>($"/card/getCustomMessageGroupSetting/{AccessCode}/{ChipId}");
+            customMessageGroupSetting.ThrowIfNull();
+
+            //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
+            //Logger.LogInformation($"{json}");
+
+            // assign costume selection id from ms skill group to the mobile suit list
+            var mobileSuitList = DataService.GetMobileSuitSortedById().Select(x => new MobileSuitWithSkillGroup { MobileSuit = x }).ToList();
+            var msWithAltCostumes = mobileSuitList
+                .Where(x => x.MobileSuit.Costumes != null && x.MobileSuit.Costumes.Count > 0)
+                .GroupJoin(
+                    msSkillGroup,
+                    firstItem => firstItem.MobileSuit.Id,
+                    secondItem => secondItem.MstMobileSuitId,
+                    (firstItem, matchingSecondItems) => new
+                    {
+                        FirstItem = firstItem,
+                        MatchingSecondItem = matchingSecondItems.FirstOrDefault()
+                    })
+                .Select(joinedItem =>
                 {
-                    FirstItem = firstItem,
-                    MatchingSecondItem = matchingSecondItems.FirstOrDefault()
+                    if (joinedItem.MatchingSecondItem != null)
+                    {
+                        joinedItem.FirstItem.SkillGroup = joinedItem.MatchingSecondItem;
+                    }
+                    return joinedItem.FirstItem;
                 })
-            .Select(joinedItem =>
+                .ToList();
+
+            var naviList = DataService.GetNavigatorSortedById().Select(navigator => new NaviWithNavigatorGroup()
             {
-                if (joinedItem.MatchingSecondItem != null)
+                Navigator = navigator
+            }).ToList();
+
+            var naviWithAltCostumes = naviList
+                .Where(x => x.Navigator.Costumes != null && x.Navigator.Costumes.Count > 0)
+                .GroupJoin(
+                    naviResult.UserNavis,
+                    firstItem => firstItem.Navigator.Id,
+                    secondItem => secondItem.Id,
+                    (firstItem, matchingSecondItems) => new
+                    {
+                        FirstItem = firstItem,
+                        MatchingSecondItem = matchingSecondItems.FirstOrDefault()
+                    })
+                .Select(joinedItem =>
                 {
-                    joinedItem.FirstItem.Navi = joinedItem.MatchingSecondItem;
-                }
-                return joinedItem.FirstItem;
-            })
-            .ToList();
-        
-        _basicProfile = profileResult;
-        _naviProfile = naviResult;
-        _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
-        _mobileSuitsSkillGroups = new ObservableCollection<MobileSuitWithSkillGroup>(msWithAltCostumes);
-        _naviObservableCollection = new ObservableCollection<NaviWithNavigatorGroup>(naviWithAltCostumes);
-        
-        cpuTriadPartner = cpuTriadPartnerResult;
-        SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
-        SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
-        SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
-        CustomizeComment = customizeCommentResult;
-        
-        _gamepadConfig = gamepadConfig;
-        
-        _customMessageGroupSetting = customMessageGroupSetting;
+                    if (joinedItem.MatchingSecondItem != null)
+                    {
+                        joinedItem.FirstItem.Navi = joinedItem.MatchingSecondItem;
+                    }
+                    return joinedItem.FirstItem;
+                })
+                .ToList();
+
+            _basicProfile = profileResult;
+            _naviProfile = naviResult;
+            _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
+            _mobileSuitsSkillGroups = new ObservableCollection<MobileSuitWithSkillGroup>(msWithAltCostumes);
+            _naviObservableCollection = new ObservableCollection<NaviWithNavigatorGroup>(naviWithAltCostumes);
+
+            cpuTriadPartner = cpuTriadPartnerResult;
+            SelectedTriadSkill1 = DataService.GetTriadSkill(cpuTriadPartner.Skill1);
+            SelectedTriadSkill2 = DataService.GetTriadSkill(cpuTriadPartner.Skill2);
+            SelectedTriadTeamBanner = DataService.GetTriadTeamBanner(cpuTriadPartner.TriadBackgroundPartsId);
+            CustomizeComment = customizeCommentResult;
+
+            _gamepadConfig = gamepadConfig;
+
+            _customMessageGroupSetting = customMessageGroupSetting;
+        }
     }
 
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
