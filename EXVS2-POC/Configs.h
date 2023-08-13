@@ -3,6 +3,7 @@
 #include "VirtualKeyMapping.h"
 
 struct jvs_key_bind {
+	int KillProcess;
 	int Test;
 	int Start;
 	int Service;
@@ -25,6 +26,7 @@ struct jvs_key_bind {
 	int ArcadeTest;
 
 	jvs_key_bind():
+		KillProcess(0x1B),
 		Test(0x54),
 		Start(0x4F),
 		Service(0x53),
