@@ -29,8 +29,8 @@ config_struct ReadConfigs(INIReader reader) {
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config.Mode = reader.Get("config", "mode", "1");
     config.RegionCode = reader.Get("config", "Region", "1");
+    config.UseNormalTimeInLM = reader.GetBoolean("config", "Region", false);
     
-
     // key bind config reading
     jvs_key_bind key_bind;
     std::string keyMapPlaceholder;
@@ -86,6 +86,8 @@ config_struct ReadConfigs(INIReader reader) {
     key_bind.ArcadeCoin = reader.GetInteger("keybind", "ArcadeCoin", 6);
 
     key_bind.ArcadeTest = reader.GetInteger("keybind", "ArcadeTest", 7);
+
+    key_bind.UseKeyboardSupportKeyInDirectInput = reader.GetBoolean("keybind", "UseKeyboardSupportKeyInDirectInput", true);
 
     config.KeyBind = key_bind;
     return config;

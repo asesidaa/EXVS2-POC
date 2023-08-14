@@ -96,8 +96,16 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
         INIReader config_reader("config.ini");
         std::string input_mode = config_reader.Get("config", "InputMode", "Keyboard");
         std::string card_key = config_reader.Get("keybind", "Card", "P");
+        bool allow_keyboard_support_in_dinput = config_reader.GetBoolean("keybind", "UseKeyboardSupportKeyInDirectInput", true);
 
-        if(input_mode != "DirectInput")
+        bool useKeyboard = true;
+
+        if(input_mode == "DirectInput")
+        {
+            useKeyboard = allow_keyboard_support_in_dinput;
+        }
+        
+        if(useKeyboard)
         {
             button_state = GetAsyncKeyState(findKeyByValue(card_key));
         }
