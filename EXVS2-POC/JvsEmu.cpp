@@ -487,6 +487,11 @@ void handleDirectInputGamePlay(BYTE &byte0, BYTE &byte1, BYTE &byte2)
 
 void handleSupportKeyInputs(BYTE &byte0, BYTE &byte1)
 {
+	if(input_mode == "DirectInput" && key_bind.UseKeyboardSupportKeyInDirectInput == false)
+	{
+		return;
+	}
+	
 	if (GetAsyncKeyState(key_bind.Test) & 0x8000)
 	{
 		log("Test Pressed");
@@ -591,7 +596,13 @@ int handleReadCoinInputs(jprot_encoder *r)
 
 	bool currstate = false;
 
-	if(input_mode != "DirectInput")
+	bool useKeyboard = true;
+	if(input_mode == "DirectInput")
+	{
+		useKeyboard = key_bind.UseKeyboardSupportKeyInDirectInput;
+	}
+
+	if(useKeyboard)
 	{
 		currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
 	}

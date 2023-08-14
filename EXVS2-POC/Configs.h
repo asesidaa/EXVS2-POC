@@ -24,6 +24,7 @@ struct jvs_key_bind {
 	int ArcadeStartButton;
 	int ArcadeCoin;
 	int ArcadeTest;
+	bool UseKeyboardSupportKeyInDirectInput;
 
 	jvs_key_bind():
 		KillProcess(0x1B),
@@ -46,7 +47,8 @@ struct jvs_key_bind {
 		ArcadeButton4(4),
 		ArcadeStartButton(5),
 		ArcadeCoin(6),
-		ArcadeTest(7)
+		ArcadeTest(7),
+		UseKeyboardSupportKeyInDirectInput(true)
 	{}
 };
 
