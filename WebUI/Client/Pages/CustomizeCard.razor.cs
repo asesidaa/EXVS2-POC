@@ -31,7 +31,11 @@ public partial class CustomizeCard
     private CpuTriadPartner cpuTriadPartner = null;
     private GamepadConfig _gamepadConfig = null;
     private CustomMessageGroupSetting _customMessageGroupSetting = null!;
-    
+
+    MudForm _playerNameForm;
+    MudForm _teamNameForm;
+    MudForm _messageForm;
+
     private string? errorMessage = null;
 
     private readonly int maximumFavouriteMs = 6;
@@ -441,6 +445,14 @@ public partial class CustomizeCard
 
     private async Task SaveBasicProfile()
     {
+        await _playerNameForm.Validate();
+
+        if (!_playerNameForm.IsValid)
+        {
+            ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_cardinfo"]);
+            return;
+        }
+
         HideProfileProgress = "visible";
         StateHasChanged();
         
@@ -451,12 +463,11 @@ public partial class CustomizeCard
             BasicProfile = _basicProfile
         };
 
-
         var response = await Http.PostAsJsonAsync("/card/updateBasicProfile", dto);
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "card infos");
+        ShowBasicResponseSnack(result, localizer["save_hint_cardinfo"]);
 
         HideProfileProgress = "invisible";
         StateHasChanged();
@@ -479,7 +490,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "navigatior infos");
+        ShowBasicResponseSnack(result, localizer["save_hint_navinfo"]);
 
         HideNaviProgress = "invisible";
         StateHasChanged();
@@ -503,7 +514,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "navi costume");
+        ShowBasicResponseSnack(result, localizer["save_hint_navcostume"]);
 
         HideNaviCostumeProgress = "invisible";
         StateHasChanged();
@@ -525,7 +536,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "favourite mobile suit infos");
+        ShowBasicResponseSnack(result, localizer["save_hint_favms"]);
 
         HideFavMsProgress = "invisible";
         StateHasChanged();
@@ -549,7 +560,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "mobile suit costume");
+        ShowBasicResponseSnack(result, localizer["save_hint_mscostume"]);
 
         HideMsCostumeProgress = "invisible";
         StateHasChanged();
@@ -557,11 +568,19 @@ public partial class CustomizeCard
     
     private async Task SaveTriadCpuPartner()
     {
+        await _teamNameForm.Validate();
+        if (!_teamNameForm.IsValid)
+        {
+            ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_triadcpupartner"]);
+            return;
+        }
+
         int totalLevel = cpuTriadPartner.ArmorLevel + cpuTriadPartner.ShootAttackLevel + cpuTriadPartner.InfightAttackLevel
                          + cpuTriadPartner.BoosterLevel + cpuTriadPartner.ExGaugeLevel + cpuTriadPartner.AiLevel;
+
         if (totalLevel > 500)
         {
-            Snackbar.Add("Sum of CPU Level cannot exceed 500", Severity.Warning);
+            Snackbar.Add(localizer["save_hint_cpulimit"], Severity.Warning);
             return;
         }
         
@@ -583,7 +602,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "Triad CPU Partner");
+        ShowBasicResponseSnack(result, localizer["save_hint_triadcpupartner"]);
 
         HideTriadCpuPartnerProgress = "invisible";
         StateHasChanged();
@@ -611,7 +630,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "Customize Comment");
+        ShowBasicResponseSnack(result, localizer["save_hint_customizecomment"]);
 
         HideCustomizeCommentProgress = "invisible";
         StateHasChanged();
@@ -633,7 +652,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "Gamepad Config");
+        ShowBasicResponseSnack(result, localizer["save_hint_gamepadconfig"]);
 
         HideGamepadConfigProgress = "invisible";
         StateHasChanged();
@@ -641,6 +660,14 @@ public partial class CustomizeCard
     
     private async Task SaveCommunicationMessageConfig()
     {
+        await _messageForm.Validate();
+
+        if (!_messageForm.IsValid)
+        {
+            ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_commconfig"]);
+            return;
+        }
+
         HideCommunicationMessageProgress = "visible";
         StateHasChanged();
         
@@ -655,7 +682,7 @@ public partial class CustomizeCard
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
 
-        ShowBasicResponseSnack(result, "Communication Message Config");
+        ShowBasicResponseSnack(result, localizer["save_hint_commconfig"]);
 
         HideCommunicationMessageProgress = "invisible";
         StateHasChanged();
@@ -664,47 +691,47 @@ public partial class CustomizeCard
     private void ShowBasicResponseSnack(BasicResponse result, string context = "")
     {
         if (result.Success)
-            Snackbar.Add($"Updatng {context} successful!", Severity.Success);
+            Snackbar.Add($"{localizer["save_hint_update"]}{context}{localizer["save_hint_successful"]}", Severity.Success);
         else
-            Snackbar.Add($"Updating {context} failed!", Severity.Error);
+            Snackbar.Add($"{localizer["save_hint_update"]}{context}{localizer["save_hint_failed"]}", Severity.Error);
     }
 
-    private static string? ValidatePlayerName(string playerName)
+    private string? ValidatePlayerName(string playerName)
     {
-        return ValidateName(playerName, "Player name");
+        return ValidateName(playerName, localizer["validateplayername"]);
     }
     
-    private static string? ValidateTeamName(string teamName)
+    private string? ValidateTeamName(string teamName)
     {
-        return ValidateName(teamName, "Triad CPU Team name");
+        return ValidateName(teamName, localizer["validatetriadteamname"]);
     }
     
-    private static string? ValidateCustomizeMessage(string message)
+    private string? ValidateCustomizeMessage(string message)
     {
-        return ValidateMessage(message, "Message");
+        return ValidateMessage(message, localizer["validatemessage"]);
     }
 
-    private static String? ValidateName(string name, string errorMessagePart)
+    private String? ValidateName(string name, string errorMessagePart)
     {
         const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９-_ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
 
         return name.Length switch
         {
-            0 => errorMessagePart + " cannot be empty!",
-            > PLAYER_NAME_MAX_LENGTH => errorMessagePart + " cannot be longer than 12 characters!",
-            _ => !Regex.IsMatch(name, pattern) ? errorMessagePart + " contains invalid character!" : null
+            0 => errorMessagePart + $" {localizer["validation_required"]}",
+            > PLAYER_NAME_MAX_LENGTH => errorMessagePart + $" {localizer["validate_length_1"]} 12 {localizer["validate_length_2"]}",
+            _ => !Regex.IsMatch(name, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
         };
     }
     
-    private static String? ValidateMessage(string message, string errorMessagePart)
+    private String? ValidateMessage(string message, string errorMessagePart)
     {
-        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,10}$";
 
         return message.Length switch
         {
             0 => null,
-            > MESSAGE_MAX_LENGTH => errorMessagePart + " cannot be longer than 10 characters!",
-            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + " contains invalid character!" : null
+            > MESSAGE_MAX_LENGTH => errorMessagePart + $" {localizer["validate_length_1"]} 10 {localizer["validate_length_2"]}",
+            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
         };
     }
 

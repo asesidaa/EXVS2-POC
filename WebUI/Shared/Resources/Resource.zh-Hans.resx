@@ -411,6 +411,45 @@
   <data name="index_warn" xml:space="preserve">
     <value>本项目为开放源代码，将永远保持免费开放。请将任何试图进行盈利的行为都列为非官方行为，并应该立即通过指定平台进行举报。</value>
   </data>
+  <data name="save_hint_cardinfo" xml:space="preserve">
+    <value>卡组信息</value>
+  </data>
+  <data name="save_hint_commconfig" xml:space="preserve">
+    <value>自定义通讯信息</value>
+  </data>
+  <data name="save_hint_cpulimit" xml:space="preserve">
+    <value>CPU等级不能超过500！</value>
+  </data>
+  <data name="save_hint_customizecomment" xml:space="preserve">
+    <value>自定义签名信息</value>
+  </data>
+  <data name="save_hint_failed" xml:space="preserve">
+    <value>失败！</value>
+  </data>
+  <data name="save_hint_favms" xml:space="preserve">
+    <value>自定义机体信息</value>
+  </data>
+  <data name="save_hint_gamepadconfig" xml:space="preserve">
+    <value>自定义按键信息</value>
+  </data>
+  <data name="save_hint_mscostume" xml:space="preserve">
+    <value>机师服装信息</value>
+  </data>
+  <data name="save_hint_navcostume" xml:space="preserve">
+    <value>领航员服装信息</value>
+  </data>
+  <data name="save_hint_navinfo" xml:space="preserve">
+    <value>领航员信息</value>
+  </data>
+  <data name="save_hint_successful" xml:space="preserve">
+    <value>成功！</value>
+  </data>
+  <data name="save_hint_triadcpupartner" xml:space="preserve">
+    <value>CPU信息</value>
+  </data>
+  <data name="save_hint_update" xml:space="preserve">
+    <value>保存</value>
+  </data>
   <data name="triad_ai" xml:space="preserve">
     <value>AI</value>
   </data>
@@ -446,5 +485,26 @@
   </data>
   <data name="triad_teamname" xml:space="preserve">
     <value>Triad 队名字</value>
+  </data>
+  <data name="validatemessage" xml:space="preserve">
+    <value>通讯</value>
+  </data>
+  <data name="validateplayername" xml:space="preserve">
+    <value>用户名字</value>
+  </data>
+  <data name="validatetriadteamname" xml:space="preserve">
+    <value>Triad CPU 小组名称</value>
+  </data>
+  <data name="validation_invalidchar" xml:space="preserve">
+    <value>含有无效字符！</value>
+  </data>
+  <data name="validation_length_1" xml:space="preserve">
+    <value> 不可以长过</value>
+  </data>
+  <data name="validation_length_2" xml:space="preserve">
+    <value>字符串！</value>
+  </data>
+  <data name="validation_required" xml:space="preserve">
+    <value>不能为空！</value>
   </data>
 </root>

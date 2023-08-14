@@ -414,8 +414,47 @@
   <data name="index_warn" xml:space="preserve">
     <value>This project is open source and will forever remain freely accessible. Any attempts at monetization are not endorsed by the project and should be promptly reported through the designated platform.</value>
   </data>
+  <data name="save_hint_cardinfo" xml:space="preserve">
+    <value>card infos</value>
+  </data>
+  <data name="save_hint_commconfig" xml:space="preserve">
+    <value>communication message config</value>
+  </data>
+  <data name="save_hint_cpulimit" xml:space="preserve">
+    <value>Sum of CPU Level cannot exceed 500</value>
+  </data>
+  <data name="save_hint_customizecomment" xml:space="preserve">
+    <value>customize comment</value>
+  </data>
+  <data name="save_hint_failed" xml:space="preserve">
+    <value> failed!</value>
+  </data>
+  <data name="save_hint_favms" xml:space="preserve">
+    <value>favourite mobile suit infos</value>
+  </data>
+  <data name="save_hint_gamepadconfig" xml:space="preserve">
+    <value>gamepad config</value>
+  </data>
+  <data name="save_hint_mscostume" xml:space="preserve">
+    <value>mobile suit costume</value>
+  </data>
+  <data name="save_hint_navcostume" xml:space="preserve">
+    <value>navigator costumes</value>
+  </data>
+  <data name="save_hint_navinfo" xml:space="preserve">
+    <value>navigatior infos</value>
+  </data>
+  <data name="save_hint_successful" xml:space="preserve">
+    <value> successful!</value>
+  </data>
+  <data name="save_hint_triadcpupartner" xml:space="preserve">
+    <value>Triad CPU Partner</value>
+  </data>
+  <data name="save_hint_update" xml:space="preserve">
+    <value>Updating </value>
+  </data>
   <data name="triad_ai" xml:space="preserve">
-    <value>ai</value>
+    <value>AI</value>
   </data>
   <data name="triad_armor" xml:space="preserve">
     <value>Armor</value>
@@ -449,5 +488,26 @@
   </data>
   <data name="triad_teamname" xml:space="preserve">
     <value>Triad Team Name</value>
+  </data>
+  <data name="validatemessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="validateplayername" xml:space="preserve">
+    <value>Player name</value>
+  </data>
+  <data name="validatetriadteamname" xml:space="preserve">
+    <value>Triad CPU Team name</value>
+  </data>
+  <data name="validation_invalidchar" xml:space="preserve">
+    <value>contains invalid character!</value>
+  </data>
+  <data name="validation_length_1" xml:space="preserve">
+    <value> cannot be longer than</value>
+  </data>
+  <data name="validation_length_2" xml:space="preserve">
+    <value>characters!</value>
+  </data>
+  <data name="validation_required" xml:space="preserve">
+    <value>cannot be empty!</value>
   </data>
 </root>

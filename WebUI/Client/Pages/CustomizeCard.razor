@@ -64,13 +64,15 @@
                 <MudCardContent>
                     <MudStack>
                         <MudItem xs="8">
-                            <MudTextField @bind-Value="_basicProfile.UserName"
-                                          Immediate="true"
-                                          Variant="Variant.Outlined"
-                                          Counter="PLAYER_NAME_MAX_LENGTH"
-                                          MaxLength="PLAYER_NAME_MAX_LENGTH"
-                                          Label="@localizer["playername"]"
-                                          Validation="ValidatePlayerName" />
+                            <MudForm @ref="_playerNameForm">
+                                <MudTextField @bind-Value="_basicProfile.UserName"
+                                        Immediate="true"
+                                        Variant="Variant.Outlined"
+                                        Counter="PLAYER_NAME_MAX_LENGTH"
+                                        MaxLength="PLAYER_NAME_MAX_LENGTH"
+                                        Label="@localizer["playername"]"
+                                        Validation="ValidatePlayerName" />
+                            </MudForm>
                         </MudItem>
                         <MudItem xs="8">
                             <MudSelect @bind-Value="_basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
@@ -557,13 +559,15 @@
                             </MudSelect>
                         </MudItem>
                         <MudItem xs="12">
-                            <MudTextField @bind-Value="cpuTriadPartner.TriadTeamName"
-                                          Immediate="true"
-                                          Variant="Variant.Outlined"
-                                          Counter="PLAYER_NAME_MAX_LENGTH"
-                                          MaxLength="PLAYER_NAME_MAX_LENGTH"
-                                          Label="@localizer["triad_teamname"]"
-                                          Validation="ValidateTeamName" />
+                            <MudForm @ref="_teamNameForm">
+                                <MudTextField @bind-Value="cpuTriadPartner.TriadTeamName"
+                                    Immediate="true"
+                                    Variant="Variant.Outlined"
+                                    Counter="PLAYER_NAME_MAX_LENGTH"
+                                    MaxLength="PLAYER_NAME_MAX_LENGTH"
+                                    Label="@localizer["triad_teamname"]"
+                                    Validation="ValidateTeamName" />
+                            </MudForm>
                         </MudItem>
                         <MudItem xs="12">
                             <MudSelect @bind-Value="SelectedTriadTeamBanner" T="IdValuePair"
@@ -642,206 +646,209 @@
                                 <MudGrid Class="align-center">
                                     <MudItem xs="12">
                                         <MudExpansionPanels>
+                                            <MudForm @ref="_messageForm">
                                                 <MudExpansionPanel Text="@localizer["communicationmessage_prebattle"]">
-                                                <MudGrid>
-                                                    <MudItem xs="12">
-                                                        @localizer["communicationmessage_hint"]
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageup"]"
-                                                                      Disabled="@(!CanCustomizeBeforeBattleUpTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessagedown"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeBeforeBattleDownTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageleft"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeBeforeBattleLeftTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageright"]"
-                                                                      Validation="ValidateCustomizeMessage" 
-                                                                      Disabled="@(!CanCustomizeBeforeBattleRightTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                            </MudExpansionPanel>
-                                            <MudExpansionPanel Text="@localizer["communicationmessage_inbattle"]">
-                                                <MudGrid>
-                                                    <MudItem xs="12">
-                                                        @localizer["communicationmessage_hint"]
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageup"]"
-                                                                      Validation="ValidateCustomizeMessage" 
-                                                                      Disabled="@(!CanCustomizeInBattleUpTextMessage)"/>
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessagedown"]"
-                                                                      Validation="ValidateCustomizeMessage" 
-                                                                      Disabled="@(!CanCustomizeInBattleDownTextMessage)"/>
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageleft"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeInBattleLeftTextMessage)"/>
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageright"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeInBattleRightTextMessage)"/>
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                            </MudExpansionPanel>
-                                            <MudExpansionPanel Text="@localizer["communicationmessage_postbattle"]">
-                                                <MudGrid>
-                                                    <MudItem xs="12">
-                                                        @localizer["communicationmessage_hint"]
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageup"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeAfterBattleUpTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessagedown"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeAfterBattleDownTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageleft"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeAfterBattleLeftTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                                <MudGrid>
-                                                    <MudItem xs="8">
-                                                        <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.MessageText"
-                                                                      Immediate="true"
-                                                                      Variant="Variant.Outlined"
-                                                                      Counter="MESSAGE_MAX_LENGTH"
-                                                                      MaxLength="MESSAGE_MAX_LENGTH"
-                                                                      Label="@localizer["communicationmessage_verbalmessageright"]"
-                                                                      Validation="ValidateCustomizeMessage"
-                                                                      Disabled="@(!CanCustomizeAfterBattleRightTextMessage)" />
-                                                    </MudItem>
-                                                    <MudItem xs="4">
-                                                        <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
-                                                    </MudItem>
-                                                </MudGrid>
-                                            </MudExpansionPanel>
+                                                    <MudGrid>
+                                                        <MudItem xs="12">
+                                                            @localizer["communicationmessage_hint"]
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageup"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeBeforeBattleUpTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessagedown"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeBeforeBattleDownTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageleft"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeBeforeBattleLeftTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageright"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeBeforeBattleRightTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.StartGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                </MudExpansionPanel>
+                                                <MudExpansionPanel Text="@localizer["communicationmessage_inbattle"]">
+                                                    <MudGrid>
+                                                        <MudItem xs="12">
+                                                            @localizer["communicationmessage_hint"]
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageup"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeInBattleUpTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessagedown"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeInBattleDownTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageleft"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeInBattleLeftTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageright"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeInBattleRightTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.InBattleGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                </MudExpansionPanel>
+                                                <MudExpansionPanel Text="@localizer["communicationmessage_postbattle"]">
+                                                    <MudGrid>
+                                                        <MudItem xs="12">
+                                                            @localizer["communicationmessage_hint"]
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageup"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeAfterBattleUpTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.UpMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidup"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessagedown"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeAfterBattleDownTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.DownMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampiddown"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageleft"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeAfterBattleLeftTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.LeftMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidleft"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                    <MudGrid>
+                                                        <MudItem xs="8">
+                                                            <MudTextField @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.MessageText"
+                                                                            Immediate="true"
+                                                                            Variant="Variant.Outlined"
+                                                                            Counter="MESSAGE_MAX_LENGTH"
+                                                                            MaxLength="MESSAGE_MAX_LENGTH"
+                                                                            Label="@localizer["communicationmessage_verbalmessageright"]"
+                                                                            Validation="ValidateCustomizeMessage"
+                                                                            Disabled="@(!CanCustomizeAfterBattleRightTextMessage)" />
+                                                        </MudItem>
+                                                        <MudItem xs="4">
+                                                            <MudNumericField T="uint" @bind-Value="_customMessageGroupSetting.ResultGroup.RightMessage.UniqueMessageId" Label="@localizer["communicationmessage_stampidright"]" Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000" />
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                </MudExpansionPanel>
+                                            </MudForm>
                                         </MudExpansionPanels>
                                     </MudItem>
                                 </MudGrid>
