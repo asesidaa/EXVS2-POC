@@ -510,4 +510,28 @@
   <data name="validation_required" xml:space="preserve">
     <value>cannot be empty!</value>
   </data>
+  <data name="dialogtitle_bgmorder" xml:space="preserve">
+    <value>Add / Change Bgm Order</value>
+  </data>
+  <data name="dialogtitle_favms" xml:space="preserve">
+    <value>Customize favourite mobile suit</value>
+  </data>
+  <data name="dialogtitle_gauge" xml:space="preserve">
+    <value>Change Gauge UI</value>
+  </data>
+  <data name="dialogtitle_navibattle" xml:space="preserve">
+    <value>Change in battle navigator</value>
+  </data>
+  <data name="dialogtitle_navimenu" xml:space="preserve">
+    <value>Change UI navigator</value>
+  </data>
+  <data name="dialogtitle_triadms" xml:space="preserve">
+    <value>Change CPU Triad Partner MS</value>
+  </data>
+  <data name="validate_addrow_1" xml:space="preserve">
+    <value>Cannot add more than </value>
+  </data>
+  <data name="validate_addrow_2" xml:space="preserve">
+    <value> entries!</value>
+  </data>
 </root>

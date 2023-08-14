@@ -232,7 +232,7 @@ public partial class CustomizeCard
     {
         if (_favouriteMs.Count >= maximumFavouriteMs)
         {
-            Snackbar.Add($"Cannot add more than {maximumFavouriteMs} entries!", Severity.Warning);
+            Snackbar.Add($"{localizer["validate_addrow_1"]}{maximumFavouriteMs}{localizer["validate_addrow_2"]}", Severity.Warning);
             return;
         }
 
@@ -272,7 +272,7 @@ public partial class CustomizeCard
     private async Task OpenProfileChangeBgmOrderDialog()
     {
         var parameters = new DialogParameters { { "Data", _basicProfile.DefaultBgmList } };
-        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change Bgm Order", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>(localizer["dialogtitle_bgmorder"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled)
@@ -285,7 +285,7 @@ public partial class CustomizeCard
     private async Task OpenProfileChangeGaugeDialog()
     {
         var parameters = new DialogParameters { { "Data", new[] { _basicProfile.DefaultGaugeDesignId } } };
-        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change Gauge UI", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>(localizer["dialogtitle_gauge"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -298,7 +298,7 @@ public partial class CustomizeCard
     private async Task OpenNaviChangeUiDialog()
     {
         var parameters = new DialogParameters { { "Data", new[] { _naviProfile.DefaultUiNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change UI navigator", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>(localizer["dialogtitle_navimenu"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -311,7 +311,7 @@ public partial class CustomizeCard
     private async Task OpenNaviChangeBattleDialog()
     {
         var parameters = new DialogParameters { { "Data", new[] { _naviProfile.DefaultBattleNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>(localizer["dialogtitle_navibattle"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -329,7 +329,7 @@ public partial class CustomizeCard
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
         var parameters = new DialogParameters { { "Data", item.MsId } };
-        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change favourite mobile suit", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>(localizer["dialogtitle_favms"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -347,7 +347,7 @@ public partial class CustomizeCard
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
         var parameters = new DialogParameters { { "Data", item.BgmList } };
-        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change bgm order", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>(localizer["dialogtitle_bgmorder"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -365,7 +365,7 @@ public partial class CustomizeCard
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
         var parameters = new DialogParameters { { "Data", new[] { item.BattleNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>(localizer["dialogtitle_navibattle"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -383,7 +383,7 @@ public partial class CustomizeCard
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
         var parameters = new DialogParameters {{ "Data", new[] { item.GaugeDesignId }}};
-        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change gauge UI", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>(localizer["dialogtitle_gauge"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -396,7 +396,7 @@ public partial class CustomizeCard
     private async Task OpenCpuTriadMobileSuitUiDialog()
     {
         var parameters = new DialogParameters { { "Data", cpuTriadPartner.MobileSuitId } };
-        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change CPU Triad Partner MS", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>(localizer["dialogtitle_triadms"], parameters, OPTIONS);
         var result = await dialog.Result;
         
         if (!result.Canceled && result.Data != null)
@@ -414,7 +414,7 @@ public partial class CustomizeCard
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
         var parameters = new DialogParameters { { "Data", item } };
-        var dialog = await DialogService.ShowAsync<CustomizeFavMsDialog>("Customizing favourite mobile suit", parameters, OPTIONS);
+        var dialog = await DialogService.ShowAsync<CustomizeFavMsDialog>(localizer["dialogtitle_favms"], parameters, OPTIONS);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)

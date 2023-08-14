@@ -507,4 +507,28 @@
   <data name="validation_required" xml:space="preserve">
     <value>不能为空！</value>
   </data>
+  <data name="dialogtitle_bgmorder" xml:space="preserve">
+    <value>修改BGM列表 / 顺序</value>
+  </data>
+  <data name="dialogtitle_favms" xml:space="preserve">
+    <value>修改自定义机体信息</value>
+  </data>
+  <data name="dialogtitle_gauge" xml:space="preserve">
+    <value>修改战斗界面UI</value>
+  </data>
+  <data name="dialogtitle_navibattle" xml:space="preserve">
+    <value>修改战斗中领航员</value>
+  </data>
+  <data name="dialogtitle_navimenu" xml:space="preserve">
+    <value>修改主页领航员</value>
+  </data>
+  <data name="dialogtitle_triadms" xml:space="preserve">
+    <value>修改 Triad CPU 机体</value>
+  </data>
+  <data name="validate_addrow_1" xml:space="preserve">
+    <value>不可以加入超过</value>
+  </data>
+  <data name="validate_addrow_2" xml:space="preserve">
+    <value>行！</value>
+  </data>
 </root>
