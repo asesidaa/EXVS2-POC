@@ -135,11 +135,6 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                     }
                 }
             }
-
-            if(button_state == false)
-            {
-                button_state = GetAsyncKeyState(findKeyByValue(card_key));
-            }
         }
 
         if (button_state)

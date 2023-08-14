@@ -635,11 +635,6 @@ int handleReadCoinInputs(jprot_encoder *r)
 					}
 				}
 			}
-
-			if(currstate == false)
-			{
-				currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
-			}
 		}
 	}
 	
