@@ -9,6 +9,8 @@
 #include <chrono>
 #include <ctime>
 
+#include "INIReader.h"
+
 // Reference https://github.com/djhackersdev/segatools/blob/ca9c72db968c81fdf88ba01f9b4a474bf818e401/platform/clock.c
 
 constexpr auto jiffies_per_sec = 10000000LL;
@@ -139,6 +141,20 @@ static __time64_t time64Hook(time_t* destTime)
     
     auto now = system_clock::now();
 
+    const INIReader config_reader("config.ini");
+    const bool use_normal_time_in_lm = config_reader.GetBoolean("config", "UseNormalTimeInLM", false);
+    const int game_mode = config_reader.GetInteger("config", "mode", 1);
+    const bool is_lm = (game_mode == 2 || game_mode == 4);
+    if(use_normal_time_in_lm && is_lm)
+    {
+        const auto ret = duration_cast<seconds>(now.time_since_epoch()).count();
+        if (destTime != nullptr)
+        {
+            *destTime = ret;
+        }
+        return ret;
+    }
+    
     zoned_time jpZonedTime{"Asia/Tokyo", now};
     auto jpTimePoint = jpZonedTime.get_local_time();
     auto today = floor<days>(jpTimePoint);

@@ -65,6 +65,7 @@ struct config_struct {
 	std::string PrimaryDNS;
 	std::string ServerAddress;
 	std::string RegionCode;
+	bool UseNormalTimeInLM;
 
 	config_struct(const config_struct& other) = default;
 
@@ -82,7 +83,8 @@ struct config_struct {
 		  Gateway(std::move(other.Gateway)),
 		  PrimaryDNS(std::move(other.PrimaryDNS)),
 		  ServerAddress(std::move(other.ServerAddress)),
-		  RegionCode(std::move(other.RegionCode))
+		  RegionCode(std::move(other.RegionCode)),
+	      UseNormalTimeInLM(other.UseNormalTimeInLM)
 	{
 	}
 
@@ -104,6 +106,7 @@ struct config_struct {
 		PrimaryDNS = other.PrimaryDNS;
 		ServerAddress = other.ServerAddress;
 		RegionCode = other.RegionCode;
+		UseNormalTimeInLM = other.UseNormalTimeInLM;
 		return *this;
 	}
 
@@ -125,6 +128,7 @@ struct config_struct {
 		PrimaryDNS = std::move(other.PrimaryDNS);
 		ServerAddress = std::move(other.ServerAddress);
 		RegionCode = std::move(other.RegionCode);
+		UseNormalTimeInLM = other.UseNormalTimeInLM;
 		return *this;
 	}
 
@@ -141,7 +145,8 @@ struct config_struct {
 		Gateway("192.168.1.1"),
 		PrimaryDNS("8.8.8.8"),
 		ServerAddress("127.0.0.1"),
-		RegionCode("1")
+		RegionCode("1"),
+		UseNormalTimeInLM(false)
 	{
 	}
 };
