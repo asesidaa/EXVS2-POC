@@ -1,4 +1,5 @@
-﻿#define CINTERFACE
+﻿// ReSharper disable CppClangTidyClangDiagnosticMicrosoftCast
+#define CINTERFACE
 #define D3D11_NO_HELPERS
 #define INITGUID
 #define WIN32_LEAN_AND_MEAN
@@ -235,13 +236,13 @@ static HRESULT WINAPI D3D11CreateDeviceAndSwapChainWrap(IDXGIAdapter* pAdapter, 
 	return hr;
 }
 
-void InitDXGIWindowHook(const config_struct& configs)
+void InitDXGIWindowHook()
 {
-	Windowed = configs.Windowed;
+	Windowed = globalConfig.Windowed;
 
 	MH_Initialize();
 	MH_CreateHookApi(L"dxgi.dll", "CreateDXGIFactory", CreateDXGIFactoryWrap, (void**)&g_origCreateDXGIFactory);
 	MH_CreateHookApi(L"dxgi.dll", "CreateDXGIFactory2", CreateDXGIFactory2Wrap, (void**)&g_origCreateDXGIFactory2);
 	MH_CreateHookApi(L"d3d11.dll", "D3D11CreateDeviceAndSwapChain", D3D11CreateDeviceAndSwapChainWrap, (void**)&g_origD3D11CreateDeviceAndSwapChain);
-	MH_EnableHook(MH_ALL_HOOKS);
+	MH_EnableHook(nullptr);
 }

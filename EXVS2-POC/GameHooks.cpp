@@ -9,10 +9,11 @@
 #include "MinHook.h"
 #include "log.h"
 #include "INIReader.h"
+#include "Configs.h"
 
-static uint8_t gClientMode = 2;
-static std::string gSerial = "284311110001";
-static const auto BASE_ADDRESS = 0x140000000;
+//static uint8_t gClientMode = 2;
+//static std::string gSerial = "284311110001";
+static constexpr auto BASE_ADDRESS = 0x140000000;
 static HANDLE hConnection = (HANDLE)0x1337;
 
 static HWND (WINAPI* CreateWindowExWOri)(DWORD dwExStyle, LPCWSTR lpClassName, LPCWSTR lpWindowName, DWORD dwStyle, int X, int Y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam);
@@ -182,7 +183,7 @@ static int64_t nbamUsbFinderRelease()
 static int64_t __fastcall nbamUsbFinderGetSerialNumber(int a1, char* a2)
 {
     log("nbamUsbFinderGetSerialNumber");
-    strcpy_s (a2, 16, gSerial.c_str());
+    strcpy_s (a2, 16, globalConfig.Serial.c_str());
     return 0;
 }
 
@@ -208,16 +209,7 @@ void InitializeHooks()
     MH_CreateHookApi(L"nbamUsbFinder.dll", "nbamUsbFinderGetSerialNumber", nbamUsbFinderGetSerialNumber, nullptr);
 
     MH_EnableHook(MH_ALL_HOOKS);
-
-    // Create the 25 folder first if it doesn't exist
-    // CreateDirectoryA("25" , nullptr);
     
-    INIReader reader("config.ini");
-    if (reader.ParseError() == 0)
-    {
-        gClientMode = reader.GetInteger("config", "mode", 2);
-        gSerial = reader.Get("config", "serial", "284311110001");
-    }
 
     auto exeBase = reinterpret_cast<uintptr_t>(GetModuleHandle(nullptr));
     
@@ -233,7 +225,7 @@ void InitializeHooks()
     offset = 0x1406BC467 - BASE_ADDRESS;
     injector::MakeNOP(exeBase + offset, 14, true);
     injector::WriteMemory(exeBase + offset + 14, '\xB8', true);
-    injector::WriteMemory(exeBase + offset + 15, gClientMode, true);
+    injector::WriteMemory(exeBase + offset + 15, globalConfig.Mode, true);
     injector::WriteMemory(exeBase + offset + 16, '\x00', true);
     injector::WriteMemory(exeBase + offset + 17, '\x00', true);
 

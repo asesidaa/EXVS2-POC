@@ -1,4 +1,6 @@
-﻿#include "JvsEmu.h"
+﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
+// ReSharper disable CppClangTidyClangDiagnosticMicrosoftCast
+#include "JvsEmu.h"
 
 #include <format>
 #include <Windows.h>
@@ -54,134 +56,161 @@ typedef signed short SINT16;
 typedef signed short SINT32;
 typedef unsigned char UINT8;
 typedef unsigned short UINT16;
-static HANDLE hConnection = (HANDLE)0x1337;
 
-static const char *Rfid_IO_Id = "DE-JV PCB";
+namespace
+{
+    HANDLE hConnection = (HANDLE)0x1337;
+    const char* Rfid_IO_Id = "DE-JV PCB";
+}
 
-struct jvs_command_def {
-	UINT8 params;
-	UINT8 reports;
+struct jvs_command_def
+{
+    UINT8 params;
+    UINT8 reports;
 };
 
-#define __ARG__(n)	((DWORD) pfunc[n])
+#define GET_ARG(n)	((DWORD) pfunc[n])
 
-class jprot_encoder {
-	BYTE buffer[1024];
-	BYTE *ptr;
-	DWORD statusaddr;
-	DWORD sizeaddr;
-	DWORD sumaddr;
-	DWORD startaddr;
-	DWORD xpos;
-	DWORD size_;
-	DWORD nreplys;
+class jprot_encoder
+{
+    BYTE buffer[1024];
+    //BYTE *ptr;
+    DWORD statusaddr;
+    DWORD sizeaddr;
+    DWORD sumaddr;
+    DWORD startaddr;
+    DWORD xpos;
+    DWORD size_;
+    DWORD nreplys;
+
 public:
-	DWORD size() {
-		return size_;
-	}
-	jprot_encoder() {
-		memset(buffer, 0, 1024);
-		xpos = 0;
-	}
-	~jprot_encoder() {
-		memset(buffer, 0, 1024);
-		xpos = 0;
-	}
+    DWORD size()
+    {
+        return size_;
+    }
 
-	void addreply() {
-		nreplys++;
-	}
+    jprot_encoder(): statusaddr(0), sizeaddr(0), sumaddr(0), startaddr(0), size_(0), nreplys(0)
+    {
+        memset(buffer, 0, 1024);
+        xpos = 0;
+    }
+
+    ~jprot_encoder()
+    {
+        memset(buffer, 0, 1024);
+        xpos = 0;
+    }
+
+    void addreply()
+    {
+        nreplys++;
+    }
 
 
-	void set_status(BYTE v) {
-		buffer[statusaddr] = v;
-	}
-	void clear()
-	{
-		memset(buffer, 0, 1024);
-		size_ = 0;
-		xpos = 0;
-	}
-	void begin_stream() {
+    void set_status(BYTE v)
+    {
+        buffer[statusaddr] = v;
+    }
 
-		pushz(JVS_SYNC_CODE);
-		sumaddr = xpos;
-		pushz(JVS_ADDR_MASTER);
-		sizeaddr = xpos;
-		push(0);
-		statusaddr = xpos;
-		// STATUS
-		push(JVS_STATUS_OK);
+    void clear()
+    {
+        memset(buffer, 0, 1024);
+        size_ = 0;
+        xpos = 0;
+    }
 
-	}
+    void begin_stream()
+    {
+        pushz(JVS_SYNC_CODE);
+        sumaddr = xpos;
+        pushz(JVS_ADDR_MASTER);
+        sizeaddr = xpos;
+        push(0);
+        statusaddr = xpos;
+        // STATUS
+        push(JVS_STATUS_OK);
+    }
 
-	void pushz(BYTE v) {
-		buffer[xpos++] = v;
-	}
+    void pushz(BYTE v)
+    {
+        buffer[xpos++] = v;
+    }
 
-	void push(BYTE v) {
+    void push(BYTE v)
+    {
 #if 0
 		buffer[xpos] = v;
 		++xpos;
 #else
-		if (v == 0xD0) {
-			buffer[xpos++] = 0xD0;
-			buffer[xpos++] = 0xCF;
-		}
-		else
-			if (v == 0xE0) {
-				buffer[xpos++] = 0xD0;
-				buffer[xpos++] = 0xDF;
-			}
-			else
-				buffer[xpos++] = v;
+        if (v == 0xD0)
+        {
+            buffer[xpos++] = 0xD0;
+            buffer[xpos++] = 0xCF;
+        }
+        else if (v == 0xE0)
+        {
+            buffer[xpos++] = 0xD0;
+            buffer[xpos++] = 0xDF;
+        }
+        else
+            buffer[xpos++] = v;
 #endif
-	}
-	void report(BYTE v) {
-		push(v);
-	}
-	void end_stream() {
-		if (xpos == (statusaddr + 1)) {
-			clear();
-			return;
-		}
+    }
 
-		DWORD sizeK = 0;
-		for (DWORD i = sizeaddr; i<xpos; i++)
-			if (buffer[i] != 0xD0)
-				++sizeK;
-		// encode the size of the stream
-		buffer[sizeaddr] = sizeK;
+    void report(BYTE v)
+    {
+        push(v);
+    }
 
-		// calculate the checksum
-		DWORD sum = 0;
-		for (DWORD i = sumaddr, inc = 0; i<xpos; i++) {
-			if (buffer[i] == 0xD0) {
-				inc = 1;
-			}
-			else {
-				sum += (DWORD)((buffer[i] + inc) & 0xFF);
-				if (inc)
-					inc = 0;
-			}
-		}
-		sum &= 0xFF;
-		push(sum);
-		size_ = xpos;
-	}
+    void end_stream()
+    {
+        if (xpos == (statusaddr + 1))
+        {
+            clear();
+            return;
+        }
+
+        DWORD sizeK = 0;
+        for (DWORD i = sizeaddr; i < xpos; i++)
+            if (buffer[i] != 0xD0)
+                ++sizeK;
+        // encode the size of the stream
+        buffer[sizeaddr] = static_cast<BYTE>(sizeK);
+
+        // calculate the checksum
+        DWORD sum = 0;
+        for (DWORD i = sumaddr, inc = 0; i < xpos; i++)
+        {
+            if (buffer[i] == 0xD0)
+            {
+                inc = 1;
+            }
+            else
+            {
+                sum += buffer[i] + inc & 0xFF;
+                if (inc)
+                    inc = 0;
+            }
+        }
+        sum &= 0xFF;
+        push(static_cast<BYTE>(sum));
+        size_ = xpos;
+    }
 
 
-	void read(BYTE *dst, DWORD size) {
-		if (size > size_)
-			size = size_;
-		memcpy(dst, &buffer[0], size);
-	}
+    void read(BYTE* dst, DWORD size)
+    {
+        if (size > size_)
+            size = size_;
+        memcpy(dst, &buffer[0], size);
+    }
 
-	void printReply()
-	{
-		static char printer[1024];
-		memset(printer, 0, 1024);
-		if (size()) {
+    void printReply()
+    {
+        static char printer[1024];
+        memset(printer, 0, 1024);
+        if (size())
+        {
 #ifdef PrintRFIDReplies
 			sprintf(printer, "R:");
 			for (DWORD i = 0; i<size(); i++)
@@ -190,190 +219,192 @@ public:
 			}
 			info(true, printer);
 #endif
-		}
-	}
+        }
+    }
 
-	void printSource(BYTE* srcbuffer, int strsize)
-	{
-		std::stringstream ss;
-		ss << "Source: ";
-		for (int i = 0; i < strsize; ++i)
-		{
-			ss << std::format("{:02X} ", srcbuffer[i]);
-		}
-		log(ss.str().c_str());
-	}
+    void printSource(BYTE* srcbuffer, int strsize)
+    {
+        std::stringstream ss;
+        ss << "Source: ";
+        for (int i = 0; i < strsize; ++i)
+        {
+            ss << std::format("{:02X} ", srcbuffer[i]);
+        }
+        log(ss.str().c_str());
+    }
 };
 
 static int isAddressed = 0;
-int is_addressed() {
-	return isAddressed;
+
+int is_addressed()
+{
+    return isAddressed;
 }
+
 void reset_addressed()
 {
-	isAddressed = 0;
+    isAddressed = 0;
 }
 
 static WORD p1coin = 0;
 static WORD p2coin = 0;
-static int coinstate[2] = { 0, 0 };
+static int coinstate[2] = {0, 0};
 
 int handleBusReset()
 {
-	p1coin = 0;
-	p2coin = 0;
-	return 2;
+    p1coin = 0;
+    p2coin = 0;
+    return 2;
 }
 
 // 0xF1 -- set address
-int handleSetAddress(jprot_encoder *r)
+int handleSetAddress(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	isAddressed = 1;
+    r->report(JVS_REPORT_OK);
+    isAddressed = 1;
 
-	return 2;
+    return 2;
 }
 
 static bool cardInserted = false;
 
 // 0x26 -- read general-purpose input
-int handleReadGeneralPurposeInput(jprot_encoder *r, DWORD arg1)
+int handleReadGeneralPurposeInput(jprot_encoder* r, DWORD arg1)
 {
-	r->report(JVS_REPORT_OK);
-	for(DWORD i = 0; i < arg1; i++)
-	{
-		if ( cardInserted)
-		{
-			r->push(0x19); // This should be only injected with first package of the 3, but does not seem to care.
-		}
-		else
-		{
-			r->push(0);
-		}
-	}
-	return 2 + arg1;
+    r->report(JVS_REPORT_OK);
+    for (DWORD i = 0; i < arg1; i++)
+    {
+        if (cardInserted)
+        {
+            r->push(0x19); // This should be only injected with first package of the 3, but does not seem to care.
+        }
+        else
+        {
+            r->push(0);
+        }
+    }
+    return 2 + static_cast<int>(arg1);
 }
 
 
 // 0x32 -- read general-purpose output. This is very confusing 0x32 0x01 0x00 returns 0x01 (0x18 times 0x00) 0x01
 // See JVSP manual for more information.
-int handleReadGeneralPurposeOutput(jprot_encoder *r, DWORD arg1)
+int handleReadGeneralPurposeOutput(jprot_encoder* r, DWORD arg1)
 {
 #ifdef _DEBUG
-	//OutputDebugStringA("Requested card data!");
+    //OutputDebugStringA("Requested card data!");
 #endif
-	
-	r->report(JVS_REPORT_OK);
-		for (DWORD i = 0; i < arg1 * 0x18; i++)
-		{
-			r->push(0);
-		}
-	r->report(JVS_REPORT_OK);
-	return 2 + arg1;
+
+    r->report(JVS_REPORT_OK);
+    for (DWORD i = 0; i < arg1 * 0x18; i++)
+    {
+        r->push(0);
+    }
+    r->report(JVS_REPORT_OK);
+    return 2 + static_cast<int>(arg1);
 }
 
 int handleReTransmitDataInCaseOfChecksumFailure()
 {
-	return 1;
+    return 1;
 }
 
-int handleReadIDData(jprot_encoder *r)
+int handleReadIDData(jprot_encoder* r)
 {
-	const char *str = NULL;
-	r->report(JVS_REPORT_OK);
-	//if(gameType == X2Type::RFID)
-	str = Rfid_IO_Id;
-	//else if(gameType == X2Type::Digital)
-	//	str = IO_Id;
-	while (*str) { r->push(*str++); }
-	r->push(0);
-	return 1;
+    r->report(JVS_REPORT_OK);
+    //if(gameType == X2Type::RFID)
+    const char* str = Rfid_IO_Id;
+    //else if(gameType == X2Type::Digital)
+    //	str = IO_Id;
+    while (*str) { r->push(*str++); }
+    r->push(0);
+    return 1;
 }
 
-int handleGetCommandFormatVersion(jprot_encoder *r)
+int handleGetCommandFormatVersion(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	r->push(JVS_COMMAND_REV);
-	return 1;
+    r->report(JVS_REPORT_OK);
+    r->push(JVS_COMMAND_REV);
+    return 1;
 }
 
-int handleGetJVSVersion(jprot_encoder *r)
+int handleGetJVSVersion(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	r->push(JVS_BOARD_REV);
-	return 1;
+    r->report(JVS_REPORT_OK);
+    r->push(JVS_BOARD_REV);
+    return 1;
 }
 
-int handleGetCommunicationVersion(jprot_encoder *r)
+int handleGetCommunicationVersion(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	r->push(JVS_COMM_REV);
-	return 1;
+    r->report(JVS_REPORT_OK);
+    r->push(JVS_COMM_REV);
+    return 1;
 }
 
-int handleGetSlaveFeatures(jprot_encoder *r)
+int handleGetSlaveFeatures(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
+    r->report(JVS_REPORT_OK);
 
-	// Switch
-	r->push(1);
-	r->push(1);
-	r->push(13);
-	r->push(0);
+    // Switch
+    r->push(1);
+    r->push(1);
+    r->push(13);
+    r->push(0);
 
-	// Coin
-	r->push(2);
-	r->push(1);
-	r->push(0);
-	r->push(0);
+    // Coin
+    r->push(2);
+    r->push(1);
+    r->push(0);
+    r->push(0);
 
-	// Analog
-	r->push(3);
-	r->push(8);
-	r->push(16);
-	r->push(0);
+    // Analog
+    r->push(3);
+    r->push(8);
+    r->push(16);
+    r->push(0);
 
-	/*r->push(0x12);
-	r->push(0x08);
-	r->push(0);
-	r->push(0);*/
+    /*r->push(0x12);
+    r->push(0x08);
+    r->push(0);
+    r->push(0);*/
 
-	r->push(0);
-	
-	return 1;
+    r->push(0);
+
+    return 1;
 }
 
-int handleTaito01Call(jprot_encoder *r, DWORD arg1)
+int handleTaito01Call(jprot_encoder* r, DWORD arg1)
 {
-	r->report(JVS_REPORT_OK); 
-	r->push(1);
-	return 2;
+    r->report(JVS_REPORT_OK);
+    r->push(1);
+    return 2;
 }
 
-int handleTaito02Call(jprot_encoder *r)
+int handleTaito02Call(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	r->push(0x52);
-	return 2;
+    r->report(JVS_REPORT_OK);
+    r->push(0x52);
+    return 2;
 }
 
-int handleTaito03Call(jprot_encoder *r)
+int handleTaito03Call(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	r->push(1);
-	return 2;
+    r->report(JVS_REPORT_OK);
+    r->push(1);
+    return 2;
 }
 
-int handleTaito04Call(jprot_encoder *r)
+int handleTaito04Call(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	return 1;
+    r->report(JVS_REPORT_OK);
+    return 1;
 }
 
-int handleTaito05Call(jprot_encoder *r)
+int handleTaito05Call(jprot_encoder* r)
 {
-	r->report(JVS_REPORT_OK);
-	return 3;
+    r->report(JVS_REPORT_OK);
+    return 3;
 }
 
 jvs_key_bind key_bind;
@@ -381,252 +412,252 @@ std::string input_mode;
 
 void capture_direct_input_action(BYTE& byte0, BYTE& byte1, BYTE& byte2, JOYINFOEX joy)
 {
-	if (joy.dwPOV == 0)
-	{
-		log("Up Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 5);
-	}
-	if (joy.dwPOV == 4500)
-	{
-		log("Up Right Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 5);
-		byte1 |= static_cast<char>(1 << 2);
-	}
-	if (joy.dwPOV == 9000)
-	{
-		log("Right Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 2);
-	}
-	if (joy.dwPOV == 13500)
-	{
-		log("Right Down Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 2);
-		byte1 |= static_cast<char>(1 << 4);
-	}
-	if (joy.dwPOV == 18000)
-	{
-		log("Down Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 4);
-	}
-	if (joy.dwPOV == 22500)
-	{
-		log("Down Left Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 4);
-		byte1 |= static_cast<char>(1 << 3);
-	}
-	if (joy.dwPOV == 27000)
-	{
-		log("Left Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 3);
-	}
-	if (joy.dwPOV == 31500)
-	{
-		log("Top Left Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 3);
-		byte1 |= static_cast<char>(1 << 5);
-	}
-	int intJoyDwButtons = (int)joy.dwButtons;
-	if (intJoyDwButtons & key_bind.ArcadeButton1)
-	{
-		log("Button 1 Detected from Joystick");
-		byte1 |= static_cast<char> (1 << 1);
-	}
-	if (intJoyDwButtons & key_bind.ArcadeButton2)
-	{
-		log("Button 2 Detected from Joystick");
-		byte1 |= static_cast<char> (1);
-	}
-	if (intJoyDwButtons & key_bind.ArcadeButton3)
-	{
-		log("Button 3 Detected from Joystick");
-		byte2 |= static_cast<char> (1 << 7);
-	}
-	if (intJoyDwButtons & key_bind.ArcadeButton4)
-	{
-		log("Button 4 Detected from Joystick");
-		byte2 |= static_cast<char> (1 << 6);
-	}
-	if (intJoyDwButtons & key_bind.ArcadeStartButton)
-	{
-		log("Start Button Detected from Joystick");
-		byte1 |= static_cast<char>(1 << 7);
-	}
-	if (intJoyDwButtons & key_bind.ArcadeTest)
-	{
-		log("Test Button Detected from Joystick");
-		byte0 |= static_cast<char>(1 << 7);
-	}
+    if (joy.dwPOV == 0)
+    {
+        log("Up Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 5);
+    }
+    if (joy.dwPOV == 4500)
+    {
+        log("Up Right Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 5);
+        byte1 |= static_cast<char>(1 << 2);
+    }
+    if (joy.dwPOV == 9000)
+    {
+        log("Right Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 2);
+    }
+    if (joy.dwPOV == 13500)
+    {
+        log("Right Down Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 2);
+        byte1 |= static_cast<char>(1 << 4);
+    }
+    if (joy.dwPOV == 18000)
+    {
+        log("Down Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 4);
+    }
+    if (joy.dwPOV == 22500)
+    {
+        log("Down Left Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 4);
+        byte1 |= static_cast<char>(1 << 3);
+    }
+    if (joy.dwPOV == 27000)
+    {
+        log("Left Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 3);
+    }
+    if (joy.dwPOV == 31500)
+    {
+        log("Top Left Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 3);
+        byte1 |= static_cast<char>(1 << 5);
+    }
+    int intJoyDwButtons = (int)joy.dwButtons;
+    if (intJoyDwButtons & key_bind.ArcadeButton1)
+    {
+        log("Button 1 Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 1);
+    }
+    if (intJoyDwButtons & key_bind.ArcadeButton2)
+    {
+        log("Button 2 Detected from Joystick");
+        byte1 |= static_cast<char>(1);
+    }
+    if (intJoyDwButtons & key_bind.ArcadeButton3)
+    {
+        log("Button 3 Detected from Joystick");
+        byte2 |= static_cast<char>(1 << 7);
+    }
+    if (intJoyDwButtons & key_bind.ArcadeButton4)
+    {
+        log("Button 4 Detected from Joystick");
+        byte2 |= static_cast<char>(1 << 6);
+    }
+    if (intJoyDwButtons & key_bind.ArcadeStartButton)
+    {
+        log("Start Button Detected from Joystick");
+        byte1 |= static_cast<char>(1 << 7);
+    }
+    if (intJoyDwButtons & key_bind.ArcadeTest)
+    {
+        log("Test Button Detected from Joystick");
+        byte0 |= static_cast<char>(1 << 7);
+    }
 }
 
-void handleDirectInputGamePlay(BYTE &byte0, BYTE &byte1, BYTE &byte2)
+void handleDirectInputGamePlay(BYTE& byte0, BYTE& byte1, BYTE& byte2)
 {
-	if(input_mode != "DirectInput")
-	{
-		return;
-	}
+    if (input_mode != "DirectInput")
+    {
+        return;
+    }
 
-	JOYINFOEX joy;
-	joy.dwSize = sizeof(joy);
-	joy.dwFlags = JOY_RETURNALL;
-	
-	if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
-	{
-		capture_direct_input_action(byte0, byte1, byte2, joy);
-	}
-	else
-	{
-		for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-		{
-			if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-			{
-				capture_direct_input_action(byte0, byte1, byte2, joy);
-			}
-		}
-	}
+    JOYINFOEX joy;
+    joy.dwSize = sizeof(joy);
+    joy.dwFlags = JOY_RETURNALL;
+
+    if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
+    {
+        capture_direct_input_action(byte0, byte1, byte2, joy);
+    }
+    else
+    {
+        for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+        {
+            if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+            {
+                capture_direct_input_action(byte0, byte1, byte2, joy);
+            }
+        }
+    }
 }
 
-void handleSupportKeyInputs(BYTE &byte0, BYTE &byte1)
+void handleSupportKeyInputs(BYTE& byte0, BYTE& byte1)
 {
-	if(input_mode == "DirectInput" && key_bind.UseKeyboardSupportKeyInDirectInput == false)
-	{
-		return;
-	}
-	
-	if (GetAsyncKeyState(key_bind.Test) & 0x8000)
-	{
-		log("Test Pressed");
-		byte0 |= static_cast<char>(1 << 7);
-	}
-	
-	if (GetAsyncKeyState(key_bind.Service) & 0x8000)
-	{
-		log("Service Pressed");
-		byte1 |= static_cast<char>(1 << 6);
-	}
+    if (input_mode == "DirectInput" && key_bind.UseKeyboardSupportKeyInDirectInput == false)
+    {
+        return;
+    }
+
+    if (GetAsyncKeyState(key_bind.Test) & 0x8000)
+    {
+        log("Test Pressed");
+        byte0 |= static_cast<char>(1 << 7);
+    }
+
+    if (GetAsyncKeyState(key_bind.Service) & 0x8000)
+    {
+        log("Service Pressed");
+        byte1 |= static_cast<char>(1 << 6);
+    }
 }
 
-void handleKeyboardGamePlay(BYTE &byte1, BYTE &byte2)
+void handleKeyboardGamePlay(BYTE& byte1, BYTE& byte2)
 {
-	if(input_mode != "Keyboard")
-	{
-		return;
-	}
+    if (input_mode != "Keyboard")
+    {
+        return;
+    }
 
-	if (GetAsyncKeyState(key_bind.Start) & 0x8000)
-	{
-		log("Start Pressed");
-		byte1 |= static_cast<char>(1 << 7);
-	}
+    if (GetAsyncKeyState(key_bind.Start) & 0x8000)
+    {
+        log("Start Pressed");
+        byte1 |= static_cast<char>(1 << 7);
+    }
 
-	if (GetAsyncKeyState(key_bind.Up) & 0x8000)
-	{
-		log("Up Pressed");
-		byte1 |= static_cast<char>(1 << 5);
-	}
+    if (GetAsyncKeyState(key_bind.Up) & 0x8000)
+    {
+        log("Up Pressed");
+        byte1 |= static_cast<char>(1 << 5);
+    }
 
-	if (GetAsyncKeyState(key_bind.Left) & 0x8000)
-	{
-		log("Left Pressed");
-		byte1 |= static_cast<char>(1 << 3);
-	}
+    if (GetAsyncKeyState(key_bind.Left) & 0x8000)
+    {
+        log("Left Pressed");
+        byte1 |= static_cast<char>(1 << 3);
+    }
 
-	if (GetAsyncKeyState(key_bind.Down) & 0x8000)
-	{
-		log("Down Pressed");
-		byte1 |= static_cast<char>(1 << 4);
-	}
+    if (GetAsyncKeyState(key_bind.Down) & 0x8000)
+    {
+        log("Down Pressed");
+        byte1 |= static_cast<char>(1 << 4);
+    }
 
-	if (GetAsyncKeyState(key_bind.Right) & 0x8000)
-	{
-		log("Right Pressed");
-		byte1 |= static_cast<char>(1 << 2);
-	}
+    if (GetAsyncKeyState(key_bind.Right) & 0x8000)
+    {
+        log("Right Pressed");
+        byte1 |= static_cast<char>(1 << 2);
+    }
 
-	if (GetAsyncKeyState(key_bind.Button1) & 0x8000)
-	{
-		log("Button 1 Pressed");
-		byte1 |= static_cast<char> (1 << 1);
-	}
+    if (GetAsyncKeyState(key_bind.Button1) & 0x8000)
+    {
+        log("Button 1 Pressed");
+        byte1 |= static_cast<char>(1 << 1);
+    }
 
-	if (GetAsyncKeyState(key_bind.Button2) & 0x8000)
-	{
-		log("Button 2 Pressed");
-		byte1 |= static_cast<char> (1);
-	}
+    if (GetAsyncKeyState(key_bind.Button2) & 0x8000)
+    {
+        log("Button 2 Pressed");
+        byte1 |= static_cast<char>(1);
+    }
 
-	if (GetAsyncKeyState(key_bind.Button3) & 0x8000)
-	{
-		log("Button 3 Pressed");
-		byte2 |= static_cast<char> (1 << 7);
-	}
+    if (GetAsyncKeyState(key_bind.Button3) & 0x8000)
+    {
+        log("Button 3 Pressed");
+        byte2 |= static_cast<char>(1 << 7);
+    }
 
-	if (GetAsyncKeyState(key_bind.Button4) & 0x8000)
-	{
-		log("Button 4 Pressed");
-		byte2 |= static_cast<char> (1 << 6);
-	}
+    if (GetAsyncKeyState(key_bind.Button4) & 0x8000)
+    {
+        log("Button 4 Pressed");
+        byte2 |= static_cast<char>(1 << 6);
+    }
 }
 
-int handleReadSwitchInputs(jprot_encoder *r)
+int handleReadSwitchInputs(jprot_encoder* r)
 {
-	BYTE byte0 = 0;
-	BYTE byte1 = 0;
-	BYTE byte2 = 0;
+    BYTE byte0 = 0;
+    BYTE byte1 = 0;
+    BYTE byte2 = 0;
 
-	// By Default, if without any Config, KillProcess = ESC
-	if (GetAsyncKeyState(key_bind.KillProcess) & 0x8000)
-	{
-		exit(0);
-	}
+    // By Default, if without any Config, KillProcess = ESC
+    if (GetAsyncKeyState(key_bind.KillProcess) & 0x8000)
+    {
+        exit(0); // NOLINT(concurrency-mt-unsafe)
+    }
 
-	handleDirectInputGamePlay(byte0, byte1, byte2);
-	handleKeyboardGamePlay(byte1, byte2);
-	handleSupportKeyInputs(byte0, byte1);
-	
-	r->report(JVS_REPORT_OK);
-	r->push(byte0);
-	r->push(byte1);
-	r->push(byte2);
-	return 3;
+    handleDirectInputGamePlay(byte0, byte1, byte2);
+    handleKeyboardGamePlay(byte1, byte2);
+    handleSupportKeyInputs(byte0, byte1);
+
+    r->report(JVS_REPORT_OK);
+    r->push(byte0);
+    r->push(byte1);
+    r->push(byte2);
+    return 3;
 }
 
-int handleReadCoinInputs(jprot_encoder *r)
+int handleReadCoinInputs(jprot_encoder* r)
 {
-	log("Entered Coin Handling");
+    log("Entered Coin Handling");
 
-	bool currstate = false;
+    bool currstate = false;
 
-	bool useKeyboard = true;
-	if(input_mode == "DirectInput")
-	{
-		JOYINFOEX joy;
-		joy.dwSize = sizeof(joy);
-		joy.dwFlags = JOY_RETURNALL;
+    bool useKeyboard = true;
+    if (input_mode == "DirectInput")
+    {
+        JOYINFOEX joy;
+        joy.dwSize = sizeof(joy);
+        joy.dwFlags = JOY_RETURNALL;
 
-		if(key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
-		{
-			int intJoyDwButtons = (int)joy.dwButtons;
-			if (intJoyDwButtons & key_bind.ArcadeCoin)
-			{
-				log("Coin Detected from Joystick");
-				currstate = true;
-			}
-		}
-		else
-		{
-			for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-			{
-				if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-				{
-					int intJoyDwButtons = (int)joy.dwButtons;
-					if (intJoyDwButtons & key_bind.ArcadeCoin)
-					{
-						log("Coin Detected from Joystick");
-						currstate = true;
-					}
-				}
-			}
-		}
+        if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
+        {
+            int intJoyDwButtons = (int)joy.dwButtons;
+            if (intJoyDwButtons & key_bind.ArcadeCoin)
+            {
+                log("Coin Detected from Joystick");
+                currstate = true;
+            }
+        }
+        else
+        {
+            for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+            {
+                if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+                {
+                    int intJoyDwButtons = (int)joy.dwButtons;
+                    if (intJoyDwButtons & key_bind.ArcadeCoin)
+                    {
+                        log("Coin Detected from Joystick");
+                        currstate = true;
+                    }
+                }
+            }
+        }
 
 		if(currstate == false)
 		{
@@ -637,364 +668,396 @@ int handleReadCoinInputs(jprot_encoder *r)
 	if(useKeyboard == true && currstate == false)
 	{
 		currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
-	}
-	
-	if (!coinstate[0] && currstate) {
-		++p1coin;
-	}
-	coinstate[0] = currstate;
-	
-	r->report(JVS_REPORT_OK);
-	r->push(p1coin >> 8);
-	r->push(p1coin & 0xFF);
-	return 2;
+    }
+
+    if (!coinstate[0] && currstate)
+    {
+        ++p1coin;
+    }
+    coinstate[0] = currstate;
+
+    r->report(JVS_REPORT_OK);
+    r->push(p1coin >> 8);
+    r->push(p1coin & 0xFF);
+    return 2;
 }
 
-int handleReadAnalogInputs(jprot_encoder *r, int channelCount)
+int handleReadAnalogInputs(jprot_encoder* r, int channelCount)
 {
-	r->report(JVS_REPORT_OK);
-	for (int i = 0; i < channelCount; ++i)
-	{
-		r->push(0);
-		r->push(0);
-	}
-	return 2;
+    r->report(JVS_REPORT_OK);
+    for (int i = 0; i < channelCount; ++i)
+    {
+        r->push(0);
+        r->push(0);
+    }
+    return 2;
 }
 
-int handleDecreaseNumberOfCoins(jprot_encoder *r, DWORD arg1, DWORD arg2, DWORD arg3)
+int handleDecreaseNumberOfCoins(jprot_encoder* r, DWORD arg1, DWORD arg2, DWORD arg3)
 {
-	WORD val = ((arg2 & 0xFF) << 8) | (arg3 & 0xFF);
-	r->report(JVS_REPORT_OK);
+    WORD val = static_cast<WORD>((arg2 & 0xFF) << 8) | (arg3 & 0xFF);
+    r->report(JVS_REPORT_OK);
 #ifdef _DEBUG
-	//logcmd("-coin %d, %d\n", arg1, val);
+    //logcmd("-coin %d, %d\n", arg1, val);
 #endif
-	switch (arg1)
-	{
-	case 1:
-		if (val > p1coin)
-			p1coin = 0;
-		else
-			p1coin -= val;
-		break;
-	case 2:
-		if (val > p2coin)
-			p2coin = 0;
-		else
-			p2coin -= val;
-	}
-	return 4;
+    switch (arg1)
+    {
+    case 1:
+        if (val > p1coin)
+            p1coin = 0;
+        else
+            p1coin -= val;
+        break;
+    case 2:
+        if (val > p2coin)
+            p2coin = 0;
+        else
+            p2coin -= val;
+        break;
+    default:
+        break;
+    }
+    return 4;
 }
 
-int 	handlePayouts(jprot_encoder *r, DWORD arg1, DWORD arg2, DWORD arg3)
+int handlePayouts(jprot_encoder* r, DWORD arg1, DWORD arg2, DWORD arg3)
 {
-	WORD val = ((arg2 & 0xFF) << 8) | (arg3 & 0xFF);
-	r->report(JVS_REPORT_OK);
+    WORD val = static_cast<WORD>((arg2 & 0xFF) << 8) | (arg3 & 0xFF);
+    r->report(JVS_REPORT_OK);
 #ifdef _DEBUG
-	//logcmd("+coin %d, %d\n", arg1, val);
+    //logcmd("+coin %d, %d\n", arg1, val);
 #endif
-	switch (arg1)
-	{
-	case 1: p1coin += val; break;
-	case 2: p2coin += val; break;
-	}
-	return 4;
+    switch (arg1)
+    {
+    case 1:
+        p1coin += val;
+        break;
+    case 2:
+        p2coin += val;
+        break;
+    default:
+        break;
+    }
+    return 4;
 }
 
-unsigned long process_stream(unsigned char *stream, unsigned long srcsize, unsigned char *dst, unsigned long dstsize)
+unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsigned char* dst, unsigned long dstsize)
 {
-	jprot_encoder r;
-	BYTE *pstr = stream;
-	BYTE *pfunc = NULL;
-	BYTE node = 0;
-	BYTE pktsize = 0;
-	int pktcount = 0;
-	WORD pktaddr = 0;
+    jprot_encoder r;
+    BYTE* pstr = stream;
+    BYTE* pfunc = NULL;
+    // ReSharper disable once CppEntityAssignedButNoRead
+    [[maybe_unused]]BYTE node = 0;
+    BYTE pktsize = 0;
+    int pktcount = 0;
+    [[maybe_unused]]WORD pktaddr = 0;
 
-	r.clear();
+    r.clear();
 
-	// Ignore weird packages
-	if (pstr[1] != 0x00 && pstr[1] != 0x01 && pstr[1] != 0xFF)
-	{
+    // Ignore weird packages
+    if (pstr[1] != 0x00 && pstr[1] != 0x01 && pstr[1] != 0xFF)
+    {
 #ifdef _DEBUG
 		OutputDebugStringA("Invalid package received!");
 #endif
-		return 0;
-	}
+        return 0;
+    }
 
-	if (pstr[0] != JVS_SYNC_CODE) {
+    if (pstr[0] != JVS_SYNC_CODE)
+    {
 #ifdef _DEBUG
 		log("Invalid Sync code!\n");
 #endif
-	}
+    }
 #ifdef _DEBUG
 	r.printSource(stream, srcsize);
 #endif
-	node = pstr[1];
-	pktsize = pstr[2];
-	pfunc = &pstr[3];
+    // ReSharper disable once CppAssignedValueIsNeverUsed
+    node = pstr[1];
+    pktsize = pstr[2];
+    pfunc = &pstr[3];
 
-	pktcount = (int)pktsize - 1;
+    pktcount = (int)pktsize - 1;
 
-	r.begin_stream();
+    r.begin_stream();
 
-	while (pktcount > 0)
-	{
-		int increment = 0;
-		log("Type is %02X", pfunc[0] & 0xFF);
-		switch (pfunc[0] & 0xFF)
-		{
-		case 0xF0:
-			increment = handleBusReset();
-			break;
-		case 0xF1:
-			increment = handleSetAddress(&r);
-			break;
-		case 0x01:
-			increment = handleTaito01Call(&r, __ARG__(1));
-			break;
-		case 0x02:
-			increment = handleTaito02Call(&r);
-			break;
-		case 0x03:
-			increment = handleTaito03Call(&r);
-			break;
-		case 0x04:
-			increment = handleTaito04Call(&r);
-			break;
-		case 0x05:
-			increment = handleTaito05Call(&r);
-			break;
-		case 0x10:
-			increment = handleReadIDData(&r);
-			break;
-		case 0x11:
-			increment = handleGetCommandFormatVersion(&r);
-			break;
-		case 0x12:
-			increment = handleGetJVSVersion(&r);
-			break;
-		case 0x13:
-			increment = handleGetCommunicationVersion(&r);
-			break;
-		case 0x14:
-			increment = handleGetSlaveFeatures(&r);
-			break;
-		case 0x20:
-			increment = handleReadSwitchInputs(&r);
-			break;
-		case 0x21:
-			increment = handleReadCoinInputs(&r);
-			break;
-		case 0x22:
-			increment = handleReadAnalogInputs(&r, __ARG__(1));
-			break;
-		case 0x26:
-			increment = handleReadGeneralPurposeInput(&r, __ARG__(1));
-			break;
-		case 0x2F:
-			increment = handleReTransmitDataInCaseOfChecksumFailure();
-			break;
-		case 0x30:
-			increment = handleDecreaseNumberOfCoins(&r, __ARG__(1), __ARG__(2), __ARG__(3));
-			break;
-		case 0x31:
-			increment = handlePayouts(&r, __ARG__(1), __ARG__(2), __ARG__(3));
-			break;
-		case 0x32:
-			increment = handleReadGeneralPurposeOutput(&r, __ARG__(1));
-			break;
-		default:
+    while (pktcount > 0)
+    {
+        int increment;
+        log("Type is %02X", pfunc[0] & 0xFF);
+        switch (pfunc[0] & 0xFF)
+        {
+        case 0xF0:
+            increment = handleBusReset();
+            break;
+        case 0xF1:
+            increment = handleSetAddress(&r);
+            break;
+        case 0x01:
+            increment = handleTaito01Call(&r, GET_ARG(1));
+            break;
+        case 0x02:
+            increment = handleTaito02Call(&r);
+            break;
+        case 0x03:
+            increment = handleTaito03Call(&r);
+            break;
+        case 0x04:
+            increment = handleTaito04Call(&r);
+            break;
+        case 0x05:
+            increment = handleTaito05Call(&r);
+            break;
+        case 0x10:
+            increment = handleReadIDData(&r);
+            break;
+        case 0x11:
+            increment = handleGetCommandFormatVersion(&r);
+            break;
+        case 0x12:
+            increment = handleGetJVSVersion(&r);
+            break;
+        case 0x13:
+            increment = handleGetCommunicationVersion(&r);
+            break;
+        case 0x14:
+            increment = handleGetSlaveFeatures(&r);
+            break;
+        case 0x20:
+            increment = handleReadSwitchInputs(&r);
+            break;
+        case 0x21:
+            increment = handleReadCoinInputs(&r);
+            break;
+        case 0x22:
+            increment = handleReadAnalogInputs(&r, GET_ARG(1));
+            break;
+        case 0x26:
+            increment = handleReadGeneralPurposeInput(&r, GET_ARG(1));
+            break;
+        case 0x2F:
+            increment = handleReTransmitDataInCaseOfChecksumFailure();
+            break;
+        case 0x30:
+            increment = handleDecreaseNumberOfCoins(&r, GET_ARG(1), GET_ARG(2), GET_ARG(3));
+            break;
+        case 0x31:
+            increment = handlePayouts(&r, GET_ARG(1), GET_ARG(2), GET_ARG(3));
+            break;
+        case 0x32:
+            increment = handleReadGeneralPurposeOutput(&r, GET_ARG(1));
+            break;
+        default:
 #ifdef _DEBUG
-			log("Unknown command %X\n", __ARG__(0));
+			log("Unknown command %X\n", GetArg(0));
 #endif
-			r.report(JVS_REPORT_OK);
-			increment = 1;
-			break;
-		}
+            r.report(JVS_REPORT_OK);
+            increment = 1;
+            break;
+        }
 
-		pktcount -= increment;
-		pfunc += increment;
-	}
+        pktcount -= increment;
+        pfunc += increment;
+    }
 
-	r.set_status(JVS_STATUS_OK);
-	r.end_stream();
-	r.read(dst, dstsize);
+    r.set_status(JVS_STATUS_OK);
+    r.end_stream();
+    r.read(dst, dstsize);
 #ifdef _DEBUG
 	r.printReply();
 #endif
-	return r.size();
+    return r.size();
 }
 
-BOOL(__stdcall *g_origGetCommModemStatus)(HANDLE hFile, LPDWORD lpModemStat);
+BOOL (__stdcall *g_origGetCommModemStatus)(HANDLE hFile, LPDWORD lpModemStat);
+
 BOOL __stdcall GetCommModemStatusWrap(HANDLE hFile, LPDWORD lpModemStat)
 {
-	if (hFile != hConnection) {
-		return g_origGetCommModemStatus(hFile, lpModemStat);
-	}
-	if (is_addressed())
-		*lpModemStat = 0x10;
-	else
-		*lpModemStat = 0x10;
+    if (hFile != hConnection)
+    {
+        return g_origGetCommModemStatus(hFile, lpModemStat);
+    }
+    /*if (is_addressed())
+        *lpModemStat = 0x10;
+    else*/
+        *lpModemStat = 0x10;
 #ifdef _DEBUG
 	log("GetCommModemStatus(hFile=%d, lpModemStat=%p) -> result=%08X", hFile, lpModemStat, TRUE);
 #endif
-	return TRUE;
+    return TRUE;
 }
 
 
-BOOL(__stdcall *g_origGetCommState)(HANDLE hFile, LPDCB lpDCB);
+BOOL (__stdcall *g_origGetCommState)(HANDLE hFile, LPDCB lpDCB);
+
 BOOL __stdcall GetCommStateWrap(HANDLE hFile, LPDCB lpDCB)
 {
-	if (hFile != hConnection) {
-		return g_origGetCommState(hFile, lpDCB);
-	}
+    if (hFile != hConnection)
+    {
+        return g_origGetCommState(hFile, lpDCB);
+    }
 #ifdef _DEBUG
 	log("GetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
 #endif
-	return TRUE;
+    return TRUE;
 }
 
-BOOL(__stdcall *g_origSetCommState)(HANDLE hFile, LPDCB lpDCB);
+BOOL (__stdcall *g_origSetCommState)(HANDLE hFile, LPDCB lpDCB);
+
 BOOL __stdcall SetCommStateWrap(HANDLE hFile, LPDCB lpDCB)
 {
-	if (hFile != hConnection) {
-		return g_origSetCommState(hFile, lpDCB);
-	}
+    if (hFile != hConnection)
+    {
+        return g_origSetCommState(hFile, lpDCB);
+    }
 #ifdef _DEBUG
 	log("SetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
 #endif
-	return TRUE;
+    return TRUE;
 }
 
-BOOL(__stdcall *g_origSetCommTimeouts)(HANDLE hFile, LPCOMMTIMEOUTS lpCommTimeouts);
+BOOL (__stdcall *g_origSetCommTimeouts)(HANDLE hFile, LPCOMMTIMEOUTS lpCommTimeouts);
+
 BOOL __stdcall SetCommTimeoutsWrap(HANDLE hFile, LPCOMMTIMEOUTS lpCommTimeouts)
 {
-
-	if (hFile != hConnection) {
-		return g_origSetCommTimeouts(hFile, lpCommTimeouts);
-	}
+    if (hFile != hConnection)
+    {
+        return g_origSetCommTimeouts(hFile, lpCommTimeouts);
+    }
 #ifdef _DEBUG
 	log("SetCommTimeouts(hFile=%d, lpCommTimeouts=%p) -> result=%08X", hFile, lpCommTimeouts, TRUE);
 #endif
-	return TRUE;
+    return TRUE;
 }
 
-BOOL (*gOrigPurgeComm)(HANDLE hFile, DWORD  dwFlags);
+BOOL (*gOrigPurgeComm)(HANDLE hFile, DWORD dwFlags);
+
 BOOL PurgeCommWrap(
-  HANDLE hFile,
-  DWORD  dwFlags
+    HANDLE hFile,
+    DWORD dwFlags
 )
 {
-	if (hFile != hConnection)
-	{
-		return gOrigPurgeComm(hFile, dwFlags);
-	}
-	log("PurgeComm");			
-	return TRUE;
+    if (hFile != hConnection)
+    {
+        return gOrigPurgeComm(hFile, dwFlags);
+    }
+    log("PurgeComm");
+    return TRUE;
 }
 
-BOOL(__stdcall *g_origWriteFile)(HANDLE hFile,
-	LPVOID lpBuffer,
-	DWORD nNumberOfBytesToWrite,
-	LPDWORD lpNumberOfBytesWritten,
-	LPOVERLAPPED lpOverlapped);
-BOOL __stdcall WriteFileWrap(HANDLE hFile,
-	LPVOID lpBuffer,
-	DWORD nNumberOfBytesToWrite,
-	LPDWORD lpNumberOfBytesWritten,
-	LPOVERLAPPED lpOverlapped)
-{
-	if (hFile != hConnection) {
-		return g_origWriteFile(hFile, lpBuffer, nNumberOfBytesToWrite, lpNumberOfBytesWritten, lpOverlapped);
-	}
-	static BYTE rbuffer[1024];
-	static BYTE logger[1024];
+BOOL (__stdcall *g_origWriteFile)(HANDLE hFile,
+                                  LPVOID lpBuffer,
+                                  DWORD nNumberOfBytesToWrite,
+                                  LPDWORD lpNumberOfBytesWritten,
+                                  LPOVERLAPPED lpOverlapped);
 
-	DWORD sz = process_stream((LPBYTE)lpBuffer, nNumberOfBytesToWrite, rbuffer, 1024);
-	if (sz != 1) {
-		for (DWORD i = 0; i < sz; i++)
-		{
-			replyBuffer.push(rbuffer[i]);
-		}
-	}
+BOOL __stdcall WriteFileWrap(HANDLE hFile,
+                             LPVOID lpBuffer,
+                             DWORD nNumberOfBytesToWrite,
+                             LPDWORD lpNumberOfBytesWritten,
+                             LPOVERLAPPED lpOverlapped)
+{
+    if (hFile != hConnection)
+    {
+        return g_origWriteFile(hFile, lpBuffer, nNumberOfBytesToWrite, lpNumberOfBytesWritten, lpOverlapped);
+    }
+    static BYTE rbuffer[1024];
+
+    DWORD sz = process_stream((LPBYTE)lpBuffer, nNumberOfBytesToWrite, rbuffer, 1024);
+    if (sz != 1)
+    {
+        for (DWORD i = 0; i < sz; i++)
+        {
+            replyBuffer.push(rbuffer[i]);
+        }
+    }
 
 #ifdef LogRFID
 	info(true, "");
 	info(true, "--------------------------------------------");
 #endif
-	return TRUE;
+    return TRUE;
 }
 
-BOOL(__stdcall *g_origReadFile)(HANDLE hFile,
-	LPVOID lpBuffer,
-	DWORD nNumberOfBytesToRead,
-	LPDWORD lpNumberOfBytesRead,
-	LPOVERLAPPED lpOverlapped);
-BOOL __stdcall  ReadFileWrap(HANDLE hFile,
-	LPVOID lpBuffer,
-	DWORD nNumberOfBytesToRead,
-	LPDWORD lpNumberOfBytesRead,
-	LPOVERLAPPED lpOverlapped)
+BOOL (__stdcall *g_origReadFile)(HANDLE hFile,
+                                 LPVOID lpBuffer,
+                                 DWORD nNumberOfBytesToRead,
+                                 LPDWORD lpNumberOfBytesRead,
+                                 LPOVERLAPPED lpOverlapped);
+
+BOOL __stdcall ReadFileWrap(HANDLE hFile,
+                            LPVOID lpBuffer,
+                            DWORD nNumberOfBytesToRead,
+                            LPDWORD lpNumberOfBytesRead,
+                            LPOVERLAPPED lpOverlapped)
 {
-	if (hFile != hConnection) {
-		return g_origReadFile(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
-	}
+    if (hFile != hConnection)
+    {
+        return g_origReadFile(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
+    }
 
 #ifdef LogRFID
 	info(true, "ReadFile(hFile=%d, lpBuffer='%08X', nNumberOfBytesToRead=%08X) -> result=%08X", hFile, lpBuffer, nNumberOfBytesToRead, TRUE);
 #endif
-	if (replyBuffer.size())
-	{
-		if (nNumberOfBytesToRead >= replyBuffer.size())
-			nNumberOfBytesToRead = replyBuffer.size();
-		*lpNumberOfBytesRead = nNumberOfBytesToRead;
-		BYTE *ptr = (BYTE*)lpBuffer;
-		for (DWORD i = 0; i < nNumberOfBytesToRead; i++) {
-			if (!replyBuffer.empty()) {
-				*ptr++ = replyBuffer.front();
-				replyBuffer.pop();
-			}
-			else
-				*ptr++ = 0;
-		}
-	}
-	else {
-		*lpNumberOfBytesRead = 0;
-		return TRUE;
-	}
+    if (replyBuffer.size())
+    {
+        if (nNumberOfBytesToRead >= replyBuffer.size())
+            nNumberOfBytesToRead = static_cast<DWORD>(replyBuffer.size());
+        *lpNumberOfBytesRead = nNumberOfBytesToRead;
+        BYTE* ptr = (BYTE*)lpBuffer;
+        for (DWORD i = 0; i < nNumberOfBytesToRead; i++)
+        {
+            if (!replyBuffer.empty())
+            {
+                *ptr++ = replyBuffer.front();
+                replyBuffer.pop();
+            }
+            else
+                *ptr++ = 0;
+        }
+    }
+    else
+    {
+        *lpNumberOfBytesRead = 0;
+        return TRUE;
+    }
 #ifdef LogRFID
 	info(true, "");
 	info(true, "--------------------------------------------");
 #endif
-	return TRUE;
+    return TRUE;
 }
 
-BOOL(__stdcall *g_origCloseHandle)(HANDLE hObject);
+BOOL (__stdcall *g_origCloseHandle)(HANDLE hObject);
+
 BOOL __stdcall CloseHandleWrap(HANDLE hObject)
 {
-	if (hObject != hConnection) {
-		return g_origCloseHandle(hObject);
-	}
+    if (hObject != hConnection)
+    {
+        return g_origCloseHandle(hObject);
+    }
 #ifdef LogRFID
 	info(true, "CloseHandle(hObject=%d) -> result=%08X", hObject, TRUE);
 	info(true, "--------------------------------------------");
 #endif
-	return TRUE;
+    return TRUE;
 }
 
-void InitializeJvs(const config_struct& configs)
+void InitializeJvs()
 {
-	key_bind = configs.KeyBind;
-	input_mode = configs.InputMode;
+    key_bind = globalConfig.KeyBind;
+    input_mode = globalConfig.InputMode;
 
-	MH_Initialize();
-	MH_CreateHookApi(L"kernel32.dll", "WriteFile", WriteFileWrap, reinterpret_cast<void**>(&g_origWriteFile));
-	MH_CreateHookApi(L"kernel32.dll", "ReadFile", ReadFileWrap, reinterpret_cast<void**>(&g_origReadFile));
-	MH_CreateHookApi(L"kernel32.dll", "CloseHandle", CloseHandleWrap, reinterpret_cast<void**>(&g_origCloseHandle));
-	MH_CreateHookApi(L"kernel32.dll", "GetCommModemStatus", GetCommModemStatusWrap, reinterpret_cast<void**>(&g_origGetCommModemStatus));
-	MH_CreateHookApi(L"kernel32.dll", "GetCommState", GetCommStateWrap, reinterpret_cast<void**>(&g_origGetCommState));
-	MH_CreateHookApi(L"kernel32.dll", "SetCommState", SetCommStateWrap, reinterpret_cast<void**>(&g_origSetCommState));
-	MH_CreateHookApi(L"kernel32.dll", "SetCommTimeouts", SetCommTimeoutsWrap, reinterpret_cast<void**>(&g_origSetCommTimeouts));
+    MH_Initialize();
+    MH_CreateHookApi(L"kernel32.dll", "WriteFile", WriteFileWrap, reinterpret_cast<void**>(&g_origWriteFile));
+    MH_CreateHookApi(L"kernel32.dll", "ReadFile", ReadFileWrap, reinterpret_cast<void**>(&g_origReadFile));
+    MH_CreateHookApi(L"kernel32.dll", "CloseHandle", CloseHandleWrap, reinterpret_cast<void**>(&g_origCloseHandle));
+    MH_CreateHookApi(L"kernel32.dll", "GetCommModemStatus", GetCommModemStatusWrap,
+                     reinterpret_cast<void**>(&g_origGetCommModemStatus));
+    MH_CreateHookApi(L"kernel32.dll", "GetCommState", GetCommStateWrap, reinterpret_cast<void**>(&g_origGetCommState));
+    MH_CreateHookApi(L"kernel32.dll", "SetCommState", SetCommStateWrap, reinterpret_cast<void**>(&g_origSetCommState));
+    MH_CreateHookApi(L"kernel32.dll", "SetCommTimeouts", SetCommTimeoutsWrap,
+                     reinterpret_cast<void**>(&g_origSetCommTimeouts));
 
-	MH_EnableHook(nullptr);
+    MH_EnableHook(nullptr);
 }

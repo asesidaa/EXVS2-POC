@@ -5,11 +5,10 @@
 #include <chrono>
 #include <string>
 #include "random.h"
-#include "INIReader.h"
 #include <Windows.h>
 #include <joystickapi.h>
-
-#include "VirtualKeyMapping.h"
+#include "Configs.h"
+#include "INIReader.h"
 
 constexpr auto BANA_API_VERSION = "Ver 1.6.1";
 
@@ -93,27 +92,24 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
 
         bool button_state = false;
 
-        INIReader config_reader("config.ini");
-        std::string input_mode = config_reader.Get("config", "InputMode", "Keyboard");
-        std::string card_key = config_reader.Get("keybind", "Card", "P");
-        bool allow_keyboard_support_in_dinput = config_reader.GetBoolean("keybind", "UseKeyboardSupportKeyInDirectInput", true);
-
+        std::string input_mode = globalConfig.InputMode;
         bool useKeyboard = true;
 
         if(input_mode == "DirectInput")
         {
-            std::string card_button_placeholder = config_reader.Get("keybind", "ArcadeCard", "8");
-            std::string joystickIndex_placeholder = config_reader.Get("keybind", "DirectInputDeviceId", "16");
-            int overrideJoystickIndex = std::stoi(joystickIndex_placeholder);
+            useKeyboard = globalConfig.KeyBind.UseKeyboardSupportKeyInDirectInput;
+            button_state = GetAsyncKeyState(globalConfig.KeyBind.Card);
+            int overrideJoystickIndex = globalConfig.KeyBind.DirectInputDeviceId;
+            int arcadeCardButton = globalConfig.KeyBind.ArcadeCard;
             
             JOYINFOEX joy;
             joy.dwSize = sizeof(joy);
             joy.dwFlags = JOY_RETURNALL;
 
-            if(overrideJoystickIndex < 16 && joyGetPosEx(std::stoi(joystickIndex_placeholder), &joy) == JOYERR_NOERROR)
+            if(overrideJoystickIndex < 16 && joyGetPosEx(overrideJoystickIndex, &joy) == JOYERR_NOERROR)
             {
                 int intJoyDwButtons = (int)joy.dwButtons;
-                button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
+                button_state = intJoyDwButtons & arcadeCardButton;
             }
             else
             {
@@ -122,7 +118,7 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                     if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
                     {
                         int intJoyDwButtons = (int)joy.dwButtons;
-                        button_state = intJoyDwButtons & std::stoi(card_button_placeholder);
+                        button_state = intJoyDwButtons & arcadeCardButton;
                     }
                 }
             }

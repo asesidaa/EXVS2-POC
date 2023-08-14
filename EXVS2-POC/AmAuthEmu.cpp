@@ -77,9 +77,6 @@ typedef struct amcus_version_info
     char auth_url[256];
 } amcus_version_info_t;
 
-DWORD reg = 0;
-static config_struct amconfig {};
-
 class CAuth : public IUnknown
 {
 public:
@@ -205,14 +202,14 @@ public:
             .shop_router_status = 1,
             .hop_status = 1
         };
-        strcpy_s(result.pcbid, amconfig.PcbId.c_str());
-        strcpy_s(result.dongle_serial, amconfig.Serial.c_str());
-        strcpy_s(result.shop_router_ip, amconfig.TenpoRouter.c_str());
-        strcpy_s(result.auth_server_ip, amconfig.AuthServerIp.c_str());
-        strcpy_s(result.local_ip, amconfig.IpAddress.c_str());
-        strcpy_s(result.subnet_mask, amconfig.SubnetMask.c_str());
-        strcpy_s(result.gateway, amconfig.Gateway.c_str());
-        strcpy_s(result.primary_dns, amconfig.PrimaryDNS.c_str());
+        strcpy_s(result.pcbid, globalConfig.PcbId.c_str());
+        strcpy_s(result.dongle_serial, globalConfig.Serial.c_str());
+        strcpy_s(result.shop_router_ip, globalConfig.TenpoRouter.c_str());
+        strcpy_s(result.auth_server_ip, globalConfig.AuthServerIp.c_str());
+        strcpy_s(result.local_ip, globalConfig.IpAddress.c_str());
+        strcpy_s(result.subnet_mask, globalConfig.SubnetMask.c_str());
+        strcpy_s(result.gateway, globalConfig.Gateway.c_str());
+        strcpy_s(result.primary_dns, globalConfig.PrimaryDNS.c_str());
         memcpy_s(state, sizeof(amcus_network_state_t), &result, sizeof(amcus_network_state_t));
         return 0;
     }
@@ -255,11 +252,11 @@ public:
     IAuth_GetAuthServerResp(amcus_auth_server_resp_t* resp)
     {
         log("IAuth_GetAuthServerResp");
-        log("Server address %s", amconfig.ServerAddress.c_str());
+        log("Server address %s", globalConfig.ServerAddress.c_str());
 
-        std::string region_name_0 = amconfig.RegionCode;
+        std::string region_name_0 = globalConfig.RegionCode;
 
-        if(amconfig.Mode == "3" || amconfig.Mode == "4")
+        if(globalConfig.Mode == 3 || globalConfig.Mode == 4)
         {
             region_name_0 = "01035";
         }
@@ -281,8 +278,8 @@ public:
             .timezone = "+0900",
             .res_class = "PowerOnResponseVer2"
         };
-        strcpy_s(result.uri, amconfig.ServerAddress.c_str());
-        strcpy_s(result.host, amconfig.ServerAddress.c_str());
+        strcpy_s(result.uri, globalConfig.ServerAddress.c_str());
+        strcpy_s(result.host, globalConfig.ServerAddress.c_str());
         strcpy_s(result.region0, region_name_0.c_str());
         memcpy_s(resp, sizeof(amcus_auth_server_resp_t), &result, sizeof(amcus_auth_server_resp_t));
         return 0;
@@ -511,12 +508,9 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
     return gOriCoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
 }
 
-void InitAmAuthEmu(const config_struct& config)
+void InitAmAuthEmu()
 {
     MH_Initialize();
     MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&gOriCoCreateInstance));  // NOLINT(clang-diagnostic-microsoft-cast)
     MH_EnableHook(nullptr);
-    
-    amconfig = config;
-    log("AMconfig Server address: %s", amconfig.ServerAddress.c_str());
 }
