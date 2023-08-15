@@ -97,8 +97,6 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
 
         if(input_mode == "DirectInput")
         {
-            useKeyboard = globalConfig.KeyBind.UseKeyboardSupportKeyInDirectInput;
-            button_state = GetAsyncKeyState(globalConfig.KeyBind.Card);
             int overrideJoystickIndex = globalConfig.KeyBind.DirectInputDeviceId;
             int arcadeCardButton = globalConfig.KeyBind.ArcadeCard;
             
@@ -125,13 +123,13 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
 
             if(button_state == false)
             {
-                useKeyboard = allow_keyboard_support_in_dinput;
+                useKeyboard = globalConfig.KeyBind.UseKeyboardSupportKeyInDirectInput;
             }
         }
         
         if(useKeyboard == true && button_state == false)
         {
-            button_state = GetAsyncKeyState(findKeyByValue(card_key));
+            button_state = GetAsyncKeyState(globalConfig.KeyBind.Card);
         }
 
         if (button_state)
