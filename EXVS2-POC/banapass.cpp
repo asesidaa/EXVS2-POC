@@ -102,15 +102,6 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
 
         if(input_mode == "DirectInput")
         {
-            useKeyboard = allow_keyboard_support_in_dinput;
-        }
-        
-        if(useKeyboard)
-        {
-            button_state = GetAsyncKeyState(findKeyByValue(card_key));
-        }
-        else
-        {
             std::string card_button_placeholder = config_reader.Get("keybind", "ArcadeCard", "8");
             std::string joystickIndex_placeholder = config_reader.Get("keybind", "DirectInputDeviceId", "16");
             int overrideJoystickIndex = std::stoi(joystickIndex_placeholder);
@@ -135,6 +126,16 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                     }
                 }
             }
+
+            if(button_state == false)
+            {
+                useKeyboard = allow_keyboard_support_in_dinput;
+            }
+        }
+        
+        if(useKeyboard == true && button_state == false)
+        {
+            button_state = GetAsyncKeyState(findKeyByValue(card_key));
         }
 
         if (button_state)
