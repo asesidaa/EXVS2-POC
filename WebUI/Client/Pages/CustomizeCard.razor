@@ -907,7 +907,7 @@
                             </MudSelect>
                         </MudItem>
                         <MudItem xs="6">
-                            <MudSelect Label="@localizer["gamepadcross"]" @bind-Value="_gamepadConfig.BKey" T="uint" Variant="Variant.Outlined">
+                            <MudSelect Label="@localizer["gamepadcircle"]" @bind-Value="_gamepadConfig.BKey" T="uint" Variant="Variant.Outlined">
                                 @foreach (var button in DataService.GetSortedGamepadOptionList())
                                 {
                                     <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
