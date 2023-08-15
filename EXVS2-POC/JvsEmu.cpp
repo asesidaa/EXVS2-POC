@@ -599,15 +599,6 @@ int handleReadCoinInputs(jprot_encoder *r)
 	bool useKeyboard = true;
 	if(input_mode == "DirectInput")
 	{
-		useKeyboard = key_bind.UseKeyboardSupportKeyInDirectInput;
-	}
-
-	if(useKeyboard)
-	{
-		currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
-	}
-	else
-	{
 		JOYINFOEX joy;
 		joy.dwSize = sizeof(joy);
 		joy.dwFlags = JOY_RETURNALL;
@@ -636,6 +627,16 @@ int handleReadCoinInputs(jprot_encoder *r)
 				}
 			}
 		}
+
+		if(currstate == false)
+		{
+			useKeyboard = key_bind.UseKeyboardSupportKeyInDirectInput;
+		}
+	}
+
+	if(useKeyboard == true && currstate == false)
+	{
+		currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
 	}
 	
 	if (!coinstate[0] && currstate) {
