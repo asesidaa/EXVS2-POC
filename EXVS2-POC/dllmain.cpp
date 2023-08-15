@@ -35,6 +35,9 @@ config_struct ReadConfigs(INIReader reader) {
     jvs_key_bind key_bind;
     std::string keyMapPlaceholder;
 
+    keyMapPlaceholder = reader.Get("keybind", "KillProcess", "Esc");
+    key_bind.KillProcess = findKeyByValue(keyMapPlaceholder);
+
     keyMapPlaceholder = reader.Get("keybind", "Test", "T");
     key_bind.Test = findKeyByValue(keyMapPlaceholder);
 
