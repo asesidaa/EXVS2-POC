@@ -20,6 +20,7 @@ config_struct ReadConfigs(INIReader reader) {
     config.InputMode = reader.Get("config", "InputMode", "Keyboard");
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
     config.Serial = reader.Get("config", "serial", "284311110001");
+    config.Mode = static_cast<uint8_t>(reader.GetInteger("config", "mode", 2));
     config.IpAddress = reader.Get("config", "IpAddress", "192.168.50.239");
     config.Gateway = reader.Get("config", "Gateway", "192.168.50.1");
     config.SubnetMask = reader.Get("config", "SubnetMask", "255.255.255.0");
@@ -27,9 +28,8 @@ config_struct ReadConfigs(INIReader reader) {
     config.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
-    config.Mode = reader.Get("config", "mode", "1");
     config.RegionCode = reader.Get("config", "Region", "1");
-    config.UseNormalTimeInLM = reader.GetBoolean("config", "Region", false);
+    config.UseNormalTimeInLM = reader.GetBoolean("config", "UseNormalTimeInLM", false);
     
     // key bind config reading
     jvs_key_bind key_bind;
@@ -71,6 +71,9 @@ config_struct ReadConfigs(INIReader reader) {
     keyMapPlaceholder = reader.Get("keybind", "Button4", "V");
     key_bind.Button4 = findKeyByValue(keyMapPlaceholder);
 
+    keyMapPlaceholder = reader.Get("keybind", "Card", "P");
+    key_bind.Card = findKeyByValue(keyMapPlaceholder);
+
     key_bind.DirectInputDeviceId = reader.GetInteger("keybind", "DirectInputDeviceId", 16);
 
     key_bind.ArcadeButton1 = reader.GetInteger("keybind", "ArcadeButton1", 1);
@@ -87,6 +90,8 @@ config_struct ReadConfigs(INIReader reader) {
 
     key_bind.ArcadeTest = reader.GetInteger("keybind", "ArcadeTest", 7);
 
+    key_bind.ArcadeCard = reader.GetInteger("keybind", "ArcadeCard", 8);
+
     key_bind.UseKeyboardSupportKeyInDirectInput = reader.GetBoolean("keybind", "UseKeyboardSupportKeyInDirectInput", true);
 
     config.KeyBind = key_bind;
@@ -96,24 +101,22 @@ config_struct ReadConfigs(INIReader reader) {
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     // Read config
-    // todo: consolidate items from GameHooks.cpp
     INIReader reader("config.ini");
 
-    config_struct config {};
     if (reader.ParseError() == 0)
     {
-        config = ReadConfigs(reader);
+        globalConfig = ReadConfigs(reader);
     }
 
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
         {
-            InitAmAuthEmu(config);
+            InitAmAuthEmu();
             InitializeHooks();
             InitClockHooks();
-            InitializeJvs(config);
-            InitDXGIWindowHook(config);
+            InitializeJvs();
+            InitDXGIWindowHook();
         }
         break;
     case DLL_THREAD_ATTACH:  // NOLINT(bugprone-branch-clone)

@@ -1,4 +1,5 @@
-﻿#include <Windows.h>
+﻿// ReSharper disable CppClangTidyClangDiagnosticMicrosoftCast
+#include <Windows.h>
 #include <cstdint>
 
 #include "MinHook.h"
@@ -9,7 +10,7 @@
 #include <chrono>
 #include <ctime>
 
-#include "INIReader.h"
+#include "Configs.h"
 
 // Reference https://github.com/djhackersdev/segatools/blob/ca9c72db968c81fdf88ba01f9b4a474bf818e401/platform/clock.c
 
@@ -140,12 +141,10 @@ static __time64_t time64Hook(time_t* destTime)
     using namespace std::chrono;
     
     auto now = system_clock::now();
-
-    const INIReader config_reader("config.ini");
-    const bool use_normal_time_in_lm = config_reader.GetBoolean("config", "UseNormalTimeInLM", false);
-    const int game_mode = config_reader.GetInteger("config", "mode", 1);
+    
+    const int game_mode = globalConfig.Mode;
     const bool is_lm = (game_mode == 2 || game_mode == 4);
-    if(use_normal_time_in_lm && is_lm)
+    if(globalConfig.UseNormalTimeInLM && is_lm)
     {
         const auto ret = duration_cast<seconds>(now.time_since_epoch()).count();
         if (destTime != nullptr)

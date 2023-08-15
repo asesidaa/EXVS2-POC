@@ -16,6 +16,7 @@ struct jvs_key_bind {
 	int Button2;
 	int Button3;
 	int Button4;
+	int Card;
 	int DirectInputDeviceId;
 	int ArcadeButton1;
 	int ArcadeButton2;
@@ -24,6 +25,7 @@ struct jvs_key_bind {
 	int ArcadeStartButton;
 	int ArcadeCoin;
 	int ArcadeTest;
+	int ArcadeCard;
 	bool UseKeyboardSupportKeyInDirectInput;
 
 	jvs_key_bind():
@@ -40,6 +42,7 @@ struct jvs_key_bind {
 		Button2(0x58),
 		Button3(0x43),
 		Button4(0x56),
+	    Card(0x50),
 		DirectInputDeviceId(16),
 		ArcadeButton1(1),
 		ArcadeButton2(2),
@@ -48,14 +51,16 @@ struct jvs_key_bind {
 		ArcadeStartButton(5),
 		ArcadeCoin(6),
 		ArcadeTest(7),
+	    ArcadeCard(8),
 		UseKeyboardSupportKeyInDirectInput(true)
-	{}
+	{
+	}
 };
 
 struct config_struct {
 	jvs_key_bind KeyBind;
 	bool Windowed;
-	std::string Mode;
+	uint8_t Mode;
 	std::string InputMode;
 	std::string Serial;
 	std::string PcbId;
@@ -136,7 +141,7 @@ struct config_struct {
 
 	config_struct() :
 		Windowed(false),
-		Mode("2"),
+		Mode(2),
 		InputMode("Keyboard"),
 		Serial("284311110001"),
 		PcbId("ABLN1110001"),
@@ -152,3 +157,5 @@ struct config_struct {
 	{
 	}
 };
+
+inline config_struct globalConfig {};
