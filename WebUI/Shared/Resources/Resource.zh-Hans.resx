@@ -279,6 +279,9 @@
   <data name="cardviewdetail" xml:space="preserve">
     <value>显示玩家资料</value>
   </data>
+  <data name="triadcoursescores" xml:space="preserve">
+    <value>街机模式关卡记录</value>
+  </data>
   <data name="screencaptures" xml:space="preserve">
     <value>截图</value>
   </data>

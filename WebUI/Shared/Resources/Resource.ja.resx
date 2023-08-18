@@ -288,6 +288,9 @@
   <data name="cardviewdetail" xml:space="preserve">
     <value>View Player Detail</value>
   </data>
+  <data name="triadcoursescores" xml:space="preserve">
+    <value>トライアドコーススコア</value>
+  </data>
   <data name="screencaptures" xml:space="preserve">
     <value>Screen Captures</value>
   </data>
