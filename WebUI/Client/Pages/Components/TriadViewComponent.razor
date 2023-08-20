@@ -1,0 +1,107 @@
+﻿@using WebUI.Shared.Dto.Common
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+            <WebUI.Client.Pages.Components.TriadCourseViewComponent TriadCourseConfigs="TriadCourseConfigForA" 
+                                                                    TriadCourseResults="TriadCourseResultsForA" 
+                                                                    CpuRibbons="TriadCourseOverallResult.CpuRibbons"
+                                                                    TargetCourse="A"/>
+            <WebUI.Client.Pages.Components.TriadCourseViewComponent TriadCourseConfigs="TriadCourseConfigForB" 
+                                                                    TriadCourseResults="TriadCourseResultsForB" 
+                                                                    CpuRibbons="TriadCourseOverallResult.CpuRibbons"
+                                                                    TargetCourse="B"/>
+            <WebUI.Client.Pages.Components.TriadCourseViewComponent TriadCourseConfigs="TriadCourseConfigForC" 
+                                                                    TriadCourseResults="TriadCourseResultsForC" 
+                                                                    CpuRibbons="TriadCourseOverallResult.CpuRibbons"
+                                                                    TargetCourse="C"/>
+            <WebUI.Client.Pages.Components.TriadCourseViewComponent TriadCourseConfigs="TriadCourseConfigForD" 
+                                                                    TriadCourseResults="TriadCourseResultsForD" 
+                                                                    CpuRibbons="TriadCourseOverallResult.CpuRibbons"
+                                                                    TargetCourse="D"/>
+            <WebUI.Client.Pages.Components.TriadCourseViewComponent TriadCourseConfigs="TriadCourseConfigForE" 
+                                                                    TriadCourseResults="TriadCourseResultsForE" 
+                                                                    CpuRibbons="TriadCourseOverallResult.CpuRibbons"
+                                                                    TargetCourse="E"/>
+            <WebUI.Client.Pages.Components.TriadCourseViewComponent TriadCourseConfigs="TriadCourseConfigForF" 
+                                                                    TriadCourseResults="TriadCourseResultsForF" 
+                                                                    CpuRibbons="TriadCourseOverallResult.CpuRibbons"
+                                                                    TargetCourse="F"/>
+        </MudTabs>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public List<TriadCourseConfig> TriadCourseConfigs { get; set; } = new ();
+    
+    public List<TriadCourseConfig> TriadCourseConfigForA { get; set; } = new ();
+    public List<TriadCourseConfig> TriadCourseConfigForB { get; set; } = new ();
+    public List<TriadCourseConfig> TriadCourseConfigForC { get; set; } = new ();
+    public List<TriadCourseConfig> TriadCourseConfigForD { get; set; } = new ();
+    public List<TriadCourseConfig> TriadCourseConfigForE { get; set; } = new ();
+    public List<TriadCourseConfig> TriadCourseConfigForF { get; set; } = new ();
+
+    [Parameter]
+    public TriadCourseOverallResult TriadCourseOverallResult { get; set; } = new();
+
+    public List<TriadCourseResult> TriadCourseResultsForA { get; set; } = new();
+    public List<TriadCourseResult> TriadCourseResultsForB { get; set; } = new();
+    public List<TriadCourseResult> TriadCourseResultsForC { get; set; } = new();
+    public List<TriadCourseResult> TriadCourseResultsForD { get; set; } = new();
+    public List<TriadCourseResult> TriadCourseResultsForE { get; set; } = new();
+    public List<TriadCourseResult> TriadCourseResultsForF { get; set; } = new();
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            TriadCourseConfigForA = ToFilteredTriadCourseConfigs("A");
+            TriadCourseConfigForB = ToFilteredTriadCourseConfigs("B");
+            TriadCourseConfigForC = ToFilteredTriadCourseConfigs("C");
+            TriadCourseConfigForD = ToFilteredTriadCourseConfigs("D");
+            TriadCourseConfigForE = ToFilteredTriadCourseConfigs("E");
+            TriadCourseConfigForF = ToFilteredTriadCourseConfigs("F");
+            
+            TriadCourseResultsForA = TriadCourseOverallResult.TriadCourseResults
+                .Where(IsInCourseCategory(TriadCourseConfigForA))
+                .ToList();
+            
+            TriadCourseResultsForB = TriadCourseOverallResult.TriadCourseResults
+                .Where(IsInCourseCategory(TriadCourseConfigForB))
+                .ToList();
+            
+            TriadCourseResultsForC = TriadCourseOverallResult.TriadCourseResults
+                .Where(IsInCourseCategory(TriadCourseConfigForC))
+                .ToList();
+            
+            TriadCourseResultsForD = TriadCourseOverallResult.TriadCourseResults
+                .Where(IsInCourseCategory(TriadCourseConfigForD))
+                .ToList();
+            
+            TriadCourseResultsForE = TriadCourseOverallResult.TriadCourseResults
+                .Where(IsInCourseCategory(TriadCourseConfigForE))
+                .ToList();
+            
+            TriadCourseResultsForF = TriadCourseOverallResult.TriadCourseResults
+                .Where(IsInCourseCategory(TriadCourseConfigForF))
+                .ToList();
+            
+            StateHasChanged();
+        }
+    }
+
+    private Func<TriadCourseResult, bool> IsInCourseCategory(List<TriadCourseConfig> triadCourseConfigs)
+    {
+        return triadCourseResult =>
+        {
+            return triadCourseConfigs.FirstOrDefault(triadCourseConfig => triadCourseResult.CourseId == triadCourseConfig.CourseId) is not null;
+        };
+    }
+
+    private List<TriadCourseConfig> ToFilteredTriadCourseConfigs(string category)
+    {
+        return TriadCourseConfigs.Where(triadCourse => triadCourse.CourseCategory == category).ToList();
+    }
+
+}

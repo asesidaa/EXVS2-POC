@@ -7,6 +7,7 @@ using Server.Handlers.Card.Message;
 using Server.Handlers.Card.MobileSuit;
 using Server.Handlers.Card.Navi;
 using Server.Handlers.Card.Profile;
+using Server.Handlers.Card.Triad;
 using Server.Handlers.Card.UploadedContent;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Request;
@@ -210,6 +211,14 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<List<UploadedImage>>> GetUploadedImages(String accessCode, String chipId)
     {
         var response = await mediator.Send(new GetUploadedImagesCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpGet("getTriadCourseOverallResult/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<TriadCourseOverallResult>> GetTriadCourseResults(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetTriadCourseResultsCommand(accessCode, chipId));
         return response;
     }
 }

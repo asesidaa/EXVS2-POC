@@ -20,6 +20,7 @@ public partial class ViewCard
     private IJSRuntime? _jsRuntime { get; set; }
 
     private BasicProfile _basicProfile = null!;
+    private TriadCourseOverallResult _triadCourseOverallResult = null!;
     private List<UploadedImage> _uploadedImages = new();
     
     private string? errorMessage = null;
@@ -43,7 +44,11 @@ public partial class ViewCard
         var uploadedImageResult = await Http.GetFromJsonAsync<List<UploadedImage>>($"/card/getUploadedImages/{AccessCode}/{ChipId}");
         uploadedImageResult.ThrowIfNull();
         
+        var triadCourseOverallResult = await Http.GetFromJsonAsync<TriadCourseOverallResult>($"/card/getTriadCourseOverallResult/{AccessCode}/{ChipId}");
+        triadCourseOverallResult.ThrowIfNull();
+        
         _basicProfile = profileResult;
         _uploadedImages = uploadedImageResult;
+        _triadCourseOverallResult = triadCourseOverallResult;
     }
 }
