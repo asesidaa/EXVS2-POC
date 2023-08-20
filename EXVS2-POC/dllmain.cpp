@@ -29,7 +29,6 @@ config_struct ReadConfigs(INIReader reader) {
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config.RegionCode = reader.Get("config", "Region", "1");
-    config.UseNormalTimeInLM = reader.GetBoolean("config", "UseNormalTimeInLM", false);
     
     // key bind config reading
     jvs_key_bind key_bind;
@@ -117,7 +116,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
         {
             InitAmAuthEmu();
             InitializeHooks();
-            InitClockHooks();
+            // Not used in favour of direct patching
+            //InitClockHooks();
             InitializeJvs();
             InitDXGIWindowHook();
         }

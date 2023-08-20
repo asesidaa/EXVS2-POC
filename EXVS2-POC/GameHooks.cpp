@@ -244,4 +244,12 @@ void InitializeHooks()
     injector::MakeNOP(exeBase + offset, 2, true);
     offset = 0x1402EC3B4 - BASE_ADDRESS;
     injector::WriteMemory(exeBase + offset, '\xEB', true);
+
+    // Clock patches, disable close time disabling card scanning feature.
+    // If close time is set between 19:00 to 26:00, the red "card reading is unavaliable now" text is shown:
+    offset = 0x140695BA2 - BASE_ADDRESS;
+    injector::WriteMemoryRaw(exeBase + offset, (void*)"\x41\xb8\x00\x00\x00\x00\xeb\x13\x8b\xc3\x41\xc7\xc0\x00\x00\x00\x00\x90\xeb\x07\x41\xc7\xc0\x00\x00\x00\x00", 27, true);
+    // This is the actual function to check, redirect the return function to make card reading possible regardless of closing time.
+    offset = 0x1406B752E - BASE_ADDRESS;
+    injector::WriteMemory(exeBase + offset, '\xEB', true);
 }

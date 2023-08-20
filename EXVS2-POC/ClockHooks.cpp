@@ -144,7 +144,7 @@ static __time64_t time64Hook(time_t* destTime)
     
     const int game_mode = globalConfig.Mode;
     const bool is_lm = (game_mode == 2 || game_mode == 4);
-    if(globalConfig.UseNormalTimeInLM && is_lm)
+    if(is_lm)
     {
         const auto ret = duration_cast<seconds>(now.time_since_epoch()).count();
         if (destTime != nullptr)
