@@ -84,6 +84,37 @@ void StartReqActionThread(void (*callback)(long, int, long*), long* someStructPt
     callback(0, 0, someStructPtr);
 }
 
+bool read_direct_input_card_input()
+{
+    if(globalConfig.KeyBind.UseKeyboardSupportKeyInDirectInput)
+    {
+        return GetAsyncKeyState(globalConfig.KeyBind.Card);
+    }
+    
+    int overrideJoystickIndex = globalConfig.KeyBind.DirectInputDeviceId;
+
+    JOYINFOEX joy;
+    joy.dwSize = sizeof(joy);
+    joy.dwFlags = JOY_RETURNALL;
+
+    if(overrideJoystickIndex < 16 && joyGetPosEx(overrideJoystickIndex, &joy) == JOYERR_NOERROR)
+    {
+        int intJoyDwButtons = (int)joy.dwButtons;
+        return intJoyDwButtons & globalConfig.KeyBind.ArcadeCard;
+    }
+
+    for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+    {
+        if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+        {
+            int intJoyDwButtons = (int)joy.dwButtons;
+            return intJoyDwButtons & globalConfig.KeyBind.ArcadeCard;
+        }
+    }
+
+    return false;
+}
+
 void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPtr) {
     while (readerActive)
     {
@@ -93,41 +124,12 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
         bool button_state = false;
 
         std::string input_mode = globalConfig.InputMode;
-        bool useKeyboard = true;
 
         if(input_mode == "DirectInput")
         {
-            int overrideJoystickIndex = globalConfig.KeyBind.DirectInputDeviceId;
-            int arcadeCardButton = globalConfig.KeyBind.ArcadeCard;
-            
-            JOYINFOEX joy;
-            joy.dwSize = sizeof(joy);
-            joy.dwFlags = JOY_RETURNALL;
-
-            if(overrideJoystickIndex < 16 && joyGetPosEx(overrideJoystickIndex, &joy) == JOYERR_NOERROR)
-            {
-                int intJoyDwButtons = (int)joy.dwButtons;
-                button_state = intJoyDwButtons & arcadeCardButton;
-            }
-            else
-            {
-                for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-                {
-                    if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-                    {
-                        int intJoyDwButtons = (int)joy.dwButtons;
-                        button_state = intJoyDwButtons & arcadeCardButton;
-                    }
-                }
-            }
-
-            if(button_state == false)
-            {
-                useKeyboard = globalConfig.KeyBind.UseKeyboardSupportKeyInDirectInput;
-            }
+            button_state = read_direct_input_card_input();
         }
-        
-        if(useKeyboard == true && button_state == false)
+        else
         {
             button_state = GetAsyncKeyState(globalConfig.KeyBind.Card);
         }
