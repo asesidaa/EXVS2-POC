@@ -482,10 +482,13 @@ void capture_direct_input_action(BYTE& byte0, BYTE& byte1, BYTE& byte2, JOYINFOE
         log("Start Button Detected from Joystick");
         byte1 |= static_cast<char>(1 << 7);
     }
-    if (intJoyDwButtons & key_bind.ArcadeTest)
+    if (!key_bind.UseKeyboardSupportKeyInDirectInput)
     {
-        log("Test Button Detected from Joystick");
-        byte0 |= static_cast<char>(1 << 7);
+        if (intJoyDwButtons & key_bind.ArcadeTest)
+        {
+            log("Test Button Detected from Joystick");
+            byte0 |= static_cast<char>(1 << 7);
+        }
     }
 }
 
@@ -621,53 +624,54 @@ int handleReadSwitchInputs(jprot_encoder* r)
     return 3;
 }
 
+bool detect_direct_input_coin()
+{
+    if(key_bind.UseKeyboardSupportKeyInDirectInput)
+    {
+        return (GetAsyncKeyState(key_bind.Coin) & 0x8000);
+    }
+    
+    JOYINFOEX joy;
+    joy.dwSize = sizeof(joy);
+    joy.dwFlags = JOY_RETURNALL;
+
+    if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
+    {
+        int intJoyDwButtons = (int)joy.dwButtons;
+        if (intJoyDwButtons & key_bind.ArcadeCoin)
+        {
+            log("Coin Detected from Joystick");
+            return true;
+        }
+
+        return false;
+    }
+    
+    for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
+    {
+        if(joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+        {
+            int intJoyDwButtons = (int)joy.dwButtons;
+            return (intJoyDwButtons & key_bind.ArcadeCoin);
+        }
+    }
+
+    return false;
+}
+
 int handleReadCoinInputs(jprot_encoder* r)
 {
     log("Entered Coin Handling");
 
     bool currstate = false;
-
-    bool useKeyboard = true;
+    
     if (input_mode == "DirectInput")
     {
-        JOYINFOEX joy;
-        joy.dwSize = sizeof(joy);
-        joy.dwFlags = JOY_RETURNALL;
-
-        if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
-        {
-            int intJoyDwButtons = (int)joy.dwButtons;
-            if (intJoyDwButtons & key_bind.ArcadeCoin)
-            {
-                log("Coin Detected from Joystick");
-                currstate = true;
-            }
-        }
-        else
-        {
-            for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-            {
-                if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-                {
-                    int intJoyDwButtons = (int)joy.dwButtons;
-                    if (intJoyDwButtons & key_bind.ArcadeCoin)
-                    {
-                        log("Coin Detected from Joystick");
-                        currstate = true;
-                    }
-                }
-            }
-        }
-
-		if(currstate == false)
-		{
-			useKeyboard = key_bind.UseKeyboardSupportKeyInDirectInput;
-		}
+        currstate = detect_direct_input_coin();
 	}
-
-	if(useKeyboard == true && currstate == false)
-	{
-		currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
+    else
+    {
+        currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
     }
 
     if (!coinstate[0] && currstate)
