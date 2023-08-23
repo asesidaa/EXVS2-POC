@@ -12,10 +12,12 @@ public record GetAllBareboneCardCommand() : IRequest<List<BareboneCardProfile>>;
 
 public class GetAllBareboneCardCommandHandler : IRequestHandler<GetAllBareboneCardCommand, List<BareboneCardProfile>>
 {
+    private readonly ILogger<GetAllBareboneCardCommandHandler> _logger;
     private readonly ServerDbContext context;
 
-    public GetAllBareboneCardCommandHandler(ServerDbContext context)
+    public GetAllBareboneCardCommandHandler(ILogger<GetAllBareboneCardCommandHandler> logger, ServerDbContext context)
     {
+        _logger = logger;
         this.context = context;
     }
     
@@ -26,6 +28,7 @@ public class GetAllBareboneCardCommandHandler : IRequestHandler<GetAllBareboneCa
             .ToList();
 
         var bareboneCardProfiles = cardProfiles
+            .Where(cardProfile => cardProfile.IsNewCard == false)
             .Select(ToBareboneCardProfile())
             .ToList();
         
