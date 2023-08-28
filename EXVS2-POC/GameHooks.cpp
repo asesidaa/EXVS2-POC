@@ -16,52 +16,6 @@
 static constexpr auto BASE_ADDRESS = 0x140000000;
 static HANDLE hConnection = (HANDLE)0x1337;
 
-static HWND (WINAPI* CreateWindowExWOri)(DWORD dwExStyle, LPCWSTR lpClassName, LPCWSTR lpWindowName, DWORD dwStyle, int X, int Y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam);
-static HWND WINAPI CreateWindowExWHook(DWORD dwExStyle, LPCWSTR lpClassName, LPCWSTR lpWindowName, DWORD dwStyle, int X, int Y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam)
-{
-    if (nWidth > 0 && nHeight > 0)
-    {
-        dwStyle = WS_VISIBLE | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
-        X = (GetSystemMetrics(SM_CXSCREEN) - nWidth) / 2;
-        Y = (GetSystemMetrics(SM_CYSCREEN) - nHeight) / 2;
-        
-        // lpWindowName = L"POC";
-    }
-
-    return CreateWindowExWOri(dwExStyle, lpClassName, lpWindowName, dwStyle, X, Y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
-}
-
-static BOOL(WINAPI* ShowCursorOri)(BOOL bShow);
-static BOOL WINAPI ShowCursorHook(BOOL bShow)
-{
-    return ShowCursorOri(true);
-}
-
-static BOOL(WINAPI* MoveWindowOri)(HWND hWnd, int X, int Y, int nWidth, int  nHeight, BOOL bRepaint);
-static BOOL WINAPI MoveWindowHook(HWND hWnd, int X, int Y, int nWidth, int  nHeight, BOOL bRepaint)
-{
-    if (nWidth > 0 && nHeight > 0)
-    {
-        X = (GetSystemMetrics(SM_CXSCREEN) - nWidth) / 2;
-        Y = (GetSystemMetrics(SM_CYSCREEN) - nHeight) / 2;
-        nWidth = 1920;
-        nHeight = 1080;
-    }
-    
-    return MoveWindowOri(hWnd, X, Y, nWidth, nHeight, bRepaint);
-}
-
-static BOOL(WINAPI* SetWindowPosOri)(HWND hWnd, HWND hWndInsertAfter, int  X, int  Y, int  cx, int  cy, UINT uFlags);
-static BOOL WINAPI SetWindowPosHook(HWND hWnd, HWND hWndInsertAfter, int  X, int  Y, int  cx, int  cy, UINT uFlags)
-{
-    if (cx > 0 && cy > 0)
-    {
-        return SetWindowPosOri(hWnd, HWND_TOP, X, Y, cx, cy, uFlags);
-    }
-
-    return SetWindowPosOri(hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
-}
-
 HANDLE(__stdcall *CreateFileAOri)(LPCSTR lpFileName,
     DWORD dwDesiredAccess,
     DWORD dwShareMode,
@@ -69,6 +23,7 @@ HANDLE(__stdcall *CreateFileAOri)(LPCSTR lpFileName,
     DWORD dwCreationDisposition,
     DWORD dwFlagsAndAttributes,
     HANDLE hTemplateFile);
+
 HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
     DWORD dwDesiredAccess,
     DWORD dwShareMode,
@@ -191,12 +146,6 @@ static int64_t __fastcall nbamUsbFinderGetSerialNumber(int a1, char* a2)
 void InitializeHooks()
 {
     MH_Initialize();
-
-    MH_CreateHookApi(L"user32.dll", "CreateWindowExW", CreateWindowExWHook,
-                     reinterpret_cast<void**>(&CreateWindowExWOri));
-    // MH_CreateHookApi(L"user32.dll", "ShowCursor", ShowCursorHook, reinterpret_cast<void**>(&ShowCursorOri));
-    // MH_CreateHookApi(L"user32.dll", "MoveWindow", MoveWindowHook, reinterpret_cast<void**>(&MoveWindowOri));
-    MH_CreateHookApi(L"user32.dll", "SetWindowPos", SetWindowPosHook, reinterpret_cast<void**>(&SetWindowPosOri));
 
     MH_CreateHookApi(L"kernel32.dll", "CreateFileW", CreateFileWHook, reinterpret_cast<void**>(&CreateFileWOri));
     MH_CreateHookApi(L"kernel32.dll", "CreateFileA", CreateFileAHook, reinterpret_cast<void**>(&CreateFileAOri));
