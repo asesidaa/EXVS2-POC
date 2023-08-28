@@ -853,7 +853,7 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
             break;
         default:
 #ifdef _DEBUG
-			log("Unknown command %X\n", GetArg(0));
+			log("Unknown command %X\n", GET_ARG(0));
 #endif
             r.report(JVS_REPORT_OK);
             increment = 1;
