@@ -184,33 +184,22 @@ public:
     IAuth_GetCabinetConfig(amcus_network_state_t* state)
     {
         log("IAuth_GetCabinetConfig");
-        amcus_network_state_t result
-        {
-            .mode = "CLIENT",
-            .pcbid = "ABLN1110001",
-            .dongle_serial = "284311110001",
-            .shop_router_ip = "192.168.50.239",
-            .auth_server_ip = "127.0.0.1",
-            .local_ip = "192.168.50.239",
-            .subnet_mask = "255.255.255.0",
-            .gateway = "192.168.50.1",
-            .primary_dns = "8.8.8.8",
-            .hop_count = 1,
-            .line_type = 1,
-            .line_status = 1,
-            .content_router_status = 1,
-            .shop_router_status = 1,
-            .hop_status = 1
-        };
-        strcpy_s(result.pcbid, globalConfig.PcbId.c_str());
-        strcpy_s(result.dongle_serial, globalConfig.Serial.c_str());
-        strcpy_s(result.shop_router_ip, globalConfig.TenpoRouter.c_str());
-        strcpy_s(result.auth_server_ip, globalConfig.AuthServerIp.c_str());
-        strcpy_s(result.local_ip, globalConfig.IpAddress.c_str());
-        strcpy_s(result.subnet_mask, globalConfig.SubnetMask.c_str());
-        strcpy_s(result.gateway, globalConfig.Gateway.c_str());
-        strcpy_s(result.primary_dns, globalConfig.PrimaryDNS.c_str());
-        memcpy_s(state, sizeof(amcus_network_state_t), &result, sizeof(amcus_network_state_t));
+        memset(state, 0, sizeof(*state));
+        strcpy_s(state->mode, "CLIENT");
+        strcpy_s(state->pcbid, globalConfig.PcbId.c_str());
+        strcpy_s(state->dongle_serial, globalConfig.Serial.c_str());
+        strcpy_s(state->shop_router_ip, globalConfig.TenpoRouter.c_str());
+        strcpy_s(state->auth_server_ip, globalConfig.AuthServerIp.c_str());
+        strcpy_s(state->local_ip, globalConfig.IpAddress.c_str());
+        strcpy_s(state->subnet_mask, globalConfig.SubnetMask.c_str());
+        strcpy_s(state->gateway, globalConfig.Gateway.c_str());
+        strcpy_s(state->primary_dns, globalConfig.PrimaryDNS.c_str());
+        state->hop_count = 1;
+        state->line_type = 1;
+        state->line_status = 1;
+        state->content_router_status = 1;
+        state->shop_router_status = 1;
+        state->hop_status = 1;
         return 0;
     }
 
@@ -218,19 +207,16 @@ public:
     IAuth_GetVersionInfo(amcus_version_info_t* version)
     {
         log("IAuth_GetVersionInfo");
-        amcus_version_info_t version_info
-        {
-            .game_rev = "1",
-            .auth_type = "ALL.NET",
-            .game_id = "SBUZ",
-            .game_ver = "4.50",
-            .game_cd = "GXX1",
-            .cacfg_game_ver = "27.35",
-            .game_board_type = "0",
-            .game_board_id = "PCB",
-            .auth_url = "localhost"
-        };
-        memcpy_s(version, sizeof(amcus_version_info_t), &version_info, sizeof(amcus_version_info_t));
+        memset(version, 0, sizeof(*version));
+        strcpy_s(version->game_rev, "1");
+        strcpy_s(version->auth_type, "ALL.NET");
+        strcpy_s(version->game_id, "SBUZ");
+        strcpy_s(version->game_ver, "4.50");
+        strcpy_s(version->game_cd, "GXX1");
+        strcpy_s(version->cacfg_game_ver, "27.35");
+        strcpy_s(version->game_board_type, "0");
+        strcpy_s(version->game_board_id, "PCB");
+        strcpy_s(version->auth_url, "localhost");
         return 0;
     }
 
@@ -254,34 +240,31 @@ public:
         log("IAuth_GetAuthServerResp");
         log("Server address %s", globalConfig.ServerAddress.c_str());
 
-        std::string region_name_0 = globalConfig.RegionCode;
+        memset(resp, 0, sizeof(*resp));
+        strcpy_s(resp->uri, globalConfig.ServerAddress.c_str());
+        strcpy_s(resp->host, globalConfig.ServerAddress.c_str());
 
-        if(globalConfig.Mode == 3 || globalConfig.Mode == 4)
+        strcpy_s(resp->shop_name, "EXVS2-POC");
+        strcpy_s(resp->shop_nickname, "EXVS2-POC");
+
+        if (globalConfig.Mode == 3 || globalConfig.Mode == 4)
         {
-            region_name_0 = "01035";
+            strcpy_s(resp->region0, "01035");
         }
-        
-        amcus_auth_server_resp_t result
+        else
         {
-            .uri = "127.0.0.1",
-            .host = "127.0.0.1",
-            .shop_name = "EXVS2-POC",
-            .shop_nickname = "EXVS2-POC",
-            .region0 = "1",
-            .region_name0 = "NAMCO",
-            .region_name1 = "X",
-            .region_name2 = "Y",
-            .region_name3 = "Z",
-            .place_id = "JPN1",
-            .setting = "",
-            .country = "JPN",
-            .timezone = "+0900",
-            .res_class = "PowerOnResponseVer2"
-        };
-        strcpy_s(result.uri, globalConfig.ServerAddress.c_str());
-        strcpy_s(result.host, globalConfig.ServerAddress.c_str());
-        strcpy_s(result.region0, region_name_0.c_str());
-        memcpy_s(resp, sizeof(amcus_auth_server_resp_t), &result, sizeof(amcus_auth_server_resp_t));
+            strcpy_s(resp->region0, globalConfig.RegionCode.c_str());
+        }
+
+        strcpy_s(resp->region_name0, "NAMCO");
+        strcpy_s(resp->region_name1, "X");
+        strcpy_s(resp->region_name2, "Y");
+        strcpy_s(resp->region_name3, "Z");
+        strcpy_s(resp->place_id, "JPN1");
+        strcpy_s(resp->setting, "");
+        strcpy_s(resp->country, "JPN");
+        strcpy_s(resp->timezone, "+0900");
+        strcpy_s(resp->res_class, "PowerOnResponseVer2");
         return 0;
     }
 
