@@ -39,7 +39,8 @@ public partial class CustomizeCard
     private string? errorMessage = null;
 
     private readonly int maximumFavouriteMs = 6;
-    
+
+    private bool SaveAllButtonDisabled { get; set; } = false;
     private string HideSaveAllProgress { get; set; } = "invisible";
     private string HideProfileProgress { get; set; } = "invisible";
     private string HideNaviProgress { get; set; } = "invisible";
@@ -426,6 +427,7 @@ public partial class CustomizeCard
 
     private async Task SaveAll()
     {
+        SaveAllButtonDisabled = true;
         HideSaveAllProgress = "visible";
         StateHasChanged();
 
@@ -440,6 +442,7 @@ public partial class CustomizeCard
         await SaveCommunicationMessageConfig();
 
         HideSaveAllProgress = "invisible";
+        SaveAllButtonDisabled = false;
         StateHasChanged();
     }
 
@@ -568,8 +571,7 @@ public partial class CustomizeCard
     
     private async Task SaveTriadCpuPartner()
     {
-        await _teamNameForm.Validate();
-        if (!_teamNameForm.IsValid)
+        if (ValidateTeamName(cpuTriadPartner.TriadTeamName) is not null)
         {
             ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_triadcpupartner"]);
             return;
@@ -660,9 +662,11 @@ public partial class CustomizeCard
     
     private async Task SaveCommunicationMessageConfig()
     {
-        await _messageForm.Validate();
+        var allMessageValid = AllMessageValid(_customMessageGroupSetting.StartGroup)
+            && AllMessageValid(_customMessageGroupSetting.InBattleGroup)
+            && AllMessageValid(_customMessageGroupSetting.ResultGroup);
 
-        if (!_messageForm.IsValid)
+        if (!allMessageValid)
         {
             ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_commconfig"]);
             return;
@@ -686,6 +690,14 @@ public partial class CustomizeCard
 
         HideCommunicationMessageProgress = "invisible";
         StateHasChanged();
+    }
+
+    private bool AllMessageValid(CustomMessageGroup customMessageGroup)
+    {
+        return ValidateCustomizeMessage(customMessageGroup.UpMessage.MessageText) is null
+            && ValidateCustomizeMessage(customMessageGroup.DownMessage.MessageText) is null
+            && ValidateCustomizeMessage(customMessageGroup.LeftMessage.MessageText) is null
+            && ValidateCustomizeMessage(customMessageGroup.RightMessage.MessageText) is null;
     }
 
     private void ShowBasicResponseSnack(BasicResponse result, string context = "")

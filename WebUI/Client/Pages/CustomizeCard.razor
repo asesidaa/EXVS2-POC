@@ -20,7 +20,7 @@
 
     <MudStack Row Class="align-self-end">
         <MudProgressCircular @bind-Class="@HideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
-        <MudButton OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">@localizer["saveall"]</MudButton>
+        <MudButton Disabled="@SaveAllButtonDisabled" OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">@localizer["saveall"]</MudButton>
     </MudStack>
 </MudStack>
 
