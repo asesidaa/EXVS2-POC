@@ -175,7 +175,6 @@
   <ItemGroup>
     <ClCompile Include="AmAuthEmu.cpp" />
     <ClCompile Include="banapass.cpp" />
-    <ClCompile Include="ClockHooks.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GameHooks.cpp" />
     <ClCompile Include="JvsEmu.cpp" />
@@ -191,7 +190,6 @@
   <ItemGroup>
     <ClInclude Include="AmAuthEmu.h" />
     <ClInclude Include="banapass.h" />
-    <ClInclude Include="ClockHooks.h" />
     <ClInclude Include="Configs.h" />
     <ClInclude Include="GameHooks.h" />
     <ClInclude Include="INIReader.h" />

@@ -5,7 +5,6 @@
 
 #include "AmAuthEmu.h"
 #include "GameHooks.h"
-#include "ClockHooks.h"
 #include "JvsEmu.h"
 #include "WindowedDxgi.h"
 #include "INIReader.h"
@@ -116,8 +115,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
         {
             InitAmAuthEmu();
             InitializeHooks();
-            // Not used in favour of direct patching
-            //InitClockHooks();
             InitializeJvs();
             InitDXGIWindowHook();
         }
