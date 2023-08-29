@@ -27,40 +27,12 @@ struct jvs_key_bind {
 	int ArcadeTest;
 	int ArcadeCard;
 	bool UseKeyboardSupportKeyInDirectInput;
-
-	jvs_key_bind():
-		KillProcess(0x1B),
-		Test(0x54),
-		Start(0x4F),
-		Service(0x53),
-		Coin(0x4D),
-		Up(0x26),
-		Left(0x25),
-		Down(0x28),
-		Right(0x27),
-		Button1(0x5A),
-		Button2(0x58),
-		Button3(0x43),
-		Button4(0x56),
-	    Card(0x50),
-		DirectInputDeviceId(16),
-		ArcadeButton1(1),
-		ArcadeButton2(2),
-		ArcadeButton3(3),
-		ArcadeButton4(4),
-		ArcadeStartButton(5),
-		ArcadeCoin(6),
-		ArcadeTest(7),
-	    ArcadeCard(8),
-		UseKeyboardSupportKeyInDirectInput(true)
-	{
-	}
 };
 
 struct config_struct {
-	jvs_key_bind KeyBind;
-	bool Windowed;
-	uint8_t Mode;
+	jvs_key_bind KeyBind = {};
+	bool Windowed = false;
+	uint8_t Mode = 0;
 	std::string InputMode;
 	std::string Serial;
 	std::string PcbId;
@@ -73,28 +45,12 @@ struct config_struct {
 	std::string ServerAddress;
 	std::string RegionCode;
 
+	config_struct() = default;
 	config_struct(const config_struct& other) = default;
 	config_struct(config_struct&& other) noexcept = default;
 
 	config_struct& operator=(const config_struct& other) = default;
 	config_struct& operator=(config_struct&& other) noexcept = default;
-
-	config_struct() :
-		Windowed(false),
-		Mode(2),
-		InputMode("Keyboard"),
-		Serial("284311110001"),
-		PcbId("ABLN1110001"),
-		TenpoRouter("192.168.1.1"),
-		AuthServerIp("127.0.0.1"),
-		IpAddress("192.168.1.2"),
-		SubnetMask("255.255.255.0"),
-		Gateway("192.168.1.1"),
-		PrimaryDNS("8.8.8.8"),
-		ServerAddress("127.0.0.1"),
-		RegionCode("1")
-	{
-	}
 };
 
-inline config_struct globalConfig {};
+inline config_struct globalConfig;
