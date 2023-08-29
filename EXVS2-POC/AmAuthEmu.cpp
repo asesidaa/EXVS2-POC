@@ -188,12 +188,15 @@ public:
         strcpy_s(state->mode, "CLIENT");
         strcpy_s(state->pcbid, globalConfig.PcbId.c_str());
         strcpy_s(state->dongle_serial, globalConfig.Serial.c_str());
-        strcpy_s(state->shop_router_ip, globalConfig.TenpoRouter.c_str());
         strcpy_s(state->auth_server_ip, globalConfig.AuthServerIp.c_str());
-        strcpy_s(state->local_ip, globalConfig.IpAddress.c_str());
-        strcpy_s(state->subnet_mask, globalConfig.SubnetMask.c_str());
-        strcpy_s(state->gateway, globalConfig.Gateway.c_str());
-        strcpy_s(state->primary_dns, globalConfig.PrimaryDNS.c_str());
+
+        // These values are optional, but they'll have been filled in by SocketHook initialization (if not overridden via config).
+        strcpy_s(state->local_ip, globalConfig.IpAddress->c_str());
+        strcpy_s(state->subnet_mask, globalConfig.SubnetMask->c_str());
+        strcpy_s(state->gateway, globalConfig.Gateway->c_str());
+        strcpy_s(state->shop_router_ip, globalConfig.TenpoRouter->c_str());
+        strcpy_s(state->primary_dns, globalConfig.PrimaryDNS->c_str());
+
         state->hop_count = 1;
         state->line_type = 1;
         state->line_status = 1;

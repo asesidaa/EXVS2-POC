@@ -184,6 +184,7 @@
     <ClCompile Include="libs\minhook\src\hook.c" />
     <ClCompile Include="libs\minhook\src\trampoline.c" />
     <ClCompile Include="log.cpp" />
+    <ClCompile Include="SocketHooks.cpp" />
     <ClCompile Include="VirtualKeyMapping.cpp" />
     <ClCompile Include="WindowedDxgi.cpp" />
   </ItemGroup>
@@ -211,6 +212,7 @@
     <ClInclude Include="libs\minhook\src\trampoline.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="random.h" />
+    <ClInclude Include="SocketHooks.h" />
     <ClInclude Include="VirtualKeyMapping.h" />
     <ClInclude Include="WindowedDxgi.h" />
   </ItemGroup>

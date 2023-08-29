@@ -4,15 +4,16 @@
 #include <thread>
 
 #include "AmAuthEmu.h"
+#include "Configs.h"
 #include "GameHooks.h"
+#include "INIReader.h"
 #include "JvsEmu.h"
 #include "log.h"
-#include "WindowedDxgi.h"
-#include "INIReader.h"
+#include "SocketHooks.h"
 #include "VirtualKeyMapping.h"
-#include "configs.h"
+#include "WindowedDxgi.h"
 
-config_struct ReadConfigs(INIReader reader) {
+static config_struct ReadConfigs(INIReader reader) {
     config_struct config {};
 
     // config reading
@@ -21,11 +22,15 @@ config_struct ReadConfigs(INIReader reader) {
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
     config.Serial = reader.Get("config", "serial", "284311110001");
     config.Mode = static_cast<uint8_t>(reader.GetInteger("config", "mode", 2));
-    config.IpAddress = reader.Get("config", "IpAddress", "192.168.50.239");
-    config.Gateway = reader.Get("config", "Gateway", "192.168.50.1");
-    config.SubnetMask = reader.Get("config", "SubnetMask", "255.255.255.0");
-    config.PrimaryDNS = reader.Get("config", "DNS", "8.8.8.8");
-    config.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
+
+    // These will get filled in by InitializeSocketHooks.
+    config.InterfaceName = reader.GetOptional("config", "InterfaceName");
+    config.IpAddress = reader.GetOptional("config", "IpAddress");
+    config.Gateway = reader.GetOptional("config", "Gateway");
+    config.TenpoRouter = reader.GetOptional("config", "TenpoRouter");
+    config.SubnetMask = reader.GetOptional("config", "SubnetMask");
+    config.PrimaryDNS = reader.GetOptional("config", "DNS");
+
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config.RegionCode = reader.Get("config", "Region", "1");
@@ -102,25 +107,24 @@ config_struct ReadConfigs(INIReader reader) {
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
-    // Read config
-    INIReader reader("config.ini");
-
-    int rc = reader.ParseError();
-    if (rc == -1)
-    {
-        fatal("Failed to open config.ini");
-    }
-    else if (rc > 0)
-    {
-        fatal("Failed to parse config.ini: error on line %d", reader.ParseError());
-    }
-
-    globalConfig = ReadConfigs(reader);
-
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
         {
+            // Read config
+            INIReader reader("config.ini");
+            int rc = reader.ParseError();
+            if (rc == -1)
+            {
+                fatal("Failed to open config.ini");
+            }
+            else if (rc > 0)
+            {
+                fatal("Failed to parse config.ini: error on line %d", reader.ParseError());
+            }
+
+            globalConfig = ReadConfigs(reader);
+            InitializeSocketHooks();
             InitAmAuthEmu();
             InitializeHooks();
             InitializeJvs();

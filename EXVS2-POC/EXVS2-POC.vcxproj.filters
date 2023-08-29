@@ -54,6 +54,9 @@
     <ClCompile Include="AmAuthEmu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SocketHooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banapass.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="AmAuthEmu.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketHooks.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <string>
 #include "VirtualKeyMapping.h"
 
@@ -36,12 +37,13 @@ struct config_struct {
 	std::string InputMode;
 	std::string Serial;
 	std::string PcbId;
-	std::string TenpoRouter;
 	std::string AuthServerIp;
-	std::string IpAddress;
-	std::string SubnetMask;
-	std::string Gateway;
-	std::string PrimaryDNS;
+	std::optional<std::string> InterfaceName;
+	std::optional<std::string> IpAddress;
+	std::optional<std::string> SubnetMask;
+	std::optional<std::string> Gateway;
+	std::optional<std::string> TenpoRouter;
+	std::optional<std::string> PrimaryDNS;
 	std::string ServerAddress;
 	std::string RegionCode;
 
