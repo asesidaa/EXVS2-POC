@@ -74,66 +74,10 @@ struct config_struct {
 	std::string RegionCode;
 
 	config_struct(const config_struct& other) = default;
+	config_struct(config_struct&& other) noexcept = default;
 
-	config_struct(config_struct&& other) noexcept
-		: KeyBind(other.KeyBind),
-		  Windowed(other.Windowed),
-		  Mode(std::move(other.Mode)),
-		  InputMode(std::move(other.InputMode)),
-		  Serial(std::move(other.Serial)),
-		  PcbId(std::move(other.PcbId)),
-		  TenpoRouter(std::move(other.TenpoRouter)),
-		  AuthServerIp(std::move(other.AuthServerIp)),
-		  IpAddress(std::move(other.IpAddress)),
-		  SubnetMask(std::move(other.SubnetMask)),
-		  Gateway(std::move(other.Gateway)),
-		  PrimaryDNS(std::move(other.PrimaryDNS)),
-		  ServerAddress(std::move(other.ServerAddress)),
-		  RegionCode(std::move(other.RegionCode))
-	{
-	}
-
-	config_struct& operator=(const config_struct& other)
-	{
-		if (this == &other)
-			return *this;
-		KeyBind = other.KeyBind;
-		Windowed = other.Windowed;
-		Mode = other.Mode;
-		InputMode = other.InputMode;
-		Serial = other.Serial;
-		PcbId = other.PcbId;
-		TenpoRouter = other.TenpoRouter;
-		AuthServerIp = other.AuthServerIp;
-		IpAddress = other.IpAddress;
-		SubnetMask = other.SubnetMask;
-		Gateway = other.Gateway;
-		PrimaryDNS = other.PrimaryDNS;
-		ServerAddress = other.ServerAddress;
-		RegionCode = other.RegionCode;
-		return *this;
-	}
-
-	config_struct& operator=(config_struct&& other) noexcept
-	{
-		if (this == &other)
-			return *this;
-		KeyBind = other.KeyBind;
-		Windowed = other.Windowed;
-		Mode = std::move(other.Mode);
-		InputMode = std::move(other.InputMode);
-		Serial = std::move(other.Serial);
-		PcbId = std::move(other.PcbId);
-		TenpoRouter = std::move(other.TenpoRouter);
-		AuthServerIp = std::move(other.AuthServerIp);
-		IpAddress = std::move(other.IpAddress);
-		SubnetMask = std::move(other.SubnetMask);
-		Gateway = std::move(other.Gateway);
-		PrimaryDNS = std::move(other.PrimaryDNS);
-		ServerAddress = std::move(other.ServerAddress);
-		RegionCode = std::move(other.RegionCode);
-		return *this;
-	}
+	config_struct& operator=(const config_struct& other) = default;
+	config_struct& operator=(config_struct&& other) noexcept = default;
 
 	config_struct() :
 		Windowed(false),
