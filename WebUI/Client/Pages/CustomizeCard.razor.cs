@@ -295,7 +295,7 @@ public partial class CustomizeCard
             StateHasChanged();
         }
     }
-
+    
     private async Task OpenNaviChangeUiDialog()
     {
         var parameters = new DialogParameters { { "Data", new[] { _naviProfile.DefaultUiNaviId } } };
@@ -614,26 +614,26 @@ public partial class CustomizeCard
     {
         HideCustomizeCommentProgress = "visible";
         StateHasChanged();
-
+    
         if (CustomizeComment is null)
         {
             Snackbar.Add("Data Error for Customize Comment", Severity.Error);
             return;
         }
-
+    
         var dto = new UpdateCustomizeCommentRequest()
         {
             AccessCode = AccessCode,
             ChipId = ChipId,
             CustomizeComment = CustomizeComment
         };
-
+    
         var response = await Http.PostAsJsonAsync("/card/updateCustomizeComment", dto);
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();
-
+    
         ShowBasicResponseSnack(result, localizer["save_hint_customizecomment"]);
-
+    
         HideCustomizeCommentProgress = "invisible";
         StateHasChanged();
     }
@@ -700,7 +700,7 @@ public partial class CustomizeCard
             && ValidateCustomizeMessage(customMessageGroup.RightMessage.MessageText) is null;
     }
 
-    private void ShowBasicResponseSnack(BasicResponse result, string context = "")
+    public void ShowBasicResponseSnack(BasicResponse result, string context = "")
     {
         if (result.Success)
             Snackbar.Add($"{localizer["save_hint_update"]}{context}{localizer["save_hint_successful"]}", Severity.Success);

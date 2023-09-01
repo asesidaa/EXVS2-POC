@@ -1,0 +1,22 @@
+﻿@code
+{
+    [Parameter]
+    public string ChipId { get; set; } = string.Empty;
+
+    [Parameter]
+    public string AccessCode { get; set; } = string.Empty;
+
+    [Parameter]
+    public string HideProgress { get; set; } = "invisible";
+    
+    [Parameter]
+    public EventCallback<MouseEventArgs> SaveTask { get; set; }
+    
+    public static readonly DialogOptions OPTIONS = new()
+    {
+        CloseOnEscapeKey = false,
+        DisableBackdropClick = true,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}

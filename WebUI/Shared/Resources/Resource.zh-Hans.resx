@@ -534,4 +534,16 @@
   <data name="validate_addrow_2" xml:space="preserve">
     <value>行！</value>
   </data>
+  <data name="dialogtitle_customizecommentsentence" xml:space="preserve">
+    <value>修改句子</value>
+  </data>
+  <data name="dialogtitle_customizecommentphrase" xml:space="preserve">
+    <value>修改备件1</value>
+  </data>
+  <data name="dialogtitle_customizecommentphrase2" xml:space="preserve">
+    <value>修改备件2</value>
+  </data>
+  <data name="customizecommentpreview" xml:space="preserve">
+    <value>预览句子</value>
+  </data>
 </root>

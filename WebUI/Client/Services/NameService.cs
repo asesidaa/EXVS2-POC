@@ -31,7 +31,7 @@ namespace WebUI.Client.Services
             var localizedName = GetLocalizedName(gauge);
             return localizedName ?? "Unknown Gauge";
         }
-
+        
         public string? GetLocalizedName(IdValuePair? obj)
         {
             if (obj == null)
@@ -61,6 +61,28 @@ namespace WebUI.Client.Services
                 returnString = obj.Value;
 
             return returnString;
+        }
+        
+        public string GetCustomizeCommentSentenceName(uint id)
+        {
+            var customizeCommentSentence = _service.GetCustomizeCommentSentenceById(id);
+            if (customizeCommentSentence is null)
+            {
+                return "Unknown Sentence";
+            }
+            
+            return customizeCommentSentence.Value;
+        }
+        
+        public string GetCustomizeCommentPhraseName(uint id)
+        {
+            var customizeCommentSentence = _service.GetCustomizeCommentPhraseById(id);
+            if (customizeCommentSentence is null)
+            {
+                return "Unknown Phrase";
+            }
+            
+            return customizeCommentSentence.Value;
         }
     }
 }
