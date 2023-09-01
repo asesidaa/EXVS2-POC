@@ -504,7 +504,7 @@
                         <MudItem xs="10">
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
-                                            <MudField Label="@localizer["triad_cpums"]" Variant="Variant.Outlined">
+                                    <MudField Label="@localizer["triad_cpums"]" Variant="Variant.Outlined">
                                         <MudText Align="Align.Center">@NameService.GetMobileSuitName(cpuTriadPartner.MobileSuitId)</MudText>
                                     </MudField>
                                 </MudItem>
@@ -561,12 +561,12 @@
                         <MudItem xs="12">
                             <MudForm @ref="_teamNameForm">
                                 <MudTextField @bind-Value="cpuTriadPartner.TriadTeamName"
-                                    Immediate="true"
-                                    Variant="Variant.Outlined"
-                                    Counter="PLAYER_NAME_MAX_LENGTH"
-                                    MaxLength="PLAYER_NAME_MAX_LENGTH"
-                                    Label="@localizer["triad_teamname"]"
-                                    Validation="ValidateTeamName" />
+                                              Immediate="true"
+                                              Variant="Variant.Outlined"
+                                              Counter="PLAYER_NAME_MAX_LENGTH"
+                                              MaxLength="PLAYER_NAME_MAX_LENGTH"
+                                              Label="@localizer["triad_teamname"]"
+                                              Validation="ValidateTeamName" />
                             </MudForm>
                         </MudItem>
                         <MudItem xs="12">
@@ -585,44 +585,9 @@
     </MudGrid>
 </MudTabPanel>
 <MudTabPanel Text="@localizer["customizecomment"]">
-    <MudGrid xs="12">
-        <MudItem xs="12">
-            <MudCard Class="my-2" Elevation="5">
-                <MudCardHeader>
-                    <CardHeaderContent>
-                        <MudText Typo="Typo.h6">@localizer["customizecomment"]</MudText>
-                    </CardHeaderContent>
-                    <CardHeaderActions>
-                        <MudStack Row>
-                            <MudProgressCircular @bind-Class="@HideCustomizeCommentProgress" Color="Color.Default" Indeterminate="true" />
-                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveCustomizeComment"
-                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
-                        </MudStack>
-                    </CardHeaderActions>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudItem xs="12">
-                            @localizer["comment_hint"] <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/464.html" Target="_blank">@localizer["comment_wiki"]</MudLink>
-                        </MudItem>
-                            <MudItem xs="12">@localizer["comment_sentence_example"] そんな[]、修正してやる！</MudItem>
-                            <MudItem xs="12">@localizer["comment_parts_example"] [Sフリーダム], [キラ], [天然]</MudItem>
-                    </MudStack>
-                    <MudGrid>
-                        <MudItem xs="4">
-                            <MudNumericField @bind-Value="CustomizeComment.BasePhraseId" Label="@localizer["comment_sentenceid"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
-                        </MudItem>
-                        <MudItem xs="4">
-                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart1Id" Label="@localizer["comment_part1id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
-                        </MudItem>
-                        <MudItem xs="4">
-                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart2Id" Label="@localizer["comment_part2id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
-                        </MudItem>
-                    </MudGrid>
-                </MudCardContent>
-            </MudCard>
-        </MudItem>
-    </MudGrid>
+    <WebUI.Client.Pages.Components.Customize.CustomizeCommentTab 
+        AccessCode="@AccessCode" ChipId="@ChipId" CustomizeComment="@CustomizeComment" HideProgress="@HideCustomizeCommentProgress"
+        SaveTask="SaveCustomizeComment" />
 </MudTabPanel>
 <MudTabPanel Text="@localizer["communicationmessage"]">
     <MudGrid xs="12">
