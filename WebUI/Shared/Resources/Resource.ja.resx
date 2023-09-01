@@ -294,4 +294,16 @@
   <data name="screencaptures" xml:space="preserve">
     <value>Screen Captures</value>
   </data>
+  <data name="dialogtitle_customizecommentsentence" xml:space="preserve">
+    <value>Change Customize Comment Sentence Template</value>
+  </data>
+  <data name="dialogtitle_customizecommentphrase" xml:space="preserve">
+    <value>Change Customize Comment Word (1st)</value>
+  </data>
+  <data name="dialogtitle_customizecommentphrase2" xml:space="preserve">
+    <value>Change Customize Comment Word (2nd)</value>
+  </data>
+  <data name="customizecommentpreview" xml:space="preserve">
+    <value>Preview Final Result</value>
+  </data>
 </root>
