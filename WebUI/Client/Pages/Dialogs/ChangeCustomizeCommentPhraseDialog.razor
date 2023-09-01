@@ -1,5 +1,5 @@
 ﻿@inject IDataService DataService
-@inject ILogger<ChangeGaugeDialog> Logger
+@inject ILogger<ChangeCustomizeCommentPhraseDialog> Logger
 @inject ISnackbar Snackbar
 
 @using WebUI.Shared.Dto.Common;
@@ -33,12 +33,12 @@
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Id))">
+                    <MudTableSortLabel SortBy="@(new Func<IdValuePair, object>(x => x.Id))">
                         Id
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Value))">
+                    <MudTableSortLabel SortBy="@(new Func<IdValuePair, object>(x => x.Value))">
                         Name
                     </MudTableSortLabel>
                 </MudTh>
@@ -58,7 +58,7 @@
             </PagerContent>
         </MudTable>
         <MudText Class="mt-4 d-block" Typo="Typo.caption">
-            <b>Selected Gauge:</b>
+            <b>Selected Customize Comment Phrase:</b>
             @foreach (var selectItem in selectedItems)
             {
                 <b> @selectItem.Value | </b>
@@ -90,17 +90,17 @@
 
     private string searchString = string.Empty;
 
-    private readonly int[] pageSizeOptions = { 5, 10, 25, 50, 100 };
+    private readonly int[] pageSizeOptions = { 10, 25, 50, 100 };
 
     private MudTable<IdValuePair> mudTable = null!;
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        list = DataService.GetGaugeSortedById();
+        list = DataService.GetCustomizeCommentPhraseSortedById();
         foreach (var selectData in Data)
         {
-            var data = DataService.GetGaugeById(selectData);
+            var data = DataService.GetCustomizeCommentPhraseById(selectData);
             if (data != null) selectedItems.Add(data);
         }
         var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
