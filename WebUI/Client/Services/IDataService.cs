@@ -30,4 +30,8 @@ public interface IDataService
     public IdValuePair? GetTriadTeamBanner(uint id);
     public IReadOnlyList<IdValuePair> GetSortedGamepadOptionList();
     public List<TriadCourseConfig> GetTriadStageConfigs();
+    public IdValuePair? GetCustomizeCommentSentenceById(uint id);
+    public IReadOnlyList<IdValuePair> GetCustomizeCommentSentenceSortedById();
+    public IdValuePair? GetCustomizeCommentPhraseById(uint id);
+    public IReadOnlyList<IdValuePair> GetCustomizeCommentPhraseSortedById();
 }

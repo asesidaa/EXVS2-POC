@@ -8,5 +8,7 @@ namespace WebUI.Client.Services
         public string GetNavigatorName(uint id);
         public string GetGaugeName(uint id);
         public string? GetLocalizedName(IdValuePair? obj);
+        public string GetCustomizeCommentSentenceName(uint id);
+        public string GetCustomizeCommentPhraseName(uint id);
     }
 }

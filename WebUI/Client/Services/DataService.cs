@@ -15,6 +15,8 @@ public class DataService : IDataService
     private Dictionary<uint, IdValuePair> triadSkill = new();
     private Dictionary<uint, IdValuePair> triadTeamBanner = new();
     private Dictionary<uint, IdValuePair> gamepadOptions = new();
+    private Dictionary<uint, IdValuePair> customizeCommentSentences = new();
+    private Dictionary<uint, IdValuePair> customizeCommentPhrases = new();
 
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
@@ -26,6 +28,8 @@ public class DataService : IDataService
     private List<IdValuePair> sortedTriadTeamBannerList = new();
     private List<IdValuePair> sortedGamepadOptionList = new();
     private List<TriadCourseConfig> triadCourseConfigList = new();
+    private List<IdValuePair> customizeCommentSentenceList = new();
+    private List<IdValuePair> customizeCommentPhraseList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -86,6 +90,16 @@ public class DataService : IDataService
         var triadCourseConfigs = await client.GetFromJsonAsync<List<TriadCourseConfig>>("data/TriadCourseConfigs.json");
         triadCourseConfigs.ThrowIfNull();
         triadCourseConfigList = triadCourseConfigs;
+        
+        var customizeCommentSentencesList = await client.GetFromJsonAsync<List<IdValuePair>>("data/CustomizeComment.json");
+        customizeCommentSentencesList.ThrowIfNull();
+        customizeCommentSentences = customizeCommentSentencesList.ToDictionary(ms => ms.Id);
+        customizeCommentSentenceList = customizeCommentSentencesList.OrderBy(title => title.Id).ToList();
+        
+        var customizeCommentPhrasesList = await client.GetFromJsonAsync<List<IdValuePair>>("data/CustomizeCommentPhrase.json");
+        customizeCommentPhrasesList.ThrowIfNull();
+        customizeCommentPhrases = customizeCommentPhrasesList.ToDictionary(ms => ms.Id);
+        customizeCommentPhraseList = customizeCommentPhrasesList.OrderBy(title => title.Id).ToList();
     }
 
     public IReadOnlyList<IdValuePair> GetDisplayOptionsSortedById()
@@ -166,5 +180,25 @@ public class DataService : IDataService
     public List<TriadCourseConfig> GetTriadStageConfigs()
     {
         return triadCourseConfigList;
+    }
+
+    public IdValuePair? GetCustomizeCommentSentenceById(uint id)
+    {
+        return customizeCommentSentences.GetValueOrDefault(id);
+    }
+
+    public IReadOnlyList<IdValuePair> GetCustomizeCommentSentenceSortedById()
+    {
+        return customizeCommentSentenceList;
+    }
+    
+    public IdValuePair? GetCustomizeCommentPhraseById(uint id)
+    {
+        return customizeCommentPhrases.GetValueOrDefault(id);
+    }
+
+    public IReadOnlyList<IdValuePair> GetCustomizeCommentPhraseSortedById()
+    {
+        return customizeCommentPhraseList;
     }
 }
