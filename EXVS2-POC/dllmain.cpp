@@ -6,6 +6,7 @@
 #include "AmAuthEmu.h"
 #include "GameHooks.h"
 #include "JvsEmu.h"
+#include "log.h"
 #include "WindowedDxgi.h"
 #include "INIReader.h"
 #include "VirtualKeyMapping.h"
@@ -104,10 +105,17 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     // Read config
     INIReader reader("config.ini");
 
-    if (reader.ParseError() == 0)
+    int rc = reader.ParseError();
+    if (rc == -1)
     {
-        globalConfig = ReadConfigs(reader);
+        fatal("Failed to open config.ini");
     }
+    else if (rc > 0)
+    {
+        fatal("Failed to parse config.ini: error on line %d", reader.ParseError());
+    }
+
+    globalConfig = ReadConfigs(reader);
 
     switch (ul_reason_for_call)
     {

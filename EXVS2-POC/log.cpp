@@ -22,3 +22,15 @@ void log(const char* format, ...)
 	va_end(args);
 #endif
 }
+
+void fatal [[noreturn]] (_Printf_format_string_ const char* format, ...)
+{
+	char buf[4096];
+	va_list args;
+	va_start(args, format);
+	vsnprintf(buf, sizeof(buf), format, args);
+	va_end(args);
+
+	MessageBoxA(nullptr, buf, "EXVS2-POC", MB_OK);
+	abort();
+}
