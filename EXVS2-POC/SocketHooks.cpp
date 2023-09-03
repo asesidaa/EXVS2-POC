@@ -142,7 +142,7 @@ std::string Ipv4PrefixLengthToMask(int prefix)
 	return buf;
 }
 
-static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, std::string&& interfaceName)
+static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, std::string&& interfaceName, const std::optional<std::string>& expectedIp = std::nullopt)
 {
 	std::optional<std::string> v4AddrString;
 	std::optional<std::string> v4GatewayString;
@@ -150,7 +150,6 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 
 	std::string v4DnsString = "0.0.0.0";
 
-	// Select the first IPv4 address/gateway.
 	for (PIP_ADAPTER_UNICAST_ADDRESS unicast = adapter->FirstUnicastAddress; unicast; unicast = unicast->Next)
 	{
 		LPSOCKADDR addr = unicast->Address.lpSockaddr;
@@ -158,6 +157,13 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 			continue;
 
 		v4AddrString = SockaddrToString(addr);
+
+		// Select the first IPv4 address, unless we're expecting a specific IP.
+		if (expectedIp && expectedIp != v4AddrString)
+		{
+			continue;
+		}
+
 		if (v4AddrString)
 		{
 			const char* p = reinterpret_cast<char*>(addr);
@@ -175,6 +181,7 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 			continue;
 		}
 
+		// Always select the first IPv4 gateway.
 		v4GatewayString = SockaddrToString(addr);
 		if (v4GatewayString)
 		{
@@ -290,7 +297,7 @@ static bool FindInterfaceByAddress(const std::string& ipAddress)
 				if (*addrString == ipAddress)
 				{
 					std::string error;
-					if (!SelectInterface(&error, adapter, std::move(currentInterfaceName)))
+					if (!SelectInterface(&error, adapter, std::move(currentInterfaceName), std::move(addrString)))
 						fatal("%s", error.c_str());
 					return true;
 				}
