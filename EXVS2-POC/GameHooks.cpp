@@ -11,10 +11,9 @@
 #include "INIReader.h"
 #include "Configs.h"
 
-//static uint8_t gClientMode = 2;
-//static std::string gSerial = "284311110001";
 static constexpr auto BASE_ADDRESS = 0x140000000;
 static HANDLE hConnection = (HANDLE)0x1337;
+static std::filesystem::path g_storageDirectory;
 
 HANDLE(__stdcall *CreateFileAOri)(LPCSTR lpFileName,
     DWORD dwDesiredAccess,
@@ -35,16 +34,16 @@ HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
     const auto name = std::string_view{lpFileName};
     if (const auto target = "COM"; name.find(target) != std::string::npos)
     {
-        trace("CreateFileA with COM name %s", name.data());
+        debug("CreateFileA with COM name %s", name.data());
         return hConnection;
     }
-    trace("CreateFileA with name %s", name.data());
+    debug("CreateFileA with name %s", name.data());
     if (name.starts_with("G:") || name.starts_with("F:"))
     {
-        auto path = name.substr(3);
-        trace("Redirect to %s", path.data());
-        
-        std::filesystem::path p{path};
+        std::filesystem::path tail(name.substr(3));
+        std::filesystem::path p = g_storageDirectory / tail;
+
+        debug("Redirect to %s", p.string().c_str());
         if (p.has_extension())
         {
             create_directories(p.parent_path());
@@ -55,7 +54,7 @@ HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
         }
         
         //DebugBreak();
-        return CreateFileAOri(path.data(),
+        return CreateFileAOri(p.string().data(),
             dwDesiredAccess,
             dwShareMode,
             lpSecurityAttributes,
@@ -90,11 +89,11 @@ HANDLE __stdcall CreateFileWHook(LPCWSTR lpFileName,
     const auto name = std::wstring_view{lpFileName};
     if (const auto target = L"COM"; name.find(target) != std::string::npos)
     {
-        trace("CreateFileW with COM name %S", name.data());
+        debug("CreateFileW with COM name %S", name.data());
         return hConnection;
     }
 
-    trace("CreateFileW with name %S", name.data());
+    debug("CreateFileW with name %S", name.data());
     return CreateFileWOri(lpFileName,
         dwDesiredAccess,
         dwShareMode,
@@ -143,8 +142,10 @@ static int64_t __fastcall nbamUsbFinderGetSerialNumber(int a1, char* a2)
 }
 
 
-void InitializeHooks()
+void InitializeHooks(std::filesystem::path&& basePath)
 {
+    g_storageDirectory = std::move(basePath);
+
     MH_Initialize();
 
     MH_CreateHookApi(L"kernel32.dll", "CreateFileW", CreateFileWHook, reinterpret_cast<void**>(&CreateFileWOri));

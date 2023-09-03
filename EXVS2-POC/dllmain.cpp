@@ -1,5 +1,8 @@
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+#include <Windows.h>
+#include <shellapi.h>
+
+#include <filesystem>
 #include <string>
 #include <thread>
 
@@ -18,27 +21,27 @@ static config_struct ReadConfigs(INIReader reader) {
 
     // config reading
     std::string logLevel = reader.Get("config", "log", "none");
-    if (_stricmp("trace", logLevel.c_str()))
+    if (_stricmp("trace", logLevel.c_str()) == 0)
     {
         g_logLevel = LogLevel::TRACE;
     }
-    else if (_stricmp("debug", logLevel.c_str()))
+    else if (_stricmp("debug", logLevel.c_str()) == 0)
     {
         g_logLevel = LogLevel::DEBUG;
     }
-    else if (_stricmp("info", logLevel.c_str()))
+    else if (_stricmp("info", logLevel.c_str()) == 0)
     {
         g_logLevel = LogLevel::INFO;
     }
-    else if (_stricmp("warn", logLevel.c_str()))
+    else if (_stricmp("warn", logLevel.c_str()) == 0)
     {
         g_logLevel = LogLevel::WARN;
     }
-    else if (_stricmp("error", logLevel.c_str()))
+    else if (_stricmp("error", logLevel.c_str()) == 0)
     {
         g_logLevel = LogLevel::ERR;
     }
-    else if (_stricmp("none", logLevel.c_str()))
+    else if (_stricmp("none", logLevel.c_str()) == 0)
     {
         g_logLevel = LogLevel::NONE;
     }
@@ -135,14 +138,33 @@ static config_struct ReadConfigs(INIReader reader) {
     return config;
 }
 
+static std::filesystem::path GetBasePath()
+{
+    int argc;
+    LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+    switch (argc)
+    {
+    case 0:
+        fatal("Empty commandline");
+    case 1:
+        return std::filesystem::current_path();
+    case 2:
+        return std::filesystem::path(argv[1]);
+    default:
+        fatal("Invalid commandline (expected only a path, argc = %d)", argc);
+    }
+
+}
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
         {
-            // Read config
-            INIReader reader("config.ini");
+            std::filesystem::path basePath = GetBasePath();
+
+            // FIXME: INIReader doesn't handle Unicode paths.
+            INIReader reader((basePath / "config.ini").string());
             int rc = reader.ParseError();
             if (rc == -1)
             {
@@ -152,6 +174,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             {
                 fatal("Failed to parse config.ini: error on line %d", reader.ParseError());
             }
+
+            globalConfig = ReadConfigs(reader);
 
             if (g_logLevel != LogLevel::NONE)
             {
@@ -163,10 +187,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
                 freopen_s(&dummy, "CONOUT$", "w", stdout);
             }
 
-            globalConfig = ReadConfigs(reader);
             InitializeSocketHooks();
             InitAmAuthEmu();
-            InitializeHooks();
+            InitializeHooks(std::move(basePath));
             InitializeJvs();
             InitDXGIWindowHook();
         }
