@@ -44,7 +44,7 @@ std::string getProfileString(LPCSTR name, LPCSTR key, LPCSTR def, LPCSTR filenam
 void createCard() {
     if (std::filesystem::exists(".\\card.ini"))
     {
-        log("Card.ini found!\n");
+        info("Card.ini found!");
     }
     else
     {
@@ -56,7 +56,7 @@ void createCard() {
         randomHex(generatedChipId, 32);
         WritePrivateProfileStringA("card", "chipId", generatedChipId, ".\\card.ini");
         
-        log("New card generated\n");
+        info("New card generated");
     }
 }
 
@@ -168,7 +168,7 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
             memcpy(rawCardData + 0x50, accessCode.c_str(), accessCode.size() + 1);
             memcpy(rawCardData + 0x2C, chipId.c_str(), chipId.size() + 1);
 
-            log("Callback from read card");
+            trace("Callback from read card");
             callback(0, 0, rawCardData, cardStuctPtr);
         }
     }
@@ -177,7 +177,7 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
 extern "C" {
 
 ULONGLONG BngRwAttach(UINT a1, char* a2, int a3, int a4, long (*callback)(long, long, long*), long* some_struct_ptr) {
-    log("BngRwAttach(%i, %s, %d, %d, %p, %p)\n", a1, a2, a3, a4, callback, some_struct_ptr);
+    trace("BngRwAttach(%i, %s, %d, %d, %p, %p)\n", a1, a2, a3, a4, callback, some_struct_ptr);
     createCard();
 
     std::thread t(StartAttachThread, callback, some_struct_ptr);
@@ -186,17 +186,17 @@ ULONGLONG BngRwAttach(UINT a1, char* a2, int a3, int a4, long (*callback)(long, 
 }
 
 long BngRwInit() {
-    log("BngRwInit()\n");
+    trace("BngRwInit()\n");
     return 0;
 }
 
 ULONGLONG BngRwReqSetLedPower() {
-    log("BngRwSetLedPower()\n");
+    trace("BngRwSetLedPower()\n");
     return 0;
 }
 
 int BngRwDevReset(UINT a, long (*callback)(int, int, long*), long* some_struct_ptr) {
-    log("BngRwDevReset(%i, %p, %p)\n", a, callback, some_struct_ptr);
+    trace("BngRwDevReset(%i, %p, %p)\n", a, callback, some_struct_ptr);
 
     std::thread t(StartResetThread, callback, some_struct_ptr);
     t.detach();
@@ -204,48 +204,48 @@ int BngRwDevReset(UINT a, long (*callback)(int, int, long*), long* some_struct_p
 }
 
 ULONGLONG BngRwExReadMifareAllBlock() {
-    log("BngRwExReadMifareAllBlock()\n");
+    trace("BngRwExReadMifareAllBlock()\n");
     return 0xffffff9c;
 }
 
 // Finalise?
 void BngRwFin() {
-    log("BngRwFin()\n");
+    trace("BngRwFin()\n");
 }
 
 UINT BngRwGetFwVersion(UINT a) {
-    log("BngRwGetFwVersion(%i)\n", a);
+    trace("BngRwGetFwVersion(%i)\n", a);
     return 0;
 }
 
 UINT BngRwGetStationID(UINT a) {
-    log("BngRwGetStationID(%i)\n", a);
+    trace("BngRwGetStationID(%i)\n", a);
     return 0;
 }
 
 const char* BngRwGetVersion() {
-    log("BngRwGetVersion()\n");
+    trace("BngRwGetVersion()\n");
     return BANA_API_VERSION;
 }
 
 ULONGLONG BngRwIsCmdExec(UINT a) {
-    log("BngRwIsCmdExec(%i)\n", a);
+    trace("BngRwIsCmdExec(%i)\n", a);
     // return 0xFFFFFFFF;
     return 0;
 }
 
 UINT BngRwGetTotalRetryCount(UINT a) {
-    log("BngRwGetTotalRetryCount(%i)\n", a);
+    trace("BngRwGetTotalRetryCount(%i)\n", a);
     return 0;
 }
 
 int BngRwReqLed(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
-    log("BngRwReqLed(%i, %i, %llu, %llu)\n", a, b, c, d);
+    trace("BngRwReqLed(%i, %i, %llu, %llu)\n", a, b, c, d);
     return 1;
 }
 
 int BngRwReqAction(UINT a, UINT b, void (*callback)(long, int, long*), long* some_struct_ptr) {
-    log("BngRwReqAction(%i, %i, %p, %p)\n", a, b, callback, some_struct_ptr);
+    trace("BngRwReqAction(%i, %i, %p, %p)\n", a, b, callback, some_struct_ptr);
 
     std::thread t(StartReqActionThread, callback, some_struct_ptr);
     t.detach();
@@ -257,17 +257,17 @@ int BngRwReqAction(UINT a, UINT b, void (*callback)(long, int, long*), long* som
 }
 
 int BngRwReqAiccAuth(UINT a, int b, UINT c, int* d, ULONGLONG e, ULONGLONG f, ULONGLONG* g) {
-    log("BngRwReqAiccAuth(%i, %d, %i, %p, %llu, %llu, %p)\n", a, b, c, d, e, f, g);
+    trace("BngRwReqAiccAuth(%i, %d, %i, %p, %llu, %llu, %p)\n", a, b, c, d, e, f, g);
     return 1;
 }
 
 int BngRwReqBeep(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
-    log("BngRwReqBeep(%i, %i, %llu, %llu)\n", a, b, c, d);
+    trace("BngRwReqBeep(%i, %i, %llu, %llu)\n", a, b, c, d);
     return 1;
 }
 
 int BngRwReqCancel(UINT a) {
-    log("BngRwReqCancel(%i)\n", a);
+    trace("BngRwReqCancel(%i)\n", a);
     if (7 < a)
     {
         return -100;
@@ -276,17 +276,17 @@ int BngRwReqCancel(UINT a) {
 }
 
 int BngRwReqFwCleanup(UINT a, ULONGLONG b, ULONGLONG c) {
-    log("BngRwReqFwCleanup(%i, %llu, %llu)\n", a, b, c);
+    trace("BngRwReqFwCleanup(%i, %llu, %llu)\n", a, b, c);
     return 1;
 }
 
 int BngRwReqFwVersionup(UINT a, ULONGLONG b, ULONGLONG c, ULONGLONG d) {
-    log("BngRwReqFwVersionup(%i, %llu, %llu, %llu)\n", a, b, c, d);
+    trace("BngRwReqFwVersionup(%i, %llu, %llu, %llu)\n", a, b, c, d);
     return 1;
 }
 
 int BngRwReqLatchID(UINT a, ULONGLONG b, ULONGLONG c) {
-    log("BngRwReqLatchId(%i, %llu, %llu)\n", a, b, c);
+    trace("BngRwReqLatchId(%i, %llu, %llu)\n", a, b, c);
     if (a < 8)
     {
         return -100;
@@ -296,7 +296,7 @@ int BngRwReqLatchID(UINT a, ULONGLONG b, ULONGLONG c) {
 
 int BngRwReqSendMailTo(UINT a, int b, UINT c, int* d,
                        char* e, char* f, char* g, char* h, ULONGLONG i, ULONGLONG j) {
-    log("BngRwReqSendMailTo(%i, %d, %i, %p, %s, %s, %s, %s, %llu, %llu)\n", a, b, c, d, e, f, g, h, i, j);
+    trace("BngRwReqSendMailTo(%i, %d, %i, %p, %s, %s, %s, %s, %llu, %llu)\n", a, b, c, d, e, f, g, h, i, j);
     if (7 < a)
     {
         return -100;
@@ -310,7 +310,7 @@ int BngRwReqSendMailTo(UINT a, int b, UINT c, int* d,
 
 int BngRwReqSendUrlTo(UINT a, int b, UINT c, int* d,
                       char* e, char* f, ULONGLONG g, ULONGLONG h) {
-    log("BngRwReqSendUrlTo(%i, %d, %i, %p, %s, %s, %llu, %llu)\n", a, b, c, d, e, f, g, h);
+    trace("BngRwReqSendUrlTo(%i, %d, %i, %p, %s, %s, %llu, %llu)\n", a, b, c, d, e, f, g, h);
     if (7 < a)
     {
         return -100;
@@ -323,7 +323,7 @@ int BngRwReqSendUrlTo(UINT a, int b, UINT c, int* d,
 }
 
 int BngRwReqWaitTouch(UINT a, int maxIntSomehow, UINT c, void (*callback)(int, int, void*, void*), void* card_struct_ptr) {
-    log("BngRwReqWaitTouch(%i, %d, %i, %p, %p)\n", a, maxIntSomehow, c, callback, card_struct_ptr);
+    trace("BngRwReqWaitTouch(%i, %d, %i, %p, %p)\n", a, maxIntSomehow, c, callback, card_struct_ptr);
 
     // Hack to make sure previous threads have exited
     readerActive = false;

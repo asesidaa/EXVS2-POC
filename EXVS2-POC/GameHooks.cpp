@@ -35,14 +35,14 @@ HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
     const auto name = std::string_view{lpFileName};
     if (const auto target = "COM"; name.find(target) != std::string::npos)
     {
-        log("CreateFileA with COM name %s", name.data());
+        trace("CreateFileA with COM name %s", name.data());
         return hConnection;
     }
-    log("CreateFileA with name %s", name.data());
+    trace("CreateFileA with name %s", name.data());
     if (name.starts_with("G:") || name.starts_with("F:"))
     {
         auto path = name.substr(3);
-        log("Redirect to %s", path.data());
+        trace("Redirect to %s", path.data());
         
         std::filesystem::path p{path};
         if (p.has_extension())
@@ -90,11 +90,11 @@ HANDLE __stdcall CreateFileWHook(LPCWSTR lpFileName,
     const auto name = std::wstring_view{lpFileName};
     if (const auto target = L"COM"; name.find(target) != std::string::npos)
     {
-        log("CreateFileW with COM name %s", name.data());
+        trace("CreateFileW with COM name %S", name.data());
         return hConnection;
     }
 
-    log("CreateFileW with name %S", name.data());
+    trace("CreateFileW with name %S", name.data());
     return CreateFileWOri(lpFileName,
         dwDesiredAccess,
         dwShareMode,
@@ -107,10 +107,10 @@ HANDLE __stdcall CreateFileWHook(LPCWSTR lpFileName,
 UINT (*GetDriveTypeAOri)(LPCSTR lpRootPathName);
 UINT GetDriveTypeAHook(LPCSTR lpRootPathName)
 {
-    log("Root Path Name: %s", lpRootPathName);
+    trace("Root Path Name: %s", lpRootPathName);
     if (const auto name = "E:"; std::string_view{lpRootPathName}.find(name) != std::string::npos)
     {
-        log("Hit E:");
+        trace("Hit E:");
         return 2;
     }
     return GetDriveTypeAOri(lpRootPathName);
@@ -119,25 +119,25 @@ UINT GetDriveTypeAHook(LPCSTR lpRootPathName)
 BOOL (*PathFileExistsAOri)(LPCSTR pszPath);
 BOOL PathFileExistsAHook(LPCSTR pszPath)
 {
-    log("PathFileExistsAHook: %s", pszPath);
+    trace("PathFileExistsAHook: %s", pszPath);
     return PathFileExistsAOri(pszPath);
 }
 
 static int64_t nbamUsbFinderInitialize()
 {
-    log("nbamUsbFinderInitialize");
+    trace("nbamUsbFinderInitialize");
     return 0;
 }
 
 static int64_t nbamUsbFinderRelease()
 {
-    log("nbamUsbFinderRelease");
+    trace("nbamUsbFinderRelease");
     return 0;
 }
 
 static int64_t __fastcall nbamUsbFinderGetSerialNumber(int a1, char* a2)
 {
-    log("nbamUsbFinderGetSerialNumber");
+    trace("nbamUsbFinderGetSerialNumber");
     strcpy_s (a2, 16, globalConfig.Serial.c_str());
     return 0;
 }

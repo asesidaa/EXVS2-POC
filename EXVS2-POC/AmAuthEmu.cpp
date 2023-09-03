@@ -117,49 +117,49 @@ public:
     virtual int64_t
     Unk3(uint32_t a1)
     {
-        log("Unk3");
+        trace("Unk3");
         return 1;
     }
 
     virtual int64_t
     Unk4()
     {
-        log("Unk4");
+        trace("Unk4");
         return 1;
     }
 
     virtual int32_t
     Unk5()
     {
-        log("Unk5");
+        trace("Unk5");
         return 0;
     }
 
     virtual int64_t
     Unk6()
     {
-        log("Unk6");
+        trace("Unk6");
         return 1;
     }
 
     virtual int32_t
     Unk7()
     {
-        log("Unk7");
+        trace("Unk7");
         return 0;
     }
 
     virtual int32_t
     Unk8()
     {
-        log("Unk8");
+        trace("Unk8");
         return 0;
     }
 
     virtual int32_t
     Unk9(int32_t* a1)
     {
-        log("Unk9");
+        trace("Unk9");
         memset(a1, 0, sizeof(int32_t) * 0x31);
         a1[0] = 15;
         a1[2] = 2;
@@ -183,7 +183,7 @@ public:
     virtual int32_t
     IAuth_GetCabinetConfig(amcus_network_state_t* state)
     {
-        log("IAuth_GetCabinetConfig");
+        trace("IAuth_GetCabinetConfig");
         memset(state, 0, sizeof(*state));
         strcpy_s(state->mode, "CLIENT");
         strcpy_s(state->pcbid, globalConfig.PcbId.c_str());
@@ -209,7 +209,7 @@ public:
     virtual int32_t
     IAuth_GetVersionInfo(amcus_version_info_t* version)
     {
-        log("IAuth_GetVersionInfo");
+        trace("IAuth_GetVersionInfo");
         memset(version, 0, sizeof(*version));
         strcpy_s(version->game_rev, "1");
         strcpy_s(version->auth_type, "ALL.NET");
@@ -226,22 +226,22 @@ public:
     virtual int32_t
     Unk12()
     {
-        log("Unk12");
+        trace("Unk12");
         return 1;
     }
 
     virtual int32_t
     Unk13()
     {
-        log("Unk13");
+        trace("Unk13");
         return 1;
     }
 
     virtual int32_t
     IAuth_GetAuthServerResp(amcus_auth_server_resp_t* resp)
     {
-        log("IAuth_GetAuthServerResp");
-        log("Server address %s", globalConfig.ServerAddress.c_str());
+        trace("IAuth_GetAuthServerResp");
+        debug("Server address %s", globalConfig.ServerAddress.c_str());
 
         memset(resp, 0, sizeof(*resp));
         strcpy_s(resp->uri, globalConfig.ServerAddress.c_str());
@@ -274,35 +274,35 @@ public:
     virtual int32_t
     Unk15()
     {
-        log("Unk15");
+        trace("Unk15");
         return 0;
     }
 
     virtual int32_t
     Unk16()
     {
-        log("Unk16");
+        trace("Unk16");
         return 0;
     }
 
     virtual int32_t
     Unk17()
     {
-        log("Unk17");
+        trace("Unk17");
         return 0;
     }
 
     virtual int32_t
     Unk18(void* a1)
     {
-        log("Unk18");
+        trace("Unk18");
         return 0;
     }
 
     virtual int32_t
     Unk19(uint8_t* a1)
     {
-        log("Unk19");
+        trace("Unk19");
         memset(a1, 0, 0x38);
         a1[0] = 1;
         return 1;
@@ -311,77 +311,77 @@ public:
     virtual int32_t
     Unk20()
     {
-        log("Unk20");
+        trace("Unk20");
         return 0;
     }
 
     virtual int32_t
     Unk21()
     {
-        log("Unk21");
+        trace("Unk21");
         return 1;
     }
 
     virtual int32_t
     Unk22()
     {
-        log("Unk22");
+        trace("Unk22");
         return 0;
     }
 
     virtual int32_t
     Unk23()
     {
-        log("Unk23");
+        trace("Unk23");
         return 0;
     }
 
     virtual int32_t
     Unk24()
     {
-        log("Unk24");
+        trace("Unk24");
         return 0;
     }
 
     virtual int32_t
     Unk25()
     {
-        log("Unk25");
+        trace("Unk25");
         return 1;
     }
 
     virtual int32_t
     Unk26()
     {
-        log("Unk26");
+        trace("Unk26");
         return 0;
     }
 
     virtual int32_t
     Unk27()
     {
-        log("Unk27");
+        trace("Unk27");
         return 1;
     }
 
     virtual int32_t
     Unk28()
     {
-        log("Unk28");
+        trace("Unk28");
         return 0;
     }
 
     virtual int32_t
     Unk29()
     {
-        log("Unk29");
+        trace("Unk29");
         return 0;
     }
 
     virtual int32_t
     Unk30()
     {
-        log("Unk30");
+        trace("Unk30");
         return 0;
     }
 
@@ -483,10 +483,10 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
 {
     if (IsEqualGUID(*rclsid, IID_CAuthFactory))
     {
-        log("GUID CAuthFactory match");
+        trace("GUID CAuthFactory match");
         if (IsEqualGUID(*riid, IID_CAuth))
         {
-            log("GUID CAuth Match");
+            trace("GUID CAuth Match");
             auto cauth = new CAuth();
             return cauth->QueryInterface(*riid, ppv);
         }

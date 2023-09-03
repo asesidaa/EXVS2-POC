@@ -17,6 +17,36 @@ static config_struct ReadConfigs(INIReader reader) {
     config_struct config {};
 
     // config reading
+    std::string logLevel = reader.Get("config", "log", "none");
+    if (_stricmp("trace", logLevel.c_str()))
+    {
+        g_logLevel = LogLevel::TRACE;
+    }
+    else if (_stricmp("debug", logLevel.c_str()))
+    {
+        g_logLevel = LogLevel::DEBUG;
+    }
+    else if (_stricmp("info", logLevel.c_str()))
+    {
+        g_logLevel = LogLevel::INFO;
+    }
+    else if (_stricmp("warn", logLevel.c_str()))
+    {
+        g_logLevel = LogLevel::WARN;
+    }
+    else if (_stricmp("error", logLevel.c_str()))
+    {
+        g_logLevel = LogLevel::ERR;
+    }
+    else if (_stricmp("none", logLevel.c_str()))
+    {
+        g_logLevel = LogLevel::NONE;
+    }
+    else
+    {
+        fatal("Unknown log level '%s'", logLevel.c_str());
+    }
+
     config.Windowed = reader.GetBoolean("config", "windowed", false);
     config.InputMode = reader.Get("config", "InputMode", "Keyboard");
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
@@ -121,6 +151,16 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             else if (rc > 0)
             {
                 fatal("Failed to parse config.ini: error on line %d", reader.ParseError());
+            }
+
+            if (g_logLevel != LogLevel::NONE)
+            {
+                AllocConsole();
+
+                FILE* dummy;
+                freopen_s(&dummy, "CONIN$", "r", stdin);
+                freopen_s(&dummy, "CONOUT$", "w", stderr);
+                freopen_s(&dummy, "CONOUT$", "w", stdout);
             }
 
             globalConfig = ReadConfigs(reader);
