@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using nue.protocol.exvs;
+using Server.Common.Enum;
 
 namespace Server.Handlers.Game;
 
@@ -7,6 +8,13 @@ public record LoadGameDataQuery(Request Request) : IRequest<Response>;
 
 public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Response>
 {
+    private readonly IConfiguration _config;
+
+    public LoadGameDataQueryHandler(IConfiguration config)
+    {
+        _config = config;
+    }
+    
     public Task<Response> Handle(LoadGameDataQuery query, CancellationToken cancellationToken)
     {
         var allMsIds = Enumerable.Range(1, 400).Select(i => (uint)i).ToArray();
@@ -36,11 +44,11 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 UpdateMsIds = Array.Empty<uint>(), // add a 'update' tag to ms
                 on_vs_info = new Response.LoadGameData.OnVsInfo
                 {
-                    RuleTimeLimitRank = 230, // player match time in seconds
-                    RuleTimeLimitCasual = 230,
-                    RuleTimeLimitEx = 230,
-                    RuleDamageLevelTeam = 1,
-                    RuleDamageLevelShuffle = 1
+                    RuleTimeLimitRank = _config.GetValue<uint>("CardServerConfig:GameConfigurations:BattleSeconds"),
+                    RuleTimeLimitCasual = _config.GetValue<uint>("CardServerConfig:GameConfigurations:BattleSeconds"),
+                    RuleTimeLimitEx = _config.GetValue<uint>("CardServerConfig:GameConfigurations:BattleSeconds"),
+                    RuleDamageLevelTeam = (uint) _config.GetValue<DamageLevel>("CardServerConfig:GameConfigurations:PvPDamageLevel"),
+                    RuleDamageLevelShuffle = (uint) _config.GetValue<DamageLevel>("CardServerConfig:GameConfigurations:PvPDamageLevel")
                 },
                 ReleaseCpuScenes = new[] { 1u, 2u },
                 MstMobileSuitIds = new[] { 1u, 2u }, // For Red-Targeted MSs
@@ -48,23 +56,23 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 OfflineLoseEchelonNums = {},
                 ReplayUnderEchelonId = 1,
                 AdvancedReplayUnderEchelonId = 1,
-                TrainingTimeLimit = 12, // training mode's countdown time in minutes
+                TrainingTimeLimit = _config.GetValue<uint>("CardServerConfig:GameConfigurations:TrainingMinutes"),
                 PcoinLoseExpRelaxationRate = 1,
                 PcoinTeamGpIncreaseRate = 1,
                 NewcardCampaignFlag = true,
-                CasualBaseWinPoint = 1,
-                CasualBaseLosePoint = 1,
-                OfflineBaseLosePoint = 1,
-                OfflineBaseWinPoint = 20, // Determine how many Echelon EXP will be awarded for Offline PvP Win
-                CasualLoseResultBonus = 1,
-                OfflineLoseResultBonus = 1,
+                OfflineBaseWinPoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:OfflineBaseWinPoint"),
+                OfflineBaseLosePoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:OfflineBaseLosePoint"),
+                OfflineLoseResultBonus = _config.GetValue<int>("CardServerConfig:GameConfigurations:OfflineLoseResultBonus"),
+                CasualBaseWinPoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:CasualBaseWinPoint"),
+                CasualBaseLosePoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:CasualBaseLosePoint"),
+                CasualLoseResultBonus = _config.GetValue<int>("CardServerConfig:GameConfigurations:CasualLoseResultBonus"),
                 ReplayUnderRankId = 1,
                 AdvancedReplayUnderRankId = 1,
                 WantedDownLevel = 0, // this will cause enemy to 1 hit down if set to 1
                 WantedAttackLevel = 1,
                 WantedPsAttackLevel = 1,
                 WantedPsDefenceLevel = 1,
-                LoadGameDataVer = 1,
+                LoadGameDataVer = 27,
                 score_battle_point = new Response.LoadGameData.ScoreBattlePoint
                 {
                     ScoreBattle1500Point = 1,
