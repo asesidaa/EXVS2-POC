@@ -145,7 +145,7 @@ std::string Ipv4PrefixLengthToMask(int prefix)
 static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, std::string&& interfaceName, const std::optional<std::string>& expectedIp = std::nullopt)
 {
 	std::optional<std::string> v4AddrString;
-	std::optional<std::string> v4GatewayString;
+	std::string v4GatewayString = "0.0.0.0";
 	std::optional<std::string> subnetMask;
 
 	std::string v4DnsString = "0.0.0.0";
@@ -182,9 +182,10 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 		}
 
 		// Always select the first IPv4 gateway.
-		v4GatewayString = SockaddrToString(addr);
-		if (v4GatewayString)
+		if (std::optional<std::string> opt = SockaddrToString(addr); opt)
 		{
+			v4GatewayString = *opt;
+
 			const char* p = reinterpret_cast<char*>(addr);
 			selected.gatewaySockaddr.assign(p, p + gateway->Address.iSockaddrLength);
 			break;
@@ -223,15 +224,13 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 #define BAIL(...) do { if (error) { char buf[4096]; snprintf(buf, sizeof(buf), __VA_ARGS__); *error = buf; } return false; } while (0)
 	if (!v4AddrString)
 		BAIL("Failed to find IPv4 address for interface %s", interfaceName.c_str());
-	if (!v4GatewayString)
-		BAIL("Failed to find IPv4 gateway for interface %s", interfaceName.c_str());
 	if (!subnetMask)
 		BAIL("Failed to find subnet mask for interface %s", interfaceName.c_str());
 #undef BAIL
 
 	printf("Selected interface %s:\n", interfaceName.c_str());
 	printf("  Address: %s\n", v4AddrString->c_str());
-	printf("  Gateway: %s\n", v4GatewayString->c_str());
+	printf("  Gateway: %s\n", v4GatewayString.c_str());
 	printf("  Subnet mask: %s\n", subnetMask->c_str());
 	printf("  Description: %S\n", adapter->Description);
 
@@ -239,14 +238,14 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 	selected.guid = adapter->AdapterName;
 	selected.macAddress.assign(adapter->PhysicalAddress, adapter->PhysicalAddress + adapter->PhysicalAddressLength);
 	selected.ipAddress = *v4AddrString;
-	selected.gateway = *v4GatewayString;
+	selected.gateway = v4GatewayString;
 	selected.subnetMask = *subnetMask;
 
 #define SET_IF_UNSET(lhs, rhs) do { if (!(lhs)) { printf("Setting %s to %s\n", #lhs, (rhs).c_str()); lhs.emplace(rhs); } else { printf("Skipping %s, already set to %s\n", #lhs, lhs->c_str()); } } while (0)
 	SET_IF_UNSET(globalConfig.InterfaceName, std::move(interfaceName));
 	SET_IF_UNSET(globalConfig.IpAddress, std::move(*v4AddrString));
-	SET_IF_UNSET(globalConfig.Gateway, *v4GatewayString);
-	SET_IF_UNSET(globalConfig.TenpoRouter, std::move(*v4GatewayString));
+	SET_IF_UNSET(globalConfig.Gateway, v4GatewayString);
+	SET_IF_UNSET(globalConfig.TenpoRouter, std::move(v4GatewayString));
 	SET_IF_UNSET(globalConfig.SubnetMask, std::move(*subnetMask));
 	SET_IF_UNSET(globalConfig.PrimaryDNS, std::move(v4DnsString));
 #undef SET_IF_UNSET
@@ -487,12 +486,15 @@ static ULONG WINAPI GetAdaptersAddressesHook(ULONG Family, ULONG Flags, PVOID Re
 	adapter->FirstPrefix->Address.iSockaddrLength = static_cast<int>(selected.prefixSockaddr.size());
 	adapter->FirstPrefix->PrefixLength = selected.prefixLength;
 
-	adapter->FirstGatewayAddress = alloc.Allocate<IP_ADAPTER_GATEWAY_ADDRESS >();
-	adapter->FirstGatewayAddress->Length = sizeof(IP_ADAPTER_GATEWAY_ADDRESS);
-	adapter->FirstGatewayAddress->Next = nullptr;
-	adapter->FirstGatewayAddress->Address.lpSockaddr = alloc.Allocate<SOCKADDR>(selected.gatewaySockaddr.size());
-	memcpy(adapter->FirstGatewayAddress->Address.lpSockaddr, selected.gatewaySockaddr.data(), selected.gatewaySockaddr.size());
-	adapter->FirstGatewayAddress->Address.iSockaddrLength = static_cast<int>(selected.gatewaySockaddr.size());
+	if (selected.gatewaySockaddr.size() > 0)
+	{
+		adapter->FirstGatewayAddress = alloc.Allocate<IP_ADAPTER_GATEWAY_ADDRESS>();
+		adapter->FirstGatewayAddress->Length = sizeof(IP_ADAPTER_GATEWAY_ADDRESS);
+		adapter->FirstGatewayAddress->Next = nullptr;
+		adapter->FirstGatewayAddress->Address.lpSockaddr = alloc.Allocate<SOCKADDR>(selected.gatewaySockaddr.size());
+		memcpy(adapter->FirstGatewayAddress->Address.lpSockaddr, selected.gatewaySockaddr.data(), selected.gatewaySockaddr.size());
+		adapter->FirstGatewayAddress->Address.iSockaddrLength = static_cast<int>(selected.gatewaySockaddr.size());
+	}
 
 	adapter->ConnectionType = NET_IF_CONNECTION_DEDICATED;
 
