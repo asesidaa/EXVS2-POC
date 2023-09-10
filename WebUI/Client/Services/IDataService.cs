@@ -34,4 +34,6 @@ public interface IDataService
     public IReadOnlyList<IdValuePair> GetCustomizeCommentSentenceSortedById();
     public IdValuePair? GetCustomizeCommentPhraseById(uint id);
     public IReadOnlyList<IdValuePair> GetCustomizeCommentPhraseSortedById();
+    public GeneralPreview? GetStampById(uint id);
+    public IReadOnlyList<GeneralPreview> GetStampsSortedById();
 }

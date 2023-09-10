@@ -19,9 +19,14 @@ public partial class CustomizeCard
     public string ChipId { get; set; } = string.Empty;
     [Parameter]
     public string AccessCode { get; set; } = string.Empty;
-
+    
+    [Inject]
+    private IConfiguration configuration { get; set; }
+    
     [Inject]
     private IJSRuntime? _jsRuntime { get; set; }
+
+    private bool EnableImagePreview { get; set; } = false;
 
     private BasicProfile _basicProfile = null!;
     private NaviProfile _naviProfile  = null!;
@@ -63,43 +68,7 @@ public partial class CustomizeCard
     private IdValuePair? SelectedTriadSkill2 { get; set; }
     private IdValuePair? SelectedTriadTeamBanner { get; set; }
     private CustomizeComment? CustomizeComment { get; set; }
-
-    private bool CanCustomizeBeforeBattleUpTextMessage =>
-        _customMessageGroupSetting?.StartGroup?.UpMessage?.UniqueMessageId == 0;
     
-    private bool CanCustomizeBeforeBattleDownTextMessage =>
-        _customMessageGroupSetting?.StartGroup?.DownMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeBeforeBattleLeftTextMessage =>
-        _customMessageGroupSetting?.StartGroup?.LeftMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeBeforeBattleRightTextMessage =>
-        _customMessageGroupSetting?.StartGroup?.RightMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeInBattleUpTextMessage =>
-        _customMessageGroupSetting?.InBattleGroup?.UpMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeInBattleDownTextMessage =>
-        _customMessageGroupSetting?.InBattleGroup?.DownMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeInBattleLeftTextMessage =>
-        _customMessageGroupSetting?.InBattleGroup?.LeftMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeInBattleRightTextMessage =>
-        _customMessageGroupSetting?.InBattleGroup?.RightMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeAfterBattleUpTextMessage =>
-        _customMessageGroupSetting?.ResultGroup?.UpMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeAfterBattleDownTextMessage =>
-        _customMessageGroupSetting?.ResultGroup?.DownMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeAfterBattleLeftTextMessage =>
-        _customMessageGroupSetting?.ResultGroup?.LeftMessage?.UniqueMessageId == 0;
-    
-    private bool CanCustomizeAfterBattleRightTextMessage =>
-        _customMessageGroupSetting?.ResultGroup?.RightMessage?.UniqueMessageId == 0;
-
     private readonly List<BreadcrumbItem> breadcrumbs = new()
     {
         new BreadcrumbItem("Cards", href: "/Cards"),
@@ -122,6 +91,9 @@ public partial class CustomizeCard
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
+        
+        EnableImagePreview = configuration.GetValue<bool>("EnableImagePreview");
+        
         breadcrumbs.Add(new BreadcrumbItem($"Card: {ChipId}", href: null, disabled: true));
         breadcrumbs.Add(new BreadcrumbItem("Option", href: $"/Cards/Customize/{ChipId}", disabled: false));
 

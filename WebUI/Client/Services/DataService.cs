@@ -6,7 +6,7 @@ namespace WebUI.Client.Services;
 
 public class DataService : IDataService
 {
-    private Dictionary<uint, IdValuePair> displayOptions= new();
+    private Dictionary<uint, IdValuePair> displayOptions = new();
     private Dictionary<uint, IdValuePair> echelonDisplayOptions = new();
     private Dictionary<uint, MobileSuit> mobileSuits = new();
     private Dictionary<uint, IdValuePair> bgm = new();
@@ -17,6 +17,7 @@ public class DataService : IDataService
     private Dictionary<uint, IdValuePair> gamepadOptions = new();
     private Dictionary<uint, IdValuePair> customizeCommentSentences = new();
     private Dictionary<uint, IdValuePair> customizeCommentPhrases = new();
+    private Dictionary<uint, GeneralPreview> stamps = new();
 
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
@@ -30,6 +31,7 @@ public class DataService : IDataService
     private List<TriadCourseConfig> triadCourseConfigList = new();
     private List<IdValuePair> customizeCommentSentenceList = new();
     private List<IdValuePair> customizeCommentPhraseList = new();
+    private List<GeneralPreview> sortedStampsList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -100,6 +102,18 @@ public class DataService : IDataService
         customizeCommentPhrasesList.ThrowIfNull();
         customizeCommentPhrases = customizeCommentPhrasesList.ToDictionary(ms => ms.Id);
         customizeCommentPhraseList = customizeCommentPhrasesList.OrderBy(title => title.Id).ToList();
+        
+        var stampList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/Stamps.json");
+        stampList.ThrowIfNull();
+        
+        stamps = stampList
+            .Where(stamp => stamp.Existence != "NotExist")
+            .ToDictionary(ms => ms.Id);
+        
+        sortedStampsList = stampList
+            .Where(stamp => stamp.Existence != "NotExist")  
+            .OrderBy(title => title.Id)
+            .ToList();
     }
 
     public IReadOnlyList<IdValuePair> GetDisplayOptionsSortedById()
@@ -200,5 +214,15 @@ public class DataService : IDataService
     public IReadOnlyList<IdValuePair> GetCustomizeCommentPhraseSortedById()
     {
         return customizeCommentPhraseList;
+    }
+    
+    public GeneralPreview? GetStampById(uint id)
+    {
+        return stamps.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetStampsSortedById()
+    {
+        return sortedStampsList;
     }
 }

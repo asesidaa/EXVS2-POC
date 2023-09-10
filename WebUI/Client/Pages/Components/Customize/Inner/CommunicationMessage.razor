@@ -1,0 +1,117 @@
+﻿@using WebUI.Shared.Dto.Common
+@using WebUI.Client.Pages.Dialogs
+@using WebUI.Client.Services
+@using System.Text.RegularExpressions
+
+@inject IDataService DataService
+@inject IDialogService DialogService
+
+<MudGrid Class="align-center my-3">
+    <MudItem xs="12" sm="6">
+        <MudTextField @bind-Value="CustomMessage.MessageText"
+                      Immediate="true"
+                      Variant="Variant.Outlined"
+                      Counter="MessageMaxLength"
+                      MaxLength="MessageMaxLength"
+                      Label="@DisplayLabel"
+                      Validation="ValidateCustomizeMessage"
+                      Disabled="@(!CanCustomizeTextMessage)"/>
+    </MudItem>
+    @if (ForDataCollection)
+    {
+        <MudItem xs="12" sm="6">
+            <MudNumericField T="uint" @bind-Value="CustomMessage.UniqueMessageId" 
+                             Label="@StampLabel" 
+                             Variant="Variant.Text" Min="0" Max="1000" HelperText="0-1000"/>
+        </MudItem>
+    }
+    else
+    {
+        <MudItem xs="10" sm="5">
+            @{
+                var imagePath = $"images/stamps/{CustomMessage.UniqueMessageId}.png";
+                var stamp = DataService.GetStampById(CustomMessage.UniqueMessageId);
+                var stampName = DataService.GetStampById(CustomMessage.UniqueMessageId)?.Value ?? localizer["unknown_stamp"];
+
+                if (CustomMessage.UniqueMessageId == 0)
+                {
+                    stampName = localizer["using_customize_message"];
+                }
+            }
+            @if (stamp is not null && EnableImagePreview && CustomMessage.UniqueMessageId > 0)
+            {
+                <div class="d-flex justify-center">
+                    <MudImage ObjectPosition="ObjectPosition.Center" Src="@imagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg"/>
+                </div>
+            }
+            <div class="d-flex justify-center">
+                <MudText Align="Align.Center">@((MarkupString) stampName)</MudText>
+            </div>
+        </MudItem>
+        <MudItem xs="2" sm="1">
+            <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                           OnClick="() => OpenChangeStampsDialog(CustomMessage)"/>
+        </MudItem>
+    }
+</MudGrid>
+
+@code{
+    [Parameter]
+    public CustomMessage CustomMessage { get; set; } = new();
+
+    [Parameter]
+    public string DisplayLabel { get; set; } = string.Empty;
+    
+    [Parameter]
+    public string StampLabel { get; set; } = string.Empty;
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+    
+    private const int MessageMaxLength = 10;
+    private const bool ForDataCollection = false;
+    
+    private async Task OpenChangeStampsDialog(CustomMessage customMessage)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { customMessage.UniqueMessageId } },
+            { "EnableImagePreview", EnableImagePreview }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeStampsPreviewDialog>(localizer["dialogtitle_changestamp"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            customMessage.UniqueMessageId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private string? ValidateCustomizeMessage(string message)
+    {
+        return ValidateMessage(message, localizer["validatemessage"]);
+    }
+
+    private String? ValidateMessage(string message, string errorMessagePart)
+    {
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,10}$";
+
+        return message.Length switch
+        {
+            0 => null,
+            > MessageMaxLength => errorMessagePart + $" {localizer["validate_length_1"]} 10 {localizer["validate_length_2"]}",
+            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
+            };
+    }
+    
+    private bool CanCustomizeTextMessage => CustomMessage.UniqueMessageId == 0;
+    
+    private static readonly DialogOptions DialogOptions = new()
+    {
+        CloseOnEscapeKey = false,
+        DisableBackdropClick = true,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}

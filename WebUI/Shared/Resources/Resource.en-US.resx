@@ -549,4 +549,13 @@
   <data name="customizecommentpreview" xml:space="preserve">
     <value>Preview Final Result</value>
   </data>
+  <data name="dialogtitle_changestamp" xml:space="preserve">
+    <value>Change Stamp</value>
+  </data>
+  <data name="unknown_stamp" xml:space="preserve">
+    <value>Unknown Stamp</value>
+  </data>
+  <data name="using_customize_message" xml:space="preserve">
+    <value>Using Customize Message</value>
+  </data>
 </root>
