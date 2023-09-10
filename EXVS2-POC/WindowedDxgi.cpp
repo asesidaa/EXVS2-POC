@@ -130,10 +130,8 @@ static BOOL WINAPI SetWindowPosHook(HWND hWnd, HWND hWndInsertAfter, int X, int 
 
 void InitDXGIWindowHook()
 {
-	MH_Initialize();
 	MH_CreateHookApi(L"user32.dll", "CreateWindowExW", CreateWindowExWHook, reinterpret_cast<void**>(&g_origCreateWindowExW));
 	MH_CreateHookApi(L"user32.dll", "MoveWindow", MoveWindowHook, reinterpret_cast<void**>(&g_origMoveWindow));
 	MH_CreateHookApi(L"user32.dll", "SetWindowPos", SetWindowPosHook, reinterpret_cast<void**>(&g_origSetWindowPos));
 	MH_CreateHookApi(L"dxgi.dll", "CreateDXGIFactory2", CreateDXGIFactory2Wrap, (void**)&g_origCreateDXGIFactory2);
-	MH_EnableHook(nullptr);
 }

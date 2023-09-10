@@ -146,8 +146,6 @@ void InitializeHooks(std::filesystem::path&& basePath)
 {
     g_storageDirectory = std::move(basePath);
 
-    MH_Initialize();
-
     MH_CreateHookApi(L"kernel32.dll", "CreateFileW", CreateFileWHook, reinterpret_cast<void**>(&CreateFileWOri));
     MH_CreateHookApi(L"kernel32.dll", "CreateFileA", CreateFileAHook, reinterpret_cast<void**>(&CreateFileAOri));
     MH_CreateHookApi(L"kernel32.dll", "GetDriveTypeA", GetDriveTypeAHook, reinterpret_cast<void**>(&GetDriveTypeAOri));
@@ -157,9 +155,6 @@ void InitializeHooks(std::filesystem::path&& basePath)
     MH_CreateHookApi(L"nbamUsbFinder.dll", "nbamUsbFinderInitialize", nbamUsbFinderInitialize, nullptr);
     MH_CreateHookApi(L"nbamUsbFinder.dll", "nbamUsbFinderRelease", nbamUsbFinderRelease, nullptr);
     MH_CreateHookApi(L"nbamUsbFinder.dll", "nbamUsbFinderGetSerialNumber", nbamUsbFinderGetSerialNumber, nullptr);
-
-    MH_EnableHook(MH_ALL_HOOKS);
-    
 
     auto exeBase = reinterpret_cast<uintptr_t>(GetModuleHandle(nullptr));
     

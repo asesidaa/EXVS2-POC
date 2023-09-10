@@ -504,10 +504,8 @@ static ULONG WINAPI GetAdaptersAddressesHook(ULONG Family, ULONG Flags, PVOID Re
 void InitializeSocketHooks()
 {
 	FindInterface();
-	MH_Initialize();
 	MH_CreateHookApi(L"WS2_32.dll", "WSASocketW", WSASocketWHook, reinterpret_cast<void**>(&orig_WSASocketW));
 	MH_CreateHookApi(L"WS2_32.dll", "bind", bindHook, reinterpret_cast<void**>(&orig_bind));
 	MH_CreateHookApi(L"IPHLPAPI.dll", "GetAdaptersInfo", GetAdaptersInfoHook, reinterpret_cast<void**>(&orig_GetAdaptersInfo));
 	MH_CreateHookApi(L"IPHLPAPI.dll", "GetAdaptersAddresses", GetAdaptersAddressesHook, reinterpret_cast<void**>(&orig_GetAdaptersAddresses));
-	MH_EnableHook(MH_ALL_HOOKS);
 }

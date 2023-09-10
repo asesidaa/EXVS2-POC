@@ -508,7 +508,5 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
 
 void InitAmAuthEmu()
 {
-    MH_Initialize();
-    MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&gOriCoCreateInstance));  // NOLINT(clang-diagnostic-microsoft-cast)
-    MH_EnableHook(nullptr);
+    MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&g_origCoCreateInstance));  // NOLINT(clang-diagnostic-microsoft-cast)
 }

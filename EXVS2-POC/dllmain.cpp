@@ -6,6 +6,8 @@
 #include <string>
 #include <thread>
 
+#include "MinHook.h"
+
 #include "AmAuthEmu.h"
 #include "Configs.h"
 #include "GameHooks.h"
@@ -187,11 +189,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
                 freopen_s(&dummy, "CONOUT$", "w", stdout);
             }
 
+            MH_Initialize();
             InitializeSocketHooks();
             InitAmAuthEmu();
             InitializeHooks(std::move(basePath));
             InitializeJvs();
             InitDXGIWindowHook();
+            MH_EnableHook(MH_ALL_HOOKS);
         }
         break;
     case DLL_THREAD_ATTACH:  // NOLINT(bugprone-branch-clone)
