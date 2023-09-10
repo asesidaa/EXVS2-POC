@@ -480,6 +480,8 @@ FodyWeavers.xsd
 
 # User image files
 Server/wwwroot/uploadimage/
+Server/wwwroot/images/
+WebUI/Client/wwwroot/images/
 
 # HTTP Request Sample
 *.http
