@@ -116,7 +116,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector;libs/inireader</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -160,7 +160,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector;libs/inireader</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
