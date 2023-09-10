@@ -65,38 +65,7 @@
     [Parameter]
     public bool EnableImagePreview { get; set; } = true;
 
-        private const int MaxMessageLength = 10;
+    private const int MaxMessageLength = 10;
 
     MudForm _messageForm;
-
-    private string? ValidateCustomizeMessage(string message)
-    {
-        return ValidateMessage(message, localizer["validatemessage"]);
-    }
-
-    private String? ValidateMessage(string message, string errorMessagePart)
-    {
-        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,10}$";
-
-        return message.Length switch
-        {
-            0 => null,
-            > MaxMessageLength => errorMessagePart + $" {localizer["validate_length_1"]} 10 {localizer["validate_length_2"]}",
-            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
-            };
-    }
-
-    private async Task OpenChangeStampsDialog(CustomMessage customMessage)
-    {
-        var parameters = new DialogParameters { { "Data", new[] { customMessage.UniqueMessageId } } };
-        var dialog = await DialogService.ShowAsync<ChangeStampsPreviewDialog>(localizer["dialogtitle_customizecommentsentence"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            customMessage.UniqueMessageId = (result.Data as uint[])!.FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
 }
