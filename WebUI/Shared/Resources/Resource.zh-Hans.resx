@@ -546,4 +546,13 @@
   <data name="customizecommentpreview" xml:space="preserve">
     <value>预览句子</value>
   </data>
+  <data name="dialogtitle_changestamp" xml:space="preserve">
+    <value>修改通讯贴纸</value>
+  </data>
+  <data name="unknown_stamp" xml:space="preserve">
+    <value>不明通讯贴纸</value>
+  </data>
+  <data name="using_customize_message" xml:space="preserve">
+    <value>自定义通讯信息</value>
+  </data>
 </root>
