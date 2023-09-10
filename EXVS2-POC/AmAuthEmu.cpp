@@ -448,10 +448,11 @@ public:
     CreateInstance(IUnknown* outer, REFIID riid, void** object)
     {
         if (outer != nullptr) return CLASS_E_NOAGGREGATION;
+#ifdef _DEBUG
         wchar_t* iid_str;
         StringFromCLSID(riid, &iid_str);
-#ifdef _DEBUG
         OutputDebugStringW(std::format(L"CreateInstance {}", iid_str).c_str());
+        CoTaskMemFree(iid_str);
 #endif
 
         CAuth* auth = new CAuth();
@@ -466,7 +467,7 @@ public:
 };
 
 
-static HRESULT (STDAPICALLTYPE *gOriCoCreateInstance)(
+static HRESULT (STDAPICALLTYPE* g_origCoCreateInstance)(
     const IID *const rclsid,
     LPUNKNOWN pUnkOuter,
     DWORD dwClsContext,
@@ -475,23 +476,34 @@ static HRESULT (STDAPICALLTYPE *gOriCoCreateInstance)(
 
 
 static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
-    const IID *const rclsid,
+    const IID* const rclsid,
     LPUNKNOWN pUnkOuter,
     DWORD dwClsContext,
-    const IID *const riid,
+    const IID* const riid,
     LPVOID *ppv)
 {
-    if (IsEqualGUID(*rclsid, IID_CAuthFactory))
+    HRESULT result;
+
+    LPOLESTR clsidStr = nullptr;
+    LPOLESTR iidStr = nullptr;
+    StringFromIID(*rclsid, &clsidStr);
+    StringFromIID(*riid, &iidStr);
+
+    if (IsEqualGUID(*rclsid, IID_CAuthFactory) && IsEqualGUID(*riid, IID_CAuth))
     {
-        trace("GUID CAuthFactory match");
-        if (IsEqualGUID(*riid, IID_CAuth))
-        {
-            trace("GUID CAuth Match");
-            auto cauth = new CAuth();
-            return cauth->QueryInterface(*riid, ppv);
-        }
+        auto cauth = new CAuth();
+        result = cauth->QueryInterface(*riid, ppv);
+        trace("CoCreateInstance (hooked) (clsid=%S, pUnk=%p, clsCtx=%d, riid=%S) = %d\n", clsidStr, pUnkOuter, dwClsContext, iidStr, result);
     }
-    return gOriCoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
+    else
+    {
+        result = g_origCoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
+        trace("CoCreateInstance(clsid=%S, pUnk=%p, clsCtx=%d, riid=%S) = %d\n", clsidStr, pUnkOuter, dwClsContext, iidStr, result);
+    }
+
+    CoTaskMemFree(clsidStr);
+    CoTaskMemFree(iidStr);
+    return result;
 }
 
 void InitAmAuthEmu()
