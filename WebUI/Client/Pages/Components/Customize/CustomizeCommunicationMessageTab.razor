@@ -1,0 +1,102 @@
+﻿@inherits BasicCustomizeComponent
+
+@using WebUI.Client.Services
+@using WebUI.Shared.Dto.Common
+@using WebUI.Shared.Dto.Request
+@using WebUI.Shared.Dto.Response
+@using WebUI.Client.Pages.Dialogs
+@using Throw
+@using System.Text.RegularExpressions
+
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject INameService NameService
+@inject IDialogService DialogService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["communicationmessage"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@HideProgress" Color="Color.Default" Indeterminate="true"/>
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save">
+                        </MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="12">
+                                <MudExpansionPanels>
+                                    <MudForm @ref="_messageForm">
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_prebattle"]">
+                                            <WebUI.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.StartGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_inbattle"]">
+                                            <WebUI.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.InBattleGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_postbattle"]">
+                                            <WebUI.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.ResultGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                    </MudForm>
+                                </MudExpansionPanels>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+
+    [Parameter]
+    public CustomMessageGroupSetting? CustomMessageGroupSetting { get; set; } = new();
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+
+        private const int MaxMessageLength = 10;
+
+    MudForm _messageForm;
+
+    private string? ValidateCustomizeMessage(string message)
+    {
+        return ValidateMessage(message, localizer["validatemessage"]);
+    }
+
+    private String? ValidateMessage(string message, string errorMessagePart)
+    {
+        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,10}$";
+
+        return message.Length switch
+        {
+            0 => null,
+            > MaxMessageLength => errorMessagePart + $" {localizer["validate_length_1"]} 10 {localizer["validate_length_2"]}",
+            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
+            };
+    }
+
+    private async Task OpenChangeStampsDialog(CustomMessage customMessage)
+    {
+        var parameters = new DialogParameters { { "Data", new[] { customMessage.UniqueMessageId } } };
+        var dialog = await DialogService.ShowAsync<ChangeStampsPreviewDialog>(localizer["dialogtitle_customizecommentsentence"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            customMessage.UniqueMessageId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+}
