@@ -81,7 +81,8 @@
             { "EnableImagePreview", EnableImagePreview },
             { "HasCategory", false },
             { "SelectedString", "Selected Stamp: "},
-            { "ImagePathPrefix", "images/stamps"}
+            { "ImagePathPrefix", "images/stamps"},
+            { "Mode", "Stamps" }
         };
         var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_changestamp"], parameters, DialogOptions);
         var result = await dialog.Result;

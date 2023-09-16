@@ -42,6 +42,14 @@
                         Name
                     </MudTableSortLabel>
                 </MudTh>
+                @if (HasCategory)
+                {
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Category))">
+                            Category
+                        </MudTableSortLabel>
+                    </MudTh>
+                }
                 <MudTh>
                     <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Clues))">
                         Clues
@@ -60,6 +68,17 @@
                 }
                 <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
                 <MudTd DataLabel="Name" Class="cursor-pointer">@((MarkupString)context.Value)</MudTd>
+                @if (HasCategory)
+                {
+                    var category = "";
+
+                    if (context.Category is not null)
+                    {
+                        category = context.Category;
+                    }
+                    
+                    <MudTd DataLabel="Name" Class="cursor-pointer">@((MarkupString)category)</MudTd>
+                }
                 @{
                     var clueString = "";
                     if (context.Clues is not null)
@@ -128,6 +147,9 @@
     [Parameter]
     public string ImagePathPrefix { get; set; } = string.Empty;
 
+    [Parameter]
+    public string Mode { get; set; } = string.Empty;
+
     private HashSet<GeneralPreview> selectedItems = new();
 
     private int selectedPage;
@@ -143,14 +165,64 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        list = DataService.GetStampsSortedById();
+        list = GetList();
         foreach (var selectData in Data)
         {
-            var data = DataService.GetStampById(selectData);
+            var data = GetDataById(selectData);
             if (data != null) selectedItems.Add(data);
         }
         var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
         selectedPage = CalculateCurrentPage(list, selectedItems.FirstOrDefault(), firstPageOption);
+    }
+
+    private IReadOnlyList<GeneralPreview> GetList()
+    {
+        if (Mode == "Titles")
+        {
+            return DataService.GetTitlesSortedById();
+        }
+
+        if (Mode == "Backgrounds")
+        {
+            return DataService.GetBackgroundsSortedById();
+        }
+
+        if (Mode == "Effects")
+        {
+            return DataService.GetEffectsSortedById();
+        }
+
+        if (Mode == "Ornaments")
+        {
+            return DataService.GetOrnamentsSortedById();
+        }
+        
+        return DataService.GetStampsSortedById();
+    }
+
+    private GeneralPreview? GetDataById(uint id)
+    {
+        if (Mode == "Titles")
+        {
+            return DataService.GetTitleById(id);
+        }
+
+        if (Mode == "Backgrounds")
+        {
+            return DataService.GetBackgroundById(id);
+        }
+
+        if (Mode == "Effects")
+        {
+            return DataService.GetEffectById(id);
+        }
+
+        if (Mode == "Ornaments")
+        {
+            return DataService.GetOrnamentById(id);
+        }
+        
+        return DataService.GetStampById(id);
     }
 
     protected override void OnAfterRender(bool firstRender)

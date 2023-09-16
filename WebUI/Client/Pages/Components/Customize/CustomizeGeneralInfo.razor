@@ -129,60 +129,20 @@
                                     <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">@localizer["titles_hinteffect"]</MudLink>
                                 </MudStack>
                                 <MudDivider />
-                                <MudStack>
-                                    <MudField Label="@localizer["defaulttitles"]" Variant="Variant.Outlined">
-                                        <MudGrid>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.DefaultTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.DefaultTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.DefaultTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.DefaultTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudField>
-                                </MudStack>
-                                <MudStack>
-                                    <MudField Label="@localizer["rankingtitles"]" Variant="Variant.Outlined">
-                                        <MudGrid>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.RankingTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.RankingTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.RankingTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.RankingTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudField>
-                                </MudStack>
-                                <MudStack>
-                                    <MudField Label="@localizer["triadtitles"]" Variant="Variant.Outlined">
-                                        <MudGrid>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.TriadTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.TriadTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.TriadTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="BasicProfile.TriadTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudField>
-                                </MudStack>
+                                <WebUI.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@BasicProfile.DefaultTitle" 
+                                    DisplayLabel="@localizer["defaulttitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                             
+                                <WebUI.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@BasicProfile.RankingTitle" 
+                                    DisplayLabel="@localizer["rankingtitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                                
+                                <WebUI.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@BasicProfile.TriadTitle" 
+                                    DisplayLabel="@localizer["triadtitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
                             </MudStack>
                         </MudExpansionPanel>
                     </MudExpansionPanels>
@@ -195,6 +155,9 @@
 @code{
     [Parameter]
     public BasicProfile BasicProfile { get; set; } = new();
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
     
     Func<BgmPlayingMethod, string> converter = p => p.ToString();
 
