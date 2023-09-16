@@ -11,6 +11,7 @@
 @using WebUI.Shared.Dto.Common;
 @using WebUI.Client.Services;
 @using WebUI.Shared.Dto.Enum;
+@using WebUI.Client.Constants
 
 <MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
 
@@ -46,182 +47,9 @@
 <MudStack Class="mt-2">
 <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
 <MudTabPanel Text="@localizer["generalcardinfo"]">
-    <MudGrid xs="12">
-        <MudItem xs="12">
-            <MudCard Class="my-2" Elevation="5">
-                <MudCardHeader>
-                    <CardHeaderContent>
-                        <MudText Typo="Typo.h6">@localizer["generalcardinfo"]</MudText>
-                    </CardHeaderContent>
-                    <CardHeaderActions>
-                        <MudStack Row>
-                            <MudProgressCircular @bind-Class="@HideProfileProgress" Color="Color.Default" Indeterminate="true" />
-                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveBasicProfile"
-                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
-                        </MudStack>
-                    </CardHeaderActions>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudItem xs="8">
-                            <MudForm @ref="_playerNameForm">
-                                <MudTextField @bind-Value="_basicProfile.UserName"
-                                        Immediate="true"
-                                        Variant="Variant.Outlined"
-                                        Counter="PLAYER_NAME_MAX_LENGTH"
-                                        MaxLength="PLAYER_NAME_MAX_LENGTH"
-                                        Label="@localizer["playername"]"
-                                        Validation="ValidatePlayerName" />
-                            </MudForm>
-                        </MudItem>
-                        <MudItem xs="8">
-                            <MudSelect @bind-Value="_basicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
-                                               Label="@localizer["bgmplaytype"]" Variant="Variant.Outlined" ToStringFunc="@converter">
-                                @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
-                                {
-                                    <MudSelectItem Value="@(item)" />
-                                }
-                            </MudSelect>
-                        </MudItem>
-                        <MudItem xs="10">
-                            <MudGrid Class="align-center">
-                                <MudItem xs="10">
-                                    <MudExpansionPanels>
-                                                <MudExpansionPanel Text="@localizer["bgmlistorder"]">
-                                            <MudSimpleTable Style="overflow-x: auto;">
-                                                <tbody>
-                                                @if(_basicProfile.DefaultBgmList != null && _basicProfile.DefaultBgmList.Count() > 0)
-                                                {
-                                                    foreach (var x in _basicProfile.DefaultBgmList)
-                                                    {
-                                                        <tr>
-                                                            <td>@DataService.GetBgmById(x)?.ValueJP</td>
-                                                        </tr>
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    _basicProfile.DefaultBgmList = Array.Empty<uint>();
-                                                    <tr>
-                                                        <td>No Entries</td>
-                                                    </tr>
-                                                }
-                                                </tbody>
-                                            </MudSimpleTable>
-                                        </MudExpansionPanel>
-                                    </MudExpansionPanels>
-                                </MudItem>
-                                <MudItem xs="2">
-                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                                   OnClick="() => OpenProfileChangeBgmOrderDialog()" />
-                                </MudItem>
-                            </MudGrid>
-                        </MudItem>
-                        <MudItem xs="10">
-                            <MudGrid Class="align-center">
-                                <MudItem xs="10">
-                                            <MudField Label="@localizer["gauge"]" Variant="Variant.Outlined">
-                                        <MudText Align="Align.Center">@NameService.GetGaugeName(_basicProfile.DefaultGaugeDesignId)</MudText>
-                                    </MudField>
-                                </MudItem>
-                                <MudItem xs="2">
-                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                                                   OnClick="() => OpenProfileChangeGaugeDialog()" />
-                                </MudItem>
-                            </MudGrid>
-                        </MudItem>
-                        <MudItem xs="12">
-                            <MudGrid>
-                                <MudItem xs="6">
-                                    <MudSelect Label="@localizer["playerrecorddisplay"]" @bind-Value="_basicProfile.OpenRecord" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenRecordChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
-                                        @foreach (var openRecord in DataService.GetDisplayOptionsSortedById())
-                                        {
-                                            <MudSelectItem Value="openRecord.Id">@openRecord.Value</MudSelectItem>
-                                        }
-                                    </MudSelect>
-                                </MudItem>
-                                <MudItem xs="6">
-                                    <MudSelect Label="@localizer["echelondisplay"]" @bind-Value="_basicProfile.OpenEchelon" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenEchelonChanged(selectedIds, _basicProfile)" Variant="Variant.Outlined">
-                                        @foreach (var openEchelon in DataService.GetEchelonDisplayOptionsSortedById())
-                                        {
-                                            <MudSelectItem Value="openEchelon.Id">@openEchelon.Value</MudSelectItem>
-                                        }</MudSelect>
-                                </MudItem>
-                            </MudGrid>
-                        </MudItem>
-                        <MudExpansionPanels>
-                            <MudExpansionPanel Text="@localizer["titles"]">
-                                <MudStack>
-                                    <MudStack Row>
-                                        <MudText>@localizer["titles_hint"]</MudText>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">@localizer["titles_hinttext"]</MudLink>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">@localizer["titles_hintbackground"]</MudLink>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">@localizer["titles_hintornament"]</MudLink>
-                                        <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">@localizer["titles_hinteffect"]</MudLink>
-                                    </MudStack>
-                                    <MudDivider />
-                                    <MudStack>
-                                        <MudField Label="@localizer["defaulttitles"]" Variant="Variant.Outlined">
-                                            <MudGrid>
-                                                <MudItem xs="3">
-                                                            <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.DefaultTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                            </MudGrid>
-                                        </MudField>
-                                    </MudStack>
-                                    <MudStack>
-                                        <MudField Label="@localizer["rankingtitles"]" Variant="Variant.Outlined">
-                                            <MudGrid>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.RankingTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                            </MudGrid>
-                                        </MudField>
-                                    </MudStack>
-                                    <MudStack>
-                                        <MudField Label="@localizer["triadtitles"]" Variant="Variant.Outlined">
-                                            <MudGrid>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                    <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                                <MudItem xs="3">
-                                                            <MudNumericField T="uint" @bind-Value="_basicProfile.TriadTitle.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                                </MudItem>
-                                            </MudGrid>
-                                        </MudField>
-                                    </MudStack>
-                                </MudStack>
-                            </MudExpansionPanel>
-                        </MudExpansionPanels>
-                    </MudStack>
-                </MudCardContent>
-            </MudCard>
-        </MudItem>
-    </MudGrid>
+    <WebUI.Client.Pages.Components.Customize.CustomizeGeneralInfo 
+        BasicProfile="@_basicProfile" HideProgress="@HideProfileProgress" 
+        SaveTask="SaveBasicProfile" />
 </MudTabPanel>
 <MudTabPanel Text="@localizer["navisetting"]">
     <MudGrid xs="12">
@@ -563,10 +391,10 @@
                                 <MudTextField @bind-Value="cpuTriadPartner.TriadTeamName"
                                               Immediate="true"
                                               Variant="Variant.Outlined"
-                                              Counter="PLAYER_NAME_MAX_LENGTH"
-                                              MaxLength="PLAYER_NAME_MAX_LENGTH"
+                                              Counter="@((int) NameLength.TeamNameMaxLength)"
+                                              MaxLength="@((int) NameLength.TeamNameMaxLength)"
                                               Label="@localizer["triad_teamname"]"
-                                              Validation="ValidateTeamName" />
+                                              Validation="_nameValidator.ValidateTeamName" />
                             </MudForm>
                         </MudItem>
                         <MudItem xs="12">
