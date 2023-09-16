@@ -110,60 +110,20 @@
                                     <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">Effect</MudLink>
                                 </MudStack>
                                 <MudDivider />
-                                <MudStack>
-                                    <MudField Label="Default Titles" Variant="Variant.Outlined">
-                                        <MudGrid>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.DefaultTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudField>
-                                </MudStack>
-                                <MudStack>
-                                    <MudField Label="Ranking Titles" Variant="Variant.Outlined">
-                                        <MudGrid>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.RankingTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudField>
-                                </MudStack>
-                                <MudStack>
-                                    <MudField Label="Triad Titles" Variant="Variant.Outlined">
-                                        <MudGrid>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.TextId" Label="Text ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.BackgroundPartsId" Label="Background ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.OrnamentId" Label="Ornament ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudNumericField T="uint" @bind-Value="Data.TriadTitle.EffectId" Label="Effect ID" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000" />
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudField>
-                                </MudStack>
+                                <WebUI.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@Data.DefaultTitle" 
+                                    DisplayLabel="@localizer["defaulttitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                                
+                                <WebUI.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@Data.RankingTitle" 
+                                    DisplayLabel="@localizer["rankingtitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                                
+                                <WebUI.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@Data.TriadTitle" 
+                                    DisplayLabel="@localizer["triadtitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
                             </MudStack>
                         </MudExpansionPanel>
                     </MudExpansionPanels>
@@ -184,6 +144,9 @@
 
     [Parameter]
     public FavouriteMs Data { get; set; } = null!;
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
 
     private static readonly DialogOptions OPTIONS = new()
         {

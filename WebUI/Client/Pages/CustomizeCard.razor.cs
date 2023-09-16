@@ -359,7 +359,11 @@ public partial class CustomizeCard
         if (index == -1)
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
-        var parameters = new DialogParameters { { "Data", item } };
+        var parameters = new DialogParameters
+        {
+            { "Data", item },
+            { "EnableImagePreview", EnableImagePreview }
+        };
         var dialog = await DialogService.ShowAsync<CustomizeFavMsDialog>(localizer["dialogtitle_favms"], parameters, OPTIONS);
         var result = await dialog.Result;
 
