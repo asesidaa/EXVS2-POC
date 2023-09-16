@@ -315,4 +315,40 @@
   <data name="using_customize_message" xml:space="preserve">
     <value>Using Customize Message</value>
   </data>
+  <data name="dialogtitle_changetitle" xml:space="preserve">
+    <value>Change Title</value>
+  </data>
+  <data name="dialogtitle_changebackground" xml:space="preserve">
+    <value>Change Background</value>
+  </data>
+  <data name="dialogtitle_changeeffect" xml:space="preserve">
+    <value>Change Effect</value>
+  </data>
+  <data name="dialogtitle_changeornament" xml:space="preserve">
+    <value>Change Ornament</value>
+  </data>
+  <data name="unknown_title" xml:space="preserve">
+    <value>Unknown Title</value>
+  </data>
+  <data name="unknown_background" xml:space="preserve">
+    <value>Unknown Background</value>
+  </data>
+  <data name="unknown_effect" xml:space="preserve">
+    <value>Unknown Effect</value>
+  </data>
+  <data name="unknown_ornament" xml:space="preserve">
+    <value>Unknown Ornament</value>
+  </data>
+  <data name="titles_title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="titles_background" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="titles_effect" xml:space="preserve">
+    <value>Effect</value>
+  </data>
+  <data name="titles_ornament" xml:space="preserve">
+    <value>Ornament</value>
+  </data>
 </root>

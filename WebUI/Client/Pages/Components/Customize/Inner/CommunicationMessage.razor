@@ -2,19 +2,22 @@
 @using WebUI.Client.Pages.Dialogs
 @using WebUI.Client.Services
 @using System.Text.RegularExpressions
+@using WebUI.Client.Constants
+@using WebUI.Client.Validator
 
 @inject IDataService DataService
 @inject IDialogService DialogService
+@inject INameValidator NameValidator
 
 <MudGrid Class="align-center my-3">
     <MudItem xs="12" sm="6">
         <MudTextField @bind-Value="CustomMessage.MessageText"
                       Immediate="true"
                       Variant="Variant.Outlined"
-                      Counter="MessageMaxLength"
-                      MaxLength="MessageMaxLength"
+                      Counter="@((int) NameLength.MessageMaxLength)"
+                      MaxLength="@((int) NameLength.MessageMaxLength)"
                       Label="@DisplayLabel"
-                      Validation="ValidateCustomizeMessage"
+                      Validation="NameValidator.ValidateCustomizeMessage"
                       Disabled="@(!CanCustomizeTextMessage)"/>
     </MudItem>
     @if (ForDataCollection)
@@ -67,8 +70,7 @@
 
     [Parameter]
     public bool EnableImagePreview { get; set; } = true;
-    
-    private const int MessageMaxLength = 10;
+
     private const bool ForDataCollection = false;
     
     private async Task OpenChangeStampsDialog(CustomMessage customMessage)
@@ -76,9 +78,13 @@
         var parameters = new DialogParameters
         {
             { "Data", new[] { customMessage.UniqueMessageId } },
-            { "EnableImagePreview", EnableImagePreview }
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Stamp: "},
+            { "ImagePathPrefix", "images/stamps"},
+            { "Mode", "Stamps" }
         };
-        var dialog = await DialogService.ShowAsync<ChangeStampsPreviewDialog>(localizer["dialogtitle_changestamp"], parameters, DialogOptions);
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_changestamp"], parameters, DialogOptions);
         var result = await dialog.Result;
 
         if (!result.Canceled && result.Data != null)
@@ -87,24 +93,7 @@
             StateHasChanged();
         }
     }
-    
-    private string? ValidateCustomizeMessage(string message)
-    {
-        return ValidateMessage(message, localizer["validatemessage"]);
-    }
 
-    private String? ValidateMessage(string message, string errorMessagePart)
-    {
-        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,10}$";
-
-        return message.Length switch
-        {
-            0 => null,
-            > MessageMaxLength => errorMessagePart + $" {localizer["validate_length_1"]} 10 {localizer["validate_length_2"]}",
-            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
-            };
-    }
-    
     private bool CanCustomizeTextMessage => CustomMessage.UniqueMessageId == 0;
     
     private static readonly DialogOptions DialogOptions = new()

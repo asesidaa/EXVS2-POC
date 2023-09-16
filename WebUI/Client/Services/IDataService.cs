@@ -36,4 +36,12 @@ public interface IDataService
     public IReadOnlyList<IdValuePair> GetCustomizeCommentPhraseSortedById();
     public GeneralPreview? GetStampById(uint id);
     public IReadOnlyList<GeneralPreview> GetStampsSortedById();
+    public GeneralPreview? GetTitleById(uint id);
+    public IReadOnlyList<GeneralPreview> GetTitlesSortedById();
+    public GeneralPreview? GetBackgroundById(uint id);
+    public IReadOnlyList<GeneralPreview> GetBackgroundsSortedById();
+    public GeneralPreview? GetEffectById(uint id);
+    public IReadOnlyList<GeneralPreview> GetEffectsSortedById();
+    public GeneralPreview? GetOrnamentById(uint id);
+    public IReadOnlyList<GeneralPreview> GetOrnamentsSortedById();
 }

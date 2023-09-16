@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Text.RegularExpressions;
 using Throw;
 using WebUI.Client.Pages.Dialogs;
+using WebUI.Client.Validator;
 using WebUI.Shared.Dto.Common;
 using WebUI.Shared.Dto.Enum;
 using WebUI.Shared.Dto.Request;
@@ -25,6 +26,9 @@ public partial class CustomizeCard
     
     [Inject]
     private IJSRuntime? _jsRuntime { get; set; }
+    
+    [Inject]
+    private INameValidator _nameValidator { get; set; }
 
     private bool EnableImagePreview { get; set; } = false;
 
@@ -36,8 +40,7 @@ public partial class CustomizeCard
     private CpuTriadPartner cpuTriadPartner = null;
     private GamepadConfig _gamepadConfig = null;
     private CustomMessageGroupSetting _customMessageGroupSetting = null!;
-
-    MudForm _playerNameForm;
+    
     MudForm _teamNameForm;
     MudForm _messageForm;
 
@@ -61,8 +64,6 @@ public partial class CustomizeCard
     private string HideCustomizeCommentProgress { get; set; } = "invisible";
     private string HideGamepadConfigProgress { get; set; } = "invisible";
     private string HideCommunicationMessageProgress { get; set; } = "invisible";
-    private const int PLAYER_NAME_MAX_LENGTH = 12;
-    private const int MESSAGE_MAX_LENGTH = 10;
 
     private IdValuePair? SelectedTriadSkill1 { get; set; }
     private IdValuePair? SelectedTriadSkill2 { get; set; }
@@ -198,9 +199,7 @@ public partial class CustomizeCard
             _customMessageGroupSetting = customMessageGroupSetting;
         }
     }
-
-    Func<BgmPlayingMethod, string> converter = p => p.ToString();
-
+    
     private void AddFavouriteMobileSuitItem()
     {
         if (_favouriteMs.Count >= maximumFavouriteMs)
@@ -240,32 +239,6 @@ public partial class CustomizeCard
 
         if (item != null)
             _favouriteMs.Remove(item);
-    }
-
-    private async Task OpenProfileChangeBgmOrderDialog()
-    {
-        var parameters = new DialogParameters { { "Data", _basicProfile.DefaultBgmList } };
-        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>(localizer["dialogtitle_bgmorder"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled)
-        {
-            _basicProfile.DefaultBgmList = (result.Data as uint[])!;
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenProfileChangeGaugeDialog()
-    {
-        var parameters = new DialogParameters { { "Data", new[] { _basicProfile.DefaultGaugeDesignId } } };
-        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>(localizer["dialogtitle_gauge"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _basicProfile.DefaultGaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
-            StateHasChanged();
-        }
     }
     
     private async Task OpenNaviChangeUiDialog()
@@ -386,7 +359,11 @@ public partial class CustomizeCard
         if (index == -1)
             throw new ArgumentException("Selected item is not part of the provided items list.");
 
-        var parameters = new DialogParameters { { "Data", item } };
+        var parameters = new DialogParameters
+        {
+            { "Data", item },
+            { "EnableImagePreview", EnableImagePreview }
+        };
         var dialog = await DialogService.ShowAsync<CustomizeFavMsDialog>(localizer["dialogtitle_favms"], parameters, OPTIONS);
         var result = await dialog.Result;
 
@@ -420,9 +397,7 @@ public partial class CustomizeCard
 
     private async Task SaveBasicProfile()
     {
-        await _playerNameForm.Validate();
-
-        if (!_playerNameForm.IsValid)
+        if (_nameValidator.ValidatePlayerName(_basicProfile.UserName) is not null)
         {
             ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_cardinfo"]);
             return;
@@ -543,7 +518,7 @@ public partial class CustomizeCard
     
     private async Task SaveTriadCpuPartner()
     {
-        if (ValidateTeamName(cpuTriadPartner.TriadTeamName) is not null)
+        if (_nameValidator.ValidateTeamName(cpuTriadPartner.TriadTeamName) is not null)
         {
             ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_triadcpupartner"]);
             return;
@@ -666,10 +641,10 @@ public partial class CustomizeCard
 
     private bool AllMessageValid(CustomMessageGroup customMessageGroup)
     {
-        return ValidateCustomizeMessage(customMessageGroup.UpMessage.MessageText) is null
-            && ValidateCustomizeMessage(customMessageGroup.DownMessage.MessageText) is null
-            && ValidateCustomizeMessage(customMessageGroup.LeftMessage.MessageText) is null
-            && ValidateCustomizeMessage(customMessageGroup.RightMessage.MessageText) is null;
+        return _nameValidator.ValidateCustomizeMessage(customMessageGroup.UpMessage.MessageText) is null
+            && _nameValidator.ValidateCustomizeMessage(customMessageGroup.DownMessage.MessageText) is null
+            && _nameValidator.ValidateCustomizeMessage(customMessageGroup.LeftMessage.MessageText) is null
+            && _nameValidator.ValidateCustomizeMessage(customMessageGroup.RightMessage.MessageText) is null;
     }
 
     public void ShowBasicResponseSnack(BasicResponse result, string context = "")
@@ -679,46 +654,7 @@ public partial class CustomizeCard
         else
             Snackbar.Add($"{localizer["save_hint_update"]}{context}{localizer["save_hint_failed"]}", Severity.Error);
     }
-
-    private string? ValidatePlayerName(string playerName)
-    {
-        return ValidateName(playerName, localizer["validateplayername"]);
-    }
     
-    private string? ValidateTeamName(string teamName)
-    {
-        return ValidateName(teamName, localizer["validatetriadteamname"]);
-    }
-    
-    private string? ValidateCustomizeMessage(string message)
-    {
-        return ValidateMessage(message, localizer["validatemessage"]);
-    }
-
-    private String? ValidateName(string name, string errorMessagePart)
-    {
-        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９-_ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,12}$";
-
-        return name.Length switch
-        {
-            0 => errorMessagePart + $" {localizer["validation_required"]}",
-            > PLAYER_NAME_MAX_LENGTH => errorMessagePart + $" {localizer["validate_length_1"]} 12 {localizer["validate_length_2"]}",
-            _ => !Regex.IsMatch(name, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
-        };
-    }
-    
-    private String? ValidateMessage(string message, string errorMessagePart)
-    {
-        const string pattern = @"^[ 一-龯ぁ-んァ-ンｧ-ﾝﾞﾟa-zA-Z0-9ａ-ｚＡ-Ｚ０-９ー＜＞＋－＊÷＝；：←／＼＿｜・＠！？＆★（）＾◇∀Ξν×†ω♪♭#∞〆→↓↑％※ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ☆◆\[\]「」『』【】]{1,10}$";
-
-        return message.Length switch
-        {
-            0 => null,
-            > MESSAGE_MAX_LENGTH => errorMessagePart + $" {localizer["validate_length_1"]} 10 {localizer["validate_length_2"]}",
-            _ => !Regex.IsMatch(message, pattern) ? errorMessagePart + $" {localizer["validation_invalidchar"]}" : null
-        };
-    }
-
     // quick filter - filter gobally across multiple columns with the same input
     private Func<MobileSuitWithSkillGroup, bool> _quickFilter => x =>
     {
@@ -753,16 +689,6 @@ public partial class CustomizeCard
 
         return false;
     };
-
-    private async Task OnOpenRecordChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
-    {
-        basicProfile.OpenRecord = selectedIds.FirstOrDefault();
-    }
-    
-    private async Task OnOpenEchelonChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
-    {
-        basicProfile.OpenEchelon = selectedIds.FirstOrDefault();
-    }
     
     private async Task OnCostumeSelectChanged(IEnumerable<uint> selectedIds, MobileSuitWithSkillGroup context)
     {

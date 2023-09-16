@@ -555,4 +555,40 @@
   <data name="using_customize_message" xml:space="preserve">
     <value>自定义通讯信息</value>
   </data>
+  <data name="dialogtitle_changetitle" xml:space="preserve">
+    <value>修改称号文字</value>
+  </data>
+  <data name="dialogtitle_changebackground" xml:space="preserve">
+    <value>修改称号背景</value>
+  </data>
+  <data name="dialogtitle_changeeffect" xml:space="preserve">
+    <value>修改称号特效</value>
+  </data>
+  <data name="dialogtitle_changeornament" xml:space="preserve">
+    <value>修改称号装饰品</value>
+  </data>
+  <data name="unknown_title" xml:space="preserve">
+    <value>不明称号文字</value>
+  </data>
+  <data name="unknown_background" xml:space="preserve">
+    <value>不明称号背景</value>
+  </data>
+  <data name="unknown_effect" xml:space="preserve">
+    <value>不明称号特效</value>
+  </data>
+  <data name="unknown_ornament" xml:space="preserve">
+    <value>不明称号装饰品</value>
+  </data>
+  <data name="titles_title" xml:space="preserve">
+    <value>称号文字</value>
+  </data>
+  <data name="titles_background" xml:space="preserve">
+    <value>称号背景</value>
+  </data>
+  <data name="titles_effect" xml:space="preserve">
+    <value>称号特效</value>
+  </data>
+  <data name="titles_ornament" xml:space="preserve">
+    <value>称号装饰品</value>
+  </data>
 </root>
