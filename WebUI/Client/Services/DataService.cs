@@ -18,6 +18,10 @@ public class DataService : IDataService
     private Dictionary<uint, IdValuePair> customizeCommentSentences = new();
     private Dictionary<uint, IdValuePair> customizeCommentPhrases = new();
     private Dictionary<uint, GeneralPreview> stamps = new();
+    private Dictionary<uint, GeneralPreview> titles = new();
+    private Dictionary<uint, GeneralPreview> backgrounds = new();
+    private Dictionary<uint, GeneralPreview> effects = new();
+    private Dictionary<uint, GeneralPreview> ornaments = new();
 
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
@@ -32,6 +36,10 @@ public class DataService : IDataService
     private List<IdValuePair> customizeCommentSentenceList = new();
     private List<IdValuePair> customizeCommentPhraseList = new();
     private List<GeneralPreview> sortedStampsList = new();
+    private List<GeneralPreview> sortedTitleList = new();
+    private List<GeneralPreview> sortedBackgroundList = new();
+    private List<GeneralPreview> sortedEffectList = new();
+    private List<GeneralPreview> sortedOrnamentList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -105,14 +113,42 @@ public class DataService : IDataService
         
         var stampList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/Stamps.json");
         stampList.ThrowIfNull();
+        stamps = CreateGeneralPreviewDictionary(stampList);
+        sortedStampsList = CreateSortedGeneralPreviewList(stampList);
         
-        stamps = stampList
-            .Where(stamp => stamp.Existence != "NotExist")
-            .ToDictionary(ms => ms.Id);
+        var titleList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/titles/Titles.json");
+        titleList.ThrowIfNull();
+        titles = CreateGeneralPreviewDictionary(titleList);
+        sortedTitleList = CreateSortedGeneralPreviewList(titleList);
         
-        sortedStampsList = stampList
-            .Where(stamp => stamp.Existence != "NotExist")  
-            .OrderBy(title => title.Id)
+        var backgroundList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/titles/Backgrounds.json");
+        backgroundList.ThrowIfNull();
+        backgrounds = CreateGeneralPreviewDictionary(backgroundList);
+        sortedBackgroundList = CreateSortedGeneralPreviewList(backgroundList);
+        
+        var effectList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/titles/Effects.json");
+        effectList.ThrowIfNull();
+        effects = CreateGeneralPreviewDictionary(effectList);
+        sortedEffectList = CreateSortedGeneralPreviewList(effectList);
+        
+        var ornamentList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/titles/Ornaments.json");
+        ornamentList.ThrowIfNull();
+        ornaments = CreateGeneralPreviewDictionary(ornamentList);
+        sortedOrnamentList = CreateSortedGeneralPreviewList(ornamentList);
+    }
+    
+    private Dictionary<uint, GeneralPreview> CreateGeneralPreviewDictionary(List<GeneralPreview> generalPreviews)
+    {
+        return generalPreviews
+            .Where(generalPreview => generalPreview.Existence != "NotExist")
+            .ToDictionary(generalPreview => generalPreview.Id);
+    }
+
+    private List<GeneralPreview> CreateSortedGeneralPreviewList(List<GeneralPreview> generalPreviews)
+    {
+        return generalPreviews
+            .Where(generalPreview => generalPreview.Existence != "NotExist")  
+            .OrderBy(generalPreview => generalPreview.Id)
             .ToList();
     }
 
@@ -224,5 +260,45 @@ public class DataService : IDataService
     public IReadOnlyList<GeneralPreview> GetStampsSortedById()
     {
         return sortedStampsList;
+    }
+    
+    public GeneralPreview? GetTitleById(uint id)
+    {
+        return titles.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetTitlesSortedById()
+    {
+        return sortedTitleList;
+    }
+    
+    public GeneralPreview? GetBackgroundById(uint id)
+    {
+        return backgrounds.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetBackgroundsSortedById()
+    {
+        return sortedBackgroundList;
+    }
+    
+    public GeneralPreview? GetEffectById(uint id)
+    {
+        return effects.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetEffectsSortedById()
+    {
+        return sortedEffectList;
+    }
+    
+    public GeneralPreview? GetOrnamentById(uint id)
+    {
+        return ornaments.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetOrnamentsSortedById()
+    {
+        return sortedOrnamentList;
     }
 }
