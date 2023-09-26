@@ -28,11 +28,16 @@ public class CardProfile : BaseEntity
     [Required]
     public DateTime UploadTokenExpiry { get; set; } = DateTime.Now;
     
+    [Required]
+    public string DistinctTeamFormationToken { get; set; } = Guid.NewGuid().ToString("n").Substring(0, 16);
+    
     public ICollection<UploadImage> UploadImages { get; } = new List<UploadImage>(); 
     
     public ICollection<OnlinePair> OnlinePairs { get; } = new List<OnlinePair>(); 
     
     public int QuickOnlinePartnerId { get; set; } = 0;
+    
+    public ICollection<TagTeamData> TagTeamDataList { get; } = new List<TagTeamData>(); 
     
     public ICollection<TriadBattleResult> TriadBattleResults { get; } = new List<TriadBattleResult>(); 
     

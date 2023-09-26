@@ -32,6 +32,12 @@ public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisp
             throw new NullReferenceException("Card Profile is invalid");
         }
 
+        if (cardProfile.DistinctTeamFormationToken == string.Empty)
+        {
+            cardProfile.DistinctTeamFormationToken = Guid.NewGuid().ToString("n").Substring(0, 16);
+            context.SaveChanges();
+        }
+
         var preLoadUser = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
         if (preLoadUser is null)
         {
@@ -55,7 +61,8 @@ public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisp
             DefaultBgmList = mobileUserGroup.Customize.DefaultBgmSettings,
             DefaultTitle = preLoadUser.customize_group.DefaultTitleCustomize.ToTitle(),
             TriadTitle = mobileUserGroup.TriadTitleCustomize.ToTitle(),
-            RankingTitle = mobileUserGroup.RankMatchTitleCustomize.ToTitle()
+            RankingTitle = mobileUserGroup.RankMatchTitleCustomize.ToTitle(),
+            DistinctTeamFormationToken = cardProfile.DistinctTeamFormationToken
         };
 
         return Task.FromResult(basicDisplayProfile);

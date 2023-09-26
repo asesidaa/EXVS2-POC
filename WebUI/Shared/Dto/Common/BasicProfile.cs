@@ -13,4 +13,5 @@ public class BasicProfile
     public Title? DefaultTitle { get; set; } = new();
     public Title? TriadTitle { get; set; } = new();
     public Title? RankingTitle { get; set; } = new();
+    public string DistinctTeamFormationToken { get; set; } = string.Empty;
 }
