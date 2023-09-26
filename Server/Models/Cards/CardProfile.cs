@@ -30,6 +30,10 @@ public class CardProfile : BaseEntity
     
     public ICollection<UploadImage> UploadImages { get; } = new List<UploadImage>(); 
     
+    public ICollection<OnlinePair> OnlinePairs { get; } = new List<OnlinePair>(); 
+    
+    public int QuickOnlinePartnerId { get; set; } = 0;
+    
     public ICollection<TriadBattleResult> TriadBattleResults { get; } = new List<TriadBattleResult>(); 
     
     public ICollection<OfflinePvpBattleResult> OfflinePvpBattleResults { get; } = new List<OfflinePvpBattleResult>(); 
