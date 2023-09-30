@@ -351,4 +351,13 @@
   <data name="titles_ornament" xml:space="preserve">
     <value>Ornament</value>
   </data>
+  <data name="communicationmessage_position" xml:space="preserve">
+    <value>Message Position</value>
+  </data>
+  <data name="communicationmessage_position_type_center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="communicationmessage_position_type_left_bottom" xml:space="preserve">
+    <value>Left Bottom</value>
+  </data>
 </root>

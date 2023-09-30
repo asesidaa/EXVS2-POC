@@ -41,6 +41,7 @@ public class GetCustomMessageGroupSettingCommandHandler : IRequestHandler<GetCus
         
         var customMessageGroupSetting = new CustomMessageGroupSetting
         {
+            MessagePosition = mobileUserGroup.MessagePosition.ToMessagePosition(),
             StartGroup = CreateStartCustomMessageGroup(ToCustomMessages(mobileUserGroup.OpeningMessages)),
             InBattleGroup = CreateCustomMessageGroup(ToCustomMessages(mobileUserGroup.PlayingMessages)),
             ResultGroup = CreateResultCustomMessageGroup(ToCustomMessages(mobileUserGroup.ResultMessages))
@@ -48,7 +49,7 @@ public class GetCustomMessageGroupSettingCommandHandler : IRequestHandler<GetCus
         
         return Task.FromResult(customMessageGroupSetting);
     }
-
+    
     List<CustomMessage> ToCustomMessages(List<Response.LoadCard.MobileUserGroup.CommandMessageGroup> commandMessageGroups)
     {
         return commandMessageGroups

@@ -7,6 +7,8 @@
 @using WebUI.Client.Pages.Dialogs
 @using Throw
 @using System.Text.RegularExpressions
+@using WebUI.Shared.Dto.Enum
+@using System.Reflection.Metadata
 
 @inject HttpClient Http
 @inject ILogger<CustomizeCard> Logger
@@ -32,6 +34,15 @@
             </MudCardHeader>
             <MudCardContent>
                 <MudStack>
+                    <MudItem xs="12">
+                        <MudSelect @bind-Value="CustomMessageGroupSetting.MessagePosition" Margin="Margin.Normal" T="MessagePosition"
+                                   Label="@localizer["communicationmessage_position"]" Variant="Variant.Outlined" ToStringFunc="@ConvertMessagePosition">
+                            @foreach (var item in Enum.GetValues<MessagePosition>())
+                            {
+                                <MudSelectItem Value="@(item)" />
+                            }
+                        </MudSelect>
+                    </MudItem>
                     <MudItem xs="12">
                         <MudGrid Class="align-center">
                             <MudItem xs="12">
@@ -68,4 +79,9 @@
     private const int MaxMessageLength = 10;
 
     MudForm _messageForm;
+
+    string ConvertMessagePosition(MessagePosition messagePosition)
+    {
+        return messagePosition == MessagePosition.Center ? localizer["communicationmessage_position_type_center"] : localizer["communicationmessage_position_type_left_bottom"];
+    }
 }

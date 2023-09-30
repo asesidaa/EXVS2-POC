@@ -285,6 +285,15 @@
   <data name="screencaptures" xml:space="preserve">
     <value>截图</value>
   </data>
+  <data name="communicationmessage_position" xml:space="preserve">
+    <value>通讯信息位置</value>
+  </data>
+  <data name="communicationmessage_position_type_center" xml:space="preserve">
+    <value>中间</value>
+  </data>
+  <data name="communicationmessage_position_type_left_bottom" xml:space="preserve">
+    <value>左下角</value>
+  </data>
   <data name="communicationmessage_hint" xml:space="preserve">
     <value>如果想要自定义通讯信息，请把通讯贴纸ID设定为 0</value>
   </data>
