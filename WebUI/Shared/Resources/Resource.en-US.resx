@@ -285,6 +285,15 @@
   <data name="screencaptures" xml:space="preserve">
     <value>Screen Captures</value>
   </data>
+  <data name="communicationmessage_position" xml:space="preserve">
+    <value>Message Position</value>
+  </data>
+  <data name="communicationmessage_position_type_center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="communicationmessage_position_type_left_bottom" xml:space="preserve">
+    <value>Left Bottom</value>
+  </data>
   <data name="communicationmessage_hint" xml:space="preserve">
     <value>Put Stamp ID = 0 if you want to use Verbal Message</value>
   </data>

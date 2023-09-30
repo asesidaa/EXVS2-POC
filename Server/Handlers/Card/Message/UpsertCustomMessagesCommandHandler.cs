@@ -44,6 +44,8 @@ public class UpsertCustomMessagesCommandHandler : IRequestHandler<UpsertCustomMe
         }
 
         var messageSetting = updateRequest.MessageSetting;
+
+        mobileUserGroup.MessagePosition = updateRequest.MessageSetting.MessagePosition.ToCommandMessagePostion();
         
         UpsertCommandMessageGroup(messageSetting.StartGroup, mobileUserGroup.OpeningMessages, Command.StartUp, Command.StartDown, Command.StartLeft, Command.StartRight);
         UpsertCommandMessageGroup(messageSetting.InBattleGroup, mobileUserGroup.PlayingMessages, Command.Up, Command.Down, Command.Left, Command.Right);
