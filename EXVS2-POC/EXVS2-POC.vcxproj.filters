@@ -75,6 +75,9 @@
     <ClCompile Include="libs\determinize\vendor\zydis\Zydis.c">
       <Filter>Source Files\zydis</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banapass.h">
@@ -153,6 +156,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SocketHooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

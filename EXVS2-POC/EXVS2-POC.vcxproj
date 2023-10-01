@@ -179,6 +179,7 @@
     <ClCompile Include="banapass.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GameHooks.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="JvsEmu.cpp" />
     <ClCompile Include="libs\determinize\src\determinize.cpp" />
     <ClCompile Include="libs\determinize\src\replacements.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Configs.h" />
     <ClInclude Include="GameHooks.h" />
     <ClInclude Include="INIReader.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="JvsEmu.h" />
     <ClInclude Include="libs\injector\assembly.hpp" />
     <ClInclude Include="libs\injector\calling.hpp" />
