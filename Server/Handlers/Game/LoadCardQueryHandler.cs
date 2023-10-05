@@ -80,7 +80,7 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
             }
 
             // For Offline / Online Teams
-            AppendTagTeams(cardProfile, pilotDataGroup);
+            // AppendTagTeams(cardProfile, pilotDataGroup);
         }
 
         response.load_card = new Response.LoadCard
