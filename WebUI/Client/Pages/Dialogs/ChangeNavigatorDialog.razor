@@ -32,23 +32,43 @@
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Id))">
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.Id))">
                         Id
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Value))">
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.Value))">
                         Name (English)
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueJP))">
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.ValueJP))">
                         Name (Japanese)
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueCN))">
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.ValueCN))">
                         Name (Chinese)
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.Series))">
+                        Series
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.Seiyuu))">
+                        Seiyuu
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.ClosenessPoint))">
+                        Closeness
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.ClosenessPoint))">
+                        EXP
                     </MudTableSortLabel>
                 </MudTh>
             </HeaderContent>
@@ -60,6 +80,44 @@
                 <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.Value</MudTd>
                 <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.ValueJP</MudTd>
                 <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.ValueCN</MudTd>
+                <MudTd DataLabel="Series" Class="cursor-pointer">@context.Series</MudTd>
+                <MudTd DataLabel="Seiyuu" Class="cursor-pointer">@context.Seiyuu</MudTd>
+                @{
+                    if (context.Id == 0)
+                    {
+                        <MudTd DataLabel="Closeness" Class="cursor-pointer">N/A</MudTd>
+                    }
+                    else
+                    {
+                        var familiarity = context.FamiliarityDomain;
+
+                        if (familiarity.UseDescription)
+                        {
+                            <MudTd DataLabel="Closeness" Class="cursor-pointer">@familiarity.Description</MudTd>
+                        }
+                        else
+                        {
+                            int level = (int)familiarity.Level;
+                        
+                            <MudTd DataLabel="Closeness" Class="cursor-pointer">
+                                <MudRating SelectedValue="@level" MaxValue="5" ReadOnly="true"
+                                           FullIcon="@Icons.Material.Filled.Favorite"
+                                           EmptyIcon="@Icons.Material.Filled.FavoriteBorder"
+                                           Color="Color.Secondary"/>
+                            </MudTd>
+                        }
+                    }
+                }
+                @{
+                    if (context.Id == 0)
+                    {
+                        <MudTd DataLabel="EXP" Class="cursor-pointer">N/A</MudTd>
+                    }
+                    else
+                    {
+                        <MudTd DataLabel="EXP" Class="cursor-pointer">@context.ClosenessPoint</MudTd>
+                    }
+                }
                 @{
 #pragma warning restore CS8602
                 }
@@ -152,7 +210,7 @@
         {
             return false;
         }
-        var aggregate = $"{item.Value}{item.ValueJP}{item.ValueCN}";
+        var aggregate = $"{item.Value}{item.ValueJP}{item.ValueCN}{item.Series}{item.Seiyuu}";
         return string.IsNullOrEmpty(searchString) ||
                aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }

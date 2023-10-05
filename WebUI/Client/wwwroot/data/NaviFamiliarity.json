@@ -1,0 +1,58 @@
+﻿[
+  {
+    "Id": 1,
+    "UseDescription": false,
+    "Description": "NA",
+    "Level": 0,
+    "ColorCode": "#000000",
+    "MinimumPoint": 0
+  },
+  {
+    "Id": 2,
+    "UseDescription": false,
+    "Description": "NA",
+    "Level": 1,
+    "ColorCode": "#000000",
+    "MinimumPoint": 10
+  },
+  {
+    "Id": 3,
+    "UseDescription": false,
+    "Description": "NA",
+    "Level": 2,
+    "ColorCode": "#000000",
+    "MinimumPoint": 40
+  },
+  {
+    "Id": 4,
+    "UseDescription": false,
+    "Description": "NA",
+    "Level": 3,
+    "ColorCode": "#000000",
+    "MinimumPoint": 100
+  },
+  {
+    "Id": 5,
+    "UseDescription": false,
+    "Description": "NA",
+    "Level": 4,
+    "ColorCode": "#000000",
+    "MinimumPoint": 200
+  },
+  {
+    "Id": 6,
+    "UseDescription": false,
+    "Description": "NA",
+    "Level": 5,
+    "ColorCode": "#000000",
+    "MinimumPoint": 300
+  },
+  {
+    "Id": 7,
+    "UseDescription": true,
+    "Description": "MASTER",
+    "Level": 99,
+    "ColorCode": "#000000",
+    "MinimumPoint": 1000
+  }
+]

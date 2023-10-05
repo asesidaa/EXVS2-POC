@@ -160,6 +160,30 @@ public partial class CustomizeCard
             {
                 Navigator = navigator
             }).ToList();
+            
+            DataService.GetWritableNavigatorSortedById()
+                .ForEach(writableNavi =>
+                {
+                    if (writableNavi.Id == 0)
+                    {
+                        writableNavi.ClosenessPoint = -1;
+                        return;
+                    }
+                    
+                    var naviData = naviResult.UserNavis
+                        .FirstOrDefault(userNavi => userNavi.Id == writableNavi.Id);
+
+                    if (naviData is null)
+                    {
+                        writableNavi.FamiliarityDomain = DataService.GetNaviFamiliaritySortedById().First();
+                        return;
+                    }
+
+                    writableNavi.ClosenessPoint = (int) naviData.Familiarity;
+                    writableNavi.FamiliarityDomain = DataService.GetNaviFamiliaritySortedById()
+                        .Reverse()
+                        .First(naviFamiliarity => naviData.Familiarity >= naviFamiliarity.MinimumPoint);
+                });
 
             var naviWithAltCostumes = naviList
                 .Where(x => x.Navigator.Costumes != null && x.Navigator.Costumes.Count > 0)

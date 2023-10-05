@@ -20,8 +20,10 @@ public interface IDataService
     public IReadOnlyList<IdValuePair> GetGaugeSortedById();
 
     public IdValuePair? GetGaugeById(uint id);
+    public IReadOnlyList<Familiarity> GetNaviFamiliaritySortedById();
 
     public IReadOnlyList<Navigator> GetNavigatorSortedById();
+    public List<Navigator> GetWritableNavigatorSortedById();
 
     public Navigator? GetNavigatorById(uint id);
     public IReadOnlyList<IdValuePair> GetSortedTriadSkillList();

@@ -11,6 +11,7 @@ public class DataService : IDataService
     private Dictionary<uint, MobileSuit> mobileSuits = new();
     private Dictionary<uint, IdValuePair> bgm = new();
     private Dictionary<uint, IdValuePair> gauge = new();
+    private Dictionary<uint, Familiarity> naviFamiliarities = new();
     private Dictionary<uint, Navigator> navigator = new();
     private Dictionary<uint, IdValuePair> triadSkill = new();
     private Dictionary<uint, IdValuePair> triadTeamBanner = new();
@@ -28,6 +29,7 @@ public class DataService : IDataService
     private List<MobileSuit> sortedMobileSuitList = new();
     private List<IdValuePair> sortedBgmList = new();
     private List<IdValuePair> sortedGaugeList = new();
+    private List<Familiarity> sortedNaviFamiliarityList = new();
     private List<Navigator> sortedNavigatorList = new();
     private List<IdValuePair> sortedTriadSkillList = new();
     private List<IdValuePair> sortedTriadTeamBannerList = new();
@@ -76,8 +78,13 @@ public class DataService : IDataService
         gaugeList.ThrowIfNull();
         gauge = gaugeList.ToDictionary(ms => ms.Id);
         sortedGaugeList = gaugeList.OrderBy(title => title.Id).ToList();
+        
+        var naviFamiliarityList = await client.GetFromJsonAsync<List<Familiarity>>("data/NaviFamiliarity.json");
+        naviFamiliarityList.ThrowIfNull();
+        naviFamiliarities = naviFamiliarityList.ToDictionary(naviFamiliarity => naviFamiliarity.Id);
+        sortedNaviFamiliarityList = naviFamiliarityList.OrderBy(naviFamiliarity => naviFamiliarity.Id).ToList();
 
-        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json?v=2");
+        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json?v=3");
         naviList.ThrowIfNull();
         navigator = naviList.ToDictionary(ms => ms.Id);
         sortedNavigatorList = naviList.OrderBy(title => title.Id).ToList();
@@ -197,10 +204,21 @@ public class DataService : IDataService
         return gauge.GetValueOrDefault(id);
     }
 
+    public IReadOnlyList<Familiarity> GetNaviFamiliaritySortedById()
+    {
+        return sortedNaviFamiliarityList;
+    }
+
     public IReadOnlyList<Navigator> GetNavigatorSortedById()
     {
         return sortedNavigatorList;
     }
+    
+    public List<Navigator> GetWritableNavigatorSortedById()
+    {
+        return sortedNavigatorList;
+    }
+    
     public Navigator? GetNavigatorById(uint id)
     {
         return navigator.GetValueOrDefault(id);

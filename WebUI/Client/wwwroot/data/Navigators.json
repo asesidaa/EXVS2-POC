@@ -3,19 +3,25 @@
     "Id": 0,
     "Value": "-",
     "ValueJP": "-",
+    "Series": "-",
+    "Seiyuu": "-",
     "ValueCN": "-"
   },
   {
     "Id": 1,
     "Value": "Haro",
     "ValueJP": "ハロ",
-    "ValueCN": "哈罗（0079）"
+    "ValueCN": "哈罗（0079）",
+    "Series": "機動戦士ガンダム",
+    "Seiyuu": "新井里美"
   },
   {
     "Id": 2,
     "Value": "Lalah Sune",
     "ValueJP": "ララァ・スン",
     "ValueCN": "拉拉·辛（0079）",
+    "Series": "機動戦士ガンダム",
+    "Seiyuu": "潘恵子",
     "Costumes": [
       {
         "Id": 0,
@@ -33,13 +39,17 @@
     "Id": 3,
     "Value": "Gihren Zabi",
     "ValueJP": "ギレン・ザビ",
-    "ValueCN": "基连·扎比（0079）"
+    "ValueCN": "基连·扎比（0079）",
+    "Series": "機動戦士ガンダム",
+    "Seiyuu": "銀河万丈"
   },
   {
     "Id": 4,
     "Value": "Haman Karn",
     "ValueJP": "ハマーン・カーン",
     "ValueCN": "哈曼·卡恩（ZZ）",
+    "Series": "機動戦士ガンダムZZ",
+    "Seiyuu": "榊原良子",
     "Costumes": [
       {
         "Id": 0,
@@ -58,6 +68,8 @@
     "Value": "Cecily Fairchild",
     "ValueJP": "セシリー・フェアチャイルド",
     "ValueCN": "塞西莉·费亚查尔德（F91）",
+    "Series": "機動戦士ガンダムF91",
+    "Seiyuu": "冬馬由美",
     "Costumes": [
       {
         "Id": 0,
@@ -76,6 +88,8 @@
     "Value": "Katejina Loos",
     "ValueJP": "カテジナ・ルース",
     "ValueCN": "卡提珍娜·露丝（V）",
+    "Series": "機動戦士Vガンダム",
+    "Seiyuu": "渡辺久美子",
     "Costumes": [
       {
         "Id": 0,
@@ -94,6 +108,8 @@
     "Value": "Tiffa Adill",
     "ValueJP": "ティファ・アディール",
     "ValueCN": "蒂法·亚迪尔（X）",
+    "Series": "機動新世紀ガンダムX",
+    "Seiyuu": "かないみか",
     "Costumes": [
       {
         "Id": 0,
@@ -117,6 +133,8 @@
     "Value": "Aina Sahalin",
     "ValueJP": "アイナ・サハリン",
     "ValueCN": "爱娜·萨哈林（08MS）",
+    "Series": "機動戦士ガンダム 第08MS小隊",
+    "Seiyuu": "井上喜久子",
     "Costumes": [
       {
         "Id": 0,
@@ -135,6 +153,8 @@
     "Value": "Dianna Soreil",
     "ValueJP": "ディアナ・ソレル",
     "ValueCN": "迪安娜·索雷尔（逆A）",
+    "Series": "∀ガンダム",
+    "Seiyuu": "高橋理恵子",
     "Costumes": [
       {
         "Id": 0,
@@ -158,6 +178,8 @@
     "Value": "Feldt Grace",
     "ValueJP": "フェルト・グレイス",
     "ValueCN": "菲露特·古蕾斯（00）",
+    "Series": "機動戦士ガンダム00",
+    "Seiyuu": "高垣彩陽",
     "Costumes": [
       {
         "Id": 0,
@@ -176,6 +198,8 @@
     "Value": "Sumeragi Noriega",
     "ValueJP": "スメラギ・李・ノリエガ",
     "ValueCN": "皇·李·诺瑞加（00）",
+    "Series": "機動戦士ガンダム00",
+    "Seiyuu": "本名陽子",
     "Costumes": [
       {
         "Id": 0,
@@ -194,6 +218,8 @@
     "Value": "Nena Trinity",
     "ValueJP": "ネーナ・トリニティ",
     "ValueCN": "妮娜·崔尼蒂（00）",
+    "Series": "機動戦士ガンダム00",
+    "Seiyuu": "釘宮理恵",
     "Costumes": [
       {
         "Id": 0,
@@ -212,6 +238,8 @@
     "Value": "Soma Peries",
     "ValueJP": "ソーマ・ピーリス",
     "ValueCN": "索玛·皮里斯（00）",
+    "Series": "機動戦士ガンダム00",
+    "Seiyuu": "小笠原亜里沙",
     "Costumes": [
       {
         "Id": 0,
@@ -230,6 +258,8 @@
     "Value": "Mileina Vashti",
     "ValueJP": "ミレイナ・ヴァスティ",
     "ValueCN": "米蕾娜·瓦斯提（00）",
+    "Series": "機動戦士ガンダム00",
+    "Seiyuu": "戸松遥",
     "Costumes": [
       {
         "Id": 0,
@@ -247,13 +277,17 @@
     "Id": 15,
     "Value": "Suberoa Zinnerman",
     "ValueJP": "スベロア・ジンネマン",
-    "ValueCN": "斯贝洛亚·辛尼曼（UC）"
+    "ValueCN": "斯贝洛亚·辛尼曼（UC）",
+    "Series": "機動戦士ガンダムUC",
+    "Seiyuu": "手塚秀彰"
   },
   {
     "Id": 16,
     "Value": "Audrey Burne",
     "ValueJP": "オードリー・バーン",
     "ValueCN": "奥黛丽·伯恩（UC）",
+    "Series": "機動戦士ガンダムUC",
+    "Seiyuu": "藤村歩",
     "Costumes": [
       {
         "Id": 0,
@@ -271,13 +305,17 @@
     "Id": 17,
     "Value": "Noah Bright",
     "ValueJP": "ブライト・ノア",
-    "ValueCN": "布莱德·诺亚（UC）"
+    "ValueCN": "布莱德·诺亚（UC）",
+    "Series": "機動戦士ガンダムUC",
+    "Seiyuu": "成田剣"
   },
   {
     "Id": 18,
     "Value": "Relena Darlian",
     "ValueJP": "リリーナ・ドーリアン",
     "ValueCN": "莉莉娜·多利安（W）",
+    "Series": "新機動戦記ガンダムW",
+    "Seiyuu": "矢島晶子",
     "Costumes": [
       {
         "Id": 0,
@@ -296,6 +334,8 @@
     "Value": "Miriallia Haw",
     "ValueJP": "ミリアリア・ハウ",
     "ValueCN": "米丽雅莉亚·哈乌（seed）",
+    "Series": "機動戦士ガンダムSEED",
+    "Seiyuu": "豊口めぐみ",
     "Costumes": [
       {
         "Id": 0,
@@ -314,6 +354,8 @@
     "Value": "Lacus Clyne",
     "ValueJP": "ラクス・クライン",
     "ValueCN": "拉克丝·克莱茵（seed）",
+    "Series": "機動戦士ガンダムSEED",
+    "Seiyuu": "田中理恵",
     "Costumes": [
       {
         "Id": 0,
@@ -337,6 +379,8 @@
     "Value": "Flay Allster",
     "ValueJP": "フレイ・アルスター",
     "ValueCN": "芙蕾·阿尔斯达（seed）",
+    "Series": "機動戦士ガンダムSEED",
+    "Seiyuu": "桑島法子",
     "Costumes": [
       {
         "Id": 0,
@@ -354,13 +398,17 @@
     "Id": 23,
     "Value": "Murrue Ramius",
     "ValueJP": "マリュー・ラミアス",
-    "ValueCN": "玛琉·拉米亚斯（seed）"
+    "ValueCN": "玛琉·拉米亚斯（seed）",
+    "Series": "機動戦士ガンダムSEED",
+    "Seiyuu": "三石琴乃"
   },
   {
     "Id": 24,
     "Value": "Meyrin Hawke",
     "ValueJP": "メイリン・ホーク",
     "ValueCN": "美玲·霍克（seed destiny）",
+    "Series": "機動戦士ガンダムSEED DESTINY",
+    "Seiyuu": "折笠富美子",
     "Costumes": [
       {
         "Id": 0,
@@ -379,6 +427,8 @@
     "Value": "Meer Campbell",
     "ValueJP": "ミーア・キャンベル",
     "ValueCN": "米娅·坎贝尔（seed destiny）",
+    "Series": "機動戦士ガンダムSEED DESTINY",
+    "Seiyuu": "田中理恵",
     "Costumes": [
       {
         "Id": 0,
@@ -397,6 +447,8 @@
     "Value": "Lunamaria Hawke",
     "ValueJP": "ルナマリア・ホーク",
     "ValueCN": "露娜玛莉亚·霍克（seed destiny）",
+    "Series": "機動戦士ガンダムSEED DESTINY",
+    "Seiyuu": "坂本真綾",
     "Costumes": [
       {
         "Id": 0,
@@ -415,6 +467,8 @@
     "Value": "Emily Asuno",
     "ValueJP": "エミリー・アモンド",
     "ValueCN": "艾蜜莉·明日野（AGE）",
+    "Series": "機動戦士ガンダムAGE",
+    "Seiyuu": "遠藤綾",
     "Costumes": [
       {
         "Id": 0,
@@ -433,6 +487,8 @@
     "Value": "Yurin L'Ciel",
     "ValueJP": "ユリン・ルシェル",
     "ValueCN": "尤琳·露歇尔（AGE）",
+    "Series": "機動戦士ガンダムAGE",
+    "Seiyuu": "早見沙織",
     "Costumes": [
       {
         "Id": 0,
@@ -451,6 +507,8 @@
     "Value": "Romary Stone",
     "ValueJP": "ロマリー・ストーン",
     "ValueCN": "罗玛莉·斯通（AGE）",
+    "Series": "機動戦士ガンダムAGE",
+    "Seiyuu": "花澤香菜",
     "Costumes": [
       {
         "Id": 0,
@@ -469,6 +527,8 @@
     "Value": "Sthesia Awar",
     "ValueJP": "セシア・アウェア",
     "ValueCN": "赛西娅·阿维亚（EXA）",
+    "Series": "ガンダムEXA",
+    "Seiyuu": "竹達彩奈",
     "Costumes": [
       {
         "Id": 0,
@@ -502,6 +562,8 @@
     "Value": "Sthesia Awar Acht",
     "ValueJP": "セシア・アウェア・アハト",
     "ValueCN": "赛西娅·阿维亚·亚哈特（EXA）",
+    "Series": "ガンダムEXA VS",
+    "Seiyuu": "竹達彩奈",
     "Costumes": [
       {
         "Id": 0,
@@ -530,6 +592,8 @@
     "Value": "Sthesia Awar Sesto",
     "ValueJP": "セシア・アウェア・セスト",
     "ValueCN": "赛西娅·阿维亚·赛斯特（EXA）",
+    "Series": "ガンダムEXA VS",
+    "Seiyuu": "竹達彩奈",
     "Costumes": [
       {
         "Id": 0,
@@ -558,6 +622,8 @@
     "Value": "Sthesia Awar Nono",
     "ValueJP": "セシア・アウェア・ノーノ",
     "ValueCN": "赛西娅·阿维亚·诺诺（EXA）",
+    "Series": "ガンダムEXA VS",
+    "Seiyuu": "竹達彩奈",
     "Costumes": [
       {
         "Id": 0,
@@ -586,6 +652,8 @@
     "Value": "Sthesia Awar Primo",
     "ValueJP": "セシア・アウェア・プリモ",
     "ValueCN": "赛西娅·阿维亚·普利摩（EXA）",
+    "Series": "ガンダムEXA VS",
+    "Seiyuu": "竹達彩奈",
     "Costumes": [
       {
         "Id": 0,
@@ -614,6 +682,8 @@
     "Value": "Aida Surugan",
     "ValueJP": "アイーダ・スルガン",
     "ValueCN": "阿依达·休冈（G之复国运动）",
+    "Series": "ガンダム Gのレコンギスタ",
+    "Seiyuu": "嶋村侑",
     "Costumes": [
       {
         "Id": 0,
@@ -632,6 +702,8 @@
     "Value": "Aila Jyrkiainen",
     "ValueJP": "アイラ・ユルキアイネン",
     "ValueCN": "艾拉·尤基艾宁（创战）",
+    "Series": "ガンダムビルドファイターズ",
+    "Seiyuu": "早見沙織",
     "Costumes": [
       {
         "Id": 0,
@@ -650,6 +722,8 @@
     "Value": "Fumina Hoshino",
     "ValueJP": "ホシノ・フミナ",
     "ValueCN": "星野文奈（创战）",
+    "Series": "ガンダムビルドファイターズトライ",
+    "Seiyuu": "牧野由依",
     "Costumes": [
       {
         "Id": 0,
@@ -667,43 +741,57 @@
     "Id": 38,
     "Value": "Kudelia Aina Bernstein",
     "ValueJP": "クーデリア・藍那・バーンスタイン",
-    "ValueCN": "古狄莉娅·蓝那·伯恩斯坦（铁血）"
+    "ValueCN": "古狄莉娅·蓝那·伯恩斯坦（铁血）",
+    "Series": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "Seiyuu": "寺崎裕香"
   },
   {
     "Id": 39,
     "Value": "Atra Mixta",
     "ValueJP": "アトラ・ミクスタ",
-    "ValueCN": "阿特拉·米库斯塔（铁血）"
+    "ValueCN": "阿特拉·米库斯塔（铁血）",
+    "Series": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "Seiyuu": "金元寿子"
   },
   {
     "Id": 40,
     "Value": "Fumitan Admoss",
     "ValueJP": "フミタン・アドモス",
-    "ValueCN": "芙米塔·阿德莫斯（铁血）"
+    "ValueCN": "芙米塔·阿德莫斯（铁血）",
+    "Series": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "Seiyuu": "内山夕実"
   },
   {
     "Id": 41,
     "Value": "Fa Yuiry",
     "ValueJP": "ファ・ユイリィ",
-    "ValueCN": "花园丽（Z）"
+    "ValueCN": "花园丽（Z）",
+    "Series": "機動戦士Zガンダム",
+    "Seiyuu": "新井里美"
   },
   {
     "Id": 42,
     "Value": "Elpeo Ple",
     "ValueJP": "エルピー・プル",
-    "ValueCN": "艾露比·普露（Z）"
+    "ValueCN": "艾露比·普露（ZZ）",
+    "Series": "機動戦士ガンダムZZ",
+    "Seiyuu": "本多陽子"
   },
   {
     "Id": 43,
     "Value": "Sochie Heim",
     "ValueJP": "ソシエ・ハイム",
-    "ValueCN": "苏茜娅·海姆（逆A）"
+    "ValueCN": "苏茜娅·海姆（逆A）",
+    "Series": "∀ガンダム",
+    "Seiyuu": "村田秋乃"
   },
   {
     "Id": 44,
     "Value": "Orga Itsuka",
     "ValueJP": "オルガ・イツカ",
     "ValueCN": "奥尔加·伊兹卡（铁血）",
+    "Series": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "Seiyuu": "細谷佳正",
     "Costumes": [
       {
         "Id": 0,
@@ -722,6 +810,8 @@
     "Value": "Manny Ambassador",
     "ValueJP": "マニィ・アンバサダ",
     "ValueCN": "玛尼·安巴塞达（G之复国运动）",
+    "Series": "ガンダム Gのレコンギスタ",
+    "Seiyuu": "高垣彩陽",
     "Costumes": [
       {
         "Id": 0,
@@ -740,6 +830,8 @@
     "Value": "Melina Marlon Fitz",
     "ValueJP": "メリーナ・マーロンフィッツ",
     "ValueCN": "梅莉娜·玛洛菲兹（EXVS）",
+    "Series": "機動戦士ガンダムN-EXTREME",
+    "Seiyuu": "春野杏",
     "Costumes": [
       {
         "Id": 0,
@@ -768,6 +860,8 @@
     "Value": "Kano Clans",
     "ValueJP": "カノ・クランズ",
     "ValueCN": "卡诺·克兰兹（EXVS）",
+    "Series": "機動戦士ガンダムN-EXTREME",
+    "Seiyuu": "月城莉奈",
     "Costumes": [
       {
         "Id": 0,
