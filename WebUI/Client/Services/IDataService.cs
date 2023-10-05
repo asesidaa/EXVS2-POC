@@ -9,6 +9,7 @@ public interface IDataService
     public IReadOnlyList<IdValuePair> GetEchelonDisplayOptionsSortedById();
 
     public IReadOnlyList<MobileSuit> GetMobileSuitSortedById();
+    public List<MobileSuit> GetWritableMobileSuitSortedById();
     public IReadOnlyList<MobileSuit> GetCostumeMobileSuitSortedById();
     
     public MobileSuit? GetMobileSuitById(uint id);
@@ -20,6 +21,7 @@ public interface IDataService
     public IReadOnlyList<IdValuePair> GetGaugeSortedById();
 
     public IdValuePair? GetGaugeById(uint id);
+    public IReadOnlyList<Familiarity> GetMsFamiliaritySortedById();
     public IReadOnlyList<Familiarity> GetNaviFamiliaritySortedById();
 
     public IReadOnlyList<Navigator> GetNavigatorSortedById();

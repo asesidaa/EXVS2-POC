@@ -135,6 +135,31 @@ public partial class CustomizeCard
 
             // assign costume selection id from ms skill group to the mobile suit list
             var mobileSuitList = DataService.GetMobileSuitSortedById().Select(x => new MobileSuitWithSkillGroup { MobileSuit = x }).ToList();
+            
+            DataService.GetWritableMobileSuitSortedById()
+                .ForEach(writableMs =>
+                {
+                    if (writableMs.Id == 0)
+                    {
+                        writableMs.MasteryPoint = -1;
+                        return;
+                    }
+                    
+                    var msData = msSkillGroup
+                        .FirstOrDefault(msSkill => msSkill.MstMobileSuitId == writableMs.Id);
+
+                    if (msData is null)
+                    {
+                        writableMs.MasteryDomain = DataService.GetMsFamiliaritySortedById().First();
+                        return;
+                    }
+
+                    writableMs.MasteryPoint = (int) msData.MsUsedNum;
+                    writableMs.MasteryDomain = DataService.GetMsFamiliaritySortedById()
+                        .Reverse()
+                        .First(msFamiliarity => msData.MsUsedNum >= msFamiliarity.MinimumPoint);
+                });
+            
             var msWithAltCostumes = mobileSuitList
                 .Where(x => x.MobileSuit.Costumes != null && x.MobileSuit.Costumes.Count > 0)
                 .GroupJoin(
