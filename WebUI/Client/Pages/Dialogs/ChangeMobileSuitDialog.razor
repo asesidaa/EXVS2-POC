@@ -15,6 +15,38 @@
             .selected > td .mud-input {
                 color: white !important;
             }
+    
+    .ms-mastery-rating-lv0 {
+        background-color: #08f;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #ddd;
+        }
+    }
+    
+    .ms-mastery-rating-lv1 {
+        background-color: #d63;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #fe0;
+        }
+    }
+        
+    .ms-mastery-rating-lv2 {
+        background-color: #bbc;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #fe0;
+        }
+    }
+    
+    .ms-mastery-rating-lv3 {
+        background-color: #cb0;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #fe0;
+        }
+    }
 </style>
 
 <MudDialog>
@@ -51,6 +83,26 @@
                         Name (Chinese)
                     </MudTableSortLabel>
                 </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Series))">
+                        Series
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Cost))">
+                        Cost
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.MasteryPoint))">
+                        Mastery
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.MasteryPoint))">
+                        EXP
+                    </MudTableSortLabel>
+                </MudTh>
             </HeaderContent>
             <RowTemplate>
                 @{
@@ -60,6 +112,55 @@
                 <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.Value</MudTd>
                 <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.ValueJP</MudTd>
                 <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.ValueCN</MudTd>
+                <MudTd DataLabel="Series" Class="cursor-pointer">@context.Series</MudTd>
+                @{
+                    var cost = "N/A";
+                    if (context.Id > 0)
+                    {
+                        cost = context.Cost.ToString();
+                    }
+                }
+                <MudTd DataLabel="Cost" Class="cursor-pointer">@cost</MudTd>
+                 @{
+                    if (context.Id == 0)
+                    {
+                        <MudTd DataLabel="Mastery" Class="cursor-pointer">N/A</MudTd>
+                    }
+                    else
+                    {
+                        var familiarity = context.MasteryDomain;
+
+                        if (familiarity.UseDescription)
+                        {
+                            <MudTd DataLabel="Mastery" Class="cursor-pointer">
+                                <div style="font-style: italic; font-weight: bold; color: #fe0;">
+                                    @familiarity.Description
+                                </div>
+                            </MudTd>
+                        }
+                        else
+                        {
+                            int level = (int)familiarity.Level;
+                            string styleClass = "ms-mastery-rating-lv" + familiarity.ColorCode;
+
+                            <MudTd DataLabel="Mastery" Class="cursor-pointer">
+                                <MudRating SelectedValue="@level" MaxValue="5" ReadOnly="true"
+                                           RatingItemsClass="@styleClass"
+                                           FullIcon="@Icons.Material.Filled.Star"
+                                           EmptyIcon="@Icons.Material.Filled.StarBorder"
+                                           />
+                            </MudTd>
+                        }
+                    }
+                 }
+                @{
+                    var masteryPoint = "N/A";
+                    if (@context.Id > 0)
+                    {
+                        masteryPoint = context.MasteryPoint.ToString();
+                    }
+                }
+                <MudTd DataLabel="EXP" Class="cursor-pointer">@masteryPoint</MudTd>
                 @{
 #pragma warning restore CS8602
                 }
@@ -149,7 +250,7 @@
         {
             return false;
         }
-        var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}";
+        var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}{mobileSuit.Series}";
         return string.IsNullOrEmpty(searchString) ||
                aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }
