@@ -1,3 +1,5 @@
 ﻿#pragma once
 
-void InitializeHooks();
+#include <filesystem>
+
+void InitializeHooks(std::filesystem::path&& basePath);

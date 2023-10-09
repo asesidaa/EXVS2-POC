@@ -1,31 +1,69 @@
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+#include <Windows.h>
+#include <shellapi.h>
+
+#include <filesystem>
 #include <string>
 #include <thread>
 
 #include "AmAuthEmu.h"
+#include "Configs.h"
 #include "GameHooks.h"
-#include "ClockHooks.h"
-#include "JvsEmu.h"
-#include "WindowedDxgi.h"
 #include "INIReader.h"
+#include "JvsEmu.h"
+#include "log.h"
+#include "SocketHooks.h"
 #include "VirtualKeyMapping.h"
-#include "configs.h"
+#include "WindowedDxgi.h"
 
-config_struct ReadConfigs(INIReader reader) {
+static config_struct ReadConfigs(INIReader reader) {
     config_struct config {};
 
     // config reading
+    std::string logLevel = reader.Get("config", "log", "none");
+    if (_stricmp("trace", logLevel.c_str()) == 0)
+    {
+        g_logLevel = LogLevel::TRACE;
+    }
+    else if (_stricmp("debug", logLevel.c_str()) == 0)
+    {
+        g_logLevel = LogLevel::DEBUG;
+    }
+    else if (_stricmp("info", logLevel.c_str()) == 0)
+    {
+        g_logLevel = LogLevel::INFO;
+    }
+    else if (_stricmp("warn", logLevel.c_str()) == 0)
+    {
+        g_logLevel = LogLevel::WARN;
+    }
+    else if (_stricmp("error", logLevel.c_str()) == 0)
+    {
+        g_logLevel = LogLevel::ERR;
+    }
+    else if (_stricmp("none", logLevel.c_str()) == 0)
+    {
+        g_logLevel = LogLevel::NONE;
+    }
+    else
+    {
+        fatal("Unknown log level '%s'", logLevel.c_str());
+    }
+
     config.Windowed = reader.GetBoolean("config", "windowed", false);
     config.InputMode = reader.Get("config", "InputMode", "Keyboard");
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
     config.Serial = reader.Get("config", "serial", "284311110001");
     config.Mode = static_cast<uint8_t>(reader.GetInteger("config", "mode", 2));
-    config.IpAddress = reader.Get("config", "IpAddress", "192.168.50.239");
-    config.Gateway = reader.Get("config", "Gateway", "192.168.50.1");
-    config.SubnetMask = reader.Get("config", "SubnetMask", "255.255.255.0");
-    config.PrimaryDNS = reader.Get("config", "DNS", "8.8.8.8");
-    config.TenpoRouter = reader.Get("config", "TenpoRouter", "192.168.50.1");
+
+    // These will get filled in by InitializeSocketHooks.
+    config.InterfaceName = reader.GetOptional("config", "InterfaceName");
+    config.IpAddress = reader.GetOptional("config", "IpAddress");
+    config.Gateway = reader.GetOptional("config", "Gateway");
+    config.TenpoRouter = reader.GetOptional("config", "TenpoRouter");
+    config.SubnetMask = reader.GetOptional("config", "SubnetMask");
+    config.PrimaryDNS = reader.GetOptional("config", "DNS");
+
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config.RegionCode = reader.Get("config", "Region", "1");
@@ -100,24 +138,58 @@ config_struct ReadConfigs(INIReader reader) {
     return config;
 }
 
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
+static std::filesystem::path GetBasePath()
 {
-    // Read config
-    INIReader reader("config.ini");
-
-    if (reader.ParseError() == 0)
+    int argc;
+    LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+    switch (argc)
     {
-        globalConfig = ReadConfigs(reader);
+    case 0:
+        fatal("Empty commandline");
+    case 1:
+        return std::filesystem::current_path();
+    case 2:
+        return std::filesystem::path(argv[1]);
+    default:
+        fatal("Invalid commandline (expected only a path, argc = %d)", argc);
     }
 
+}
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
+{
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
         {
+            std::filesystem::path basePath = GetBasePath();
+
+            // FIXME: INIReader doesn't handle Unicode paths.
+            INIReader reader((basePath / "config.ini").string());
+            int rc = reader.ParseError();
+            if (rc == -1)
+            {
+                fatal("Failed to open config.ini");
+            }
+            else if (rc > 0)
+            {
+                fatal("Failed to parse config.ini: error on line %d", reader.ParseError());
+            }
+
+            globalConfig = ReadConfigs(reader);
+
+            if (g_logLevel != LogLevel::NONE)
+            {
+                AllocConsole();
+
+                FILE* dummy;
+                freopen_s(&dummy, "CONIN$", "r", stdin);
+                freopen_s(&dummy, "CONOUT$", "w", stderr);
+                freopen_s(&dummy, "CONOUT$", "w", stdout);
+            }
+
+            InitializeSocketHooks();
             InitAmAuthEmu();
-            InitializeHooks();
-            // Not used in favour of direct patching
-            //InitClockHooks();
+            InitializeHooks(std::move(basePath));
             InitializeJvs();
             InitDXGIWindowHook();
         }

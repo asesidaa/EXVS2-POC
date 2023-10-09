@@ -305,6 +305,7 @@ inline int ini_parse(const char* filename, ini_handler handler, void* user)
 #define __INIREADER_H__
 
 #include <map>
+#include <optional>
 #include <set>
 #include <string>
 
@@ -330,6 +331,9 @@ public:
 
     // Return the list of sections found in ini file
     const std::set<std::string>& Sections() const;
+
+    // Get a string value from INI file.
+    std::optional<std::string> GetOptional(const std::string& section, const std::string& name) const;
 
     // Get a string value from INI file, returning default_value if not found.
     std::string Get(const std::string& section, const std::string& name,
@@ -391,6 +395,12 @@ inline int INIReader::ParseError() const
 inline const std::set<std::string>& INIReader::Sections() const
 {
     return _sections;
+}
+
+inline std::optional<std::string> INIReader::GetOptional(const std::string& section, const std::string& name) const
+{
+    std::string key = MakeKey(section, name);
+    return _values.count(key) ? std::make_optional(_values.at(key)) : std::nullopt;
 }
 
 inline std::string INIReader::Get(const std::string& section, const std::string& name, const std::string& default_value) const

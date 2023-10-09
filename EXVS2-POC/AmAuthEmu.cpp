@@ -117,49 +117,49 @@ public:
     virtual int64_t
     Unk3(uint32_t a1)
     {
-        log("Unk3");
+        trace("Unk3");
         return 1;
     }
 
     virtual int64_t
     Unk4()
     {
-        log("Unk4");
+        trace("Unk4");
         return 1;
     }
 
     virtual int32_t
     Unk5()
     {
-        log("Unk5");
+        trace("Unk5");
         return 0;
     }
 
     virtual int64_t
     Unk6()
     {
-        log("Unk6");
+        trace("Unk6");
         return 1;
     }
 
     virtual int32_t
     Unk7()
     {
-        log("Unk7");
+        trace("Unk7");
         return 0;
     }
 
     virtual int32_t
     Unk8()
     {
-        log("Unk8");
+        trace("Unk8");
         return 0;
     }
 
     virtual int32_t
     Unk9(int32_t* a1)
     {
-        log("Unk9");
+        trace("Unk9");
         memset(a1, 0, sizeof(int32_t) * 0x31);
         a1[0] = 15;
         a1[2] = 2;
@@ -183,140 +183,126 @@ public:
     virtual int32_t
     IAuth_GetCabinetConfig(amcus_network_state_t* state)
     {
-        log("IAuth_GetCabinetConfig");
-        amcus_network_state_t result
-        {
-            .mode = "CLIENT",
-            .pcbid = "ABLN1110001",
-            .dongle_serial = "284311110001",
-            .shop_router_ip = "192.168.50.239",
-            .auth_server_ip = "127.0.0.1",
-            .local_ip = "192.168.50.239",
-            .subnet_mask = "255.255.255.0",
-            .gateway = "192.168.50.1",
-            .primary_dns = "8.8.8.8",
-            .hop_count = 1,
-            .line_type = 1,
-            .line_status = 1,
-            .content_router_status = 1,
-            .shop_router_status = 1,
-            .hop_status = 1
-        };
-        strcpy_s(result.pcbid, globalConfig.PcbId.c_str());
-        strcpy_s(result.dongle_serial, globalConfig.Serial.c_str());
-        strcpy_s(result.shop_router_ip, globalConfig.TenpoRouter.c_str());
-        strcpy_s(result.auth_server_ip, globalConfig.AuthServerIp.c_str());
-        strcpy_s(result.local_ip, globalConfig.IpAddress.c_str());
-        strcpy_s(result.subnet_mask, globalConfig.SubnetMask.c_str());
-        strcpy_s(result.gateway, globalConfig.Gateway.c_str());
-        strcpy_s(result.primary_dns, globalConfig.PrimaryDNS.c_str());
-        memcpy_s(state, sizeof(amcus_network_state_t), &result, sizeof(amcus_network_state_t));
+        trace("IAuth_GetCabinetConfig");
+        memset(state, 0, sizeof(*state));
+        strcpy_s(state->mode, "CLIENT");
+        strcpy_s(state->pcbid, globalConfig.PcbId.c_str());
+        strcpy_s(state->dongle_serial, globalConfig.Serial.c_str());
+        strcpy_s(state->auth_server_ip, globalConfig.AuthServerIp.c_str());
+
+        // These values are optional, but they'll have been filled in by SocketHook initialization (if not overridden via config).
+        strcpy_s(state->local_ip, globalConfig.IpAddress->c_str());
+        strcpy_s(state->subnet_mask, globalConfig.SubnetMask->c_str());
+        strcpy_s(state->gateway, globalConfig.Gateway->c_str());
+        strcpy_s(state->shop_router_ip, globalConfig.TenpoRouter->c_str());
+        strcpy_s(state->primary_dns, globalConfig.PrimaryDNS->c_str());
+
+        state->hop_count = 1;
+        state->line_type = 1;
+        state->line_status = 1;
+        state->content_router_status = 1;
+        state->shop_router_status = 1;
+        state->hop_status = 1;
         return 0;
     }
 
     virtual int32_t
     IAuth_GetVersionInfo(amcus_version_info_t* version)
     {
-        log("IAuth_GetVersionInfo");
-        amcus_version_info_t version_info
-        {
-            .game_rev = "1",
-            .auth_type = "ALL.NET",
-            .game_id = "SBUZ",
-            .game_ver = "4.50",
-            .game_cd = "GXX1",
-            .cacfg_game_ver = "27.35",
-            .game_board_type = "0",
-            .game_board_id = "PCB",
-            .auth_url = "localhost"
-        };
-        memcpy_s(version, sizeof(amcus_version_info_t), &version_info, sizeof(amcus_version_info_t));
+        trace("IAuth_GetVersionInfo");
+        memset(version, 0, sizeof(*version));
+        strcpy_s(version->game_rev, "1");
+        strcpy_s(version->auth_type, "ALL.NET");
+        strcpy_s(version->game_id, "SBUZ");
+        strcpy_s(version->game_ver, "4.50");
+        strcpy_s(version->game_cd, "GXX1");
+        strcpy_s(version->cacfg_game_ver, "27.35");
+        strcpy_s(version->game_board_type, "0");
+        strcpy_s(version->game_board_id, "PCB");
+        strcpy_s(version->auth_url, "localhost");
         return 0;
     }
 
     virtual int32_t
     Unk12()
     {
-        log("Unk12");
+        trace("Unk12");
         return 1;
     }
 
     virtual int32_t
     Unk13()
     {
-        log("Unk13");
+        trace("Unk13");
         return 1;
     }
 
     virtual int32_t
     IAuth_GetAuthServerResp(amcus_auth_server_resp_t* resp)
     {
-        log("IAuth_GetAuthServerResp");
-        log("Server address %s", globalConfig.ServerAddress.c_str());
+        trace("IAuth_GetAuthServerResp");
+        debug("Server address %s", globalConfig.ServerAddress.c_str());
 
-        std::string region_name_0 = globalConfig.RegionCode;
+        memset(resp, 0, sizeof(*resp));
+        strcpy_s(resp->uri, globalConfig.ServerAddress.c_str());
+        strcpy_s(resp->host, globalConfig.ServerAddress.c_str());
 
-        if(globalConfig.Mode == 3 || globalConfig.Mode == 4)
+        strcpy_s(resp->shop_name, "EXVS2-POC");
+        strcpy_s(resp->shop_nickname, "EXVS2-POC");
+
+        if (globalConfig.Mode == 3 || globalConfig.Mode == 4)
         {
-            region_name_0 = "01035";
+            strcpy_s(resp->region0, "01035");
         }
-        
-        amcus_auth_server_resp_t result
+        else
         {
-            .uri = "127.0.0.1",
-            .host = "127.0.0.1",
-            .shop_name = "EXVS2-POC",
-            .shop_nickname = "EXVS2-POC",
-            .region0 = "1",
-            .region_name0 = "NAMCO",
-            .region_name1 = "X",
-            .region_name2 = "Y",
-            .region_name3 = "Z",
-            .place_id = "JPN1",
-            .setting = "",
-            .country = "JPN",
-            .timezone = "+0900",
-            .res_class = "PowerOnResponseVer2"
-        };
-        strcpy_s(result.uri, globalConfig.ServerAddress.c_str());
-        strcpy_s(result.host, globalConfig.ServerAddress.c_str());
-        strcpy_s(result.region0, region_name_0.c_str());
-        memcpy_s(resp, sizeof(amcus_auth_server_resp_t), &result, sizeof(amcus_auth_server_resp_t));
+            strcpy_s(resp->region0, globalConfig.RegionCode.c_str());
+        }
+
+        strcpy_s(resp->region_name0, "NAMCO");
+        strcpy_s(resp->region_name1, "X");
+        strcpy_s(resp->region_name2, "Y");
+        strcpy_s(resp->region_name3, "Z");
+        strcpy_s(resp->place_id, "JPN1");
+        strcpy_s(resp->setting, "");
+        strcpy_s(resp->country, "JPN");
+        strcpy_s(resp->timezone, "+0900");
+        strcpy_s(resp->res_class, "PowerOnResponseVer2");
         return 0;
     }
 
     virtual int32_t
     Unk15()
     {
-        log("Unk15");
+        trace("Unk15");
         return 0;
     }
 
     virtual int32_t
     Unk16()
     {
-        log("Unk16");
+        trace("Unk16");
         return 0;
     }
 
     virtual int32_t
     Unk17()
     {
-        log("Unk17");
+        trace("Unk17");
         return 0;
     }
 
     virtual int32_t
     Unk18(void* a1)
     {
-        log("Unk18");
+        trace("Unk18");
         return 0;
     }
 
     virtual int32_t
     Unk19(uint8_t* a1)
     {
-        log("Unk19");
+        trace("Unk19");
         memset(a1, 0, 0x38);
         a1[0] = 1;
         return 1;
@@ -325,77 +311,77 @@ public:
     virtual int32_t
     Unk20()
     {
-        log("Unk20");
+        trace("Unk20");
         return 0;
     }
 
     virtual int32_t
     Unk21()
     {
-        log("Unk21");
+        trace("Unk21");
         return 1;
     }
 
     virtual int32_t
     Unk22()
     {
-        log("Unk22");
+        trace("Unk22");
         return 0;
     }
 
     virtual int32_t
     Unk23()
     {
-        log("Unk23");
+        trace("Unk23");
         return 0;
     }
 
     virtual int32_t
     Unk24()
     {
-        log("Unk24");
+        trace("Unk24");
         return 0;
     }
 
     virtual int32_t
     Unk25()
     {
-        log("Unk25");
+        trace("Unk25");
         return 1;
     }
 
     virtual int32_t
     Unk26()
     {
-        log("Unk26");
+        trace("Unk26");
         return 0;
     }
 
     virtual int32_t
     Unk27()
     {
-        log("Unk27");
+        trace("Unk27");
         return 1;
     }
 
     virtual int32_t
     Unk28()
     {
-        log("Unk28");
+        trace("Unk28");
         return 0;
     }
 
     virtual int32_t
     Unk29()
     {
-        log("Unk29");
+        trace("Unk29");
         return 0;
     }
 
     virtual int32_t
     Unk30()
     {
-        log("Unk30");
+        trace("Unk30");
         return 0;
     }
 
@@ -497,10 +483,10 @@ static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
 {
     if (IsEqualGUID(*rclsid, IID_CAuthFactory))
     {
-        log("GUID CAuthFactory match");
+        trace("GUID CAuthFactory match");
         if (IsEqualGUID(*riid, IID_CAuth))
         {
-            log("GUID CAuth Match");
+            trace("GUID CAuth Match");
             auto cauth = new CAuth();
             return cauth->QueryInterface(*riid, ppv);
         }

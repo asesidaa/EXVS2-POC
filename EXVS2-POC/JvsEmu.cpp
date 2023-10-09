@@ -230,7 +230,7 @@ public:
         {
             ss << std::format("{:02X} ", srcbuffer[i]);
         }
-        log(ss.str().c_str());
+        trace(ss.str().c_str());
     }
 };
 
@@ -414,79 +414,79 @@ void capture_direct_input_action(BYTE& byte0, BYTE& byte1, BYTE& byte2, JOYINFOE
 {
     if (joy.dwPOV == 0)
     {
-        log("Up Detected from Joystick");
+        trace("Up Detected from Joystick");
         byte1 |= static_cast<char>(1 << 5);
     }
     if (joy.dwPOV == 4500)
     {
-        log("Up Right Detected from Joystick");
+        trace("Up Right Detected from Joystick");
         byte1 |= static_cast<char>(1 << 5);
         byte1 |= static_cast<char>(1 << 2);
     }
     if (joy.dwPOV == 9000)
     {
-        log("Right Detected from Joystick");
+        trace("Right Detected from Joystick");
         byte1 |= static_cast<char>(1 << 2);
     }
     if (joy.dwPOV == 13500)
     {
-        log("Right Down Detected from Joystick");
+        trace("Right Down Detected from Joystick");
         byte1 |= static_cast<char>(1 << 2);
         byte1 |= static_cast<char>(1 << 4);
     }
     if (joy.dwPOV == 18000)
     {
-        log("Down Detected from Joystick");
+        trace("Down Detected from Joystick");
         byte1 |= static_cast<char>(1 << 4);
     }
     if (joy.dwPOV == 22500)
     {
-        log("Down Left Detected from Joystick");
+        trace("Down Left Detected from Joystick");
         byte1 |= static_cast<char>(1 << 4);
         byte1 |= static_cast<char>(1 << 3);
     }
     if (joy.dwPOV == 27000)
     {
-        log("Left Detected from Joystick");
+        trace("Left Detected from Joystick");
         byte1 |= static_cast<char>(1 << 3);
     }
     if (joy.dwPOV == 31500)
     {
-        log("Top Left Detected from Joystick");
+        trace("Top Left Detected from Joystick");
         byte1 |= static_cast<char>(1 << 3);
         byte1 |= static_cast<char>(1 << 5);
     }
     int intJoyDwButtons = (int)joy.dwButtons;
     if (intJoyDwButtons & key_bind.ArcadeButton1)
     {
-        log("Button 1 Detected from Joystick");
+        trace("Button 1 Detected from Joystick");
         byte1 |= static_cast<char>(1 << 1);
     }
     if (intJoyDwButtons & key_bind.ArcadeButton2)
     {
-        log("Button 2 Detected from Joystick");
+        trace("Button 2 Detected from Joystick");
         byte1 |= static_cast<char>(1);
     }
     if (intJoyDwButtons & key_bind.ArcadeButton3)
     {
-        log("Button 3 Detected from Joystick");
+        trace("Button 3 Detected from Joystick");
         byte2 |= static_cast<char>(1 << 7);
     }
     if (intJoyDwButtons & key_bind.ArcadeButton4)
     {
-        log("Button 4 Detected from Joystick");
+        trace("Button 4 Detected from Joystick");
         byte2 |= static_cast<char>(1 << 6);
     }
     if (intJoyDwButtons & key_bind.ArcadeStartButton)
     {
-        log("Start Button Detected from Joystick");
+        trace("Start Button Detected from Joystick");
         byte1 |= static_cast<char>(1 << 7);
     }
     if (!key_bind.UseKeyboardSupportKeyInDirectInput)
     {
         if (intJoyDwButtons & key_bind.ArcadeTest)
         {
-            log("Test Button Detected from Joystick");
+            trace("Test Button Detected from Joystick");
             byte0 |= static_cast<char>(1 << 7);
         }
     }
@@ -528,13 +528,13 @@ void handleSupportKeyInputs(BYTE& byte0, BYTE& byte1)
 
     if (GetAsyncKeyState(key_bind.Test) & 0x8000)
     {
-        log("Test Pressed");
+        debug("Test Pressed");
         byte0 |= static_cast<char>(1 << 7);
     }
 
     if (GetAsyncKeyState(key_bind.Service) & 0x8000)
     {
-        log("Service Pressed");
+        debug("Service Pressed");
         byte1 |= static_cast<char>(1 << 6);
     }
 }
@@ -548,55 +548,55 @@ void handleKeyboardGamePlay(BYTE& byte1, BYTE& byte2)
 
     if (GetAsyncKeyState(key_bind.Start) & 0x8000)
     {
-        log("Start Pressed");
+        trace("Start Pressed");
         byte1 |= static_cast<char>(1 << 7);
     }
 
     if (GetAsyncKeyState(key_bind.Up) & 0x8000)
     {
-        log("Up Pressed");
+        trace("Up Pressed");
         byte1 |= static_cast<char>(1 << 5);
     }
 
     if (GetAsyncKeyState(key_bind.Left) & 0x8000)
     {
-        log("Left Pressed");
+        trace("Left Pressed");
         byte1 |= static_cast<char>(1 << 3);
     }
 
     if (GetAsyncKeyState(key_bind.Down) & 0x8000)
     {
-        log("Down Pressed");
+        trace("Down Pressed");
         byte1 |= static_cast<char>(1 << 4);
     }
 
     if (GetAsyncKeyState(key_bind.Right) & 0x8000)
     {
-        log("Right Pressed");
+        trace("Right Pressed");
         byte1 |= static_cast<char>(1 << 2);
     }
 
     if (GetAsyncKeyState(key_bind.Button1) & 0x8000)
     {
-        log("Button 1 Pressed");
+        trace("Button 1 Pressed");
         byte1 |= static_cast<char>(1 << 1);
     }
 
     if (GetAsyncKeyState(key_bind.Button2) & 0x8000)
     {
-        log("Button 2 Pressed");
+        trace("Button 2 Pressed");
         byte1 |= static_cast<char>(1);
     }
 
     if (GetAsyncKeyState(key_bind.Button3) & 0x8000)
     {
-        log("Button 3 Pressed");
+        trace("Button 3 Pressed");
         byte2 |= static_cast<char>(1 << 7);
     }
 
     if (GetAsyncKeyState(key_bind.Button4) & 0x8000)
     {
-        log("Button 4 Pressed");
+        trace("Button 4 Pressed");
         byte2 |= static_cast<char>(1 << 6);
     }
 }
@@ -640,7 +640,7 @@ bool detect_direct_input_coin()
         int intJoyDwButtons = (int)joy.dwButtons;
         if (intJoyDwButtons & key_bind.ArcadeCoin)
         {
-            log("Coin Detected from Joystick");
+            trace("Coin Detected from Joystick");
             return true;
         }
 
@@ -661,7 +661,7 @@ bool detect_direct_input_coin()
 
 int handleReadCoinInputs(jprot_encoder* r)
 {
-    log("Entered Coin Handling");
+    trace("Entered Coin Handling");
 
     bool currstate = false;
     
@@ -761,17 +761,13 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
     // Ignore weird packages
     if (pstr[1] != 0x00 && pstr[1] != 0x01 && pstr[1] != 0xFF)
     {
-#ifdef _DEBUG
-		OutputDebugStringA("Invalid package received!");
-#endif
+		warn("Invalid package received!");
         return 0;
     }
 
     if (pstr[0] != JVS_SYNC_CODE)
     {
-#ifdef _DEBUG
-		log("Invalid Sync code!\n");
-#endif
+		warn("Invalid Sync code!\n");
     }
 #ifdef _DEBUG
 	r.printSource(stream, srcsize);
@@ -788,7 +784,7 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
     while (pktcount > 0)
     {
         int increment;
-        log("Type is %02X", pfunc[0] & 0xFF);
+        trace("Type is %02X", pfunc[0] & 0xFF);
         switch (pfunc[0] & 0xFF)
         {
         case 0xF0:
@@ -852,9 +848,7 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
             increment = handleReadGeneralPurposeOutput(&r, GET_ARG(1));
             break;
         default:
-#ifdef _DEBUG
-			log("Unknown command %X\n", GetArg(0));
-#endif
+			warn("Unknown command %X\n", GET_ARG(0));
             r.report(JVS_REPORT_OK);
             increment = 1;
             break;
@@ -885,9 +879,7 @@ BOOL __stdcall GetCommModemStatusWrap(HANDLE hFile, LPDWORD lpModemStat)
         *lpModemStat = 0x10;
     else*/
         *lpModemStat = 0x10;
-#ifdef _DEBUG
-	log("GetCommModemStatus(hFile=%d, lpModemStat=%p) -> result=%08X", hFile, lpModemStat, TRUE);
-#endif
+	trace("GetCommModemStatus(hFile=%d, lpModemStat=%p) -> result=%08X", hFile, lpModemStat, TRUE);
     return TRUE;
 }
 
@@ -900,9 +892,7 @@ BOOL __stdcall GetCommStateWrap(HANDLE hFile, LPDCB lpDCB)
     {
         return g_origGetCommState(hFile, lpDCB);
     }
-#ifdef _DEBUG
-	log("GetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
-#endif
+	trace("GetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
     return TRUE;
 }
 
@@ -914,9 +904,7 @@ BOOL __stdcall SetCommStateWrap(HANDLE hFile, LPDCB lpDCB)
     {
         return g_origSetCommState(hFile, lpDCB);
     }
-#ifdef _DEBUG
-	log("SetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
-#endif
+	trace("SetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
     return TRUE;
 }
 
@@ -928,9 +916,7 @@ BOOL __stdcall SetCommTimeoutsWrap(HANDLE hFile, LPCOMMTIMEOUTS lpCommTimeouts)
     {
         return g_origSetCommTimeouts(hFile, lpCommTimeouts);
     }
-#ifdef _DEBUG
-	log("SetCommTimeouts(hFile=%d, lpCommTimeouts=%p) -> result=%08X", hFile, lpCommTimeouts, TRUE);
-#endif
+	trace("SetCommTimeouts(hFile=%d, lpCommTimeouts=%p) -> result=%08X", hFile, lpCommTimeouts, TRUE);
     return TRUE;
 }
 
@@ -945,7 +931,7 @@ BOOL PurgeCommWrap(
     {
         return gOrigPurgeComm(hFile, dwFlags);
     }
-    log("PurgeComm");
+    trace("PurgeComm");
     return TRUE;
 }
 
@@ -976,10 +962,6 @@ BOOL __stdcall WriteFileWrap(HANDLE hFile,
         }
     }
 
-#ifdef LogRFID
-	info(true, "");
-	info(true, "--------------------------------------------");
-#endif
     return TRUE;
 }
 
@@ -1000,9 +982,8 @@ BOOL __stdcall ReadFileWrap(HANDLE hFile,
         return g_origReadFile(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
     }
 
-#ifdef LogRFID
-	info(true, "ReadFile(hFile=%d, lpBuffer='%08X', nNumberOfBytesToRead=%08X) -> result=%08X", hFile, lpBuffer, nNumberOfBytesToRead, TRUE);
-#endif
+	trace( "ReadFile(hFile=%d, lpBuffer='%08X', nNumberOfBytesToRead=%08X) -> result=%08X", hFile, lpBuffer, nNumberOfBytesToRead, TRUE);
+
     if (replyBuffer.size())
     {
         if (nNumberOfBytesToRead >= replyBuffer.size())
@@ -1025,10 +1006,6 @@ BOOL __stdcall ReadFileWrap(HANDLE hFile,
         *lpNumberOfBytesRead = 0;
         return TRUE;
     }
-#ifdef LogRFID
-	info(true, "");
-	info(true, "--------------------------------------------");
-#endif
     return TRUE;
 }
 
@@ -1040,10 +1017,7 @@ BOOL __stdcall CloseHandleWrap(HANDLE hObject)
     {
         return g_origCloseHandle(hObject);
     }
-#ifdef LogRFID
-	info(true, "CloseHandle(hObject=%d) -> result=%08X", hObject, TRUE);
-	info(true, "--------------------------------------------");
-#endif
+	trace("CloseHandle(hObject=%d) -> result=%08X", hObject, TRUE);
     return TRUE;
 }
 

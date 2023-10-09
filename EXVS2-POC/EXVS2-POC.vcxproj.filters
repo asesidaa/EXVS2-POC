@@ -51,10 +51,10 @@
     <ClCompile Include="VirtualKeyMapping.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ClockHooks.cpp">
+    <ClCompile Include="AmAuthEmu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AmAuthEmu.cpp">
+    <ClCompile Include="SocketHooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,11 +131,11 @@
     <ClInclude Include="Configs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ClockHooks.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="AmAuthEmu.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketHooks.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
