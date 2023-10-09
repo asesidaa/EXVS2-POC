@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <shellapi.h>
 
+#include <chrono>
 #include <filesystem>
 #include <string>
 #include <thread>
@@ -19,6 +20,8 @@
 #include "SocketHooks.h"
 #include "VirtualKeyMapping.h"
 #include "WindowedDxgi.h"
+
+using namespace std::chrono_literals;
 
 static config_struct ReadConfigs(INIReader reader) {
     config_struct config {};
@@ -71,7 +74,7 @@ static config_struct ReadConfigs(INIReader reader) {
     config.AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config.ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config.RegionCode = reader.Get("config", "Region", "1");
-    
+
     // key bind config reading
     jvs_key_bind key_bind;
     std::string keyMapPlaceholder;
@@ -121,15 +124,15 @@ static config_struct ReadConfigs(INIReader reader) {
     key_bind.DirectInputDeviceId = reader.GetInteger("keybind", "DirectInputDeviceId", 16);
 
     key_bind.ArcadeButton1 = reader.GetInteger("keybind", "ArcadeButton1", 1);
-    
+
     key_bind.ArcadeButton2 = reader.GetInteger("keybind", "ArcadeButton2", 2);
-    
+
     key_bind.ArcadeButton3 = reader.GetInteger("keybind", "ArcadeButton3", 3);
 
     key_bind.ArcadeButton4 = reader.GetInteger("keybind", "ArcadeButton4", 4);
 
     key_bind.ArcadeStartButton = reader.GetInteger("keybind", "ArcadeStartButton", 5);
-    
+
     key_bind.ArcadeCoin = reader.GetInteger("keybind", "ArcadeCoin", 6);
 
     key_bind.ArcadeTest = reader.GetInteger("keybind", "ArcadeTest", 7);
@@ -204,7 +207,16 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             for (auto offset : PATCH_TARGETS) {
               patch_targets.push_back(base + offset);
             }
+
+            auto before = std::chrono::steady_clock::now();
             determinize::Determinize(std::move(patch_targets), base);
+            auto after = std::chrono::steady_clock::now();
+
+            printf(
+                "Patched %zu floating point approximations with deterministic "
+                "implementations in %dms\n",
+                PATCH_TARGETS.size(),
+                static_cast<int>((after - before) / 1.0ms));
         }
         break;
     case DLL_THREAD_ATTACH:  // NOLINT(bugprone-branch-clone)
@@ -213,6 +225,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
         break;
     default: break;
     }
-	
+
     return TRUE;
 }
