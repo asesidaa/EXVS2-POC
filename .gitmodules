@@ -1,0 +1,3 @@
+[submodule "EXVS2-POC/libs/determinize"]
+	path = EXVS2-POC/libs/determinize
+	url = https://github.com/ArgoGulskii/determinize.git

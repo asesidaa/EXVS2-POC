@@ -6,7 +6,8 @@
 #include <string>
 #include <thread>
 
-#include "MinHook.h"
+#include <determinize/determinize.h>
+#include <MinHook.h>
 
 #include "AmAuthEmu.h"
 #include "Configs.h"
@@ -14,6 +15,7 @@
 #include "INIReader.h"
 #include "JvsEmu.h"
 #include "log.h"
+#include "PatchTargets.h"
 #include "SocketHooks.h"
 #include "VirtualKeyMapping.h"
 #include "WindowedDxgi.h"
@@ -196,6 +198,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             InitializeJvs();
             InitDXGIWindowHook();
             MH_EnableHook(MH_ALL_HOOKS);
+
+            auto base = reinterpret_cast<char*>(GetModuleHandle(nullptr));
+            std::vector<void*> patch_targets;
+            for (auto offset : PATCH_TARGETS) {
+              patch_targets.push_back(base + offset);
+            }
+            determinize::Determinize(std::move(patch_targets), base);
         }
         break;
     case DLL_THREAD_ATTACH:  // NOLINT(bugprone-branch-clone)
