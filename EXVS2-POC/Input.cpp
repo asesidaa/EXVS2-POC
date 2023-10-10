@@ -114,6 +114,7 @@ static void InputStateParseDirectInput(InputState* out, JOYINFOEX& joy)
 
 static void InputStateGetDirectInput(InputState* out)
 {
+    static bool previousResult = true;
     JOYINFOEX joy;
     joy.dwSize = sizeof(joy);
     joy.dwFlags = JOY_RETURNBUTTONS | JOY_RETURNCENTERED | JOY_RETURNX | JOY_RETURNY;
@@ -123,9 +124,13 @@ static void InputStateGetDirectInput(InputState* out)
     {
         if (joyGetPosEx(deviceId, &joy) != JOYERR_NOERROR)
         {
-            err("failed to get input for DirectInput device %d", deviceId);
+            if (previousResult) {
+              err("failed to get input for DirectInput device %d", deviceId);
+              previousResult = false;
+            }
             return;
         }
+        previousResult = true;
         InputStateParseDirectInput(out, joy);
         return;
     }
