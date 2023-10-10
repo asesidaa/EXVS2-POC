@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\determinize">
+      <UniqueIdentifier>{d4549bd8-7332-45ae-a7ef-68772655005f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\zydis">
+      <UniqueIdentifier>{7cadc4a8-8c85-48d3-a40a-f7eeaf52eb50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -56,6 +62,18 @@
     </ClCompile>
     <ClCompile Include="SocketHooks.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\src\thunk.cpp">
+      <Filter>Source Files\determinize</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\src\determinize.cpp">
+      <Filter>Source Files\determinize</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\src\replacements.cpp">
+      <Filter>Source Files\determinize</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\vendor\zydis\Zydis.c">
+      <Filter>Source Files\zydis</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

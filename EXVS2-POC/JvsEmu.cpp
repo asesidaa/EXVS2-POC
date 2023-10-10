@@ -1026,7 +1026,6 @@ void InitializeJvs()
     key_bind = globalConfig.KeyBind;
     input_mode = globalConfig.InputMode;
 
-    MH_Initialize();
     MH_CreateHookApi(L"kernel32.dll", "WriteFile", WriteFileWrap, reinterpret_cast<void**>(&g_origWriteFile));
     MH_CreateHookApi(L"kernel32.dll", "ReadFile", ReadFileWrap, reinterpret_cast<void**>(&g_origReadFile));
     MH_CreateHookApi(L"kernel32.dll", "CloseHandle", CloseHandleWrap, reinterpret_cast<void**>(&g_origCloseHandle));
@@ -1036,6 +1035,4 @@ void InitializeJvs()
     MH_CreateHookApi(L"kernel32.dll", "SetCommState", SetCommStateWrap, reinterpret_cast<void**>(&g_origSetCommState));
     MH_CreateHookApi(L"kernel32.dll", "SetCommTimeouts", SetCommTimeoutsWrap,
                      reinterpret_cast<void**>(&g_origSetCommTimeouts));
-
-    MH_EnableHook(nullptr);
 }
