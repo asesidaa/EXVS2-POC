@@ -8,6 +8,7 @@
 #include <queue>
 #include <sstream>
 
+#include "Input.h"
 #include "log.h"
 #include "MinHook.h"
 #include "Configs.h"
@@ -139,8 +140,8 @@ public:
     void push(BYTE v)
     {
 #if 0
-		buffer[xpos] = v;
-		++xpos;
+        buffer[xpos] = v;
+        ++xpos;
 #else
         if (v == 0xD0)
         {
@@ -212,12 +213,12 @@ public:
         if (size())
         {
 #ifdef PrintRFIDReplies
-			sprintf(printer, "R:");
-			for (DWORD i = 0; i<size(); i++)
-			{
-				sprintf(printer + 2 + (i * 3), "%02X ", buffer[i]);
-			}
-			info(true, printer);
+            sprintf(printer, "R:");
+            for (DWORD i = 0; i<size(); i++)
+            {
+                sprintf(printer + 2 + (i * 3), "%02X ", buffer[i]);
+            }
+            info(true, printer);
 #endif
         }
     }
@@ -407,215 +408,49 @@ int handleTaito05Call(jprot_encoder* r)
     return 3;
 }
 
-jvs_key_bind key_bind;
-std::string input_mode;
-
-void capture_direct_input_action(BYTE& byte0, BYTE& byte1, BYTE& byte2, JOYINFOEX joy)
-{
-    if (joy.dwPOV == 0)
-    {
-        trace("Up Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 5);
-    }
-    if (joy.dwPOV == 4500)
-    {
-        trace("Up Right Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 5);
-        byte1 |= static_cast<char>(1 << 2);
-    }
-    if (joy.dwPOV == 9000)
-    {
-        trace("Right Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 2);
-    }
-    if (joy.dwPOV == 13500)
-    {
-        trace("Right Down Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 2);
-        byte1 |= static_cast<char>(1 << 4);
-    }
-    if (joy.dwPOV == 18000)
-    {
-        trace("Down Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 4);
-    }
-    if (joy.dwPOV == 22500)
-    {
-        trace("Down Left Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 4);
-        byte1 |= static_cast<char>(1 << 3);
-    }
-    if (joy.dwPOV == 27000)
-    {
-        trace("Left Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 3);
-    }
-    if (joy.dwPOV == 31500)
-    {
-        trace("Top Left Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 3);
-        byte1 |= static_cast<char>(1 << 5);
-    }
-    int intJoyDwButtons = (int)joy.dwButtons;
-    if (intJoyDwButtons & key_bind.ArcadeButton1)
-    {
-        trace("Button 1 Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 1);
-    }
-    if (intJoyDwButtons & key_bind.ArcadeButton2)
-    {
-        trace("Button 2 Detected from Joystick");
-        byte1 |= static_cast<char>(1);
-    }
-    if (intJoyDwButtons & key_bind.ArcadeButton3)
-    {
-        trace("Button 3 Detected from Joystick");
-        byte2 |= static_cast<char>(1 << 7);
-    }
-    if (intJoyDwButtons & key_bind.ArcadeButton4)
-    {
-        trace("Button 4 Detected from Joystick");
-        byte2 |= static_cast<char>(1 << 6);
-    }
-    if (intJoyDwButtons & key_bind.ArcadeStartButton)
-    {
-        trace("Start Button Detected from Joystick");
-        byte1 |= static_cast<char>(1 << 7);
-    }
-    if (!key_bind.UseKeyboardSupportKeyInDirectInput)
-    {
-        if (intJoyDwButtons & key_bind.ArcadeTest)
-        {
-            trace("Test Button Detected from Joystick");
-            byte0 |= static_cast<char>(1 << 7);
-        }
-    }
-}
-
-void handleDirectInputGamePlay(BYTE& byte0, BYTE& byte1, BYTE& byte2)
-{
-    if (input_mode != "DirectInput")
-    {
-        return;
-    }
-
-    JOYINFOEX joy;
-    joy.dwSize = sizeof(joy);
-    joy.dwFlags = JOY_RETURNALL;
-
-    if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
-    {
-        capture_direct_input_action(byte0, byte1, byte2, joy);
-    }
-    else
-    {
-        for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-        {
-            if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-            {
-                capture_direct_input_action(byte0, byte1, byte2, joy);
-            }
-        }
-    }
-}
-
-void handleSupportKeyInputs(BYTE& byte0, BYTE& byte1)
-{
-    if (input_mode == "DirectInput" && key_bind.UseKeyboardSupportKeyInDirectInput == false)
-    {
-        return;
-    }
-
-    if (GetAsyncKeyState(key_bind.Test) & 0x8000)
-    {
-        debug("Test Pressed");
-        byte0 |= static_cast<char>(1 << 7);
-    }
-
-    if (GetAsyncKeyState(key_bind.Service) & 0x8000)
-    {
-        debug("Service Pressed");
-        byte1 |= static_cast<char>(1 << 6);
-    }
-}
-
-void handleKeyboardGamePlay(BYTE& byte1, BYTE& byte2)
-{
-    if (input_mode != "Keyboard")
-    {
-        return;
-    }
-
-    if (GetAsyncKeyState(key_bind.Start) & 0x8000)
-    {
-        trace("Start Pressed");
-        byte1 |= static_cast<char>(1 << 7);
-    }
-
-    if (GetAsyncKeyState(key_bind.Up) & 0x8000)
-    {
-        trace("Up Pressed");
-        byte1 |= static_cast<char>(1 << 5);
-    }
-
-    if (GetAsyncKeyState(key_bind.Left) & 0x8000)
-    {
-        trace("Left Pressed");
-        byte1 |= static_cast<char>(1 << 3);
-    }
-
-    if (GetAsyncKeyState(key_bind.Down) & 0x8000)
-    {
-        trace("Down Pressed");
-        byte1 |= static_cast<char>(1 << 4);
-    }
-
-    if (GetAsyncKeyState(key_bind.Right) & 0x8000)
-    {
-        trace("Right Pressed");
-        byte1 |= static_cast<char>(1 << 2);
-    }
-
-    if (GetAsyncKeyState(key_bind.Button1) & 0x8000)
-    {
-        trace("Button 1 Pressed");
-        byte1 |= static_cast<char>(1 << 1);
-    }
-
-    if (GetAsyncKeyState(key_bind.Button2) & 0x8000)
-    {
-        trace("Button 2 Pressed");
-        byte1 |= static_cast<char>(1);
-    }
-
-    if (GetAsyncKeyState(key_bind.Button3) & 0x8000)
-    {
-        trace("Button 3 Pressed");
-        byte2 |= static_cast<char>(1 << 7);
-    }
-
-    if (GetAsyncKeyState(key_bind.Button4) & 0x8000)
-    {
-        trace("Button 4 Pressed");
-        byte2 |= static_cast<char>(1 << 6);
-    }
-}
-
 int handleReadSwitchInputs(jprot_encoder* r)
 {
     BYTE byte0 = 0;
     BYTE byte1 = 0;
     BYTE byte2 = 0;
 
-    // By Default, if without any Config, KillProcess = ESC
-    if (GetAsyncKeyState(key_bind.KillProcess) & 0x8000)
-    {
-        exit(0); // NOLINT(concurrency-mt-unsafe)
+    InputState inputs = InputState::Get();
+    if (inputs.Kill) {
+        exit(0);
     }
 
-    handleDirectInputGamePlay(byte0, byte1, byte2);
-    handleKeyboardGamePlay(byte1, byte2);
-    handleSupportKeyInputs(byte0, byte1);
+    if (inputs.Start)
+        byte1 |= static_cast<char>(1 << 7);
+
+    if (inputs.X == Direction::Negative)
+        byte1 |= static_cast<char>(1 << 3);
+
+    if (inputs.X == Direction::Positive)
+        byte1 |= static_cast<char>(1 << 2);
+
+    if (inputs.Y == Direction::Positive)
+        byte1 |= static_cast<char>(1 << 5);
+
+    if (inputs.Y == Direction::Negative)
+        byte1 |= static_cast<char>(1 << 4);
+
+    if (inputs.A)
+        byte1 |= static_cast<char>(1 << 1);
+
+    if (inputs.B)
+        byte1 |= static_cast<char>(1);
+
+    if (inputs.C)
+        byte2 |= static_cast<char>(1 << 7);
+
+    if (inputs.D)
+        byte2 |= static_cast<char>(1 << 6);
+
+    if (inputs.Test)
+        byte0 |= static_cast<char>(1 << 7);
+
+    if (inputs.Service)
+        byte1 |= static_cast<char>(1 << 6);
 
     r->report(JVS_REPORT_OK);
     r->push(byte0);
@@ -624,55 +459,11 @@ int handleReadSwitchInputs(jprot_encoder* r)
     return 3;
 }
 
-bool detect_direct_input_coin()
-{
-    if(key_bind.UseKeyboardSupportKeyInDirectInput)
-    {
-        return (GetAsyncKeyState(key_bind.Coin) & 0x8000);
-    }
-    
-    JOYINFOEX joy;
-    joy.dwSize = sizeof(joy);
-    joy.dwFlags = JOY_RETURNALL;
-
-    if (key_bind.DirectInputDeviceId < 16 && joyGetPosEx(key_bind.DirectInputDeviceId, &joy) == JOYERR_NOERROR)
-    {
-        int intJoyDwButtons = (int)joy.dwButtons;
-        if (intJoyDwButtons & key_bind.ArcadeCoin)
-        {
-            trace("Coin Detected from Joystick");
-            return true;
-        }
-
-        return false;
-    }
-    
-    for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-    {
-        if(joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-        {
-            int intJoyDwButtons = (int)joy.dwButtons;
-            return (intJoyDwButtons & key_bind.ArcadeCoin);
-        }
-    }
-
-    return false;
-}
-
 int handleReadCoinInputs(jprot_encoder* r)
 {
     trace("Entered Coin Handling");
 
-    bool currstate = false;
-    
-    if (input_mode == "DirectInput")
-    {
-        currstate = detect_direct_input_coin();
-	}
-    else
-    {
-        currstate = (GetAsyncKeyState(key_bind.Coin) & 0x8000);
-    }
+    bool currstate = InputState::Get().Coin;
 
     if (!coinstate[0] && currstate)
     {
@@ -761,16 +552,16 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
     // Ignore weird packages
     if (pstr[1] != 0x00 && pstr[1] != 0x01 && pstr[1] != 0xFF)
     {
-		warn("Invalid package received!");
+        warn("Invalid package received!");
         return 0;
     }
 
     if (pstr[0] != JVS_SYNC_CODE)
     {
-		warn("Invalid Sync code!\n");
+        warn("Invalid Sync code!\n");
     }
 #ifdef _DEBUG
-	r.printSource(stream, srcsize);
+    r.printSource(stream, srcsize);
 #endif
     // ReSharper disable once CppAssignedValueIsNeverUsed
     node = pstr[1];
@@ -848,7 +639,7 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
             increment = handleReadGeneralPurposeOutput(&r, GET_ARG(1));
             break;
         default:
-			warn("Unknown command %X\n", GET_ARG(0));
+            warn("Unknown command %X\n", GET_ARG(0));
             r.report(JVS_REPORT_OK);
             increment = 1;
             break;
@@ -862,7 +653,7 @@ unsigned long process_stream(unsigned char* stream, unsigned long srcsize, unsig
     r.end_stream();
     r.read(dst, dstsize);
 #ifdef _DEBUG
-	r.printReply();
+    r.printReply();
 #endif
     return r.size();
 }
@@ -879,7 +670,7 @@ BOOL __stdcall GetCommModemStatusWrap(HANDLE hFile, LPDWORD lpModemStat)
         *lpModemStat = 0x10;
     else*/
         *lpModemStat = 0x10;
-	trace("GetCommModemStatus(hFile=%d, lpModemStat=%p) -> result=%08X", hFile, lpModemStat, TRUE);
+    trace("GetCommModemStatus(hFile=%d, lpModemStat=%p) -> result=%08X", hFile, lpModemStat, TRUE);
     return TRUE;
 }
 
@@ -892,7 +683,7 @@ BOOL __stdcall GetCommStateWrap(HANDLE hFile, LPDCB lpDCB)
     {
         return g_origGetCommState(hFile, lpDCB);
     }
-	trace("GetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
+    trace("GetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
     return TRUE;
 }
 
@@ -904,7 +695,7 @@ BOOL __stdcall SetCommStateWrap(HANDLE hFile, LPDCB lpDCB)
     {
         return g_origSetCommState(hFile, lpDCB);
     }
-	trace("SetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
+    trace("SetCommState(hFile=%d, lpDCB=%p) -> result=%08X", hFile, lpDCB, 1);
     return TRUE;
 }
 
@@ -916,7 +707,7 @@ BOOL __stdcall SetCommTimeoutsWrap(HANDLE hFile, LPCOMMTIMEOUTS lpCommTimeouts)
     {
         return g_origSetCommTimeouts(hFile, lpCommTimeouts);
     }
-	trace("SetCommTimeouts(hFile=%d, lpCommTimeouts=%p) -> result=%08X", hFile, lpCommTimeouts, TRUE);
+    trace("SetCommTimeouts(hFile=%d, lpCommTimeouts=%p) -> result=%08X", hFile, lpCommTimeouts, TRUE);
     return TRUE;
 }
 
@@ -982,7 +773,7 @@ BOOL __stdcall ReadFileWrap(HANDLE hFile,
         return g_origReadFile(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
     }
 
-	trace( "ReadFile(hFile=%d, lpBuffer='%08X', nNumberOfBytesToRead=%08X) -> result=%08X", hFile, lpBuffer, nNumberOfBytesToRead, TRUE);
+    trace( "ReadFile(hFile=%d, lpBuffer='%08X', nNumberOfBytesToRead=%08X) -> result=%08X", hFile, lpBuffer, nNumberOfBytesToRead, TRUE);
 
     if (replyBuffer.size())
     {
@@ -1017,15 +808,12 @@ BOOL __stdcall CloseHandleWrap(HANDLE hObject)
     {
         return g_origCloseHandle(hObject);
     }
-	trace("CloseHandle(hObject=%d) -> result=%08X", hObject, TRUE);
+    trace("CloseHandle(hObject=%d) -> result=%08X", hObject, TRUE);
     return TRUE;
 }
 
 void InitializeJvs()
 {
-    key_bind = globalConfig.KeyBind;
-    input_mode = globalConfig.InputMode;
-
     MH_CreateHookApi(L"kernel32.dll", "WriteFile", WriteFileWrap, reinterpret_cast<void**>(&g_origWriteFile));
     MH_CreateHookApi(L"kernel32.dll", "ReadFile", ReadFileWrap, reinterpret_cast<void**>(&g_origReadFile));
     MH_CreateHookApi(L"kernel32.dll", "CloseHandle", CloseHandleWrap, reinterpret_cast<void**>(&g_origCloseHandle));

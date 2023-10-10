@@ -9,6 +9,7 @@
 #include <joystickapi.h>
 #include "Configs.h"
 #include "INIReader.h"
+#include "Input.h"
 
 constexpr auto BANA_API_VERSION = "Ver 1.6.1";
 
@@ -84,57 +85,13 @@ void StartReqActionThread(void (*callback)(long, int, long*), long* someStructPt
     callback(0, 0, someStructPtr);
 }
 
-bool read_direct_input_card_input()
-{
-    if(globalConfig.KeyBind.UseKeyboardSupportKeyInDirectInput)
-    {
-        return GetAsyncKeyState(globalConfig.KeyBind.Card);
-    }
-    
-    int overrideJoystickIndex = globalConfig.KeyBind.DirectInputDeviceId;
-
-    JOYINFOEX joy;
-    joy.dwSize = sizeof(joy);
-    joy.dwFlags = JOY_RETURNALL;
-
-    if(overrideJoystickIndex < 16 && joyGetPosEx(overrideJoystickIndex, &joy) == JOYERR_NOERROR)
-    {
-        int intJoyDwButtons = (int)joy.dwButtons;
-        return intJoyDwButtons & globalConfig.KeyBind.ArcadeCard;
-    }
-
-    for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
-    {
-        if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
-        {
-            int intJoyDwButtons = (int)joy.dwButtons;
-            return intJoyDwButtons & globalConfig.KeyBind.ArcadeCard;
-        }
-    }
-
-    return false;
-}
-
 void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPtr) {
     while (readerActive)
     {
         using namespace std::chrono_literals;
         std::this_thread::sleep_for(100ms);
 
-        bool button_state = false;
-
-        std::string input_mode = globalConfig.InputMode;
-
-        if(input_mode == "DirectInput")
-        {
-            button_state = read_direct_input_card_input();
-        }
-        else
-        {
-            button_state = GetAsyncKeyState(globalConfig.KeyBind.Card);
-        }
-
-        if (button_state)
+        if (InputState::Get().Card)
         {
             // Raw card data and some other stuff, who cares
             unsigned char rawCardData[168] = {

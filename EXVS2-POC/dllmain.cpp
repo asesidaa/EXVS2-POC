@@ -2,9 +2,11 @@
 #include <Windows.h>
 #include <shellapi.h>
 
+#include <algorithm>
 #include <chrono>
 #include <filesystem>
 #include <string>
+#include <string_view>
 #include <thread>
 
 #include <determinize/determinize.h>
@@ -23,8 +25,27 @@
 
 using namespace std::chrono_literals;
 
+static std::vector<std::string> Split(const std::string& string, char delimiter)
+{
+    std::string_view str = string;
+    std::vector<std::string> result;
+
+    while (true)
+    {
+        auto it = std::find(str.begin(), str.end(), delimiter);
+        result.emplace_back(str.begin(), it);
+
+        if (it == str.end())
+            break;
+
+        str = str.substr(result.back().size() + 1);
+    }
+
+    return result;
+}
+
 static config_struct ReadConfigs(INIReader reader) {
-    config_struct config {};
+    config_struct config{};
 
     // config reading
     std::string logLevel = reader.Get("config", "log", "none");
@@ -58,7 +79,6 @@ static config_struct ReadConfigs(INIReader reader) {
     }
 
     config.Windowed = reader.GetBoolean("config", "windowed", false);
-    config.InputMode = reader.Get("config", "InputMode", "Keyboard");
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
     config.Serial = reader.Get("config", "serial", "284311110001");
     config.Mode = static_cast<uint8_t>(reader.GetInteger("config", "mode", 2));
@@ -76,72 +96,56 @@ static config_struct ReadConfigs(INIReader reader) {
     config.RegionCode = reader.Get("config", "Region", "1");
 
     // key bind config reading
-    jvs_key_bind key_bind;
-    std::string keyMapPlaceholder;
+    KeyBinds keyboard;
+#define KEYBIND(name, kb_default, dinput_default)                                               \
+    {                                                                                           \
+        std::vector<std::string> keys = Split(reader.Get("keyboard", #name, kb_default), ',');  \
+        for (const auto& key : keys) {                                                          \
+            int val = findKeyByValue(key);                                                      \
+            if (val != -1) keyboard.name.push_back(val);                                        \
+            else fatal("failed to interpret key '%s'", key.c_str());                            \
+        }                                                                                       \
+    }
+    KEYBINDS()
+#undef KEYBIND
 
-    keyMapPlaceholder = reader.Get("keybind", "KillProcess", "Esc");
-    key_bind.KillProcess = findKeyByValue(keyMapPlaceholder);
+    KeyBinds dinput;
+#define KEYBIND(name, kb_default, dinput_default)                                                   \
+    {                                                                                               \
+        std::vector<std::string> keys = Split(reader.Get("dinput", #name, dinput_default), ',');    \
+        for (const auto& key : keys) {                                                              \
+            dinput.name.push_back(atoi(key.c_str()));                                               \
+        }                                                                                           \
+    }
+    KEYBINDS()
+#undef KEYBIND
 
-    keyMapPlaceholder = reader.Get("keybind", "Test", "T");
-    key_bind.Test = findKeyByValue(keyMapPlaceholder);
+    std::string inputMode = reader.Get("config", "InputMode", "Keyboard");
+    if (inputMode == "None")
+    {
+        config.InputMode = InputModeNone;
+    }
+    else if (inputMode == "Keyboard")
+    {
+        config.InputMode = InputModeKeyboard;
+    }
+    else if (inputMode == "DirectInputOnly")
+    {
+        config.InputMode = InputModeDirectInput;
+    }
+    else if (inputMode == "DirectInput")
+    {
+        config.InputMode = InputModeBoth;
+    }
+    else
+    {
+        fatal("unknown InputMode: %s (supported values: None, Keyboard, DirectInputOnly, DirectInput)", inputMode.c_str());
+    }
 
-    keyMapPlaceholder = reader.Get("keybind", "Start", "O");
-    key_bind.Start = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Service", "S");
-    key_bind.Service = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Coin", "M");
-    key_bind.Coin = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Up", "UpArr");
-    key_bind.Up = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Left", "LeftArr");
-    key_bind.Left = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Down", "DownArr");
-    key_bind.Down = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Right", "RightArr");
-    key_bind.Right = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Button1", "Z");
-    key_bind.Button1 = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Button2", "X");
-    key_bind.Button2 = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Button3", "C");
-    key_bind.Button3 = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Button4", "V");
-    key_bind.Button4 = findKeyByValue(keyMapPlaceholder);
-
-    keyMapPlaceholder = reader.Get("keybind", "Card", "P");
-    key_bind.Card = findKeyByValue(keyMapPlaceholder);
-
-    key_bind.DirectInputDeviceId = reader.GetInteger("keybind", "DirectInputDeviceId", 16);
-
-    key_bind.ArcadeButton1 = reader.GetInteger("keybind", "ArcadeButton1", 1);
-
-    key_bind.ArcadeButton2 = reader.GetInteger("keybind", "ArcadeButton2", 2);
-
-    key_bind.ArcadeButton3 = reader.GetInteger("keybind", "ArcadeButton3", 3);
-
-    key_bind.ArcadeButton4 = reader.GetInteger("keybind", "ArcadeButton4", 4);
-
-    key_bind.ArcadeStartButton = reader.GetInteger("keybind", "ArcadeStartButton", 5);
-
-    key_bind.ArcadeCoin = reader.GetInteger("keybind", "ArcadeCoin", 6);
-
-    key_bind.ArcadeTest = reader.GetInteger("keybind", "ArcadeTest", 7);
-
-    key_bind.ArcadeCard = reader.GetInteger("keybind", "ArcadeCard", 8);
-
-    key_bind.UseKeyboardSupportKeyInDirectInput = reader.GetBoolean("keybind", "UseKeyboardSupportKeyInDirectInput", true);
-
-    config.KeyBind = key_bind;
+    // TODO: This should take a GUID instead of an index.
+    config.DirectInputDeviceId = reader.GetInteger("dinput", "DeviceId", 16);
+    config.DirectInputBindings = dinput;
+    config.KeyboardBindings = keyboard;
     return config;
 }
 

@@ -1,40 +1,56 @@
 #pragma once
 #include <optional>
 #include <string>
+#include <vector>
+
 #include "VirtualKeyMapping.h"
 
-struct jvs_key_bind {
-	int KillProcess;
-	int Test;
-	int Start;
-	int Service;
-	int Coin;
-	int Up;
-	int Left;
-	int Down;
-	int Right;
-	int Button1;
-	int Button2;
-	int Button3;
-	int Button4;
-	int Card;
-	int DirectInputDeviceId;
-	int ArcadeButton1;
-	int ArcadeButton2;
-	int ArcadeButton3;
-	int ArcadeButton4;
-	int ArcadeStartButton;
-	int ArcadeCoin;
-	int ArcadeTest;
-	int ArcadeCard;
-	bool UseKeyboardSupportKeyInDirectInput;
+// X macro that enumerates all of the keybinds, along with default keyboard and directinput values
+#define KEYBINDS() \
+	KEYBIND(Up, "UpArr", "") \
+	KEYBIND(Down, "DownArr", "") \
+	KEYBIND(Left, "LeftArr", "") \
+	KEYBIND(Right, "RightArr", "") \
+	KEYBIND(A, "Z", "1") \
+	KEYBIND(B, "X", "4") \
+	KEYBIND(C, "C", "6") \
+	KEYBIND(D, "V", "2") \
+	KEYBIND(Start, "1", "10") \
+	KEYBIND(Coin, "M", "13") \
+	KEYBIND(Card, "P", "7") \
+	KEYBIND(Test, "T", "") \
+	KEYBIND(Service, "S", "") \
+	KEYBIND(Kill, "Esc", "") \
+
+struct KeyBinds {
+#define KEYBIND(name, keyboard, dinput) std::vector<int> name;
+	KEYBINDS()
+#undef KEYBIND
+};
+
+enum InputMode {
+	// "None"
+	InputModeNone = 0x0,
+
+	// "Keyboard"
+	InputModeKeyboard = 0x1,
+
+	// "DirectInputOnly"
+	InputModeDirectInput = 0x2,
+
+	// "DirectInput"
+	InputModeBoth = 0x3,
 };
 
 struct config_struct {
-	jvs_key_bind KeyBind = {};
 	bool Windowed = false;
 	uint8_t Mode = 0;
-	std::string InputMode;
+
+	InputMode InputMode;
+	int DirectInputDeviceId;
+	KeyBinds DirectInputBindings;
+	KeyBinds KeyboardBindings;
+
 	std::string Serial;
 	std::string PcbId;
 	std::string AuthServerIp;
