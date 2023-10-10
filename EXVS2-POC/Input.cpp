@@ -67,7 +67,7 @@ static void InputStateParseDirectInput(InputState* out, JOYINFOEX& joy)
     {
     case 4500:
     case 9000:
-    case 135000:
+    case 13500:
         out->X = Direction::Positive;
         break;
 
