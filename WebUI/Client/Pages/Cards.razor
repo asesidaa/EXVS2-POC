@@ -51,57 +51,60 @@
         return;
     }
     
-            @if (cardDtos.Count != 0)
-            {
-                @foreach (var card in cardDtos)
-                {
-                    <MudItem xs="12" md="6" lg="4">
-                        <MudCard Elevation="4">
-                            <MudCardHeader>
-                                <CardHeaderContent>
-                                    <MudText Typo="Typo.h5">@ObfuscateName(card.UserName)</MudText>
-                                </CardHeaderContent>
-                                <CardHeaderActions>
-                                </CardHeaderActions>
-                            </MudCardHeader>
-                            <MudCardContent>
-                                <MudText Style="font-weight: bold">@localizer["cardid"]</MudText>
-                                <MudText Style="font-family:monospace">@card.ChipId</MudText>
-                            </MudCardContent>
-                            <MudCardActions>
-                                <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
-                                    <MudButton OnClick="() => OnEditCardClicked(card)"
-                                               Variant="Variant.Text"
-                                               StartIcon="@Icons.Material.Filled.DisplaySettings"
-                                               Color="Color.Primary">
-                                    @localizer["cardseditoptions"]
-                                    </MudButton>
-                                </MudStack>
-                                <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
-                                    <MudButton OnClick="() => OnViewDetailClicked(card)"
-                                               Variant="Variant.Text"
-                                               StartIcon="@Icons.Material.Filled.Info"
-                                               Color="Color.Primary">
-                                        @localizer["cardviewdetail"]
-                                    </MudButton>
-                                </MudStack>
-                            </MudCardActions>
-                        </MudCard>
-                    </MudItem>
-                }
-                return;
-            }
-            else
-            {
-                <MudItem xs="12">
-                    <MudText Align="Align.Center" Typo="Typo.h3">
-                        No Data
-                    </MudText>
-                </MudItem>
-            }
+    @if (cardDtos.Count != 0)
+    {
+        @foreach (var card in cardDtos)
+        {
+            <MudItem xs="12" md="6" lg="4">
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h5">@ObfuscateName(card.UserName)</MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Style="font-weight: bold">@localizer["cardid"]</MudText>
+                        <MudText Style="font-family:monospace">@card.ChipId</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudButton OnClick="() => OnEditCardClicked(card)"
+                                        Variant="Variant.Text"
+                                        StartIcon="@Icons.Material.Filled.DisplaySettings"
+                                        Color="Color.Primary">
+                            @localizer["cardseditoptions"]
+                            </MudButton>
+                        </MudStack>
+                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudButton OnClick="() => OnViewDetailClicked(card)"
+                                        Variant="Variant.Text"
+                                        StartIcon="@Icons.Material.Filled.Info"
+                                        Color="Color.Primary">
+                                @localizer["cardviewdetail"]
+                            </MudButton>
+                        </MudStack>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+        return;
+    }
+    else
+    {
+        <MudItem xs="12">
+            <MudText Align="Align.Center" Typo="Typo.h3">
+                No Data
+            </MudText>
+        </MudItem>
+    }
 </MudGrid>
 
 @code{
+    [Inject]
+    private IConfiguration _config { get; set; }
+
     private List<BareboneCardProfile>? cardDtos;
 
     private List<BareboneCardProfile>? originalCardDtos;
@@ -110,9 +113,20 @@
 
     private string _searchText { get; set; }
 
+    private int _maxCardsShownCount { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+        _maxCardsShownCount = _config.GetValue<int>("MaxCardsShownCount", 9);
+
+        Logger.LogInformation("Max cards shown count: {_maxCardsShownCount}", _maxCardsShownCount);
+
         cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>("card/getAll");
+
+        if (cardDtos is null)
+            cardDtos = new List<BareboneCardProfile>();
+
+        cardDtos = cardDtos.Take(_maxCardsShownCount).ToList();
 
         originalCardDtos = cardDtos;
     }
