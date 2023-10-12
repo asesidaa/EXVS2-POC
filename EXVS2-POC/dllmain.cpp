@@ -77,6 +77,15 @@ static config_struct ReadConfigs(INIReader reader) {
     {
         fatal("Unknown log level '%s'", logLevel.c_str());
     }
+    if (g_logLevel != LogLevel::NONE)
+    {
+        AllocConsole();
+
+        FILE* dummy;
+        freopen_s(&dummy, "CONIN$", "r", stdin);
+        freopen_s(&dummy, "CONOUT$", "w", stderr);
+        freopen_s(&dummy, "CONOUT$", "w", stdout);
+    }
 
     config.Windowed = reader.GetBoolean("config", "windowed", false);
     config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
@@ -171,16 +180,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             }
 
             globalConfig = ReadConfigs(reader);
-
-            if (g_logLevel != LogLevel::NONE)
-            {
-                AllocConsole();
-
-                FILE* dummy;
-                freopen_s(&dummy, "CONIN$", "r", stdin);
-                freopen_s(&dummy, "CONOUT$", "w", stderr);
-                freopen_s(&dummy, "CONOUT$", "w", stdout);
-            }
 
             MH_Initialize();
             InitializeSocketHooks();
