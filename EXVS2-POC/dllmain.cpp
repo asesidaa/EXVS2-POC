@@ -110,40 +110,23 @@ static config_struct ReadConfigs(INIReader reader) {
 #undef KEYBIND
 
     KeyBinds dinput;
-#define KEYBIND(name, kb_default, dinput_default)                                                   \
-    {                                                                                               \
-        std::vector<std::string> keys = Split(reader.Get("dinput", #name, dinput_default), ',');    \
-        for (const auto& key : keys) {                                                              \
-            dinput.name.push_back(atoi(key.c_str()));                                               \
-        }                                                                                           \
+#define KEYBIND(name, kb_default, dinput_default)                                                                      \
+    {                                                                                                                  \
+        std::vector<std::string> keys = Split(reader.Get("controller", #name, dinput_default), ',');                   \
+        for (const auto& key : keys)                                                                                   \
+        {                                                                                                              \
+            dinput.name.push_back(atoi(key.c_str()));                                                                  \
+        }                                                                                                              \
     }
     KEYBINDS()
 #undef KEYBIND
 
-    std::string inputMode = reader.Get("config", "InputMode", "Keyboard");
-    if (inputMode == "None")
-    {
-        config.InputMode = InputModeNone;
-    }
-    else if (inputMode == "Keyboard")
-    {
-        config.InputMode = InputModeKeyboard;
-    }
-    else if (inputMode == "DirectInputOnly")
-    {
-        config.InputMode = InputModeDirectInput;
-    }
-    else if (inputMode == "DirectInput")
-    {
-        config.InputMode = InputModeBoth;
-    }
-    else
-    {
-        fatal("unknown InputMode: %s (supported values: None, Keyboard, DirectInputOnly, DirectInput)", inputMode.c_str());
-    }
+    int keyboardEnabled = reader.GetBoolean("keyboard", "Enabled", true);
+    int controllerEnabled = reader.GetBoolean("controller", "Enabled", true);
+    config.InputMode = static_cast<InputMode>(controllerEnabled << 1 | keyboardEnabled);
 
     // TODO: This should take a GUID instead of an index.
-    config.DirectInputDeviceId = reader.GetInteger("dinput", "DeviceId", 16);
+    config.DirectInputDeviceId = reader.GetInteger("controller", "DeviceId", 16);
     config.DirectInputBindings = dinput;
     config.KeyboardBindings = keyboard;
     return config;
