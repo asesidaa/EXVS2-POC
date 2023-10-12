@@ -1,4 +1,6 @@
 #pragma once
+
+#include <filesystem>
 #include <optional>
 #include <string>
 #include <vector>
@@ -72,3 +74,5 @@ struct config_struct {
 };
 
 inline config_struct globalConfig;
+
+std::filesystem::path GetBasePath();

@@ -149,7 +149,7 @@ static config_struct ReadConfigs(INIReader reader) {
     return config;
 }
 
-static std::filesystem::path GetBasePath()
+std::filesystem::path GetBasePath()
 {
     int argc;
     LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
@@ -166,6 +166,7 @@ static std::filesystem::path GetBasePath()
     }
 
 }
+
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     switch (ul_reason_for_call)
