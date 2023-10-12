@@ -1,15 +1,18 @@
 #include "banapass.h"
-#include "log.h"
-#include <filesystem>
-#include <thread>
+
 #include <chrono>
+#include <filesystem>
 #include <string>
-#include "random.h"
+#include <thread>
+
 #include <Windows.h>
 #include <joystickapi.h>
+
 #include "Configs.h"
 #include "INIReader.h"
 #include "Input.h"
+#include "log.h"
+#include "random.h"
 
 constexpr auto BANA_API_VERSION = "Ver 1.6.1";
 
@@ -42,22 +45,30 @@ std::string getProfileString(LPCSTR name, LPCSTR key, LPCSTR def, LPCSTR filenam
     return std::string(temp, result);
 }
 
-void createCard() {
-    if (std::filesystem::exists(".\\card.ini"))
+static const std::filesystem::path& GetCardPath()
+{
+    static std::filesystem::path result = GetBasePath() / "card.ini";
+    return result;
+}
+
+void createCard()
+{
+    std::string cardPath = GetCardPath().string();
+    if (std::filesystem::exists(GetCardPath()))
     {
-        info("Card.ini found!");
+        info("Card.ini found at %s", cardPath.c_str());
     }
     else
     {
         char generatedAccessCode[21] = "00000000000000000000";
         randomNumberString(generatedAccessCode, 20);
-        WritePrivateProfileStringA("card", "accessCode", generatedAccessCode, ".\\card.ini");
-        
+        WritePrivateProfileStringA("card", "accessCode", generatedAccessCode, cardPath.c_str());
+
         char generatedChipId[33] = "00000000000000000000000000000000";
         randomHex(generatedChipId, 32);
-        WritePrivateProfileStringA("card", "chipId", generatedChipId, ".\\card.ini");
-        
-        info("New card generated");
+        WritePrivateProfileStringA("card", "chipId", generatedChipId, cardPath.c_str());
+
+        info("New card generated at %s", cardPath.c_str());
     }
 }
 
@@ -111,8 +122,7 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
             };
 
-
-            INIReader reader("card.ini");
+            INIReader reader(GetCardPath().string());
             std::string accessCode = "30764352518498791337";
             std::string chipId = "7F5C9744F111111143262C3300040610";
             if (reader.ParseError() == 0)
@@ -120,7 +130,6 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                 accessCode = reader.Get("card", "accessCode", "30764352518498791337");
                 chipId = reader.Get("card", "chipId", "7F5C9744F111111143262C3300040610");
             }
-           
 
             memcpy(rawCardData + 0x50, accessCode.c_str(), accessCode.size() + 1);
             memcpy(rawCardData + 0x2C, chipId.c_str(), chipId.size() + 1);
@@ -286,7 +295,7 @@ int BngRwReqWaitTouch(UINT a, int maxIntSomehow, UINT c, void (*callback)(int, i
     readerActive = false;
     using namespace std::chrono_literals;
     std::this_thread::sleep_for(250ms);
-    
+
     readerActive = true;
 
     std::thread t(StartReadThread, callback, card_struct_ptr);
@@ -294,5 +303,4 @@ int BngRwReqWaitTouch(UINT a, int maxIntSomehow, UINT c, void (*callback)(int, i
 
     return 1;
 }
-
 }
