@@ -120,7 +120,7 @@ static void InputStateGetDirectInput(InputState* out)
     joy.dwFlags = JOY_RETURNBUTTONS | JOY_RETURNCENTERED | JOY_RETURNX | JOY_RETURNY;
 
     int deviceId = globalConfig.DirectInputDeviceId;
-    if (deviceId < 16)
+    if (deviceId >= 0 && deviceId < 16)
     {
         if (joyGetPosEx(deviceId, &joy) != JOYERR_NOERROR)
         {
@@ -135,11 +135,18 @@ static void InputStateGetDirectInput(InputState* out)
         return;
     }
 
+    bool scanAll = deviceId < 0;
     for (UINT joystickIndex = 0; joystickIndex < 16; ++joystickIndex)
     {
-        if (joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR)
+        bool success = joyGetPosEx(joystickIndex, &joy) == JOYERR_NOERROR;
+        if (success)
         {
             InputStateParseDirectInput(out, joy);
+        }
+
+        if (success && !scanAll)
+        {
+            break;
         }
     }
 }
