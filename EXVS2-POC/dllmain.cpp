@@ -88,9 +88,32 @@ static config_struct ReadConfigs(INIReader reader) {
     }
 
     config.Windowed = reader.GetBoolean("config", "windowed", false);
-    config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
-    config.Serial = reader.Get("config", "serial", "284311110001");
-    config.Mode = static_cast<uint8_t>(reader.GetInteger("config", "mode", 2));
+
+    std::string modeString = reader.Get("config", "mode", "LM");
+    if (modeString == "1" || _stricmp("client", modeString.c_str()) == 0) {
+      config.Mode = 1;
+    } else if (modeString == "2" || _stricmp("lm", modeString.c_str()) == 0) {
+      config.Mode = 2;
+    } else {
+      fatal("invalid mode: %s", modeString.c_str());
+    }
+
+    config.Serial = reader.Get("config", "serial", "0001");
+    if (config.Serial.size() != 4 && config.Serial.size() != 12) {
+      fatal("invalid serial: expected 4 or 12 digit serial number");
+    }
+    if (config.Serial.size() == 4) {
+      config.Serial = (config.Mode == 1 ? "28431411" : "28431111") + config.Serial;
+    }
+
+    bool validLength = config.Serial.size() == 12;
+    if (config.Mode == 1 && (!validLength || !config.Serial.starts_with("28431411"))) {
+      fatal("invalid serial: expected serial of format 28431411XXXX for client");
+    } else if (config.Mode == 2 && (!validLength || !config.Serial.starts_with("28431111"))) {
+      fatal("invalid serial: expected serial of format 28431111XXXX for LM");
+    }
+
+    config.PcbId = reader.GetOptional("config", "PcbId").value_or("ABLN1" + config.Serial.substr(5));
 
     // These will get filled in by InitializeSocketHooks.
     config.InterfaceName = reader.GetOptional("config", "InterfaceName");
