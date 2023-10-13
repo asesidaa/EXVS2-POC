@@ -77,11 +77,48 @@ static config_struct ReadConfigs(INIReader reader) {
     {
         fatal("Unknown log level '%s'", logLevel.c_str());
     }
+    if (g_logLevel != LogLevel::NONE)
+    {
+        AllocConsole();
+
+        FILE* dummy;
+        freopen_s(&dummy, "CONIN$", "r", stdin);
+        freopen_s(&dummy, "CONOUT$", "w", stderr);
+        freopen_s(&dummy, "CONOUT$", "w", stdout);
+    }
 
     config.Windowed = reader.GetBoolean("config", "windowed", false);
-    config.PcbId = reader.Get("config", "PcbId", "ABLN1110001");
-    config.Serial = reader.Get("config", "serial", "284311110001");
-    config.Mode = static_cast<uint8_t>(reader.GetInteger("config", "mode", 2));
+
+    std::string modeString = reader.Get("config", "mode", "LM");
+    if (modeString == "1" || _stricmp("client", modeString.c_str()) == 0) {
+      config.Mode = 1;
+    } else if (modeString == "2" || _stricmp("lm", modeString.c_str()) == 0) {
+      config.Mode = 2;
+    } else {
+      fatal("invalid mode: %s", modeString.c_str());
+    }
+
+    config.Serial = reader.Get("config", "serial", "0001");
+    if (config.Serial.size() != 4 && config.Serial.size() != 12) {
+      fatal("invalid serial: expected 4 or 12 digit serial number");
+    }
+    if (config.Serial.size() == 4) {
+      config.Serial = (config.Mode == 1 ? "28431411" : "28431111") + config.Serial;
+    }
+
+    bool validLength = config.Serial.size() == 12;
+    bool validClientPrefix = config.Serial.starts_with("28431411") || config.Serial.starts_with("28431311");
+    bool validLMPrefix = config.Serial.starts_with("28431111");
+    if (config.Mode == 1 && (!validLength || !validClientPrefix))
+    {
+        fatal("invalid serial: expected serial of format 28431411XXXX/28431311XXXX for client");
+    }
+    else if (config.Mode == 2 && (!validLength || !validLMPrefix))
+    {
+        fatal("invalid serial: expected serial of format 28431111XXXX for LM");
+    }
+
+    config.PcbId = reader.GetOptional("config", "PcbId").value_or("ABLN1" + config.Serial.substr(5));
 
     // These will get filled in by InitializeSocketHooks.
     config.InterfaceName = reader.GetOptional("config", "InterfaceName");
@@ -110,40 +147,23 @@ static config_struct ReadConfigs(INIReader reader) {
 #undef KEYBIND
 
     KeyBinds dinput;
-#define KEYBIND(name, kb_default, dinput_default)                                                   \
-    {                                                                                               \
-        std::vector<std::string> keys = Split(reader.Get("dinput", #name, dinput_default), ',');    \
-        for (const auto& key : keys) {                                                              \
-            dinput.name.push_back(atoi(key.c_str()));                                               \
-        }                                                                                           \
+#define KEYBIND(name, kb_default, dinput_default)                                                                      \
+    {                                                                                                                  \
+        std::vector<std::string> keys = Split(reader.Get("controller", #name, dinput_default), ',');                   \
+        for (const auto& key : keys)                                                                                   \
+        {                                                                                                              \
+            dinput.name.push_back(atoi(key.c_str()));                                                                  \
+        }                                                                                                              \
     }
     KEYBINDS()
 #undef KEYBIND
 
-    std::string inputMode = reader.Get("config", "InputMode", "Keyboard");
-    if (inputMode == "None")
-    {
-        config.InputMode = InputModeNone;
-    }
-    else if (inputMode == "Keyboard")
-    {
-        config.InputMode = InputModeKeyboard;
-    }
-    else if (inputMode == "DirectInputOnly")
-    {
-        config.InputMode = InputModeDirectInput;
-    }
-    else if (inputMode == "DirectInput")
-    {
-        config.InputMode = InputModeBoth;
-    }
-    else
-    {
-        fatal("unknown InputMode: %s (supported values: None, Keyboard, DirectInputOnly, DirectInput)", inputMode.c_str());
-    }
+    int keyboardEnabled = reader.GetBoolean("keyboard", "Enabled", true);
+    int controllerEnabled = reader.GetBoolean("controller", "Enabled", true);
+    config.InputMode = static_cast<InputMode>(controllerEnabled << 1 | keyboardEnabled);
 
     // TODO: This should take a GUID instead of an index.
-    config.DirectInputDeviceId = reader.GetInteger("dinput", "DeviceId", 16);
+    config.DirectInputDeviceId = reader.GetInteger("controller", "DeviceId", 16);
     config.DirectInputBindings = dinput;
     config.KeyboardBindings = keyboard;
     return config;
@@ -188,16 +208,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             }
 
             globalConfig = ReadConfigs(reader);
-
-            if (g_logLevel != LogLevel::NONE)
-            {
-                AllocConsole();
-
-                FILE* dummy;
-                freopen_s(&dummy, "CONIN$", "r", stdin);
-                freopen_s(&dummy, "CONOUT$", "w", stderr);
-                freopen_s(&dummy, "CONOUT$", "w", stdout);
-            }
 
             MH_Initialize();
             InitializeSocketHooks();

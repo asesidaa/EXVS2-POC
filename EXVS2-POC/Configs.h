@@ -17,9 +17,9 @@
 	KEYBIND(B, "X", "4") \
 	KEYBIND(C, "C", "6") \
 	KEYBIND(D, "V", "2") \
-	KEYBIND(Start, "1", "10") \
-	KEYBIND(Coin, "M", "13") \
-	KEYBIND(Card, "P", "7") \
+	KEYBIND(Start, "1", "") \
+	KEYBIND(Coin, "M", "") \
+	KEYBIND(Card, "P", "") \
 	KEYBIND(Test, "T", "") \
 	KEYBIND(Service, "S", "") \
 	KEYBIND(Kill, "Esc", "") \
