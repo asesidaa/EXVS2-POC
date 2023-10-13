@@ -107,10 +107,15 @@ static config_struct ReadConfigs(INIReader reader) {
     }
 
     bool validLength = config.Serial.size() == 12;
-    if (config.Mode == 1 && (!validLength || !config.Serial.starts_with("28431411"))) {
-      fatal("invalid serial: expected serial of format 28431411XXXX for client");
-    } else if (config.Mode == 2 && (!validLength || !config.Serial.starts_with("28431111"))) {
-      fatal("invalid serial: expected serial of format 28431111XXXX for LM");
+    bool validClientPrefix = config.Serial.starts_with("28431411") || config.Serial.starts_with("28431311");
+    bool validLMPrefix = config.Serial.starts_with("28431111");
+    if (config.Mode == 1 && (!validLength || !validClientPrefix))
+    {
+        fatal("invalid serial: expected serial of format 28431411XXXX/28431311XXXX for client");
+    }
+    else if (config.Mode == 2 && (!validLength || !validLMPrefix))
+    {
+        fatal("invalid serial: expected serial of format 28431111XXXX for LM");
     }
 
     config.PcbId = reader.GetOptional("config", "PcbId").value_or("ABLN1" + config.Serial.substr(5));
