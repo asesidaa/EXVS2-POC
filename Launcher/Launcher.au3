@@ -138,7 +138,7 @@ Global $CNconfigHowTo = "如果是第一次运行，请按下‘初始化iauthdl
 #Below Variable to store CN HowTow for Controller Section
 Global $CNcontrollerHowTo = "如果你的操纵杆是使用 Direct Input，请开启‘Direct Input’选项" &@CRLF&@CRLF& _
 			"请将你的操纵杆链接至你的电脑后，按下'Windows USB 按键设置'" &@CRLF&@CRLF& _
-			"这将会开启你的电脑的‘设置USB游戏控制器’程序，性选择了你的操纵杆后按下‘属性’" &@CRLF &@CRLF& _
+			"这将会开启你的电脑的‘设置USB游戏控制器’程序，请选择了你的操纵杆后按下‘属性’" &@CRLF &@CRLF& _
 			"按下你想要用的按键，界面上会亮起相对的按键号码，请记住这个号码后，修改你要的按键信息。" &@CRLF&@CRLF& _
 			"如果你有多过一个操纵杆，但是只想要使用一个其中一个，你可按下‘操纵杆检测工具’后了解你的操纵杆的ID，然后在‘设备 ID’上输入你得到的 ID" &@CRLF&@CRLF& _
 			"请记得按下‘保存’按键以保存你修改的信息"
