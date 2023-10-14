@@ -1,6 +1,7 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Options;
 using nue.protocol.exvs;
-using Server.Common.Enum;
+using Server.Models.Config;
 
 namespace Server.Handlers.Game;
 
@@ -8,11 +9,11 @@ public record LoadGameDataQuery(Request Request) : IRequest<Response>;
 
 public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Response>
 {
-    private readonly IConfiguration _config;
+    private readonly CardServerConfig config;
 
-    public LoadGameDataQueryHandler(IConfiguration config)
+    public LoadGameDataQueryHandler(IOptions<CardServerConfig> options)
     {
-        _config = config;
+        config = options.Value;
     }
     
     public Task<Response> Handle(LoadGameDataQuery query, CancellationToken cancellationToken)
@@ -44,11 +45,11 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 UpdateMsIds = Array.Empty<uint>(), // add a 'update' tag to ms
                 on_vs_info = new Response.LoadGameData.OnVsInfo
                 {
-                    RuleTimeLimitRank = _config.GetValue<uint>("CardServerConfig:GameConfigurations:BattleSeconds"),
-                    RuleTimeLimitCasual = _config.GetValue<uint>("CardServerConfig:GameConfigurations:BattleSeconds"),
-                    RuleTimeLimitEx = _config.GetValue<uint>("CardServerConfig:GameConfigurations:BattleSeconds"),
-                    RuleDamageLevelTeam = (uint) _config.GetValue<DamageLevel>("CardServerConfig:GameConfigurations:PvPDamageLevel"),
-                    RuleDamageLevelShuffle = (uint) _config.GetValue<DamageLevel>("CardServerConfig:GameConfigurations:PvPDamageLevel")
+                    RuleTimeLimitRank = config.GameConfigurations.BattleSeconds,
+                    RuleTimeLimitCasual = config.GameConfigurations.BattleSeconds,
+                    RuleTimeLimitEx = config.GameConfigurations.BattleSeconds,
+                    RuleDamageLevelTeam = config.GameConfigurations.PvPDamageLevel,
+                    RuleDamageLevelShuffle = config.GameConfigurations.PvPDamageLevel
                 },
                 ReleaseCpuScenes = new[] { 1u, 2u },
                 MstMobileSuitIds = new[] { 1u, 2u }, // For Red-Targeted MSs
@@ -56,16 +57,16 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 OfflineLoseEchelonNums = {},
                 ReplayUnderEchelonId = 1,
                 AdvancedReplayUnderEchelonId = 1,
-                TrainingTimeLimit = _config.GetValue<uint>("CardServerConfig:GameConfigurations:TrainingMinutes"),
+                TrainingTimeLimit = config.GameConfigurations.TrainingMinutes,
                 PcoinLoseExpRelaxationRate = 1,
                 PcoinTeamGpIncreaseRate = 1,
                 NewcardCampaignFlag = true,
-                OfflineBaseWinPoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:OfflineBaseWinPoint"),
-                OfflineBaseLosePoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:OfflineBaseLosePoint"),
-                OfflineLoseResultBonus = _config.GetValue<int>("CardServerConfig:GameConfigurations:OfflineLoseResultBonus"),
-                CasualBaseWinPoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:CasualBaseWinPoint"),
-                CasualBaseLosePoint = _config.GetValue<int>("CardServerConfig:GameConfigurations:CasualBaseLosePoint"),
-                CasualLoseResultBonus = _config.GetValue<int>("CardServerConfig:GameConfigurations:CasualLoseResultBonus"),
+                OfflineBaseWinPoint = config.GameConfigurations.OfflineBaseWinPoint,
+                OfflineBaseLosePoint = config.GameConfigurations.OfflineBaseLosePoint,
+                OfflineLoseResultBonus = config.GameConfigurations.OfflineLoseResultBonus,
+                CasualBaseWinPoint = config.GameConfigurations.CasualBaseWinPoint,
+                CasualBaseLosePoint = config.GameConfigurations.CasualBaseLosePoint,
+                CasualLoseResultBonus = config.GameConfigurations.CasualLoseResultBonus,
                 ReplayUnderRankId = 1,
                 AdvancedReplayUnderRankId = 1,
                 WantedDownLevel = 0, // this will cause enemy to 1 hit down if set to 1

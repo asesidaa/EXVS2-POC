@@ -1,7 +1,10 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Serilog;
+using Server.Common.Validation;
 using Server.Middlewares;
+using Server.Models.Config;
 using Server.Persistence;
 
 Log.Logger = new LoggerConfiguration()
@@ -13,8 +16,18 @@ Log.Information("Server starting...");
 try
 {
     var builder = WebApplication.CreateBuilder(args);
+    
+    const string configurationsDirectory = "Configurations";
+    builder.Configuration.AddJsonFile($"{configurationsDirectory}/kestrel.json", optional: false)
+        .AddJsonFile($"{configurationsDirectory}/log.json", optional: false)
+        .AddJsonFile($"{configurationsDirectory}/server.json", optional: false);
 
-// Add services to the container.
+    builder.Services.AddOptions<CardServerConfig>()
+        .Bind(builder.Configuration.GetSection(CardServerConfig.CARD_SERVER_SECTION))
+        .ValidateMiniValidation()
+        .ValidateOnStart();
+
+    // Add services to the container.
     builder.Host.UseSerilog((context, configuration) =>
     {
         configuration.WriteTo.Console().ReadFrom.Configuration(context.Configuration);
@@ -31,6 +44,9 @@ try
     builder.Services.AddSwaggerGen();
 
     var app = builder.Build();
+    
+    var config = app.Services.GetRequiredService<IOptions<CardServerConfig>>().Value;
+    Log.Information("Card server config: {@Config}", config.ToString());
     
     app.UseSerilogRequestLogging(options =>
     {
