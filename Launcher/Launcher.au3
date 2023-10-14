@@ -100,7 +100,7 @@ Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"],
 Global $controllerGUILang[$GUI_controllerElements][2] = [["", ""], ["Controller Settings", "按键 设置"], ["DirectInput", "Direct Input"], ["Windows USB Game Controller Options", "Windows USB 按键设置"], ["Joystick Detection Tool", "操纵杆检测工具"], ["Button A (Shoot)", "按钮 A（射击）"], ["Button B (Melee)", "按钮 B（格斗）"], ["Button C (Jump)", "按钮 C（喷射）"], ["Button D (Target)", "按钮 D（换锁）"], ["Start / Comms", "启动 / 通讯"], ["Coin", "硬币"], ["Card", "卡片"], ["Device ID", "设备 ID"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
 
 #Below Creates Array keyboardGUILang with 2 values per Element
-Global $keyboardGUILang[$GUI_keyboardElements][2] = [["", ""], ["Keyboard/XInput", "键盘/X Input"], ["Keyboard/XInput", "键盘/X Input"], ["Link for Input Mappings", "按键映射参考网址"], ["Up", "上"], ["Down", "下"], ["Left", "左"], ["Right", "右"], ["Button A (Shoot)", "按钮 A（射击）"], ["Button B (Melee)", "按钮 B（格斗）"], ["Button C (Jump)", "按钮 C（喷射）"], ["Button D (Target)", "按钮 D（换锁）"], ["Start / Comms", "启动 / 通讯"], ["Coin", "硬币"], ["Test", "测试"], ["Card", "卡片"], ["Exit Program", "退出程序"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+Global $keyboardGUILang[$GUI_keyboardElements][2] = [["", ""], ["Keyboard", "键盘"], ["Keyboard", "键盘"], ["Link for Input Mappings", "按键映射参考网址"], ["Up", "上"], ["Down", "下"], ["Left", "左"], ["Right", "右"], ["Button A (Shoot)", "按钮 A（射击）"], ["Button B (Melee)", "按钮 B（格斗）"], ["Button C (Jump)", "按钮 C（喷射）"], ["Button D (Target)", "按钮 D（换锁）"], ["Start / Comms", "启动 / 通讯"], ["Coin", "硬币"], ["Test", "测试"], ["Card", "卡片"], ["Exit Program", "退出程序"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
 
 #Below Variable to store ENG HowTow for Config Section
 Global $ENconfigHowTo = "If you are running this for the first time, please click on 'Initialize iauthdll.bat' to complete the setup." &@CRLF&@CRLF& _
@@ -112,7 +112,8 @@ Global $ENconfigHowTo = "If you are running this for the first time, please clic
 			"Please don't forget to save your changes by pressing the 'Save' button."
 
 #Below Variable to store ENG HowTow for Controller Section
-Global $ENcontrollerHowTo = "If you wish to use DirectInput, enable this option by ticking on the 'DirectInput' checkbox." &@CRLF&@CRLF& _
+Global $ENcontrollerHowTo = "If you are unsure if your device is using DirectInput or XInput, try enable the 'GAME PAD' option in-game, if it works out of the box then you don't need to enable this option." &@CRLF&@CRLF& _
+			"However on the case where your device is using DirectInput, please enable this option by ticking on the 'DirectInput' checkbox." &@CRLF&@CRLF& _
 			"Please plug in your Gamepad/Arcadestick and click the 'Windows USB Game Controller Options' Button." &@CRLF&@CRLF& _
 			"This will bring up the Game Controllers control panel, select your Gamepad/Arcadestick and choose properties." &@CRLF &@CRLF& _
 			"Press the buttons you wish to use and remember the buttons number shown on the window." &@CRLF&@CRLF& _
@@ -120,7 +121,7 @@ Global $ENcontrollerHowTo = "If you wish to use DirectInput, enable this option 
 			"Please don't forget to save your changes by pressing the 'Save' button."
 
 #Below Variable to store ENG HowTow for Config Section
-Global $ENkeyboardHowTo = "If you wish to use Keyboard or X Input, enable this option by ticking on the 'Keyboard/XInput' checkbox." &@CRLF&@CRLF& _
+Global $ENkeyboardHowTo = "If you wish to use Keyboard, enable this option by ticking on the 'Keyboard' checkbox." &@CRLF&@CRLF& _
 			"To obtain the correct mappings, please click the button 'Link for Input Mappings' to be taken to website with ID mappings." &@CRLF&@CRLF& _
 			"You can use a comma ',' in between mappings to have each command map to more than 1 input."  &@CRLF&@CRLF& _
 			"Example: Start----Q,W,E,R,T,Y - All the letters will be mapped to Start." &@CRLF&@CRLF& _
@@ -136,7 +137,8 @@ Global $CNconfigHowTo = "如果是第一次运行，请按下‘初始化iauthdl
 			"请记得按下‘保存’按键以保存你修改的信息"
 
 #Below Variable to store CN HowTow for Controller Section
-Global $CNcontrollerHowTo = "如果你的操纵杆是使用 Direct Input，请开启‘Direct Input’选项" &@CRLF&@CRLF& _
+Global $CNcontrollerHowTo = "如果不确定设备使用的是 DirectInput 还是 XInput，请尝试在游戏中启用'GAME PAD'选项、 如果能正常运行，则无需启用此选项" &@CRLF&@CRLF& _
+			"但是如果你的操纵杆是使用 Direct Input，请开启‘Direct Input’选项" &@CRLF&@CRLF& _
 			"请将你的操纵杆链接至你的电脑后，按下'Windows USB 按键设置'" &@CRLF&@CRLF& _
 			"这将会开启你的电脑的‘设置USB游戏控制器’程序，请选择了你的操纵杆后按下‘属性’" &@CRLF &@CRLF& _
 			"按下你想要用的按键，界面上会亮起相对的按键号码，请记住这个号码后，修改你要的按键信息。" &@CRLF&@CRLF& _
@@ -144,7 +146,7 @@ Global $CNcontrollerHowTo = "如果你的操纵杆是使用 Direct Input，请�
 			"请记得按下‘保存’按键以保存你修改的信息"
 
 #Below Variable to store CN HowTow for Keyboard Section
-Global $CNkeyboardHowTo = "如果你想要用键盘或者 XInput 操纵杆，请开启‘键盘/X Input’选项" &@CRLF&@CRLF& _
+Global $CNkeyboardHowTo = "如果你想要用键盘，请开启‘键盘’选项" &@CRLF&@CRLF& _
 			"如果你想要知道按键映射名字，请按下‘按键映射参考网址’" &@CRLF&@CRLF& _
 			"你可以使用逗号','（注意：英文字母逗号）来设定多按键映射" &@CRLF&@CRLF& _
 			"譬如：启动 / 通讯----Q,W,E,R,T,Y -> 这将会把 Q,W,E,R,T,Y 按键映射到 启动 / 通讯 上" &@CRLF&@CRLF& _
@@ -264,7 +266,7 @@ GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 
 #Region ### KeyboardGUI Variables in Koda ###
 
-$keyboardGUI[1] = GUICtrlCreateTabItem($keyboardGUILang[1][$currentLang]) ; Keyboard/XInput Tab
+$keyboardGUI[1] = GUICtrlCreateTabItem($keyboardGUILang[1][$currentLang]) ; Keyboard Tab
 $keyboardGUI[2] = GUICtrlCreateLabel($keyboardGUILang[2][$currentLang], 18, 65, 140, 24) ; Keyboard
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 $keyboardGUI[3] = GUICtrlCreateButton($keyboardGUILang[3][$currentLang], 268, 59, 283, 33) ; Link for Input Mappings
