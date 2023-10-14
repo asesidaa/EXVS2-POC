@@ -1,6 +1,6 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_UseX64=y
-#AutoIt3Wrapper_Res_Fileversion=1.2.0
+#AutoIt3Wrapper_Res_Fileversion=1.4.0.0
 #AutoIt3Wrapper_Res_Fileversion_AutoIncrement=p
 #AutoIt3Wrapper_Run_After=mkdir "%scriptdir%\verau3"
 #AutoIt3Wrapper_Run_After=mkdir "%scriptdir%\verexe"
@@ -31,15 +31,15 @@ Global $currentInterfaceNameDisabled = IniRead($filedir, "Config", "# InterfaceN
 Global $defaultIP = "192.168.0.100" ; Variable for Default Value of IpAddress in Config.ini
 Global $defaultServer = "127.0.0.1" ; Variable for Default Value of Server in Config.ini
 Global $defaultInterfaceName = "Ethernet" ; Variable for Default Value of InterfaceName in Config.ini
-Global $currentB1 = IniRead($filedir, "dinput", "A", "default") ; Variable that reads current value of ArcadeButton1 in Config.ini for DirectInput
-Global $currentB2 = IniRead($filedir, "dinput", "B", "default") ; Variable that reads current value of ArcadeButton2 in Config.ini for DirectInput
-Global $currentB3 = IniRead($filedir, "dinput", "C", "default") ; Variable that reads current value of ArcadeButton3 in Config.ini for DirectInput
-Global $currentB4 = IniRead($filedir, "dinput", "D", "default") ; Variable that reads current value of ArcadeButton4 in Config.ini for DirectInput
-Global $currentBS = IniRead($filedir, "dinput", "Start", "default") ; Variable that reads current value of ArcadeStartButton in Config.ini for DirectInput
-Global $currentBC = IniRead($filedir, "dinput", "Coin", "default") ; Variable that reads current value of ArcadeCoin in Config.ini for DirectInput
-Global $currentBT = IniRead($filedir, "dinput", "Test", "default") ; Variable that reads current value of ArcadeTest in Config.ini for DirectInput
-Global $currentBCard = IniRead($filedir, "dinput", "Card", "default") ; Variable that reads current value of ArcadeCard in Config.ini for DirectInput
-Global $currentDeviceId = IniRead($filedir, "dinput", "DeviceId", "default") ; Variable that reads current value of DeviceID in Config.ini for DirectInput
+Global $currentB1 = IniRead($filedir, "controller", "A", "default") ; Variable that reads current value of ArcadeButton1 in Config.ini for DirectInput
+Global $currentB2 = IniRead($filedir, "controller", "B", "default") ; Variable that reads current value of ArcadeButton2 in Config.ini for DirectInput
+Global $currentB3 = IniRead($filedir, "controller", "C", "default") ; Variable that reads current value of ArcadeButton3 in Config.ini for DirectInput
+Global $currentB4 = IniRead($filedir, "controller", "D", "default") ; Variable that reads current value of ArcadeButton4 in Config.ini for DirectInput
+Global $currentBS = IniRead($filedir, "controller", "Start", "default") ; Variable that reads current value of ArcadeStartButton in Config.ini for DirectInput
+Global $currentBC = IniRead($filedir, "controller", "Coin", "default") ; Variable that reads current value of ArcadeCoin in Config.ini for DirectInput
+Global $currentBT = IniRead($filedir, "controller", "Test", "default") ; Variable that reads current value of ArcadeTest in Config.ini for DirectInput
+Global $currentBCard = IniRead($filedir, "controller", "Card", "default") ; Variable that reads current value of ArcadeCard in Config.ini for DirectInput
+Global $currentDeviceId = IniRead($filedir, "controller", "DeviceId", "default") ; Variable that reads current value of DeviceID in Config.ini for DirectInput
 Global $currentKeyB1 = IniRead($filedir, "keyboard", "A", "default") ; Variable that reads current value of Button1 in Config.ini for Keyboard
 Global $currentKeyB2 = IniRead($filedir, "keyboard", "B", "default") ; Variable that reads current value of Button2 in Config.ini for Keyboard
 Global $currentKeyB3 = IniRead($filedir, "keyboard", "C", "default") ; Variable that reads current value of Button3 in Config.ini for Keyboard
@@ -80,75 +80,112 @@ Global $Clicked = False ; Boolean Variable for confirming if Switch Language but
 
 #Region ### GUI Variables used for Language Switching ###
 
-Global $GUI_baseElements = 8
-Global $GUI_configElements = 11
-Global $GUI_controllerElements = 17
-Global $GUI_keyboardElements = 20
-Global $currentLang = 0
-Global $baseGUI[$GUI_baseElements]
-Global $configGUI[$GUI_configElements]
-Global $controllerGUI[$GUI_controllerElements]
-Global $keyboardGUI[$GUI_keyboardElements]
-Global $baseGUILang[$GUI_baseElements][2] = [["XBoost Launcher", "XBoost 启动器"], ["Start Server.exe", "开始 Server.exe"], ["Start LM Mode", "启动 LM"], ["Start Client Mode", "启动 Client"], ["Open Config.ini", "打开Config.ini"], ["Card Webpage", "卡片网页"], ["Switch Language", "改变语言"], ["Exit", "退出"]]
-Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"], ["IP Address", "IP 地址"], ["InterfaceName", "网卡名称"], ["Server.exe Address", "Server.exe 地址"], ["Windowed Mode", "窗口模式"], ["Run ipconfig.bat", "运行 ipconfig.bat"], ["Initialize iauthdll.bat", "初始化 iauthdll.bat"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
-Global $controllerGUILang[$GUI_controllerElements][2] = [["", ""], ["Controller Settings", "按键 设置"], ["DirectInput+Keyboard", "DInput+键盘"], ["DirectInputOnly", "仅 DInput"], ["Windows USB Game Controller Options", "Windows USB 按键设置"], ["Joystick Detection Tool", "操纵杆 检测 工具"], ["Button A", "按钮 A"], ["Button B", "按钮 B"], ["Button C", "按钮 C"], ["Button D", "按钮 D"], ["Start", "启动"], ["Coin", "硬币"], ["Card", "卡片"], ["Device ID", "设备 ID"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
-Global $keyboardGUILang[$GUI_keyboardElements][2] = [["", ""], ["Keyboard/XInput", "键盘/X Input"], ["Keyboard", "键盘"], ["Link for Input Mappings", "按键设定参考网址"], ["Up", "上"], ["Down", "下"], ["Left", "左"], ["Right", "右"], ["Button A", "按钮 A"], ["Button B", "按钮 B"], ["Button C", "按钮 C"], ["Button D", "按钮 D"], ["Start", "启动"], ["Coin", "硬币"], ["Test", "测试"], ["Card", "卡片"], ["Exit Program", "退出程序"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+Global $GUI_baseElements = 8 ; Number of Elements used in BaseGUI
+Global $GUI_configElements = 11 ; Number of Elements used in Config GUI
+Global $GUI_controllerElements = 16 ; Number of Elements used in Controller GUI
+Global $GUI_keyboardElements = 20 ; Number of Elemtents used in Keyboard GUI
+Global $currentLang = 0 ; CurrentLanguage ID
+Global $baseGUI[$GUI_baseElements] ; Create Array BaseGUI
+Global $configGUI[$GUI_configElements] ; Create Array ConfigUI
+Global $controllerGUI[$GUI_controllerElements] ; Create Array ControllerGUI
+Global $keyboardGUI[$GUI_keyboardElements] ; Create Array KeyboardGUI
 
-Global $ENconfigHowTo = "Click the 'iauthdll.bat' button first as it is required on first install." &@CRLF&@CRLF& _
-			"Click the 'Run ipconfig.bat' button to run the ipconfig batch script and it will then open the output values in a text document." &@CRLF&@CRLF& _
-			"Use this document to fill in the fields properly for the Internet Network Adapter used." &@CRLF&@CRLF& _
-			"Please select IpAddress or InterfaceName Radio Button for your Network settings, and enter the IP Address of computer running Server.exe in the Server field, if you run it on this, leave it as 127.0.0.1"
-Global $ENcontrollerHowTo = "When using DirectInput+Keyboard or DirectInputOnly, please plug in your Gamepad/Arcadestick and click the 'Windows USB Game Controller Options' Button." &@CRLF&@CRLF& _
+#Below Creates Array baseGUILang with 2 values per Element
+Global $baseGUILang[$GUI_baseElements][2] = [["XBoost Single Instance Launcher", "XBoost 单实例 启动器"], ["Start Server.exe", "开始 Server.exe"], ["Start LM Mode", "启动 LM"], ["Start Client Mode", "启动 Client"], ["Open Config.ini", "打开Config.ini"], ["Card Webpage", "卡片网页"], ["Switch Language", "改变语言"], ["Exit", "退出"]]
+
+#Below Creates Array configGUILang with 2 values per Element
+Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"], ["IP Address", "IP 地址"], ["InterfaceName", "网卡名称"], ["Server.exe Address", "Server.exe 地址"], ["Windowed Mode", "窗口模式"], ["Run ipconfig.bat", "运行 ipconfig.bat"], ["Initialize iauthdll.bat", "初始化 iauthdll.bat"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+
+#Below Creates Array controllerGUILang with 2 values per Element
+Global $controllerGUILang[$GUI_controllerElements][2] = [["", ""], ["Controller Settings", "按键 设置"], ["DirectInput", "Direct Input"], ["Windows USB Game Controller Options", "Windows USB 按键设置"], ["Joystick Detection Tool", "操纵杆检测工具"], ["Button A (Shoot)", "按钮 A（射击）"], ["Button B (Melee)", "按钮 B（格斗）"], ["Button C (Jump)", "按钮 C（喷射）"], ["Button D (Target)", "按钮 D（换锁）"], ["Start / Comms", "启动 / 通讯"], ["Coin", "硬币"], ["Card", "卡片"], ["Device ID", "设备 ID"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+
+#Below Creates Array keyboardGUILang with 2 values per Element
+Global $keyboardGUILang[$GUI_keyboardElements][2] = [["", ""], ["Keyboard/XInput", "键盘/X Input"], ["Keyboard/XInput", "键盘/X Input"], ["Link for Input Mappings", "按键映射参考网址"], ["Up", "上"], ["Down", "下"], ["Left", "左"], ["Right", "右"], ["Button A (Shoot)", "按钮 A（射击）"], ["Button B (Melee)", "按钮 B（格斗）"], ["Button C (Jump)", "按钮 C（喷射）"], ["Button D (Target)", "按钮 D（换锁）"], ["Start / Comms", "启动 / 通讯"], ["Coin", "硬币"], ["Test", "测试"], ["Card", "卡片"], ["Exit Program", "退出程序"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+
+#Below Variable to store ENG HowTow for Config Section
+Global $ENconfigHowTo = "If you are running this for the first time, please click on 'Initialize iauthdll.bat' to complete the setup." &@CRLF&@CRLF& _
+			"Please choose either IP Address or InterfaceName option to define the network configuration." &@CRLF&@CRLF& _
+			"On normal circumstances, you only need to select your desired network interface adapter from the dropdown and you are all set (e.g. Radmin VPN if you are using Radmin)" &@CRLF&@CRLF& _
+			"However if you do need additional customization with Ip Address, you may use 'Run ipconfig.bat' to run the ipconfig batch script and it will then open the output values in a text document which you can use to populate the IP Aaddress field" &@CRLF&@CRLF& _
+			"Once that's done, please also enter your Server address if you know any remote server to connect to." &@CRLF&@CRLF& _
+			"If not, please leave the 'Server.exe address' field as default '127.0.0.1' and launch your own instance of server by using the 'Start server.exe' button on the sidebar." &@CRLF&@CRLF& _
+			"Please don't forget to save your changes by pressing the 'Save' button."
+
+#Below Variable to store ENG HowTow for Controller Section
+Global $ENcontrollerHowTo = "If you wish to use DirectInput, enable this option by ticking on the 'DirectInput' checkbox." &@CRLF&@CRLF& _
+			"Please plug in your Gamepad/Arcadestick and click the 'Windows USB Game Controller Options' Button." &@CRLF&@CRLF& _
 			"This will bring up the Game Controllers control panel, select your Gamepad/Arcadestick and choose properties." &@CRLF &@CRLF& _
-			"Press the buttons you wish to use and remember the buttons number on the ." &@CRLF&@CRLF& _
-			"If you wish to use a specific DeviceID for your Gamepad/Arcadestick, click the 'Joystick Detection Tool' Button and press a button to find 'Joystick ID = #' "
-Global $ENkeyboardHowTo = "If you wish to use Keyboard, select the radio button to adjust the InputMode in Config.ini to Keyboard." &@CRLF&@CRLF& _
+			"Press the buttons you wish to use and remember the buttons number shown on the window." &@CRLF&@CRLF& _
+			"If you wish to use a specific DeviceID for your Gamepad/Arcadestick, click the 'Joystick Detection Tool' Button and press a button to find 'Joystick ID = #' " &@CRLF&@CRLF& _
+			"Please don't forget to save your changes by pressing the 'Save' button."
+
+#Below Variable to store ENG HowTow for Config Section
+Global $ENkeyboardHowTo = "If you wish to use Keyboard or X Input, enable this option by ticking on the 'Keyboard/XInput' checkbox." &@CRLF&@CRLF& _
 			"To obtain the correct mappings, please click the button 'Link for Input Mappings' to be taken to website with ID mappings." &@CRLF&@CRLF& _
 			"You can use a comma ',' in between mappings to have each command map to more than 1 input."  &@CRLF&@CRLF& _
-			"Example: Start  Q,W,E,R,T,Y - All the letters will be mapped to Start."
-Global $CNconfigHowTo = "如果是第一次运行，请按下初始化 iauthdll.bat" &@CRLF&@CRLF& _
-			"请按下 '运行 ipconfig.bat' 按钮运行 ipconfig.bat 脚本，完成后 Ip 信息将会被写在 .txt 文档里." &@CRLF&@CRLF& _
-			"请选择Ip地址或者网卡名称，然后根据你选的选项填入相对的信息." &@CRLF&@CRLF& _
-			"完成后，请别忘记填入网卡服务器地址 (Server.exe)，自行运行的 Server.exe 都默认为 127.0.0.1。"
-Global $CNcontrollerHowTo = "Enter Translation here"
-Global $CNkeyboardHowTo = "Enter Translation here"
+			"Example: Start----Q,W,E,R,T,Y - All the letters will be mapped to Start." &@CRLF&@CRLF& _
+			"Please don't forget to save your changes by pressing the 'Save' button."
+
+#Below Variable to store CN HowTow for Config Section
+Global $CNconfigHowTo = "如果是第一次运行，请按下‘初始化iauthdll.bat’" &@CRLF&@CRLF& _
+			"请选择Ip地址或者网卡名称" &@CRLF&@CRLF& _
+			"正常情况下，你只需要使用网卡名称选上你要链接的网卡即可（e.g. 如果你是使用 Radmin, 请选择 Radmin VPN 网卡）" &@CRLF&@CRLF& _
+			"虽然如此，如果你想要自行设定 IP Address 信息，你可以使用 '运行 ipconfig.bat' 按钮运行 ipconfig.bat 脚本，完成后 Ip 信息将会被写在 .txt 文档里以方便参考。" &@CRLF&@CRLF& _
+			"完成后，请别忘记填入卡片服务器地址。" &@CRLF&@CRLF& _
+			"如果你不知道卡片服务器地址，请使用‘开始 Server.exe’开启自己的本地服务器，本地开启的服务器地址都默认为 '127.0.0.1'" &@CRLF&@CRLF& _
+			"请记得按下‘保存’按键以保存你修改的信息"
+
+#Below Variable to store CN HowTow for Controller Section
+Global $CNcontrollerHowTo = "如果你的操纵杆是使用 Direct Input，请开启‘Direct Input’选项" &@CRLF&@CRLF& _
+			"请将你的操纵杆链接至你的电脑后，按下'Windows USB 按键设置'" &@CRLF&@CRLF& _
+			"这将会开启你的电脑的‘设置USB游戏控制器’程序，性选择了你的操纵杆后按下‘属性’" &@CRLF &@CRLF& _
+			"按下你想要用的按键，界面上会亮起相对的按键号码，请记住这个号码后，修改你要的按键信息。" &@CRLF&@CRLF& _
+			"如果你有多过一个操纵杆，但是只想要使用一个其中一个，你可按下‘操纵杆检测工具’后了解你的操纵杆的ID，然后在‘设备 ID’上输入你得到的 ID" &@CRLF&@CRLF& _
+			"请记得按下‘保存’按键以保存你修改的信息"
+
+#Below Variable to store CN HowTow for Keyboard Section
+Global $CNkeyboardHowTo = "如果你想要用键盘或者 XInput 操纵杆，请开启‘键盘/X Input’选项" &@CRLF&@CRLF& _
+			"如果你想要知道按键映射名字，请按下‘按键映射参考网址’" &@CRLF&@CRLF& _
+			"你可以使用逗号','（注意：英文字母逗号）来设定多按键映射" &@CRLF&@CRLF& _
+			"譬如：启动 / 通讯----Q,W,E,R,T,Y -> 这将会把 Q,W,E,R,T,Y 按键映射到 启动 / 通讯 上" &@CRLF&@CRLF& _
+			"请记得按下‘保存’按键以保存你修改的信息"
 
 #EndRegion
 
 
 #Region ### BaseGUI Variables in Koda ###
 
-$baseGUI[0] = GUICreate($baseGUILang[0][$currentLang], 800, 720, -1, -1)
-$baseGUI[1] = GUICtrlCreateButton($baseGUILang[1][$currentLang], 592, 144, 131, 33)
+$baseGUI[0] = GUICreate($baseGUILang[0][$currentLang], 800, 720, -1, -1) ; Title of Window
+$baseGUI[1] = GUICtrlCreateButton($baseGUILang[1][$currentLang], 592, 144, 131, 33) ; Start Server.exe
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$baseGUI[2] = GUICtrlCreateButton($baseGUILang[2][$currentLang], 592, 200, 131, 33)
+$baseGUI[2] = GUICtrlCreateButton($baseGUILang[2][$currentLang], 592, 200, 131, 33) ; Start LM Mode
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$baseGUI[3] = GUICtrlCreateButton($baseGUILang[3][$currentLang], 592, 256, 131, 33)
+$baseGUI[3] = GUICtrlCreateButton($baseGUILang[3][$currentLang], 592, 256, 131, 33) ; Start Client Mode
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$baseGUI[4] = GUICtrlCreateButton($baseGUILang[4][$currentLang], 592, 312, 131, 33)
+$baseGUI[4] = GUICtrlCreateButton($baseGUILang[4][$currentLang], 592, 312, 131, 33) ; Open Config.ini
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$baseGUI[5] = GUICtrlCreateButton($baseGUILang[5][$currentLang], 592, 370, 131, 33)
+$baseGUI[5] = GUICtrlCreateButton($baseGUILang[5][$currentLang], 592, 370, 131, 33) ; Card Webpage
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$baseGUI[6] = GUICtrlCreateButton($baseGUILang[6][$currentLang], 592, 430, 131, 33)
+$baseGUI[6] = GUICtrlCreateButton($baseGUILang[6][$currentLang], 592, 430, 131, 33) ; Switch Language
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$baseGUI[7] = GUICtrlCreateButton($baseGUILang[7][$currentLang], 592, 480, 131, 33)
+$baseGUI[7] = GUICtrlCreateButton($baseGUILang[7][$currentLang], 592, 480, 131, 33) ; Exit
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$tConfig = GUICtrlCreateTab(8, 24, 569, 680)
+$tConfig = GUICtrlCreateTab(8, 24, 569, 680) ; Create Tab GUI structure
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 
 #EndRegion
 
 #Region ### ConfigGUI Variables in Koda ###
 
-$configGUI[1] = GUICtrlCreateTabItem($configGUILang[1][$currentLang])
+$configGUI[1] = GUICtrlCreateTabItem($configGUILang[1][$currentLang]) ; Config Tab
 GUICtrlSetState(-1,$GUI_SHOW)
-$configGUI[2] = GUICtrlCreateLabel($configGUILang[2][$currentLang], 56, 81, 114, 24)
+$configGUI[2] = GUICtrlCreateLabel($configGUILang[2][$currentLang], 56, 81, 114, 24) ; IP Address
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$configGUI[3] = GUICtrlCreateLabel($configGUILang[3][$currentLang], 56, 121, 166, 24)
+$configGUI[3] = GUICtrlCreateLabel($configGUILang[3][$currentLang], 56, 121, 166, 24) ; InterfaceName
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$configGUI[4]= GUICtrlCreateLabel($configGUILang[4][$currentLang], 56, 161, 166, 24)
+$configGUI[4]= GUICtrlCreateLabel($configGUILang[4][$currentLang], 56, 161, 166, 24) ; Server.exe Address
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$configGUI[5] = GUICtrlCreateLabel($configGUILang[5][$currentLang], 56, 201, 146, 24)
+$configGUI[5] = GUICtrlCreateLabel($configGUILang[5][$currentLang], 56, 201, 146, 24) ; Windowed Mode
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 $configGUI[6]= GUICtrlCreateButton($configGUILang[6][$currentLang], 50, 300, 200, 40) ; ipconfig
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
@@ -160,15 +197,15 @@ $configGUI[9] = GUICtrlCreateButton($configGUILang[9][$currentLang], 400, 650, 1
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
 $configGUI[10] = GUICtrlCreateButton($configGUILang[10][$currentLang], 590, 70, 150, 50) ; How to setup
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-Global $IPRadio = GUICtrlCreateRadio("", 35, 81, 17, 17)
-Global $InterfaceRadio = GUICtrlCreateRadio("", 35, 121, 17, 17)
-Global $iIPAddress = GUICtrlCreateInput($currentIPEnabled, 248, 81, 193, 28)
+Global $IPRadio = GUICtrlCreateRadio("", 35, 81, 17, 17) ; Radio for IP Address
+Global $InterfaceRadio = GUICtrlCreateRadio("", 35, 121, 17, 17) ; Radio for InterfaceName
+Global $iIPAddress = GUICtrlCreateInput($currentIPEnabled, 248, 81, 193, 28) ; Input for IP Address
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $combo = GUICtrlCreateCombo("", 248, 121, 150, 120)
+Global $combo = GUICtrlCreateCombo("", 248, 121, 150, 120) ; Dropdown box for InterfaceName
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $iServer = GUICtrlCreateInput($currentServer, 248, 161, 193, 28)
+Global $iServer = GUICtrlCreateInput($currentServer, 248, 161, 193, 28) ; Input for Server.exe Address
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $WindowCheck = GUICtrlCreateCheckbox("", 259, 201, 20, 20)
+Global $WindowCheck = GUICtrlCreateCheckbox("", 259, 201, 20, 20) ; Checkbox for Windowed Mode
 GUICtrlSetState(-1, $GUI_CHECKED)
 GUICtrlSetFont(-1, 100, 400, 0, "MS Sans Serif")
 
@@ -176,123 +213,120 @@ GUICtrlSetFont(-1, 100, 400, 0, "MS Sans Serif")
 
 #Region ### ControllerGUI Variables in Koda ###
 
-$controllerGUI[1] = GUICtrlCreateTabItem($controllerGUILang[1][$currentLang])
-$controllerGUI[2] = GUICtrlCreateLabel($controllerGUILang[2][$currentLang], 18, 65, 160, 24)
+$controllerGUI[1] = GUICtrlCreateTabItem($controllerGUILang[1][$currentLang]) ; Controller Settings Tab
+$controllerGUI[2] = GUICtrlCreateLabel($controllerGUILang[2][$currentLang], 18, 65, 140, 24) ; DirectInput
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[3] = GUICtrlCreateLabel($controllerGUILang[3][$currentLang], 18, 95, 160, 24)
-GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[4] = GUICtrlCreateButton($controllerGUILang[4][$currentLang], 268, 59, 283, 33)
+$controllerGUI[3] = GUICtrlCreateButton($controllerGUILang[3][$currentLang], 268, 59, 283, 33) ; Windows USB Game Controller Options
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$controllerGUI[5] = GUICtrlCreateButton($controllerGUILang[5][$currentLang], 388, 100, 163, 33)
+$controllerGUI[4] = GUICtrlCreateButton($controllerGUILang[4][$currentLang], 388, 100, 163, 33) ; Joystick Detection Tool
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$controllerGUI[6] = GUICtrlCreateLabel($controllerGUILang[6][$currentLang], 48, 158, 169, 24)
+$controllerGUI[5] = GUICtrlCreateLabel($controllerGUILang[5][$currentLang], 48, 158, 169, 24) ; Button A
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[7] = GUICtrlCreateLabel($controllerGUILang[7][$currentLang], 48, 238, 168, 24)
+$controllerGUI[6] = GUICtrlCreateLabel($controllerGUILang[6][$currentLang], 48, 198, 168, 24) ; Button B
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[8] = GUICtrlCreateLabel($controllerGUILang[8][$currentLang], 48, 198, 169, 24)
+$controllerGUI[7] = GUICtrlCreateLabel($controllerGUILang[7][$currentLang], 48, 238, 169, 24) ; Button C
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[9] = GUICtrlCreateLabel($controllerGUILang[9][$currentLang], 48, 278, 232, 24)
+$controllerGUI[8] = GUICtrlCreateLabel($controllerGUILang[8][$currentLang], 48, 278, 232, 24) ; Button D
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[10] = GUICtrlCreateLabel($controllerGUILang[10][$currentLang], 48, 318, 190, 24)
+$controllerGUI[9] = GUICtrlCreateLabel($controllerGUILang[9][$currentLang], 48, 318, 190, 24) ; Start
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[11] = GUICtrlCreateLabel($controllerGUILang[11][$currentLang], 48, 358, 139, 24)
+$controllerGUI[10] = GUICtrlCreateLabel($controllerGUILang[10][$currentLang], 48, 358, 139, 24) ; Coin
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[12] = GUICtrlCreateLabel($controllerGUILang[12][$currentLang], 48, 398, 141, 24)
+$controllerGUI[11] = GUICtrlCreateLabel($controllerGUILang[11][$currentLang], 48, 398, 141, 24) ; Card
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[13] = GUICtrlCreateLabel($controllerGUILang[13][$currentLang], 48, 458, 141, 24)
+$controllerGUI[12] = GUICtrlCreateLabel($controllerGUILang[12][$currentLang], 48, 458, 141, 24) ; Device ID
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$controllerGUI[14] = GUICtrlCreateButton($controllerGUILang[14][$currentLang], 50, 650, 150, 40) ; Save
+$controllerGUI[13] = GUICtrlCreateButton($controllerGUILang[13][$currentLang], 50, 650, 150, 40) ; Save
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$controllerGUI[15] = GUICtrlCreateButton($controllerGUILang[15][$currentLang], 400, 650, 150, 40) ; Restore defaults 
+$controllerGUI[14] = GUICtrlCreateButton($controllerGUILang[14][$currentLang], 400, 650, 150, 40) ; Restore defaults
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$controllerGUI[16] = GUICtrlCreateButton($controllerGUILang[16][$currentLang], 590, 70, 150, 50) ; How to setup
+$controllerGUI[15] = GUICtrlCreateButton($controllerGUILang[15][$currentLang], 590, 70, 150, 50) ; How to setup
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-Global $DIRadioKey = GUICtrlCreateRadio("", 190, 65, 17, 17)
-Global $DIRadio = GUICtrlCreateRadio("", 190, 95, 17, 17)
-Global $AB1 = GUICtrlCreateInput($currentB1, 312, 156, 121, 28)
+Global $DIcheck = GUICtrlCreateCheckbox("", 160, 65, 17, 17) ; DirectInput Checkbox
+Global $AB1 = GUICtrlCreateInput($currentB1, 312, 156, 121, 28) ; Input for Button A
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $AB2 = GUICtrlCreateInput($currentB2, 312, 196, 121, 28)
+Global $AB2 = GUICtrlCreateInput($currentB2, 312, 196, 121, 28) ; Input for Button B
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $AB3 = GUICtrlCreateInput($currentB3, 312, 236, 121, 28)
+Global $AB3 = GUICtrlCreateInput($currentB3, 312, 236, 121, 28) ; Input for Button C
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $AB4 = GUICtrlCreateInput($currentB4, 312, 276, 121, 28)
+Global $AB4 = GUICtrlCreateInput($currentB4, 312, 276, 121, 28) ; Input for Button D
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $ABSt = GUICtrlCreateInput($currentBS, 312, 316, 121, 28)
+Global $ABSt = GUICtrlCreateInput($currentBS, 312, 316, 121, 28) ; Input for Start
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $ABCoin = GUICtrlCreateInput($currentBC, 312, 356, 121, 28)
+Global $ABCoin = GUICtrlCreateInput($currentBC, 312, 356, 121, 28) ; Input for Coin
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $ABCard = GUICtrlCreateInput($currentBCard, 312, 396, 121, 28)
+Global $ABCard = GUICtrlCreateInput($currentBCard, 312, 396, 121, 28) ; Input for Card
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $DeviceID = GUICtrlCreateInput($currentDeviceID, 312, 456, 121, 28)
+Global $DeviceID = GUICtrlCreateInput($currentDeviceID, 312, 456, 121, 28) ; Input for Device ID
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 
 #EndRegion
 
 #Region ### KeyboardGUI Variables in Koda ###
 
-$keyboardGUI[1] = GUICtrlCreateTabItem($keyboardGUILang[1][$currentLang])
-$keyboardGUI[2] = GUICtrlCreateLabel($keyboardGUILang[2][$currentLang], 12, 67, 99, 24)
+$keyboardGUI[1] = GUICtrlCreateTabItem($keyboardGUILang[1][$currentLang]) ; Keyboard/XInput Tab
+$keyboardGUI[2] = GUICtrlCreateLabel($keyboardGUILang[2][$currentLang], 18, 65, 140, 24) ; Keyboard
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[3] = GUICtrlCreateButton($keyboardGUILang[3][$currentLang], 276, 67, 250, 28)
+$keyboardGUI[3] = GUICtrlCreateButton($keyboardGUILang[3][$currentLang], 268, 59, 283, 33) ; Link for Input Mappings
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$keyboardGUI[4] = GUICtrlCreateLabel($keyboardGUILang[4][$currentLang], 48, 119, 169, 24)
+$keyboardGUI[4] = GUICtrlCreateLabel($keyboardGUILang[4][$currentLang], 48, 119, 169, 24) ; Up
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[5] = GUICtrlCreateLabel($keyboardGUILang[5][$currentLang], 48, 159, 169, 24)
+$keyboardGUI[5] = GUICtrlCreateLabel($keyboardGUILang[5][$currentLang], 48, 159, 169, 24) ; Down
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[6] = GUICtrlCreateLabel($keyboardGUILang[6][$currentLang], 48, 199, 168, 24)
+$keyboardGUI[6] = GUICtrlCreateLabel($keyboardGUILang[6][$currentLang], 48, 199, 168, 24) ; Left
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[7] = GUICtrlCreateLabel($keyboardGUILang[7][$currentLang], 48, 239, 232, 24)
+$keyboardGUI[7] = GUICtrlCreateLabel($keyboardGUILang[7][$currentLang], 48, 239, 232, 24) ; Right
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[8] = GUICtrlCreateLabel($keyboardGUILang[8][$currentLang], 48, 279, 169, 24)
+$keyboardGUI[8] = GUICtrlCreateLabel($keyboardGUILang[8][$currentLang], 48, 279, 169, 24) ; Button A
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[9] = GUICtrlCreateLabel($keyboardGUILang[9][$currentLang], 48, 319, 169, 24)
+$keyboardGUI[9] = GUICtrlCreateLabel($keyboardGUILang[9][$currentLang], 48, 319, 169, 24) ; Button B
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[10] = GUICtrlCreateLabel($keyboardGUILang[10][$currentLang], 48, 359, 168, 24)
+$keyboardGUI[10] = GUICtrlCreateLabel($keyboardGUILang[10][$currentLang], 48, 359, 168, 24) ; Button C
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[11] = GUICtrlCreateLabel($keyboardGUILang[11][$currentLang], 48, 399, 232, 24)
+$keyboardGUI[11] = GUICtrlCreateLabel($keyboardGUILang[11][$currentLang], 48, 399, 232, 24) ; Button D
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[12] = GUICtrlCreateLabel($keyboardGUILang[12][$currentLang], 48, 439, 142, 24)
+$keyboardGUI[12] = GUICtrlCreateLabel($keyboardGUILang[12][$currentLang], 48, 439, 142, 24) ; Start
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[13] = GUICtrlCreateLabel($keyboardGUILang[13][$currentLang], 48, 479, 139, 24)
+$keyboardGUI[13] = GUICtrlCreateLabel($keyboardGUILang[13][$currentLang], 48, 479, 139, 24) ; Coin
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[14] = GUICtrlCreateLabel($keyboardGUILang[14][$currentLang], 48, 519, 182, 24)
+$keyboardGUI[14] = GUICtrlCreateLabel($keyboardGUILang[14][$currentLang], 48, 519, 182, 24) ; Test
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[15] = GUICtrlCreateLabel($keyboardGUILang[15][$currentLang], 48, 560, 182, 24)
+$keyboardGUI[15] = GUICtrlCreateLabel($keyboardGUILang[15][$currentLang], 48, 560, 182, 24) ; Card
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$keyboardGUI[16] = GUICtrlCreateLabel($keyboardGUILang[16][$currentLang], 48, 599, 182, 24)
+$keyboardGUI[16] = GUICtrlCreateLabel($keyboardGUILang[16][$currentLang], 48, 599, 182, 24) ; Exit Program
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 $keyboardGUI[17] = GUICtrlCreateButton($keyboardGUILang[17][$currentLang], 50, 650, 150, 40) ; Save
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$keyboardGUI[18] = GUICtrlCreateButton($keyboardGUILang[18][$currentLang], 400, 650, 150, 40) ; Restore defaults 
+$keyboardGUI[18] = GUICtrlCreateButton($keyboardGUILang[18][$currentLang], 400, 650, 150, 40) ; Restore defaults
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
 $keyboardGUI[19] = GUICtrlCreateButton($keyboardGUILang[19][$currentLang], 590, 70, 150, 50) ; How to setup
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-Global $KeyRadio = GUICtrlCreateRadio("", 132, 67, 17, 17)
-Global $Up = GUICtrlCreateInput($currentKeyUp, 312, 115, 165, 28)
+Global $Keycheck = GUICtrlCreateCheckbox("", 160, 65, 17, 17) ; Checkbox for Keyboard
+Global $Up = GUICtrlCreateInput($currentKeyUp, 312, 115, 165, 28) ; Input for Up
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $Down = GUICtrlCreateInput($currentKeyDown, 312, 155, 165, 28)
+Global $Down = GUICtrlCreateInput($currentKeyDown, 312, 155, 165, 28) ; Input for Down
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $Left = GUICtrlCreateInput($currentKeyLeft, 312, 195, 165, 28)
+Global $Left = GUICtrlCreateInput($currentKeyLeft, 312, 195, 165, 28) ; Input for Left
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $Right = GUICtrlCreateInput($currentKeyRight, 312, 235, 165, 28)
+Global $Right = GUICtrlCreateInput($currentKeyRight, 312, 235, 165, 28) ; Input for Right
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyB1 = GUICtrlCreateInput($currentKeyB1, 312, 275, 165, 28)
+Global $KeyB1 = GUICtrlCreateInput($currentKeyB1, 312, 275, 165, 28) ; Input for Button A
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyB2 = GUICtrlCreateInput($currentKeyB2, 312, 315, 165, 28)
+Global $KeyB2 = GUICtrlCreateInput($currentKeyB2, 312, 315, 165, 28) ; Input for Button B
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyB3 = GUICtrlCreateInput($currentKeyB3, 312, 355, 165, 28)
+Global $KeyB3 = GUICtrlCreateInput($currentKeyB3, 312, 355, 165, 28) ; Input for Button C
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyB4 = GUICtrlCreateInput($currentKeyB4, 312, 395, 165, 28)
+Global $KeyB4 = GUICtrlCreateInput($currentKeyB4, 312, 395, 165, 28) ; Input for Button D
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyStart = GUICtrlCreateInput($currentKeyBS, 312, 435, 165, 28)
+Global $KeyStart = GUICtrlCreateInput($currentKeyBS, 312, 435, 165, 28) ;Input for Start
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyCoin = GUICtrlCreateInput($currentKeyBC, 312, 475, 165, 28)
+Global $KeyCoin = GUICtrlCreateInput($currentKeyBC, 312, 475, 165, 28) ;Input for Coin
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyTest = GUICtrlCreateInput($currentKeyBT, 312, 515, 165, 28)
+Global $KeyTest = GUICtrlCreateInput($currentKeyBT, 312, 515, 165, 28) ;Input for Test
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyCard = GUICtrlCreateInput($currentKeyCard, 312, 555, 165, 28)
+Global $KeyCard = GUICtrlCreateInput($currentKeyCard, 312, 555, 165, 28) ;Input for Card
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $KeyKill = GUICtrlCreateInput($currentKill, 312, 595, 165, 28)
+Global $KeyKill = GUICtrlCreateInput($currentKill, 312, 595, 165, 28) ;Input for Exit Program
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 GUICtrlCreateTabItem("")
 GUISetState(@SW_SHOW)
@@ -382,8 +416,8 @@ EndFunc
 #Region ### Find IPAddress/InterfaceName in INI ###
 
 $InterfaceArray = IniReadSection($filedir, "config")
-$keyvalue4 = $InterfaceArray[4][0]
-$keyvalue5 = $InterfaceArray[5][0]
+$keyvalue4 = $InterfaceArray[3][0]
+$keyvalue5 = $InterfaceArray[4][0]
 If $keyvalue4 = "# InterfaceName" Then
 	GUICtrlSetState($InterfaceRadio, $GUI_UNCHECKED)
   	GUICtrlSetData($combo, $currentInterfaceNameDisabled)
@@ -404,9 +438,22 @@ EndIf
 #EndRegion
 
 
-#Region ### Windowed Mode Checkbox Confirm ###
+#Region ### Windowed DitectInput Keyboard Checkbox Confirm ###
+Local $DItrue = IniRead($filedir, "controller", "Enabled", "default")
+Local $keytrue = IniRead($filedir, "keyboard", "Enabled", "default")
+Local $Wtrue = IniRead($filedir, "Config", "windowed", "default"); Variable use to read value of windowed in config.ini
 
-Local $Wtrue = IniRead($filedir, "Config", "windowed", "default") ; Variable use to read value of windowed in config.ini
+If $DItrue = "true" Then
+	GUICtrlSetState($DIcheck,$GUI_CHECKED)
+Else
+	GUICtrlSetState($DIcheck,$GUI_UNCHECKED)
+EndIf
+
+If $keytrue = "true" Then
+	GUICtrlSetState($Keycheck,$GUI_CHECKED)
+Else
+	GUICtrlSetState($Keycheck,$GUI_UNCHECKED)
+EndIf
 
 If $Wtrue = "true" Then
 	GUICtrlSetState($WindowCheck,$GUI_CHECKED)
@@ -438,17 +485,17 @@ While 1
 			EndIf
 
 		Case $nMsg = $baseGUI[2] ; Case structure for the Start LM Mode button, verifies the file is there before booting.
-			If FileExists("run_xboost_LM_mode_v3.exe") Then
-				Run("run_xboost_LM_mode_v3.exe")
+			If FileExists("run_xboost_LM_mode_v4.exe") Then
+				Run("run_xboost_LM_mode_v4.exe")
 			Else
-				MsgBox (16, "Error", "The file run_xboost_LM_mode_v3.exe is not found. Please make sure you copied the files over to Game Directory")
+				MsgBox (16, "Error", "The file run_xboost_LM_mode_v4.exe is not found. Please make sure you copied the files over to Game Directory")
 			EndIf
 
 		Case $nMsg = $baseGUI[3] ; Case structure for the Start Client Mode button, verifies the file is there before booting.
-			If FileExists("run_xboost_CLIENT_mode_v3.exe") Then
-			Run("run_xboost_CLIENT_mode_v3.exe")
+			If FileExists("run_xboost_CLIENT_mode_v4.exe") Then
+			Run("run_xboost_CLIENT_mode_v4.exe")
 			Else
-			MsgBox (16, "Error", "The file run_xboost_CLIENT_mode_v3.exe is not found. Please make sure you copied the files over to Game Directory")
+			MsgBox (16, "Error", "The file run_xboost_CLIENT_mode_v4.exe is not found. Please make sure you copied the files over to Game Directory")
 			EndIf
 
 		Case $nMsg = $baseGUI[4] ; Case structure for the Open Config.ini button
@@ -497,7 +544,16 @@ While 1
 				IniWrite($Filename, "Config", "InterfaceName", " " & GUICtrlRead($combo))
 			EndIf
 
-			MsgBox (0, "Success", "Settings Saved")
+			$currentServer = GUICtrlRead($iServer)
+			IniWrite($Filename, "Config", "Server", " " & $currentServer)
+
+			If GUICtrlRead($WindowCheck) = $GUI_CHECKED Then
+				IniWrite($Filename, "Config", "windowed", " " & "true")
+			Else
+				IniWrite($Filename, "Config", "windowed", " " & "false")
+			EndIf
+
+			MsgBox (64, "Success", "Settings Saved",2)
 
 		Case $nMsg = $configGUI[9] ; Case structure for Default button on Config Tab, resets all current data in Input fields to default value
    			GUICtrlSetData($iIPAddress, $defaultIP)
@@ -513,36 +569,34 @@ While 1
 			MsgBox(32, "How To", $ENconfigHowTo )
 			EndIf
 
-		Case $nMsg = $controllerGUI[4] ; Case structure for the JoystickDetection button to run the JoystickDetection_Realease application
+		Case $nMsg = $controllerGUI[3] ; Case structure for the JoystickDetection button to run the JoystickDetection_Realease application
 			Run("control.exe joy.cpl,,4")
 
-		Case $nMsg = $controllerGUI[5] ; Case structure for the JoystickDetection button to run the JoystickDetection_Realease application
+		Case $nMsg = $controllerGUI[4] ; Case structure for the JoystickDetection button to run the JoystickDetection_Realease application
 			If FileExists(".\TOOLS\JoystickDetection_Release.exe") Then
 			Run(".\TOOLS\JoystickDetection_Release.exe")
 			Else
 			MsgBox (16, "Error", "The file JoystickDetection_Release.exe is not found. Please make sure you copied the TOOLS folder over to the Game Directory")
 			EndIf
 
-		Case $nMsg = $controllerGUI[14] ; Case structure for Save button on Controllers Settings Tab, takes all of the data in Input fields and saves to config.ini
-			IniWrite($Filename, "dinput", "A", " " & GUICtrlRead($AB1))
-			IniWrite($Filename, "dinput", "B", " " & GUICtrlRead($AB2))
-			IniWrite($Filename, "dinput", "C", " " & GUICtrlRead($AB3))
-			IniWrite($Filename, "dinput", "D", " " & GUICtrlRead($AB4))
-			IniWrite($Filename, "dinput", "Start", " " & GUICtrlRead($ABSt))
-			IniWrite($Filename, "dinput", "Coin", " " & GUICtrlRead($ABCoin))
-			IniWrite($Filename, "dinput", "Card", " " & GUICtrlRead($ABCard))
+		Case $nMsg = $controllerGUI[13] ; Case structure for Save button on Controllers Settings Tab, takes all of the data in Input fields and saves to config.ini
+			IniWrite($Filename, "controller", "A", " " & GUICtrlRead($AB1))
+			IniWrite($Filename, "controller", "B", " " & GUICtrlRead($AB2))
+			IniWrite($Filename, "controller", "C", " " & GUICtrlRead($AB3))
+			IniWrite($Filename, "controller", "D", " " & GUICtrlRead($AB4))
+			IniWrite($Filename, "controller", "Start", " " & GUICtrlRead($ABSt))
+			IniWrite($Filename, "controller", "Coin", " " & GUICtrlRead($ABCoin))
+			IniWrite($Filename, "controller", "Card", " " & GUICtrlRead($ABCard))
 
-			If GUICtrlRead($DIRadio) = 1 Then
-				IniWrite($Filename, "Config", "InputMode", " " & "DirectInputOnly")
+			If GUICtrlRead($DIcheck) = $GUI_CHECKED Then
+				IniWrite($Filename, "controller", "Enabled", " " & "true")
+			Else
+				IniWrite($Filename, "controller", "Enabled", " " & "false")
 			EndIf
 
-			If GUICtrlRead($DIRadioKey) = 1 Then
-				IniWrite($Filename, "Config", "InputMode", " " & "DirectInput")
-			EndIf
+			MsgBox (64, "Success", "Settings Saved",2)
 
-			MsgBox (0, "Success", "Settings Saved")
-
-		Case $nMsg = $controllerGUI[15] ; Case structure for Default button on Controller Settings Tab, resets all current data in Input fields to default value
+		Case $nMsg = $controllerGUI[14] ; Case structure for Default button on Controller Settings Tab, resets all current data in Input fields to default value
 			GUICtrlSetData($AB1, $defaultB1)
 			GUICtrlSetData($AB2, $defaultB2)
 			GUICtrlSetData($AB3, $defaultB3)
@@ -550,8 +604,9 @@ While 1
 			GUICtrlSetData($ABSt, $defaultBS)
 			GUICtrlSetData($ABCoin, $defaultBC)
 			GUICtrlSetData($ABCard, $defaultBCard)
+			IniWrite($Filename, "controller", "Enabled", " " & "true")
 
-		Case $nMsg = $controllerGUI[16] ; Case structure for the How To button in the Controller Settings Tab
+		Case $nMsg = $controllerGUI[15] ; Case structure for the How To button in the Controller Settings Tab
 			If $Clicked = True Then
 			MsgBox(32, "How To", $CNcontrollerHowTo)
 			Else
@@ -577,11 +632,13 @@ While 1
 			IniWrite($Filename, "keyboard", "Card", " " & GUICtrlRead($KeyCard))
 			IniWrite($Filename, "keyboard", "Kill", " " & GUICtrlRead($KeyKill))
 
-			If GUICtrlRead($KeyRadio) = 1 Then
-				IniWrite($Filename, "Config", "InputMode", " " & "Keyboard")
+			If GUICtrlRead($Keycheck) = $GUI_CHECKED Then
+				IniWrite($Filename, "keyboard", "Enabled", " " & "true")
+			Else
+				IniWrite($Filename, "keyboard", "Enabled", " " & "false")
 			EndIf
 
-			MsgBox (0, "Success", "Settings Saved")
+			MsgBox (64, "Success", "Settings Saved",2)
 
 		Case $nMsg = $keyboardGUI[18] ; Case structure for Default button on the Keyboard tab, resets all current data in Input fields to default value
 			GUICtrlSetData($Up, $defaultKeyUp)
@@ -597,15 +654,6 @@ While 1
 			GUICtrlSetData($KeyTest, $defaultKeyBT)
 			GUICtrlSetData($KeyCard, $defaultKeyCard)
 			GUICtrlSetData($KeyKill, $defaultKeyKill)
-
-
-			IniWrite($Filename, "Config", "Server", " " & GUICtrlRead($iServer))
-
-			If GUICtrlRead($WindowCheck) = $GUI_CHECKED Then
-				IniWrite($Filename, "Config", "windowed", " " & "true")
-			Else
-				IniWrite($Filename, "Config", "windowed", " " & "false")
-			EndIf
 
 		Case $nMsg = $keyboardGUI[19] ; Case structure for the How To button in the Keyboard Tab
 			If $Clicked = True Then
