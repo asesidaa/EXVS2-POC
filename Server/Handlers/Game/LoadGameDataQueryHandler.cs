@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using nue.protocol.exvs;
 using Server.Models.Config;
+using Server.Strategy;
 
 namespace Server.Handlers.Game;
 
@@ -41,7 +42,7 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 NewMsIds = Array.Empty<uint>(), // responsible for showing ms under "new" series
                 DisplayableMsIds = allMsIds, // responsible for triad battle ai enemy units
                 ReleaseGuestNavIds = allMsIds, // responsible for triad battle ai partners
-                ReleaseGameRules = new[] { 1u, 2u },
+                ReleaseGameRules = new[] { 0u, 1u, 2u, 3u, 4u, 5u },
                 UpdateMsIds = Array.Empty<uint>(), // add a 'update' tag to ms
                 on_vs_info = new Response.LoadGameData.OnVsInfo
                 {
@@ -76,30 +77,21 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 LoadGameDataVer = 27,
                 score_battle_point = new Response.LoadGameData.ScoreBattlePoint
                 {
-                    ScoreBattle1500Point = 1,
-                    ScoreBattle2000Point = 1,
-                    ScoreBattle2500Point = 1,
-                    ScoreBattle3000Point = 1
+                    ScoreBattle1500Point = 1500,
+                    ScoreBattle2000Point = 2500,
+                    ScoreBattle2500Point = 3000,
+                    ScoreBattle3000Point = 4500
                 },
                 attack_score_setting = new Response.LoadGameData.AttackScoreSetting
                 {
                     DownScoreTimes = 1,
                     Last30CountScoreTimes = 1,
                     NoAttackDecreaseScore = 1
-                },
-                // Fes Setting is used to unlock CPU F Route
-                FesSetting = new Response.LoadGameData.XrossFesSetting
-                {
-                    RuleType = 1, // Rule Type, 1 = Dual Select
-                    StartDate = (ulong)(DateTimeOffset.Now - TimeSpan.FromDays(10)).ToUnixTimeSeconds(),
-                    EndDate = (ulong)(DateTimeOffset.Now + TimeSpan.FromDays(365)).ToUnixTimeSeconds(),
-                    BurstXrossFlag = true,
-                    Timer = 420,
-                    MatchingBorder = 0,
-                    MobileSuitBlocklists = Array.Empty<uint>()
                 }
             }
         };
+
+        response.load_game_data.FesSetting = new XrossFestStrategy().determine();
         
         // Contributing for all available Echelons, otherwise the game will freeze when there are increment of Echelon
         response.load_game_data.EchelonTables.AddRange(availableEchelonTables);
