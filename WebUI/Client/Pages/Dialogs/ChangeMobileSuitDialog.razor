@@ -69,22 +69,22 @@
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Value))">
-                        Name (English)
+                    <MudTableSortLabel SortBy="@(SortByMsName())">
+                        Name
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueJP))">
-                        Name (Japanese)
+                    <MudTableSortLabel SortBy="@(SortByPilot())">
+                        Pilot
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueCN))">
-                        Name (Chinese)
+                    <MudTableSortLabel SortBy="@(SortBySeiyuu())">
+                        Pilot Seiyuu
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Series))">
+                    <MudTableSortLabel SortBy="@(SortBySeries())">
                         Series
                     </MudTableSortLabel>
                 </MudTh>
@@ -108,11 +108,66 @@
                 @{
 #pragma warning disable CS8602
                 }
+                @{
+                    var lang = Thread.CurrentThread.CurrentCulture.Name;
+                }
                 <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
-                <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.Value</MudTd>
-                <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.ValueJP</MudTd>
-                <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.ValueCN</MudTd>
-                <MudTd DataLabel="Series" Class="cursor-pointer">@context.Series</MudTd>
+                @{
+                    var msName = context.Value;
+
+                    if (lang == "ja")
+                    {
+                        msName = context.ValueJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msName = context.ValueCN;
+                    }
+                }
+                <MudTd DataLabel="Name" Class="cursor-pointer">@msName</MudTd>
+                @{
+                    var msPilot = context.Pilot;
+
+                    if (lang == "ja")
+                    {
+                        msPilot = context.PilotJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msPilot = context.PilotCN;
+                    }
+                }
+                <MudTd DataLabel="Pilot" Class="cursor-pointer">@msPilot</MudTd>
+                @{
+                    var msSeiyuu = context.PilotSeiyuu;
+
+                    if (lang == "ja")
+                    {
+                        msSeiyuu = context.PilotSeiyuuJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msSeiyuu = context.PilotSeiyuuCN;
+                    }
+                }
+                <MudTd DataLabel="Pilot Seiyuu" Class="cursor-pointer">@msSeiyuu</MudTd>
+                @{
+                    var msSeries = context.Series;
+
+                    if (lang == "ja")
+                    {
+                        msSeries = context.SeriesJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msSeries = context.SeriesCN;
+                    }
+                }
+                <MudTd DataLabel="Series" Class="cursor-pointer">@msSeries</MudTd>
                 @{
                     var cost = "N/A";
                     if (context.Id > 0)
@@ -250,7 +305,7 @@
         {
             return false;
         }
-        var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}{mobileSuit.Series}";
+        var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}{mobileSuit.Pilot}{mobileSuit.PilotJP}{mobileSuit.PilotCN}{mobileSuit.PilotSeiyuu}{mobileSuit.PilotSeiyuuJP}{mobileSuit.PilotSeiyuuCN}{mobileSuit.Series}{mobileSuit.SeriesJP}{mobileSuit.SeriesCN}";
         return string.IsNullOrEmpty(searchString) ||
                aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }
@@ -277,5 +332,65 @@
         {
             return string.Empty;
         }
+    }
+
+    private Func<MobileSuit, object> SortByMsName()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.Value;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.ValueJP;
+        }
+
+        return ms => ms.ValueCN;
+    }
+    
+    private Func<MobileSuit, object> SortByPilot()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.Pilot;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.PilotJP;
+        }
+
+        return ms => ms.PilotCN;
+    }
+    
+    private Func<MobileSuit, object> SortBySeiyuu()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.PilotSeiyuu;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.PilotSeiyuuJP;
+        }
+
+        return ms => ms.PilotSeiyuuCN;
+    }
+    
+    private Func<MobileSuit, object> SortBySeries()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.Series;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.SeriesJP;
+        }
+
+        return ms => ms.SeriesCN;
     }
 }
