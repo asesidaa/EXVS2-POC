@@ -40,6 +40,29 @@ public class GetCustomizeTeamCommandHandler : IRequestHandler<GetCustomizeTeamCo
             .Select(tagTeam => tagTeam.ToTeam())
             .ToList();
         
+        teams.ForEach(team =>
+        {
+            var partner = _context.CardProfiles
+                .Include(x => x.UserDomain)
+                .FirstOrDefault(x => x.Id == (int)team.PartnerId);
+
+            if (partner is null)
+            {
+                team.PartnerName = "N/A";
+                return;
+            }
+            
+            var partnerMobileUserGroup = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(partner.UserDomain.UserJson);
+
+            if (partnerMobileUserGroup is null)
+            {
+                team.PartnerName = "N/A";
+                return;
+            }
+
+            team.PartnerName = partnerMobileUserGroup.PlayerName;
+        });
+        
         return Task.FromResult(teams);
     }
 }

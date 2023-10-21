@@ -215,6 +215,14 @@ public class CardController : BaseController<CardController>
         return response;
     }
     
+    [HttpGet("checkPlayerExistence/{partnerId}/{partnerToken}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<PlayerExistenceResult>> CheckPlayerExistence(uint partnerId, String partnerToken)
+    {
+        var response = await mediator.Send(new CheckPlayerExistenceResultCommand(partnerId, partnerToken));
+        return response;
+    }
+    
     [HttpPost("upsertTeams")]
     [Produces("application/json")]
     public async Task<ActionResult<BasicResponse>> UpsertTeams([FromBody] UpsertTeamsRequest request)
