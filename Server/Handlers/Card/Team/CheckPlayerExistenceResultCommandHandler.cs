@@ -48,6 +48,7 @@ public class CheckPlayerExistenceResultCommandHandler : IRequestHandler<CheckPla
         return Task.FromResult(new PlayerExistenceResult
         {
             Success = true,
+            PlayerId = (uint) cardProfile.Id,
             PlayerName = partnerMobileUserGroup.PlayerName
         });
     }
