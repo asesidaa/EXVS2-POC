@@ -76,7 +76,7 @@ public class DataService : IDataService
         mobileSuits = msList.ToDictionary(ms => ms.Id);
         sortedMobileSuitList = msList.OrderBy(title => title.Id).ToList();
 
-        var bgmList = await client.GetFromJsonAsync<List<IdValuePair>>("data/Bgms.json");
+        var bgmList = await client.GetFromJsonAsync<List<IdValuePair>>("data/Bgms.json?v=2");
         bgmList.ThrowIfNull();
         bgm = bgmList.ToDictionary(ms => ms.Id);
         sortedBgmList = bgmList.OrderBy(title => title.Id).ToList();
