@@ -53,6 +53,7 @@ public class GetBasicDisplayProfileCommandHandler : IRequestHandler<GetBasicDisp
 
         var basicDisplayProfile = new BasicDisplayProfile
         {
+            UserId = (uint) cardProfile.Id,
             UserName = preLoadUser.PlayerName,
             OpenEchelon = preLoadUser.OpenEchelon,
             OpenRecord = preLoadUser.OpenRecord,

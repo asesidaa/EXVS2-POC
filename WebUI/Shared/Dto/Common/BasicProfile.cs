@@ -4,6 +4,7 @@ namespace WebUI.Shared.Dto.Common;
 
 public class BasicProfile
 {
+    public uint UserId { get; set; } = 0;
     public string UserName { get; set; } = string.Empty;
     public uint OpenRecord { get; set; } = 0;
     public uint OpenEchelon { get; set; } = 0;
