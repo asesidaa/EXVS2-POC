@@ -24,6 +24,10 @@ public class DataService : IDataService
     private Dictionary<uint, GeneralPreview> backgrounds = new();
     private Dictionary<uint, GeneralPreview> effects = new();
     private Dictionary<uint, GeneralPreview> ornaments = new();
+    private Dictionary<uint, GeneralPreview> teamNameFontColors = new();
+    private Dictionary<uint, GeneralPreview> teamBackgrounds = new();
+    private Dictionary<uint, GeneralPreview> teamEffects = new();
+    private Dictionary<uint, GeneralPreview> teamEmblems = new();
 
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
@@ -44,6 +48,10 @@ public class DataService : IDataService
     private List<GeneralPreview> sortedBackgroundList = new();
     private List<GeneralPreview> sortedEffectList = new();
     private List<GeneralPreview> sortedOrnamentList = new();
+    private List<GeneralPreview> sortedTeamNameFontColorList = new();
+    private List<GeneralPreview> sortedTeamBackgroundList = new();
+    private List<GeneralPreview> sortedTeamEffectList = new();
+    private List<GeneralPreview> sortedTeamEmblemList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -149,6 +157,26 @@ public class DataService : IDataService
         ornamentList.ThrowIfNull();
         ornaments = CreateGeneralPreviewDictionary(ornamentList);
         sortedOrnamentList = CreateSortedGeneralPreviewList(ornamentList);
+        
+        var teamBackgroundList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/team/Backgrounds.json");
+        teamBackgroundList.ThrowIfNull();
+        teamBackgrounds = CreateGeneralPreviewDictionary(teamBackgroundList);
+        sortedTeamBackgroundList = CreateSortedGeneralPreviewList(teamBackgroundList);
+        
+        var teamEffectList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/team/Effects.json");
+        teamEffectList.ThrowIfNull();
+        teamEffects = CreateGeneralPreviewDictionary(teamEffectList);
+        sortedTeamEffectList = CreateSortedGeneralPreviewList(teamEffectList);
+        
+        var teamEmblemList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/team/Emblems.json");
+        teamEmblemList.ThrowIfNull();
+        teamEmblems = CreateGeneralPreviewDictionary(teamEmblemList);
+        sortedTeamEmblemList = CreateSortedGeneralPreviewList(teamEmblemList);
+        
+        var teamFontColorList = await client.GetFromJsonAsync<List<GeneralPreview>>("data/team/NameFontColors.json");
+        teamFontColorList.ThrowIfNull();
+        teamNameFontColors = CreateGeneralPreviewDictionary(teamFontColorList);
+        sortedTeamNameFontColorList = CreateSortedGeneralPreviewList(teamFontColorList);
     }
     
     private Dictionary<uint, GeneralPreview> CreateGeneralPreviewDictionary(List<GeneralPreview> generalPreviews)
@@ -335,5 +363,44 @@ public class DataService : IDataService
     public IReadOnlyList<GeneralPreview> GetOrnamentsSortedById()
     {
         return sortedOrnamentList;
+    }
+    
+    public GeneralPreview? GetTeamNameFontColorById(uint id)
+    {
+        return teamNameFontColors.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetTeamNameFontColorsSortedById()
+    {
+        return sortedTeamNameFontColorList;
+    }
+    
+    public GeneralPreview? GetTeamEffectById(uint id)
+    {
+        return teamEffects.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetTeamEffectsSortedById()
+    {
+        return sortedTeamEffectList;
+    }
+    
+    public GeneralPreview? GetTeamEmblemById(uint id)
+    {
+        return teamEmblems.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetTeamEmblemsSortedById()
+    {
+        return sortedTeamEmblemList;
+    }
+    public GeneralPreview? GetTeamBackgroundById(uint id)
+    {
+        return teamBackgrounds.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<GeneralPreview> GetTeamBackgroundsSortedById()
+    {
+        return sortedTeamBackgroundList;
     }
 }
