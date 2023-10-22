@@ -360,4 +360,97 @@
   <data name="communicationmessage_position_type_left_bottom" xml:space="preserve">
     <value>Left Bottom</value>
   </data>
+  <data name="teamtag" xml:space="preserve">
+    <value>タッグ</value>
+  </data>
+  <data name="teamtag_yourinfo" xml:space="preserve">
+    <value>Your Information</value>
+  </data>
+  <data name="teamtag_youruserid" xml:space="preserve">
+    <value>Your User ID</value>
+  </data>
+  <data name="teamtag_yourinvit" xml:space="preserve">
+    <value>Your Invitation Code</value>
+  </data>
+  <data name="teamtag_addteam" xml:space="preserve">
+    <value>Add Team</value>
+  </data>
+  <data name="teamtag_frienduserid" xml:space="preserve">
+    <value>Friend's User ID</value>
+  </data>
+  <data name="teamtag_friendinvit" xml:space="preserve">
+    <value>Friend's Invitation Code</value>
+  </data>
+  <data name="add_team_button" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="teamtag_edit_team" xml:space="preserve">
+    <value>Edit Team</value>
+  </data>
+  <data name="add_team_warning_blank_friend_user_id" xml:space="preserve">
+    <value>Friend's User ID can't be blank!</value>
+  </data>
+  <data name="add_team_warning_self_user_id" xml:space="preserve">
+    <value>Friend's User ID can't be your ID!</value>
+  </data>
+  <data name="add_team_warning_already_form_team" xml:space="preserve">
+    <value>You already formed Team with this User ID!</value>
+  </data>
+  <data name="add_team_warning_blank_friend_invitation_code" xml:space="preserve">
+    <value>Friend's Invitation Code can't be blank!</value>
+  </data>
+  <data name="add_team_warning_invalid_player_profile" xml:space="preserve">
+    <value>The player is invalid!</value>
+  </data>
+  <data name="teamtag_team_name" xml:space="preserve">
+    <value>Team Name</value>
+  </data>
+  <data name="teamtag_team_bgm" xml:space="preserve">
+    <value>タッグBGM</value>
+  </data>
+  <data name="teamtag_name_color" xml:space="preserve">
+    <value>タッグネームカラー</value>
+  </data>
+  <data name="teamtag_background" xml:space="preserve">
+    <value>タッグ背景</value>
+  </data>
+  <data name="teamtag_effect" xml:space="preserve">
+    <value>タッグエフェクト</value>
+  </data>
+  <data name="teamtag_emblem" xml:space="preserve">
+    <value>タッグエンブレム</value>
+  </data>
+  <data name="remove_team_button" xml:space="preserve">
+    <value>Remove Team</value>
+  </data>
+  <data name="validatepvpteamname" xml:space="preserve">
+    <value>Team Name</value>
+  </data>
+  <data name="dialogtitle_singlebgm" xml:space="preserve">
+    <value>Select BGM</value>
+  </data>
+  <data name="team_delete_dialog_text" xml:space="preserve">
+    <value>This action can't be recovered. Proceed?</value>
+  </data>
+  <data name="team_delete_dialog_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="team_delete_dialog_proceed" xml:space="preserve">
+    <value>Proceed</value>
+  </data>
+  <data name="save_hint_team" xml:space="preserve">
+    <value>タッグ</value>
+  </data>
+  <data name="unknown_team_name_color" xml:space="preserve">
+    <value>Unknown Team Name Font Color</value>
+  </data>
+  <data name="unknown_team_background" xml:space="preserve">
+    <value>Unknown Background</value>
+  </data>
+  <data name="unknown_team_effect" xml:space="preserve">
+    <value>Unknown Effect</value>
+  </data>
+  <data name="unknown_team_emblem" xml:space="preserve">
+    <value>Unknown Emblem</value>
+  </data>
 </root>
