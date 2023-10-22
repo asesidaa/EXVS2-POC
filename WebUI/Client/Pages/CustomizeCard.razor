@@ -422,6 +422,12 @@
         AccessCode="@AccessCode" ChipId="@ChipId" CustomMessageGroupSetting="@_customMessageGroupSetting" HideProgress="@HideCommunicationMessageProgress"
         SaveTask="SaveCommunicationMessageConfig" EnableImagePreview="@EnableImagePreview"/>
 </MudTabPanel>
+<MudTabPanel Text="@localizer["teamtag"]">
+    <WebUI.Client.Pages.Components.Customize.CustomizeTeamTagsTab 
+        BasicProfile="@_basicProfile" HideProgress="@HideTeamTagsProgress" 
+        TagTeams="@_tagTeams"
+        SaveTask="SaveTeamTags" EnableImagePreview="@EnableImagePreview" />
+</MudTabPanel>
 <MudTabPanel Text="@localizer["gamepadconfig"]">
     <MudGrid xs="12">
         <MudItem xs="12">

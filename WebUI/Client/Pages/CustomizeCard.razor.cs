@@ -40,6 +40,7 @@ public partial class CustomizeCard
     private CpuTriadPartner cpuTriadPartner = null;
     private GamepadConfig _gamepadConfig = null;
     private CustomMessageGroupSetting _customMessageGroupSetting = null!;
+    private List<Team> _tagTeams = new();
     
     MudForm _teamNameForm;
     MudForm _messageForm;
@@ -55,6 +56,7 @@ public partial class CustomizeCard
     private string HideFavMsProgress { get; set; } = "invisible";
     private string HideMsCostumeProgress { get; set; } = "invisible";
     private string HideNaviCostumeProgress { get; set; } = "invisible";
+    private string HideTeamTagsProgress { get; set; } = "invisible";
     private string _msCostumeSearchString { get; set; }
     private string _naviCostumeSearchString { get; set; }
 
@@ -129,6 +131,9 @@ public partial class CustomizeCard
 
             var customMessageGroupSetting = await Http.GetFromJsonAsync<CustomMessageGroupSetting>($"/card/getCustomMessageGroupSetting/{AccessCode}/{ChipId}");
             customMessageGroupSetting.ThrowIfNull();
+            
+            var tagTeamResults = await Http.GetFromJsonAsync<List<Team>>($"/card/getTeams/{AccessCode}/{ChipId}");
+            tagTeamResults.ThrowIfNull();
 
             //var json = System.Text.Json.JsonSerializer.Serialize(naviResult);
             //Logger.LogInformation($"{json}");
@@ -246,6 +251,8 @@ public partial class CustomizeCard
             _gamepadConfig = gamepadConfig;
 
             _customMessageGroupSetting = customMessageGroupSetting;
+
+            _tagTeams = tagTeamResults;
         }
     }
     
@@ -438,6 +445,7 @@ public partial class CustomizeCard
         await SaveCustomizeComment();
         await SaveGamepadConfig();
         await SaveCommunicationMessageConfig();
+        await SaveTeamTags();
 
         HideSaveAllProgress = "invisible";
         SaveAllButtonDisabled = false;
@@ -685,6 +693,44 @@ public partial class CustomizeCard
         ShowBasicResponseSnack(result, localizer["save_hint_commconfig"]);
 
         HideCommunicationMessageProgress = "invisible";
+        StateHasChanged();
+    }
+    
+    private async Task SaveTeamTags()
+    {
+        var errorCount = 0;
+        
+        _tagTeams.ForEach(team =>
+        {
+            if (_nameValidator.ValidatePvPTeamName(team.Name) is not null)
+            {
+                errorCount++;
+            }
+        });
+        
+        if (errorCount > 0)
+        {
+            ShowBasicResponseSnack(new BasicResponse { Success = false }, localizer["save_hint_team"]);
+            return;
+        }
+
+        HideTeamTagsProgress = "visible";
+        StateHasChanged();
+        
+        var dto = new UpsertTeamsRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            Teams = _tagTeams
+        };
+
+        var response = await Http.PostAsJsonAsync("/card/upsertTeams", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        ShowBasicResponseSnack(result, localizer["save_hint_team"]);
+
+        HideTeamTagsProgress = "invisible";
         StateHasChanged();
     }
 

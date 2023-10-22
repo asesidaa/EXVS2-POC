@@ -1,0 +1,303 @@
+﻿@using WebUI.Client.Validator
+@using WebUI.Shared.Dto.Common
+@using WebUI.Client.Constants
+@using WebUI.Client.Pages.Dialogs
+@using WebUI.Client.Services
+@inject INameValidator NameValidator
+@inject IDataService DataService
+@inject IDialogService DialogService
+
+<MudCard Outlined="true" Class="my-2" Elevation="5">
+    <MudCardHeader>
+        <MudText>[@CurrentTeam.Id] @CurrentTeam.Name (@CurrentTeam.PartnerName)</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudGrid Class="align-center">
+            <MudItem xs="12">
+                <MudTextField @bind-Value="CurrentTeam.Name"
+                              Immediate="true"
+                              Variant="Variant.Outlined"
+                              Counter="@((int) NameLength.TeamNameMaxLength)"
+                              MaxLength="@((int) NameLength.TeamNameMaxLength)"
+                              Label="@localizer["teamtag_team_name"]"
+                              Validation="NameValidator.ValidatePvPTeamName"/>
+            </MudItem>
+            <MudItem xs="9" sm="11">
+                <MudField Label="@localizer["teamtag_team_bgm"]" Variant="Variant.Outlined">
+                    @{
+                        var bgm = DataService.GetBgmById(CurrentTeam.BgmId);
+                        var bgmName = bgm.Value;
+                        var cultureName = Thread.CurrentThread.CurrentCulture.Name;
+
+                        if (cultureName == "ja")
+                        {
+                            bgmName = bgm.ValueJP;
+                        }
+
+                        if (cultureName == "zh-Hans")
+                        {
+                            bgmName = bgm.ValueCN;
+                        }
+                    }
+                    <MudText Align="Align.Center">@bgmName</MudText>
+                </MudField>
+            </MudItem>
+            <MudItem xs="3" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeSingleBgmDialog()" />
+            </MudItem>
+            @if (ForDataCollection)
+            {
+                <MudItem xs="6" sm="3">
+                    <MudNumericField T="uint" @bind-Value="@CurrentTeam.NameColorId" Label="@localizer["teamtag_name_color"]" Variant="Variant.Outlined"/>
+                </MudItem>
+                <MudItem xs="6" sm="3">
+                    <MudNumericField T="uint" @bind-Value="@CurrentTeam.BackgroundPartsId" Label="@localizer["teamtag_background"]" Variant="Variant.Outlined"/>
+                </MudItem>
+                <MudItem xs="6" sm="3">
+                    <MudNumericField T="uint" @bind-Value="@CurrentTeam.EffectId" Label="@localizer["teamtag_effect"]" Variant="Variant.Outlined"/>
+                </MudItem>
+                <MudItem xs="6" sm="3">
+                    <MudNumericField T="uint" @bind-Value="@CurrentTeam.EmblemId" Label="@localizer["teamtag_emblem"]" Variant="Variant.Outlined"/>
+                </MudItem>
+            }
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["teamtag_name_color"]" Variant="Variant.Outlined">
+                    @{
+                        var teamNameColorImagePath = $"images/team_name_colors/{CurrentTeam.NameColorId}.png";
+                        var teamNameColor = DataService.GetTeamNameFontColorById(CurrentTeam.NameColorId);
+                        var teamNameColorName = teamNameColor?.Value ?? localizer["unknown_team_name_color"];
+                    }
+                    @if (teamNameColor is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@teamNameColorImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)teamNameColorName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeTeamNameFontColorsDialog(CurrentTeam)"/>
+            </MudItem>
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["teamtag_background"]" Variant="Variant.Outlined">
+                    @{
+                        var teamBackgroundImagePath = $"images/team_backgrounds/{CurrentTeam.BackgroundPartsId}.png";
+                        var teamBackground = DataService.GetTeamBackgroundById(CurrentTeam.BackgroundPartsId);
+                        var teamBackgroundName = teamBackground?.Value ?? localizer["unknown_team_background"];
+                    }
+                    @if (teamBackground is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@teamBackgroundImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)teamBackgroundName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeTeamBackgroundsDialog(CurrentTeam)"/>
+            </MudItem>
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["teamtag_effect"]" Variant="Variant.Outlined">
+                    @{
+                        var teamEffectImagePath = $"images/team_effects/{CurrentTeam.EffectId}.png";
+                        var teamEffect = DataService.GetTeamEffectById(CurrentTeam.EffectId);
+                        var teamEffectName = teamEffect?.Value ?? localizer["unknown_team_effect"];
+                    }
+                    @if (teamEffect is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@teamEffectImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)teamEffectName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeTeamEffectsDialog(CurrentTeam)"/>
+            </MudItem>
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["teamtag_emblem"]" Variant="Variant.Outlined">
+                    @{
+                        var teamEmblemImagePath = $"images/team_emblems/{CurrentTeam.EmblemId}.png";
+                        var teamEmblem = DataService.GetTeamEmblemById(CurrentTeam.EmblemId);
+                        var teamEmblemName = teamEmblem?.Value ?? localizer["unknown_team_emblem"];
+                    }
+                    @if (teamEmblem is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@teamEmblemImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="100"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)teamEmblemName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeTeamEmblemsDialog(CurrentTeam)"/>
+            </MudItem>
+            
+            <MudItem xs="12">
+                <MudButton Variant="Variant.Filled" Color="Color.Error" FullWidth="true" OnClick="PreRemoveTeam">@localizer["remove_team_button"]</MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+@code{
+    [Parameter]
+    public List<Team> TagTeams { get; set; } = new();
+
+    [Parameter]
+    public Team CurrentTeam { get; set; } = new();
+    
+    [Parameter]
+    public EventCallback OnDeleted { get; set; }
+    
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+    
+    public const bool ForDataCollection = false;
+    
+    private async Task OpenChangeSingleBgmDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { CurrentTeam.BgmId } } };
+        var dialog = await DialogService.ShowAsync<ChangeSingleBgmDialog>(localizer["dialogtitle_singlebgm"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CurrentTeam.BgmId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private void PreRemoveTeam()
+    {
+        var parameters = new DialogParameters<DeleteTeamDialog>();
+        parameters.Add(x => x.CallBackAfterDelete, OnDeleted);
+        parameters.Add(x => x.TagTeams, TagTeams);
+        parameters.Add(x => x.CurrentTeam, CurrentTeam);
+
+        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+        DialogService.Show<DeleteTeamDialog>(localizer["remove_team_button"], parameters, options);
+    }
+    
+    private async Task OpenChangeTeamBackgroundsDialog(Team team)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { team.BackgroundPartsId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Team Background: "},
+            { "ImagePathPrefix", "images/team_backgrounds"},
+            { "Mode", "TeamBackgrounds" },
+            { "HasClues", false },
+            { "Width", 380 }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["teamtag_background"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            team.BackgroundPartsId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeTeamEffectsDialog(Team team)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { team.EffectId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Team Effect: "},
+            { "ImagePathPrefix", "images/team_effects"},
+            { "Mode", "TeamEffects" },
+            { "HasClues", false },
+            { "Width", 380 }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["teamtag_effect"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            team.EffectId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeTeamEmblemsDialog(Team team)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { team.EmblemId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Team Emblem: "},
+            { "ImagePathPrefix", "images/team_emblems"},
+            { "Mode", "TeamEmblems" },
+            { "HasClues", false },
+            { "Width", 160 }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["teamtag_emblem"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            team.EmblemId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeTeamNameFontColorsDialog(Team team)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { team.NameColorId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Team Name Color: "},
+            { "ImagePathPrefix", "images/team_name_colors"},
+            { "Mode", "TeamNameColors" },
+            { "HasClues", false },
+            { "Width", 380 }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["teamtag_name_color"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            team.NameColorId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private static readonly DialogOptions DialogOptions = new()
+    {
+        CloseOnEscapeKey = false,
+        DisableBackdropClick = true,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}
