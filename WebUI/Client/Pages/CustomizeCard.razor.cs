@@ -3,7 +3,6 @@ using Microsoft.JSInterop;
 using MudBlazor;
 using System.Collections.ObjectModel;
 using System.Net.Http.Json;
-using System.Text.RegularExpressions;
 using Throw;
 using WebUI.Client.Pages.Dialogs;
 using WebUI.Client.Validator;
@@ -319,78 +318,6 @@ public partial class CustomizeCard
         if (!result.Canceled && result.Data != null)
         {
             _naviProfile.DefaultBattleNaviId = (result.Data as uint[])!.FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenChangeFavouriteMsDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs.IndexOf(item);
-
-        if (index == -1)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters { { "Data", item.MsId } };
-        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>(localizer["dialogtitle_favms"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index].MsId = (uint)result.Data;
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenFavMsChangeBgmOrderDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs.IndexOf(item);
-
-        if (index == -1)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters { { "Data", item.BgmList } };
-        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>(localizer["dialogtitle_bgmorder"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index].BgmList = (result.Data as uint[])!;
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenFavMsChangeNaviDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs.IndexOf(item);
-
-        if (index == -1)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters { { "Data", new[] { item.BattleNaviId } } };
-        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>(localizer["dialogtitle_navibattle"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index].BattleNaviId = (result.Data as uint[])!.FirstOrDefault();
-            StateHasChanged();
-        }
-    }
-
-    private async Task OpenFavMsChangeGaugeDialog(FavouriteMs item)
-    {
-        var index = _favouriteMs.IndexOf(item);
-
-        if (index == -1)
-            throw new ArgumentException("Selected item is not part of the provided items list.");
-
-        var parameters = new DialogParameters {{ "Data", new[] { item.GaugeDesignId }}};
-        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>(localizer["dialogtitle_gauge"], parameters, OPTIONS);
-        var result = await dialog.Result;
-
-        if (!result.Canceled && result.Data != null)
-        {
-            _favouriteMs[index].GaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
             StateHasChanged();
         }
     }
