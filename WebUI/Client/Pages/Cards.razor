@@ -125,10 +125,10 @@
 
         if (cardDtos is null)
             cardDtos = new List<BareboneCardProfile>();
+        
+        originalCardDtos = cardDtos;
 
         cardDtos = cardDtos.Take(_maxCardsShownCount).ToList();
-
-        originalCardDtos = cardDtos;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -186,7 +186,24 @@
 
     private void SearchEntered(string input)
     {
-        cardDtos = originalCardDtos.Where(x => x.ChipId.Contains(input)).ToList();
+        if (input.Trim() == "")
+        {
+            cardDtos = originalCardDtos.Take(_maxCardsShownCount).ToList();
+            StateHasChanged();
+            return;
+        }
+        
+        var eligibleCardDtos = originalCardDtos.Where(x => x.ChipId.Contains(input)).ToList();
+        
+        if (eligibleCardDtos.Count > 0)
+        {
+            cardDtos = eligibleCardDtos;
+        }
+        else
+        {
+            cardDtos = originalCardDtos.Take(_maxCardsShownCount).ToList();
+        }
+
         StateHasChanged();
     }
 
