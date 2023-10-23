@@ -726,6 +726,24 @@ public partial class CustomizeCard
 
         if (x.Navigator.ValueCN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
+        
+        if (x.Navigator.Series.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeriesJP.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeriesCN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (x.Navigator.Seiyuu.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeiyuuJP.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeiyuuCN.Contains(_naviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
 
         return false;
     };

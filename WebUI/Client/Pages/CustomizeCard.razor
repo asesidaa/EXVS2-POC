@@ -6,6 +6,7 @@
 @inject IDataService DataService
 @inject INameService NameService
 @inject IDialogService DialogService
+@inject ISelectorService SelectorService
 
 @using WebUI.Client.Extensions;
 @using WebUI.Shared.Dto.Common;
@@ -137,6 +138,16 @@
                                 <PropertyColumn Property="x => x.Navigator.Id" IsEditable="true" Title="@localizer["navisetting_navi"]">
                                     <EditTemplate>
                                         <MudText>@NameService.GetNavigatorName(context.Item.Navigator.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="SelectorService.GetNaviSeriesSelector()" IsEditable="true" Title="@localizer["navisetting_navi_series"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetNavigatorSeriesName(context.Item.Navigator.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="SelectorService.GetNaviSeiyuuSelector()" IsEditable="true" Title="@localizer["navisetting_navi_seiyuu"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetNavigatorSeiyuuName(context.Item.Navigator.Id)</MudText>
                                     </EditTemplate>
                                 </PropertyColumn>
                                 <PropertyColumn Property="x => x.Navi" Title="@localizer["navisetting_costume"]">
@@ -281,33 +292,11 @@
                                         <MudText>@NameService.GetMobileSuitName(context.Item.MobileSuit.Id)</MudText>
                                     </EditTemplate>
                                 </PropertyColumn>
-                                @{
-                                    var lang = Thread.CurrentThread.CurrentCulture.Name;
-                                    if (lang == "en-US")
-                                    {
-                                        <PropertyColumn Property="x => x.MobileSuit.Pilot" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
-                                            <EditTemplate>
-                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
-                                            </EditTemplate>
-                                        </PropertyColumn>
-                                    }
-                                    if (lang == "ja")
-                                    {
-                                        <PropertyColumn Property="x => x.MobileSuit.PilotJP" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
-                                            <EditTemplate>
-                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
-                                            </EditTemplate>
-                                        </PropertyColumn>
-                                    }
-                                    if (lang == "zh-Hans")
-                                    {
-                                        <PropertyColumn Property="x => x.MobileSuit.PilotCN" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
-                                            <EditTemplate>
-                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
-                                            </EditTemplate>
-                                        </PropertyColumn>
-                                    }
-                                }
+                                <PropertyColumn Property="SelectorService.GetMsPilotSelector()" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
                                 <PropertyColumn Property="x => x.SkillGroup" Title="@localizer["mscostumecostumeheader"]">
                                     <EditTemplate>
                                         <MudStack Row>

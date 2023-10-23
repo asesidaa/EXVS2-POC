@@ -70,22 +70,22 @@
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="@(SortByMsName())">
-                        Name
+                        @localizer["msdialog_ms"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="@(SortByPilot())">
-                        Pilot
+                        @localizer["msdialog_pilot"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="@(SortBySeiyuu())">
-                        Pilot Seiyuu
+                        @localizer["msdialog_pilot_seiyuu"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="@(SortBySeries())">
-                        Series
+                        @localizer["msdialog_series"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
@@ -95,7 +95,7 @@
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.MasteryPoint))">
-                        Mastery
+                        @localizer["msdialog_mastery"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
@@ -125,7 +125,7 @@
                         msName = context.ValueCN;
                     }
                 }
-                <MudTd DataLabel="Name" Class="cursor-pointer">@msName</MudTd>
+                <MudTd DataLabel="@localizer["msdialog_ms"]" Class="cursor-pointer">@msName</MudTd>
                 @{
                     var msPilot = context.Pilot;
 
@@ -139,7 +139,7 @@
                         msPilot = context.PilotCN;
                     }
                 }
-                <MudTd DataLabel="Pilot" Class="cursor-pointer">@msPilot</MudTd>
+                <MudTd DataLabel="@localizer["msdialog_pilot"]" Class="cursor-pointer">@msPilot</MudTd>
                 @{
                     var msSeiyuu = context.PilotSeiyuu;
 
@@ -153,7 +153,7 @@
                         msSeiyuu = context.PilotSeiyuuCN;
                     }
                 }
-                <MudTd DataLabel="Pilot Seiyuu" Class="cursor-pointer">@msSeiyuu</MudTd>
+                <MudTd DataLabel="@localizer["msdialog_pilot_seiyuu"]" Class="cursor-pointer">@msSeiyuu</MudTd>
                 @{
                     var msSeries = context.Series;
 
@@ -167,7 +167,7 @@
                         msSeries = context.SeriesCN;
                     }
                 }
-                <MudTd DataLabel="Series" Class="cursor-pointer">@msSeries</MudTd>
+                <MudTd DataLabel="@localizer["msdialog_series"]" Class="cursor-pointer">@msSeries</MudTd>
                 @{
                     var cost = "N/A";
                     var costStyle = "";
@@ -200,7 +200,7 @@
                  @{
                     if (context.Id == 0)
                     {
-                        <MudTd DataLabel="Mastery" Class="cursor-pointer">N/A</MudTd>
+                        <MudTd DataLabel="@localizer["msdialog_mastery"]" Class="cursor-pointer">N/A</MudTd>
                     }
                     else
                     {
@@ -208,7 +208,7 @@
 
                         if (familiarity.UseDescription)
                         {
-                            <MudTd DataLabel="Mastery" Class="cursor-pointer">
+                            <MudTd DataLabel="@localizer["msdialog_mastery"]" Class="cursor-pointer">
                                 <div style="font-style: italic; font-weight: bold; color: #fe0;">
                                     @familiarity.Description
                                 </div>
@@ -219,7 +219,7 @@
                             int level = (int)familiarity.Level;
                             string styleClass = "ms-mastery-rating-lv" + familiarity.ColorCode;
 
-                            <MudTd DataLabel="Mastery" Class="cursor-pointer">
+                            <MudTd DataLabel="@localizer["msdialog_mastery"]" Class="cursor-pointer">
                                 <MudRating SelectedValue="@level" MaxValue="5" ReadOnly="true"
                                            RatingItemsClass="@styleClass"
                                            FullIcon="@Icons.Material.Filled.Star"
