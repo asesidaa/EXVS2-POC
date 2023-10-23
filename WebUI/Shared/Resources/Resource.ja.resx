@@ -495,4 +495,37 @@
   <data name="mscostumepilotheader" xml:space="preserve">
     <value>パイロット</value>
   </data>
+  <data name="navidialog_navi" xml:space="preserve">
+    <value>ナビ</value>
+  </data>
+  <data name="navidialog_series" xml:space="preserve">
+    <value>作品枠</value>
+  </data>
+  <data name="navidialog_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="navidialog_closeness" xml:space="preserve">
+    <value>親密度</value>
+  </data>
+  <data name="navisetting_navi_series" xml:space="preserve">
+    <value>作品枠</value>
+  </data>
+  <data name="navisetting_navi_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="msdialog_ms" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="msdialog_pilot" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+  <data name="msdialog_series" xml:space="preserve">
+    <value>作品枠</value>
+  </data>
+  <data name="msdialog_pilot_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="msdialog_mastery" xml:space="preserve">
+    <value>熟練度</value>
+  </data>
 </root>
