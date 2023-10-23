@@ -1,0 +1,38 @@
+﻿@using WebUI.Shared.Dto.Common
+<MudDialog>
+    <DialogContent>
+        <MudText>@localizer["team_delete_dialog_text"]</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">@localizer["team_delete_dialog_cancel"]</MudButton>
+        <MudButton Color="Color.Error" Variant="Variant.Filled" OnClick="RemoveTeam">@localizer["team_delete_dialog_proceed"]</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    [CascadingParameter] 
+    MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public EventCallback CallBackAfterDelete { get; set; }
+    
+    [Parameter]
+    public List<Team> TagTeams { get; set; } = new();
+
+    [Parameter]
+    public Team CurrentTeam { get; set; } = new();
+    
+    void Cancel() => MudDialog.Cancel();
+    
+    private async void RemoveTeam()
+    {
+        TagTeams.RemoveAll(x => x.Id == CurrentTeam.Id);
+        var startingIndex = 1;
+        TagTeams.ForEach(x =>
+        {
+            x.Id = (uint) startingIndex;
+            startingIndex++;
+        });
+        await CallBackAfterDelete.InvokeAsync();
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+}

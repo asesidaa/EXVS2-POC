@@ -478,6 +478,11 @@ public class NameValidator : INameValidator
         return ValidateName(teamName, _localizer["validatetriadteamname"]);
     }
     
+    public string? ValidatePvPTeamName(string teamName)
+    {
+        return ValidateName(teamName, _localizer["validatepvpteamname"]);
+    }
+    
     public string? ValidateCustomizeMessage(string message)
     {
         return ValidateMessage(message, _localizer["validatemessage"]);

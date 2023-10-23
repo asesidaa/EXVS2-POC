@@ -600,4 +600,97 @@
   <data name="titles_ornament" xml:space="preserve">
     <value>称号装饰品</value>
   </data>
+  <data name="teamtag" xml:space="preserve">
+    <value>队伍</value>
+  </data>
+  <data name="teamtag_yourinfo" xml:space="preserve">
+    <value>您的个人资料</value>
+  </data>
+  <data name="teamtag_youruserid" xml:space="preserve">
+    <value>您的用户ID</value>
+  </data>
+  <data name="teamtag_yourinvit" xml:space="preserve">
+    <value>您的好友码</value>
+  </data>
+  <data name="teamtag_addteam" xml:space="preserve">
+    <value>添加队伍</value>
+  </data>
+  <data name="teamtag_frienduserid" xml:space="preserve">
+    <value>队友的用户ID</value>
+  </data>
+  <data name="teamtag_friendinvit" xml:space="preserve">
+    <value>队友的好友码</value>
+  </data>
+  <data name="add_team_button" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="teamtag_edit_team" xml:space="preserve">
+    <value>修改队伍细节</value>
+  </data>
+  <data name="add_team_warning_blank_friend_user_id" xml:space="preserve">
+    <value>队友的用户ID不能为空值!</value>
+  </data>
+  <data name="add_team_warning_self_user_id" xml:space="preserve">
+    <value>队友的用户ID不能是您本人的ID!</value>
+  </data>
+  <data name="add_team_warning_already_form_team" xml:space="preserve">
+    <value>您已经跟这个队友组了队!</value>
+  </data>
+  <data name="add_team_warning_blank_friend_invitation_code" xml:space="preserve">
+    <value>队友的好友码不能为空值!</value>
+  </data>
+  <data name="add_team_warning_invalid_player_profile" xml:space="preserve">
+    <value>您提供的队友ID和好友码并不正确!</value>
+  </data>
+  <data name="teamtag_team_name" xml:space="preserve">
+    <value>队伍名称</value>
+  </data>
+  <data name="teamtag_team_bgm" xml:space="preserve">
+    <value>队伍BGM</value>
+  </data>
+  <data name="teamtag_name_color" xml:space="preserve">
+    <value>队伍名称颜色</value>
+  </data>
+  <data name="teamtag_background" xml:space="preserve">
+    <value>队伍背景</value>
+  </data>
+  <data name="teamtag_effect" xml:space="preserve">
+    <value>队伍特效</value>
+  </data>
+  <data name="teamtag_emblem" xml:space="preserve">
+    <value>队伍徽章</value>
+  </data>
+  <data name="remove_team_button" xml:space="preserve">
+    <value>删除队伍</value>
+  </data>
+  <data name="validatepvpteamname" xml:space="preserve">
+    <value>队伍名称</value>
+  </data>
+  <data name="dialogtitle_singlebgm" xml:space="preserve">
+    <value>选择BGM</value>
+  </data>
+  <data name="team_delete_dialog_text" xml:space="preserve">
+    <value>删除了之后，此队伍的设定和等级都不能复原。</value>
+  </data>
+  <data name="team_delete_dialog_cancel" xml:space="preserve">
+    <value>再想想</value>
+  </data>
+  <data name="team_delete_dialog_proceed" xml:space="preserve">
+    <value>继续</value>
+  </data>
+  <data name="save_hint_team" xml:space="preserve">
+    <value>队伍</value>
+  </data>
+  <data name="unknown_team_name_color" xml:space="preserve">
+    <value>不明队伍名称颜色</value>
+  </data>
+  <data name="unknown_team_background" xml:space="preserve">
+    <value>不明队伍背景</value>
+  </data>
+  <data name="unknown_team_effect" xml:space="preserve">
+    <value>不明队伍特效</value>
+  </data>
+  <data name="unknown_team_emblem" xml:space="preserve">
+    <value>不明队伍徽章</value>
+  </data>
 </root>

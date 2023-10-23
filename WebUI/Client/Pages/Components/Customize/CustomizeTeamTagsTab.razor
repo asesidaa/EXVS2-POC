@@ -1,0 +1,160 @@
+﻿@using WebUI.Shared.Dto.Common
+@using WebUI.Shared.Dto.Response
+@inherits BasicCustomizeComponent
+
+@inject ISnackbar Snackbar
+@inject HttpClient Http
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["teamtag"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@HideProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudCard Outlined="true" Class="my-2" Elevation="5">
+                    <MudCardHeader>
+                        <MudText>@localizer["teamtag_yourinfo"]</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" sm="6">
+                                <MudTextField @bind-Value="@BasicProfile.UserId" Label="@localizer["teamtag_youruserid"]" ReadOnly="true" Variant="Variant.Outlined"/>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudTextField @bind-Value="@BasicProfile.DistinctTeamFormationToken" Label="@localizer["teamtag_yourinvit"]" ReadOnly="true" Variant="Variant.Outlined"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                </MudCard>
+                @if (TagTeams.Count < MaxTeamCount)
+                {
+                    <MudCard Outlined="true" Class="my-2" Elevation="5">
+                        <MudCardHeader>
+                            <MudText>@localizer["teamtag_addteam"]</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="12" sm="6">
+                                    <MudNumericField T="uint" @bind-Value="@FriendUserId" Label="@localizer["teamtag_frienduserid"]" Variant="Variant.Outlined"/>
+                                </MudItem>
+                                <MudItem xs="12" sm="6">
+                                    <MudTextField @bind-Value="@FriendTeamToken" Label="@localizer["teamtag_friendinvit"]" Variant="Variant.Outlined"/>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" OnClick="AddTeam">@localizer["add_team_button"]</MudButton>
+                                </MudItem>
+                            </MudGrid>
+                        </MudCardContent>
+                    </MudCard>
+                }
+                @if (TagTeams.Count > 0)
+                {
+                    <MudCard Outlined="true" Class="my-2" Elevation="5">
+                        <MudCardHeader>
+                            <MudText>@localizer["teamtag_edit_team"]</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudGrid>
+                                @foreach (var tagTeam in TagTeams)
+                                {
+                                    <MudItem xs="12">
+                                        <WebUI.Client.Pages.Components.Customize.Inner.TeamTag TagTeams="@TagTeams" CurrentTeam="@tagTeam"
+                                                                                               OnDeleted="@(() => StateHasChanged())"
+                                                                                               EnableImagePreview="@EnableImagePreview"/>
+                                    </MudItem>
+                                }
+                            </MudGrid>
+                        </MudCardContent>
+                    </MudCard>
+                }
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public BasicProfile BasicProfile { get; set; } = new();
+
+    [Parameter]
+    public List<Team> TagTeams { get; set; } = new();
+    
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+
+    private const uint MaxTeamCount = 20;
+    private uint FriendUserId { get; set; } = 0;
+    private string FriendTeamToken { get; set; } = string.Empty;
+
+    private async void AddTeam()
+    {
+        if (FriendUserId == 0)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_blank_friend_user_id"]}", Severity.Warning);
+            return;
+        }
+
+        if (FriendUserId == BasicProfile.UserId)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_self_user_id"]}", Severity.Warning);
+            return;
+        }
+
+        var allTeamPartnerIds = TagTeams
+            .Select(tagTeam => tagTeam.PartnerId)
+            .ToList();
+
+        if (allTeamPartnerIds.Contains(FriendUserId))
+        {
+            Snackbar.Add($"{localizer["add_team_warning_already_form_team"]}", Severity.Warning);
+            return;
+        }
+        
+        if (FriendTeamToken == string.Empty)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_blank_friend_invitation_code"]}", Severity.Warning);
+            return;
+        }
+        
+        var profileResult = await Http.GetFromJsonAsync<PlayerExistenceResult>($"/card/checkPlayerExistence/{FriendUserId}/{FriendTeamToken}");
+
+        if (profileResult is null)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_invalid_player_profile"]}", Severity.Warning);
+            return;
+        }
+        
+        if (!profileResult.Success)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_invalid_player_profile"]}", Severity.Warning);
+            return;
+        }
+        
+        TagTeams.Add(new Team()
+        {
+            Id = (uint)(TagTeams.Count + 1),
+            PartnerName = profileResult.PlayerName,
+            BackgroundPartsId = 0,
+            BgmId = 0,
+            EffectId = 0,
+            EmblemId = 0,
+            Name = "EXTREME TEAM",
+            NameColorId = 0,
+            PartnerId = profileResult.PlayerId,
+            SkillPoint = 0,
+            SkillPointBoost = 0
+        });
+        
+        StateHasChanged();
+    }
+}

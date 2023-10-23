@@ -50,11 +50,14 @@
                         </MudTableSortLabel>
                     </MudTh>
                 }
-                <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Clues))">
-                        Clues
-                    </MudTableSortLabel>
-                </MudTh>
+                @if (HasClues)
+                {
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Clues))">
+                            Clues
+                        </MudTableSortLabel>
+                    </MudTh>
+                }
                 @if (EnableImagePreview)
                 {
                     <MudTh>
@@ -79,7 +82,8 @@
                     
                     <MudTd DataLabel="Name" Class="cursor-pointer">@((MarkupString)category)</MudTd>
                 }
-                @{
+                @if (HasClues)
+                {
                     var clueString = "";
                     if (context.Clues is not null)
                     {
@@ -90,8 +94,8 @@
                     {
                         clueString += "<br>" + context.Clues2;
                     }
+                    <MudTd DataLabel="Clues" Class="cursor-pointer">@((MarkupString) clueString)</MudTd>
                 }
-                <MudTd DataLabel="Clues" Class="cursor-pointer">@((MarkupString) clueString)</MudTd>
                 @if (EnableImagePreview)
                 {
                     <MudTd DataLabel="Preview" Class="cursor-pointer">
@@ -99,7 +103,7 @@
                             var imagePath = $"{ImagePathPrefix}/{context.Id}.png";
                         }
                         <MudImage ObjectPosition="ObjectPosition.Center" Src="@imagePath" Fluid="true"
-                                  Width="300"
+                                  Width="Width"
                                   ObjectFit="ObjectFit.Cover" Class="rounded-lg"/>
                     </MudTd>
                 }
@@ -137,6 +141,9 @@
 
     [Parameter]
     public bool EnableImagePreview { get; set; } = true;
+    
+    [Parameter]
+    public bool HasClues { get; set; } = true;
 
     [Parameter]
     public bool HasCategory { get; set; } = false;
@@ -149,6 +156,9 @@
 
     [Parameter]
     public string Mode { get; set; } = string.Empty;
+    
+    [Parameter]
+    public int Width { get; set; } = 300;
 
     private HashSet<GeneralPreview> selectedItems = new();
 
@@ -197,6 +207,26 @@
             return DataService.GetOrnamentsSortedById();
         }
         
+        if (Mode == "TeamBackgrounds")
+        {
+            return DataService.GetTeamBackgroundsSortedById();
+        }
+        
+        if (Mode == "TeamEffects")
+        {
+            return DataService.GetTeamEffectsSortedById();
+        }
+
+        if (Mode == "TeamEmblems")
+        {
+            return DataService.GetTeamEmblemsSortedById();
+        }
+
+        if (Mode == "TeamNameColors")
+        {
+            return DataService.GetTeamNameFontColorsSortedById();
+        }
+        
         return DataService.GetStampsSortedById();
     }
 
@@ -220,6 +250,26 @@
         if (Mode == "Ornaments")
         {
             return DataService.GetOrnamentById(id);
+        }
+        
+        if (Mode == "TeamBackgrounds")
+        {
+            return DataService.GetTeamBackgroundById(id);
+        }
+        
+        if (Mode == "TeamEffects")
+        {
+            return DataService.GetTeamEffectById(id);
+        }
+
+        if (Mode == "TeamEmblems")
+        {
+            return DataService.GetTeamEmblemById(id);
+        }
+
+        if (Mode == "TeamNameColors")
+        {
+            return DataService.GetTeamNameFontColorById(id);
         }
         
         return DataService.GetStampById(id);

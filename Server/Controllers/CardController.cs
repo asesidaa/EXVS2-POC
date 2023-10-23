@@ -7,6 +7,7 @@ using Server.Handlers.Card.Message;
 using Server.Handlers.Card.MobileSuit;
 using Server.Handlers.Card.Navi;
 using Server.Handlers.Card.Profile;
+using Server.Handlers.Card.Team;
 using Server.Handlers.Card.Triad;
 using Server.Handlers.Card.UploadedContent;
 using WebUI.Shared.Dto.Common;
@@ -203,6 +204,30 @@ public class CardController : BaseController<CardController>
     public async Task<ActionResult<BasicResponse>> UpsertGamepadConfig([FromBody] UpsertGamepadConfigRequest request)
     {
         var response = await mediator.Send(new UpsertGamepadConfigCommand(request));
+        return response;
+    }
+    
+    [HttpGet("getTeams/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<List<Team>>> GetTeams(String accessCode, String chipId)
+    {
+        var response = await mediator.Send(new GetCustomizeTeamCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpGet("checkPlayerExistence/{partnerId}/{partnerToken}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<PlayerExistenceResult>> CheckPlayerExistence(uint partnerId, String partnerToken)
+    {
+        var response = await mediator.Send(new CheckPlayerExistenceResultCommand(partnerId, partnerToken));
+        return response;
+    }
+    
+    [HttpPost("upsertTeams")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpsertTeams([FromBody] UpsertTeamsRequest request)
+    {
+        var response = await mediator.Send(new UpsertCustomizeTeamCommand(request));
         return response;
     }
     
