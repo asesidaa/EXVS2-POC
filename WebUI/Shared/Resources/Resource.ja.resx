@@ -190,10 +190,13 @@
   </data>
   <!-- Favourite MS Setting -->
   <data name="favmssetting" xml:space="preserve">
-    <value>Favourite Mobile Suits</value>
+    <value>お気に入り機体</value>
   </data>
   <data name="favmsdialog_mstitle" xml:space="preserve">
     <value>機体</value>
+  </data>
+  <data name="favmsdialog_pilottitle" xml:space="preserve">
+    <value>パイロット</value>
   </data>
   <data name="unknownms" xml:space="preserve">
     <value>Unknown Mobile Suit</value>
@@ -211,31 +214,67 @@
     <value>ゲージデザイン</value>
   </data>
   <data name="favmsdialog_bgmreplaytype" xml:space="preserve">
-    <value>Bgm Play Type</value>
+    <value>BGM再生方法</value>
   </data>
   <data name="favmsdialog_bgmlistorder" xml:space="preserve">
-    <value>Bgm Play List Order</value>
+    <value>対戦BGM</value>
   </data>
   <!-- Pilot alternative costumes, done -->
   <data name="mscostumesetting" xml:space="preserve">
-    <value>Pilot Alternative Costumes</value>
+    <value>パイロット衣装設定</value>
   </data>
   <data name="mscostumehint" xml:space="preserve">
     <value>Mobile Suits without alternate costumes are not in the list.</value>
   </data>
   <data name="mscostumemsheader" xml:space="preserve">
-    <value>Mobile Suit</value>
+    <value>機体</value>
   </data>
   <data name="mscostumecostumeheader" xml:space="preserve">
-    <value>Costume</value>
+    <value>パイロット衣装</value>
   </data>
   <!-- CPU Triad Setting -->
   <data name="cputriadpartner" xml:space="preserve">
-    <value>Triad Mode CPU Partner</value>
+    <value>CPU僚機エディット</value>
+  </data>
+  <data name="triad_ai" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="triad_armor" xml:space="preserve">
+    <value>耐久値</value>
+  </data>
+  <data name="triad_boost" xml:space="preserve">
+    <value>ブースト</value>
+  </data>
+  <data name="triad_bursttype" xml:space="preserve">
+    <value>EX-バーストタイプ</value>
+  </data>
+  <data name="triad_cpums" xml:space="preserve">
+    <value>CPU僚機</value>
+  </data>
+  <data name="triad_cpuskill1" xml:space="preserve">
+    <value>エディットボーナス1</value>
+  </data>
+  <data name="triad_cpuskill2" xml:space="preserve">
+    <value>エディットボーナス2</value>
+  </data>
+  <data name="triad_exgauge" xml:space="preserve">
+    <value>EXゲージ</value>
+  </data>
+  <data name="triad_infight" xml:space="preserve">
+    <value>格闘・攻</value>
+  </data>
+  <data name="triad_shooting" xml:space="preserve">
+    <value>射撃・攻</value>
+  </data>
+  <data name="triad_teambanner" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="triad_teamname" xml:space="preserve">
+    <value>チームネーム</value>
   </data>
   <!-- Customize Comment Setting -->
   <data name="customizecomment" xml:space="preserve">
-    <value>Customize Comment</value>
+    <value>カスタマイズコメント設定</value>
   </data>
   <!-- Communication Message Setting -->
   <data name="communicationmessage" xml:space="preserve">
@@ -243,7 +282,7 @@
   </data>
   <!-- Game Pad Config, done -->
   <data name="gamepadconfig" xml:space="preserve">
-    <value>Gamepad Config</value>
+    <value>ゲームパッド</value>
   </data>
   <data name="gamepadhint1" xml:space="preserve">
     <value>Labels are based on Xbox / PS</value>
@@ -252,34 +291,34 @@
     <value>Especially useful for the Arcade Stick that support XInput / PC mode (e.g. Victrix Pro FS)</value>
   </data>
   <data name="gamepadsquare" xml:space="preserve">
-    <value>X / □ Button</value>
+    <value>X / □</value>
   </data>
   <data name="gamepadtriangle" xml:space="preserve">
-    <value>Y / △ Button</value>
+    <value>Y / △</value>
   </data>
   <data name="gamepadcross" xml:space="preserve">
-    <value>A / × Button</value>
+    <value>A / ×</value>
   </data>
   <data name="gamepadcircle" xml:space="preserve">
-    <value>B / ○ Button</value>
+    <value>B / ○</value>
   </data>
   <data name="gamepadl1" xml:space="preserve">
-    <value>LB / L1 Button</value>
+    <value>LB / L1</value>
   </data>
   <data name="gamepadr1" xml:space="preserve">
-    <value>RB / R1 Button</value>
+    <value>RB / R1</value>
   </data>
   <data name="gamepadl2" xml:space="preserve">
-    <value>LT / L2 Button</value>
+    <value>LT / L2</value>
   </data>
   <data name="gamepadr2" xml:space="preserve">
-    <value>RT / R2 Button</value>
+    <value>RT / R2</value>
   </data>
   <data name="gamepadl3" xml:space="preserve">
-    <value>LSB / L3 Button</value>
+    <value>LSB / L3</value>
   </data>
   <data name="gamepadr3" xml:space="preserve">
-    <value>RSB / R3 Button</value>
+    <value>RSB / R3</value>
   </data>
   <!-- View -->
   <data name="viewcarddetailtitle" xml:space="preserve">
@@ -295,16 +334,16 @@
     <value>Screen Captures</value>
   </data>
   <data name="dialogtitle_customizecommentsentence" xml:space="preserve">
-    <value>Change Customize Comment Sentence Template</value>
+    <value>ベース</value>
   </data>
   <data name="dialogtitle_customizecommentphrase" xml:space="preserve">
-    <value>Change Customize Comment Word (1st)</value>
+    <value>パーツ①</value>
   </data>
   <data name="dialogtitle_customizecommentphrase2" xml:space="preserve">
-    <value>Change Customize Comment Word (2nd)</value>
+    <value>パーツ②</value>
   </data>
   <data name="customizecommentpreview" xml:space="preserve">
-    <value>Preview Final Result</value>
+    <value>カスタマイズコメント</value>
   </data>
   <data name="dialogtitle_changestamp" xml:space="preserve">
     <value>Change Stamp</value>
@@ -452,5 +491,41 @@
   </data>
   <data name="unknown_team_emblem" xml:space="preserve">
     <value>Unknown Emblem</value>
+  </data>
+  <data name="mscostumepilotheader" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+  <data name="navidialog_navi" xml:space="preserve">
+    <value>ナビ</value>
+  </data>
+  <data name="navidialog_series" xml:space="preserve">
+    <value>作品枠</value>
+  </data>
+  <data name="navidialog_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="navidialog_closeness" xml:space="preserve">
+    <value>親密度</value>
+  </data>
+  <data name="navisetting_navi_series" xml:space="preserve">
+    <value>作品枠</value>
+  </data>
+  <data name="navisetting_navi_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="msdialog_ms" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="msdialog_pilot" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+  <data name="msdialog_series" xml:space="preserve">
+    <value>作品枠</value>
+  </data>
+  <data name="msdialog_pilot_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="msdialog_mastery" xml:space="preserve">
+    <value>熟練度</value>
   </data>
 </root>

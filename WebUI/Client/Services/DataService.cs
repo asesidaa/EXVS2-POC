@@ -99,7 +99,7 @@ public class DataService : IDataService
         naviFamiliarities = naviFamiliarityList.ToDictionary(naviFamiliarity => naviFamiliarity.Id);
         sortedNaviFamiliarityList = naviFamiliarityList.OrderBy(naviFamiliarity => naviFamiliarity.Id).ToList();
 
-        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json?v=3");
+        var naviList = await client.GetFromJsonAsync<List<Navigator>>("data/Navigators.json?v=4");
         naviList.ThrowIfNull();
         navigator = naviList.ToDictionary(ms => ms.Id);
         sortedNavigatorList = naviList.OrderBy(title => title.Id).ToList();

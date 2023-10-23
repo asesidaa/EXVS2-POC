@@ -69,23 +69,23 @@
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Value))">
-                        Name (English)
+                    <MudTableSortLabel SortBy="@(SortByMsName())">
+                        @localizer["msdialog_ms"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueJP))">
-                        Name (Japanese)
+                    <MudTableSortLabel SortBy="@(SortByPilot())">
+                        @localizer["msdialog_pilot"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.ValueCN))">
-                        Name (Chinese)
+                    <MudTableSortLabel SortBy="@(SortBySeiyuu())">
+                        @localizer["msdialog_pilot_seiyuu"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Series))">
-                        Series
+                    <MudTableSortLabel SortBy="@(SortBySeries())">
+                        @localizer["msdialog_series"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
@@ -95,7 +95,7 @@
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.MasteryPoint))">
-                        Mastery
+                        @localizer["msdialog_mastery"]
                     </MudTableSortLabel>
                 </MudTh>
                 <MudTh>
@@ -108,23 +108,99 @@
                 @{
 #pragma warning disable CS8602
                 }
+                @{
+                    var lang = Thread.CurrentThread.CurrentCulture.Name;
+                }
                 <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
-                <MudTd DataLabel="NameEN" Class="cursor-pointer">@context.Value</MudTd>
-                <MudTd DataLabel="NameJP" Class="cursor-pointer">@context.ValueJP</MudTd>
-                <MudTd DataLabel="NameCN" Class="cursor-pointer">@context.ValueCN</MudTd>
-                <MudTd DataLabel="Series" Class="cursor-pointer">@context.Series</MudTd>
+                @{
+                    var msName = context.Value;
+
+                    if (lang == "ja")
+                    {
+                        msName = context.ValueJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msName = context.ValueCN;
+                    }
+                }
+                <MudTd DataLabel="@localizer["msdialog_ms"]" Class="cursor-pointer">@msName</MudTd>
+                @{
+                    var msPilot = context.Pilot;
+
+                    if (lang == "ja")
+                    {
+                        msPilot = context.PilotJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msPilot = context.PilotCN;
+                    }
+                }
+                <MudTd DataLabel="@localizer["msdialog_pilot"]" Class="cursor-pointer">@msPilot</MudTd>
+                @{
+                    var msSeiyuu = context.PilotSeiyuu;
+
+                    if (lang == "ja")
+                    {
+                        msSeiyuu = context.PilotSeiyuuJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msSeiyuu = context.PilotSeiyuuCN;
+                    }
+                }
+                <MudTd DataLabel="@localizer["msdialog_pilot_seiyuu"]" Class="cursor-pointer">@msSeiyuu</MudTd>
+                @{
+                    var msSeries = context.Series;
+
+                    if (lang == "ja")
+                    {
+                        msSeries = context.SeriesJP;
+                    }
+
+                    if (lang == "zh-Hans")
+                    {
+                        msSeries = context.SeriesCN;
+                    }
+                }
+                <MudTd DataLabel="@localizer["msdialog_series"]" Class="cursor-pointer">@msSeries</MudTd>
                 @{
                     var cost = "N/A";
+                    var costStyle = "";
                     if (context.Id > 0)
                     {
                         cost = context.Cost.ToString();
+
+                        if (context.Cost == 1500)
+                        {
+                            costStyle = "font-style: italic; font-weight: bold; color: rgb(153, 255, 0);";
+                        }
+                        
+                        if (context.Cost == 2000)
+                        {
+                            costStyle = "font-style: italic; font-weight: bold; color: rgb(255, 241, 29);";
+                        }
+                        
+                        if (context.Cost == 2500)
+                        {
+                            costStyle = "font-style: italic; font-weight: bold; color: rgb(255, 137, 0);";
+                        }
+                        
+                        if (context.Cost == 3000)
+                        {
+                            costStyle = "font-style: italic; font-weight: bold; color: rgb(247, 0, 58);";
+                        }
                     }
                 }
-                <MudTd DataLabel="Cost" Class="cursor-pointer">@cost</MudTd>
+                <MudTd DataLabel="Cost" Class="cursor-pointer" Style="@costStyle">@cost</MudTd>
                  @{
                     if (context.Id == 0)
                     {
-                        <MudTd DataLabel="Mastery" Class="cursor-pointer">N/A</MudTd>
+                        <MudTd DataLabel="@localizer["msdialog_mastery"]" Class="cursor-pointer">N/A</MudTd>
                     }
                     else
                     {
@@ -132,7 +208,7 @@
 
                         if (familiarity.UseDescription)
                         {
-                            <MudTd DataLabel="Mastery" Class="cursor-pointer">
+                            <MudTd DataLabel="@localizer["msdialog_mastery"]" Class="cursor-pointer">
                                 <div style="font-style: italic; font-weight: bold; color: #fe0;">
                                     @familiarity.Description
                                 </div>
@@ -143,7 +219,7 @@
                             int level = (int)familiarity.Level;
                             string styleClass = "ms-mastery-rating-lv" + familiarity.ColorCode;
 
-                            <MudTd DataLabel="Mastery" Class="cursor-pointer">
+                            <MudTd DataLabel="@localizer["msdialog_mastery"]" Class="cursor-pointer">
                                 <MudRating SelectedValue="@level" MaxValue="5" ReadOnly="true"
                                            RatingItemsClass="@styleClass"
                                            FullIcon="@Icons.Material.Filled.Star"
@@ -180,7 +256,6 @@
 </MudDialog>
 
 @code {
-
     [CascadingParameter]
     MudDialogInstance MudDialog { get; set; } = null!;
 
@@ -198,7 +273,7 @@
     private int[] pageSizeOptions = { 5, 10, 25, 50, 100 };
 
     private MudTable<MobileSuit> mudTable = null!;
-
+    
     // ReSharper disable once NotAccessedField.Local
     private int selectedRowNumber = -1;
 
@@ -250,9 +325,9 @@
         {
             return false;
         }
-        var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}{mobileSuit.Series}";
-        return string.IsNullOrEmpty(searchString) ||
-               aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
+        var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}{mobileSuit.Pilot}{mobileSuit.PilotJP}{mobileSuit.PilotCN}{mobileSuit.PilotSeiyuu}{mobileSuit.PilotSeiyuuJP}{mobileSuit.PilotSeiyuuCN}{mobileSuit.Series}{mobileSuit.SeriesJP}{mobileSuit.SeriesCN}";
+        
+        return string.IsNullOrEmpty(searchString) || aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
     }
 
     private void Submit()
@@ -277,5 +352,65 @@
         {
             return string.Empty;
         }
+    }
+
+    private Func<MobileSuit, object> SortByMsName()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.Value;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.ValueJP;
+        }
+
+        return ms => ms.ValueCN;
+    }
+    
+    private Func<MobileSuit, object> SortByPilot()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.Pilot;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.PilotJP;
+        }
+
+        return ms => ms.PilotCN;
+    }
+    
+    private Func<MobileSuit, object> SortBySeiyuu()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.PilotSeiyuu;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.PilotSeiyuuJP;
+        }
+
+        return ms => ms.PilotSeiyuuCN;
+    }
+    
+    private Func<MobileSuit, object> SortBySeries()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return ms => ms.Series;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return ms => ms.SeriesJP;
+        }
+
+        return ms => ms.SeriesCN;
     }
 }

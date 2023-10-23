@@ -16,6 +16,7 @@ builder.Services.AddMudServices();
 builder.Services.AddSingleton<IDataService, DataService>();
 builder.Services.AddSingleton<INameService, NameService>();
 builder.Services.AddSingleton<INameValidator, NameValidator>();
+builder.Services.AddSingleton<ISelectorService, SelectorService>();
 
 builder.Services.AddLocalization();
 builder.Services.AddTransient<MudLocalizer, ResXMudLocalizer>();

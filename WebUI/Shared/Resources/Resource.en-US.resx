@@ -192,6 +192,9 @@
   <data name="favmsdialog_mstitle" xml:space="preserve">
     <value>Mobile Suit</value>
   </data>
+  <data name="favmsdialog_pilottitle" xml:space="preserve">
+    <value>Pilot</value>
+  </data>
   <data name="unknownms" xml:space="preserve">
     <value>Unknown Mobile Suit</value>
   </data>
@@ -695,5 +698,41 @@
   </data>
   <data name="unknown_team_emblem" xml:space="preserve">
     <value>Unknown Emblem</value>
+  </data>
+  <data name="mscostumepilotheader" xml:space="preserve">
+    <value>Pilot</value>
+  </data>
+  <data name="navidialog_navi" xml:space="preserve">
+    <value>Navigator</value>
+  </data>
+  <data name="navidialog_series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="navidialog_seiyuu" xml:space="preserve">
+    <value>Seiyuu</value>
+  </data>
+  <data name="navidialog_closeness" xml:space="preserve">
+    <value>Closeness</value>
+  </data>
+  <data name="navisetting_navi_series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="navisetting_navi_seiyuu" xml:space="preserve">
+    <value>Seiyuu</value>
+  </data>
+  <data name="msdialog_ms" xml:space="preserve">
+    <value>Mobile Suit</value>
+  </data>
+  <data name="msdialog_pilot" xml:space="preserve">
+    <value>Pilot</value>
+  </data>
+  <data name="msdialog_series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="msdialog_pilot_seiyuu" xml:space="preserve">
+    <value>Seiyuu</value>
+  </data>
+  <data name="msdialog_mastery" xml:space="preserve">
+    <value>Mastery</value>
   </data>
 </root>

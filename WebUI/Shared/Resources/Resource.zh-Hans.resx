@@ -192,6 +192,9 @@
   <data name="favmsdialog_mstitle" xml:space="preserve">
     <value>机体</value>
   </data>
+  <data name="favmsdialog_pilottitle" xml:space="preserve">
+    <value>驾驶员</value>
+  </data>
   <data name="unknownms" xml:space="preserve">
     <value>不明机体</value>
   </data>
@@ -692,5 +695,41 @@
   </data>
   <data name="unknown_team_emblem" xml:space="preserve">
     <value>不明队伍徽章</value>
+  </data>
+  <data name="mscostumepilotheader" xml:space="preserve">
+    <value>驾驶员</value>
+  </data>
+  <data name="navidialog_navi" xml:space="preserve">
+    <value>领航员</value>
+  </data>
+  <data name="navidialog_series" xml:space="preserve">
+    <value>作品</value>
+  </data>
+  <data name="navidialog_seiyuu" xml:space="preserve">
+    <value>声优</value>
+  </data>
+  <data name="navidialog_closeness" xml:space="preserve">
+    <value>亲密度</value>
+  </data>
+  <data name="navisetting_navi_series" xml:space="preserve">
+    <value>作品</value>
+  </data>
+  <data name="navisetting_navi_seiyuu" xml:space="preserve">
+    <value>声优</value>
+  </data>
+  <data name="msdialog_ms" xml:space="preserve">
+    <value>机体</value>
+  </data>
+  <data name="msdialog_pilot" xml:space="preserve">
+    <value>驾驶员</value>
+  </data>
+  <data name="msdialog_series" xml:space="preserve">
+    <value>作品</value>
+  </data>
+  <data name="msdialog_pilot_seiyuu" xml:space="preserve">
+    <value>声优</value>
+  </data>
+  <data name="msdialog_mastery" xml:space="preserve">
+    <value>熟练度</value>
   </data>
 </root>
