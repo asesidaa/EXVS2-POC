@@ -764,6 +764,24 @@ public partial class CustomizeCard
 
         if (x.MobileSuit.ValueCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
             return true;
+        
+        if (x.MobileSuit.Pilot.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.PilotJP.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.PilotCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (x.MobileSuit.Series.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.SeriesJP.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.SeriesCN.Contains(_msCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
 
         return false;
     };
@@ -819,7 +837,7 @@ public partial class CustomizeCard
             context.Navi.CostumeId = selectedIds.FirstOrDefault();
         }
     }
-
+    
     public class MobileSuitWithSkillGroup
     {
         public MobileSuit MobileSuit { get; set; }

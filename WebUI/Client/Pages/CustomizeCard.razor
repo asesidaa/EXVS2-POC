@@ -210,6 +210,11 @@
                                         <MudText>@NameService.GetMobileSuitName(context.Item.MsId)</MudText>
                                     </CellTemplate>
                                 </PropertyColumn>
+                                <PropertyColumn Property="x => x.MsId" Title="@localizer["favmsdialog_pilottitle"]">
+                                    <CellTemplate>
+                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MsId)</MudText>
+                                    </CellTemplate>
+                                </PropertyColumn>
                                 <PropertyColumn Property="x => x.BurstType" Title="@localizer["favmsdialog_bursttype"]" />
                                 <PropertyColumn Property="x => x.BattleNaviId" Title="@localizer["favmsdialog_inbattlenavi"]">
                                     <CellTemplate>
@@ -276,6 +281,33 @@
                                         <MudText>@NameService.GetMobileSuitName(context.Item.MobileSuit.Id)</MudText>
                                     </EditTemplate>
                                 </PropertyColumn>
+                                @{
+                                    var lang = Thread.CurrentThread.CurrentCulture.Name;
+                                    if (lang == "en-US")
+                                    {
+                                        <PropertyColumn Property="x => x.MobileSuit.Pilot" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
+                                            <EditTemplate>
+                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
+                                            </EditTemplate>
+                                        </PropertyColumn>
+                                    }
+                                    if (lang == "ja")
+                                    {
+                                        <PropertyColumn Property="x => x.MobileSuit.PilotJP" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
+                                            <EditTemplate>
+                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
+                                            </EditTemplate>
+                                        </PropertyColumn>
+                                    }
+                                    if (lang == "zh-Hans")
+                                    {
+                                        <PropertyColumn Property="x => x.MobileSuit.PilotCN" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
+                                            <EditTemplate>
+                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
+                                            </EditTemplate>
+                                        </PropertyColumn>
+                                    }
+                                }
                                 <PropertyColumn Property="x => x.SkillGroup" Title="@localizer["mscostumecostumeheader"]">
                                     <EditTemplate>
                                         <MudStack Row>
@@ -333,7 +365,7 @@
                             <MudGrid Class="align-center">
                                 <MudItem xs="10">
                                     <MudField Label="@localizer["triad_cpums"]" Variant="Variant.Outlined">
-                                        <MudText Align="Align.Center">@NameService.GetMobileSuitName(cpuTriadPartner.MobileSuitId)</MudText>
+                                        <MudText Align="Align.Center">@NameService.GetMobileSuitName(cpuTriadPartner.MobileSuitId) / @NameService.GetMobileSuitPilotName(cpuTriadPartner.MobileSuitId)</MudText>
                                     </MudField>
                                 </MudItem>
                                 <MudItem xs="2">

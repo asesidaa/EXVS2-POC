@@ -17,6 +17,13 @@ namespace WebUI.Client.Services
             var localizedName = GetLocalizedName(mobilesuit);
             return localizedName ?? "Unknown Mobile Suit";
         }
+        
+        public string GetMobileSuitPilotName(uint id)
+        {
+            var mobilesuit = _service.GetMobileSuitById(id);
+            var localizedName = GetLocalizedPilotName(mobilesuit);
+            return localizedName ?? "Unknown Pilot";
+        }
 
         public string GetNavigatorName(uint id)
         {
@@ -53,6 +60,37 @@ namespace WebUI.Client.Services
                     break;
                 case "zh-Hans":
                     returnString = obj.ValueCN;
+                    break;
+            }
+
+            // assume value is always filled
+            if (string.IsNullOrWhiteSpace(returnString))
+                returnString = obj.Value;
+
+            return returnString;
+        }
+        
+        public string? GetLocalizedPilotName(MobileSuit? obj)
+        {
+            if (obj == null)
+                return null;
+
+            var cultureName = Thread.CurrentThread.CurrentCulture.Name;
+
+            // use reflection to get the different properties type.
+            var returnString = string.Empty;
+
+            switch (cultureName)
+            {
+                default:
+                case "en-US":
+                    returnString = obj.Pilot;
+                    break;
+                case "ja":
+                    returnString = obj.PilotJP;
+                    break;
+                case "zh-Hans":
+                    returnString = obj.PilotCN;
                     break;
             }
 

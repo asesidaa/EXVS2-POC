@@ -192,6 +192,9 @@
   <data name="favmsdialog_mstitle" xml:space="preserve">
     <value>机体</value>
   </data>
+  <data name="favmsdialog_pilottitle" xml:space="preserve">
+    <value>驾驶员</value>
+  </data>
   <data name="unknownms" xml:space="preserve">
     <value>不明机体</value>
   </data>
@@ -692,5 +695,8 @@
   </data>
   <data name="unknown_team_emblem" xml:space="preserve">
     <value>不明队伍徽章</value>
+  </data>
+  <data name="mscostumepilotheader" xml:space="preserve">
+    <value>驾驶员</value>
   </data>
 </root>

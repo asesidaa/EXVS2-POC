@@ -192,6 +192,9 @@
   <data name="favmsdialog_mstitle" xml:space="preserve">
     <value>Mobile Suit</value>
   </data>
+  <data name="favmsdialog_pilottitle" xml:space="preserve">
+    <value>Pilot</value>
+  </data>
   <data name="unknownms" xml:space="preserve">
     <value>Unknown Mobile Suit</value>
   </data>
@@ -695,5 +698,8 @@
   </data>
   <data name="unknown_team_emblem" xml:space="preserve">
     <value>Unknown Emblem</value>
+  </data>
+  <data name="mscostumepilotheader" xml:space="preserve">
+    <value>Pilot</value>
   </data>
 </root>
