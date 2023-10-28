@@ -35,11 +35,11 @@ public class GetSelfUsageCommandHandler : IRequestHandler<GetSelfUsageCommand, U
         }
 
         var usage = new Usage();
+        usage.BurstTypeUsage.Add(0, 0);
         usage.BurstTypeUsage.Add(1, 0);
         usage.BurstTypeUsage.Add(2, 0);
         usage.BurstTypeUsage.Add(3, 0);
         usage.BurstTypeUsage.Add(4, 0);
-        usage.BurstTypeUsage.Add(5, 0);
         
         var battleRecords = new List<MsBattleRecord>(400);
         usage.MsBattleRecords = battleRecords;
@@ -84,6 +84,10 @@ public class GetSelfUsageCommandHandler : IRequestHandler<GetSelfUsageCommand, U
                     msBattleRecord.LossCount++;
                 }
             });
+        
+        usage.MsBattleRecords = usage.MsBattleRecords
+            .OrderBy(record => record.MsId)
+            .ToList();
 
         return Task.FromResult(usage);
     }
