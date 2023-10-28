@@ -1,0 +1,33 @@
+﻿@page "/Cards/TeamOfflineBattleDetail/{ChipId}"
+@inject HttpClient Http
+@inject ILogger<AllOfflineBattleDetail> Logger
+@inject IDataService DataService
+
+@using WebUI.Client.Services
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["cardviewofflineteamdetail"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["cardviewofflineteamdetail"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+<MudStack Class="mt-2">
+    <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+        <MudTabPanel Text="@localizer["basicstat"]">
+            <WebUI.Client.Pages.Components.BattleStats.GeneralUsageAnalysisTab BattlePageContext="_battlePageContext" />
+        </MudTabPanel>
+        <MudTabPanel Text="@localizer["ms_performance_tab"]">
+            <WebUI.Client.Pages.Components.BattleStats.MsPerformanceTab BattlePageContext="_battlePageContext" />
+        </MudTabPanel>
+        <MudTabPanel Text="@localizer["against_ms_performance_tab"]">
+            <WebUI.Client.Pages.Components.BattleStats.AgainstMsPerformanceTab BattlePageContext="_battlePageContext" />
+        </MudTabPanel>
+    </MudTabs>
+</MudStack>

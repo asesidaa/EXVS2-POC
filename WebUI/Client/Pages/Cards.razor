@@ -70,19 +70,45 @@
                     </MudCardContent>
                     <MudCardActions>
                         <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudMenu Icon="@Icons.Material.Filled.Leaderboard" Color="Color.Primary">
+                                <MudMenuItem>
+                                    <MudButton OnClick="() => OnViewDetailClicked(card)"
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.Info"
+                                               Color="Color.Primary">
+                                        @localizer["cardviewdetail"]
+                                    </MudButton>
+                                </MudMenuItem>
+                                <MudMenuItem>
+                                    <MudButton OnClick="() => OnViewAllOfflineBattleDetailClicked(card)"
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.Info"
+                                               Color="Color.Primary">
+                                        @localizer["cardviewallofflinebattledetail"]
+                                    </MudButton>
+                                </MudMenuItem>
+                                <MudMenuItem>
+                                    <MudButton OnClick="() => OnViewShuffleOfflineBattleDetailClicked(card)"
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.Info"
+                                               Color="Color.Primary">
+                                        @localizer["cardviewofflineshuffledetail"]
+                                    </MudButton>
+                                </MudMenuItem>
+                                <MudMenuItem>
+                                    <MudButton OnClick="() => OnViewTeamOfflineBattleDetailClicked(card)"
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.Info"
+                                               Color="Color.Primary">
+                                        @localizer["cardviewofflineteamdetail"]
+                                    </MudButton>
+                                </MudMenuItem>
+                            </MudMenu>
                             <MudButton OnClick="() => OnEditCardClicked(card)"
-                                        Variant="Variant.Text"
-                                        StartIcon="@Icons.Material.Filled.DisplaySettings"
-                                        Color="Color.Primary">
-                            @localizer["cardseditoptions"]
-                            </MudButton>
-                        </MudStack>
-                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
-                            <MudButton OnClick="() => OnViewDetailClicked(card)"
-                                        Variant="Variant.Text"
-                                        StartIcon="@Icons.Material.Filled.Info"
-                                        Color="Color.Primary">
-                                @localizer["cardviewdetail"]
+                                       Variant="Variant.Text"
+                                       StartIcon="@Icons.Material.Filled.DisplaySettings"
+                                       Color="Color.Primary">
+                                @localizer["cardseditoptions"]
                             </MudButton>
                         </MudStack>
                     </MudCardActions>
@@ -183,7 +209,73 @@
             StateHasChanged();
         }
     }
+    
+    private async Task OnViewAllOfflineBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "AllOfflineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+    // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
 
+    private async Task OnViewShuffleOfflineBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "ShuffleOfflineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+    // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OnViewTeamOfflineBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "TeamOfflineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+    // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+ 
     private void SearchEntered(string input)
     {
         if (input.Trim() == "")

@@ -1,0 +1,87 @@
+﻿@using WebUI.Shared.Context
+
+<MudGrid>
+    <MudItem xs="12" Style="text-align: center; font-weight: bold;">
+        @localizer["stat_total_battle_number"]
+    </MudItem>
+    <MudItem xs="12" Style="text-align: center;">
+        @BattlePageContext.TotalBattleCount
+    </MudItem>
+    <MudItem xs="12" sm="6" Style="text-align: center;">
+        <MudGrid>
+            <MudItem xs="12" Style="font-weight: bold;">@localizer["graph_burst_usage_rate"]</MudItem>
+            <MudItem xs="12">
+                <MudChart ChartType="ChartType.Donut" ChartOptions="@_burstTypeChartOptions" InputData="@BurstGraphData"
+                                  @bind-SelectedIndex="BurstTypeIndex" InputLabels="@BurstLabels" Width="300px" Height="300px"/>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+    <MudItem xs="12" sm="6" Style="text-align: center;">
+        <MudGrid>
+            <MudItem xs="12" Style="font-weight: bold;">@localizer["graph_cost_usage_rate"]</MudItem>
+            <MudItem xs="12">
+                <MudChart ChartType="ChartType.Donut" ChartOptions="@_costChartOptions" InputData="@CostGraphData"
+                                  @bind-SelectedIndex="CostIndex" InputLabels="@CostLabels" Width="300px" Height="300px"/>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+@code
+{
+    [Parameter]
+    public ServerBattlePageContext BattlePageContext { get; set; } = new();
+    
+    private int BurstTypeIndex = -1;
+    private int CostIndex = -1;
+    private ChartOptions _burstTypeChartOptions = new ChartOptions();
+    private ChartOptions _costChartOptions = new ChartOptions();
+    
+    
+    string[] BurstLabels = { "Covering", "Fighting", "Shooting", "Mobility", "Raging" };
+    string[] BurstColors = { "#92cbae", "#e93500", "#004790", "#e09b00", "#6c4344" };
+    double[] BurstGraphData = { 0, 0, 0, 0, 0 };
+    
+    string[] CostLabels = { "1500", "2000", "2500", "3000" };
+    string[] CostColors = { "#99ff00", "#fff11d", "#ff8900", "#f7003a" };
+    double[] CostGraphData = { 0, 0, 0, 0 };
+
+    string WinPercentageString = "0.00%";
+    
+    protected override void OnInitialized()
+    {
+        _burstTypeChartOptions.ChartPalette = BurstColors;
+        _costChartOptions.ChartPalette = CostColors;
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (BattlePageContext == default)
+        {
+            return;
+        }
+
+        if (BattlePageContext.UsageStat.BurstTypeUsage.Count > 0)
+        {
+            BurstGraphData[0] = BattlePageContext.UsageStat.BurstTypeUsage[0];
+            BurstGraphData[1] = BattlePageContext.UsageStat.BurstTypeUsage[1];
+            BurstGraphData[2] = BattlePageContext.UsageStat.BurstTypeUsage[2];
+            BurstGraphData[3] = BattlePageContext.UsageStat.BurstTypeUsage[3];
+            BurstGraphData[4] = BattlePageContext.UsageStat.BurstTypeUsage[4];
+        }
+
+        if (BattlePageContext.CostUsage.Count > 0)
+        {
+            CostGraphData[0] = BattlePageContext.CostUsage[0];
+            CostGraphData[1] = BattlePageContext.CostUsage[1];
+            CostGraphData[2] = BattlePageContext.CostUsage[2];
+            CostGraphData[3] = BattlePageContext.CostUsage[3];
+        }
+        
+        if (BattlePageContext.TotalBattleCount > 0)
+        {
+            double winPercentage = 100 * BattlePageContext.TotalWinCount / BattlePageContext.TotalBattleCount;
+            WinPercentageString = String.Format("{0:0.00}", winPercentage) + "%";
+        }
+    }
+}
