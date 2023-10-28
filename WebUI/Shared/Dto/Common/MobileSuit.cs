@@ -15,4 +15,11 @@ public class MobileSuit : IdValuePair
     public List<IdValuePair>? Costumes { get; set; } = new();
     public int MasteryPoint { get; set; } = 0;
     public Familiarity MasteryDomain { get; set; } = new();
+    public bool IsFavouriteMs { get; set; } = true;
+    public double TotalBattleCount { get; set; } = 0;
+    public double WinCount { get; set; } = 0;
+    public double WinRate { get; set; } = 0;
+    public double TotalAgainstBattleCount { get; set; } = 0;
+    public double WinAgainstCount { get; set; } = 0;
+    public double WinAgainstRate { get; set; } = 0;
 }
