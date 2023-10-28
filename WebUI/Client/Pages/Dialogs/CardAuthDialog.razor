@@ -66,12 +66,26 @@
 
             if (Mode == "EditCard")
             {
-                NavManager.NavigateTo($"Cards/Customize/{Data.ChipId}");   
+                NavManager.NavigateTo($"Cards/Customize/{Data.ChipId}");
+                return;
             }
-            else
+            if (Mode == "AllOfflineBattleDetail")
             {
-                NavManager.NavigateTo($"Cards/ViewDetail/{Data.ChipId}"); 
+                NavManager.NavigateTo($"Cards/AllOfflineBattleDetail/{Data.ChipId}"); 
+                return;
             }
+            if (Mode == "ShuffleOfflineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/ShuffleOfflineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            if (Mode == "TeamOfflineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/TeamOfflineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            
+            NavManager.NavigateTo($"Cards/ViewDetail/{Data.ChipId}"); 
         }
     }
 
