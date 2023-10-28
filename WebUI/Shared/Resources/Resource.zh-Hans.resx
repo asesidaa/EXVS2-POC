@@ -732,4 +732,55 @@
   <data name="msdialog_mastery" xml:space="preserve">
     <value>熟练度</value>
   </data>
+  <data name="cardviewallofflinebattledetail" xml:space="preserve">
+    <value>全部店内对战数据</value>
+  </data>
+  <data name="cardviewofflineshuffledetail" xml:space="preserve">
+    <value>店内单人对战数据</value>
+  </data>
+  <data name="cardviewofflineteamdetail" xml:space="preserve">
+    <value>店内队伍对战数据</value>
+  </data>
+  <data name="stat_total_battle_number" xml:space="preserve">
+    <value>总场次</value>
+  </data>
+  <data name="stat_total_win_number" xml:space="preserve">
+    <value>胜场</value>
+  </data>
+  <data name="stat_total_win_rate" xml:space="preserve">
+    <value>胜率</value>
+  </data>
+  <data name="graph_burst_usage_rate" xml:space="preserve">
+    <value>EX爆发使用分布</value>
+  </data>
+  <data name="graph_cost_usage_rate" xml:space="preserve">
+    <value>机体使用分布</value>
+  </data>
+  <data name="basicstat" xml:space="preserve">
+    <value>基本数据</value>
+  </data>
+  <data name="ms_performance_tab" xml:space="preserve">
+    <value>机体使用数据</value>
+  </data>
+  <data name="against_ms_performance_tab" xml:space="preserve">
+    <value>对手机体数据</value>
+  </data>
+  <data name="ms_total_battle" xml:space="preserve">
+    <value>总场次</value>
+  </data>
+  <data name="ms_total_win" xml:space="preserve">
+    <value>胜场</value>
+  </data>
+  <data name="ms_total_win_rate" xml:space="preserve">
+    <value>胜率</value>
+  </data>
+  <data name="against_ms_total_battle" xml:space="preserve">
+    <value>总场次</value>
+  </data>
+  <data name="against_ms_total_win" xml:space="preserve">
+    <value>对上时的胜场</value>
+  </data>
+  <data name="against_ms_total_win_rate" xml:space="preserve">
+    <value>对上时的胜率</value>
+  </data>
 </root>
