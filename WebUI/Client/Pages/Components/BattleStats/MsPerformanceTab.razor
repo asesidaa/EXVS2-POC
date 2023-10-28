@@ -4,6 +4,40 @@
 
 @inject IDataService DataService
 
+<style>
+    .ms-mastery-rating-lv0 {
+        background-color: #08f;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #ddd;
+        }
+    }
+    
+    .ms-mastery-rating-lv1 {
+        background-color: #d63;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #fe0;
+        }
+    }
+        
+    .ms-mastery-rating-lv2 {
+        background-color: #bbc;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #fe0;
+        }
+    }
+    
+    .ms-mastery-rating-lv3 {
+        background-color: #cb0;
+    
+        .mud-icon-root.mud-svg-icon {
+            fill: #fe0;
+        }
+    }
+</style>
+
 <MudTable Elevation="5" Items="@mobileSuits" Filter="@Filter" @ref="mudTable" T="MobileSuit" Hover="true" FixedHeader="true">
     <ColGroup>
         <col style="width: 50px;" />
