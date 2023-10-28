@@ -31,4 +31,12 @@ public class AnalysisController : BaseController<AnalysisController>
         var response = await mediator.Send(new GetAgainstMsWinLossRecordCommand(accessCode, chipId, mode));
         return response;
     }
+    
+    [HttpGet("getAllUsage/{mode}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<Usage>> GetAllUsage(string mode)
+    {
+        var response = await mediator.Send(new GetAllUsageCommand(mode));
+        return response;
+    }
 }

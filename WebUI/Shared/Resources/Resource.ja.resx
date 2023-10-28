@@ -579,4 +579,13 @@
   <data name="against_ms_total_win_rate" xml:space="preserve">
     <value>Win Rate (Against)</value>
   </data>
+  <data name="server_all_offline_battle_stats" xml:space="preserve">
+    <value>All Offline Stats</value>
+  </data>
+  <data name="server_shuffle_offline_battle_stats" xml:space="preserve">
+    <value>Offline Shuffle Stats</value>
+  </data>
+  <data name="server_team_offline_battle_stats" xml:space="preserve">
+    <value>Offline Team Stats</value>
+  </data>
 </root>

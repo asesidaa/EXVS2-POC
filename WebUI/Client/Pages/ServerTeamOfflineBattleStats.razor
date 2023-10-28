@@ -1,0 +1,28 @@
+﻿@page "/ServerTeamOfflineBattleStats"
+@using WebUI.Client.Services
+@inject HttpClient Http
+@inject IDataService DataService
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["server_team_offline_battle_stats"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["server_team_offline_battle_stats"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+<MudStack Class="mt-2">
+    <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+        <MudTabPanel Text="@localizer["basicstat"]">
+            <WebUI.Client.Pages.Components.BattleStats.ServerGeneralUsageAnalysisTab BattlePageContext="_battlePageContext" />
+        </MudTabPanel>
+        <MudTabPanel Text="@localizer["ms_performance_tab"]">
+            <WebUI.Client.Pages.Components.BattleStats.ServerMsPerformanceTab BattlePageContext="_battlePageContext" />
+        </MudTabPanel>
+    </MudTabs>
+</MudStack>

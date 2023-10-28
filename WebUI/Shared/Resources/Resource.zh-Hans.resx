@@ -783,4 +783,13 @@
   <data name="against_ms_total_win_rate" xml:space="preserve">
     <value>对上时的胜率</value>
   </data>
+  <data name="server_all_offline_battle_stats" xml:space="preserve">
+    <value>服务器店内对战数据</value>
+  </data>
+  <data name="server_shuffle_offline_battle_stats" xml:space="preserve">
+    <value>服务器店内单人对战数据</value>
+  </data>
+  <data name="server_team_offline_battle_stats" xml:space="preserve">
+    <value>服务器店内队伍对战数据</value>
+  </data>
 </root>
