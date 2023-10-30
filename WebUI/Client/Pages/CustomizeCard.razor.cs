@@ -154,6 +154,7 @@ public partial class CustomizeCard
 
                     if (msData is null)
                     {
+                        writableMs.MasteryPoint = 0;
                         writableMs.MasteryDomain = DataService.GetMsFamiliaritySortedById().First();
                         return;
                     }
@@ -204,6 +205,7 @@ public partial class CustomizeCard
 
                     if (naviData is null)
                     {
+                        writableNavi.ClosenessPoint = 0;
                         writableNavi.FamiliarityDomain = DataService.GetNaviFamiliaritySortedById().First();
                         return;
                     }
