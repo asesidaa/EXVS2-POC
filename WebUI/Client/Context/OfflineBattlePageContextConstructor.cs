@@ -43,13 +43,17 @@ public class OfflineBattlePageContextConstructor : IBattlePageContextConstructor
         var battleRecords = await _httpClient.GetFromJsonAsync<List<MsBattleRecord>>($"/battle-analysis/getAgainstMsWinLossRecord/{_accessCode}/{_chipId}/{_mode}");
         battleRecords.ThrowIfNull();
         
+        var msList = await _httpClient.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=3");
+        msList.ThrowIfNull();
+        
         battlePageContext.BasicProfile = profileResult;
         battlePageContext.UsageStat = usageStat;
         battlePageContext.MsBattleRecords = battleRecords;
+        battlePageContext.MobileSuits = msList.OrderBy(title => title.Id).ToList();
         
         ConsolidateBasicData(battlePageContext, usageStat);
         
-        _dataService.GetWritableMobileSuitSortedById()
+        battlePageContext.MobileSuits 
             .ForEach(writableMs =>
             {
                 var favouriteMs = favouriteResult.FirstOrDefault(fav => fav.MsId == writableMs.Id);

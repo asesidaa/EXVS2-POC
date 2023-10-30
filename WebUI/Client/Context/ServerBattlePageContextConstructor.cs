@@ -3,7 +3,6 @@ using Throw;
 using WebUI.Client.Services;
 using WebUI.Shared.Context;
 using WebUI.Shared.Dto.Common;
-using WebUI.Shared.Dto.Response;
 
 namespace WebUI.Client.Context;
 
@@ -27,15 +26,15 @@ public class ServerBattlePageContextConstructor : IServerBattlePageContextConstr
         var usageStat = await _httpClient.GetFromJsonAsync<Usage>($"/battle-analysis/getAllUsage/{_mode}");
         usageStat.ThrowIfNull();
         
-        // var battleRecords = await _httpClient.GetFromJsonAsync<List<MsBattleRecord>>($"/battle-analysis/getAgainstMsWinLossRecord/{_accessCode}/{_chipId}/{_mode}");
-        // battleRecords.ThrowIfNull();
+        var msList = await _httpClient.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=3");
+        msList.ThrowIfNull();
         
         battlePageContext.UsageStat = usageStat;
-        // battlePageContext.MsBattleRecords = battleRecords;
+        battlePageContext.MobileSuits = msList.OrderBy(title => title.Id).ToList();
         
         ConsolidateBasicData(battlePageContext, usageStat);
         
-        _dataService.GetWritableMobileSuitSortedById()
+        battlePageContext.MobileSuits
             .ForEach(writableMs =>
             {
                 ConsolidateWinLossRecord(battlePageContext.UsageStat.MsBattleRecords, writableMs);
