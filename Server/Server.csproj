@@ -33,6 +33,8 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="protobuf-net" Version="3.2.26" />
         <PackageReference Include="protobuf-net.AspNetCore" Version="3.2.12" />
+        <PackageReference Include="Quartz" Version="3.7.0" />
+        <PackageReference Include="Quartz.Extensions.Hosting" Version="3.7.0" />
         <PackageReference Include="Riok.Mapperly" Version="2.9.0-next.4" />
         <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
         <PackageReference Include="Serilog.Expressions" Version="3.4.2-dev-00120" />
