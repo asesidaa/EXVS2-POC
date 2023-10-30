@@ -137,10 +137,15 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         {
             if (resultFromRequest.Partner.CpuFlag == 0)
             {
+                pvpBattleResult.PartnerIndicator = "Player";
                 pvpBattleResult.PartnerPilotId = resultFromRequest.Partner.PilotId;
                 pvpBattleResult.PartnerMsId = resultFromRequest.Partner.MstMobileSuitId;
                 pvpBattleResult.PartnerEchelonId = resultFromRequest.Partner.EchelonId;
                 pvpBattleResult.PartnerBurstType = resultFromRequest.Partner.BurstType;
+            }
+            else
+            {
+                pvpBattleResult.PartnerIndicator = "CPU";
             }
         }
 
@@ -160,10 +165,15 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         {
             if (foe1.CpuFlag == 0)
             {
+                pvpBattleResult.Foe1Indicator = "Player";
                 pvpBattleResult.Foe1PilotId = foe1.PilotId;
                 pvpBattleResult.Foe1MsId = foe1.MstMobileSuitId;
                 pvpBattleResult.Foe1EchelonId = foe1.EchelonId;
                 pvpBattleResult.Foe1BurstType = foe1.BurstType;
+            }
+            else
+            {
+                pvpBattleResult.Foe1Indicator = "CPU";
             }
         }
 
@@ -173,10 +183,15 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         {
             if (foe2.CpuFlag == 0)
             {
+                pvpBattleResult.Foe2Indicator = "Player";
                 pvpBattleResult.Foe2PilotId = foe2.PilotId;
                 pvpBattleResult.Foe2MsId = foe2.MstMobileSuitId;
                 pvpBattleResult.Foe2EchelonId = foe2.EchelonId;
                 pvpBattleResult.Foe2BurstType = foe2.BurstType;
+            }
+            else
+            {
+                pvpBattleResult.Foe2Indicator = "CPU";
             }
         }
     }

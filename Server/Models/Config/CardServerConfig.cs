@@ -7,6 +7,7 @@ public class CardServerConfig
     public const string CARD_SERVER_SECTION = "CardServerConfig";
 
     public bool IgnoreUploadSaving { get; set; }
+    public bool NeedToDataPatchOfflineData { get; set; }
 
     public GameConfigurations GameConfigurations { get; set; } = new();
 

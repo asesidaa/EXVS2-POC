@@ -12,6 +12,8 @@ namespace Server.Persistence
         }
 
         public DbSet<CardProfile> CardProfiles { get; set; }
+        public DbSet<OfflinePvpBattleResult> OfflinePvpBattleResults { get; set; }
+        public DbSet<Snapshot> Snapshots { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

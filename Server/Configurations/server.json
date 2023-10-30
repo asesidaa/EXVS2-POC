@@ -1,6 +1,7 @@
 ﻿{
   "CardServerConfig": {
     "IgnoreUploadSaving": false,
+    "NeedToDataPatchOfflineData": true,
     "GameConfigurations": {
       "OfflineBaseWinPoint": 2,
       "OfflineBaseLosePoint": -1,
