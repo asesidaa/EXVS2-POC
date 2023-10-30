@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
 using Server.Persistence;
@@ -20,12 +19,6 @@ public class GetAllUsageCommandHandler : IRequestHandler<GetAllUsageCommand, Usa
 
     public Task<Usage> Handle(GetAllUsageCommand request, CancellationToken cancellationToken)
     {
-        var battleResults = context.CardProfiles
-            .Include(x => x.OfflinePvpBattleResults)
-            .Where(x => !x.IsNewCard)
-            .SelectMany(x => x.OfflinePvpBattleResults)
-            .ToList();
-        
         var usage = new Usage();
         usage.BurstTypeUsage.Add(0, 0);
         usage.BurstTypeUsage.Add(1, 0);
@@ -36,7 +29,81 @@ public class GetAllUsageCommandHandler : IRequestHandler<GetAllUsageCommand, Usa
         var battleRecords = new List<MsBattleRecord>(400);
         usage.MsBattleRecords = battleRecords;
         
-        battleResults
+        var consolidatedData = context.Snapshots
+            .FirstOrDefault(snapshot => snapshot.SnapshotType == "OfflineConsolidation");
+
+        if (consolidatedData is null)
+        {
+            SetByRawData(request, usage, battleRecords);
+            return Task.FromResult(usage);
+        }
+        
+        var fullUsageSnapshot = JsonConvert.DeserializeObject<FullUsageSnapshot>(consolidatedData.SnapshotData);
+        
+        if (fullUsageSnapshot is null)
+        {
+            SetByRawData(request, usage, battleRecords);
+            return Task.FromResult(usage);
+        }
+        
+        fullUsageSnapshot.FullBurstTypeUsages.ForEach(burstTypeUsage =>
+        {
+            var burstTypeId = burstTypeUsage.BurstTypeId;
+            
+            if (request.Mode == "All")
+            {
+                usage.BurstTypeUsage[burstTypeId] = burstTypeUsage.OfflineTeamUsage + burstTypeUsage.OfflineShuffleUsage;
+            }
+            else if (request.Mode == "Shuffle")
+            {
+                usage.BurstTypeUsage[burstTypeId] = burstTypeUsage.OfflineShuffleUsage;
+            }
+            else
+            {
+                usage.BurstTypeUsage[burstTypeId] = burstTypeUsage.OfflineTeamUsage;
+            }
+        });
+        
+        fullUsageSnapshot.FullMsBattleRecords.ForEach(conBattleRecord =>
+        {
+            var msUsage = battleRecords
+                .FirstOrDefault(battleRecord => conBattleRecord.MsId == battleRecord.MsId);
+
+            if (msUsage is null)
+            {
+                msUsage = new MsBattleRecord();
+                msUsage.MsId = conBattleRecord.MsId;
+                usage.MsBattleRecords.Add(msUsage);
+            }
+            
+            if (request.Mode == "All")
+            {
+                msUsage.WinCount += conBattleRecord.OfflineShuffleWinCount + conBattleRecord.OfflineTeamWinCount;
+                msUsage.LossCount += conBattleRecord.OfflineShuffleLossCount + conBattleRecord.OfflineTeamLossCount;
+            }
+            else if (request.Mode == "Shuffle")
+            {
+                msUsage.WinCount += conBattleRecord.OfflineShuffleWinCount;
+                msUsage.LossCount += conBattleRecord.OfflineShuffleLossCount;
+            }
+            else
+            {
+                msUsage.WinCount += conBattleRecord.OfflineTeamWinCount;
+                msUsage.LossCount += conBattleRecord.OfflineTeamLossCount;
+            }
+        });
+        
+        usage.MsBattleRecords = usage.MsBattleRecords
+            .OrderBy(record => record.MsId)
+            .ToList();
+        
+        return Task.FromResult(usage);
+    }
+
+    private void SetByRawData(GetAllUsageCommand request, Usage usage, List<MsBattleRecord> battleRecords)
+    {
+        context.OfflinePvpBattleResults
+            .ToList()
             .Where(result =>
             {
                 if (request.Mode == "All")
@@ -58,7 +125,8 @@ public class GetAllUsageCommandHandler : IRequestHandler<GetAllUsageCommand, Usa
 
                 usage.BurstTypeUsage[detailResult.BurstType]++;
 
-                var msBattleRecord = battleRecords.FirstOrDefault(battleRecord => battleRecord.MsId == battleResult.UsedMsId);
+                var msBattleRecord =
+                    battleRecords.FirstOrDefault(battleRecord => battleRecord.MsId == battleResult.UsedMsId);
 
                 if (msBattleRecord is null)
                 {
@@ -66,7 +134,7 @@ public class GetAllUsageCommandHandler : IRequestHandler<GetAllUsageCommand, Usa
                     msBattleRecord.MsId = battleResult.UsedMsId;
                     battleRecords.Add(msBattleRecord);
                 }
-                
+
                 if (battleResult.WinFlag)
                 {
                     msBattleRecord.WinCount++;
@@ -80,7 +148,5 @@ public class GetAllUsageCommandHandler : IRequestHandler<GetAllUsageCommand, Usa
         usage.MsBattleRecords = usage.MsBattleRecords
             .OrderBy(record => record.MsId)
             .ToList();
-
-        return Task.FromResult(usage);
     }
 }
