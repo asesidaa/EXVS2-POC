@@ -61,7 +61,8 @@ public class ConsolidateServerOfflineSnapshotJob : IJob
         var battleList = _context.OfflinePvpBattleResults
             .Where(battleRecord => battleRecord.Id > fullUsageSnapshot.CurrentBattleCount)
             .ToList();
-            
+        
+        _logger.LogInformation("No of record that will be consolidated = {}", battleList.Count);
             
         battleList.ForEach(battleResult =>
             {
@@ -127,10 +128,9 @@ public class ConsolidateServerOfflineSnapshotJob : IJob
                 }
             });
 
-        if (battleList.Count > 0)
-        {
-            fullUsageSnapshot.CurrentBattleCount = (uint) battleList.Count;
-        }
+        fullUsageSnapshot.CurrentBattleCount += (uint) battleList.Count;
+        
+        _logger.LogInformation("Updated snapshot counter = {}", fullUsageSnapshot.CurrentBattleCount);
 
         consolidatedData.SnapshotData = JsonConvert.SerializeObject(fullUsageSnapshot);
 
