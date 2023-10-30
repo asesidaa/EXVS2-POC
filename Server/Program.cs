@@ -1,8 +1,10 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Quartz;
 using Serilog;
 using Server.Common.Validation;
+using Server.Jobs;
 using Server.Middlewares;
 using Server.Models.Config;
 using Server.Persistence;
@@ -42,6 +44,52 @@ try
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+    
+    builder.Services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
+    builder.Services.AddQuartz(quartz =>
+    {
+        quartz.UseMicrosoftDependencyInjectionJobFactory();
+        
+        var patchOfflineBattleJobKey = new JobKey("PatchOfflineBattleJob", "PatchOfflineBattleJob");
+        quartz.AddJob<PatchOfflineBattleJob>(opts =>
+        {
+            opts.WithIdentity(patchOfflineBattleJobKey);
+            opts.StoreDurably();
+        });
+        
+        var consolidateServerOfflineSnapshotJobKey = new JobKey("ConsolidateServerOfflineSnapshotJob", "ConsolidateServerOfflineSnapshotJob");
+        quartz.AddJob<ConsolidateServerOfflineSnapshotJob>(opts =>
+        {
+            opts.WithIdentity(consolidateServerOfflineSnapshotJobKey);
+            opts.StoreDurably();
+        });
+        
+        // Data Patching is at 4am JPT
+        // This is mandatory is you have existing data
+        // And if you wish to perform consolidation later
+        quartz.AddTrigger(opts =>
+        {
+            opts.ForJob(patchOfflineBattleJobKey);
+            opts.WithIdentity("PatchOfflineBattleJob", "PatchOfflineBattleJob");
+            opts.WithCronSchedule(
+                "0 0 4 ? * * *",
+                x => x.InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time"))
+            );
+        });
+        
+        // Server-wise Stat Consolidation is at 5am JPT
+        // For 1st time, it need the result of PatchOfflineBattleJob
+        // For 2nd time or later, it is incremental update based on update
+        quartz.AddTrigger(opts =>
+        {
+            opts.ForJob(consolidateServerOfflineSnapshotJobKey);
+            opts.WithIdentity("ConsolidateServerOfflineSnapshotJob", "ConsolidateServerOfflineSnapshotJob");
+            opts.WithCronSchedule(
+                "0 0 5 ? * * *",
+                x => x.InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time"))
+            );
+        });
+    });
 
     var app = builder.Build();
     
