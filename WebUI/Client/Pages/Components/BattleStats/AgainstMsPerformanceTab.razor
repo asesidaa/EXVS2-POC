@@ -2,7 +2,6 @@
 @using WebUI.Shared.Dto.Common
 @using WebUI.Client.Services
 
-@inject IDataService DataService
 @inject ILogger<AgainstMsPerformanceTab> Logger
 
 <MudTable Elevation="5" Items="@mobileSuits" Filter="@Filter" @ref="mudTable" T="MobileSuit" Hover="true" FixedHeader="true">
@@ -152,7 +151,7 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        mobileSuits = DataService.GetMobileSuitSortedById()
+        mobileSuits = BattlePageContext.MobileSuits
             .Where(ms => ms.TotalAgainstBattleCount > 0)
             .ToList();
     }
