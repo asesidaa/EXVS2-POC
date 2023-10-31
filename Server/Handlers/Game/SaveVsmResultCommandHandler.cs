@@ -34,7 +34,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
                 Type = request.Request.Type,
                 RequestId = request.Request.RequestId,
                 Error = Error.ErrServer,
-                save_vsm_on_result = new Response.SaveVsmOnResult()
+                save_vsm_result = new Response.SaveVsmResult()
             });
         }
         
@@ -50,7 +50,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
                 Type = request.Request.Type,
                 RequestId = request.Request.RequestId,
                 Error = Error.ErrServer,
-                save_vsm_on_result = new Response.SaveVsmOnResult()
+                save_vsm_result = new Response.SaveVsmResult()
             });
         }
         
@@ -127,7 +127,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             Type = request.Request.Type,
             RequestId = request.Request.RequestId,
             Error = Error.Success,
-            save_vsm_on_result = new Response.SaveVsmOnResult()
+            save_vsm_result = new Response.SaveVsmResult()
         });
     }
 

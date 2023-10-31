@@ -774,6 +774,9 @@
   <data name="ms_total_win_rate" xml:space="preserve">
     <value>胜率</value>
   </data>
+  <data name="ms_usage_rate" xml:space="preserve">
+    <value>使用率</value>
+  </data>
   <data name="against_ms_total_battle" xml:space="preserve">
     <value>总场次</value>
   </data>

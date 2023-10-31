@@ -48,6 +48,11 @@
                 @localizer["ms_total_win_rate"]
             </MudTableSortLabel>
         </MudTh>
+        <MudTh>
+            <MudTableSortLabel SortBy="@SortByMsUsageRate()">
+                @localizer["ms_usage_rate"]
+            </MudTableSortLabel>
+        </MudTh>
     </HeaderContent>
     <RowTemplate>
         @{
@@ -125,6 +130,17 @@
         }
         <MudTd DataLabel="@localizer["ms_total_win"]" Class="cursor-pointer">@winRateString</MudTd>
         @{
+            var usageRateString = "0.00%";
+
+            if (BattlePageContext.TotalBattleCount > 0)
+            {
+                var usageRate = 100 * context.TotalBattleCount / BattlePageContext.TotalBattleCount;
+                usageRateString = String.Format("{0:0.00}", usageRate) + "%";
+            }
+        }
+        <MudTd DataLabel="@localizer["ms_usage_rate"]" Class="cursor-pointer">@usageRateString</MudTd>
+        
+        @{
             #pragma warning restore CS8602
         }
     </RowTemplate>
@@ -194,5 +210,15 @@
         var aggregate = $"{mobileSuit.Value}{mobileSuit.ValueJP}{mobileSuit.ValueCN}{mobileSuit.Pilot}{mobileSuit.PilotJP}{mobileSuit.PilotCN}{mobileSuit.PilotSeiyuu}{mobileSuit.PilotSeiyuuJP}{mobileSuit.PilotSeiyuuCN}{mobileSuit.Series}{mobileSuit.SeriesJP}{mobileSuit.SeriesCN}";
         
         return string.IsNullOrEmpty(searchString) || aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private Func<MobileSuit, object> SortByMsUsageRate()
+    {
+        if (BattlePageContext.TotalBattleCount == 0)
+        {
+            return x => 0;
+        }
+
+        return x => 100 * x.TotalBattleCount / BattlePageContext.TotalBattleCount;
     }
 }
