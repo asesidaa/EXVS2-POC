@@ -21,7 +21,7 @@
 }*@
 <MudGrid Class="my-8">
     <MudItem xs="12">
-        <MudTextField @ref="mudTextField" @bind-Value="_searchText" Label="@localizer["search"]" Variant="Variant.Outlined" Immediate="true" TextChanged="SearchEntered" />
+        <MudTextField @ref="mudTextField" @bind-Value="_searchText" Label="@localizer["search"]" Variant="Variant.Outlined" OnDebounceIntervalElapsed="SearchEntered" DebounceInterval="350" />
     </MudItem>
     
     @if (cardDtos is null)
@@ -133,8 +133,6 @@
 
     private List<BareboneCardProfile>? cardDtos;
 
-    private List<BareboneCardProfile>? originalCardDtos;
-
     private MudTextField<string> mudTextField { get; set; }
 
     private string _searchText { get; set; }
@@ -147,14 +145,10 @@
 
         Logger.LogInformation("Max cards shown count: {_maxCardsShownCount}", _maxCardsShownCount);
 
-        cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>("card/getAll");
+        cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>($"card/getAll?PageSize={_maxCardsShownCount}");
 
         if (cardDtos is null)
             cardDtos = new List<BareboneCardProfile>();
-        
-        originalCardDtos = cardDtos;
-
-        cardDtos = cardDtos.Take(_maxCardsShownCount).ToList();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -209,7 +203,7 @@
             StateHasChanged();
         }
     }
-    
+
     private async Task OnViewAllOfflineBattleDetailClicked(BareboneCardProfile card)
     {
         var options = new DialogOptions
@@ -224,7 +218,7 @@
             { "Mode", "AllOfflineBattleDetail"}
         };
         var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
-    // ReSharper disable once UnusedVariable
+        // ReSharper disable once UnusedVariable
         var result = await dialog.Result;
         if (!result.Canceled)
         {
@@ -246,14 +240,14 @@
             { "Mode", "ShuffleOfflineBattleDetail"}
         };
         var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
-    // ReSharper disable once UnusedVariable
+        // ReSharper disable once UnusedVariable
         var result = await dialog.Result;
         if (!result.Canceled)
         {
             StateHasChanged();
         }
     }
-    
+
     private async Task OnViewTeamOfflineBattleDetailClicked(BareboneCardProfile card)
     {
         var options = new DialogOptions
@@ -268,33 +262,25 @@
             { "Mode", "TeamOfflineBattleDetail"}
         };
         var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
-    // ReSharper disable once UnusedVariable
+        // ReSharper disable once UnusedVariable
         var result = await dialog.Result;
         if (!result.Canceled)
         {
             StateHasChanged();
         }
     }
- 
-    private void SearchEntered(string input)
+
+    private async Task SearchEntered(string input)
     {
-        if (input.Trim() == "")
-        {
-            cardDtos = originalCardDtos.Take(_maxCardsShownCount).ToList();
-            StateHasChanged();
-            return;
-        }
-        
-        var eligibleCardDtos = originalCardDtos.Where(x => x.ChipId.Contains(input)).ToList();
-        
-        if (eligibleCardDtos.Count > 0)
-        {
-            cardDtos = eligibleCardDtos;
-        }
-        else
-        {
-            cardDtos = originalCardDtos.Take(_maxCardsShownCount).ToList();
-        }
+        var queryStringBuilder = new StringBuilder();
+        queryStringBuilder.Append($"card/getAll?PageSize={_maxCardsShownCount}");
+        if (!string.IsNullOrWhiteSpace(input))
+            queryStringBuilder.Append($"&SearchKeyword={input}");
+
+        cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>(queryStringBuilder.ToString());
+
+        if (cardDtos is null)
+            cardDtos = new List<BareboneCardProfile>();
 
         StateHasChanged();
     }

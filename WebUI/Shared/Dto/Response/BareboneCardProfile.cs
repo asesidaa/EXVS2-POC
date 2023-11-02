@@ -3,6 +3,6 @@
 public class BareboneCardProfile
 {
     public string UserName { get; set; } = string.Empty;
-    public string AccessCode { get; set; } = string.Empty;
+
     public string ChipId { get; set; } = string.Empty;
 }

@@ -1,7 +1,11 @@
 ﻿@inject NavigationManager NavManager
 @inject ILogger<CardAuthDialog> Logger
 @inject ISnackbar Snackbar
+@inject HttpClient Http
+
+@using Throw;
 @using WebUI.Shared.Dto.Response;
+@using WebUI.Shared.Dto.Request;
 
 <MudDialog>
     <TitleContent>
@@ -32,7 +36,7 @@
 
     [Parameter]
     public BareboneCardProfile Data { get; set; } = null!;
-    
+
     [Parameter]
     public string Mode { get; set; } = null!;
 
@@ -56,9 +60,14 @@
 
     public async Task Submit()
     {
-        if (AccessCode != Data.AccessCode)
+        var authRequest = new CardAuthorizationRequest { ChipId = Data.ChipId, AccessCode = AccessCode };
+        var response = await Http.PostAsJsonAsync<CardAuthorizationRequest>($"card/authorize", authRequest);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        if (!result.Success)
         {
-            Snackbar.Add("Invalid access code!", Severity.Error);
+            Snackbar.Add("Authorization failed. Invalid access code!", Severity.Error);
         }
         else
         {
