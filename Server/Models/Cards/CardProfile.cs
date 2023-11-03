@@ -33,6 +33,8 @@ public class CardProfile : BaseEntity
     
     public ICollection<UploadImage> UploadImages { get; } = new List<UploadImage>(); 
     
+    public ICollection<UploadReplay> UploadReplays { get; } = new List<UploadReplay>(); 
+    
     public ICollection<OnlinePair> OnlinePairs { get; } = new List<OnlinePair>(); 
     
     public int QuickOnlinePartnerId { get; set; } = 0;
