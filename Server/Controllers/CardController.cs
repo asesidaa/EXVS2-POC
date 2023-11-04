@@ -235,6 +235,14 @@ public class CardController : BaseController<CardController>
         var response = await mediator.Send(new CheckPlayerExistenceResultCommand(partnerId, partnerToken));
         return response;
     }
+    
+    [HttpPost("preCreateTeam")]
+    [Produces("application/json")]
+    public async Task<ActionResult<PreCreateTeamResponse>> PreCreateTeam([FromBody] PreCreateTeamRequest request)
+    {
+        var response = await mediator.Send(new PreCreateTeamCommand(request));
+        return response;
+    }
 
     [HttpPost("upsertTeams")]
     [Produces("application/json")]

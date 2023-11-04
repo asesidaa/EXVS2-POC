@@ -26,12 +26,6 @@
     private async void RemoveTeam()
     {
         TagTeams.RemoveAll(x => x.Id == CurrentTeam.Id);
-        var startingIndex = 1;
-        TagTeams.ForEach(x =>
-        {
-            x.Id = (uint) startingIndex;
-            startingIndex++;
-        });
         await CallBackAfterDelete.InvokeAsync();
         MudDialog.Close(DialogResult.Ok(true));
     }
