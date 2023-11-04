@@ -80,7 +80,8 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
             }
 
             // For Offline / Online Teams
-            // AppendTagTeams(cardProfile, pilotDataGroup);
+            pilotDataGroup.TagTeams.Clear();
+            AppendTagTeams(cardProfile, pilotDataGroup);
         }
 
         response.load_card = new Response.LoadCard
@@ -118,6 +119,27 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
                     });
                 });
         }
+
+        var oppositeTagTeamDatas = _context.TagTeamData
+            .Where(tagTeamData => tagTeamData.TeammateCardId == cardProfile.Id)
+            .ToList();
+        
+        oppositeTagTeamDatas.ForEach(tagTeamData =>
+        {
+            pilotDataGroup.TagTeams.Add(new TagTeamGroup()
+            {
+                Id = (uint)tagTeamData.Id,
+                Name = tagTeamData.TeamName,
+                PartnerId = (uint)tagTeamData.CardId,
+                SkillPoint = tagTeamData.SkillPoint,
+                SkillPointBoost = 0,
+                BackgroundPartsId = tagTeamData.BackgroundPartsId,
+                EffectId = tagTeamData.EffectId,
+                EmblemId = tagTeamData.EmblemId,
+                BgmId = tagTeamData.BgmId,
+                NameColorId = tagTeamData.NameColorId
+            });
+        });
     }
 
     private void PatchRankingDataIfNotExist(Response.LoadCard.PilotDataGroup pilotDataGroup, CardProfile cardProfile)
