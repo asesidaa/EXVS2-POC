@@ -65,7 +65,7 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
 
             if (legitOnlinePairs.Count > 0)
             {
-                AddOnlinePairs(legitOnlinePairs, mobileUserGroup);
+                AddOnlinePairs(cardProfile, legitOnlinePairs, mobileUserGroup);
             }
 
             // For Online Quick Tag
@@ -193,14 +193,33 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
             };
     }
 
-    private void AddOnlinePairs(List<OnlinePair> legitOnlinePairs, Response.LoadCard.MobileUserGroup mobileUserGroup)
+    private void AddOnlinePairs(CardProfile cardProfile, List<OnlinePair> legitOnlinePairs, Response.LoadCard.MobileUserGroup mobileUserGroup)
     {
         legitOnlinePairs.ForEach(onlinePair =>
         {
+            var team = _context.TagTeamData.FirstOrDefault(tagTeam => tagTeam.Id == onlinePair.TeamId);
+
+            if (team is null)
+            {
+                return;
+            }
+
+            var partnerId = 0;
+
+            if (team.CardId != cardProfile.Id)
+            {
+                partnerId = team.CardId;
+            }
+            
+            if (team.TeammateCardId != cardProfile.Id)
+            {
+                partnerId = (int) team.TeammateCardId;
+            }
+            
             var partnerProfile = _context.CardProfiles
                 .Include(x => x.PilotDomain)
                 .Include(x => x.UserDomain)
-                .FirstOrDefault(x => x.Id == onlinePair.TeammateCardId);
+                .FirstOrDefault(x => x.Id == partnerId);
 
             if (partnerProfile is null)
             {
@@ -225,7 +244,7 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
             mobileUserGroup.online_tag_info.TagTeamPartners.Add(
                 new Response.LoadCard.MobileUserGroup.OnlineTagInfo.OnlineTagPartner
                 {
-                    Id = (uint)onlinePair.TeammateCardId,
+                    Id = (uint) team.Id,
                     Name = partnerMobileUserGroup.PlayerName,
                     EchelonId = partnerPilotDataGroup.EchelonId,
                     SEchelonFlag = partnerPilotDataGroup.SEchelonFlag,
