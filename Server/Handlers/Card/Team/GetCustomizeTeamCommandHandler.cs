@@ -21,34 +21,57 @@ public class GetCustomizeTeamCommandHandler : IRequestHandler<GetCustomizeTeamCo
     public Task<List<WebUI.Shared.Dto.Common.Team>> Handle(GetCustomizeTeamCommand request, CancellationToken cancellationToken)
     {
         var cardProfile = _context.CardProfiles
-            .Include(x => x.PilotDomain)
+            .Include(x => x.PilotDomain)        
+            .Include(x => x.TagTeamDataList)
             .FirstOrDefault(x => x.AccessCode == request.AccessCode && x.ChipId == request.ChipId);
         
         if (cardProfile == null)
         {
             throw new NullReferenceException("Card Profile is invalid");
         }
-        
-        var pilotDataGroup = JsonConvert.DeserializeObject<Response.LoadCard.PilotDataGroup>(cardProfile.PilotDomain.PilotDataGroupJson);
 
-        if (pilotDataGroup is null)
-        {
-            throw new NullReferenceException("User is invalid");
-        }
+        var finalTeamList = new List<WebUI.Shared.Dto.Common.Team>();
 
-        var teams = pilotDataGroup.TagTeams
-            .Select(tagTeam => tagTeam.ToTeam())
+        cardProfile.TagTeamDataList
+            .ToList()
+            .ForEach(team =>
+            {
+                var partner = _context.CardProfiles
+                    .Include(x => x.UserDomain)
+                    .FirstOrDefault(x => x.Id == (int)team.TeammateCardId);
+
+                if (partner is null)
+                {
+                    return;
+                }
+                
+                var partnerMobileUserGroup =
+                    JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(partner.UserDomain.UserJson);
+
+                if (partnerMobileUserGroup is null)
+                {
+                    return;
+                }
+
+                var teamDto = team.ToTeam();
+                teamDto.PartnerId = team.TeammateCardId;
+                teamDto.PartnerName = partnerMobileUserGroup.PlayerName;
+
+                finalTeamList.Add(teamDto);
+            });
+
+        var oppositeTeams = _context.TagTeamData
+            .Where(team => team.TeammateCardId == cardProfile.Id)
             .ToList();
         
-        teams.ForEach(team =>
+        oppositeTeams.ForEach(team =>
         {
             var partner = _context.CardProfiles
                 .Include(x => x.UserDomain)
-                .FirstOrDefault(x => x.Id == (int)team.PartnerId);
+                .FirstOrDefault(x => x.Id == team.CardId);
 
             if (partner is null)
             {
-                team.PartnerName = "N/A";
                 return;
             }
             
@@ -56,13 +79,16 @@ public class GetCustomizeTeamCommandHandler : IRequestHandler<GetCustomizeTeamCo
 
             if (partnerMobileUserGroup is null)
             {
-                team.PartnerName = "N/A";
                 return;
             }
 
-            team.PartnerName = partnerMobileUserGroup.PlayerName;
+            var teamDto = team.ToTeam();
+            teamDto.PartnerId = (uint) team.CardId;
+            teamDto.PartnerName = partnerMobileUserGroup.PlayerName;
+            
+            finalTeamList.Add(teamDto);
         });
         
-        return Task.FromResult(teams);
+        return Task.FromResult(finalTeamList);
     }
 }
