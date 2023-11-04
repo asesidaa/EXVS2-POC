@@ -60,7 +60,13 @@
 
     public async Task Submit()
     {
-        var authRequest = new CardAuthorizationRequest { ChipId = Data.ChipId, AccessCode = AccessCode };
+        var authRequest = new CardAuthorizationRequest
+        {
+            CardId = Data.CardId,
+            ChipId = Data.ChipId, 
+            AccessCode = AccessCode
+        };
+        
         var response = await Http.PostAsJsonAsync<CardAuthorizationRequest>($"card/authorize", authRequest);
         var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
         result.ThrowIfNull();

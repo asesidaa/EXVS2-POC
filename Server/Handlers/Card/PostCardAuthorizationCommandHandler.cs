@@ -27,7 +27,7 @@ public class PostCardAuthorizationCommandHandler : IRequestHandler<PostCardAutho
         var cardProfile = await context.CardProfiles
             .Include(x => x.UserDomain)
             .Where(x => !x.IsNewCard)
-            .FirstOrDefaultAsync(x => x.ChipId.Equals(request.Request.ChipId));
+            .FirstOrDefaultAsync(x => x.ChipId.Equals(request.Request.ChipId) && x.Id == request.Request.CardId);
 
         if (cardProfile is not null && request.Request.AccessCode == cardProfile.AccessCode)
             return new BasicResponse { Success = true };

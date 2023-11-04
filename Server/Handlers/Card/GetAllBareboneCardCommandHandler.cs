@@ -71,7 +71,12 @@ public class GetAllBareboneCardCommandHandler :
             var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(
                 cardProfile.UserDomain.UserJson);
 
-            return new BareboneCardProfile { ChipId = cardProfile.ChipId, UserName = user?.PlayerName ?? string.Empty };
+            return new BareboneCardProfile
+            {
+                CardId = cardProfile.Id,
+                ChipId = cardProfile.ChipId, 
+                UserName = user?.PlayerName ?? string.Empty
+            };
         };
     }
 }
