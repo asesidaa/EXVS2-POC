@@ -8,6 +8,7 @@ public class CardServerConfig
 
     public bool IgnoreUploadSaving { get; set; }
     public bool NeedToDataPatchOfflineData { get; set; }
+    public uint MaxReplaySaveSlotPerPlayer { get; set; }
 
     public GameConfigurations GameConfigurations { get; set; } = new();
 

@@ -2,6 +2,7 @@
   "CardServerConfig": {
     "IgnoreUploadSaving": false,
     "NeedToDataPatchOfflineData": true,
+    "MaxReplaySaveSlotPerPlayer": 5,
     "GameConfigurations": {
       "OfflineBaseWinPoint": 2,
       "OfflineBaseLosePoint": -1,

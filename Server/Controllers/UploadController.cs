@@ -22,4 +22,11 @@ public class UploadController : BaseController<UploadController>
         var response = await mediator.Send(new UploadImageCommand(cardId, accessToken, Request));
         return response;
     }
+    
+    [HttpPut("uploadReplay/{playerId}/{replayTime}")]
+    public async Task<ActionResult<string>> UploadReplay(String playerId, String replayTime)
+    {
+        var response = await mediator.Send(new UploadReplayCommand(playerId, replayTime, Request));
+        return response;
+    }
 }
