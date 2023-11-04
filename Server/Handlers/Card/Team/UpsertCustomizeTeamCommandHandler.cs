@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
-using Server.Mappers;
 using Server.Persistence;
 using WebUI.Shared.Dto.Request;
 using WebUI.Shared.Dto.Response;
@@ -47,15 +46,47 @@ public class UpsertCustomizeTeamCommandHandler : IRequestHandler<UpsertCustomize
                 Success = true
             });
         }
+
+        var requestedTeams = updateRequest.Teams;
+        var updatedTeamIds = updateRequest.Teams
+            .Where(team => team.Id != 0)
+            .Select(team => team.Id)
+            .ToList();
+            
+        var currentTeams = _context.TagTeamData
+            .Where(tagTeam => tagTeam.CardId == cardProfile.Id || tagTeam.TeammateCardId == cardProfile.Id)
+            .ToList();
         
-        pilotDataGroup.TagTeams.Clear();
-        
-        updateRequest.Teams.ForEach(team =>
+        // Delete Logic
+        var removedTeams = currentTeams
+            .Where(team => !updatedTeamIds.Contains((uint)team.Id))
+            .ToList();
+        currentTeams.RemoveAll(team => !updatedTeamIds.Contains((uint) team.Id));
+        _context.TagTeamData.RemoveRange(removedTeams);
+        _context.SaveChanges();
+      
+        // Update Logic
+        requestedTeams.ForEach(team =>
         {
-            pilotDataGroup.TagTeams.Add(team.ToTagTeamGroup());
+            if (team.Id == 0)
+            {
+                return;
+            }
+
+            var updateTeam = currentTeams.FirstOrDefault(innerTeam => innerTeam.Id == team.Id);
+
+            if (updateTeam is null)
+            {
+                return;
+            }
+
+            updateTeam.TeamName = team.Name;
+            updateTeam.BackgroundPartsId = team.BackgroundPartsId;
+            updateTeam.EmblemId = team.EmblemId;
+            updateTeam.EffectId = team.EffectId;
+            updateTeam.NameColorId = team.NameColorId;
+            updateTeam.BgmId = team.BgmId;
         });
-        
-        cardProfile.PilotDomain.PilotDataGroupJson = JsonConvert.SerializeObject(pilotDataGroup);
         
         _context.SaveChanges();
         

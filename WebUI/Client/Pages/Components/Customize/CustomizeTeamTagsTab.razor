@@ -1,4 +1,5 @@
 ﻿@using WebUI.Shared.Dto.Common
+@using WebUI.Shared.Dto.Request
 @using WebUI.Shared.Dto.Response
 @inherits BasicCustomizeComponent
 
@@ -139,10 +140,37 @@
             Snackbar.Add($"{localizer["add_team_warning_invalid_player_profile"]}", Severity.Warning);
             return;
         }
+
+        var preCreateRequest = new PreCreateTeamRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            PartnerCardId = profileResult.PlayerId
+        };
+        
+        var preCreate = await Http.PostAsJsonAsync("/card/preCreateTeam", preCreateRequest);
+        var preCreateResult = await preCreate.Content.ReadFromJsonAsync<PreCreateTeamResponse>();
+        
+        if (preCreateResult is null)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_invalid_player_profile"]}", Severity.Warning);
+            return;
+        }
+        
+        if (!preCreateResult.Success)
+        {
+            Snackbar.Add($"{localizer["add_team_warning_invalid_player_profile"]}", Severity.Warning);
+            return;
+        }
+
+        if (preCreateRequest.PartnerCardId == 0)
+        {
+            return;
+        }
         
         TagTeams.Add(new Team()
         {
-            Id = (uint)(TagTeams.Count + 1),
+            Id = preCreateResult.NewTeamId,
             PartnerName = profileResult.PlayerName,
             BackgroundPartsId = 0,
             BgmId = 0,

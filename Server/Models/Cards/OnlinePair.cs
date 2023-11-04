@@ -14,7 +14,7 @@ public class OnlinePair
     public int CardId { get; set; }
     
     [Required]
-    public int TeammateCardId { get; set; } = 0;
+    public int TeamId { get; set; } = 0;
     
     public virtual CardProfile CardProfile { get; set; } = null!;
 }

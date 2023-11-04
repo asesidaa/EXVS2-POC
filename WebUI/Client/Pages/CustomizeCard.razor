@@ -445,6 +445,7 @@
 </MudTabPanel>
 <MudTabPanel Text="@localizer["teamtag"]">
     <WebUI.Client.Pages.Components.Customize.CustomizeTeamTagsTab 
+        AccessCode="@AccessCode" ChipId="@ChipId"
         BasicProfile="@_basicProfile" HideProgress="@HideTeamTagsProgress" 
         TagTeams="@_tagTeams"
         SaveTask="SaveTeamTags" EnableImagePreview="@EnableImagePreview" />
