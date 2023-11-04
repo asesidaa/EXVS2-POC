@@ -480,6 +480,7 @@ FodyWeavers.xsd
 
 # User image files
 Server/wwwroot/uploadimage/
+Server/wwwroot/replay/
 Server/wwwroot/images/
 WebUI/Client/wwwroot/images/
 
