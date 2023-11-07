@@ -1,6 +1,6 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_UseX64=y
-#AutoIt3Wrapper_Res_Fileversion=1.4.0.2
+#AutoIt3Wrapper_Res_Fileversion=1.4.0.3
 #AutoIt3Wrapper_Res_Fileversion_AutoIncrement=p
 #AutoIt3Wrapper_Run_After=mkdir "%scriptdir%\verau3"
 #AutoIt3Wrapper_Run_After=mkdir "%scriptdir%\verexe"
@@ -15,6 +15,7 @@
 #include <TabConstants.au3>
 #include <WindowsConstants.au3>
 #include <File.au3>
+#include <WinAPI.au3>
 
 
 #Region ## Global Variables Section Starts##
@@ -23,6 +24,7 @@ Global $Filename = "config.ini" ; Variable for Config file
 Global $filedir = @ScriptDir & "\" & $Filename ; Variable for file directory to store path of config.ini
 Global $ipconfigout = @ScriptDir & "\Tools\ipconfig-output.txt" ; Variable for the ipconfig output file path from batch file
 Global $iFileExists = FileExists($filedir) ; Varuiable used to check if config.ini file is in the game directory
+Global $CardExists = FileExists(".\card.ini") ; Variable used to check if card.ini file is in the game directory
 Global $currentIPEnabled = IniRead($filedir, "Config", "IpAddress", "default") ; Variable that reads current value of IpAddress in Config.ini
 Global $currentIPDisabled = IniRead($filedir, "Config", "# IpAddress", "default"); Variable that reads current value of Commented IpAddress in Config.ini
 Global $currentServer = IniRead($filedir, "Config", "Server", "default") ; Variable that reads current value of Server in Config.ini
@@ -82,7 +84,23 @@ Global $defaultKeyBT = "F1" ; Variable for Default Value of Test in Config.ini f
 Global $defaultKeyCard = "F3" ; Variable for Default Value of Card in Config.ini for Keyboard
 Global $defaultKeyKill = "Esc" ; Variable for the Default Value of Kill in Config.ini for Keyboard
 Global $Clicked = False ; Boolean Variable for confirming if Switch Language button is pressed
-Global $Version = "Version 1.4.0.2" ; Version Number
+Global $Version = "Version 1.4.0.3" ; Version Number
+Global Const $COLOR_DEEPRED = 0xe10000 ; Color used for DeepRed
+Global $joyb1 = "1" ; Variable for joystick button 1
+Global $joyb2 = "2" ; Variable for joystick button 2
+Global $joyb3 = "3" ; Variable for joystick button 3
+Global $joyb4 = "4" ; Variable for joystick button 4
+Global $joyb5 = "5" ; Variable for joystick button 5
+Global $joyb6 = "6" ; Variable for joystick button 6
+Global $joyb7 = "7" ; Variable for joystick button 7
+Global $joyb8 = "8" ; Variable for joystick button 8
+Global $joyb9 = "9" ; Variable for joystick button 9
+Global $joyb10 = "10" ; Variable for joystick button 10
+Global $joyb11 = "11" ; Variable for joystick button 11
+Global $joyb12 = "12" ; Variable for joystick button 12
+Global $joyb13 = "13" ; Variable for joystick button 13
+Global $joyb14 = "14" ; Variable for joystick button 14
+
 #EndRegion ### Global Variables Section End ###
 
 #Region ### GUI Variables used for Language Switching ###
@@ -101,10 +119,10 @@ Global $keyboardGUI[$GUI_keyboardElements] ; Create Array KeyboardGUI
 Global $baseGUILang[$GUI_baseElements][2] = [["XBoost Single Instance Launcher", "XBoost 单实例 启动器"], ["Start Server.exe", "开始 Server.exe"], ["Start LM Mode", "启动 LM"], ["Start Client Mode", "启动 Client"], ["Open Config.ini", "打开Config.ini"], ["Card Webpage", "卡片网页"], ["Switch Language", "改变语言"], ["Exit", "退出"]]
 
 #Below Creates Array configGUILang with 2 values per Element
-Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"], ["IP Address", "IP 地址"], ["InterfaceName", "网卡名称"], ["Server.exe Address", "Server.exe 地址"], ["Windowed Mode", "窗口模式"], ["Run ipconfig.bat", "运行 ipconfig.bat"], ["Initialize iauthdll.bat", "初始化 iauthdll.bat"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"], ["IP Address", "IP 地址"], ["InterfaceName", "网卡名称"], ["Server.exe Address", "Server.exe 地址"], ["Windowed Mode", "窗口模式"], ["Run ipconfig.bat", "运行 ipconfig.bat"], ["Initialize iauthdll.bat", "初始化 iauthdll.bat"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"], ["Your Current Card Data", "您当前的卡数据"]]
 
 #Below Creates Array controllerGUILang with 2 values per Element
-Global $controllerGUILang[$GUI_controllerElements][2] = [["", ""], ["Controller Settings", "按键 设置"], ["DirectInput", "DirectInput"], ["Windows USB Game Controller Options", "Windows USB 按键设置"], ["Joystick Detection Tool", "操纵杆 检测 工具"], ["Button A (Shoot)", "按钮 A (射击)"], ["Button B (Melee)", "按钮 B (近战)"], ["Button C (Jump)", "按钮 C (跳)"], ["Button D (Target)", "按钮 D (目标)"], ["Start (Communication)", "启动 (通讯)"], ["Coin", "硬币"], ["Card", "卡片"], ["Device ID", "设备 ID"], ["Test (Optional)", "测试 (自选)"], ["Exit Program (Optional)", "退出程序 (自选)"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
+Global $controllerGUILang[$GUI_controllerElements][2] = [["", ""], ["Controller Settings", "按键 设置"], ["DirectInput", "DirectInput"], ["Windows USB Game Controller Options", "Windows USB 按键设置"], ["DeviceID Detection Tool", "DeviceID检测工具"], ["Button A (Shoot)", "按钮 A (射击)"], ["Button B (Melee)", "按钮 B (近战)"], ["Button C (Jump)", "按钮 C (跳)"], ["Button D (Target)", "按钮 D (目标)"], ["Start (Communication)", "启动 (通讯)"], ["Coin", "硬币"], ["Card", "卡片"], ["Device ID", "设备 ID"], ["Test (Optional)", "测试 (自选)"], ["Exit Program (Optional)", "退出程序 (自选)"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
 
 #Below Creates Array keyboardGUILang with 2 values per Element
 Global $keyboardGUILang[$GUI_keyboardElements][2] = [["", ""], ["Keyboard/XInput", "键盘/X Input"], ["Keyboard", "键盘"], ["Link for Input Mappings", "按键设定参考网址"], ["Up", "上"], ["Down", "下"], ["Left", "左"], ["Right", "右"], ["Button A (Shoot)", "按钮 A (射击)"], ["Button B (Melee)", "按钮 B (近战)"], ["Button C (Jump)", "按钮 C (跳)"], ["Button D (Target)", "按钮 D (目标)"], ["Start (Communication)", "启动 (通讯)"], ["Coin", "硬币"], ["Test", "测试"], ["Card", "卡片"], ["Exit Program", "退出程序"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
@@ -207,6 +225,10 @@ $configGUI[9] = GUICtrlCreateButton($configGUILang[9][$currentLang], 400, 650, 1
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
 $configGUI[10] = GUICtrlCreateButton($configGUILang[10][$currentLang], 590, 70, 150, 50) ; How to setup
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
+$configGUI[11] = GUICtrlCreateLabel($configGUILang[11][$currentLang], 205, 400, 170, 30) ; Card Data Label
+GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
+$CardEdit = GUICtrlCreateEdit("", 95, 430, 400, 40, $ES_READONLY, 0) ; Card Data Edit Box
+GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 Global $IPRadio = GUICtrlCreateRadio("", 35, 81, 17, 17) ; Radio for IP Address
 Global $InterfaceRadio = GUICtrlCreateRadio("", 35, 121, 17, 17) ; Radio for InterfaceName
 Global $iIPAddress = GUICtrlCreateInput($currentIPEnabled, 248, 81, 193, 28) ; Input for IP Address
@@ -257,8 +279,8 @@ GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
 $controllerGUI[17] = GUICtrlCreateButton($controllerGUILang[17][$currentLang], 590, 70, 150, 50) ; How to setup
 GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
 Global $DIcheck = GUICtrlCreateCheckbox("", 160, 65, 17, 17) ; DirectInput Checkbox
-Global $TestCheck = GUICtrlCreateCheckbox("", 16, 508, 17, 17)
-Global $KillCheck = GUICtrlCreateCheckbox("", 16, 548, 17, 17)
+Global $TestCheck = GUICtrlCreateCheckbox("", 16, 508, 17, 17) ; Test Checkbox
+Global $KillCheck = GUICtrlCreateCheckbox("", 16, 548, 17, 17) ; Kill Checkbox
 Global $AB1 = GUICtrlCreateInput($currentB1, 312, 156, 121, 28) ; Input for Button A
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 Global $AB2 = GUICtrlCreateInput($currentB2, 312, 196, 121, 28) ; Input for Button B
@@ -357,17 +379,26 @@ GUISetState(@SW_SHOW)
 
 $size = FileGetSize("bngrw.dll")
 If $size <> "137728" Then
-
 Else
-
 Msgbox(16, "Error", "Please check the bngrw.dll file, it is not the correct file size.", 3)
-
 EndIf
 
 If Not $iFileExists Then ; Used to check if config.ini exists, if it does not it will Error with Message Box
  	MsgBox (16, "Error", $Filename & " is not found. Please make sure you copied the config.ini file over to Game Directory and restart the launcher.", 3)
 EndIf
 
+#EndRegion
+
+#Region ### Card.ini checker ###
+$cardfile = "./card.ini"
+$Accesscode = IniRead($cardfile, "card", "accessCode", "default")
+$ChipId =  IniRead($cardfile, "card", "chipId", "default")
+If Not $CardExists Then
+	GUICtrlSetData($CardEdit, "card.ini not found, you need to play the game at least 1 time to create the card.ini file")
+	GUICtrlSetColor($CardEdit, $COLOR_DEEPRED)
+Else
+	GUICtrlSetData($CardEdit, "accessCode = " & $Accesscode &@CRLF& "chipId = " & $ChipId)
+EndIf
 #EndRegion
 
 #Region ### Process to get InterfaceNames  ###
@@ -518,33 +549,84 @@ EndIf
 
 #EndRegion
 
+#Region ### Gamepad Reading Inputs ### Thanks to Joystick UDF in AutoIT forum *Adam1213*
+
+Local $joy,$coor,$h,$s,$msg
+$joy    = _JoyInit()
+
+;======================================
+;   _JoyInit()
+;======================================
+Func _JoyInit()
+    Local $joy
+    Global $JOYINFOEX_struct = "dword[13]"
+    $joy=DllStructCreate($JOYINFOEX_struct)
+    if @error Then Return 0
+    DllStructSetData($joy, 1, DllStructGetSize($joy), 1);dwSize = sizeof(struct)
+    DllStructSetData($joy, 1, 255, 2)             ;dwFlags = GetAll
+    return $joy
+EndFunc
+;======================================
+;   _GetJoy($lpJoy,$iJoy)
+;   $lpJoy  Return from _JoyInit()
+;   $iJoy   Joystick # 0-15
+;   Return  Array containing X-Pos, Y-Pos, Z-Pos, R-Pos, U-Pos, V-Pos,POV
+;          Buttons down
+;
+;          *POV This is a digital game pad, not analog joystick
+;          65535   = Not pressed
+;          0       = U
+;          4500 = UR
+;          9000 = R
+;          Goes around clockwise increasing 4500 for each position
+;======================================
+Func _GetJoy($lpJoy,$iJoy)
+    Local $coor,$ret
+    Dim $coor[8]
+    DllCall("Winmm.dll","int","joyGetPosEx", _
+            "int",$iJoy, _
+            "ptr",DllStructGetPtr($lpJoy))
+    if Not @error Then
+        $coor[0]    = DllStructGetData($lpJoy,1,3)
+        $coor[1]    = DllStructGetData($lpJoy,1,4)
+        $coor[2]    = DllStructGetData($lpJoy,1,5)
+        $coor[3]    = DllStructGetData($lpJoy,1,6)
+        $coor[4]    = DllStructGetData($lpJoy,1,7)
+        $coor[5]    = DllStructGetData($lpJoy,1,8)
+        $coor[6]    = DllStructGetData($lpJoy,1,11)
+        $coor[7]    = DllStructGetData($lpJoy,1,9)
+    EndIf
+    return $coor
+EndFunc
+
+#EndRegion
+
 #Region ### Save Function for Config ###
 
 Func _SaveConfig()
-			$InterfaceArray = IniReadSection($filedir, "config")
-			$keyvalue4 = $InterfaceArray[3][0]
-			$keyvalue5 = $InterfaceArray[4][0]
-			If GUICtrlRead($IPRadio) = 1 AND $keyvalue5 = "# IpAddress" Then
-				_ReplaceStringInFile($Filename, "# IpAddress =", "IpAddress =")
-				_ReplaceStringInFile($Filename, "InterfaceName =", "# InterfaceName =")
-				IniWrite($Filename, "Config", "IpAddress", " " & GuiCtrlRead($iIPAddress))
-			ElseIf GUICtrlRead($InterfaceRadio) = 1 AND $keyvalue4 = "# InterfaceName" Then
-				_ReplaceStringInFile($Filename, "# InterfaceName =", "InterfaceName =")
-				_ReplaceStringInFile($Filename, "IpAddress =", "# IpAddress =")
- 				IniWrite($Filename, "Config", "InterfaceName", " " & GUICtrlRead($combo))
-			ElseIf GUICtrlRead($IPRadio) = 1 AND $keyvalue5 = "IpAddress" Then
-				IniWrite($Filename, "Config", "IpAddress", " " & GuiCtrlRead($iIPAddress))
-			ElseIf GUICtrlRead($InterfaceRadio) = 1 AND $keyvalue4 = "InterfaceName" Then
-				IniWrite($Filename, "Config", "InterfaceName", " " & GUICtrlRead($combo))
-			EndIf
+	$InterfaceArray = IniReadSection($filedir, "config")
+	$keyvalue4 = $InterfaceArray[3][0]
+	$keyvalue5 = $InterfaceArray[4][0]
+	If GUICtrlRead($IPRadio) = 1 AND $keyvalue5 = "# IpAddress" Then
+		_ReplaceStringInFile($Filename, "# IpAddress =", "IpAddress =")
+		_ReplaceStringInFile($Filename, "InterfaceName =", "# InterfaceName =")
+		IniWrite($Filename, "Config", "IpAddress", " " & GuiCtrlRead($iIPAddress))
+	ElseIf GUICtrlRead($InterfaceRadio) = 1 AND $keyvalue4 = "# InterfaceName" Then
+		_ReplaceStringInFile($Filename, "# InterfaceName =", "InterfaceName =")
+		_ReplaceStringInFile($Filename, "IpAddress =", "# IpAddress =")
+		IniWrite($Filename, "Config", "InterfaceName", " " & GUICtrlRead($combo))
+	ElseIf GUICtrlRead($IPRadio) = 1 AND $keyvalue5 = "IpAddress" Then
+		IniWrite($Filename, "Config", "IpAddress", " " & GuiCtrlRead($iIPAddress))
+	ElseIf GUICtrlRead($InterfaceRadio) = 1 AND $keyvalue4 = "InterfaceName" Then
+		IniWrite($Filename, "Config", "InterfaceName", " " & GUICtrlRead($combo))
+	EndIf
 
-			IniWrite($Filename, "Config", "Server", " " & GUICtrlRead($iServer))
-
-			If GUICtrlRead($WindowCheck) = $GUI_CHECKED Then
-				IniWrite($Filename, "Config", "windowed", " " & "true")
-			Else
-				IniWrite($Filename, "Config", "windowed", " " & "false")
-			EndIf
+	IniWrite($Filename, "Config", "Server", " " & GUICtrlRead($iServer))
+	If GUICtrlRead($WindowCheck) = $GUI_CHECKED Then
+		IniWrite($Filename, "Config", "windowed", " " & "true")
+	Else
+		IniWrite($Filename, "Config", "windowed", " " & "false")
+	EndIf
 EndFunc
 
 #EndRegion
@@ -553,115 +635,115 @@ EndFunc
 
 Func _SaveKeyboard()
 
-			If GUICtrlRead($Up) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($Up, $defaultKeyUp)
-				IniWrite($Filename, "keyboard", "Up", " " & GUICtrlRead($Up))
-			Else
-				IniWrite($Filename, "keyboard", "Up", " " & GUICtrlRead($Up))
-			EndIf
+	If GUICtrlRead($Up) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($Up, $defaultKeyUp)
+		IniWrite($Filename, "keyboard", "Up", " " & GUICtrlRead($Up))
+	Else
+		IniWrite($Filename, "keyboard", "Up", " " & GUICtrlRead($Up))
+	EndIf
 
-			If GUICtrlRead($Down) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($Down, $defaultKeyDown)
-				IniWrite($Filename, "keyboard", "Down", " " & GUICtrlRead($Down))
-			Else
-				IniWrite($Filename, "keyboard", "Down", " " & GUICtrlRead($Down))
-			EndIf
+	If GUICtrlRead($Down) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($Down, $defaultKeyDown)
+		IniWrite($Filename, "keyboard", "Down", " " & GUICtrlRead($Down))
+	Else
+		IniWrite($Filename, "keyboard", "Down", " " & GUICtrlRead($Down))
+	EndIf
 
-			If GUICtrlRead($Left) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($Left, $defaultKeyLeft)
-				IniWrite($Filename, "keyboard", "Left", " " & GUICtrlRead($Left))
-			Else
-				IniWrite($Filename, "keyboard", "Left", " " & GUICtrlRead($Left))
-			EndIf
+	If GUICtrlRead($Left) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($Left, $defaultKeyLeft)
+		IniWrite($Filename, "keyboard", "Left", " " & GUICtrlRead($Left))
+	Else
+		IniWrite($Filename, "keyboard", "Left", " " & GUICtrlRead($Left))
+	EndIf
 
-			If GUICtrlRead($Right) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($Right, $defaultKeyRight)
-				IniWrite($Filename, "keyboard", "Right", " " & GUICtrlRead($Right))
-			Else
-				IniWrite($Filename, "keyboard", "Right", " " & GUICtrlRead($Right))
-			EndIf
+	If GUICtrlRead($Right) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($Right, $defaultKeyRight)
+		IniWrite($Filename, "keyboard", "Right", " " & GUICtrlRead($Right))
+	Else
+		IniWrite($Filename, "keyboard", "Right", " " & GUICtrlRead($Right))
+	EndIf
 
-			If GUICtrlRead($KeyB1) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyB1, $defaultKeyB1)
-				IniWrite($Filename, "keyboard", "A", " " & GUICtrlRead($KeyB1))
-			Else
-				IniWrite($Filename, "keyboard", "A", " " & GUICtrlRead($KeyB1))
-			EndIf
+	If GUICtrlRead($KeyB1) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyB1, $defaultKeyB1)
+		IniWrite($Filename, "keyboard", "A", " " & GUICtrlRead($KeyB1))
+	Else
+		IniWrite($Filename, "keyboard", "A", " " & GUICtrlRead($KeyB1))
+	EndIf
 
-			If GUICtrlRead($KeyB2) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyB2, $defaultKeyB2)
-				IniWrite($Filename, "keyboard", "B", " " & GUICtrlRead($KeyB2))
-			Else
-				IniWrite($Filename, "keyboard", "B", " " & GUICtrlRead($KeyB2))
-			EndIf
+	If GUICtrlRead($KeyB2) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyB2, $defaultKeyB2)
+		IniWrite($Filename, "keyboard", "B", " " & GUICtrlRead($KeyB2))
+	Else
+		IniWrite($Filename, "keyboard", "B", " " & GUICtrlRead($KeyB2))
+	EndIf
 
-			If GUICtrlRead($KeyB3) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyB3, $defaultKeyB3)
-				IniWrite($Filename, "keyboard", "C", " " & GUICtrlRead($KeyB3))
-			Else
-				IniWrite($Filename, "keyboard", "C", " " & GUICtrlRead($KeyB3))
-			EndIf
+	If GUICtrlRead($KeyB3) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyB3, $defaultKeyB3)
+		IniWrite($Filename, "keyboard", "C", " " & GUICtrlRead($KeyB3))
+	Else
+		IniWrite($Filename, "keyboard", "C", " " & GUICtrlRead($KeyB3))
+	EndIf
 
-			If GUICtrlRead($KeyB4) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyB4, $defaultKeyB4)
-				IniWrite($Filename, "keyboard", "D", " " & GUICtrlRead($KeyB4))
-			Else
-				IniWrite($Filename, "keyboard", "D", " " & GUICtrlRead($KeyB4))
-			EndIf
+	If GUICtrlRead($KeyB4) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyB4, $defaultKeyB4)
+		IniWrite($Filename, "keyboard", "D", " " & GUICtrlRead($KeyB4))
+	Else
+		IniWrite($Filename, "keyboard", "D", " " & GUICtrlRead($KeyB4))
+	EndIf
 
-			If GUICtrlRead($KeyStart) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyStart, $defaultKeyBS)
-				IniWrite($Filename, "keyboard", "Start", " " & GUICtrlRead($KeyStart))
-			Else
-				IniWrite($Filename, "keyboard", "Start", " " & GUICtrlRead($KeyStart))
-			EndIf
+	If GUICtrlRead($KeyStart) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyStart, $defaultKeyBS)
+		IniWrite($Filename, "keyboard", "Start", " " & GUICtrlRead($KeyStart))
+	Else
+		IniWrite($Filename, "keyboard", "Start", " " & GUICtrlRead($KeyStart))
+	EndIf
 
-			If GUICtrlRead($KeyCoin) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyCoin, $defaultKeyBC)
-				IniWrite($Filename, "keyboard", "Coin", " " & GUICtrlRead($KeyCoin))
-			Else
-				IniWrite($Filename, "keyboard", "Coin", " " & GUICtrlRead($KeyCoin))
-			EndIf
+	If GUICtrlRead($KeyCoin) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyCoin, $defaultKeyBC)
+		IniWrite($Filename, "keyboard", "Coin", " " & GUICtrlRead($KeyCoin))
+	Else
+		IniWrite($Filename, "keyboard", "Coin", " " & GUICtrlRead($KeyCoin))
+	EndIf
 
-			If GUICtrlRead($KeyTest) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyTest, $defaultBT)
-				IniWrite($Filename, "keyboard", "Test", " " & GUICtrlRead($KeyTest))
-			Else
-				IniWrite($Filename, "keyboard", "Test", " " & GUICtrlRead($KeyTest))
-			EndIf
+	If GUICtrlRead($KeyTest) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyTest, $defaultBT)
+		IniWrite($Filename, "keyboard", "Test", " " & GUICtrlRead($KeyTest))
+	Else
+		IniWrite($Filename, "keyboard", "Test", " " & GUICtrlRead($KeyTest))
+	EndIf
 
-			If GUICtrlRead($KeyCard) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyCard, $defaultKeyCard)
-				IniWrite($Filename, "keyboard", "Card", " " & GUICtrlRead($KeyCard))
-			Else
-				IniWrite($Filename, "keyboard", "Card", " " & GUICtrlRead($KeyCard))
-			EndIf
+	If GUICtrlRead($KeyCard) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyCard, $defaultKeyCard)
+		IniWrite($Filename, "keyboard", "Card", " " & GUICtrlRead($KeyCard))
+	Else
+		IniWrite($Filename, "keyboard", "Card", " " & GUICtrlRead($KeyCard))
+	EndIf
 
-			If GUICtrlRead($KeyKill) = "" Then
-				MsgBox(16, "Error", $keybindError, 5)
-				GUICtrlSetData($KeyKill, $defaultKeyKill)
-				IniWrite($Filename, "keyboard", "Kill", " " & GUICtrlRead($KeyKill))
-			Else
-				IniWrite($Filename, "keyboard", "Kill", " " & GUICtrlRead($KeyKill))
-			EndIf
+	If GUICtrlRead($KeyKill) = "" Then
+		MsgBox(16, "Error", $keybindError, 5)
+		GUICtrlSetData($KeyKill, $defaultKeyKill)
+		IniWrite($Filename, "keyboard", "Kill", " " & GUICtrlRead($KeyKill))
+	Else
+		IniWrite($Filename, "keyboard", "Kill", " " & GUICtrlRead($KeyKill))
+	EndIf
 
-			If GUICtrlRead($Keycheck) = $GUI_CHECKED Then
-				IniWrite($Filename, "keyboard", "Enabled", " " & "true")
-			Else
-				IniWrite($Filename, "keyboard", "Enabled", " " & "false")
-			EndIf
+	If GUICtrlRead($Keycheck) = $GUI_CHECKED Then
+		IniWrite($Filename, "keyboard", "Enabled", " " & "true")
+	Else
+		IniWrite($Filename, "keyboard", "Enabled", " " & "false")
+	EndIf
 EndFunc
 
 #EndRegion
@@ -669,53 +751,53 @@ EndFunc
 #Region  ### Save Functon for Controller Settings ###
 
 Func _SaveController()
-			$ControllerArray = IniReadSection($filedir, "controller")
-			$keyvalue10 = $ControllerArray[10][0]
-			$keyvalue11 = $ControllerArray[11][0]
-			$keyvalue12 = $ControllerArray[12][0]
+	$ControllerArray = IniReadSection($filedir, "controller")
+	$keyvalue10 = $ControllerArray[10][0]
+	$keyvalue11 = $ControllerArray[11][0]
+	$keyvalue12 = $ControllerArray[12][0]
 
-				IniWrite($Filename, "controller", "A", " " & GUICtrlRead($AB1))
-				IniWrite($Filename, "controller", "B", " " & GUICtrlRead($AB2))
-				IniWrite($Filename, "controller", "C", " " & GUICtrlRead($AB3))
-				IniWrite($Filename, "controller", "D", " " & GUICtrlRead($AB4))
-				IniWrite($Filename, "controller", "Start", " " & GUICtrlRead($ABSt))
-				IniWrite($Filename, "controller", "Coin", " " & GUICtrlRead($ABCoin))
-				IniWrite($Filename, "controller", "Card", " " & GUICtrlRead($ABCard))
-				IniWrite($Filename, "controller", "DeviceID", " " & GUICtrlRead($DeviceID))
+	IniWrite($Filename, "controller", "A", " " & GUICtrlRead($AB1))
+	IniWrite($Filename, "controller", "B", " " & GUICtrlRead($AB2))
+	IniWrite($Filename, "controller", "C", " " & GUICtrlRead($AB3))
+	IniWrite($Filename, "controller", "D", " " & GUICtrlRead($AB4))
+	IniWrite($Filename, "controller", "Start", " " & GUICtrlRead($ABSt))
+	IniWrite($Filename, "controller", "Coin", " " & GUICtrlRead($ABCoin))
+	IniWrite($Filename, "controller", "Card", " " & GUICtrlRead($ABCard))
+	IniWrite($Filename, "controller", "DeviceID", " " & GUICtrlRead($DeviceID))
 
-			$FileRead = FileRead($Filename)
+	$FileRead = FileRead($Filename)
 
-			If GUICtrlRead($TestCheck) = $GUI_CHECKED AND $keyvalue10 = "# Test" Then
-				_ReplaceStringInFile($Filename, "# Test =", "Test =")
-				IniWrite($Filename, "controller", "Test", " " & GuiCtrlRead($ABTest))
-			ElseIf GUICtrlRead($TestCheck) = $GUI_CHECKED AND $keyvalue10 = "Test" Then
-				IniWrite($Filename, "controller", "Test", " " & GuiCtrlRead($ABTest))
-			ElseIf GUICtrlRead($TestCheck) = $GUI_UNCHECKED AND $keyvalue10 = "Test" Then
-				$ReplacedT = StringReplace($FileRead, 'Test =', '# Test =', -1)				;~  Possibly another way to change string StringRegExpReplace($FileRead, '(?s)(?U)' & '(Test)' & '(.*)(\1)', '\1\2# Test')
-				$FileWriteMode = FileOpen($Filename, 2)
-				FileWrite($FileWriteMode, $ReplacedT)
-				FileClose($Filename)
-			EndIf
+	If GUICtrlRead($TestCheck) = $GUI_CHECKED AND $keyvalue10 = "# Test" Then
+		_ReplaceStringInFile($Filename, "# Test =", "Test =")
+		IniWrite($Filename, "controller", "Test", " " & GuiCtrlRead($ABTest))
+	ElseIf GUICtrlRead($TestCheck) = $GUI_CHECKED AND $keyvalue10 = "Test" Then
+		IniWrite($Filename, "controller", "Test", " " & GuiCtrlRead($ABTest))
+	ElseIf GUICtrlRead($TestCheck) = $GUI_UNCHECKED AND $keyvalue10 = "Test" Then
+		$ReplacedT = StringReplace($FileRead, 'Test =', '# Test =', -1)				;~  Possibly another way to change string StringRegExpReplace($FileRead, '(?s)(?U)' & '(Test)' & '(.*)(\1)', '\1\2# Test')
+		$FileWriteMode = FileOpen($Filename, 2)
+		FileWrite($FileWriteMode, $ReplacedT)
+		FileClose($Filename)
+	EndIf
 
-			$FileRead = FileRead($Filename)
+	$FileRead = FileRead($Filename)
 
-			If GUICtrlRead($KillCheck) = $GUI_CHECKED AND $keyvalue12 = "# Kill" Then
-				_ReplaceStringInFile($Filename, "# Kill =", "Kill =")
-				IniWrite($Filename, "controller", "Kill", " " & GuiCtrlRead($ABKill))
-			ElseIf GUICtrlRead($KillCheck) = $GUI_CHECKED AND $keyvalue12 = "Kill" Then
-				IniWrite($Filename, "controller", "Kill", " " & GuiCtrlRead($ABKill))
-			ElseIf GUICtrlRead($KillCheck) = $GUI_UNCHECKED AND $keyvalue12 = "Kill" Then
-				$ReplacedK = StringReplace($FileRead, 'Kill = ', '# Kill =', -1)
-				$FileWriteMode = FileOpen($Filename, 2)
-				FileWrite($FileWriteMode, $ReplacedK)
-				FileClose($Filename)
-			EndIf
+	If GUICtrlRead($KillCheck) = $GUI_CHECKED AND $keyvalue12 = "# Kill" Then
+		_ReplaceStringInFile($Filename, "# Kill =", "Kill =")
+		IniWrite($Filename, "controller", "Kill", " " & GuiCtrlRead($ABKill))
+	ElseIf GUICtrlRead($KillCheck) = $GUI_CHECKED AND $keyvalue12 = "Kill" Then
+		IniWrite($Filename, "controller", "Kill", " " & GuiCtrlRead($ABKill))
+	ElseIf GUICtrlRead($KillCheck) = $GUI_UNCHECKED AND $keyvalue12 = "Kill" Then
+		$ReplacedK = StringReplace($FileRead, 'Kill = ', '# Kill =', -1)
+		$FileWriteMode = FileOpen($Filename, 2)
+		FileWrite($FileWriteMode, $ReplacedK)
+		FileClose($Filename)
+	EndIf
 
-				If GUICtrlRead($DIcheck) = $GUI_CHECKED Then
-					IniWrite($Filename, "controller", "Enabled", " " & "true")
-				Else
-					IniWrite($Filename, "controller", "Enabled", " " & "false")
-				EndIf
+	If GUICtrlRead($DIcheck) = $GUI_CHECKED Then
+		IniWrite($Filename, "controller", "Enabled", " " & "true")
+	Else
+		IniWrite($Filename, "controller", "Enabled", " " & "false")
+	EndIf
 EndFunc
 
 #EndRegion
@@ -724,6 +806,282 @@ EndFunc
 #Region ### When GUI buttons/radios/checkboxes are used ###
 
 While 1
+	#Region ### For Joystick/Gamepad/Arcdestick button presses to be enabled in Controller Settings
+	$coord =_GetJoy($joy,0)
+	If _WinAPI_GetFocus() = GUICtrlGetHandle($AB1) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($AB1, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($AB1, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($AB1, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($AB1, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($AB1, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($AB1, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($AB1, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($AB1, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($AB1, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($AB1, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($AB1, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($AB1, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($AB1, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($AB1, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($AB2) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($AB2, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($AB2, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($AB2, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($AB2, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($AB2, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($AB2, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($AB2, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($AB2, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($AB2, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($AB2, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($AB2, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($AB2, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($AB2, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($AB2, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($AB3) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($AB3, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($AB3, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($AB3, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($AB3, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($AB3, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($AB3, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($AB3, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($AB3, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($AB3, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($AB3, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($AB3, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($AB3, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($AB3, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($AB3, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($AB4) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($AB4, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($AB4, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($AB4, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($AB4, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($AB4, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($AB4, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($AB4, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($AB4, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($AB4, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($AB4, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($AB4, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($AB4, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($AB4, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($AB4, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($ABSt) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($ABSt, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($ABSt, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($ABSt, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($ABSt, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($ABSt, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($ABSt, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($ABSt, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($ABSt, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($ABSt, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($ABSt, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($ABSt, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($ABSt, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($ABSt, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($ABSt, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($ABCoin) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($ABCoin, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($ABCoin, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($ABCoin, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($ABCoin, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($ABCoin, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($ABCoin, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($ABCoin, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($ABCoin, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($ABCoin, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($ABCoin, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($ABCoin, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($ABCoin, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($ABCoin, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($ABCoin, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($ABCard) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($ABCard, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($ABCard, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($ABCard, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($ABCard, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($ABCard, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($ABCard, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($ABCard, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($ABCard, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($ABCard, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($ABCard, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($ABCard, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($ABCard, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($ABCard, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($ABCard, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($ABTest) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($ABTest, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($ABTest, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($ABTest, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($ABTest, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($ABTest, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($ABTest, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($ABTest, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($ABTest, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($ABTest, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($ABTest, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($ABTest, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($ABTest, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($ABTest, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($ABTest, $joyb14)
+		EndIf
+	ElseIf _WinAPI_GetFocus() = GUICtrlGetHandle($ABKill) Then
+		If $coord[7] = 1 Then
+			GUICtrlSetData($ABKill, $joyb1)
+		ElseIf $coord[7] = 2 Then
+			GUICtrlSetData($ABKill, $joyb2)
+		ElseIf $coord[7] = 4 Then
+			GUICtrlSetData($ABKill, $joyb3)
+		ElseIf $coord[7] = 8 Then
+			GUICtrlSetData($ABKill, $joyb4)
+		ElseIf $coord[7] = 16 Then
+			GUICtrlSetData($ABKill, $joyb5)
+		ElseIf $coord[7] = 32 Then
+			GUICtrlSetData($ABKill, $joyb6)
+		ElseIf $coord[7] = 64 Then
+			GUICtrlSetData($ABKill, $joyb7)
+		ElseIf $coord[7] = 128 Then
+			GUICtrlSetData($ABKill, $joyb8)
+		ElseIf $coord[7] = 256 Then
+			GUICtrlSetData($ABKill, $joyb9)
+		ElseIf $coord[7] = 512 Then
+			GUICtrlSetData($ABKill, $joyb10)
+		ElseIf $coord[7] = 1024 Then
+			GUICtrlSetData($ABKill, $joyb11)
+		ElseIf $coord[7] = 2048 Then
+			GUICtrlSetData($ABKill, $joyb12)
+		ElseIf $coord[7] = 4096 Then
+			GUICtrlSetData($ABKill, $joyb13)
+		ElseIf $coord[7] = 8192 Then
+			GUICtrlSetData($ABKill, $joyb14)
+		EndIf
+
+	EndIf
+		
+	#EndRegion
 
 	$nMsg = GUIGetMsg()
 	Select
@@ -783,6 +1141,16 @@ While 1
 		Case $nMsg = $baseGUI[6] ; Case structure for the Switch Language Button
 			_SwitchLanguage()
 
+			If $currentLang = 1 Then
+				If Not $CardExists Then
+					GUICtrlSetData($CardEdit, "找不到card.ini，您需要玩至少1场游戏才能创建card.ini文件")
+				EndIf
+			Else
+				If Not $CardExists Then
+					GUICtrlSetData($CardEdit, "card.ini not found, you need to play at least 1 game to create the card.ini file")
+				EndIf
+			EndIf
+
 		Case $nMsg = $baseGUI[5]  ; Case structure for accessing the Card Webpage button.
 			ShellExecute("http://" & $currentServer & "/index")
 
@@ -804,7 +1172,6 @@ While 1
 			EndIf
 
 		Case $nMsg = $configGUI[8] ; Case structure for Save button on Config Tab, takes all of the data in Input fields and saves to config.ini
-
 			_SaveConfig()
 			MsgBox (64, "Success", "Settings Saved",2)
 
@@ -827,7 +1194,7 @@ While 1
 
 		Case $nMsg = $controllerGUI[4] ; Case structure for the JoystickDetection button to run the JoystickDetection_Realease application
 			If FileExists(".\Tools\JoystickDetection_Release.exe") Then
-			Run(".\TOOLS\JoystickDetection_Release.exe")
+			Run(".\Tools\JoystickDetection_Release.exe")
 			Else
 			MsgBox (16, "Error", "The file JoystickDetection_Release.exe is not found. Please make sure you copied the TOOLS folder over to the Game Directory")
 			EndIf
@@ -900,5 +1267,5 @@ While 1
 	EndSwitch
 
 WEnd
-
+$lpJoy=0 ; Joyclose
 #EndRegion
