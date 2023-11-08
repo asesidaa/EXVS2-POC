@@ -40,7 +40,12 @@ try
     });
     builder.Services.AddControllers().AddProtoBufNet();
 
-    builder.Services.AddDbContext<ServerDbContext>(options => options.UseSqlite(new SqliteConnectionStringBuilder() { DataSource = "Server.db" }.ConnectionString));
+    builder.Services.AddDbContext<ServerDbContext>(options => 
+        options.UseSqlite(
+            new SqliteConnectionStringBuilder() { DataSource = "Server.db" }.ConnectionString,
+            o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
+        )
+    );
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
