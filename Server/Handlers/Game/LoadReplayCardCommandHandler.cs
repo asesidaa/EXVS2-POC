@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Models.Cards;
 using Server.Models.Config;
 using Server.Persistence;
 
@@ -27,6 +28,7 @@ public class LoadReplayCardCommandHandler : IRequestHandler<LoadReplayCardComman
         
         var cardProfile = _context.CardProfiles
             .Include(x => x.UploadReplays)
+            .Include(x => x.SharedUploadReplays)
             .FirstOrDefault(x => x.ChipId == loadCardRequest.ChipId && x.AccessCode == loadCardRequest.AccessCode);
 
         if (cardProfile is null)
@@ -63,6 +65,22 @@ public class LoadReplayCardCommandHandler : IRequestHandler<LoadReplayCardComman
             }
         };
         
+        SetupForManualUploadReplays(request, cardProfile, loadReplayCard);
+        
+        SetupForAutoUploadReplays(request, cardProfile, loadReplayCard);
+
+        return Task.FromResult(new Response
+        {
+            Type = request.Request.Type,
+            RequestId = request.Request.RequestId,
+            Error = Error.Success,
+            load_replay_card = loadReplayCard
+        });
+    }
+
+    private void SetupForManualUploadReplays(LoadReplayCardCommand request, CardProfile cardProfile,
+        Response.LoadReplayCard loadReplayCard)
+    {
         cardProfile.UploadReplays
             .ToList()
             .ForEach(replay =>
@@ -81,7 +99,7 @@ public class LoadReplayCardCommandHandler : IRequestHandler<LoadReplayCardComman
                 {
                     return;
                 }
-                
+
                 rawPilots.ForEach(pilot =>
                 {
                     replayInfo.Pilots.Add(new Response.LoadReplayCard.MobileUserGroup.ReplayInfo.PilotGroup()
@@ -91,16 +109,44 @@ public class LoadReplayCardCommandHandler : IRequestHandler<LoadReplayCardComman
                         PlayerName = pilot.PlayerName
                     });
                 });
-                
+
                 loadReplayCard.User.ReplayServices.Add(replayInfo);
             });
+    }
 
-        return Task.FromResult(new Response
-        {
-            Type = request.Request.Type,
-            RequestId = request.Request.RequestId,
-            Error = Error.Success,
-            load_replay_card = loadReplayCard
-        });
+    private void SetupForAutoUploadReplays(LoadReplayCardCommand request, CardProfile cardProfile,
+        Response.LoadReplayCard loadReplayCard)
+    {
+        cardProfile.SharedUploadReplays
+            .ToList()
+            .ForEach(replay =>
+            {
+                var rawPilots = JsonConvert.DeserializeObject<List<Request.PreSaveReplay.PilotGroup>>(replay.PilotsJson);
+
+                var replayInfo = new Response.LoadReplayCard.MobileUserGroup.ReplayInfo()
+                {
+                    Url = $"http://{request.BaseAddress}/replay/{replay.Filename}.json",
+                    ReplayType = 0,
+                    PlayedAt = replay.PlayedAt,
+                    ReplaySize = replay.ReplaySize
+                };
+
+                if (rawPilots == null)
+                {
+                    return;
+                }
+
+                rawPilots.ForEach(pilot =>
+                {
+                    replayInfo.Pilots.Add(new Response.LoadReplayCard.MobileUserGroup.ReplayInfo.PilotGroup()
+                    {
+                        MstMobileSuitId = pilot.MstMobileSuitId,
+                        PilotId = pilot.PilotId,
+                        PlayerName = pilot.PlayerName
+                    });
+                });
+
+                loadReplayCard.User.ReplayServices.Add(replayInfo);
+            });
     }
 }
