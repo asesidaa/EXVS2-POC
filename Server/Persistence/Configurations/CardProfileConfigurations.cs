@@ -25,6 +25,10 @@ public class CardProfileConfigurations : IEntityTypeConfiguration<CardProfile>
             .WithOne(e => e.CardProfile)
             .HasForeignKey(e => e.CardId)
             .IsRequired(false);
+        builder.HasMany(e => e.SharedUploadReplays)
+            .WithOne(e => e.CardProfile)
+            .HasForeignKey(e => e.CardId)
+            .IsRequired(false);
         builder.HasMany(e => e.OnlinePairs)
             .WithOne(e => e.CardProfile)
             .HasForeignKey(e => e.CardId)

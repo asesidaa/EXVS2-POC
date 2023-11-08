@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using nue.protocol.exvs;
 using Server.Models.Cards;
 using Server.Persistence;
+using WebUI.Shared.Dto.Enum;
 
 namespace Server.Handlers.Game;
 
@@ -133,11 +134,13 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
 
     void SavePartnerAndFoeData(Request.SaveVsmResult.PlayResultGroup resultFromRequest, OfflinePvpBattleResult pvpBattleResult)
     {
+        
+        
         if (resultFromRequest.Partner is not null)
         {
             if (resultFromRequest.Partner.CpuFlag == 0)
             {
-                pvpBattleResult.PartnerIndicator = "Player";
+                pvpBattleResult.PartnerIndicator = PlayerIndicator.Player;
                 pvpBattleResult.PartnerPilotId = resultFromRequest.Partner.PilotId;
                 pvpBattleResult.PartnerMsId = resultFromRequest.Partner.MstMobileSuitId;
                 pvpBattleResult.PartnerEchelonId = resultFromRequest.Partner.EchelonId;
@@ -145,8 +148,12 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             }
             else
             {
-                pvpBattleResult.PartnerIndicator = "CPU";
+                pvpBattleResult.PartnerIndicator = PlayerIndicator.Cpu;
             }
+        }
+        else
+        {
+            pvpBattleResult.PartnerIndicator = PlayerIndicator.Discarded;
         }
 
         if (resultFromRequest.Foes is null)
@@ -165,7 +172,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         {
             if (foe1.CpuFlag == 0)
             {
-                pvpBattleResult.Foe1Indicator = "Player";
+                pvpBattleResult.Foe1Indicator = PlayerIndicator.Player;
                 pvpBattleResult.Foe1PilotId = foe1.PilotId;
                 pvpBattleResult.Foe1MsId = foe1.MstMobileSuitId;
                 pvpBattleResult.Foe1EchelonId = foe1.EchelonId;
@@ -173,8 +180,14 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             }
             else
             {
-                pvpBattleResult.Foe1Indicator = "CPU";
+                pvpBattleResult.Foe1Indicator = PlayerIndicator.Cpu;
             }
+        }
+        
+        if (resultFromRequest.Foes.Count == 1)
+        {
+            pvpBattleResult.Foe2Indicator = PlayerIndicator.Discarded;
+            return;
         }
 
         var foe2 = resultFromRequest.Foes.ElementAt(1);
@@ -183,7 +196,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         {
             if (foe2.CpuFlag == 0)
             {
-                pvpBattleResult.Foe2Indicator = "Player";
+                pvpBattleResult.Foe2Indicator = PlayerIndicator.Player;
                 pvpBattleResult.Foe2PilotId = foe2.PilotId;
                 pvpBattleResult.Foe2MsId = foe2.MstMobileSuitId;
                 pvpBattleResult.Foe2EchelonId = foe2.EchelonId;
@@ -191,7 +204,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             }
             else
             {
-                pvpBattleResult.Foe2Indicator = "CPU";
+                pvpBattleResult.Foe2Indicator = PlayerIndicator.Cpu;
             }
         }
     }
