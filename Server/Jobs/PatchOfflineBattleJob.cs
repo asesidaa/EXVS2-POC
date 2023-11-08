@@ -5,6 +5,7 @@ using Quartz;
 using Server.Models.Cards;
 using Server.Models.Config;
 using Server.Persistence;
+using WebUI.Shared.Dto.Enum;
 
 namespace Server.Jobs;
 
@@ -48,12 +49,16 @@ public class PatchOfflineBattleJob : IJob
                 {
                     if (detailResult.Partner.CpuFlag == 0)
                     {
-                        offlinePvpBattleResult.PartnerIndicator = "Player";
+                        offlinePvpBattleResult.PartnerIndicator = PlayerIndicator.Player;
                     }
                     else
                     {
-                        offlinePvpBattleResult.PartnerIndicator = "CPU";
+                        offlinePvpBattleResult.PartnerIndicator = PlayerIndicator.Cpu;
                     }
+                }
+                else
+                {
+                    offlinePvpBattleResult.PartnerIndicator = PlayerIndicator.Discarded;
                 }
                 
                 if (detailResult.Foes.Count == 0)
@@ -67,12 +72,18 @@ public class PatchOfflineBattleJob : IJob
                 {
                     if (foe1.CpuFlag == 0)
                     {
-                        offlinePvpBattleResult.Foe1Indicator = "Player";
+                        offlinePvpBattleResult.Foe1Indicator = PlayerIndicator.Player;
                     }
                     else
                     {
-                        offlinePvpBattleResult.Foe1Indicator = "CPU";
+                        offlinePvpBattleResult.Foe1Indicator = PlayerIndicator.Cpu;
                     }
+                }
+                
+                if (detailResult.Foes.Count == 1)
+                {
+                    offlinePvpBattleResult.Foe2Indicator = PlayerIndicator.Discarded;
+                    return;
                 }
                 
                 var foe2 = detailResult.Foes.ElementAt(1);
@@ -81,11 +92,11 @@ public class PatchOfflineBattleJob : IJob
                 {
                     if (foe2.CpuFlag == 0)
                     {
-                        offlinePvpBattleResult.Foe2Indicator = "Player";
+                        offlinePvpBattleResult.Foe2Indicator = PlayerIndicator.Player;
                     }
                     else
                     {
-                        offlinePvpBattleResult.Foe2Indicator = "CPU";
+                        offlinePvpBattleResult.Foe2Indicator = PlayerIndicator.Cpu;
                     }
                 }
             });
