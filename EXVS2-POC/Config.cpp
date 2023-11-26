@@ -2,6 +2,7 @@
 #include <Windows.h>
 
 #include <algorithm>
+#include <chrono>
 #include <string>
 #include <string_view>
 #include <thread>
@@ -10,6 +11,8 @@
 #include "Configs.h"
 #include "INIReader.h"
 #include "log.h"
+
+using namespace std::chrono_literals;
 
 StartupConfig globalConfig;
 
@@ -167,6 +170,133 @@ static void ReadInputConfig(InputConfig* config, INIReader& reader)
     config->ControllerBindings = dinput;
 }
 
+static std::string Join(const std::string& delimiter, const std::vector<int>& vec)
+{
+    std::string result;
+    for (size_t i = 0; i < vec.size(); ++i)
+    {
+        if (i != 0)
+            result += ", ";
+        result += std::to_string(vec[i]);
+    }
+    return result;
+}
+
+std::string KeyBinds::Dump(const std::string& prefix)
+{
+    std::string result;
+#define KEYBIND(name, keyboard, dinput)                                                                                \
+    if (!name.empty())                                                                                                 \
+    {                                                                                                                  \
+        result += prefix;                                                                                              \
+        result += #name;                                                                                               \
+        result += " = ";                                                                                               \
+        result += Join(", ", name);                                                                                    \
+        result += "\n";                                                                                                \
+    }
+    KEYBINDS();
+    return result;
+}
+
+std::string InputConfig::Dump(const std::string& prefix)
+{
+    std::string result;
+    result += prefix + "[keyboard]\n";
+
+    result += prefix + "Enabled = ";
+    result += KeyboardEnabled ? "true" : "false";
+    result += "\n";
+
+    result += KeyboardBindings.Dump(prefix);
+    result += "\n";
+
+    result += "\n";
+
+    result += prefix;
+    result += "[controller]\n";
+
+    result += prefix + "Enabled = ";
+    result += ControllerEnabled ? "true" : "false";
+    result += "\n";
+
+    result += prefix;
+    result += "DeviceId = ";
+    result += std::to_string(ControllerDeviceId);
+    result += "\n";
+
+    result += ControllerBindings.Dump(prefix);
+    return result;
+}
+
+static void ConfigMonitorThread()
+{
+    std::filesystem::path basePath = GetBasePath();
+    std::string configPath = (basePath / "config.ini").string();
+
+    HANDLE dir = CreateFileW(basePath.wstring().c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, nullptr,
+                             OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_BACKUP_SEMANTICS, nullptr);
+    if (dir == INVALID_HANDLE_VALUE)
+        fatal("failed to open handle to %s", basePath.string().c_str());
+
+    while (true)
+    {
+        // Sleep for a bit, to give the writer a chance to finish.
+        std::this_thread::sleep_for(100ms);
+        INIReader reader(configPath);
+
+        InputConfig inputConfig;
+
+        ReadInputConfig(&inputConfig, reader);
+        UpdateInputConfig(std::move(inputConfig));
+
+        union {
+            char bytes[4096];
+            DWORD align;
+        } buf;
+        DWORD bytesReturned = 0;
+
+        bool configChanged = false;
+        while (!configChanged)
+        {
+            if (!ReadDirectoryChangesW(dir, buf.bytes, sizeof(buf), false, FILE_NOTIFY_CHANGE_LAST_WRITE,
+                                       &bytesReturned, nullptr, nullptr))
+            {
+                err("ReadDirectoryChangesW failed, stopping config monitor thread");
+                return;
+            }
+
+            if (bytesReturned == 0)
+                continue;
+
+            char* p = buf.bytes;
+            auto* info = reinterpret_cast<FILE_NOTIFY_INFORMATION*>(p);
+            while (true)
+            {
+                if (info->Action == FILE_ACTION_ADDED || info->Action == FILE_ACTION_MODIFIED ||
+                    info->Action == FILE_ACTION_RENAMED_NEW_NAME)
+                {
+                    std::wstring filename(info->FileName, info->FileNameLength / 2);
+                    if (_wcsicmp(L"config.ini", filename.c_str()) == 0)
+                    {
+                        info("Detected change to config.ini");
+                        configChanged = true;
+                        break;
+                    }
+                    else
+                    {
+                        info("Ignoring changed file: '%S'", filename.c_str());
+                    }
+                }
+
+                if (info->NextEntryOffset == 0)
+                    break;
+                p += info->NextEntryOffset;
+                info = reinterpret_cast<FILE_NOTIFY_INFORMATION*>(p);
+            }
+        }
+    }
+}
+
 void InitializeConfig()
 {
     // FIXME: INIReader doesn't handle Unicode paths.
@@ -185,7 +315,5 @@ void InitializeConfig()
 
     ReadStartupConfig(&globalConfig, reader);
 
-    InputConfig inputConfig;
-    ReadInputConfig(&inputConfig, reader);
-    UpdateInputConfig(std::move(inputConfig));
+    std::thread(ConfigMonitorThread).detach();
 }

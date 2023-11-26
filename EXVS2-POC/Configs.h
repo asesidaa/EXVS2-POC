@@ -49,6 +49,8 @@ struct KeyBinds
 #define KEYBIND(name, keyboard, dinput) std::vector<int> name;
     KEYBINDS()
 #undef KEYBIND
+
+    std::string Dump(const std::string& prefix = "");
 };
 
 struct InputConfig
@@ -59,6 +61,8 @@ struct InputConfig
     bool ControllerEnabled;
     int ControllerDeviceId;
     KeyBinds ControllerBindings;
+
+    std::string Dump(const std::string& prefix = "");
 };
 
 std::filesystem::path GetBasePath();
