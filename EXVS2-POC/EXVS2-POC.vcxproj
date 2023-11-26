@@ -177,6 +177,7 @@
   <ItemGroup>
     <ClCompile Include="AmAuthEmu.cpp" />
     <ClCompile Include="banapass.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GameHooks.cpp" />
     <ClCompile Include="Input.cpp" />

@@ -4,6 +4,13 @@
 #include "Input.h"
 #include "log.h"
 
+static InputConfig g_currentInputConfig;
+
+void UpdateInputConfig(InputConfig&& newConfig)
+{
+    g_currentInputConfig = std::move(newConfig);
+}
+
 static void PressUp(InputState* out)
 {
     out->Y = Direction::Positive;
@@ -39,14 +46,14 @@ PRES_BUTAN(Kill)
 
 static void InputStateGetKeyboard(InputState* out)
 {
-#define KEYBIND(name, kb_default, dinput_default)       \
-    for (int key : globalConfig.KeyboardBindings.name)  \
-    {                                                   \
-        if (GetAsyncKeyState(key) & 0x8000)             \
-        {                                               \
-            (Press ## name)(out);                       \
-            break;                                      \
-        }                                               \
+#define KEYBIND(name, kb_default, dinput_default)                                                                      \
+    for (int key : g_currentInputConfig.KeyboardBindings.name)                                                         \
+    {                                                                                                                  \
+        if (GetAsyncKeyState(key) & 0x8000)                                                                            \
+        {                                                                                                              \
+            (Press##name)(out);                                                                                        \
+            break;                                                                                                     \
+        }                                                                                                              \
     }
 
     KEYBINDS()
@@ -100,12 +107,13 @@ static void InputStateParseDirectInput(InputState* out, JOYINFOEX& joy)
     }
 
     // TODO: Precalculate mask?
-#define KEYBIND(name, kb_default, dinput_default)               \
-    {                                                           \
-        int mask = 0;                                           \
-        for (int key : globalConfig.DirectInputBindings.name)   \
-            mask |= 1 << (key - 1);                             \
-        if (joy.dwButtons & mask) (Press ## name)(out);         \
+#define KEYBIND(name, kb_default, dinput_default)                                                                      \
+    {                                                                                                                  \
+        int mask = 0;                                                                                                  \
+        for (int key : g_currentInputConfig.ControllerBindings.name)                                                   \
+            mask |= 1 << (key - 1);                                                                                    \
+        if (joy.dwButtons & mask)                                                                                      \
+            (Press##name)(out);                                                                                        \
     }
 
     KEYBINDS()
@@ -115,11 +123,11 @@ static void InputStateParseDirectInput(InputState* out, JOYINFOEX& joy)
 static void InputStateGetDirectInput(InputState* out)
 {
     static bool previousResult = true;
-    JOYINFOEX joy;
+    JOYINFOEX joy = {};
     joy.dwSize = sizeof(joy);
     joy.dwFlags = JOY_RETURNBUTTONS | JOY_RETURNCENTERED | JOY_RETURNX | JOY_RETURNY;
 
-    int deviceId = globalConfig.DirectInputDeviceId;
+    int deviceId = g_currentInputConfig.ControllerDeviceId;
     if (deviceId >= 0 && deviceId < 16)
     {
         if (joyGetPosEx(deviceId, &joy) != JOYERR_NOERROR)
@@ -155,10 +163,10 @@ InputState InputState::Get()
 {
     InputState result;
 
-    if (globalConfig.InputMode & InputModeKeyboard)
+    if (g_currentInputConfig.KeyboardEnabled)
         InputStateGetKeyboard(&result);
 
-    if (globalConfig.InputMode & InputModeDirectInput)
+    if (g_currentInputConfig.ControllerEnabled)
         InputStateGetDirectInput(&result);
 
     return result;
