@@ -60,6 +60,7 @@ struct InputConfig
 
     bool ControllerEnabled;
     int ControllerDeviceId;
+    std::optional<std::string> ControllerPath;
     KeyBinds ControllerBindings;
 
     std::string Dump(const std::string& prefix = "");

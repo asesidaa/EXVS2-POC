@@ -167,6 +167,7 @@ static void ReadInputConfig(InputConfig* config, INIReader& reader)
     config->ControllerEnabled = reader.GetBoolean("controller", "Enabled", true);
     // TODO: This should take a GUID instead of an index.
     config->ControllerDeviceId = reader.GetInteger("controller", "DeviceId", 16);
+    config->ControllerPath = reader.GetOptional("controller", "Path");
     config->ControllerBindings = dinput;
 }
 
@@ -218,6 +219,14 @@ std::string InputConfig::Dump(const std::string& prefix)
     result += prefix + "Enabled = ";
     result += ControllerEnabled ? "true" : "false";
     result += "\n";
+
+    if (ControllerPath)
+    {
+        result += prefix;
+        result += "Path = ";
+        result += *ControllerPath;
+        result += "\n";
+    }
 
     result += prefix;
     result += "DeviceId = ";

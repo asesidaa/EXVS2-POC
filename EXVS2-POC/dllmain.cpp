@@ -15,6 +15,7 @@
 #include "AmAuthEmu.h"
 #include "Configs.h"
 #include "GameHooks.h"
+#include "Input.h"
 #include "JvsEmu.h"
 #include "log.h"
 #include "PatchTargets.h"
@@ -51,6 +52,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             std::filesystem::path basePath = GetBasePath();
 
             InitializeConfig();
+            InitializeInput();
 
             MH_Initialize();
             InitializeSocketHooks();
