@@ -18,12 +18,12 @@ void UpdateInputConfig(InputConfig&& newConfig)
 
 static void PressUp(InputState* out)
 {
-    out->Y = Direction::Positive;
+    out->Y = Direction::Negative;
 }
 
 static void PressDown(InputState* out)
 {
-    out->Y = Direction::Negative;
+    out->Y = Direction::Positive;
 }
 
 static void PressLeft(InputState* out)
@@ -72,8 +72,8 @@ static void InputStateParseDirectInput(InputState* out, InputConfig* config, JOY
     double y = (static_cast<int>(joy.dwYpos) - 32767) / 32767.0;
     if (x > 0.5) out->X = Direction::Positive;
     else if (x < -0.5) out->X = Direction::Negative;
-    if (y > 0.5) out->Y = Direction::Negative;
-    else if (y < -0.5) out->Y = Direction::Positive;
+    if (y > 0.5) out->Y = Direction::Positive;
+    else if (y < -0.5) out->Y = Direction::Negative;
 
     switch (joy.dwPOV)
     {
@@ -98,13 +98,13 @@ static void InputStateParseDirectInput(InputState* out, InputConfig* config, JOY
     case 0:
     case 4500:
     case 31500:
-        out->Y = Direction::Positive;
+        out->Y = Direction::Negative;
         break;
 
     case 13500:
     case 18000:
     case 22500:
-        out->Y = Direction::Negative;
+        out->Y = Direction::Positive;
         break;
 
     default:
