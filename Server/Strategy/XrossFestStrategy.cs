@@ -4,6 +4,8 @@ namespace Server.Strategy;
 
 public class XrossFestStrategy : IFestStrategy
 {
+    private readonly uint[] _msBlackList = { 24, 235, 199, 133, 252 };
+    
     public Response.LoadGameData.XrossFesSetting determine()
     {
         var currentDateTime = DateTime.Today;
@@ -21,7 +23,7 @@ public class XrossFestStrategy : IFestStrategy
             BurstXrossFlag = true,
             Timer = 420,
             MatchingBorder = 0,
-            MobileSuitBlocklists = Array.Empty<uint>()
+            MobileSuitBlocklists = _msBlackList
         };
     }
 
@@ -29,12 +31,12 @@ public class XrossFestStrategy : IFestStrategy
     {
         switch (dayOfWeek) 
         {
-            // Sun: Dual Select
+            // Sun: 1 vs 1 3000
             case DayOfWeek.Sunday:
-                return 1;
-            // Mon: 1 vs 1
+                return 11;
+            // Mon: 1 vs 1 2500
             case DayOfWeek.Monday:
-                return 0;
+                return 12;
             // Tue: Dual Select
             case DayOfWeek.Tuesday:
                 return 1;
@@ -47,11 +49,12 @@ public class XrossFestStrategy : IFestStrategy
             // Fri: Attack Boost
             case DayOfWeek.Friday:
                 return 5;
-            // Sat: 1 vs 1
+            // Sat: 1 vs 1 2000
             case DayOfWeek.Saturday:
-                return 0;
+                return 13;
+            // Default: 1 vs 1 All Cost
             default:
-                return 0;
+                return 10;
         }
     }
     
