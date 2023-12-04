@@ -42,7 +42,7 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 NewMsIds = Array.Empty<uint>(), // responsible for showing ms under "new" series
                 DisplayableMsIds = allMsIds, // responsible for triad battle ai enemy units
                 ReleaseGuestNavIds = allMsIds, // responsible for triad battle ai partners
-                ReleaseGameRules = new[] { 0u, 1u, 2u, 3u, 4u, 5u },
+                ReleaseGameRules = new[] { 0u, 1u, 2u, 3u, 4u, 5u, 6u, 7u, 8u, 9u, 10u, 11u, 12u, 13u, 14u },
                 UpdateMsIds = Array.Empty<uint>(), // add a 'update' tag to ms
                 on_vs_info = new Response.LoadGameData.OnVsInfo
                 {
