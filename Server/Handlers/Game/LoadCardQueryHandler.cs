@@ -14,6 +14,7 @@ public record LoadCardQuery(Request Request) : IRequest<Response>;
 public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
 {
     private readonly ServerDbContext _context;
+    private const uint TagSkillPointBoost = 5; // Will be divided by 5 in game
 
     public LoadCardQueryHandler(ServerDbContext context)
     {
@@ -110,7 +111,7 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
                         Name = tagTeamData.TeamName,
                         PartnerId = tagTeamData.TeammateCardId,
                         SkillPoint = tagTeamData.SkillPoint,
-                        SkillPointBoost = 0,
+                        SkillPointBoost = TagSkillPointBoost,
                         BackgroundPartsId = tagTeamData.BackgroundPartsId,
                         EffectId = tagTeamData.EffectId,
                         EmblemId = tagTeamData.EmblemId,
@@ -132,7 +133,7 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
                 Name = tagTeamData.TeamName,
                 PartnerId = (uint)tagTeamData.CardId,
                 SkillPoint = tagTeamData.SkillPoint,
-                SkillPointBoost = 0,
+                SkillPointBoost = TagSkillPointBoost,
                 BackgroundPartsId = tagTeamData.BackgroundPartsId,
                 EffectId = tagTeamData.EffectId,
                 EmblemId = tagTeamData.EmblemId,
