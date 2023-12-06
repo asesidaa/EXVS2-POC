@@ -13,12 +13,48 @@
     </MudCardHeader>
     <MudCardContent>
         <MudGrid Class="align-center">
+            @{
+                var currentMasteryLevel = DataService.GetTagTeamMasterySortedById()
+                    .Reverse()
+                    .First(mastery => CurrentTeam.SkillPoint >= mastery.MinimumPoint);
+
+                var style = $"background-color: {currentMasteryLevel.BackgroundColor}; color: white; width: 80%; font-weight: bold;";
+
+                var levelString = $"Lv: {currentMasteryLevel.Level}";
+
+                uint currentExp = CurrentTeam.SkillPoint - currentMasteryLevel.MinimumPoint;
+                uint targetExp = 6500;
+                double displayExp = 100;
+
+                if (currentMasteryLevel.ToNextLevel is not null)
+                {
+                    targetExp = currentMasteryLevel.ToNextLevel.GetValueOrDefault(0);
+                    displayExp = 100d * ((double) currentExp / currentMasteryLevel.ToNextLevel.GetValueOrDefault(0));
+                }
+                else
+                {
+                    currentExp = 6500;
+                    levelString = "MASTER";
+                    style = $"background-color: {currentMasteryLevel.BackgroundColor}; width: 80%; font-style: italic; font-weight: bold; color: #fe0;";
+                }
+            }
+            <MudItem xs="12" sm="3" Class="my-auto">
+                <MudAvatar Rounded="true" Style="@style">@levelString</MudAvatar>
+            </MudItem>
+            <MudItem xs="12" sm="9" Class="mx-auto my-auto">
+                <MudProgressLinear Rounded="true" Color="Color.Primary" Striped="true" Size="Size.Large"
+                                   Value="@displayExp" Class="my-2">
+                </MudProgressLinear>
+                <MudText Typo="Typo.subtitle2" Align="Align.Center">
+                    <b>EXP: @currentExp / @targetExp</b>
+                </MudText>
+            </MudItem>
             <MudItem xs="12">
                 <MudTextField @bind-Value="CurrentTeam.Name"
                               Immediate="true"
                               Variant="Variant.Outlined"
-                              Counter="@((int) NameLength.TeamNameMaxLength)"
-                              MaxLength="@((int) NameLength.TeamNameMaxLength)"
+                              Counter="@((int)NameLength.TeamNameMaxLength)"
+                              MaxLength="@((int)NameLength.TeamNameMaxLength)"
                               Label="@localizer["teamtag_team_name"]"
                               Validation="NameValidator.ValidatePvPTeamName"/>
             </MudItem>
@@ -44,7 +80,7 @@
             </MudItem>
             <MudItem xs="3" sm="1">
                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
-                               OnClick="() => OpenChangeSingleBgmDialog()" />
+                               OnClick="() => OpenChangeSingleBgmDialog()"/>
             </MudItem>
             @if (ForDataCollection)
             {
@@ -61,7 +97,7 @@
                     <MudNumericField T="uint" @bind-Value="@CurrentTeam.EmblemId" Label="@localizer["teamtag_emblem"]" Variant="Variant.Outlined"/>
                 </MudItem>
             }
-            
+
             <MudItem xs="10" sm="5">
                 <MudField Label="@localizer["teamtag_name_color"]" Variant="Variant.Outlined">
                     @{
@@ -84,7 +120,7 @@
                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                                OnClick="() => OpenChangeTeamNameFontColorsDialog(CurrentTeam)"/>
             </MudItem>
-            
+
             <MudItem xs="10" sm="5">
                 <MudField Label="@localizer["teamtag_background"]" Variant="Variant.Outlined">
                     @{
@@ -107,7 +143,7 @@
                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                                OnClick="() => OpenChangeTeamBackgroundsDialog(CurrentTeam)"/>
             </MudItem>
-            
+
             <MudItem xs="10" sm="5">
                 <MudField Label="@localizer["teamtag_effect"]" Variant="Variant.Outlined">
                     @{
@@ -130,7 +166,7 @@
                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                                OnClick="() => OpenChangeTeamEffectsDialog(CurrentTeam)"/>
             </MudItem>
-            
+
             <MudItem xs="10" sm="5">
                 <MudField Label="@localizer["teamtag_emblem"]" Variant="Variant.Outlined">
                     @{
@@ -153,7 +189,7 @@
                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                                OnClick="() => OpenChangeTeamEmblemsDialog(CurrentTeam)"/>
             </MudItem>
-            
+
             <MudItem xs="12">
                 <MudButton Variant="Variant.Filled" Color="Color.Error" FullWidth="true" OnClick="PreRemoveTeam">@localizer["remove_team_button"]</MudButton>
             </MudItem>
