@@ -14,7 +14,7 @@ public record LoadCardQuery(Request Request) : IRequest<Response>;
 public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
 {
     private readonly ServerDbContext _context;
-    private const uint TagSkillPointBoost = 5; // Will be divided by 5 in game
+    private const uint TagSkillPointBoost = 50; // Will be divided by 5 in game
 
     public LoadCardQueryHandler(ServerDbContext context)
     {
