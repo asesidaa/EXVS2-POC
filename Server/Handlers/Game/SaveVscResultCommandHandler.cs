@@ -11,10 +11,12 @@ public record SaveVscResultCommand(Request Request) : IRequest<Response>;
 
 public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand, Response>
 {
+    private readonly ILogger<SaveVscResultCommandHandler> _logger;
     private readonly ServerDbContext _context;
 
-    public SaveVscResultCommandHandler(ServerDbContext context)
+    public SaveVscResultCommandHandler(ILogger<SaveVscResultCommandHandler> logger, ServerDbContext context)
     {
+        _logger = logger;
         _context = context;
     }
     
@@ -37,6 +39,8 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
                 save_vsc_result = new Response.SaveVscResult()
             });
         }
+        
+        var pilotId = request.Request.save_vsc_result.PilotId;
         
         var resultFromRequest = request.Request.save_vsc_result.Result;
         var loadPlayer = JsonConvert.DeserializeObject<Response.PreLoadCard.LoadPlayer>(cardProfile.PilotDomain.LoadPlayerJson);
@@ -94,6 +98,8 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
 
         UpsertRankData(resultFromRequest, loadPlayer, pilotData);
         
+        UpdateTagTeam(resultFromRequest, pilotId);
+        
         cardProfile.TriadBattleResults.Add(triadBattleResult);
         
         cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
@@ -110,6 +116,30 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             Error = Error.Success,
             save_vsc_result = new Response.SaveVscResult()
         });
+    }
+    
+    private void UpdateTagTeam(Request.SaveVscResult.PlayResultGroup resultFromRequest, uint pilotId)
+    {
+        if (resultFromRequest.TagTeamId == 0)
+        {
+            return;
+        }
+
+        var tagTeam = _context.TagTeamData
+            .FirstOrDefault(dbTagTeam =>
+                dbTagTeam.CardId == pilotId && dbTagTeam.Id == resultFromRequest.TagTeamId);
+
+        if (tagTeam is null)
+        {
+            return;
+        }
+        
+        _logger.LogInformation("Team ID = {teamId}, Skill Point Increment = {increment}", 
+            resultFromRequest.TagTeamId,
+            resultFromRequest.TagSkillPoint  
+        );
+        
+        tagTeam.SkillPoint += resultFromRequest.TagSkillPoint;
     }
 
     private void UpsertRankData(Request.SaveVscResult.PlayResultGroup resultFromRequest, Response.PreLoadCard.LoadPlayer loadPlayer, Response.LoadCard.PilotDataGroup pilotData)

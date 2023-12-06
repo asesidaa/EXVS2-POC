@@ -12,10 +12,12 @@ public record SaveVsmResultCommand(Request Request) : IRequest<Response>;
 
 public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand, Response>
 {
+    private readonly ILogger<SaveVsmResultCommandHandler> _logger;
     private readonly ServerDbContext _context;
 
-    public SaveVsmResultCommandHandler(ServerDbContext context)
+    public SaveVsmResultCommandHandler(ILogger<SaveVsmResultCommandHandler> logger, ServerDbContext context)
     {
+        _logger = logger;
         _context = context;
     }
     
@@ -38,6 +40,8 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
                 save_vsm_result = new Response.SaveVsmResult()
             });
         }
+        
+        var pilotId = request.Request.save_vsc_result.PilotId;
         
         var loadPlayer = JsonConvert.DeserializeObject<Response.PreLoadCard.LoadPlayer>(cardProfile.PilotDomain.LoadPlayerJson);
         var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
@@ -114,6 +118,8 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         UpdateWinLossCount(request, resultFromRequest, loadPlayer);
         UpdateNaviFamiliarity(resultFromRequest, user);
         UpsertMsUsedNum(resultFromRequest, pilotData, favouriteMsList);
+        
+        UpdateTagTeam(resultFromRequest, pilotId);
         
         cardProfile.OfflinePvpBattleResults.Add(pvpBattleResult);
         cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
@@ -287,5 +293,27 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         favouriteMsList
             .FindAll(favouriteMs => favouriteMs.MstMobileSuitId == msId)
             .ForEach(favouriteMs => favouriteMs.MsUsedNum = msSkillGroupUsedNum);
+    }
+    
+    private void UpdateTagTeam(Request.SaveVsmResult.PlayResultGroup resultFromRequest, uint pilotId)
+    {
+        if (resultFromRequest.TagTeamId == 0)
+        {
+            return;
+        }
+
+        var tagTeam = _context.TagTeamData.FirstOrDefault(dbTagTeam => dbTagTeam.CardId == pilotId && dbTagTeam.Id == resultFromRequest.TagTeamId);
+
+        if (tagTeam is null)
+        {
+            return;
+        }
+        
+        _logger.LogInformation("Team ID = {teamId}, Skill Point Increment = {increment}", 
+            resultFromRequest.TagTeamId,
+            resultFromRequest.TagSkillPoint  
+        );
+        
+        tagTeam.SkillPoint += resultFromRequest.TagSkillPoint;
     }
 }

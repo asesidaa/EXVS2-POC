@@ -28,6 +28,7 @@ public class DataService : IDataService
     private Dictionary<uint, GeneralPreview> teamBackgrounds = new();
     private Dictionary<uint, GeneralPreview> teamEffects = new();
     private Dictionary<uint, GeneralPreview> teamEmblems = new();
+    private Dictionary<uint, TagTeamMastery> tagTeamMasteries = new();
 
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
@@ -52,6 +53,7 @@ public class DataService : IDataService
     private List<GeneralPreview> sortedTeamBackgroundList = new();
     private List<GeneralPreview> sortedTeamEffectList = new();
     private List<GeneralPreview> sortedTeamEmblemList = new();
+    private List<TagTeamMastery> sortedTagTeamMasteryList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -177,6 +179,11 @@ public class DataService : IDataService
         teamFontColorList.ThrowIfNull();
         teamNameFontColors = CreateGeneralPreviewDictionary(teamFontColorList);
         sortedTeamNameFontColorList = CreateSortedGeneralPreviewList(teamFontColorList);
+        
+        var tagTeamMasteryList = await client.GetFromJsonAsync<List<TagTeamMastery>>("data/team/Mastery.json");
+        tagTeamMasteryList.ThrowIfNull();
+        tagTeamMasteries = tagTeamMasteryList.ToDictionary(mastery => mastery.Id);
+        sortedTagTeamMasteryList = tagTeamMasteryList.OrderBy(mastery => mastery.Id).ToList();
     }
     
     private Dictionary<uint, GeneralPreview> CreateGeneralPreviewDictionary(List<GeneralPreview> generalPreviews)
@@ -402,5 +409,15 @@ public class DataService : IDataService
     public IReadOnlyList<GeneralPreview> GetTeamBackgroundsSortedById()
     {
         return sortedTeamBackgroundList;
+    }
+    
+    public TagTeamMastery? GetTagTeamMasteryById(uint id)
+    {
+        return tagTeamMasteries.GetValueOrDefault(id);
+    }
+    
+    public IReadOnlyList<TagTeamMastery> GetTagTeamMasterySortedById()
+    {
+        return sortedTagTeamMasteryList;
     }
 }
