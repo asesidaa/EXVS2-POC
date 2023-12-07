@@ -25,14 +25,14 @@ public class UploadReplayCommandHandler : IRequestHandler<UploadReplayCommand, s
     {
         var fileName = "0_" + request.ReplayTime + ".json";
         
-        if (request.PlayerId == "0" && request.ReplayTime == "0")
+        if (request.PlayerId == "0")
         {
             if (request.ReplayTime == "0")
             {
                 return await Task.FromResult("Done");   
             }
             
-            _logger.LogInformation("Seemingly an auto upload from LM, keep processing...");
+            _logger.LogInformation("Seemingly an auto upload Replay from LM, keep processing...");
             await SaveUploadedReplay(request, fileName);
             
             return await Task.FromResult("Done");
