@@ -41,7 +41,7 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
             });
         }
         
-        var pilotId = request.Request.save_vsc_result.PilotId;
+        var pilotId = request.Request.save_vsm_result.PilotId;
         
         var loadPlayer = JsonConvert.DeserializeObject<Response.PreLoadCard.LoadPlayer>(cardProfile.PilotDomain.LoadPlayerJson);
         var user = JsonConvert.DeserializeObject<Response.PreLoadCard.MobileUserGroup>(cardProfile.UserDomain.UserJson);
