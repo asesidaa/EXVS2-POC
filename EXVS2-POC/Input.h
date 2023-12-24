@@ -27,25 +27,5 @@ struct InputState
 
     bool Kill = false;
 
-    void Merge(const InputState& rhs)
-    {
-        if (rhs.X != Direction::Neutral)
-            X = rhs.X;
-        if (rhs.Y != Direction::Neutral)
-            Y = rhs.Y;
-        A |= rhs.A;
-        B |= rhs.B;
-        C |= rhs.C;
-        D |= rhs.D;
-        Start |= rhs.Start;
-        Coin |= rhs.Coin;
-        Card |= rhs.Card;
-        Test |= rhs.Test;
-        Service |= rhs.Service;
-        Kill |= rhs.Kill;
-    }
-
     static InputState Get();
 };
-
-void InitializeInput();
