@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Options;
 using nue.protocol.exvs;
+using Server.Handlers.Game.LoadGameData;
 using Server.Models.Config;
 using Server.Strategy;
 
@@ -12,6 +13,12 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
 {
     private readonly CardServerConfig config;
 
+    private readonly List<ILoadGameDataCommand> _loadGameDataCommands = new List<ILoadGameDataCommand>{
+        new EchelonTableCommand(),
+        new OfflineWinLossEchelonCommand(),
+        new CasualMatchCommand()
+    };
+
     public LoadGameDataQueryHandler(IOptions<CardServerConfig> options)
     {
         config = options.Value;
@@ -20,15 +27,6 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
     public Task<Response> Handle(LoadGameDataQuery query, CancellationToken cancellationToken)
     {
         var allMsIds = Enumerable.Range(1, 400).Select(i => (uint)i).ToArray();
-
-        var availableEchelonTables = Enumerable.Range(1, 55)
-            .Select(i => new Response.LoadGameData.EchelonTable
-            {
-                EchelonId = (uint)i,
-                UpDefaultExp = 0,
-                DownDefaultExp = 0
-            })
-            .ToList();
         
         var request = query.Request;
         var response = new Response
@@ -54,13 +52,11 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 },
                 ReleaseCpuScenes = new[] { 1u, 2u },
                 MstMobileSuitIds = new[] { 1u, 2u }, // For Red-Targeted MSs
-                OfflineWinEchelonNums = {},
-                OfflineLoseEchelonNums = {},
-                ReplayUnderEchelonId = 1,
-                AdvancedReplayUnderEchelonId = 1,
+                ReplayUnderEchelonId = 1, // In reality it is 9
+                AdvancedReplayUnderEchelonId = 1, // In reality it is 19
                 TrainingTimeLimit = config.GameConfigurations.TrainingMinutes,
-                PcoinLoseExpRelaxationRate = 1,
-                PcoinTeamGpIncreaseRate = 1,
+                PcoinLoseExpRelaxationRate = 50,
+                PcoinTeamGpIncreaseRate = 50,
                 NewcardCampaignFlag = true,
                 OfflineBaseWinPoint = config.GameConfigurations.OfflineBaseWinPoint,
                 OfflineBaseLosePoint = config.GameConfigurations.OfflineBaseLosePoint,
@@ -68,13 +64,13 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 CasualBaseWinPoint = config.GameConfigurations.CasualBaseWinPoint,
                 CasualBaseLosePoint = config.GameConfigurations.CasualBaseLosePoint,
                 CasualLoseResultBonus = config.GameConfigurations.CasualLoseResultBonus,
-                ReplayUnderRankId = 1,
-                AdvancedReplayUnderRankId = 1,
-                WantedDownLevel = 0, // this will cause enemy to 1 hit down if set to 1
-                WantedAttackLevel = 1,
-                WantedPsAttackLevel = 1,
+                ReplayUnderRankId = 1, // In reality it is 9
+                AdvancedReplayUnderRankId = 1, // In reality it is 14
+                WantedAttackLevel = 2,
+                WantedPsAttackLevel = 2,
                 WantedPsDefenceLevel = 1,
-                LoadGameDataVer = 27,
+                WantedDownLevel = 2000, // this will cause enemy to 1 hit down if set to 1
+                LoadGameDataVer = 8,
                 score_battle_point = new Response.LoadGameData.ScoreBattlePoint
                 {
                     ScoreBattle1500Point = 1500,
@@ -86,15 +82,12 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 {
                     DownScoreTimes = 1,
                     Last30CountScoreTimes = 1,
-                    NoAttackDecreaseScore = 1
+                    NoAttackDecreaseScore = 10
                 }
             }
         };
 
         response.load_game_data.FesSetting = new XrossFestStrategy().determine();
-        
-        // Contributing for all available Echelons, otherwise the game will freeze when there are increment of Echelon
-        response.load_game_data.EchelonTables.AddRange(availableEchelonTables);
         
         // 200 - 206 are F Course 1-7, needs Fes Setting above 
         response.load_game_data.ReleaseCpuCourses.AddRange(Enumerable.Range(1, 206).Select(i =>
@@ -103,6 +96,9 @@ public class LoadGameDataQueryHandler : IRequestHandler<LoadGameDataQuery, Respo
                 CourseId = (uint)i,
                 OpenedAt = (ulong)(DateTimeOffset.Now - TimeSpan.FromDays(10)).ToUnixTimeSeconds()
             }));
+        
+        _loadGameDataCommands.ForEach(command => command.Fill(response.load_game_data));
+        
         return Task.FromResult(response);
     }
 }

@@ -4,12 +4,12 @@
     "NeedToDataPatchOfflineData": true,
     "MaxReplaySaveSlotPerPlayer": 5,
     "GameConfigurations": {
-      "OfflineBaseWinPoint": 2,
-      "OfflineBaseLosePoint": -1,
-      "OfflineLoseResultBonus": 1,
-      "CasualBaseWinPoint": 2,
-      "CasualBaseLosePoint": -1,
-      "CasualLoseResultBonus": 1,
+      "CasualBaseWinPoint": 10,
+      "CasualBaseLosePoint": 0,
+      "OfflineBaseWinPoint": 15,
+      "OfflineBaseLosePoint": -15,
+      "OfflineLoseResultBonus": 5,
+      "CasualLoseResultBonus": 5,
       "TrainingMinutes": 12,
       "BattleSeconds": 230,
       "PvPDamageLevel": 2

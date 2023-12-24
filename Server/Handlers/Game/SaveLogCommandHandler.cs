@@ -16,7 +16,7 @@ public class SaveLogCommandHandler : IRequestHandler<SaveLogCommand, Response>
             Error = Error.Success,
             save_log = new Response.SaveLog
             {
-                LoadGameDataVer = 1
+                LoadGameDataVer = 8
             }
         });
     }
