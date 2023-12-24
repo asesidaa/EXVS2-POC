@@ -428,10 +428,10 @@ int handleReadSwitchInputs(jprot_encoder* r)
     if (inputs.X == Direction::Positive)
         byte1 |= static_cast<char>(1 << 2);
 
-    if (inputs.Y == Direction::Positive)
+    if (inputs.Y == Direction::Negative)
         byte1 |= static_cast<char>(1 << 5);
 
-    if (inputs.Y == Direction::Negative)
+    if (inputs.Y == Direction::Positive)
         byte1 |= static_cast<char>(1 << 4);
 
     if (inputs.A)
