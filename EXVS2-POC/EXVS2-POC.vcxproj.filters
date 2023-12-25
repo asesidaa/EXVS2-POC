@@ -24,6 +24,9 @@
     <ClCompile Include="AmAuthEmu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AudioHooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="banapass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -87,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AmAuthEmu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioHooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="banapass.h">

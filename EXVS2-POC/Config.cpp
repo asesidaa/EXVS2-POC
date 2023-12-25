@@ -184,6 +184,8 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
         fatal("COM3 is reserved for Controller and cannot be used as Card Reader COM Port");
     }
 
+    config->Audio.Device = reader.GetOptional("audio", "Device");
+
     config->Display.Resolution = reader.Get("display", "resolution", "1080p");
 
     if(config->Display.Resolution != "144p" && config->Display.Resolution != "240p"

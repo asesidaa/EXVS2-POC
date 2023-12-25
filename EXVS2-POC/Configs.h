@@ -12,6 +12,11 @@ struct DisplayConfig
     std::string Resolution;
 };
 
+struct AudioConfig
+{
+    std::optional<std::string> Device;
+};
+
 struct StartupConfig
 {
     bool Windowed = false;
@@ -36,6 +41,7 @@ struct StartupConfig
     bool UseRealCardReader = false;
     std::string CardReaderComPort;
 
+    AudioConfig Audio;
     DisplayConfig Display;
 };
 
