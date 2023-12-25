@@ -19,5 +19,7 @@ inline LogLevel g_logLevel = LogLevel::NONE;
 #define debug(...) log(LogLevel::DEBUG, __VA_ARGS__)
 #define trace(...) log(LogLevel::TRACE, __VA_ARGS__)
 
+#define unimplemented() fatal("Unimplemented function: " __FUNCTION__)
+
 void log(LogLevel level, _Printf_format_string_ const char* format, ...);
 void fatal [[noreturn]] (_Printf_format_string_ const char* format, ...);
