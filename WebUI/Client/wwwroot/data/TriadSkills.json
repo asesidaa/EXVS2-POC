@@ -113,5 +113,29 @@
   {
     "Id": 27,
     "Value": "EX - Gauge Boost Lv. 3"
+  },
+  {
+    "Id": 31,
+    "Value": "EX Gauge Time Boost Lv. 1"
+  },
+  {
+    "Id": 32,
+    "Value": "EX Gauge Time Boost Lv. 2"
+  },
+  {
+    "Id": 33,
+    "Value": "EX Gauge Time Boost Lv. 3"
+  },
+  {
+    "Id": 39,
+    "Value": "Boss Killer Lv. 1"
+  },
+  {
+    "Id": 40,
+    "Value": "Boss Killer Lv. 2"
+  },
+  {
+    "Id": 41,
+    "Value": "Boss Killer Lv. 3"
   }
 ]
