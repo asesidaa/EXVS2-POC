@@ -208,7 +208,7 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
     void UpsertMsUsedNum(Request.SaveVscResult.PlayResultGroup resultFromRequest, Response.LoadCard.PilotDataGroup pilotDataGroup,
         List<Response.PreLoadCard.MobileUserGroup.FavoriteMSGroup> favouriteMsList)
     {
-        var msId = resultFromRequest.MstMobileSuitId;
+        var msId = resultFromRequest.SkillPointMobileSuitId;
 
         var msSkillGroup = pilotDataGroup.MsSkills
             .FirstOrDefault(msSkillGroup => msSkillGroup.MstMobileSuitId == msId);

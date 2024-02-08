@@ -1,5 +1,6 @@
 ﻿@inject IDataService DataService
 @inject ILogger<ChangeMobileSuitDialog> Logger
+@inject ISnackbar Snackbar
 @using WebUI.Client.Services
 @using WebUI.Shared.Dto.Common;
 
@@ -194,6 +195,12 @@
                         {
                             costStyle = "font-style: italic; font-weight: bold; color: rgb(247, 0, 58);";
                         }
+
+                        if (context.Id == 65534)
+                        {
+                            cost = "ALL";
+                            costStyle = "font-style: italic;";
+                        }
                     }
                 }
                 <MudTd DataLabel="Cost" Class="cursor-pointer" Style="@costStyle">@cost</MudTd>
@@ -332,10 +339,20 @@
 
     private void Submit()
     {
-        if (selectedMobileSuit is not null)
+        if (selectedMobileSuit is null)
         {
-            Data = selectedMobileSuit.Id;
+            return;
         }
+        
+        var selectedId = selectedMobileSuit.Id;
+
+        if (selectedId is 65530 or 65531 or 65532 or 65533 or 65534)
+        {
+            Snackbar.Add(@localizer["random_ms_selected"], Severity.Error);
+            return;
+        }
+
+        Data = selectedId;
         MudDialog.Close(DialogResult.Ok(Data));
     }
 

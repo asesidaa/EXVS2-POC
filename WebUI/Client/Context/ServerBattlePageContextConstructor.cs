@@ -26,7 +26,7 @@ public class ServerBattlePageContextConstructor : IServerBattlePageContextConstr
         var usageStat = await _httpClient.GetFromJsonAsync<Usage>($"/battle-analysis/getAllUsage/{_mode}");
         usageStat.ThrowIfNull();
         
-        var msList = await _httpClient.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=3");
+        var msList = await _httpClient.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=4");
         msList.ThrowIfNull();
         
         battlePageContext.UsageStat = usageStat;

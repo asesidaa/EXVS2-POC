@@ -528,6 +528,9 @@
   <data name="msdialog_mastery" xml:space="preserve">
     <value>熟練度</value>
   </data>
+  <data name="random_ms_selected" xml:space="preserve">
+    <value>You can't select a Random MS!</value>
+  </data>
   <data name="cardviewallofflinebattledetail" xml:space="preserve">
     <value>All Offline Battle Statistics</value>
   </data>

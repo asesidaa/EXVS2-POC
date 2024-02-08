@@ -732,6 +732,9 @@
   <data name="msdialog_mastery" xml:space="preserve">
     <value>熟练度</value>
   </data>
+  <data name="random_ms_selected" xml:space="preserve">
+    <value>不能选取随机机体!</value>
+  </data>
   <data name="cardviewallofflinebattledetail" xml:space="preserve">
     <value>全部店内对战数据</value>
   </data>

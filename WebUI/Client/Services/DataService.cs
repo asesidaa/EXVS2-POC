@@ -81,7 +81,7 @@ public class DataService : IDataService
         msFamiliarities = msFamiliarityList.ToDictionary(msFamiliarity => msFamiliarity.Id);
         sortedMsFamiliarityList = msFamiliarityList.OrderBy(msFamiliarity => msFamiliarity.Id).ToList();
         
-        var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=3");
+        var msList = await client.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=4");
         msList.ThrowIfNull();
         mobileSuits = msList.ToDictionary(ms => ms.Id);
         sortedMobileSuitList = msList.OrderBy(title => title.Id).ToList();
