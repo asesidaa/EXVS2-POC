@@ -1505,7 +1505,17 @@
     "Series": "Mobile Suit Gundam SEED",
     "SeriesJP": "機動戦士ガンダムSEED",
     "SeriesCN": "机动战士高达SEED",
-    "Cost": 1500
+    "Cost": 1500,
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "Alternative"
+      }
+    ]
   },
   {
     "Id": 118,
@@ -1579,7 +1589,17 @@
     "Series": "Mobile Suit Gundam SEED",
     "SeriesJP": "機動戦士ガンダムSEED",
     "SeriesCN": "机动战士高达SEED",
-    "Cost": 1500
+    "Cost": 1500,
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "Alternative"
+      }
+    ]
   },
   {
     "Id": 122,
@@ -4796,5 +4816,85 @@
         "Value": "Alternative"
       }
     ]
+  },
+  {
+    "Id": 65530,
+    "Value": "RANDOM 3000",
+    "ValueJP": "ランダム 3000",
+    "ValueCN": "随机 3000",
+    "Pilot": "/",
+    "PilotJP": "/",
+    "PilotCN": "/",
+    "PilotSeiyuu": "/",
+    "PilotSeiyuuJP": "/",
+    "PilotSeiyuuCN": "/",
+    "Series": "RANDOM",
+    "SeriesJP": "ランダム",
+    "SeriesCN": "随机",
+    "Cost": 3000
+  },
+  {
+    "Id": 65531,
+    "Value": "RANDOM 2500",
+    "ValueJP": "ランダム 2500",
+    "ValueCN": "随机 2500",
+    "Pilot": "/",
+    "PilotJP": "/",
+    "PilotCN": "/",
+    "PilotSeiyuu": "/",
+    "PilotSeiyuuJP": "/",
+    "PilotSeiyuuCN": "/",
+    "Series": "RANDOM",
+    "SeriesJP": "ランダム",
+    "SeriesCN": "随机",
+    "Cost": 2500
+  },
+  {
+    "Id": 65532,
+    "Value": "RANDOM 2000",
+    "ValueJP": "ランダム 2000",
+    "ValueCN": "随机 2000",
+    "Pilot": "/",
+    "PilotJP": "/",
+    "PilotCN": "/",
+    "PilotSeiyuu": "/",
+    "PilotSeiyuuJP": "/",
+    "PilotSeiyuuCN": "/",
+    "Series": "RANDOM",
+    "SeriesJP": "ランダム",
+    "SeriesCN": "随机",
+    "Cost": 2000
+  },
+  {
+    "Id": 65533,
+    "Value": "RANDOM 1500",
+    "ValueJP": "ランダム 1500",
+    "ValueCN": "随机 1500",
+    "Pilot": "/",
+    "PilotJP": "/",
+    "PilotCN": "/",
+    "PilotSeiyuu": "/",
+    "PilotSeiyuuJP": "/",
+    "PilotSeiyuuCN": "/",
+    "Series": "RANDOM",
+    "SeriesJP": "ランダム",
+    "SeriesCN": "随机",
+    "Cost": 1500
+  },
+  {
+    "Id": 65534,
+    "Value": "RANDOM ALL",
+    "ValueJP": "ランダム ALL",
+    "ValueCN": "随机 ALL",
+    "Pilot": "/",
+    "PilotJP": "/",
+    "PilotCN": "/",
+    "PilotSeiyuu": "/",
+    "PilotSeiyuuJP": "/",
+    "PilotSeiyuuCN": "/",
+    "Series": "RANDOM",
+    "SeriesJP": "ランダム",
+    "SeriesCN": "随机",
+    "Cost": 0
   }
 ]

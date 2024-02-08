@@ -43,7 +43,7 @@ public class OfflineBattlePageContextConstructor : IBattlePageContextConstructor
         var battleRecords = await _httpClient.GetFromJsonAsync<List<MsBattleRecord>>($"/battle-analysis/getAgainstMsWinLossRecord/{_accessCode}/{_chipId}/{_mode}");
         battleRecords.ThrowIfNull();
         
-        var msList = await _httpClient.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=3");
+        var msList = await _httpClient.GetFromJsonAsync<List<MobileSuit>>("data/MobileSuits.json?v=4");
         msList.ThrowIfNull();
         
         battlePageContext.BasicProfile = profileResult;
