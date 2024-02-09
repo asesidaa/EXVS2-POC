@@ -5,6 +5,8 @@
 #include <string>
 #include <windows.h>
 
+#include <Xinput.h>
+
 #include "injector.hpp"
 #include "MinHook.h"
 #include "log.h"
@@ -141,6 +143,33 @@ static int64_t __fastcall nbamUsbFinderGetSerialNumber(int a1, char* a2)
     return 0;
 }
 
+// Make the game think the Debug Mode is Active and Consider it's setting
+char (*sub_debug_ori)(int a1);
+
+static char __fastcall sub_debug(__int64 a1)
+{
+    // Debug mode
+    if (a1 == 5)
+    {
+        if (globalConfig.EnableDebugInPcb == true)
+            return '1';
+    }
+
+    // This part is for fixing LM to Server Connection
+    if (a1 == 6)
+    {
+        return '1';
+    }
+
+    return sub_debug_ori(a1);
+}
+
+// Stub functions for Disable XInput
+static DWORD WINAPI XInputGetState_Detour(DWORD dwUserIndex, XINPUT_STATE *pState)
+{
+    return ERROR_DEVICE_NOT_CONNECTED;
+}
+
 
 void InitializeHooks(std::filesystem::path&& basePath)
 {
@@ -197,4 +226,17 @@ void InitializeHooks(std::filesystem::path&& basePath)
     // This is the actual function to check, redirect the return function to make card reading possible regardless of closing time.
     offset = 0x1406B752E - BASE_ADDRESS;
     injector::WriteMemory(exeBase + offset, '\xEB', true);
+
+    // Enable Debug Menu
+    if(globalConfig.EnableDebugInPcb == true)
+    {
+        offset = 0x1406B6F90 - BASE_ADDRESS;
+        MH_CreateHook(reinterpret_cast<void**>(exeBase + offset), sub_debug, reinterpret_cast<void**>(&sub_debug_ori));
+    }
+
+    // Disable XINPUT in LM
+    if(globalConfig.Mode == 2)
+    {
+        MH_CreateHookApi(L"XINPUT9_1_0.dll", "XInputGetState", XInputGetState_Detour, nullptr);
+    }
 }
