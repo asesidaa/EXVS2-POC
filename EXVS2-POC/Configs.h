@@ -10,6 +10,9 @@
 struct StartupConfig
 {
     bool Windowed = false;
+    bool BorderlessWindow = false;
+    bool EnableDebugInPcb = false;
+    bool DisableSocketHook = false;
     uint8_t Mode = 0;
 
     std::string Serial;

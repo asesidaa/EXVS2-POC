@@ -19,6 +19,7 @@
 #include "injector.hpp"
 #include "MinHook.h"
 #include "Configs.h"
+#include "log.h"
 
 static IDXGISwapChain* g_swapChain;
 
@@ -83,14 +84,27 @@ static HRESULT WINAPI CreateDXGIFactory2Wrap(UINT Flags, REFIID riid, void** ppF
 
 static HWND WINAPI CreateWindowExWHook(DWORD dwExStyle, LPCWSTR lpClassName, LPCWSTR lpWindowName, DWORD dwStyle, int X, int Y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam)
 {
-	if (nWidth > 0 && nHeight > 0)
+	const bool widthHeightGreaterThanZero = nWidth > 0 && nHeight > 0;
+
+	if(!widthHeightGreaterThanZero)
+	{
+		return g_origCreateWindowExW(dwExStyle, lpClassName, lpWindowName, dwStyle, X, Y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+	}
+	
+	if(globalConfig.Windowed == true && globalConfig.BorderlessWindow == true)
+	{
+		dwStyle = WS_VISIBLE | WS_POPUP | WS_SYSMENU | WS_MINIMIZEBOX;
+		X = 0;
+		Y = 0;
+	}
+	else
 	{
 		dwStyle = WS_VISIBLE | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
 		X = (GetSystemMetrics(SM_CXSCREEN) - nWidth) / 2;
 		Y = (GetSystemMetrics(SM_CYSCREEN) - nHeight) / 2;
-
-		// lpWindowName = L"POC";
 	}
+
+	// lpWindowName = L"POC";
 
 	return g_origCreateWindowExW(dwExStyle, lpClassName, lpWindowName, dwStyle, X, Y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 }
@@ -124,7 +138,12 @@ static BOOL WINAPI SetWindowPosHook(HWND hWnd, HWND hWndInsertAfter, int X, int 
 			hWndInsertAfter = HWND_TOP;
 		}
 	}
-
+	
+	if(globalConfig.Windowed == true && globalConfig.BorderlessWindow == true)
+	{
+		return g_origSetWindowPos(hWnd, hWndInsertAfter, X, Y, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), uFlags);
+	}
+	
 	return g_origSetWindowPos(hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
 }
 

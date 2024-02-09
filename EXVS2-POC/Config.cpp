@@ -78,6 +78,9 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     }
 
     config->Windowed = reader.GetBoolean("config", "windowed", false);
+    config->BorderlessWindow = reader.GetBoolean("config", "borderlesswindow", false);
+    config->EnableDebugInPcb = reader.GetBoolean("config", "enabledebuginpcb", false);
+    config->DisableSocketHook = reader.GetBoolean("config", "disablesockethook", false);
 
     std::string modeString = reader.Get("config", "mode", "LM");
     if (modeString == "1" || _stricmp("client", modeString.c_str()) == 0)
