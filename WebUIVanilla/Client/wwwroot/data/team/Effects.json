@@ -98,30 +98,5 @@
     "Id": 19,
     "Value": "Invalid Team Effect",
     "Existence": "NotExist"
-  },
-  {
-    "Id": 20,
-    "Value": "Effect 20",
-    "Existence": "XB"
-  },
-  {
-    "Id": 21,
-    "Value": "Effect 21",
-    "Existence": "XB"
-  },
-  {
-    "Id": 22,
-    "Value": "Effect 22",
-    "Existence": "XB"
-  },
-  {
-    "Id": 23,
-    "Value": "Effect 23",
-    "Existence": "XB"
-  },
-  {
-    "Id": 24,
-    "Value": "割れたガラス",
-    "Existence": "XB"
   }
 ]

@@ -498,55 +498,5 @@
     "Id": 99,
     "Value": "Dummy Background",
     "Existence": "NotExist"
-  },
-  {
-    "Id": 100,
-    "Value": "Background 100",
-    "Existence": "XB"
-  },
-  {
-    "Id": 101,
-    "Value": "Background 101",
-    "Existence": "XB"
-  },
-  {
-    "Id": 102,
-    "Value": "Background 102",
-    "Existence": "XB"
-  },
-  {
-    "Id": 103,
-    "Value": "Background 103",
-    "Existence": "XB"
-  },
-  {
-    "Id": 104,
-    "Value": "Background 104",
-    "Existence": "XB"
-  },
-  {
-    "Id": 105,
-    "Value": "Background 105",
-    "Existence": "XB"
-  },
-  {
-    "Id": 106,
-    "Value": "Background 106",
-    "Existence": "XB"
-  },
-  {
-    "Id": 107,
-    "Value": "Background 107",
-    "Existence": "XB"
-  },
-  {
-    "Id": 108,
-    "Value": "Background 108",
-    "Existence": "XB"
-  },
-  {
-    "Id": 109,
-    "Value": "Background 109",
-    "Existence": "XB"
   }
 ]
