@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./ServerVanilla
+        working-directory: ./Server-Vanilla
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
@@ -75,13 +75,13 @@ jobs:
         working-directory: ./WebUIVanilla/Client
       - name: dotnet publish
         run: |
-          dotnet publish -r win-x64 -o "../../ServerVanilla/publish" -c ${{env.BUILD_CONFIGURATION}} --self-contained
+          dotnet publish -r win-x64 -o "../../Server-Vanilla/publish" -c ${{env.BUILD_CONFIGURATION}} --self-contained
         working-directory: ./WebUIVanilla/Client
 
       - uses: actions/upload-artifact@v3
         with:
           name: exvs2-poc-server-vanilla
-          path: /home/runner/work/EXVS2-POC/EXVS2-POC/ServerVanilla/publish/
+          path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server-Vanilla/publish/
 
   build-dll:
     runs-on: windows-latest
