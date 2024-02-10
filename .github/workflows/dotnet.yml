@@ -47,6 +47,41 @@ jobs:
       with:
         name: exvs2-poc-server
         path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server/publish/
+        
+  publish-server-vanilla:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ServerVanilla
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
+      - name: dotnet publish
+        run: |
+          dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
+
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ./WebUIVanilla/Client
+      - name: Build
+        run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
+        working-directory: ./WebUIVanilla/Client
+      - name: dotnet publish
+        run: |
+          dotnet publish -r win-x64 -o "../../ServerVanilla/publish" -c ${{env.BUILD_CONFIGURATION}} --self-contained
+        working-directory: ./WebUIVanilla/Client
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: exvs2-poc-server-vanilla
+          path: /home/runner/work/EXVS2-POC/EXVS2-POC/ServerVanilla/publish/
 
   build-dll:
     runs-on: windows-latest
