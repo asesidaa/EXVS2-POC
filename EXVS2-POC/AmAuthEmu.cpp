@@ -2,9 +2,11 @@
 #include "Windows.h"
 #include <format>
 
-#include "MinHook.h"
+#include "COMHooks.h"
 #include "INIReader.h"
 #include "log.h"
+#include "MinHook.h"
+#include "Version.h"
 
 /*
  * Reference: https://gitea.tendokyu.moe/Hay1tsme/bananatools/src/branch/master/amcus/iauth.c
@@ -214,9 +216,21 @@ public:
         strcpy_s(version->game_rev, "1");
         strcpy_s(version->auth_type, "ALL.NET");
         strcpy_s(version->game_id, "SBUZ");
-        strcpy_s(version->game_ver, "4.50");
-        strcpy_s(version->game_cd, "GXX1");
-        strcpy_s(version->cacfg_game_ver, "27.35");
+
+        switch (GetGameVersion()) {
+        case VS2_400:
+            strcpy_s(version->game_ver, "4.00");
+            strcpy_s(version->game_cd, "GX21");
+            strcpy_s(version->cacfg_game_ver, "29.31");
+            break;
+            
+        case XBoost_450:
+            strcpy_s(version->game_ver, "4.50");
+            strcpy_s(version->game_cd, "GXX1");
+            strcpy_s(version->cacfg_game_ver, "27.35");
+            break;
+        }
+        
         strcpy_s(version->game_board_type, "0");
         strcpy_s(version->game_board_id, "PCB");
         strcpy_s(version->auth_url, "localhost");
@@ -466,47 +480,11 @@ public:
     }
 };
 
-
-static HRESULT (STDAPICALLTYPE* g_origCoCreateInstance)(
-    const IID *const rclsid,
-    LPUNKNOWN pUnkOuter,
-    DWORD dwClsContext,
-    const IID *const riid,
-    LPVOID *ppv);
-
-
-static HRESULT STDAPICALLTYPE CoCreateInstanceHook(
-    const IID* const rclsid,
-    LPUNKNOWN pUnkOuter,
-    DWORD dwClsContext,
-    const IID* const riid,
-    LPVOID *ppv)
-{
-    HRESULT result;
-
-    LPOLESTR clsidStr = nullptr;
-    LPOLESTR iidStr = nullptr;
-    StringFromIID(*rclsid, &clsidStr);
-    StringFromIID(*riid, &iidStr);
-
-    if (IsEqualGUID(*rclsid, IID_CAuthFactory) && IsEqualGUID(*riid, IID_CAuth))
-    {
-        auto cauth = new CAuth();
-        result = cauth->QueryInterface(*riid, ppv);
-        trace("CoCreateInstance (hooked) (clsid=%S, pUnk=%p, clsCtx=%d, riid=%S) = %d\n", clsidStr, pUnkOuter, dwClsContext, iidStr, result);
-    }
-    else
-    {
-        result = g_origCoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
-        trace("CoCreateInstance(clsid=%S, pUnk=%p, clsCtx=%d, riid=%S) = %d\n", clsidStr, pUnkOuter, dwClsContext, iidStr, result);
-    }
-
-    CoTaskMemFree(clsidStr);
-    CoTaskMemFree(iidStr);
-    return result;
-}
-
 void InitAmAuthEmu()
 {
-    MH_CreateHookApi(L"ole32.dll", "CoCreateInstance", CoCreateInstanceHook, reinterpret_cast<void**>(&g_origCoCreateInstance));  // NOLINT(clang-diagnostic-microsoft-cast)
+    RegisterCOMHook("CAuth", IID_CAuthFactory, IID_CAuth,
+                    [](REFCLSID clsid, LPUNKNOWN outer, DWORD clsctx, REFIID iid, void** ppv) {
+                        auto cauth = new CAuth();
+                        return cauth->QueryInterface(iid, ppv);
+                    });
 }

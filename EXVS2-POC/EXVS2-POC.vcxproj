@@ -177,6 +177,7 @@
   <ItemGroup>
     <ClCompile Include="AmAuthEmu.cpp" />
     <ClCompile Include="banapass.cpp" />
+    <ClCompile Include="COMHooks.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GameHooks.cpp" />
@@ -199,6 +200,7 @@
   <ItemGroup>
     <ClInclude Include="AmAuthEmu.h" />
     <ClInclude Include="banapass.h" />
+    <ClInclude Include="COMHooks.h" />
     <ClInclude Include="Configs.h" />
     <ClInclude Include="GameHooks.h" />
     <ClInclude Include="INIReader.h" />

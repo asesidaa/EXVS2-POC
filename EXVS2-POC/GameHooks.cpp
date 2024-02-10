@@ -12,6 +12,7 @@
 #include "log.h"
 #include "INIReader.h"
 #include "Configs.h"
+#include "Version.h"
 
 static constexpr auto BASE_ADDRESS = 0x140000000;
 static HANDLE hConnection = (HANDLE)0x1337;
@@ -170,6 +171,15 @@ static DWORD WINAPI XInputGetState_Detour(DWORD dwUserIndex, XINPUT_STATE *pStat
     return ERROR_DEVICE_NOT_CONNECTED;
 }
 
+namespace vs2
+{
+    // Bypass Content Router Check For Vanilla EXVS2
+    static bool __fastcall hook_140652DD0(__int64 a1, int a2)
+    {
+        return true;
+    }
+}
+
 
 void InitializeHooks(std::filesystem::path&& basePath)
 {
@@ -188,15 +198,24 @@ void InitializeHooks(std::filesystem::path&& basePath)
     auto exeBase = reinterpret_cast<uintptr_t>(GetModuleHandle(nullptr));
     
     // Disable content router ip check
-    auto offset = 0x14069CA90 - BASE_ADDRESS;
-    // Write 31 C0 FF C0
-    injector::WriteMemoryRaw(exeBase + offset, (void*)"\x31\xC0\xFF\xC0", 4, true);
-    injector::MakeNOP(exeBase + offset + 4, 0x25 - 4, true);
+    auto offset = VS2_XB(0x140652DD0, 0x14069CA90) - BASE_ADDRESS;
+
+    // Disable content router ip check
+    if (GetGameVersion() == VS2_400)
+    {
+        MH_CreateHook(reinterpret_cast<void**>(exeBase + offset), vs2::hook_140652DD0, NULL);  
+    }
+    else
+    {
+        // Write 31 C0 FF C0
+        injector::WriteMemoryRaw(exeBase + offset, (void*)"\x31\xC0\xFF\xC0", 4, true);
+        injector::MakeNOP(exeBase + offset + 4, 0x25 - 4, true);
+    }
 
     // Client type hack
-    offset = 0x1406BC45C - BASE_ADDRESS;
+    offset = VS2_XB(0x14066DF3C, 0x1406BC45C) - BASE_ADDRESS;
     injector::MakeNOP(exeBase + offset, 6, true);
-    offset = 0x1406BC467 - BASE_ADDRESS;
+    offset = VS2_XB(0x14066DF47, 0x1406BC467) - BASE_ADDRESS;
     injector::MakeNOP(exeBase + offset, 14, true);
     injector::WriteMemory(exeBase + offset + 14, '\xB8', true);
     injector::WriteMemory(exeBase + offset + 15, globalConfig.Mode, true);
@@ -204,33 +223,41 @@ void InitializeHooks(std::filesystem::path&& basePath)
     injector::WriteMemory(exeBase + offset + 17, '\x00', true);
 
     // Adapter patches, disable adapter check when there are more than 2 adapters
-    offset = 0x1402EB957 - BASE_ADDRESS;
-    injector::WriteMemory(exeBase + offset, '\xEB', true);
-    offset = 0x1402EBA71-BASE_ADDRESS;
-    injector::MakeNOP(exeBase + offset, 6, true);
-    offset = 0x1402EBC5F - BASE_ADDRESS;
-    injector::WriteMemory(exeBase + offset, '\xEB', true);
-    offset = 0x1402EC101-BASE_ADDRESS;
-    injector::MakeNOP(exeBase + offset, 2, true);
-    offset = 0x1402EC1B2 - BASE_ADDRESS;
-    injector::WriteMemory(exeBase + offset, '\xEB', true);
-    offset = 0x1402EC321-BASE_ADDRESS;
-    injector::MakeNOP(exeBase + offset, 2, true);
-    offset = 0x1402EC3B4 - BASE_ADDRESS;
-    injector::WriteMemory(exeBase + offset, '\xEB', true);
+    if (GetGameVersion() == XBoost_450)
+    {
+        offset = 0x1402EB957 - BASE_ADDRESS;
+        injector::WriteMemory(exeBase + offset, '\xEB', true);
+        offset = 0x1402EBA71-BASE_ADDRESS;
+        injector::MakeNOP(exeBase + offset, 6, true);
+        offset = 0x1402EBC5F - BASE_ADDRESS;
+        injector::WriteMemory(exeBase + offset, '\xEB', true);
+        offset = 0x1402EC101-BASE_ADDRESS;
+        injector::MakeNOP(exeBase + offset, 2, true);
+        offset = 0x1402EC1B2 - BASE_ADDRESS;
+        injector::WriteMemory(exeBase + offset, '\xEB', true);
+        offset = 0x1402EC321-BASE_ADDRESS;
+        injector::MakeNOP(exeBase + offset, 2, true);
+        offset = 0x1402EC3B4 - BASE_ADDRESS;
+        injector::WriteMemory(exeBase + offset, '\xEB', true);
+    }
+    else if (GetGameVersion() == VS2_400)
+    {
+        offset = 0x1402E59F7 - BASE_ADDRESS;
+        injector::WriteMemory(exeBase + offset, '\xEB', true);
+    }
 
     // Clock patches, disable close time disabling card scanning feature.
     // If close time is set between 19:00 to 26:00, the red "card reading is unavaliable now" text is shown:
-    offset = 0x140695BA2 - BASE_ADDRESS;
+    offset = VS2_XB(0x14064C0B2, 0x140695BA2) - BASE_ADDRESS;
     injector::WriteMemoryRaw(exeBase + offset, (void*)"\x41\xb8\x00\x00\x00\x00\xeb\x13\x8b\xc3\x41\xc7\xc0\x00\x00\x00\x00\x90\xeb\x07\x41\xc7\xc0\x00\x00\x00\x00", 27, true);
     // This is the actual function to check, redirect the return function to make card reading possible regardless of closing time.
-    offset = 0x1406B752E - BASE_ADDRESS;
+    offset = VS2_XB(0x14066AA4E, 0x1406B752E) - BASE_ADDRESS;
     injector::WriteMemory(exeBase + offset, '\xEB', true);
 
     // Enable Debug Menu
     if(globalConfig.EnableDebugInPcb == true)
     {
-        offset = 0x1406B6F90 - BASE_ADDRESS;
+        offset = VS2_XB(0x14066A4B0, 0x1406B6F90) - BASE_ADDRESS;
         MH_CreateHook(reinterpret_cast<void**>(exeBase + offset), sub_debug, reinterpret_cast<void**>(&sub_debug_ori));
     }
 

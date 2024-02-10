@@ -1,6 +1,8 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <shellapi.h>
+#include <psapi.h>
+#include <inttypes.h>
 
 #include <algorithm>
 #include <chrono>
@@ -13,6 +15,7 @@
 #include <MinHook.h>
 
 #include "AmAuthEmu.h"
+#include "COMHooks.h"
 #include "Configs.h"
 #include "GameHooks.h"
 #include "Input.h"
@@ -20,6 +23,7 @@
 #include "log.h"
 #include "PatchTargets.h"
 #include "SocketHooks.h"
+#include "Version.h"
 #include "VirtualKeyMapping.h"
 #include "WindowedDxgi.h"
 
@@ -40,7 +44,33 @@ std::filesystem::path GetBasePath()
     default:
         fatal("Invalid commandline (expected only a path, argc = %d)", argc);
     }
+}
 
+GameVersion GetGameVersion()
+{
+    static auto version = []() {
+        HMODULE executable = nullptr;
+        if (!GetModuleHandleExA(0, nullptr, &executable))
+            fatal("failed to get executable module");
+
+        MODULEINFO moduleInfo;
+        if (!GetModuleInformation(GetCurrentProcess(), executable, &moduleInfo, sizeof(moduleInfo)))
+            fatal("failed to get executable module info");
+
+        uint64_t loadAddress = (uint64_t)moduleInfo.lpBaseOfDll;
+        uint64_t entryPoint = (uint64_t)moduleInfo.EntryPoint;
+        uint64_t entryOffset = entryPoint - loadAddress;
+        switch (entryOffset)
+        {
+        case 0x4dad54:
+            return VS2_400;
+        case 0x51e9d4:
+            return XBoost_450;
+        default:
+            fatal("failed to identify executable version: entrypoint = %" PRIx64, entryOffset);
+        }
+    }();
+    return version;
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
@@ -60,11 +90,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             InitializeHooks(std::move(basePath));
             InitializeJvs();
             InitDXGIWindowHook();
+            InitializeCOMHooks();
             MH_EnableHook(MH_ALL_HOOKS);
 
             auto base = reinterpret_cast<char*>(GetModuleHandle(nullptr));
             std::vector<void*> patch_targets;
-            for (auto offset : PATCH_TARGETS) {
+            const auto& TARGETS = VS2_XB(PATCH_TARGETS_VS2, PATCH_TARGETS_XBOOST);
+            for (auto offset : TARGETS) {
               patch_targets.push_back(base + offset);
             }
 
@@ -75,7 +107,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             printf(
                 "Patched %zu floating point approximations with deterministic "
                 "implementations in %dms\n",
-                PATCH_TARGETS.size(),
+                TARGETS.size(),
                 static_cast<int>((after - before) / 1.0ms));
         }
         break;
