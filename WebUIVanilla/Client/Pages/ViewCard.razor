@@ -1,0 +1,47 @@
+﻿@page "/Cards/ViewDetail/{ChipId}"
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject IDataService DataService
+@inject IDialogService DialogService
+
+@using WebUIVanilla.Shared.Dto.Common;
+@using WebUIVanilla.Shared.Dto.Enum;
+@using WebUIVanilla.Client.Services
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["viewcarddetailtitle"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["viewcarddetailtitle"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+@if (_basicProfile is null)
+{
+    <MudStack>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+    </MudStack>
+    return;
+}
+
+<MudStack Class="mt-2">
+    <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+        <MudTabPanel Text="@localizer["triadcoursescores"]">
+            <WebUIVanilla.Client.Pages.Components.TriadViewComponent 
+                TriadCourseConfigs="DataService.GetTriadStageConfigs()"
+                TriadCourseOverallResult="_triadCourseOverallResult"
+            />
+        </MudTabPanel>
+    </MudTabs>
+</MudStack>

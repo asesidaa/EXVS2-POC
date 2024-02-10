@@ -1,0 +1,102 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "Effect 1",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 2,
+    "Value": "Effect 2",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 3,
+    "Value": "Effect 3",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 4,
+    "Value": "Effect 4",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 5,
+    "Value": "障子",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 6,
+    "Value": "Effect 6",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 7,
+    "Value": "Effect 7",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 8,
+    "Value": "Effect 8",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 9,
+    "Value": "KEEP OUT",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 10,
+    "Value": "WARNING（Lv.1）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 11,
+    "Value": "WARNING（Lv.2）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 12,
+    "Value": "WARNING（Lv.3）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 13,
+    "Value": "Effect 13",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 14,
+    "Value": "Effect 14",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 15,
+    "Value": "Effect 15",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 16,
+    "Value": "Effect 16",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 17,
+    "Value": "Invalid Team Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 18,
+    "Value": "Invalid Team Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 19,
+    "Value": "Invalid Team Effect",
+    "Existence": "NotExist"
+  }
+]

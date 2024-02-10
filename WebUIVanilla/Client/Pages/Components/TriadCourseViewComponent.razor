@@ -1,0 +1,29 @@
+﻿@using WebUIVanilla.Shared.Dto.Common
+
+<MudTabPanel Text="@TargetCourse">
+    <MudGrid>
+        @foreach (var triadCourseConfig in TriadCourseConfigs)
+        {
+            var triadCourseResult = TriadCourseResults
+                .FirstOrDefault(result => result.CourseId == triadCourseConfig.CourseId);
+
+            var triadScore = triadCourseResult is not null ? triadCourseResult.Highscore : 0;
+            
+            <TriadCourseCard TriadCourseConfig="triadCourseConfig" HighScore="triadScore" CpuRibbons="CpuRibbons"/>
+        }
+    </MudGrid>
+</MudTabPanel>
+
+@code {
+    [Parameter]
+    public string TargetCourse { get; set; } = "A";
+    
+    [Parameter]
+    public List<TriadCourseConfig> TriadCourseConfigs { get; set; } = new ();
+
+    [Parameter]
+    public List<TriadCourseResult> TriadCourseResults { get; set; } = new();
+
+    [Parameter]
+    public uint[] CpuRibbons { get; set; } = Array.Empty<uint>();
+}

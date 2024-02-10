@@ -1,0 +1,354 @@
+﻿[
+  {
+    "courseCategory": "A",
+    "courseName": "A-01",
+    "courseId": 1,
+    "completeBadgeId": 1,
+    "highScoreBadgeId": 54,
+    "noDamageBadgeId": 107
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-02",
+    "courseId": 2,
+    "completeBadgeId": 2,
+    "highScoreBadgeId": 55,
+    "noDamageBadgeId": 108
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-03",
+    "courseId": 3,
+    "completeBadgeId": 3,
+    "highScoreBadgeId": 56,
+    "noDamageBadgeId": 109
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-04",
+    "courseId": 4,
+    "completeBadgeId": 4,
+    "highScoreBadgeId": 57,
+    "noDamageBadgeId": 110
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-05",
+    "courseId": 5,
+    "completeBadgeId": 5,
+    "highScoreBadgeId": 58,
+    "noDamageBadgeId": 111
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-06",
+    "courseId": 6,
+    "completeBadgeId": 6,
+    "highScoreBadgeId": 59,
+    "noDamageBadgeId": 112
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-07",
+    "courseId": 7,
+    "completeBadgeId": 7,
+    "highScoreBadgeId": 60,
+    "noDamageBadgeId": 113
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-08",
+    "courseId": 8,
+    "completeBadgeId": 8,
+    "highScoreBadgeId": 61,
+    "noDamageBadgeId": 114
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-09",
+    "courseId": 9,
+    "completeBadgeId": 9,
+    "highScoreBadgeId": 62,
+    "noDamageBadgeId": 115
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-10",
+    "courseId": 10,
+    "completeBadgeId": 10,
+    "highScoreBadgeId": 63,
+    "noDamageBadgeId": 116
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-11",
+    "courseId": 11,
+    "completeBadgeId": 11,
+    "highScoreBadgeId": 64,
+    "noDamageBadgeId": 117
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-12",
+    "courseId": 12,
+    "completeBadgeId": 12,
+    "highScoreBadgeId": 65,
+    "noDamageBadgeId": 118
+  },
+  {
+    "courseCategory": "A",
+    "courseName": "A-99",
+    "courseId": 100,
+    "completeBadgeId": 511,
+    "highScoreBadgeId": 512,
+    "noDamageBadgeId": 513
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-01",
+    "courseId": 16,
+    "completeBadgeId": 16,
+    "highScoreBadgeId": 69,
+    "noDamageBadgeId": 122
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-02",
+    "courseId": 17,
+    "completeBadgeId": 17,
+    "highScoreBadgeId": 70,
+    "noDamageBadgeId": 123
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-03",
+    "courseId": 18,
+    "completeBadgeId": 18,
+    "highScoreBadgeId": 71,
+    "noDamageBadgeId": 124
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-04",
+    "courseId": 19,
+    "completeBadgeId": 19,
+    "highScoreBadgeId": 72,
+    "noDamageBadgeId": 125
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-05",
+    "courseId": 20,
+    "completeBadgeId": 20,
+    "highScoreBadgeId": 73,
+    "noDamageBadgeId": 126
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-06",
+    "courseId": 21,
+    "completeBadgeId": 21,
+    "highScoreBadgeId": 74,
+    "noDamageBadgeId": 127
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-07",
+    "courseId": 22,
+    "completeBadgeId": 22,
+    "highScoreBadgeId": 75,
+    "noDamageBadgeId": 128
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-08",
+    "courseId": 23,
+    "completeBadgeId": 23,
+    "highScoreBadgeId": 76,
+    "noDamageBadgeId": 129
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-09",
+    "courseId": 24,
+    "completeBadgeId": 24,
+    "highScoreBadgeId": 77,
+    "noDamageBadgeId": 130
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-10",
+    "courseId": 25,
+    "completeBadgeId": 25,
+    "highScoreBadgeId": 78,
+    "noDamageBadgeId": 131
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-11",
+    "courseId": 26,
+    "completeBadgeId": 26,
+    "highScoreBadgeId": 79,
+    "noDamageBadgeId": 132
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-12",
+    "courseId": 27,
+    "completeBadgeId": 27,
+    "highScoreBadgeId": 80,
+    "noDamageBadgeId": 133
+  },
+  {
+    "courseCategory": "B",
+    "courseName": "B-99",
+    "courseId": 101,
+    "completeBadgeId": 521,
+    "highScoreBadgeId": 522,
+    "noDamageBadgeId": 523
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-01",
+    "courseId": 31,
+    "completeBadgeId": 29,
+    "highScoreBadgeId": 82,
+    "noDamageBadgeId": 135
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-02",
+    "courseId": 32,
+    "completeBadgeId": 30,
+    "highScoreBadgeId": 83,
+    "noDamageBadgeId": 136
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-03",
+    "courseId": 33,
+    "completeBadgeId": 31,
+    "highScoreBadgeId": 84,
+    "noDamageBadgeId": 137
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-04",
+    "courseId": 34,
+    "completeBadgeId": 32,
+    "highScoreBadgeId": 85,
+    "noDamageBadgeId": 138
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-05",
+    "courseId": 35,
+    "completeBadgeId": 33,
+    "highScoreBadgeId": 86,
+    "noDamageBadgeId": 139
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-06",
+    "courseId": 36,
+    "completeBadgeId": 34,
+    "highScoreBadgeId": 87,
+    "noDamageBadgeId": 140
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-07",
+    "courseId": 37,
+    "completeBadgeId": 35,
+    "highScoreBadgeId": 88,
+    "noDamageBadgeId": 141
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-08",
+    "courseId": 38,
+    "completeBadgeId": 36,
+    "highScoreBadgeId": 89,
+    "noDamageBadgeId": 142
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-09",
+    "courseId": 39,
+    "completeBadgeId": 37,
+    "highScoreBadgeId": 90,
+    "noDamageBadgeId": 143
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-10",
+    "courseId": 40,
+    "completeBadgeId": 38,
+    "highScoreBadgeId": 91,
+    "noDamageBadgeId": 144
+  },
+  {
+    "courseCategory": "C",
+    "courseName": "C-99",
+    "courseId": 102,
+    "completeBadgeId": 531,
+    "highScoreBadgeId": 532,
+    "noDamageBadgeId": 533
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-01",
+    "courseId": 46,
+    "completeBadgeId": 40,
+    "highScoreBadgeId": 93,
+    "noDamageBadgeId": 146
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-02",
+    "courseId": 47,
+    "completeBadgeId": 41,
+    "highScoreBadgeId": 94,
+    "noDamageBadgeId": 147
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-03",
+    "courseId": 48,
+    "completeBadgeId": 42,
+    "highScoreBadgeId": 95,
+    "noDamageBadgeId": 148
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-04",
+    "courseId": 49,
+    "completeBadgeId": 43,
+    "highScoreBadgeId": 96,
+    "noDamageBadgeId": 149
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-05",
+    "courseId": 50,
+    "completeBadgeId": 44,
+    "highScoreBadgeId": 97,
+    "noDamageBadgeId": 150
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-06",
+    "courseId": 51,
+    "completeBadgeId": 45,
+    "highScoreBadgeId": 98,
+    "noDamageBadgeId": 151
+  },
+  {
+    "courseCategory": "D",
+    "courseName": "D-07",
+    "courseId": 52,
+    "completeBadgeId": 46,
+    "highScoreBadgeId": 99,
+    "noDamageBadgeId": 152
+  }
+]

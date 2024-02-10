@@ -1,0 +1,543 @@
+﻿@page "/Cards/Customize/{ChipId}"
+
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject IDataService DataService
+@inject INameService NameService
+@inject IDialogService DialogService
+@inject ISelectorService SelectorService
+
+@using WebUIVanilla.Client.Extensions;
+@using WebUIVanilla.Shared.Dto.Common;
+@using WebUIVanilla.Client.Services;
+@using WebUIVanilla.Shared.Dto.Enum;
+@using WebUIVanilla.Client.Constants
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>Customize</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["customizationheader"]</h1>
+
+    <MudStack Row Class="align-self-end">
+        <MudProgressCircular @bind-Class="@HideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
+        <MudButton Disabled="@SaveAllButtonDisabled" OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">@localizer["saveall"]</MudButton>
+    </MudStack>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+@if (_basicProfile is null)
+{
+    <MudStack>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+        <MudSkeleton Width="100%"/>
+    </MudStack>
+    return;
+}
+
+<MudStack Class="mt-2">
+<MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+<MudTabPanel Text="@localizer["generalcardinfo"]">
+    <WebUIVanilla.Client.Pages.Components.Customize.CustomizeGeneralInfo 
+        BasicProfile="@_basicProfile" HideProgress="@HideProfileProgress" 
+        SaveTask="SaveBasicProfile" EnableImagePreview="@EnableImagePreview" />
+</MudTabPanel>
+<MudTabPanel Text="@localizer["navisetting"]">
+    <MudGrid xs="12">
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["navisetting"]</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudStack Row>
+                            <MudProgressCircular @bind-Class="@HideNaviProgress" Color="Color.Default" Indeterminate="true" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveNavigatorProfile"
+                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                        </MudStack>
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudItem xs="10">
+                            <MudGrid Class="align-center">
+                                <MudItem xs="10">
+                                    <MudField Label="@localizer["navisetting_uinavigator"]" Variant="Variant.Outlined">
+                                        <MudText Align="Align.Center">@NameService.GetNavigatorName(_naviProfile.DefaultUiNaviId)</MudText>
+                                    </MudField>
+                                </MudItem>
+                                <MudItem xs="2">
+                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                                   OnClick="() => OpenNaviChangeUiDialog()" />
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
+                        <MudItem xs="10">
+                            <MudGrid Class="align-center">
+                                <MudItem xs="10">
+                                    <MudField Label="@localizer["navisetting_battlenavigator"]" Variant="Variant.Outlined">
+                                                <MudText Align="Align.Center">@NameService.GetNavigatorName(_naviProfile.DefaultBattleNaviId)</MudText>
+                                    </MudField>
+                                </MudItem>
+                                <MudItem xs="2">
+                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                                   OnClick="() => OpenNaviChangeBattleDialog()" />
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["navisetting_navicostume"]</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudStack Row>
+                            <MudProgressCircular @bind-Class="@HideNaviCostumeProgress" Color="Color.Default" Indeterminate="true" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveNaviCostume"
+                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                        </MudStack>
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudDataGrid Elevation="5"
+                                     Items="@_naviObservableCollection"
+                                     ReadOnly="false"
+                                     EditMode="@(DataGridEditMode.Cell)"
+                                     EditTrigger="@(DataGridEditTrigger.OnRowClick)"
+                                     SortMode="@SortMode.None"
+                                     Filterable="true" 
+                                     QuickFilter="@_naviQuickFilter"
+                                     ColumnResizeMode="ResizeMode.None"
+                                     Groupable="false">
+                            <ToolBarContent>
+                                <MudTextField @bind-Value="_naviCostumeSearchString" Placeholder="@localizer["search"]" Adornment="Adornment.Start" Immediate="false"
+                                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-4" Variant="Variant.Outlined">
+                                </MudTextField>
+                                <MudTooltip Text="@localizer["navisetting_navicostumehint"]">
+                                    <MudIconButton Class="mx-2" Icon="@Icons.Material.Outlined.Info" />
+                                </MudTooltip>
+                            </ToolBarContent>
+                            <Columns>
+                                <PropertyColumn Property="x => x.Navigator.Id" IsEditable="true" Title="@localizer["navisetting_navi"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetNavigatorName(context.Item.Navigator.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="SelectorService.GetNaviSeriesSelector()" IsEditable="true" Title="@localizer["navisetting_navi_series"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetNavigatorSeriesName(context.Item.Navigator.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="SelectorService.GetNaviSeiyuuSelector()" IsEditable="true" Title="@localizer["navisetting_navi_seiyuu"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetNavigatorSeiyuuName(context.Item.Navigator.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="x => x.Navi" Title="@localizer["navisetting_costume"]">
+                                    <EditTemplate>
+                                        <MudStack Row>
+                                            @if(context.Item.Navi != null)
+                                            {
+                                                <MudSelect @bind-Value="context.Item.Navi.CostumeId" T="uint" SelectedValuesChanged="(selectedIds) => OnNaviCostumeSelectChanged(selectedIds, context.Item)" Variant="Variant.Outlined">
+                                                    @foreach (var costume in context.Item.Navigator.Costumes)
+                                                    {
+                                                        <MudSelectItem Value="costume.Id">@costume.Value</MudSelectItem>
+                                                    }
+                                                </MudSelect>
+                                            }
+                                            else
+                                            {
+                                                <MudSelect T="uint" SelectedValuesChanged="(selectedIds) => OnNaviCostumeSelectChanged(selectedIds, context.Item)" Variant="Variant.Outlined">
+                                                    @foreach(var costume in context.Item.Navigator.Costumes)
+                                                    {
+                                                        <MudSelectItem Value="costume.Id">@costume.Value</MudSelectItem>
+                                                    }
+                                                </MudSelect>                                        
+                                            }
+                                        </MudStack>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                            </Columns>
+                            <PagerContent>
+                                <MudDataGridPager PageSizeOptions="@_pageSizeOptions" />
+                            </PagerContent>
+                        </MudDataGrid>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudTabPanel>
+<MudTabPanel Text="@localizer["favmssetting"]">
+    <MudGrid xs="12">
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["favmssetting"]</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudStack Row>
+                            <MudProgressCircular @bind-Class="@HideFavMsProgress" Color="Color.Default" Indeterminate="true" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveFavouriteMobileSuits"
+                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                        </MudStack>
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack Row>
+                                <MudButton OnClick="@AddFavouriteMobileSuitItem" Variant="Variant.Filled" Color="@Color.Primary" Class="mb-4 add-item-btn">@localizer["additem"]</MudButton>
+                    </MudStack>
+                    <MudStack>
+                        <MudDataGrid 
+                            Elevation="5"
+                            Items="@_favouriteMs"
+                            Filterable="false"
+                            ReadOnly="true"
+                            EditMode="@(DataGridEditMode.Cell)"
+                            EditTrigger="@(DataGridEditTrigger.OnRowClick)"
+                            SortMode="@SortMode.None"
+                            Groupable="false">
+                            <Columns>
+                                <PropertyColumn Property="x => x.MsId" IsEditable="true" Title="@localizer["favmsdialog_mstitle"]">
+                                    <CellTemplate>
+                                        <MudText>@NameService.GetMobileSuitName(context.Item.MsId)</MudText>
+                                    </CellTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="x => x.MsId" Title="@localizer["favmsdialog_pilottitle"]">
+                                    <CellTemplate>
+                                                <MudText>@NameService.GetMobileSuitPilotName(context.Item.MsId)</MudText>
+                                    </CellTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="x => x.BurstType" Title="@localizer["favmsdialog_bursttype"]" />
+                                <PropertyColumn Property="x => x.BattleNaviId" Title="@localizer["favmsdialog_inbattlenavi"]">
+                                    <CellTemplate>
+                                                <MudText>@NameService.GetNavigatorName(context.Item.BattleNaviId)</MudText>
+                                    </CellTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="x => x">
+                                    <CellTemplate>
+                                        <MudStack Row>
+                                            <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                                           OnClick="() => OpenCustomizeFavouriteMsDialog(context.Item)" />
+                                            <MudIconButton Variant="Variant.Filled" Size="Size.Small" Color="Color.Error"
+                                                           Icon="@Icons.Material.Filled.Delete" OnClick="() => RemoveFavouriteUnit(context)"></MudIconButton>
+                                        </MudStack>
+                                    </CellTemplate>
+                                </PropertyColumn>
+                            </Columns>
+                        </MudDataGrid>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudTabPanel>
+<MudTabPanel Text="@localizer["mscostumesetting"]">
+    <MudGrid xs="12">
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["mscostumesetting"]</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudStack Row>
+                            <MudProgressCircular @bind-Class="@HideMsCostumeProgress" Color="Color.Default" Indeterminate="true" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveMobileSuitsCostume"
+                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                        </MudStack>
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudDataGrid Elevation="5"
+                                     Items="@_mobileSuitsSkillGroups"
+                                     ReadOnly="false"
+                                     EditMode="@(DataGridEditMode.Cell)"
+                                     EditTrigger="@(DataGridEditTrigger.OnRowClick)"
+                                     SortMode="@SortMode.None"
+                                     Filterable="true" 
+                                     QuickFilter="@_quickFilter"
+                                     ColumnResizeMode="ResizeMode.None"
+                                     Groupable="false">
+                            <ToolBarContent>
+                                <MudTextField @bind-Value="_msCostumeSearchString" Placeholder="@localizer["search"]" Adornment="Adornment.Start" Immediate="false"
+                                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-4" Variant="Variant.Outlined">
+                                </MudTextField>
+                                <MudTooltip Text="@localizer["mscostumehint"]">
+                                    <MudIconButton Class="mx-2" Icon="@Icons.Material.Outlined.Info" />
+                                </MudTooltip>
+                            </ToolBarContent>
+                            <Columns>
+                                <PropertyColumn Property="x => x.MobileSuit.Id" IsEditable="true" Title="@localizer["mscostumemsheader"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetMobileSuitName(context.Item.MobileSuit.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="SelectorService.GetMsPilotSelector()" IsEditable="true" Title="@localizer["mscostumepilotheader"]">
+                                    <EditTemplate>
+                                        <MudText>@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                                <PropertyColumn Property="x => x.SkillGroup" Title="@localizer["mscostumecostumeheader"]">
+                                    <EditTemplate>
+                                        <MudStack Row>
+                                            @if(context.Item.SkillGroup != null)
+                                            {
+                                                <MudSelect @bind-Value="context.Item.SkillGroup.CostumeId" T="uint" SelectedValuesChanged="(selectedIds) => OnCostumeSelectChanged(selectedIds, context.Item)" Variant="Variant.Outlined">
+                                                    @foreach (var costume in context.Item.MobileSuit.Costumes)
+                                                    {
+                                                        <MudSelectItem Value="costume.Id">@costume.Value</MudSelectItem>
+                                                    }
+                                                </MudSelect>
+                                            }
+                                            else
+                                            {
+                                                <MudSelect T="uint" SelectedValuesChanged="(selectedIds) => OnCostumeSelectChanged(selectedIds, context.Item)" Variant="Variant.Outlined">
+                                                    @foreach(var costume in context.Item.MobileSuit.Costumes)
+                                                    {
+                                                        <MudSelectItem Value="costume.Id">@costume.Value</MudSelectItem>
+                                                    }
+                                                </MudSelect>                                        
+                                            }
+                                        </MudStack>
+                                    </EditTemplate>
+                                </PropertyColumn>
+                            </Columns>
+                            <PagerContent>
+                                <MudDataGridPager PageSizeOptions="@_pageSizeOptions" />
+                            </PagerContent>
+                        </MudDataGrid>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudTabPanel>
+<MudTabPanel Text="@localizer["cputriadpartner"]">
+    <MudGrid xs="12">
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["cputriadpartner"]</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudStack Row>
+                            <MudProgressCircular @bind-Class="@HideTriadCpuPartnerProgress" Color="Color.Default" Indeterminate="true" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTriadCpuPartner"
+                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                        </MudStack>
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudItem xs="10">
+                            <MudGrid Class="align-center">
+                                <MudItem xs="10">
+                                    <MudField Label="@localizer["triad_cpums"]" Variant="Variant.Outlined">
+                                        <MudText Align="Align.Center">@NameService.GetMobileSuitName(cpuTriadPartner.MobileSuitId) / @NameService.GetMobileSuitPilotName(cpuTriadPartner.MobileSuitId)</MudText>
+                                    </MudField>
+                                </MudItem>
+                                <MudItem xs="2">
+                                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                                   OnClick="() => OpenCpuTriadMobileSuitUiDialog()" />
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSlider @bind-Value="cpuTriadPartner.ArmorLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_armor"]</MudSlider>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSlider @bind-Value="cpuTriadPartner.ShootAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_shooting"]</MudSlider>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSlider @bind-Value="cpuTriadPartner.InfightAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_infight"]</MudSlider>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSlider @bind-Value="cpuTriadPartner.BoosterLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_boost"]</MudSlider>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSlider @bind-Value="cpuTriadPartner.ExGaugeLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_exgauge"]</MudSlider>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSlider @bind-Value="cpuTriadPartner.AiLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_ai"]</MudSlider>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSelect @bind-Value="SelectedTriadSkill1" T="IdValuePair"
+                                       Label="@localizer["triad_cpuskill1"]" Variant="Variant.Outlined">
+                                @foreach (var item in DataService.GetSortedTriadSkillList())
+                                {
+                                    <MudSelectItem Value="item">@NameService.GetLocalizedName(item)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSelect @bind-Value="SelectedTriadSkill2" T="IdValuePair"
+                                       Label="@localizer["triad_cpuskill2"]" Variant="Variant.Outlined">
+                                @foreach (var item in DataService.GetSortedTriadSkillList())
+                                {
+                                    <MudSelectItem Value="item">@NameService.GetLocalizedName(item)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSelect Label="@localizer["triad_bursttype"]" @bind-Value="cpuTriadPartner.BurstType" T="BurstType" Variant="Variant.Outlined">
+                                @foreach (var item in Enum.GetValues<BurstType>())
+                                {
+                                    <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudTabPanel>
+<MudTabPanel Text="@localizer["customizecomment"]">
+    <WebUIVanilla.Client.Pages.Components.Customize.CustomizeCommentTab 
+        AccessCode="@AccessCode" ChipId="@ChipId" CustomizeComment="@CustomizeComment" HideProgress="@HideCustomizeCommentProgress"
+        SaveTask="SaveCustomizeComment" />
+</MudTabPanel>
+<MudTabPanel Text="@localizer["communicationmessage"]">
+    <WebUIVanilla.Client.Pages.Components.Customize.CustomizeCommunicationMessageTab
+        AccessCode="@AccessCode" ChipId="@ChipId" CustomMessageGroupSetting="@_customMessageGroupSetting" HideProgress="@HideCommunicationMessageProgress"
+        SaveTask="SaveCommunicationMessageConfig" EnableImagePreview="@EnableImagePreview"/>
+</MudTabPanel>
+<MudTabPanel Text="@localizer["teamtag"]">
+    <WebUIVanilla.Client.Pages.Components.Customize.CustomizeTeamTagsTab
+        AccessCode="@AccessCode" ChipId="@ChipId"
+        BasicProfile="@_basicProfile" HideProgress="@HideTeamTagsProgress"
+        TagTeams="@_tagTeams"
+        SaveTask="SaveTeamTags" EnableImagePreview="@EnableImagePreview" />
+</MudTabPanel>
+<MudTabPanel Text="@localizer["gamepadconfig"]">
+    <MudGrid xs="12">
+        <MudItem xs="12">
+            <MudCard Class="my-2" Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">@localizer["gamepadconfig"]</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudStack Row>
+                            <MudProgressCircular @bind-Class="@HideGamepadConfigProgress" Color="Color.Default" Indeterminate="true" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveGamepadConfig"
+                                           Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                        </MudStack>
+                    </CardHeaderActions>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudItem xs="12">@localizer["gamepadhint1"]</MudItem>
+                        <MudItem xs="12">@localizer["gamepadhint2"]</MudItem>
+                        <MudItem xs="12"></MudItem>
+                    </MudStack>
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadsquare"]" @bind-Value="_gamepadConfig.XKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadtriangle"]" @bind-Value="_gamepadConfig.YKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadcross"]" @bind-Value="_gamepadConfig.AKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadcircle"]" @bind-Value="_gamepadConfig.BKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadl1"]" @bind-Value="_gamepadConfig.LbKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadr1"]" @bind-Value="_gamepadConfig.RbKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadl2"]" @bind-Value="_gamepadConfig.LtKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadr2"]" @bind-Value="_gamepadConfig.RtKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadl3"]" @bind-Value="_gamepadConfig.LsbKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect Label="@localizer["gamepadr3"]" @bind-Value="_gamepadConfig.RsbKey" T="uint" Variant="Variant.Outlined">
+                                @foreach (var button in DataService.GetSortedGamepadOptionList())
+                                {
+                                    <MudSelectItem Value="button.Id">@button.Value (@button.ValueJP)</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudTabPanel>
+</MudTabs>
+</MudStack>

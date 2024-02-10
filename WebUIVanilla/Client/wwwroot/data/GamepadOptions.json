@@ -1,0 +1,52 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "Nothing",
+    "ValueJP": "なし"
+  },
+  {
+    "Id": 1,
+    "Value": "Shooting",
+    "ValueJP": "射撃"
+  },
+  {
+    "Id": 2,
+    "Value": "Melee",
+    "ValueJP": "格闘"
+  },
+  {
+    "Id": 3,
+    "Value": "Jump",
+    "ValueJP": "ジャンプ"
+  },
+  {
+    "Id": 4,
+    "Value": "Switch Target",
+    "ValueJP": "ターゲット切り替え"
+  },
+  {
+    "Id": 5,
+    "Value": "Communication",
+    "ValueJP": "通信"
+  },
+  {
+    "Id": 6,
+    "Value": "Sub Ranged",
+    "ValueJP": "サブ射撃"
+  },
+  {
+    "Id": 7,
+    "Value": "Special Shooting",
+    "ValueJP": "特殊射撃"
+  },
+  {
+    "Id": 8,
+    "Value": "Special Melee",
+    "ValueJP": "特殊格闘"
+  },
+  {
+    "Id": 9,
+    "Value": "EX Burst",
+    "ValueJP": "EXバースト"
+  }
+]

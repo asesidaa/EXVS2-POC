@@ -1,0 +1,47 @@
+﻿@using WebUIVanilla.Shared.Dto.Common
+
+<MudGrid>
+    <MudItem xs="12">
+        @localizer["communicationmessage_hint"]
+    </MudItem>
+</MudGrid>
+<MudGrid>
+    <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.UpMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessageup"]"
+        StampLabel="@localizer["communicationmessage_stampidup"]"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+<MudGrid>
+    <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.DownMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessagedown"]"
+        StampLabel="@localizer["communicationmessage_stampiddown"]"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+<MudGrid>
+    <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.LeftMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessageleft"]"
+        StampLabel="@localizer["communicationmessage_stampidleft"]"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+<MudGrid>
+    <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.RightMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessageright"]"
+        StampLabel="@localizer["communicationmessage_stampidright"]"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+
+@code{
+    [Parameter]
+    public CustomMessageGroup? CustomMessageGroup { get; set; } = new();
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+}

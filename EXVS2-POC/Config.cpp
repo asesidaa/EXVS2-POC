@@ -11,6 +11,7 @@
 #include "Configs.h"
 #include "INIReader.h"
 #include "log.h"
+#include "Version.h"
 
 using namespace std::chrono_literals;
 
@@ -101,24 +102,49 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     {
         fatal("invalid serial: expected 4 or 12 digit serial number");
     }
+    
+    const char* serialPrefixLM = nullptr;
+    const char* serialPrefixClient = nullptr;
+    const char* serialPrefixClientAlter = nullptr;
+    const char* pcbIdPrefix = nullptr;
+
+    switch (GetGameVersion()) {
+        case VS2_400:
+            serialPrefixLM = "28111101";
+            serialPrefixClient = "28111401";
+            serialPrefixClientAlter = "28111301";
+            pcbIdPrefix = "ABLN1";
+            break;
+        case XBoost_450:
+            serialPrefixLM = "28431111";
+            serialPrefixClient = "28431411";
+            serialPrefixClientAlter = "28431311";
+            pcbIdPrefix = "ABLN1";
+            break;
+        default:
+            fatal("Unknown game version: %d", GetGameVersion());
+    }
+
     if (config->Serial.size() == 4)
     {
-        config->Serial = (config->Mode == 1 ? "28431411" : "28431111") + config->Serial;
+        config->Serial = (config->Mode == 1 ? serialPrefixClient : serialPrefixLM) + config->Serial;
     }
 
     bool validLength = config->Serial.size() == 12;
-    bool validClientPrefix = config->Serial.starts_with("28431411") || config->Serial.starts_with("28431311");
-    bool validLMPrefix = config->Serial.starts_with("28431111");
+    bool validClientPrefix =
+        config->Serial.starts_with(serialPrefixClient) || config->Serial.starts_with(serialPrefixClientAlter);
+    bool validLMPrefix = config->Serial.starts_with(serialPrefixLM);
     if (config->Mode == 1 && (!validLength || !validClientPrefix))
     {
-        fatal("invalid serial: expected serial of format 28431411XXXX/28431311XXXX for client");
+        fatal("invalid serial: expected serial of format %sXXXX/%sXXXX for client", serialPrefixClient,
+              serialPrefixClientAlter);
     }
     else if (config->Mode == 2 && (!validLength || !validLMPrefix))
     {
-        fatal("invalid serial: expected serial of format 28431111XXXX for LM");
+        fatal("invalid serial: expected serial of format %sXXXX for LM", serialPrefixLM);
     }
 
-    config->PcbId = reader.GetOptional("config", "PcbId").value_or("ABLN1" + config->Serial.substr(5));
+    config->PcbId = reader.GetOptional("config", "PcbId").value_or(pcbIdPrefix + config->Serial.substr(5));
 
     // These will get filled in by InitializeSocketHooks.
     config->InterfaceName = reader.GetOptional("config", "InterfaceName");

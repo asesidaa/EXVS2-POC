@@ -1,0 +1,300 @@
+﻿@inject IDataService DataService
+@inject ILogger<ChangeNavigatorDialog> Logger
+@inject ISnackbar Snackbar
+@inject INameService NameService
+@using WebUIVanilla.Shared.Dto.Common;
+@using WebUIVanilla.Client.Services
+
+<style>
+    .selected {
+        background-color: #1E88E5 !important;
+    }
+
+        .selected > td {
+            color: white !important;
+        }
+
+            .selected > td .mud-input {
+                color: white !important;
+            }
+</style>
+
+<MudDialog>
+    <DialogContent>
+        <MudTable Elevation="5" Items="@list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="Navigator" Hover="true" FixedHeader="true">
+            <ColGroup>
+                <col style="width: 50px;" />
+                <col />
+            </ColGroup>
+            <ToolBarContent>
+                <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0">
+                </MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.Id))">
+                        Id
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@SortByNaviName()">
+                        @localizer["navidialog_navi"]
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@SortBySeriesName()">
+                        @localizer["navidialog_series"]
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@SortBySeiyuuName()">
+                        @localizer["navidialog_seiyuu"]
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.ClosenessPoint))">
+                        @localizer["navidialog_closeness"]
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<Navigator, object>(x => x.ClosenessPoint))">
+                        EXP
+                    </MudTableSortLabel>
+                </MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                @{
+#pragma warning disable CS8602
+                }
+                <MudTd DataLabel="Id" Class="cursor-pointer">@(context.Id)</MudTd>
+                <MudTd DataLabel="@localizer["navidialog_navi"]" Class="cursor-pointer">@NameService.GetNavigatorName(context.Id)</MudTd>
+                <MudTd DataLabel="@localizer["navidialog_series"]" Class="cursor-pointer">@NameService.GetNavigatorSeriesName(context.Id)</MudTd>
+                <MudTd DataLabel="@localizer["navidialog_seiyuu"]" Class="cursor-pointer">@NameService.GetNavigatorSeiyuuName(context.Id)</MudTd>
+                @{
+                    if (context.Id == 0)
+                    {
+                        <MudTd DataLabel="@localizer["navidialog_closeness"]" Class="cursor-pointer">N/A</MudTd>
+                    }
+                    else
+                    {
+                        var familiarity = context.FamiliarityDomain;
+
+                        if (familiarity.UseDescription)
+                        {
+                            <MudTd DataLabel="@localizer["navidialog_closeness"]" Class="cursor-pointer">
+                                <div style="font-style: italic; font-weight: bold; color: #fe0;">
+                                    @familiarity.Description
+                                </div>
+                            </MudTd>
+                        }
+                        else
+                        {
+                            int level = (int)familiarity.Level;
+                        
+                            <MudTd DataLabel="@localizer["navidialog_closeness"]" Class="cursor-pointer">
+                                <MudRating SelectedValue="@level" MaxValue="5" ReadOnly="true"
+                                           FullIcon="@Icons.Material.Filled.Favorite"
+                                           EmptyIcon="@Icons.Material.Filled.FavoriteBorder"
+                                           Color="Color.Secondary"/>
+                            </MudTd>
+                        }
+                    }
+                }
+                @{
+                    if (context.Id == 0)
+                    {
+                        <MudTd DataLabel="EXP" Class="cursor-pointer">N/A</MudTd>
+                    }
+                    else
+                    {
+                        <MudTd DataLabel="EXP" Class="cursor-pointer">@context.ClosenessPoint</MudTd>
+                    }
+                }
+                @{
+#pragma warning restore CS8602
+                }
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="@pageSizeOptions" />
+            </PagerContent>
+        </MudTable>
+        <MudText Class="mt-4 d-block" Typo="Typo.caption">
+            <b>Selected Navigator:</b>
+            @foreach (var selectItem in selectedItems)
+            {
+                <b> @selectItem.Value | </b>
+            }
+        </MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public uint[] Data { get; set; } = null!;
+
+    [Parameter]
+    public int MultiSelectCountLimit { get; set; } = 1;
+
+    private HashSet<Navigator> selectedItems = new();
+
+    private int selectedPage;
+
+    private IReadOnlyList<Navigator> list = new List<Navigator>();
+
+    private string searchString = string.Empty;
+
+    private int[] pageSizeOptions = { 5, 10, 25, 50, 100 };
+
+    private MudTable<Navigator> mudTable = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        list = DataService.GetNavigatorSortedById();
+        foreach (var selectData in Data)
+        {
+            var data = DataService.GetNavigatorById(selectData);
+            if (data != null)
+                selectedItems.Add(data);
+        }
+        var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
+        selectedPage = CalculateCurrentPage(list, selectedItems.FirstOrDefault(), firstPageOption);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+            mudTable.CurrentPage = selectedPage;
+    }
+
+    private int CalculateCurrentPage<T>(IEnumerable<T> items, T selectedItem, int rowsPerPage)
+    {
+        // Convert the IEnumerable to a list for better performance (if it's not already a list).
+        var itemList = items.ToList();
+
+        // Find the index of the selected item in the list.
+        var selectedIndex = itemList.IndexOf(selectedItem);
+
+        if (selectedIndex < 0)
+        {
+            // The selected item is not found in the list.
+            Logger.LogError("Selected item is not part of the provided items list");
+            selectedIndex = 0;
+        }
+
+        // Calculate the current page using integer division.
+        var currentPage = selectedIndex / rowsPerPage;
+
+        return currentPage;
+    }
+
+    private bool Filter(Navigator? item)
+    {
+        if (item is null)
+        {
+            return false;
+        }
+        var aggregate = $"{item.Value}{item.ValueJP}{item.ValueCN}{item.Series}{item.SeriesJP}{item.SeriesCN}{item.Seiyuu}{item.SeiyuuJP}{item.SeiyuuCN}";
+        return string.IsNullOrEmpty(searchString) ||
+               aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void Submit()
+    {
+        Data = selectedItems.Select(x => x.Id).ToArray();
+
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private string SelectedRowClassFunc(Navigator element, int rowNumber)
+    {
+        if (selectedItems.Contains(element))
+            return "selected";
+        else
+            return string.Empty;
+    }
+
+    private void OnRowClick(TableRowClickEventArgs<Navigator> args)
+    {
+        if (selectedItems.Any(x => x.Id == args.Item.Id))
+        {
+            selectedItems.RemoveWhere(x => x.Id == args.Item.Id);
+        }
+        else
+        {
+            if (selectedItems.Count() >= MultiSelectCountLimit)
+            {
+                if (MultiSelectCountLimit == 1)
+                {
+                    selectedItems.Clear();
+                    selectedItems.Add(args.Item);
+                    StateHasChanged();
+                }
+                else
+                {
+                    Snackbar.Add($"Cannot select more than {MultiSelectCountLimit} entries! \r\n Please de-select existing entries before you select a new entry.", Severity.Warning);
+                    return;
+                }
+            }
+            selectedItems.Add(args.Item);
+        }
+
+        StateHasChanged();
+    }
+    
+    private Func<Navigator, object> SortByNaviName()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return navi => navi.Value;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return navi => navi.ValueJP;
+        }
+
+        return navi => navi.ValueCN;
+    }
+    
+    private Func<Navigator, object> SortBySeriesName()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return navi => navi.Series;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return navi => navi.SeriesJP;
+        }
+
+        return navi => navi.SeriesCN;
+    }
+    
+    private Func<Navigator, object> SortBySeiyuuName()
+    {
+        if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+        {
+            return navi => navi.Seiyuu;
+        }
+
+        if (Thread.CurrentThread.CurrentCulture.Name == "ja")
+        {
+            return navi => navi.SeiyuuJP;
+        }
+
+        return navi => navi.SeiyuuCN;
+    }
+}

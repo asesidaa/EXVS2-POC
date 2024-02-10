@@ -1,0 +1,41 @@
+﻿@using WebUIVanilla.Shared.Dto.Common
+<MudItem xs="12" sm="6" md="3">
+    <MudCard Class="my-2" Elevation="5" Outlined="true">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText>@TriadCourseConfig.CourseName</MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudGrid>
+                <MudItem xs="12">@HighScore</MudItem>
+                @{
+                    var defaultBackgroundColor = "rgb(59, 64, 68)";
+                    var completeBackgroundColor = Array.Exists(CpuRibbons, element => element == TriadCourseConfig.CompleteBadgeId) ? "rgb(216, 138, 60)" : defaultBackgroundColor;
+                    var highScoreBackgroundColor = Array.Exists(CpuRibbons, element => element == TriadCourseConfig.HighScoreBadgeId) ? "rgb(189, 206, 210)" : defaultBackgroundColor;
+                    var noDamageBackgroundColor = Array.Exists(CpuRibbons, element => element == TriadCourseConfig.NoDamageBadgeId) ? "rgb(246, 219, 99)" : defaultBackgroundColor;
+                }
+                <MudItem xs="4">
+                    <div class="pa-3 rounded" style="background-color: @completeBackgroundColor;"></div>
+                </MudItem>
+                <MudItem xs="4">
+                    <div class="pa-3 rounded" style="background-color: @highScoreBackgroundColor;"></div>
+                </MudItem>
+                <MudItem xs="4">
+                    <div class="pa-3 rounded" style="background-color: @noDamageBackgroundColor;"></div>
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+    </MudCard>
+</MudItem>
+
+@code {
+    [Parameter]
+    public TriadCourseConfig TriadCourseConfig { get; set; } = new();
+
+    [Parameter]
+    public uint HighScore { get; set; } = 0;
+    
+    [Parameter]
+    public uint[] CpuRibbons { get; set; } = Array.Empty<uint>();
+}

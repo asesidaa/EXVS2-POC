@@ -1,0 +1,123 @@
+﻿@inject NavigationManager NavManager
+@inject ILogger<CardAuthDialog> Logger
+@inject ISnackbar Snackbar
+@inject HttpClient Http
+
+@using Throw;
+@using WebUIVanilla.Shared.Dto.Response;
+@using WebUIVanilla.Shared.Dto.Request;
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            @localizer["enteraccesscode"]
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudStack>
+            <MudTextField Value="@Data.ChipId" Label="@localizer["cardid"]" Variant="Variant.Outlined" ReadOnly="true" />
+            <MudTextField @ref="mudTextField" @bind-Value="AccessCode" Label="@localizer["accesscode"]"
+                          Immediate="true"
+                          Counter="ACCESS_CODE_MAX_LENGTH"
+                          MaxLength="ACCESS_CODE_MAX_LENGTH"
+                          Variant="Variant.Outlined"    />   
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Confirm</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public BareboneCardProfile Data { get; set; } = null!;
+
+    [Parameter]
+    public string Mode { get; set; } = null!;
+
+    [Inject]
+    private IJSRuntime _jsRuntime { get; set; }
+
+    private MudTextField<string> mudTextField { get; set; }
+
+    private string AccessCode { get; set; } = string.Empty;
+
+    private const int ACCESS_CODE_MAX_LENGTH = 20;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            mudTextField.HelperText = $"{localizer["fromcardini"]}";
+            StateHasChanged();
+        }
+    }
+
+    public async Task Submit()
+    {
+        var authRequest = new CardAuthorizationRequest
+        {
+            CardId = Data.CardId,
+            ChipId = Data.ChipId, 
+            AccessCode = AccessCode
+        };
+        
+        var response = await Http.PostAsJsonAsync<CardAuthorizationRequest>($"card/authorize", authRequest);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        if (!result.Success)
+        {
+            Snackbar.Add("Authorization failed. Invalid access code!", Severity.Error);
+        }
+        else
+        {
+            await _jsRuntime.InvokeVoidAsync("accessCode.set", AccessCode);
+
+            if (Mode == "EditCard")
+            {
+                NavManager.NavigateTo($"Cards/Customize/{Data.ChipId}");
+                return;
+            }
+            if (Mode == "AllOfflineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/AllOfflineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            if (Mode == "ShuffleOfflineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/ShuffleOfflineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            if (Mode == "TeamOfflineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/TeamOfflineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            if (Mode == "AllOnlineRankBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/AllOnlineRankBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            if (Mode == "SoloRankOnlineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/SoloRankOnlineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            if (Mode == "TeamRankOnlineBattleDetail")
+            {
+                NavManager.NavigateTo($"Cards/TeamRankOnlineBattleDetail/{Data.ChipId}"); 
+                return;
+            }
+            
+            NavManager.NavigateTo($"Cards/ViewDetail/{Data.ChipId}"); 
+        }
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+}

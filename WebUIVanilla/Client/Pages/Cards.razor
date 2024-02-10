@@ -1,0 +1,352 @@
+﻿@page "/Cards"
+@inject HttpClient Http
+
+@using MudBlazor;
+@using System.Net.Http.Json;
+@using System.Text;
+@using WebUIVanilla.Shared.Dto.Response;
+@using WebUIVanilla.Client.Pages.Dialogs;
+@inject IDialogService DialogService;
+
+@inject ILogger<Cards> Logger
+
+<PageTitle>Cards</PageTitle>
+
+<h1>@localizer["cards"]</h1>
+
+@*@if (ErrorMessage != string.Empty)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@ErrorMessage</MudText>
+    return;
+}*@
+<MudGrid Class="my-8">
+    <MudItem xs="12">
+        <MudTextField @ref="mudTextField" @bind-Value="_searchText" Label="@localizer["search"]" Variant="Variant.Outlined" OnDebounceIntervalElapsed="SearchEntered" DebounceInterval="350" />
+    </MudItem>
+    
+    @if (cardDtos is null)
+    {
+        @for (var i = 0; i < 3; i++)
+        {
+            <MudItem xs="12" md="6" lg="4">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudSkeleton Width="30%" Height="32px;" Class="mb-5"/>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudSkeleton Width="60%"/>
+                        <MudSkeleton Width="100%"/>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudSkeleton Width="128px" Height="32px"/>
+                            <MudSkeleton Width="148px" Height="32px"/>
+                        </MudStack>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+        return;
+    }
+    
+    @if (cardDtos.Count != 0)
+    {
+        @foreach (var card in cardDtos)
+        {
+            <MudItem xs="12" md="6" lg="4">
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h5">@ObfuscateName(card.UserName)</MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Style="font-weight: bold">@localizer["cardid"]</MudText>
+                        <MudText Style="font-family:monospace">@card.ChipId</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudStack Row="true" Style="width:100%" Spacing="4" Justify="Justify.FlexEnd">
+                            <MudMenu Icon="@Icons.Material.Filled.Leaderboard" Color="Color.Primary">
+                                <MudMenuItem>
+                                    <MudButton OnClick="() => OnViewDetailClicked(card)"
+                                               Variant="Variant.Text"
+                                               StartIcon="@Icons.Material.Filled.Info"
+                                               Color="Color.Primary">
+                                        @localizer["cardviewdetail"]
+                                    </MudButton>
+                                </MudMenuItem>
+                            </MudMenu>
+                            <MudButton OnClick="() => OnEditCardClicked(card)"
+                                       Variant="Variant.Text"
+                                       StartIcon="@Icons.Material.Filled.DisplaySettings"
+                                       Color="Color.Primary">
+                                @localizer["cardseditoptions"]
+                            </MudButton>
+                        </MudStack>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+        return;
+    }
+    else
+    {
+        <MudItem xs="12">
+            <MudText Align="Align.Center" Typo="Typo.h3">
+                No Data
+            </MudText>
+        </MudItem>
+    }
+</MudGrid>
+
+@code{
+    [Inject]
+    private IConfiguration _config { get; set; }
+
+    private List<BareboneCardProfile>? cardDtos;
+
+    private MudTextField<string> mudTextField { get; set; }
+
+    private string _searchText { get; set; }
+
+    private int _maxCardsShownCount { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _maxCardsShownCount = _config.GetValue<int>("MaxCardsShownCount", 9);
+
+        Logger.LogInformation("Max cards shown count: {_maxCardsShownCount}", _maxCardsShownCount);
+
+        cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>($"card/getAll?PageSize={_maxCardsShownCount}");
+
+        if (cardDtos is null)
+            cardDtos = new List<BareboneCardProfile>();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            mudTextField.HelperText = $"{localizer["cardid"]}";
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnEditCardClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+            {
+                CloseOnEscapeKey = true,
+                DisableBackdropClick = true,
+                FullWidth = true
+            };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "EditCard"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnViewDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "ViewDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnViewAllOfflineBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "AllOfflineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnViewShuffleOfflineBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "ShuffleOfflineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnViewTeamOfflineBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "TeamOfflineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OnViewAllOnlineRankBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "AllOnlineRankBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnViewOnlineSoloRankBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "SoloRankOnlineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnViewOnlineTeamRankBattleDetailClicked(BareboneCardProfile card)
+    {
+        var options = new DialogOptions
+        {
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+            FullWidth = true
+        };
+        var parameters = new DialogParameters
+        {
+            { "Data", card },
+            { "Mode", "TeamRankOnlineBattleDetail"}
+        };
+        var dialog = await DialogService.ShowAsync<CardAuthDialog>("Authorization", parameters, options);
+        // ReSharper disable once UnusedVariable
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task SearchEntered(string input)
+    {
+        var queryStringBuilder = new StringBuilder();
+        queryStringBuilder.Append($"card/getAll?PageSize={_maxCardsShownCount}");
+        if (!string.IsNullOrWhiteSpace(input))
+            queryStringBuilder.Append($"&SearchKeyword={input}");
+
+        cardDtos = await Http.GetFromJsonAsync<List<BareboneCardProfile>>(queryStringBuilder.ToString());
+
+        if (cardDtos is null)
+            cardDtos = new List<BareboneCardProfile>();
+
+        StateHasChanged();
+    }
+
+    private string ObfuscateName(string name)
+    {
+        int minLength = 3;
+        string obfuscationChar = "*";
+
+        if (string.IsNullOrEmpty(name))
+        {
+            return new string('*', minLength);
+        }
+
+        int fillCount = Math.Max(minLength - name.Length, 0);
+        string filledInput = name.PadRight(minLength, obfuscationChar[0]);
+
+        string prefix = filledInput.Substring(0, minLength);
+        string obfuscatedPart = new string('*', 7);
+
+        StringBuilder resultBuilder = new StringBuilder(minLength + obfuscatedPart.Length);
+        resultBuilder.Append(prefix);
+        resultBuilder.Append(obfuscatedPart);
+
+        return resultBuilder.ToString();
+    }
+}

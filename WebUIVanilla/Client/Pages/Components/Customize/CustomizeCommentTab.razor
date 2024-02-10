@@ -1,0 +1,173 @@
+﻿@inherits BasicCustomizeComponent
+
+@using WebUIVanilla.Client.Services
+@using WebUIVanilla.Shared.Dto.Common
+@using WebUIVanilla.Shared.Dto.Request
+@using WebUIVanilla.Shared.Dto.Response
+@using WebUIVanilla.Client.Pages.Dialogs
+@using Throw
+@using System.Text.RegularExpressions
+
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject INameService NameService
+@inject IDialogService DialogService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["customizecomment"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@HideProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                @if (IsForDataCollection)
+                {
+                <MudStack>
+                    <MudItem xs="12">
+                        @localizer["comment_hint"] <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/464.html" Target="_blank">@localizer["comment_wiki"]</MudLink>
+                    </MudItem>
+                    <MudItem xs="12">@localizer["comment_sentence_example"] そんな[]、修正してやる！</MudItem>
+                    <MudItem xs="12">@localizer["comment_parts_example"] [Sフリーダム], [キラ], [天然]</MudItem>
+                </MudStack>
+                }
+                <MudGrid Class="align-center">
+                    <MudItem xs="10" sm="11">
+                        <MudField Label="@localizer["dialogtitle_customizecommentsentence"]" Variant="Variant.Outlined">
+                            <MudText Align="Align.Center">@((MarkupString)NameService.GetCustomizeCommentSentenceName((uint) CustomizeComment.BasePhraseId))</MudText>
+                        </MudField>
+                    </MudItem>
+                    <MudItem xs="2" sm="1">
+                        <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                       OnClick="() => OpenChangeCustomizeCommentSentenceDialog()" />
+                    </MudItem>
+                    <MudItem xs="4" sm="5">
+                        <MudField Label="@localizer["dialogtitle_customizecommentphrase"]" Variant="Variant.Outlined">
+                            <MudText Align="Align.Center">@NameService.GetCustomizeCommentPhraseName((uint) CustomizeComment.SubstitutePart1Id)</MudText>
+                        </MudField>
+                    </MudItem>
+                    <MudItem xs="2" sm="1">
+                        <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                       OnClick="() => OpenChangeCustomizeCommentPhrase1Dialog()" />
+                    </MudItem>
+                    <MudItem xs="4" sm="5">
+                        <MudField Label="@localizer["dialogtitle_customizecommentphrase2"]" Variant="Variant.Outlined">
+                            <MudText Align="Align.Center">@NameService.GetCustomizeCommentPhraseName((uint) CustomizeComment.SubstitutePart2Id)</MudText>
+                        </MudField>
+                    </MudItem>
+                    <MudItem xs="2" sm="1">
+                        <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                       OnClick="() => OpenChangeCustomizeCommentPhrase2Dialog()" />
+                    </MudItem>
+                </MudGrid>
+                <MudGrid Class="align-center">
+                    <MudItem xs="12">
+                        <MudField Label="@localizer["customizecommentpreview"]" Variant="Variant.Outlined">
+                            <MudText Align="Align.Center">@((MarkupString)GetPreviewSentence())</MudText>
+                        </MudField>
+                    </MudItem>
+                </MudGrid>
+                @if (IsForDataCollection)
+                {
+                    <MudGrid>
+                        <MudItem xs="4">
+                            <MudNumericField @bind-Value="CustomizeComment.BasePhraseId" Label="@localizer["comment_sentenceid"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart1Id" Label="@localizer["comment_part1id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudNumericField @bind-Value="CustomizeComment.SubstitutePart2Id" Label="@localizer["comment_part2id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
+                        </MudItem>
+                    </MudGrid>
+                }
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code
+{
+    [Parameter]
+    public CustomizeComment? CustomizeComment { get; set; } = new();
+
+    private bool IsForDataCollection { get; set; } = false;
+
+    private async Task OpenChangeCustomizeCommentSentenceDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { CustomizeComment.BasePhraseId } } };
+        var dialog = await DialogService.ShowAsync<ChangeCustomizeCommentDialog>(localizer["dialogtitle_customizecommentsentence"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeComment.BasePhraseId = (result.Data as int[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeCustomizeCommentPhrase1Dialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { CustomizeComment.SubstitutePart1Id } } };
+        var dialog = await DialogService.ShowAsync<ChangeCustomizeCommentPhraseDialog>(localizer["dialogtitle_customizecommentphrase"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeComment.SubstitutePart1Id = (result.Data as int[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeCustomizeCommentPhrase2Dialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { CustomizeComment.SubstitutePart2Id } } };
+        var dialog = await DialogService.ShowAsync<ChangeCustomizeCommentPhraseDialog>(localizer["dialogtitle_customizecommentphrase2"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeComment.SubstitutePart2Id = (result.Data as int[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private string GetPreviewSentence()
+    {
+        if (CustomizeComment is null)
+        {
+            return "Preview is unavailable";
+        }
+
+        var sentence = NameService.GetCustomizeCommentSentenceName((uint) CustomizeComment.BasePhraseId);
+
+        if (sentence == "Unknown Sentence")
+        {
+            return sentence;
+        }
+
+        Regex regex = new Regex(@"\[.*?\]");
+        MatchCollection matches = regex.Matches(sentence);
+
+        if (matches.Count >= 1)
+        {
+            sentence = sentence.Replace(matches[0].Value, NameService.GetCustomizeCommentPhraseName((uint) CustomizeComment.SubstitutePart1Id));
+        }
+        
+        if (matches.Count >= 2)
+        {
+            sentence = sentence.Replace(matches[1].Value, NameService.GetCustomizeCommentPhraseName((uint) CustomizeComment.SubstitutePart2Id));
+        }
+
+        return sentence;
+    }
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "Id": 0,
+    "Value": "None"
+  },
+  {
+    "Id": 1,
+    "Value": "Lockon Range Lv. 1",
+    "ValueCN": "红锁距离 Lv. 1"
+  },
+  {
+    "Id": 2,
+    "Value": "Lockon Range Lv. 2",
+    "ValueCN": "红锁距离 Lv. 2"
+  },
+  {
+    "Id": 3,
+    "Value": "Lockon Range Lv. 3",
+    "ValueCN": "红锁距离 Lv. 3"
+  },
+  {
+    "Id": 4,
+    "Value": "Boost Performance Lv. 1"
+  },
+  {
+    "Id": 5,
+    "Value": "Boost Performance Lv. 2"
+  },
+  {
+    "Id": 6,
+    "Value": "Boost Performance Lv. 3"
+  },
+  {
+    "Id": 7,
+    "Value": "Beam Defense Lv. 1"
+  },
+  {
+    "Id": 8,
+    "Value": "Beam Defense Lv. 2"
+  },
+  {
+    "Id": 9,
+    "Value": "Beam Defense Lv. 3"
+  },
+  {
+    "Id": 10,
+    "Value": "Live Ammo Defense Lv. 1"
+  },
+  {
+    "Id": 11,
+    "Value": "Live Ammo Defense Lv. 2"
+  },
+  {
+    "Id": 12,
+    "Value": "Live Ammo Defense Lv. 3"
+  },
+  {
+    "Id": 13,
+    "Value": "Melee Defense Lv. 1"
+  },
+  {
+    "Id": 14,
+    "Value": "Melee Defense Lv. 2"
+  },
+  {
+    "Id": 15,
+    "Value": "Melee Defense Lv. 3"
+  },
+  {
+    "Id": 16,
+    "Value": "HP Plus Lv. 1"
+  },
+  {
+    "Id": 17,
+    "Value": "HP Plus Lv. 2"
+  },
+  {
+    "Id": 18,
+    "Value": "HP Plus Lv. 3"
+  },
+  {
+    "Id": 19,
+    "Value": "Auto Repair Lv. 1"
+  },
+  {
+    "Id": 20,
+    "Value": "Auto Repair Lv. 2"
+  },
+  {
+    "Id": 21,
+    "Value": "Auto Repair Lv. 3"
+  },
+  {
+    "Id": 22,
+    "Value": "Counter Attack Lv. 1"
+  },
+  {
+    "Id": 23,
+    "Value": "Counter Attack Lv. 2"
+  },
+  {
+    "Id": 24,
+    "Value": "Counter Attack Lv. 3"
+  },
+  {
+    "Id": 25,
+    "Value": "EX - Gauge Boost Lv. 1"
+  },
+  {
+    "Id": 26,
+    "Value": "EX - Gauge Boost Lv. 2"
+  },
+  {
+    "Id": 27,
+    "Value": "EX - Gauge Boost Lv. 3"
+  }
+]

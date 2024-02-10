@@ -21,17 +21,41 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="AmAuthEmu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="banapass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="COMHooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="GameHooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JvsEmu.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\src\thunk.cpp">
+      <Filter>Source Files\determinize</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\src\determinize.cpp">
+      <Filter>Source Files\determinize</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\src\replacements.cpp">
+      <Filter>Source Files\determinize</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\determinize\vendor\zydis\Zydis.c">
+      <Filter>Source Files\zydis</Filter>
     </ClCompile>
     <ClCompile Include="libs\minhook\src\buffer.c">
       <Filter>Source Files</Filter>
@@ -51,45 +75,36 @@
     <ClCompile Include="log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowedDxgi.cpp">
+    <ClCompile Include="SocketHooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="VirtualKeyMapping.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AmAuthEmu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SocketHooks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="libs\determinize\src\thunk.cpp">
-      <Filter>Source Files\determinize</Filter>
-    </ClCompile>
-    <ClCompile Include="libs\determinize\src\determinize.cpp">
-      <Filter>Source Files\determinize</Filter>
-    </ClCompile>
-    <ClCompile Include="libs\determinize\src\replacements.cpp">
-      <Filter>Source Files\determinize</Filter>
-    </ClCompile>
-    <ClCompile Include="libs\determinize\vendor\zydis\Zydis.c">
-      <Filter>Source Files\zydis</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Config.cpp">
+    <ClCompile Include="WindowedDxgi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AmAuthEmu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="banapass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="COMHooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Configs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameHooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="INIReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="JvsEmu.h">
@@ -146,22 +161,13 @@
     <ClInclude Include="random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SocketHooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="WindowedDxgi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VirtualKeyMapping.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Configs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AmAuthEmu.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SocketHooks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
