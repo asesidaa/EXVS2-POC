@@ -1,0 +1,578 @@
+[
+  {
+    "Id": 0,
+    "Value": "-",
+    "ValueJP": "-",
+    "ValueCN": "-"
+  },
+  {
+    "Id": 1,
+    "Value": "颯爽たるシャア",
+    "ValueJP": "颯爽たるシャア",
+    "ValueCN": "颯爽たるシャア"
+  },
+  {
+    "Id": 2,
+    "Value": "窮地に立つガンダム",
+    "ValueJP": "窮地に立つガンダム",
+    "ValueCN": "窮地に立つガンダム"
+  },
+  {
+    "Id": 3,
+    "Value": "赤い彗星",
+    "ValueJP": "赤い彗星",
+    "ValueCN": "赤い彗星"
+  },
+  {
+    "Id": 4,
+    "Value": "めぐりあい",
+    "ValueJP": "めぐりあい",
+    "ValueCN": "めぐりあい"
+  },
+  {
+    "Id": 5,
+    "Value": "モビルスーツ戦",
+    "ValueJP": "モビルスーツ戦",
+    "ValueCN": "モビルスーツ戦"
+  },
+  {
+    "Id": 6,
+    "Value": "艦隊戦",
+    "ValueJP": "艦隊戦",
+    "ValueCN": "艦隊戦"
+  },
+  {
+    "Id": 7,
+    "Value": "閃光の中のMS",
+    "ValueJP": "閃光の中のMS",
+    "ValueCN": "閃光の中のMS"
+  },
+  {
+    "Id": 8,
+    "Value": "宇宙を駆ける",
+    "ValueJP": "宇宙を駆ける",
+    "ValueCN": "宇宙を駆ける"
+  },
+  {
+    "Id": 9,
+    "Value": "サイレント・ヴォイス",
+    "ValueJP": "サイレント・ヴォイス",
+    "ValueCN": "サイレント・ヴォイス"
+  },
+  {
+    "Id": 10,
+    "Value": "宇宙のジュドー",
+    "ValueJP": "宇宙のジュドー",
+    "ValueCN": "宇宙のジュドー"
+  },
+  {
+    "Id": 11,
+    "Value": "SALLY <出撃>",
+    "ValueJP": "SALLY <出撃>",
+    "ValueCN": "SALLY <出撃>"
+  },
+  {
+    "Id": 12,
+    "Value": "SWAN <白鳥>",
+    "ValueJP": "SWAN <白鳥>",
+    "ValueCN": "SWAN <白鳥>"
+  },
+  {
+    "Id": 13,
+    "Value": "BEYOND THE TIME 〜メビウスの宇宙を越えて〜",
+    "ValueJP": "BEYOND THE TIME 〜メビウスの宇宙を越えて〜",
+    "ValueCN": "BEYOND THE TIME 〜メビウスの宇宙を越えて〜"
+  },
+  {
+    "Id": 14,
+    "Value": "君を見つめて-The time I’m seeing you-",
+    "ValueJP": "君を見つめて-The time I’m seeing you-",
+    "ValueCN": "君を見つめて-The time I’m seeing you-"
+  },
+  {
+    "Id": 15,
+    "Value": "F91ガンダム出撃",
+    "ValueJP": "F91ガンダム出撃",
+    "ValueCN": "F91ガンダム出撃"
+  },
+  {
+    "Id": 16,
+    "Value": "STAND UP TO THE VICTORY ～トゥ・ザ・ヴィクトリー～",
+    "ValueJP": "STAND UP TO THE VICTORY ～トゥ・ザ・ヴィクトリー～",
+    "ValueCN": "STAND UP TO THE VICTORY ～トゥ・ザ・ヴィクトリー～"
+  },
+  {
+    "Id": 17,
+    "Value": "夏に春の祭典を！",
+    "ValueJP": "夏に春の祭典を！",
+    "ValueCN": "夏に春の祭典を！"
+  },
+  {
+    "Id": 18,
+    "Value": "FLYING IN THE SKY",
+    "ValueJP": "FLYING IN THE SKY",
+    "ValueCN": "FLYING IN THE SKY"
+  },
+  {
+    "Id": 19,
+    "Value": "我が心 明鏡止水 ～されどこの掌は烈火の如く",
+    "ValueJP": "我が心 明鏡止水 ～されどこの掌は烈火の如く",
+    "ValueCN": "我が心 明鏡止水 ～されどこの掌は烈火の如く"
+  },
+  {
+    "Id": 20,
+    "Value": "燃え上がれ闘志 -忌まわしき宿命を越えて",
+    "ValueJP": "燃え上がれ闘志 -忌まわしき宿命を越えて",
+    "ValueCN": "燃え上がれ闘志 -忌まわしき宿命を越えて"
+  },
+  {
+    "Id": 21,
+    "Value": "Enforcement Rush",
+    "ValueJP": "Enforcement Rush",
+    "ValueCN": "Enforcement Rush"
+  },
+  {
+    "Id": 22,
+    "Value": "思春期を殺した少年の翼",
+    "ValueJP": "思春期を殺した少年の翼",
+    "ValueCN": "思春期を殺した少年の翼"
+  },
+  {
+    "Id": 23,
+    "Value": "JUST COMMUNICATION",
+    "ValueJP": "JUST COMMUNICATION",
+    "ValueCN": "JUST COMMUNICATION"
+  },
+  {
+    "Id": 24,
+    "Value": "LAST IMPRESSION",
+    "ValueJP": "LAST IMPRESSION",
+    "ValueCN": "LAST IMPRESSION"
+  },
+  {
+    "Id": 25,
+    "Value": "死線",
+    "ValueJP": "死線",
+    "ValueCN": "死線"
+  },
+  {
+    "Id": 26,
+    "Value": "DREAMS",
+    "ValueJP": "DREAMS",
+    "ValueCN": "DREAMS"
+  },
+  {
+    "Id": 27,
+    "Value": "光軸のなぞるもの",
+    "ValueJP": "光軸のなぞるもの",
+    "ValueCN": "光軸のなぞるもの"
+  },
+  {
+    "Id": 28,
+    "Value": "地よりはずめと",
+    "ValueJP": "地よりはずめと",
+    "ValueCN": "地よりはずめと"
+  },
+  {
+    "Id": 29,
+    "Value": "STRIKE出撃",
+    "ValueJP": "STRIKE出撃",
+    "ValueCN": "STRIKE出撃"
+  },
+  {
+    "Id": 30,
+    "Value": "あんなに一緒だったのに",
+    "ValueJP": "あんなに一緒だったのに",
+    "ValueCN": "あんなに一緒だったのに"
+  },
+  {
+    "Id": 31,
+    "Value": "GUNDAM出撃",
+    "ValueJP": "GUNDAM出撃",
+    "ValueCN": "GUNDAM出撃"
+  },
+  {
+    "Id": 32,
+    "Value": "攻撃開始",
+    "ValueJP": "攻撃開始",
+    "ValueCN": "攻撃開始"
+  },
+  {
+    "Id": 33,
+    "Value": "キラ、その心のままに",
+    "ValueJP": "キラ、その心のままに",
+    "ValueCN": "キラ、その心のままに"
+  },
+  {
+    "Id": 34,
+    "Value": "覚醒シン・アスカ",
+    "ValueJP": "覚醒シン・アスカ",
+    "ValueCN": "覚醒シン・アスカ"
+  },
+  {
+    "Id": 35,
+    "Value": "Life Goes On",
+    "ValueJP": "Life Goes On",
+    "ValueCN": "Life Goes On"
+  },
+  {
+    "Id": 36,
+    "Value": "GAIA×CHAOS×ABYSS",
+    "ValueJP": "GAIA×CHAOS×ABYSS",
+    "ValueCN": "GAIA×CHAOS×ABYSS"
+  },
+  {
+    "Id": 37,
+    "Value": "出撃! インパルス",
+    "ValueJP": "出撃! インパルス",
+    "ValueCN": "出撃! インパルス"
+  },
+  {
+    "Id": 38,
+    "Value": "TRANS-AM RAISER",
+    "ValueJP": "TRANS-AM RAISER",
+    "ValueCN": "TRANS-AM RAISER"
+  },
+  {
+    "Id": 39,
+    "Value": "O-RAISER",
+    "ValueJP": "O-RAISER",
+    "ValueCN": "O-RAISER"
+  },
+  {
+    "Id": 40,
+    "Value": "FORWARD",
+    "ValueJP": "FORWARD",
+    "ValueCN": "FORWARD"
+  },
+  {
+    "Id": 41,
+    "Value": "儚くも永久のカナシ",
+    "ValueJP": "儚くも永久のカナシ",
+    "ValueCN": "儚くも永久のカナシ"
+  },
+  {
+    "Id": 42,
+    "Value": "FIGHT",
+    "ValueJP": "FIGHT",
+    "ValueCN": "FIGHT"
+  },
+  {
+    "Id": 43,
+    "Value": "FINAL MISSION ～ QUANTAM BURST",
+    "ValueJP": "FINAL MISSION ～ QUANTAM BURST",
+    "ValueCN": "FINAL MISSION ～ QUANTAM BURST"
+  },
+  {
+    "Id": 44,
+    "Value": "INNOVADE &amp; INNOVATOR",
+    "ValueJP": "INNOVADE &amp; INNOVATOR",
+    "ValueCN": "INNOVADE &amp; INNOVATOR"
+  },
+  {
+    "Id": 45,
+    "Value": "UNICORN",
+    "ValueJP": "UNICORN",
+    "ValueCN": "UNICORN"
+  },
+  {
+    "Id": 46,
+    "Value": "MOBILE SUIT",
+    "ValueJP": "MOBILE SUIT",
+    "ValueCN": "MOBILE SUIT"
+  },
+  {
+    "Id": 47,
+    "Value": "Into the Sky",
+    "ValueJP": "Into the Sky",
+    "ValueCN": "Into the Sky"
+  },
+  {
+    "Id": 48,
+    "Value": "ガンダムAGE-2～運命の先へ",
+    "ValueJP": "ガンダムAGE-2～運命の先へ",
+    "ValueCN": "ガンダムAGE-2～運命の先へ"
+  },
+  {
+    "Id": 49,
+    "Value": "ガンダムAGE-3～覚醒",
+    "ValueJP": "ガンダムAGE-3～覚醒",
+    "ValueCN": "ガンダムAGE-3～覚醒"
+  },
+  {
+    "Id": 50,
+    "Value": "sharp ♯",
+    "ValueJP": "sharp ♯",
+    "ValueCN": "sharp ♯"
+  },
+  {
+    "Id": 51,
+    "Value": "コア・ファイターと共に",
+    "ValueJP": "コア・ファイターと共に",
+    "ValueCN": "コア・ファイターと共に"
+  },
+  {
+    "Id": 52,
+    "Value": "ふたりのまほう",
+    "ValueJP": "ふたりのまほう",
+    "ValueCN": "ふたりのまほう"
+  },
+  {
+    "Id": 53,
+    "Value": "あなたのお相手～Im your baby～",
+    "ValueJP": "あなたのお相手～Im your baby～",
+    "ValueCN": "あなたのお相手～Im your baby～"
+  },
+  {
+    "Id": 54,
+    "Value": "Groovy Duel",
+    "ValueJP": "Groovy Duel",
+    "ValueCN": "Groovy Duel"
+  },
+  {
+    "Id": 55,
+    "Value": "色悪",
+    "ValueJP": "色悪",
+    "ValueCN": "色悪"
+  },
+  {
+    "Id": 56,
+    "Value": "Mobile Suit Gundam:Iron-Blooded Orphans",
+    "ValueJP": "Mobile Suit Gundam:Iron-Blooded Orphans",
+    "ValueCN": "Mobile Suit Gundam:Iron-Blooded Orphans"
+  },
+  {
+    "Id": 57,
+    "Value": "Surface of the Iron-Blooded Orphans",
+    "ValueJP": "Surface of the Iron-Blooded Orphans",
+    "ValueCN": "Surface of the Iron-Blooded Orphans"
+  },
+  {
+    "Id": 58,
+    "Value": "RAGE OF DUST",
+    "ValueJP": "RAGE OF DUST",
+    "ValueCN": "RAGE OF DUST"
+  },
+  {
+    "Id": 59,
+    "Value": "いつか空に届いて",
+    "ValueJP": "いつか空に届いて",
+    "ValueCN": "いつか空に届いて"
+  },
+  {
+    "Id": 60,
+    "Value": "MEN OF DESTINY",
+    "ValueJP": "MEN OF DESTINY",
+    "ValueCN": "MEN OF DESTINY"
+  },
+  {
+    "Id": 61,
+    "Value": "嵐の中で輝いて",
+    "ValueJP": "嵐の中で輝いて",
+    "ValueCN": "嵐の中で輝いて"
+  },
+  {
+    "Id": 62,
+    "Value": "戦士",
+    "ValueJP": "戦士",
+    "ValueCN": "戦士"
+  },
+  {
+    "Id": 63,
+    "Value": "機動戦",
+    "ValueJP": "機動戦",
+    "ValueCN": "機動戦"
+  },
+  {
+    "Id": 64,
+    "Value": "進出ス!",
+    "ValueJP": "進出ス!",
+    "ValueCN": "進出ス!"
+  },
+  {
+    "Id": 65,
+    "Value": "SPRING ATTACK",
+    "ValueJP": "SPRING ATTACK",
+    "ValueCN": "SPRING ATTACK"
+  },
+  {
+    "Id": 66,
+    "Value": "STARGAZER ～星の扉",
+    "ValueJP": "STARGAZER ～星の扉",
+    "ValueCN": "STARGAZER ～星の扉"
+  },
+  {
+    "Id": 67,
+    "Value": "M05",
+    "ValueJP": "M05",
+    "ValueCN": "M05"
+  },
+  {
+    "Id": 68,
+    "Value": "build－fight",
+    "ValueJP": "build－fight",
+    "ValueCN": "build－fight"
+  },
+  {
+    "Id": 69,
+    "Value": "ニブンノイチ",
+    "ValueJP": "ニブンノイチ",
+    "ValueCN": "ニブンノイチ"
+  },
+  {
+    "Id": 70,
+    "Value": "セルリアン",
+    "ValueJP": "セルリアン",
+    "ValueCN": "セルリアン"
+  },
+  {
+    "Id": 71,
+    "Value": "トライファイターズ",
+    "ValueJP": "トライファイターズ",
+    "ValueCN": "トライファイターズ"
+  },
+  {
+    "Id": 72,
+    "Value": "宇宙海賊クロスボーンバンガード戦闘テーマ",
+    "ValueJP": "宇宙海賊クロスボーンバンガード戦闘テーマ",
+    "ValueCN": "宇宙海賊クロスボーンバンガード戦闘テーマ"
+  },
+  {
+    "Id": 73,
+    "Value": "スカルハート見参",
+    "ValueJP": "スカルハート見参",
+    "ValueCN": "スカルハート見参"
+  },
+  {
+    "Id": 74,
+    "Value": "帝国からの襲撃",
+    "ValueJP": "帝国からの襲撃",
+    "ValueCN": "帝国からの襲撃"
+  },
+  {
+    "Id": 75,
+    "Value": "鋼鉄の七人",
+    "ValueJP": "鋼鉄の七人",
+    "ValueCN": "鋼鉄の七人"
+  },
+  {
+    "Id": 76,
+    "Value": "その名はマフティー・ナビーユ・エリン",
+    "ValueJP": "その名はマフティー・ナビーユ・エリン",
+    "ValueCN": "その名はマフティー・ナビーユ・エリン"
+  },
+  {
+    "Id": 77,
+    "Value": "レーン･エイムのテーマ",
+    "ValueJP": "レーン･エイムのテーマ",
+    "ValueCN": "レーン･エイムのテーマ"
+  },
+  {
+    "Id": 78,
+    "Value": "強襲",
+    "ValueJP": "強襲",
+    "ValueCN": "強襲"
+  },
+  {
+    "Id": 79,
+    "Value": "THE FRONT",
+    "ValueJP": "THE FRONT",
+    "ValueCN": "THE FRONT"
+  },
+  {
+    "Id": 80,
+    "Value": "戦慄のブルー",
+    "ValueJP": "戦慄のブルー",
+    "ValueCN": "戦慄のブルー"
+  },
+  {
+    "Id": 81,
+    "Value": "Superior Attack",
+    "ValueJP": "Superior Attack",
+    "ValueCN": "Superior Attack"
+  },
+  {
+    "Id": 82,
+    "Value": "New Desides",
+    "ValueJP": "New Desides",
+    "ValueCN": "New Desides"
+  },
+  {
+    "Id": 83,
+    "Value": "赤い一撃",
+    "ValueJP": "赤い一撃",
+    "ValueCN": "赤い一撃"
+  },
+  {
+    "Id": 84,
+    "Value": "サーペントテール:ミッション開始",
+    "ValueJP": "サーペントテール:ミッション開始",
+    "ValueCN": "サーペントテール:ミッション開始"
+  },
+  {
+    "Id": 85,
+    "Value": "選ばれし者",
+    "ValueJP": "選ばれし者",
+    "ValueCN": "選ばれし者"
+  },
+  {
+    "Id": 86,
+    "Value": "憎悪",
+    "ValueJP": "憎悪",
+    "ValueCN": "憎悪"
+  },
+  {
+    "Id": 87,
+    "Value": "運命の子",
+    "ValueJP": "運命の子",
+    "ValueCN": "運命の子"
+  },
+  {
+    "Id": 88,
+    "Value": "Divine Act -The EXTREME-",
+    "ValueJP": "Divine Act -The EXTREME-",
+    "ValueCN": "Divine Act -The EXTREME-"
+  },
+  {
+    "Id": 89,
+    "Value": "The End of Authority",
+    "ValueJP": "The End of Authority",
+    "ValueCN": "The End of Authority"
+  },
+  {
+    "Id": 90,
+    "Value": "Divine Act -The EXTREME- revised",
+    "ValueJP": "Divine Act -The EXTREME- revised",
+    "ValueCN": "Divine Act -The EXTREME- revised"
+  },
+  {
+    "Id": 91,
+    "Value": "Divine Act-The EXTREME-MAXI BOOST",
+    "ValueJP": "Divine Act-The EXTREME-MAXI BOOST",
+    "ValueCN": "Divine Act-The EXTREME-MAXI BOOST"
+  },
+  {
+    "Id": 92,
+    "Value": "The End of Authority -revised",
+    "ValueJP": "The End of Authority -revised",
+    "ValueCN": "The End of Authority -revised"
+  },
+  {
+    "Id": 93,
+    "Value": "ボスをたおせ",
+    "ValueJP": "ボスをたおせ",
+    "ValueCN": "ボスをたおせ"
+  },
+  {
+    "Id": 94,
+    "Value": "Vigilante",
+    "ValueJP": "Vigilante",
+    "ValueCN": "Vigilante"
+  },
+  {
+    "Id": 95,
+    "Value": "フォース・ビルドダイバーズ！",
+    "ValueJP": "フォース・ビルドダイバーズ！",
+    "ValueCN": "フォース・ビルドダイバーズ！"
+  }
+]

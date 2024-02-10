@@ -1,0 +1,878 @@
+[
+  {
+    "Id": 0,
+    "Value": "VS2 Blue (Default)",
+    "ValueJP": "VS2_ブルー",
+    "ValueCN": "VS2_蓝色"
+  },
+  {
+    "Id": 1,
+    "Value": "Amuro Ray",
+    "ValueJP": "アムロ・レイ",
+    "ValueCN": "阿姆罗·雷"
+  },
+  {
+    "Id": 2,
+    "Value": "Anaheim Electronics",
+    "ValueJP": "アナハイムエレクトロニクス",
+    "ValueCN": "阿纳海姆电子公司"
+  },
+  {
+    "Id": 3,
+    "Value": "Unicorn Gundam",
+    "ValueJP": "ガンダムユニコーン",
+    "ValueCN": "独角兽高达"
+  },
+  {
+    "Id": 4,
+    "Value": "Penelope",
+    "ValueJP": "ペーネロペー",
+    "ValueCN": "佩涅罗佩"
+  },
+  {
+    "Id": 5,
+    "Value": "Neo Japan",
+    "ValueJP": "ネオジャパン",
+    "ValueCN": "新日本"
+  },
+  {
+    "Id": 6,
+    "Value": "Master Asia",
+    "ValueJP": "東方不敗",
+    "ValueCN": "东方不败"
+  },
+  {
+    "Id": 7,
+    "Value": "Wing Zero EW",
+    "ValueJP": "ウイングガンダムゼロ(EW版)",
+    "ValueCN": "飞翼高达零式（EW版）"
+  },
+  {
+    "Id": 8,
+    "Value": "Epyon",
+    "ValueJP": "ガンダムエピオン",
+    "ValueCN": "艾比安高达"
+  },
+  {
+    "Id": 9,
+    "Value": "Gerbera Straight",
+    "ValueJP": "ガーベラストレート",
+    "ValueCN": "菊一文字"
+  },
+  {
+    "Id": 10,
+    "Value": "ZAFT",
+    "ValueJP": "ザフト軍",
+    "ValueCN": "扎夫特"
+  },
+  {
+    "Id": 11,
+    "Value": "Freedom Gundam",
+    "ValueJP": "フリーダム",
+    "ValueCN": "自由高达"
+  },
+  {
+    "Id": 12,
+    "Value": "00 Gundam",
+    "ValueJP": "ダブルオーガンダム",
+    "ValueCN": "00高达"
+  },
+  {
+    "Id": 13,
+    "Value": "Celestial Being White",
+    "ValueJP": "ソレスタルビーイングホワイト",
+    "ValueCN": "天人白"
+  },
+  {
+    "Id": 14,
+    "Value": "Celestial Being Black",
+    "ValueJP": "ソレスタルビーイングブラック",
+    "ValueCN": "天人黑"
+  },
+  {
+    "Id": 15,
+    "Value": "Veda",
+    "ValueJP": "ヴェーダ",
+    "ValueCN": "吠陀"
+  },
+  {
+    "Id": 16,
+    "Value": "A-Laws",
+    "ValueJP": "アロウズ",
+    "ValueCN": "A-Laws"
+  },
+  {
+    "Id": 17,
+    "Value": "Earth Federation Force (00)",
+    "ValueJP": "地球連邦軍 (00)",
+    "ValueCN": "地球联邦军 (00)"
+  },
+  {
+    "Id": 18,
+    "Value": "Gundam AGE",
+    "ValueJP": "ガンダムAGE",
+    "ValueCN": "高达AGE"
+  },
+  {
+    "Id": 19,
+    "Value": "Extreme Gundam",
+    "ValueJP": "エクストリームガンダム",
+    "ValueCN": "极限高达"
+  },
+  {
+    "Id": 20,
+    "Value": "Type Leos",
+    "ValueJP": "TYPE-レオス",
+    "ValueCN": "TYPE-莱奥斯"
+  },
+  {
+    "Id": 21,
+    "Value": "Full Armor Unicorn Gundam",
+    "ValueJP": "FA・ユニコーンガンダム",
+    "ValueCN": "全装备·独角兽高达"
+  },
+  {
+    "Id": 22,
+    "Value": "0 Qan[T] Full Saber",
+    "ValueJP": "ダブルオークアンタ フルセイバー",
+    "ValueCN": "量子型00全刃型"
+  },
+  {
+    "Id": 23,
+    "Value": "Gundam AGE-FX Burst",
+    "ValueJP": "ガンダムAGE-FX バースト",
+    "ValueCN": "高达AGE-FX爆裂"
+  },
+  {
+    "Id": 24,
+    "Value": "Magic Square",
+    "ValueJP": "魔方陣",
+    "ValueCN": "魔方阵"
+  },
+  {
+    "Id": 25,
+    "Value": "Nightingale",
+    "ValueJP": "ナイチンゲール",
+    "ValueCN": "夜莺"
+  },
+  {
+    "Id": 26,
+    "Value": "Farsia",
+    "ValueJP": "ファルシア",
+    "ValueCN": "法尔西亚"
+  },
+  {
+    "Id": 27,
+    "Value": "Gundam Virtue",
+    "ValueJP": "ガンダムヴァーチェ",
+    "ValueCN": "德天使高达"
+  },
+  {
+    "Id": 28,
+    "Value": "Celestial Being 1",
+    "ValueJP": "ソレスタルビーイング1",
+    "ValueCN": "天人1"
+  },
+  {
+    "Id": 29,
+    "Value": "Cockpit (AGE-1)",
+    "ValueJP": "コックピット（AGE-1）",
+    "ValueCN": "座舱（AGE-1）"
+  },
+  {
+    "Id": 30,
+    "Value": "Cockpit (NT-D)",
+    "ValueJP": "コックピット（NT-D）",
+    "ValueCN": "座舱（NT-D）"
+  },
+  {
+    "Id": 31,
+    "Value": "Pirate Corps",
+    "ValueJP": "海賊部隊",
+    "ValueCN": "海贼部队"
+  },
+  {
+    "Id": 32,
+    "Value": "Akatsuki",
+    "ValueJP": "アカツキ",
+    "ValueCN": "晓"
+  },
+  {
+    "Id": 33,
+    "Value": "Tekkadan",
+    "ValueJP": "鉄華団",
+    "ValueCN": "铁华团"
+  },
+  {
+    "Id": 34,
+    "Value": "G-Arcane",
+    "ValueJP": "G-アルケイン（フルドレス）",
+    "ValueCN": "G-奥秘（盛装型）"
+  },
+  {
+    "Id": 35,
+    "Value": "EFSF",
+    "ValueJP": "地球連邦軍宇宙軍",
+    "ValueCN": "地球联邦军宇宙军（0079）"
+  },
+  {
+    "Id": 36,
+    "Value": "Moore's Brotherhood",
+    "ValueJP": "ムーア同胞団",
+    "ValueCN": "摩尔同胞团"
+  },
+  {
+    "Id": 37,
+    "Value": "Kimaris Trooper",
+    "ValueJP": "キマリス・トルーパー",
+    "ValueCN": "高达·锡蒙利骑兵"
+  },
+  {
+    "Id": 38,
+    "Value": "Gjallarhorn",
+    "ValueJP": "ギャラルホルン",
+    "ValueCN": "加拉尔霍恩"
+  },
+  {
+    "Id": 39,
+    "Value": "Psycho Zaku",
+    "ValueJP": "サイコ・ザク",
+    "ValueCN": "精神力·扎古"
+  },
+  {
+    "Id": 40,
+    "Value": "Living Dead Division",
+    "ValueJP": "リビングデッド部門",
+    "ValueCN": "活死人部门"
+  },
+  {
+    "Id": 41,
+    "Value": "Hot Scramble Gundam",
+    "ValueJP": "ホットスクランブルガンダム",
+    "ValueCN": "炽热争夺高达"
+  },
+  {
+    "Id": 42,
+    "Value": "Gunpla Battle",
+    "ValueJP": "ガンプラバトル",
+    "ValueCN": "高达模型对战"
+  },
+  {
+    "Id": 43,
+    "Value": "Gundam Barbatos Lupus",
+    "ValueJP": "ガンダム・バルバトスルプス",
+    "ValueCN": "高达巴巴托斯天狼星"
+  },
+  {
+    "Id": 44,
+    "Value": "Birdy",
+    "ValueJP": "バーディー",
+    "ValueCN": "小鸟"
+  },
+  {
+    "Id": 45,
+    "Value": "Space Probe",
+    "ValueJP": "",
+    "ValueCN": "深空探测器"
+  },
+  {
+    "Id": 46,
+    "Value": "Earth Federation Forces",
+    "ValueJP": "地球連邦軍",
+    "ValueCN": "地球联邦军"
+  },
+  {
+    "Id": 47,
+    "Value": "Spartan",
+    "ValueJP": "スパルタン",
+    "ValueCN": "斯巴达"
+  },
+  {
+    "Id": 48,
+    "Value": "Atlas Gundam",
+    "ValueJP": "アトラスガンダム",
+    "ValueCN": "擎天神高达"
+  },
+  {
+    "Id": 49,
+    "Value": "Zeon Forces 3",
+    "ValueJP": "ジオン軍3",
+    "ValueCN": "吉翁军3"
+  },
+  {
+    "Id": 50,
+    "Value": "Iori Models",
+    "ValueJP": "イオリ模型店",
+    "ValueCN": "伊织模型店"
+  },
+  {
+    "Id": 51,
+    "Value": "Build Strike Gundam",
+    "ValueJP": "ビルドストライクガンダム",
+    "ValueCN": "创制强袭高达"
+  },
+  {
+    "Id": 52,
+    "Value": "EXVS Gold Rank",
+    "ValueJP": "EXVSゴールドランク",
+    "ValueCN": "EXVS 黄金排名"
+  },
+  {
+    "Id": 53,
+    "Value": "EXVS Silver Rank",
+    "ValueJP": "EXVSシルバーランク",
+    "ValueCN": "EXVS 银级排名"
+  },
+  {
+    "Id": 54,
+    "Value": "EXVS Bronze Rank",
+    "ValueJP": "EXVSブロンズランク",
+    "ValueCN": "EXVS 铜级排名"
+  },
+  {
+    "Id": 55,
+    "Value": "Try Fighters",
+    "ValueJP": "トライ・ファイターズ",
+    "ValueCN": "创战者try"
+  },
+  {
+    "Id": 56,
+    "Value": "Gunpla Eve",
+    "ValueJP": "ガンプラ・イブ",
+    "ValueCN": "高达模型前夕"
+  },
+  {
+    "Id": 57,
+    "Value": "Gundam Maxter",
+    "ValueJP": "ガンダムマックスター",
+    "ValueCN": "高达麦克斯特"
+  },
+  {
+    "Id": 59,
+    "Value": "Gundam Barbatos Lupus Rex",
+    "ValueJP": "ガンダム・バルバトスルプスレクス",
+    "ValueCN": "高达·巴巴托斯狼王"
+  },
+  {
+    "Id": 60,
+    "Value": "Astray Blue Frame D",
+    "ValueJP": "アストレイブルーフレームD",
+    "ValueCN": "异端高达蓝色机D"
+  },
+  {
+    "Id": 61,
+    "Value": "Gundam AGE-1 Full Glansa",
+    "ValueJP": "ガンダムAGE-1 フルグランサ",
+    "ValueCN": "高达AGE-1全备光辉型"
+  },
+  {
+    "Id": 62,
+    "Value": "Gundam G-Self",
+    "ValueJP": "ガンダム G-セルフ",
+    "ValueCN": "高达G-自我"
+  },
+  {
+    "Id": 63,
+    "Value": "Gundam Fight",
+    "ValueJP": "ガンダムファイト",
+    "ValueCN": "高达擂台赛"
+  },
+  {
+    "Id": 64,
+    "Value": "Jagd Arche Gundam",
+    "ValueJP": "ヤークトアルケーガンダム",
+    "ValueCN": "驱逐型权天使高达"
+  },
+  {
+    "Id": 65,
+    "Value": "Gundam Kimaris Vidar",
+    "ValueJP": "ガンダム・キマリスヴィダール",
+    "ValueCN": "高达锡蒙利维达尔"
+  },
+  {
+    "Id": 67,
+    "Value": "Acguy (Darryl)",
+    "ValueJP": "アッガイ（ダリル搭乗）",
+    "ValueCN": "龟霸（达里尔搭乘）"
+  },
+  {
+    "Id": 68,
+    "Value": "Galvaria B34M3R",
+    "ValueJP": "ガルバリア B34M3R",
+    "ValueCN": "加尔瓦利亚 B34M3R"
+  },
+  {
+    "Id": 69,
+    "Value": "Valentine's Day",
+    "ValueJP": "バレンタイン・デー",
+    "ValueCN": "情人节"
+  },
+  {
+    "Id": 70,
+    "Value": "Lightning Gundam",
+    "ValueJP": "ライトニングガンダム",
+    "ValueCN": "闪电高达"
+  },
+  {
+    "Id": 71,
+    "Value": "Guncannon",
+    "ValueJP": "ガンキャノン",
+    "ValueCN": "钢加农"
+  },
+  {
+    "Id": 73,
+    "Value": "SD Gundam 30th Anniversary",
+    "ValueJP": "SDガンダム30周年記念",
+    "ValueCN": "SD高达30周年纪念"
+  },
+  {
+    "Id": 74,
+    "Value": "Fawn Farsia",
+    "ValueJP": "フォーンファルシア",
+    "ValueCN": "梵·法尔西亚"
+  },
+  {
+    "Id": 76,
+    "Value": "SPRING BATTLE 2019 Champion",
+    "ValueJP": "スプリングバトル2019 優勝",
+    "ValueCN": "2019年春季大赛 冠军"
+  },
+  {
+    "Id": 77,
+    "Value": "SPRING BATTLE 2019 Runner-Up",
+    "ValueJP": "スプリングバトル2019 準優勝",
+    "ValueCN": "2019年春季大赛 亚军"
+  },
+  {
+    "Id": 78,
+    "Value": "Gundam X Demon King",
+    "ValueJP": "ガンダムX魔王",
+    "ValueCN": "高达X魔王"
+  },
+  {
+    "Id": 80,
+    "Value": "HADES",
+    "ValueJP": "HADES",
+    "ValueCN": "HADES [苍白骑士（陆战重装式样）]"
+  },
+  {
+    "Id": 81,
+    "Value": "Death Scythe Hell (EW version)",
+    "ValueJP": "デスサイズヘル(EW版)",
+    "ValueCN": "地狱死神高达（EW版）"
+  },
+  {
+    "Id": 82,
+    "Value": "Banshee Norn",
+    "ValueJP": "バンシー・ノルン",
+    "ValueCN": "命运女神"
+  },
+  {
+    "Id": 83,
+    "Value": "Strike Rogue",
+    "ValueJP": "ストライクルージュ",
+    "ValueCN": "强袭嫣红"
+  },
+  {
+    "Id": 84,
+    "Value": "Gundam AGE-2 Dark Hound",
+    "ValueJP": "ガンダムダークハウンド",
+    "ValueCN": "高达AGE-2黑猎犬"
+  },
+  {
+    "Id": 85,
+    "Value": "Gundam Harute",
+    "ValueJP": "ガンダムハルート",
+    "ValueCN": "妖天使高达"
+  },
+  {
+    "Id": 86,
+    "Value": "Gundam Galvaria",
+    "ValueJP": "ガンダムガルヴァリア",
+    "ValueCN": "高达·加尔瓦里亚"
+  },
+  {
+    "Id": 87,
+    "Value": "G-Lucifer",
+    "ValueJP": "G-ルシファー",
+    "ValueCN": "G-路西法"
+  },
+  {
+    "Id": 88,
+    "Value": "SUMMER BATTLE 2019 Champion",
+    "ValueJP": "サマーバトル2019 優勝",
+    "ValueCN": "2019年夏季大赛 冠军"
+  },
+  {
+    "Id": 89,
+    "Value": "SUMMER BATTLE 2019 Runner-Up",
+    "ValueJP": "サマーバトル2019 準優勝",
+    "ValueCN": "2019年夏季大赛 亚军"
+  },
+  {
+    "Id": 90,
+    "Value": "Star Winning Gundam",
+    "ValueJP": "スターウイニングガンダム",
+    "ValueCN": "星际凯旋高达"
+  },
+  {
+    "Id": 93,
+    "Value": "Bertigo",
+    "ValueJP": "ベルティゴ",
+    "ValueCN": "贝尔蒂戈"
+  },
+  {
+    "Id": 95,
+    "Value": "Galvaria H4ND3R",
+    "ValueJP": "ガルヴァリア H4ND3R",
+    "ValueCN": "加尔瓦利亚 H4ND3R"
+  },
+  {
+    "Id": 96,
+    "Value": "Astray Gold Frame",
+    "ValueJP": "アストレイゴールドフレーム",
+    "ValueCN": "异端高达金色机"
+  },
+  {
+    "Id": 97,
+    "Value": "EXVS2 1st Anniversary",
+    "ValueJP": "EXVS2 1周年",
+    "ValueCN": "EXVS2 一周年纪念"
+  },
+  {
+    "Id": 99,
+    "Value": "AUTUMN BATTLE 2019 Champion",
+    "ValueJP": "オータムバトル2019 優勝",
+    "ValueCN": "2019秋季大赛 冠军"
+  },
+  {
+    "Id": 100,
+    "Value": "AUTUMN BATTLE 2019 Runner-Up",
+    "ValueJP": "オータムバトル2019 準優勝",
+    "ValueCN": "2019秋季大赛 亚军"
+  },
+  {
+    "Id": 101,
+    "Value": "Narrative Gundam",
+    "ValueJP": "ナラティブガンダム",
+    "ValueCN": "叙事高达(NT-高达)"
+  },
+  {
+    "Id": 102,
+    "Value": "Galvaria W45P3R",
+    "ValueJP": "ガルヴァリア W45P3R",
+    "ValueCN": "加尔瓦利亚 W45P3R"
+  },
+  {
+    "Id": 105,
+    "Value": "Sleeves Soldier",
+    "ValueJP": "袖付き",
+    "ValueCN": "袖残党/带袖的"
+  },
+  {
+    "Id": 106,
+    "Value": "Crossbone Gundam",
+    "ValueJP": "クロスボーン・ガンダム",
+    "ValueCN": "海盗高达"
+  },
+  {
+    "Id": 107,
+    "Value": "Shuffle Club",
+    "ValueJP": "シャッフルクラブ",
+    "ValueCN": "随机俱乐部"
+  },
+  {
+    "Id": 108,
+    "Value": "Gundam Astray Red Dragon",
+    "ValueJP": "アストレイレッドフレーム(レッドドラゴン)",
+    "ValueCN": "アストレイレッドフレーム(レッドドラゴン)"
+  },
+  {
+    "Id": 109,
+    "Value": "00 Gundam Seven Sword/G",
+    "ValueJP": "ダブルオーガンダムセブンソード/G",
+    "ValueCN": "00高达七剑/G"
+  },
+  {
+    "Id": 114,
+    "Value": "WINTER BATTLE 2020 Champion",
+    "ValueJP": "WINTER BATTLE 2020 優勝",
+    "ValueCN": "2020 年冬季大赛 冠军"
+  },
+  {
+    "Id": 115,
+    "Value": "WINTER BATTLE 2020 Runner-Up",
+    "ValueJP": "WINTER BATTLE 2020 準優勝",
+    "ValueCN": "2020 年冬季大赛 亚军"
+  },
+  {
+    "Id": 116,
+    "Value": "VS2 Red",
+    "ValueJP": "VS2レッド",
+    "ValueCN": "VS2 红色"
+  },
+  {
+    "Id": 117,
+    "Value": "VS2 Green",
+    "ValueJP": "VS2 グリーン",
+    "ValueCN": "VS2 绿色"
+  },
+  {
+    "Id": 118,
+    "Value": "SD Knight Gundam",
+    "ValueJP": "SDナイトガンダム",
+    "ValueCN": "SD骑士高达"
+  },
+  {
+    "Id": 119,
+    "Value": "Gundam Kyrios",
+    "ValueJP": "ガンダムキュリオス",
+    "ValueCN": "主天使高达"
+  },
+  {
+    "Id": 120,
+    "Value": "PREMIUM DOGFIGHT 2019 Winner",
+    "ValueJP": "プレミアムドッグファイト2019 優勝",
+    "ValueCN": "PDF2019 冠军"
+  },
+  {
+    "Id": 121,
+    "Value": "PREMIUM DOGFIGHT 2019 runner up",
+    "ValueJP": "プレミアムドッグファイト2019 準優勝",
+    "ValueCN": "PDF2019 亚军"
+  },
+  {
+    "Id": 122,
+    "Value": "PREMIUM DOGFIGHT 2019 best 8",
+    "ValueJP": "プレミアムドッグファイト2019 ベスト8",
+    "ValueCN": "PDF2019 8强"
+  },
+  {
+    "Id": 128,
+    "Value": "Aegis Gundam",
+    "ValueJP": "イージスガンダム",
+    "ValueCN": "圣盾高达"
+  },
+  {
+    "Id": 129,
+    "Value": "High Mobility Zaku II Custom",
+    "ValueJP": "高機動型ザクII改",
+    "ValueCN": "高机动型扎古 II改"
+  },
+  {
+    "Id": 130,
+    "Value": "Wing Gundam Fenice",
+    "ValueJP": "ウイングガンダムフェニーチェ",
+    "ValueCN": "凤凰飞翼高达"
+  },
+  {
+    "Id": 132,
+    "Value": "Kabakali",
+    "ValueJP": "カバカリ",
+    "ValueCN": "卡巴卡利"
+  },
+  {
+    "Id": 138,
+    "Value": "SUMMER BATTLE 2022 Champion",
+    "ValueJP": "サマーバトル2022 優勝",
+    "ValueCN": "2022 年夏季大赛 冠军"
+  },
+  {
+    "Id": 139,
+    "Value": "SUMMER BATTLE 2022 Runner-Up",
+    "ValueJP": "サマーバトル2022 準優勝",
+    "ValueCN": "2022 年夏季大赛 亚军"
+  },
+  {
+    "Id": 140,
+    "Value": "Doven Wolf",
+    "ValueJP": "ドーベン・ウルフ",
+    "ValueCN": "彪狼"
+  },
+  {
+    "Id": 141,
+    "Value": "00 Diver Ace",
+    "ValueJP": "ダブルオーダイバーエース",
+    "ValueCN": "高达00潜行者王牌"
+  },
+  {
+    "Id": 142,
+    "Value": "Sinanju Stein",
+    "ValueJP": "シナンジュ・スタイン",
+    "ValueCN": "新安州·原石"
+  },
+  {
+    "Id": 143,
+    "Value": "Bushido",
+    "ValueJP": "武士道",
+    "ValueCN": "武士道"
+  },
+  {
+    "Id": 144,
+    "Value": "Zeta Gundam Biosensor",
+    "ValueJP": "Zガンダムバイオセンサー",
+    "ValueCN": "Z高达生物传感器"
+  },
+  {
+    "Id": 145,
+    "Value": "Zaku II",
+    "ValueJP": "ザクⅡ",
+    "ValueCN": "扎古II"
+  },
+  {
+    "Id": 146,
+    "Value": "Red",
+    "ValueJP": "赤",
+    "ValueCN": "红色"
+  },
+  {
+    "Id": 147,
+    "Value": "Green",
+    "ValueJP": "緑",
+    "ValueCN": "绿色"
+  },
+  {
+    "Id": 148,
+    "Value": "Blue",
+    "ValueJP": "青",
+    "ValueCN": "蓝色"
+  },
+  {
+    "Id": 149,
+    "Value": "Yellow",
+    "ValueJP": "黄色",
+    "ValueCN": "黄色"
+  },
+  {
+    "Id": 150,
+    "Value": "Pink",
+    "ValueJP": "ピンク",
+    "ValueCN": "粉色"
+  },
+  {
+    "Id": 151,
+    "Value": "Gundam Spiegel",
+    "ValueJP": "ガンダムシュピーゲル",
+    "ValueCN": "明镜高达"
+  },
+  {
+    "Id": 152,
+    "Value": "AGE System",
+    "ValueJP": "AGEシステム",
+    "ValueCN": "AGE系统"
+  },
+  {
+    "Id": 153,
+    "Value": "Astray Red Frame (All)",
+    "ValueJP": "レッドフレーム（全部載せ）",
+    "ValueCN": "异端高达红色机"
+  },
+  {
+    "Id": 154,
+    "Value": "Team Trinity",
+    "ValueJP": "チームトリニティ",
+    "ValueCN": "三位一体团队"
+  },
+  {
+    "Id": 155,
+    "Value": "Destiny Gundam",
+    "ValueJP": "デスティニーガンダム",
+    "ValueCN": "命运高达"
+  },
+  {
+    "Id": 156,
+    "Value": "Kshatriya",
+    "ValueJP": "クシャトリヤ",
+    "ValueCN": "刹帝利"
+  },
+  {
+    "Id": 157,
+    "Value": "Hi-Nu Gundam",
+    "ValueJP": "Hi-νガンダム",
+    "ValueCN": "Hi-ν高达"
+  },
+  {
+    "Id": 158,
+    "Value": "Tallgeese III",
+    "ValueJP": "トールギスIII",
+    "ValueCN": "托鲁基斯III"
+  },
+  {
+    "Id": 159,
+    "Value": "Cherudim Gundam",
+    "ValueJP": "ケルディムガンダム",
+    "ValueCN": "智天使高达"
+  },
+  {
+    "Id": 160,
+    "Value": "Neo-Zeon",
+    "ValueJP": "ネオ・ジオン",
+    "ValueCN": "新·吉翁"
+  },
+  {
+    "Id": 161,
+    "Value": "Sazabi",
+    "ValueJP": "サザビー",
+    "ValueCN": "沙扎比"
+  },
+  {
+    "Id": 162,
+    "Value": "Shuffle Masters Gold",
+    "ValueJP": "シャッフルマスターズゴールド",
+    "ValueCN": "随机大师赛金奖"
+  },
+  {
+    "Id": 163,
+    "Value": "Shuffle Masters Silver",
+    "ValueJP": "シャッフルマスターズシルバー",
+    "ValueCN": "随机大师赛银奖"
+  },
+  {
+    "Id": 164,
+    "Value": "EXVS 10th Anniversary",
+    "ValueJP": "EXVS.10周年記念ゲージ",
+    "ValueCN": "EXVS.10周年纪念计"
+  },
+  {
+    "Id": 165,
+    "Value": "EXVS",
+    "ValueJP": "EXVS",
+    "ValueCN": ""
+  },
+  {
+    "Id": 166,
+    "Value": "EXVSFB",
+    "ValueJP": "EXVSFB.",
+    "ValueCN": ""
+  },
+  {
+    "Id": 167,
+    "Value": "EXVSMB",
+    "ValueJP": "EXVSMB.",
+    "ValueCN": ""
+  },
+  {
+    "Id": 168,
+    "Value": "EXVSMBON",
+    "ValueJP": "EXVSMBON.",
+    "ValueCN": ""
+  },
+  {
+    "Id": 169,
+    "Value": "EXVS2 Default",
+    "ValueJP": "EXVS2 デフォルト",
+    "ValueCN": "EXVS2 默认"
+  },
+  {
+    "Id": 170,
+    "Value": "AUTUMN BATTLE winner (2022)",
+    "ValueJP": "オータムバトル優勝者（2022）",
+    "ValueCN": "秋季大赛冠军（2022）"
+  },
+  {
+    "Id": 171,
+    "Value": "AUTUMN BATTLE runner-up (2022)",
+    "ValueJP": "オータムバトル準優勝（2022）",
+    "ValueCN": "秋季大赛亚军（2022）"
+  }
+]

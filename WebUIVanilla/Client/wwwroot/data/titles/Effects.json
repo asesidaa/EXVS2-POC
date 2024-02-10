@@ -1,0 +1,696 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "緑ハロ（シャッフル50勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 2,
+    "Value": "緑ハロ（シャッフル100勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 3,
+    "Value": "緑ハロ（シャッフル500勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 4,
+    "Value": "緑ハロ（シャッフル1000勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 5,
+    "Value": "緑ハロ（シャッフル5000勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 6,
+    "Value": "00ハロ（チーム50勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 7,
+    "Value": "00ハロ（チーム100勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 8,
+    "Value": "00ハロ（チーム500勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 9,
+    "Value": "00ハロ（チーム1000勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 10,
+    "Value": "00ハロ（チーム5000勝）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 11,
+    "Value": "オンラインシャッフル2連勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 12,
+    "Value": "オンラインシャッフル5連勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 13,
+    "Value": "オンラインシャッフル10連勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 14,
+    "Value": "オンラインチーム2連勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 15,
+    "Value": "オンラインチーム5連勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 16,
+    "Value": "オンラインチーム10連勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 17,
+    "Value": "ニュータイプ",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 18,
+    "Value": "サイコ・フィールド",
+    "Existence": "VS2",
+    "Clues": "「機動戦士Zガンダム」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 19,
+    "Value": "ハイメガキャノン",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムZZ」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 20,
+    "Value": "サイコ・フレームの共振",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム 逆襲のシャア」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 21,
+    "Value": "バグ",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムF91」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 22,
+    "Value": "光の翼",
+    "Existence": "VS2",
+    "Clues": "「機動戦士Vガンダム」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 23,
+    "Value": "キングオブハート",
+    "Existence": "VS2",
+    "Clues": "「機動武闘伝Gガンダム」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 24,
+    "Value": "オペレーション・メテオ",
+    "Existence": "VS2",
+    "Clues": "「新機動戦記ガンダムW」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 25,
+    "Value": "天使の羽根",
+    "Existence": "VS2",
+    "Clues": "「新機動戦記ガンダムW Endless Waltz」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 26,
+    "Value": "リフレクターユニット",
+    "Existence": "VS2",
+    "Clues": "「機動新世紀ガンダムX」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 27,
+    "Value": "月光蝶",
+    "Existence": "VS2",
+    "Clues": "「∀ガンダム」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 28,
+    "Value": "SEED01",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムSEED」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 29,
+    "Value": "SEED02",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムSEED DESTINY」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 30,
+    "Value": "光輪",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムSEED C.E.73 -STARGAZER-」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 31,
+    "Value": "トランザムシステム",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム00」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 32,
+    "Value": "ELSの花",
+    "Existence": "VS2",
+    "Clues": "「劇場版 機動戦士ガンダム00 -A wakening of the Trailblazer-」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 33,
+    "Value": "NT-D",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムUC」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 34,
+    "Value": "AGEデバイス",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムAGE」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 35,
+    "Value": "サンタクロース（クリスマス作戦）",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム0080 ポケットの中の戦争」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 36,
+    "Value": "爆導索",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム0083 STARDUST MEMORY」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 37,
+    "Value": "バレットベルト",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム 第08MS小隊」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 38,
+    "Value": "半旗たなびく",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム IGLOO」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 39,
+    "Value": "ジョニー・ライデン",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム MSV」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 40,
+    "Value": "クロスボーン",
+    "Existence": "VS2",
+    "Clues": "「機動戦士クロスボーン・ガンダム」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 41,
+    "Value": "EXAM",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム外伝 THE BLUE DESTINY」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 42,
+    "Value": "エンブレムズ",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム 逆襲のシャア ベルトーチカ・チルドレン」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 43,
+    "Value": "ファンネルミサイル",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム 閃光のハサウェイ」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 44,
+    "Value": "ガーベラストレート",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムSEED ASTRAY」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 45,
+    "Value": "リフレクター・インコム",
+    "Existence": "VS2",
+    "Clues": "「ガンダム・センチネル」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 46,
+    "Value": "極限進化",
+    "Existence": "VS2",
+    "Clues": "「ガンダムEXA」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 47,
+    "Value": "00V",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム00V」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 48,
+    "Value": "ハロビー",
+    "Existence": "VS2",
+    "Clues": "「ガンダム Gのレコンギスタ」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 49,
+    "Value": "鉄華",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムNT」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 50,
+    "Value": "戦い続ける宿命",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム サンダーボルト」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 51,
+    "Value": "メイジンのサングラス",
+    "Existence": "VS2",
+    "Clues": "「ガンダムビルドファイターズA-R」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 52,
+    "Value": "プラフスキー粒子",
+    "Existence": "VS2",
+    "Clues": "「ガンダムビルドファイターズ」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 53,
+    "Value": "HADES",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダム外伝 ミッシングリンク」に登場する機体で合計100回出撃する。"
+  },
+  {
+    "Id": 54,
+    "Value": "トライヘックス",
+    "Existence": "VS2",
+    "Clues": "「ガンダムビルドファイターズトライ」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 55,
+    "Value": "ハロ",
+    "Existence": "VS2",
+    "Clues": "「ハロ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 56,
+    "Value": "白鳥",
+    "Existence": "VS2",
+    "Clues": "「ララァ・スン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 57,
+    "Value": "ジーク・ジオン！",
+    "Existence": "VS2",
+    "Clues": "「ギレン・ザビ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 58,
+    "Value": "ハロ THE II",
+    "Existence": "VS2",
+    "Clues": "「ファ・ユイリィ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 59,
+    "Value": "ハマーン・ファンネル",
+    "Existence": "VS2",
+    "Clues": "「ハマーン・カーン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 60,
+    "Value": "プル・ファンネル",
+    "Existence": "VS2",
+    "Clues": "「エルピー・プル」の親密度がMASTERになる"
+  },
+  {
+    "Id": 61,
+    "Value": "セシリーの花",
+    "Existence": "VS2",
+    "Clues": "「セシリー・フェアチャイルド」の親密度がMASTERになる"
+  },
+  {
+    "Id": 62,
+    "Value": "カサレリアの雪",
+    "Existence": "VS2",
+    "Clues": "「カテジナ・ルース」の親密度がMASTERになる"
+  },
+  {
+    "Id": 63,
+    "Value": "テディベア",
+    "Existence": "VS2",
+    "Clues": "「リリーナ・ドーリアン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 64,
+    "Value": "白イルカ",
+    "Existence": "VS2",
+    "Clues": "「ティファ・アディール」の親密度がMASTERになる"
+  },
+  {
+    "Id": 65,
+    "Value": "金魚",
+    "Existence": "VS2",
+    "Clues": "「ソシエ・ハイム」の親密度がMASTERになる"
+  },
+  {
+    "Id": 66,
+    "Value": "しゃぼん玉",
+    "Existence": "VS2",
+    "Clues": "「ディアナ・ソレル」の親密度がMASTERになる"
+  },
+  {
+    "Id": 67,
+    "Value": "ミリアリアのインカム",
+    "Existence": "VS2",
+    "Clues": "「ミリアリア・ハウ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 68,
+    "Value": "ピンクハロ",
+    "Existence": "VS2",
+    "Clues": "「ラクス・クライン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 69,
+    "Value": "戦争を終わらせる鍵",
+    "Existence": "VS2",
+    "Clues": "「フレイ・アルスター」の親密度がMASTERになる"
+  },
+  {
+    "Id": 70,
+    "Value": "マリューのペンダント",
+    "Existence": "VS2",
+    "Clues": "「マリュー・ラミアス」の親密度がMASTERになる"
+  },
+  {
+    "Id": 71,
+    "Value": "ザフトの帽子",
+    "Existence": "VS2",
+    "Clues": "「メイリン・ホーク」の親密度がMASTERになる"
+  },
+  {
+    "Id": 72,
+    "Value": "ミーアの髪飾り",
+    "Existence": "VS2",
+    "Clues": "「ミーア・キャンベル」の親密度がMASTERになる"
+  },
+  {
+    "Id": 73,
+    "Value": "射撃訓練の的",
+    "Existence": "VS2",
+    "Clues": "「ルナマリア・ホーク」の親密度がMASTERになる"
+  },
+  {
+    "Id": 74,
+    "Value": "スメラギのボトル",
+    "Existence": "VS2",
+    "Clues": "「スメラギ・李・ノリエガ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 75,
+    "Value": "フェルトの花",
+    "Existence": "VS2",
+    "Clues": "「フェルト・グレイス」の親密度がMASTERになる"
+  },
+  {
+    "Id": 76,
+    "Value": "HARO",
+    "Existence": "VS2",
+    "Clues": "「ネーナ・トリニティ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 77,
+    "Value": "人革連",
+    "Existence": "VS2",
+    "Clues": "「ソーマ・ピーリス」の親密度がMASTERになる"
+  },
+  {
+    "Id": 78,
+    "Value": "戦果を期待してるです",
+    "Existence": "VS2",
+    "Clues": "「ミレイナ・ヴァスティ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 79,
+    "Value": "ナバン62式",
+    "Existence": "VS2",
+    "Clues": "「スベロア・ジンネマン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 80,
+    "Value": "ラプラスの箱",
+    "Existence": "VS2",
+    "Clues": "「オードリー・バーン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 81,
+    "Value": "ロンド・ベル",
+    "Existence": "VS2",
+    "Clues": "「ブライト・ノア」の親密度がMASTERになる"
+  },
+  {
+    "Id": 82,
+    "Value": "ハロ（AGE）",
+    "Existence": "VS2",
+    "Clues": "「エミリー・アモンド」の親密度がMASTERになる"
+  },
+  {
+    "Id": 83,
+    "Value": "ユリンのリボン",
+    "Existence": "VS2",
+    "Clues": "「ユリン・ルシェル」の親密度がMASTERになる"
+  },
+  {
+    "Id": 84,
+    "Value": "ロマリーのブーケ",
+    "Existence": "VS2",
+    "Clues": "「ロマリー・ストーン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 85,
+    "Value": "アイナの懐中時計",
+    "Existence": "VS2",
+    "Clues": "「アイナ・サハリン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 86,
+    "Value": "セシアのブローチ",
+    "Existence": "VS2",
+    "Clues": "「セシア・アウェア」の親密度がMASTERになる"
+  },
+  {
+    "Id": 87,
+    "Value": "プリモの飾り",
+    "Existence": "VS2",
+    "Clues": "「セシア・アウェア・プリモ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 88,
+    "Value": "ノーノの飾り",
+    "Existence": "VS2",
+    "Clues": "「セシア・アウェア・ノーノ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 89,
+    "Value": "セストの飾り",
+    "Existence": "VS2",
+    "Clues": "「セシア・アウェア・セスト」の親密度がMASTERになる"
+  },
+  {
+    "Id": 90,
+    "Value": "アハトの飾り",
+    "Existence": "VS2",
+    "Clues": "「セシア・アウェア・アハト」の親密度がMASTERになる"
+  },
+  {
+    "Id": 91,
+    "Value": "Gメタル",
+    "Existence": "VS2",
+    "Clues": "「アイーダ・スルガン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 92,
+    "Value": "クーデリアのブレスレット",
+    "Existence": "VS2",
+    "Clues": "「クーデリア・藍那・バーンスタイン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 93,
+    "Value": "アトラのブレスレット",
+    "Existence": "VS2",
+    "Clues": "「アトラ・ミクスタ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 94,
+    "Value": "フミタンのペンダント",
+    "Existence": "VS2",
+    "Clues": "「フミタン・アドモス」の親密度がMASTERになる"
+  },
+  {
+    "Id": 95,
+    "Value": "肉まん",
+    "Existence": "VS2",
+    "Clues": "「アイラ・ユルキアイネン」の親密度がMASTERになる"
+  },
+  {
+    "Id": 96,
+    "Value": "フミナの猫マーク",
+    "Existence": "VS2",
+    "Clues": "「ホシノ・フミナ」の親密度がMASTERになる"
+  },
+  {
+    "Id": 97,
+    "Value": "ナイトソード",
+    "Existence": "VS2",
+    "Clues": "「SDガンダム外伝」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 98,
+    "Value": "キマイラ隊",
+    "Existence": "VS2",
+    "Clues": "高機動型ザクⅡ 後期型（ジョニー・ライデン機）[EX]"
+  },
+  {
+    "Id": 99,
+    "Value": "タイトルコール（ZZ）",
+    "Existence": "VS2",
+    "Clues": "ジュドー・アーシタ搭乗機[EX]"
+  },
+  {
+    "Id": 100,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 101,
+    "Value": "ドラグーン・システム（プロヴィデンス）",
+    "Existence": "VS2",
+    "Clues": "プロヴィデンスガンダム[EX]"
+  },
+  {
+    "Id": 102,
+    "Value": "なぜ動かん",
+    "Existence": "VS2",
+    "Clues": "パプテマス・シロッコ搭乗機[EX]"
+  },
+  {
+    "Id": 103,
+    "Value": "シザーズ可変型リアアーマー",
+    "Existence": "VS2",
+    "Clues": "ガンダム・グシオンリベイクフルシティ[EX]"
+  },
+  {
+    "Id": 104,
+    "Value": "PREMIUM DOGFIGHT 2019 優勝",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」優勝チーム（2名）"
+  },
+  {
+    "Id": 105,
+    "Value": "PREMIUM DOGFIGHT 2019 準優勝",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」準優勝チーム（2名）"
+  },
+  {
+    "Id": 106,
+    "Value": "ABCマント",
+    "Existence": "VS2",
+    "Clues": "クロスボーン・ガンダムX1改[EX]"
+  },
+  {
+    "Id": 107,
+    "Value": "ヨナのペンダント",
+    "Existence": "VS2",
+    "Clues": "「機動戦士ガンダムNT」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 108,
+    "Value": "GBN",
+    "Existence": "VS2",
+    "Clues": "「ガンダムビルドダイバーズ」に登場する機体で合計100回出撃する"
+  },
+  {
+    "Id": 109,
+    "Value": "シン・マツナガ",
+    "Existence": "VS2",
+    "Clues": "高機動型ザクⅡ改（シン・マツナガ機）[EX]"
+  },
+  {
+    "Id": 110,
+    "Value": "メガ・バズーカ・ランチャー",
+    "Existence": "VS2",
+    "Clues": "百式[EX]"
+  },
+  {
+    "Id": 111,
+    "Value": "岩投げ",
+    "Existence": "VS2",
+    "Clues": "ザクII[EX]"
+  },
+  {
+    "Id": 112,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 113,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 114,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 115,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 116,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 117,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 118,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 119,
+    "Value": "Invalid Effect",
+    "Existence": "NotExist"
+  }
+]

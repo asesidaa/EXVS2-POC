@@ -1,0 +1,309 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "プラモランナー（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 2,
+    "Value": "プラモランナー（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 3,
+    "Value": "プラモランナー（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 4,
+    "Value": "プラモランナー（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 5,
+    "Value": "プラモランナー（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 6,
+    "Value": "プラモランナー（ホワイト）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 7,
+    "Value": "ブラシ（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 8,
+    "Value": "ブラシ（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 9,
+    "Value": "ブラシ（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 10,
+    "Value": "ブラシ（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 11,
+    "Value": "ブラシ（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 12,
+    "Value": "ブラシ（ブラック）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 13,
+    "Value": "ブラシ（シルバー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 14,
+    "Value": "ブラシ（ゴールド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 15,
+    "Value": "螺旋（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 16,
+    "Value": "螺旋（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 17,
+    "Value": "螺旋（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 18,
+    "Value": "螺旋（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 19,
+    "Value": "螺旋（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 20,
+    "Value": "Wings White",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 21,
+    "Value": "Wings Red",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 22,
+    "Value": "Wings Silver",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 23,
+    "Value": "Wings Gold",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 24,
+    "Value": "トライバル（レッド）",
+    "Existence": "VS2",
+    "Clues": "「大将Lv5」へ到達する"
+  },
+  {
+    "Id": 25,
+    "Value": "トライバル（ブルー）",
+    "Existence": "VS2",
+    "Clues": "「上級大尉」へ到達する"
+  },
+  {
+    "Id": 26,
+    "Value": "トライバル（イエロー）",
+    "Existence": "VS2",
+    "Clues": "「准尉」へ到達する"
+  },
+  {
+    "Id": 27,
+    "Value": "ビームサーベル（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 28,
+    "Value": "ビームサーベル（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 29,
+    "Value": "ビームサーベル（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 30,
+    "Value": "ビームサーベル（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 31,
+    "Value": "ビームサーベル（ピンク）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 32,
+    "Value": "ビームサーベル（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 33,
+    "Value": "アクティブクローク",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 34,
+    "Value": "SPRING BATTLE優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 35,
+    "Value": "SPRING BATTLE準優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 36,
+    "Value": "ノワールストライカー",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 37,
+    "Value": "SUMMER BATTLE優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 38,
+    "Value": "SUMMER BATTLE準優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 39,
+    "Value": "AUTUMN BATTLE優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 40,
+    "Value": "AUTUMN BATTLE準優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 41,
+    "Value": "WINTER BATTLE優勝(2020)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 42,
+    "Value": "WINTER BATTLE準優勝(2020)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 43,
+    "Value": "PREMIUM DOGFIGHT 2019 優勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 44,
+    "Value": "PREMIUM DOGFIGHT 2019 準優勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 45,
+    "Value": "PREMIUM DOGFIGHT 2019 ベスト8",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 46,
+    "Value": "ビーム・プレーン",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 47,
+    "Value": "SPRING BATTLE優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 48,
+    "Value": "SPRING BATTLE準優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 49,
+    "Value": "SUMMER BATTLE優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 50,
+    "Value": "SUMMER BATTLE準優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 51,
+    "Value": "エクスカリバー",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 52,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 53,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 54,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 55,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 56,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 57,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 58,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 59,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  }
+]

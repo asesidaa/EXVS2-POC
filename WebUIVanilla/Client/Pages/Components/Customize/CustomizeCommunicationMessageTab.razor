@@ -1,0 +1,82 @@
+﻿@inherits BasicCustomizeComponent
+
+@using WebUIVanilla.Client.Services
+@using WebUIVanilla.Shared.Dto.Common
+@using WebUIVanilla.Shared.Dto.Request
+@using WebUIVanilla.Shared.Dto.Response
+@using WebUIVanilla.Client.Pages.Dialogs
+@using Throw
+@using System.Text.RegularExpressions
+@using WebUIVanilla.Shared.Dto.Enum
+@using System.Reflection.Metadata
+
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject INameService NameService
+@inject IDialogService DialogService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["communicationmessage"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@HideProgress" Color="Color.Default" Indeterminate="true"/>
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save">
+                        </MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="12">
+                                <MudExpansionPanels>
+                                    <MudForm @ref="_messageForm">
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_prebattle"]">
+                                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.StartGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_inbattle"]">
+                                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.InBattleGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_postbattle"]">
+                                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.ResultGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_online_shuffle_prebattle"]">
+                                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.OnlineShuffleStartGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_online_shuffle_inbattle"]">
+                                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.OnlineShuffleInBattleGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_online_shuffle_postbattle"]">
+                                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup CustomMessageGroup="@CustomMessageGroupSetting.OnlineShuffleResultGroup" EnableImagePreview="@EnableImagePreview"/>
+                                        </MudExpansionPanel>
+                                    </MudForm>
+                                </MudExpansionPanels>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+
+    [Parameter]
+    public CustomMessageGroupSetting? CustomMessageGroupSetting { get; set; } = new();
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+
+    private const int MaxMessageLength = 10;
+
+    MudForm _messageForm;
+}

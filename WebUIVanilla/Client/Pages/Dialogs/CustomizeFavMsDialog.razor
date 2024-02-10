@@ -1,0 +1,185 @@
+﻿@inject ILogger<ChangeGaugeDialog> Logger
+@inject IDialogService DialogService
+@inject IDataService DataService
+@inject INameService NameService
+@inject ISnackbar Snackbar
+
+@using WebUIVanilla.Shared.Dto.Common;
+@using WebUIVanilla.Shared.Dto.Enum;
+@using WebUIVanilla.Client.Services;
+
+<MudDialog>
+    <DialogContent>
+        <MudStack>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudField Label="@localizer["favmsdialog_mstitle"]" Variant="Variant.Outlined">
+                        <MudText>@NameService.GetMobileSuitName(Data.MsId) / @NameService.GetMobileSuitPilotName(Data.MsId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenMobileSuitUiDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudSelect Label="@localizer["favmsdialog_bursttype"]" @bind-Value="Data.BurstType" T="BurstType" Variant="Variant.Outlined">
+                        @foreach (var item in Enum.GetValues<BurstType>())
+                        {
+                            <MudSelectItem Value="@(item)" />
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudField Label="@localizer["favmsdialog_inbattlenavi"]" Variant="Variant.Outlined">
+                        <MudText>@NameService.GetNavigatorName(Data.BattleNaviId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit"
+                                    OnClick="() => OpenNaviChangeBattleDialog()" />
+                </MudItem>
+		    </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudField Label="@localizer["favmsdialog_gauge"]" Variant="Variant.Outlined">
+                        <MudText>@NameService.GetGaugeName(Data.GaugeDesignId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenChangeGaugeDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudSelect Label="@localizer["favmsdialog_bgmreplaytype"]" @bind-Value="Data.BgmPlayingMethod" T="BgmPlayingMethod" Variant="Variant.Outlined">
+                        @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
+                        {
+                            var bgmTypeDisplayStr = localizer["bgmtype_" + item];
+                            <MudSelectItem Value="item">@bgmTypeDisplayStr</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="@localizer["favmsdialog_bgmlistorder"]">
+                            <MudSimpleTable Style="overflow-x: auto;">
+                                <tbody>
+                                    @if (Data.BgmList != null && Data.BgmList.Count() > 0)
+                                    {
+                                        foreach (var x in Data.BgmList)
+                                        {
+                                            <tr>
+                                                <td>@DataService.GetBgmById(x)?.ValueJP</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Data.BgmList = Array.Empty<uint>();
+                                        <tr>
+                                            <td>No Entries</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </MudSimpleTable>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudItem>
+                <MudItem xs="2">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenFavMsChangeBgmOrderDialog()" />
+                </MudItem>
+            </MudGrid>
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public FavouriteMs Data { get; set; } = null!;
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+
+    private static readonly DialogOptions OPTIONS = new()
+        {
+            CloseOnEscapeKey = false,
+            DisableBackdropClick = true,
+            FullWidth = true,
+            MaxWidth = MaxWidth.ExtraExtraLarge
+        };
+
+    private void Submit()
+    {
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private async Task OpenMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters { { "Data", Data.MsId } };
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change mobile suit", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.MsId = (uint)result.Data;
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenNaviChangeBattleDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { Data.BattleNaviId } } };
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.BattleNaviId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenChangeGaugeDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { Data.GaugeDesignId } } };
+        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>("Change gauge UI", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.GaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenFavMsChangeBgmOrderDialog()
+    {
+        var parameters = new DialogParameters { { "Data", Data.BgmList } };
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change bgm order", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.BgmList = (result.Data as uint[])!;
+            StateHasChanged();
+        }
+    }
+}

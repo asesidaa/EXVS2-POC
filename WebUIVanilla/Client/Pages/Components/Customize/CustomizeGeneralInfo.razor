@@ -1,0 +1,189 @@
+﻿@using WebUIVanilla.Client.Services
+@using WebUIVanilla.Shared.Dto.Common
+@using WebUIVanilla.Shared.Dto.Enum
+@using System.Text.RegularExpressions
+@using WebUIVanilla.Client.Constants
+@using WebUIVanilla.Client.Pages.Dialogs
+@using WebUIVanilla.Client.Validator
+@inherits BasicCustomizeComponent
+
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject INameService NameService
+@inject IDataService DataService
+@inject IDialogService DialogService
+@inject INameValidator NameValidator
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["generalcardinfo"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@HideProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="8">
+                        <MudForm>
+                            <MudTextField @bind-Value="BasicProfile.UserName"
+                                          Immediate="true"
+                                          Variant="Variant.Outlined"
+                                          Counter="@((int) NameLength.PlayerNameMaxLength)"
+                                          MaxLength="@((int) NameLength.PlayerNameMaxLength)"
+                                          Label="@localizer["playername"]"
+                                          Validation="NameValidator.ValidatePlayerName" />
+                        </MudForm>
+                    </MudItem>
+                    <MudItem xs="8">
+                        <MudSelect @bind-Value="BasicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
+                                   Label="@localizer["bgmplaytype"]" Variant="Variant.Outlined" ToStringFunc="@converter">
+                            @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
+                            {
+                                <MudSelectItem Value="@(item)" />
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="10">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10">
+                                <MudExpansionPanels>
+                                    <MudExpansionPanel Text="@localizer["bgmlistorder"]">
+                                        <MudSimpleTable Style="overflow-x: auto;">
+                                            <tbody>
+                                            @if(BasicProfile.DefaultBgmList != null && BasicProfile.DefaultBgmList.Count() > 0)
+                                            {
+                                                foreach (var x in BasicProfile.DefaultBgmList)
+                                                {
+                                                    <tr>
+                                                        <td>@DataService.GetBgmById(x)?.ValueJP</td>
+                                                    </tr>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                BasicProfile.DefaultBgmList = Array.Empty<uint>();
+                                                <tr>
+                                                    <td>No Entries</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </MudSimpleTable>
+                                    </MudExpansionPanel>
+                                </MudExpansionPanels>
+                            </MudItem>
+                            <MudItem xs="2">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenProfileChangeBgmOrderDialog()" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="10">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10">
+                                <MudField Label="@localizer["gauge"]" Variant="Variant.Outlined">
+                                    <MudText Align="Align.Center">@NameService.GetGaugeName(BasicProfile.DefaultGaugeDesignId)</MudText>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenProfileChangeGaugeDialog()" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="6">
+                                <MudSelect Label="@localizer["playerrecorddisplay"]" @bind-Value="BasicProfile.OpenRecord" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenRecordChanged(selectedIds, BasicProfile)" Variant="Variant.Outlined">
+                                    @foreach (var openRecord in DataService.GetDisplayOptionsSortedById())
+                                    {
+                                        <MudSelectItem Value="openRecord.Id">@openRecord.Value</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudSelect Label="@localizer["echelondisplay"]" @bind-Value="BasicProfile.OpenEchelon" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenEchelonChanged(selectedIds, BasicProfile)" Variant="Variant.Outlined">
+                                    @foreach (var openEchelon in DataService.GetEchelonDisplayOptionsSortedById())
+                                    {
+                                        <MudSelectItem Value="openEchelon.Id">@openEchelon.Value</MudSelectItem>
+                                    }</MudSelect>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="@localizer["titles"]">
+                            <MudStack>
+                                <MudStack Row>
+                                    <MudText>@localizer["titles_hint"]</MudText>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">@localizer["titles_hinttext"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">@localizer["titles_hintbackground"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">@localizer["titles_hintornament"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">@localizer["titles_hinteffect"]</MudLink>
+                                </MudStack>
+                                <MudDivider />
+                                <WebUIVanilla.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@BasicProfile.DefaultTitle" 
+                                    DisplayLabel="@localizer["defaulttitles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                            </MudStack>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public BasicProfile BasicProfile { get; set; } = new();
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+    
+    Func<BgmPlayingMethod, string> converter = p => p.ToString();
+
+    private async Task OpenProfileChangeBgmOrderDialog()
+    {
+        var parameters = new DialogParameters { { "Data", BasicProfile.DefaultBgmList } };
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>(localizer["dialogtitle_bgmorder"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            BasicProfile.DefaultBgmList = (result.Data as uint[])!;
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenProfileChangeGaugeDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { BasicProfile.DefaultGaugeDesignId } } };
+        var dialog = await DialogService.ShowAsync<ChangeGaugeDialog>(localizer["dialogtitle_gauge"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            BasicProfile.DefaultGaugeDesignId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OnOpenRecordChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
+    {
+        basicProfile.OpenRecord = selectedIds.FirstOrDefault();
+    }
+    
+    private async Task OnOpenEchelonChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
+    {
+        basicProfile.OpenEchelon = selectedIds.FirstOrDefault();
+    }
+}

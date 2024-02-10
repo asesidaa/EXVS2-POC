@@ -1,0 +1,805 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "デフォルトプレート（ブルー）",
+    "Existence": "VS2",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 2,
+    "Value": "デフォルトプレート（レッド）",
+    "Existence": "VS2",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 3,
+    "Value": "デフォルトプレート（イエロー）",
+    "Existence": "VS2",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 4,
+    "Value": "プレート(ゴールド)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 5,
+    "Value": "プレート(シルバー)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 6,
+    "Value": "プレート(ブラック)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 7,
+    "Value": "プレート(レッド)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 8,
+    "Value": "プレート(ホワイト)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 9,
+    "Value": "プレート(ブルー)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 10,
+    "Value": "プレート(グリーン)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 11,
+    "Value": "プレート(オレンジ)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 12,
+    "Value": "プレート(ピンク)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 13,
+    "Value": "木の看板",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 14,
+    "Value": "コンクリートの壁",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 15,
+    "Value": "装甲板（白）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が10回へ到達"
+  },
+  {
+    "Id": 16,
+    "Value": "装甲板（赤）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が10回へ到達"
+  },
+  {
+    "Id": 17,
+    "Value": "割れたガラス",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1500回へ到達"
+  },
+  {
+    "Id": 18,
+    "Value": "ゴージャスバナー",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1250回へ到達"
+  },
+  {
+    "Id": 19,
+    "Value": "ウッドランド迷彩",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が25回へ到達"
+  },
+  {
+    "Id": 20,
+    "Value": "オレンジ迷彩",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が25回へ到達"
+  },
+  {
+    "Id": 21,
+    "Value": "デジタル空間（レッド）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が50回へ到達"
+  },
+  {
+    "Id": 22,
+    "Value": "デジタル空間（グリーン）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が50回へ到達"
+  },
+  {
+    "Id": 23,
+    "Value": "KEEP OUT",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 24,
+    "Value": "地球",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が4000回へ到達"
+  },
+  {
+    "Id": 25,
+    "Value": "火星",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が4000回へ到達"
+  },
+  {
+    "Id": 26,
+    "Value": "暁",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が4000回へ到達"
+  },
+  {
+    "Id": 27,
+    "Value": "風神雷神",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "Gスクラッチ エクストラ機体再取得キャンペーン"
+  },
+  {
+    "Id": 28,
+    "Value": "死神(髑髏)",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1500回へ到達"
+  },
+  {
+    "Id": 29,
+    "Value": "トライバル　龍",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が100回へ到達"
+  },
+  {
+    "Id": 30,
+    "Value": "トライバル　虎",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が100回へ到達"
+  },
+  {
+    "Id": 31,
+    "Value": "金紋表装",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1250回へ到達"
+  },
+  {
+    "Id": 32,
+    "Value": "銅紋表装",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1250回へ到達"
+  },
+  {
+    "Id": 33,
+    "Value": "赤銀河",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1500回へ到達"
+  },
+  {
+    "Id": 34,
+    "Value": "対戦開始ジングル",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が750回へ到達"
+  },
+  {
+    "Id": 35,
+    "Value": "乱入ジングル",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が750回へ到達"
+  },
+  {
+    "Id": 36,
+    "Value": "VS画面",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が2500回へ到達"
+  },
+  {
+    "Id": 37,
+    "Value": "セレクトフェーズ",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が2500回へ到達"
+  },
+  {
+    "Id": 38,
+    "Value": "春",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 39,
+    "Value": "夏",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 40,
+    "Value": "秋",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 41,
+    "Value": "冬",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 42,
+    "Value": "紅炎",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3500回へ到達"
+  },
+  {
+    "Id": 43,
+    "Value": "蒼炎",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3500回へ到達"
+  },
+  {
+    "Id": 44,
+    "Value": "ソースコード1",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1000回へ到達"
+  },
+  {
+    "Id": 45,
+    "Value": "ソースコード2",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1000回へ到達"
+  },
+  {
+    "Id": 46,
+    "Value": "スポットライト",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が500回へ到達"
+  },
+  {
+    "Id": 47,
+    "Value": "ピンクスポットライト",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が2000回へ到達"
+  },
+  {
+    "Id": 48,
+    "Value": "雷（ブルーグリーン）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3000回へ到達"
+  },
+  {
+    "Id": 49,
+    "Value": "雷（イエロー）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3000回へ到達"
+  },
+  {
+    "Id": 50,
+    "Value": "闘気",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が10000回へ到達"
+  },
+  {
+    "Id": 51,
+    "Value": "地上戦",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が6000回へ到達"
+  },
+  {
+    "Id": 52,
+    "Value": "宇宙戦",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が6000回へ到達"
+  },
+  {
+    "Id": 53,
+    "Value": "流星（レッド）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が9000回へ到達"
+  },
+  {
+    "Id": 54,
+    "Value": "流星（ブルー）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が9000回へ到達"
+  },
+  {
+    "Id": 55,
+    "Value": "スパーク",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が7000回へ到達"
+  },
+  {
+    "Id": 56,
+    "Value": "レインボー花火",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が7000回へ到達"
+  },
+  {
+    "Id": 57,
+    "Value": "後光",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が8000回へ到達"
+  },
+  {
+    "Id": 58,
+    "Value": "嵐の予兆",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が8000回へ到達"
+  },
+  {
+    "Id": 59,
+    "Value": "パンパカパン",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が5000回へ到達"
+  },
+  {
+    "Id": 60,
+    "Value": "スター",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "親密度が♥5以上のナビが10人になる"
+  },
+  {
+    "Id": 61,
+    "Value": "ハート",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "親密度がMASTERのナビが10人になる"
+  },
+  {
+    "Id": 62,
+    "Value": "プレート(パープル)",
+    "Existence": "VS2",
+    "Category": "アワード"
+  },
+  {
+    "Id": 63,
+    "Value": "Valentine",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ アナザーシーズン"
+  },
+  {
+    "Id": 64,
+    "Value": "キマイラ（MSV）",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "高機動型ザクⅡ 後期型（ジョニー・ライデン機）[EX]"
+  },
+  {
+    "Id": 65,
+    "Value": "SPRING BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 66,
+    "Value": "SPRING BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 67,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 68,
+    "Value": "闘神祭2018-19優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「闘神祭2018-19」優勝チーム（2名）"
+  },
+  {
+    "Id": 69,
+    "Value": "闘神祭2018-19準優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「闘神祭2018-19」準優勝チーム（2名）"
+  },
+  {
+    "Id": 70,
+    "Value": "闘神祭2018-19ベスト4",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「闘神祭2018-19」ベスト4チーム（4名）"
+  },
+  {
+    "Id": 71,
+    "Value": "袖付き",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "シナンジュ[EX]"
+  },
+  {
+    "Id": 72,
+    "Value": "ムラマサ・ブラスター",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "クロスボーン・ガンダムX1フルクロス[EX]"
+  },
+  {
+    "Id": 73,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 74,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 75,
+    "Value": "青空",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "Gスクラッチ エクストラ機体再取得キャンペーン"
+  },
+  {
+    "Id": 76,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 77,
+    "Value": "SUMMER BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 78,
+    "Value": "SUMMER BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 79,
+    "Value": "AUTUMN BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 80,
+    "Value": "AUTUMN BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 81,
+    "Value": "WINTER BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 82,
+    "Value": "WINTER BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 83,
+    "Value": "PREMIUM DOGFIGHT 2019 優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」優勝チーム（2名）"
+  },
+  {
+    "Id": 84,
+    "Value": "PREMIUM DOGFIGHT 2019 準優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」準優勝チーム（2名）"
+  },
+  {
+    "Id": 85,
+    "Value": "PDF2019_参加賞",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」エリア予選大会参加賞"
+  },
+  {
+    "Id": 86,
+    "Value": "Mechanical",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 87,
+    "Value": "PREMIUM DOGFIGHT 2019 ベスト8",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」3～8位チーム（12名）"
+  },
+  {
+    "Id": 88,
+    "Value": "PREMIUM DOGFIGHT 2019 全国決勝出場",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」全国決勝出場チーム"
+  },
+  {
+    "Id": 89,
+    "Value": "EXTREME Frame Yellow",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」"
+  },
+  {
+    "Id": 90,
+    "Value": "EXTREME Frame Blue",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「第3回開発チームと交流マッチ！」で開発チームとマッチング"
+  },
+  {
+    "Id": 91,
+    "Value": "EXTREME Frame Green",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」"
+  },
+  {
+    "Id": 92,
+    "Value": "SPRING BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 93,
+    "Value": "SPRING BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 94,
+    "Value": "SUMMER BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 95,
+    "Value": "SUMMER BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 96,
+    "Value": "ガンダムF91",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "ガンダムF91[EX]"
+  },
+  {
+    "Id": 97,
+    "Value": "AUTUMN BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 98,
+    "Value": "AUTUMN BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 99,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 100,
+    "Value": "EXVS.",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 101,
+    "Value": "EXVS.FB",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 102,
+    "Value": "EXVS.MB",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 103,
+    "Value": "EXVS.MBON",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 104,
+    "Value": "キュベレイMk-II",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "キュベレイMk-II（プルツー）[EX]"
+  },
+  {
+    "Id": 105,
+    "Value": "2周年記念（ガンダム）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン ガンダムVS.モバイル無料登録"
+  },
+  {
+    "Id": 106,
+    "Value": "2周年記念（ガンダム・バルバトスルプスレクス）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 20回プレイする"
+  },
+  {
+    "Id": 107,
+    "Value": "2周年記念（トライバーニングガンダム）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 10回プレイする"
+  },
+  {
+    "Id": 108,
+    "Value": "2周年記念（モンテーロ）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 10回プレイする"
+  },
+  {
+    "Id": 109,
+    "Value": "2周年記念（ガンダムAGE-1 フルグランサ）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 20回プレイする"
+  },
+  {
+    "Id": 110,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 111,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 112,
+    "Value": "セシア・アウェア＆セシア・アウェア・アハト",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 113,
+    "Value": "セシア・アウェア＆セシア・アウェア・プリモ",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 114,
+    "Value": "セシア・アウェア＆セシア・アウェア・セスト",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 115,
+    "Value": "セシア・アウェア＆セシア・アウェア・ノーノ",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 116,
+    "Value": "セシア・アウェア＆ハロ",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 117,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 118,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 119,
+    "Value": "Deleted Background",
+    "Existence": "NotExist"
+  }
+]
