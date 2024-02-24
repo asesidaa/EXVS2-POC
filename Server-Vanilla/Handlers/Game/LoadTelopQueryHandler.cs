@@ -16,7 +16,7 @@ public class LoadTelopQueryHandler : IRequestHandler<LoadTelopQuery, Response>
             Error = Error.Success,
             load_telop = new Response.LoadTelop
             {
-                TelopData = "Test telop"
+                TelopData = ""
             }
         });
     }
