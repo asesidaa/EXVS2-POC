@@ -145,7 +145,7 @@ static int64_t __fastcall nbamUsbFinderGetSerialNumber(int a1, char* a2)
 }
 
 // Make the game think the Debug Mode is Active and Consider it's setting
-char (*sub_debug_ori)(int a1);
+char (*sub_debug_ori)(__int64 a1);
 
 static char __fastcall sub_debug(__int64 a1)
 {
@@ -163,6 +163,43 @@ static char __fastcall sub_debug(__int64 a1)
     }
 
     return sub_debug_ori(a1);
+}
+
+char (*dev_menu_options_orig)(__int64 a1, int a2);
+
+static char __fastcall dev_menu_options_hook(__int64 a1, int a2)
+{
+    bool debugModeEnabled = globalConfig.EnableDebugInPcb;
+
+    // 0 = Dev Menu: Enable Performance Meter
+    // 6 = Dev Menu: Enforce ALL.NET / Server connection after 1am JST
+    // 27 = Dev Menu: Disable PCB 1 + 2 Checking in LM
+    if(a2 != 27 && a2 != 6 && a2 != 0)
+    {
+        return dev_menu_options_orig(a1, a2);
+    }
+
+    if(a2 == 6)
+    {
+        return !debugModeEnabled ? '1' : dev_menu_options_orig(a1, a2);
+    }
+
+    if(a2 == 27)
+    {
+        if(globalConfig.Mode == 1)
+        {
+            return dev_menu_options_orig(a1, a2);
+        }
+
+        return !debugModeEnabled ? '1' : dev_menu_options_orig(a1, a2);
+    }
+
+    if(debugModeEnabled)
+    {
+        return dev_menu_options_orig(a1, a2);
+    }
+
+    return globalConfig.EnableInGamePerformanceMeter ? '1' : dev_menu_options_orig(a1, a2);
 }
 
 // Stub functions for Disable XInput
@@ -248,11 +285,15 @@ void InitializeHooks(std::filesystem::path&& basePath)
 
     // Clock patches, disable close time disabling card scanning feature.
     // If close time is set between 19:00 to 26:00, the red "card reading is unavaliable now" text is shown:
-    offset = VS2_XB(0x14064C0B2, 0x140695BA2) - BASE_ADDRESS;
-    injector::WriteMemoryRaw(exeBase + offset, (void*)"\x41\xb8\x00\x00\x00\x00\xeb\x13\x8b\xc3\x41\xc7\xc0\x00\x00\x00\x00\x90\xeb\x07\x41\xc7\xc0\x00\x00\x00\x00", 27, true);
+    // offset = VS2_XB(0x14064C0B2, 0x140695BA2) - BASE_ADDRESS;
+    // injector::WriteMemoryRaw(exeBase + offset, (void*)"\x41\xb8\x00\x00\x00\x00\xeb\x13\x8b\xc3\x41\xc7\xc0\x00\x00\x00\x00\x90\xeb\x07\x41\xc7\xc0\x00\x00\x00\x00", 27, true);
     // This is the actual function to check, redirect the return function to make card reading possible regardless of closing time.
-    offset = VS2_XB(0x14066AA4E, 0x1406B752E) - BASE_ADDRESS;
-    injector::WriteMemory(exeBase + offset, '\xEB', true);
+    // offset = VS2_XB(0x14066AA4E, 0x1406B752E) - BASE_ADDRESS;
+    // injector::WriteMemory(exeBase + offset, '\xEB', true);
+
+    // A Hook to handle Performance Meter / ALL.NET Server Connection after 1AM / LM PCB 1 + 2 Checking
+    offset = VS2_XB(0x14064C320, 0x140695E60) - BASE_ADDRESS;
+    MH_CreateHook(reinterpret_cast<void**>(exeBase + offset), dev_menu_options_hook, reinterpret_cast<void**>(&dev_menu_options_orig));
 
     // Enable Debug Menu
     if(globalConfig.EnableDebugInPcb == true)
