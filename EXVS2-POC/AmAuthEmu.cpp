@@ -263,15 +263,7 @@ public:
 
         strcpy_s(resp->shop_name, "EXVS2-POC");
         strcpy_s(resp->shop_nickname, "EXVS2-POC");
-
-        if (globalConfig.Mode == 3 || globalConfig.Mode == 4)
-        {
-            strcpy_s(resp->region0, "01035");
-        }
-        else
-        {
-            strcpy_s(resp->region0, globalConfig.RegionCode.c_str());
-        }
+        strcpy_s(resp->region0, "1000");
 
         strcpy_s(resp->region_name0, "NAMCO");
         strcpy_s(resp->region_name1, "X");

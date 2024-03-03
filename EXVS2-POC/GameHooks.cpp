@@ -186,7 +186,7 @@ static char __fastcall dev_menu_options_hook(__int64 a1, int a2)
 
     if(a2 == 27)
     {
-        if(globalConfig.Mode == 1)
+        if(globalConfig.Mode == 1 || globalConfig.Mode == 3)
         {
             return dev_menu_options_orig(a1, a2);
         }
@@ -303,7 +303,7 @@ void InitializeHooks(std::filesystem::path&& basePath)
     }
 
     // Disable XINPUT in LM
-    if(globalConfig.Mode == 2)
+    if(globalConfig.Mode == 2 || globalConfig.Mode == 4)
     {
         MH_CreateHookApi(L"XINPUT9_1_0.dll", "XInputGetState", XInputGetState_Detour, nullptr);
     }

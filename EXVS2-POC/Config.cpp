@@ -87,11 +87,11 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     std::string modeString = reader.Get("config", "mode", "LM");
     if (modeString == "1" || _stricmp("client", modeString.c_str()) == 0)
     {
-        config->Mode = 1;
+        config->Mode = 3;
     }
     else if (modeString == "2" || _stricmp("lm", modeString.c_str()) == 0)
     {
-        config->Mode = 2;
+        config->Mode = 4;
     }
     else
     {
@@ -114,13 +114,13 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
             serialPrefixLM = "28111101";
             serialPrefixClient = "28111401";
             serialPrefixClientAlter = "28111301";
-            pcbIdPrefix = "ABLN1";
+            pcbIdPrefix = "ABLN";
             break;
         case XBoost_450:
             serialPrefixLM = "28431111";
             serialPrefixClient = "28431411";
             serialPrefixClientAlter = "28431311";
-            pcbIdPrefix = "ABLN1";
+            pcbIdPrefix = "ABLN";
             break;
         default:
             fatal("Unknown game version: %d", GetGameVersion());
@@ -128,19 +128,19 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
 
     if (config->Serial.size() == 4)
     {
-        config->Serial = (config->Mode == 1 ? serialPrefixClient : serialPrefixLM) + config->Serial;
+        config->Serial = (config->Mode == 3 ? serialPrefixClient : serialPrefixLM) + config->Serial;
     }
 
     bool validLength = config->Serial.size() == 12;
     bool validClientPrefix =
         config->Serial.starts_with(serialPrefixClient) || config->Serial.starts_with(serialPrefixClientAlter);
     bool validLMPrefix = config->Serial.starts_with(serialPrefixLM);
-    if (config->Mode == 1 && (!validLength || !validClientPrefix))
+    if (config->Mode == 3 && (!validLength || !validClientPrefix))
     {
         fatal("invalid serial: expected serial of format %sXXXX/%sXXXX for client", serialPrefixClient,
               serialPrefixClientAlter);
     }
-    else if (config->Mode == 2 && (!validLength || !validLMPrefix))
+    else if (config->Mode == 4 && (!validLength || !validLMPrefix))
     {
         fatal("invalid serial: expected serial of format %sXXXX for LM", serialPrefixLM);
     }
