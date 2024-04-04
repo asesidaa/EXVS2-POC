@@ -157,6 +157,14 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     config->AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config->ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config->RegionCode = reader.Get("config", "Region", "1");
+
+    config->UseRealCardReader = reader.GetBoolean("config", "userealcardreader", false);
+    config->CardReaderComPort = reader.Get("config", "cardreadercomport", "COM4");
+
+    if(config->UseRealCardReader == true && config->CardReaderComPort == "COM3")
+    {
+        fatal("COM3 is reserved for Controller and cannot be used as Card Reader COM Port");
+    }
 }
 
 static void ReadInputConfig(InputConfig* config, INIReader& reader)
