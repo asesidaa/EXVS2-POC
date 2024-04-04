@@ -48,6 +48,7 @@ std::string getProfileString(LPCSTR name, LPCSTR key, LPCSTR def, LPCSTR filenam
 static const std::filesystem::path& GetCardPath()
 {
     static std::filesystem::path result = GetBasePath() / "card.ini";
+    
     return result;
 }
 
@@ -140,10 +141,43 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
     }
 }
 
+static HINSTANCE bngrwOrig = LoadLibrary(TEXT("bngrw_orig")); 
+
+typedef ULONGLONG (*BngRwAttach_Ori)(UINT a1, char* a2, int a3, int a4, long (*callback)(long, long, long*), long* some_struct_ptr);
+typedef int (*BngRwDevReset_Ori)(UINT, long (*callback)(int, int, long*), long*);
+typedef ULONGLONG (*BngRwExReadMifareAllBlock_Ori)();
+typedef void (*BngRwFin_Ori)();
+typedef UINT (*BngRwGetFwVersion_Ori)(UINT);
+typedef UINT (*BngRwGetStationID_Ori)(UINT);
+typedef UINT (*BngRwGetTotalRetryCount_Ori)(UINT);
+typedef const char* (*BngRwGetVersion_Ori)();
+typedef long (*BngRwInit_Ori)();
+typedef ULONGLONG (*BngRwIsCmdExec_Ori)(UINT);
+typedef int (*BngRwReqAction_Ori)(UINT, UINT, void (*callback)(long, int, long*), long* some_struct_ptr);
+typedef int (*BngRwReqAiccAuth_Ori)(UINT, int, UINT, int*, ULONGLONG, ULONGLONG, ULONGLONG*);
+typedef int (*BngRwReqBeep_Ori)(UINT, UINT, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqCancel_Ori)(UINT);
+typedef int (*BngRwReqFwCleanup_Ori)(UINT, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqFwVersionup_Ori)(UINT, ULONGLONG, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqLatchID_Ori)(UINT, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqLed_Ori)(UINT, UINT, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqSendMailTo_Ori)(UINT, int, UINT, int*, char*, char*, char*, char*, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqSendUrlTo_Ori)(UINT, int, UINT, int*, char*, char*, ULONGLONG, ULONGLONG);
+typedef int (*BngRwReqWaitTouch_Ori)(UINT a, int maxIntSomehow, UINT c, void (*callback)(int, int, void*, void*), void* card_struct_ptr);
+typedef ULONGLONG (*BngRwReqSetLedPower_Ori)();
+
 extern "C" {
 
 ULONGLONG BngRwAttach(UINT a1, char* a2, int a3, int a4, long (*callback)(long, long, long*), long* some_struct_ptr) {
     trace("BngRwAttach(%i, %s, %d, %d, %p, %p)\n", a1, a2, a3, a4, callback, some_struct_ptr);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        info("Real Card Reader Attach with COM Port %s Specified\n", globalConfig.CardReaderComPort.data());
+        BngRwAttach_Ori originalFunction = reinterpret_cast<BngRwAttach_Ori>(GetProcAddress(bngrwOrig, "BngRwAttach"));
+        return originalFunction(a1, globalConfig.CardReaderComPort.data(), a3, a4, callback, some_struct_ptr);
+    }
+    
     createCard();
 
     std::thread t(StartAttachThread, callback, some_struct_ptr);
@@ -153,16 +187,36 @@ ULONGLONG BngRwAttach(UINT a1, char* a2, int a3, int a4, long (*callback)(long, 
 
 long BngRwInit() {
     trace("BngRwInit()\n");
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwInit_Ori originalFunction = reinterpret_cast<BngRwInit_Ori>(GetProcAddress(bngrwOrig, "BngRwInit"));
+        return originalFunction();
+    }
+    
     return 0;
 }
 
 ULONGLONG BngRwReqSetLedPower() {
-    trace("BngRwSetLedPower()\n");
+    trace("BngRwReqSetLedPower()\n");
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqSetLedPower_Ori originalFunction = reinterpret_cast<BngRwReqSetLedPower_Ori>(GetProcAddress(bngrwOrig, "BngRwReqSetLedPower"));
+        return originalFunction();
+    }
+    
     return 0;
 }
 
 int BngRwDevReset(UINT a, long (*callback)(int, int, long*), long* some_struct_ptr) {
     trace("BngRwDevReset(%i, %p, %p)\n", a, callback, some_struct_ptr);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwDevReset_Ori originalFunction = reinterpret_cast<BngRwDevReset_Ori>(GetProcAddress(bngrwOrig, "BngRwDevReset"));
+        return originalFunction(a, callback, some_struct_ptr);
+    }
 
     std::thread t(StartResetThread, callback, some_struct_ptr);
     t.detach();
@@ -171,47 +225,108 @@ int BngRwDevReset(UINT a, long (*callback)(int, int, long*), long* some_struct_p
 
 ULONGLONG BngRwExReadMifareAllBlock() {
     trace("BngRwExReadMifareAllBlock()\n");
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwExReadMifareAllBlock_Ori originalFunction = reinterpret_cast<BngRwExReadMifareAllBlock_Ori>(GetProcAddress(bngrwOrig, "BngRwExReadMifareAllBlock"));
+        return originalFunction();
+    }
+    
     return 0xffffff9c;
 }
 
 // Finalise?
 void BngRwFin() {
     trace("BngRwFin()\n");
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwFin_Ori originalFunction = reinterpret_cast<BngRwFin_Ori>(GetProcAddress(bngrwOrig, "BngRwFin"));
+        originalFunction();
+    }
 }
 
 UINT BngRwGetFwVersion(UINT a) {
     trace("BngRwGetFwVersion(%i)\n", a);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwGetFwVersion_Ori originalFunction = reinterpret_cast<BngRwGetFwVersion_Ori>(GetProcAddress(bngrwOrig, "BngRwGetFwVersion"));
+        return originalFunction(a);
+    }
+    
     return 0;
 }
 
 UINT BngRwGetStationID(UINT a) {
     trace("BngRwGetStationID(%i)\n", a);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwGetStationID_Ori originalFunction = reinterpret_cast<BngRwGetStationID_Ori>(GetProcAddress(bngrwOrig, "BngRwGetStationID"));
+        return originalFunction(a);
+    }
+    
     return 0;
 }
 
 const char* BngRwGetVersion() {
     trace("BngRwGetVersion()\n");
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwGetVersion_Ori originalFunction = reinterpret_cast<BngRwGetVersion_Ori>(GetProcAddress(bngrwOrig, "BngRwGetVersion"));
+        return originalFunction();
+    }
+    
     return BANA_API_VERSION;
 }
 
 ULONGLONG BngRwIsCmdExec(UINT a) {
     trace("BngRwIsCmdExec(%i)\n", a);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwIsCmdExec_Ori originalFunction = reinterpret_cast<BngRwIsCmdExec_Ori>(GetProcAddress(bngrwOrig, "BngRwIsCmdExec"));
+        return originalFunction(a);
+    }
+    
     // return 0xFFFFFFFF;
     return 0;
 }
 
 UINT BngRwGetTotalRetryCount(UINT a) {
     trace("BngRwGetTotalRetryCount(%i)\n", a);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwGetTotalRetryCount_Ori originalFunction = reinterpret_cast<BngRwGetTotalRetryCount_Ori>(GetProcAddress(bngrwOrig, "BngRwGetTotalRetryCount"));
+        return originalFunction(a);
+    }
+    
     return 0;
 }
 
 int BngRwReqLed(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
     trace("BngRwReqLed(%i, %i, %llu, %llu)\n", a, b, c, d);
+    
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqLed_Ori originalFunction = reinterpret_cast<BngRwReqLed_Ori>(GetProcAddress(bngrwOrig, "BngRwReqLed"));
+        return originalFunction(a, b, c, d);
+    }
+    
     return 1;
 }
 
 int BngRwReqAction(UINT a, UINT b, void (*callback)(long, int, long*), long* some_struct_ptr) {
     trace("BngRwReqAction(%i, %i, %p, %p)\n", a, b, callback, some_struct_ptr);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqAction_Ori originalFunction = reinterpret_cast<BngRwReqAction_Ori>(GetProcAddress(bngrwOrig, "BngRwReqAction"));
+        return originalFunction(a, b, callback, some_struct_ptr);
+    }
 
     std::thread t(StartReqActionThread, callback, some_struct_ptr);
     t.detach();
@@ -224,16 +339,37 @@ int BngRwReqAction(UINT a, UINT b, void (*callback)(long, int, long*), long* som
 
 int BngRwReqAiccAuth(UINT a, int b, UINT c, int* d, ULONGLONG e, ULONGLONG f, ULONGLONG* g) {
     trace("BngRwReqAiccAuth(%i, %d, %i, %p, %llu, %llu, %p)\n", a, b, c, d, e, f, g);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqAiccAuth_Ori originalFunction = reinterpret_cast<BngRwReqAiccAuth_Ori>(GetProcAddress(bngrwOrig, "BngRwReqAiccAuth"));
+        return originalFunction(a, b, c, d, e, f, g);
+    }
+    
     return 1;
 }
 
 int BngRwReqBeep(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
     trace("BngRwReqBeep(%i, %i, %llu, %llu)\n", a, b, c, d);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqBeep_Ori originalFunction = reinterpret_cast<BngRwReqBeep_Ori>(GetProcAddress(bngrwOrig, "BngRwReqBeep"));
+        return originalFunction(a, b, c, d);
+    }
+    
     return 1;
 }
 
 int BngRwReqCancel(UINT a) {
     trace("BngRwReqCancel(%i)\n", a);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqCancel_Ori originalFunction = reinterpret_cast<BngRwReqCancel_Ori>(GetProcAddress(bngrwOrig, "BngRwReqCancel"));
+        return originalFunction(a);
+    }
+    
     if (7 < a)
     {
         return -100;
@@ -243,16 +379,37 @@ int BngRwReqCancel(UINT a) {
 
 int BngRwReqFwCleanup(UINT a, ULONGLONG b, ULONGLONG c) {
     trace("BngRwReqFwCleanup(%i, %llu, %llu)\n", a, b, c);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqFwCleanup_Ori originalFunction = reinterpret_cast<BngRwReqFwCleanup_Ori>(GetProcAddress(bngrwOrig, "BngRwReqFwCleanup"));
+        return originalFunction(a, b, c);
+    }
+    
     return 1;
 }
 
 int BngRwReqFwVersionup(UINT a, ULONGLONG b, ULONGLONG c, ULONGLONG d) {
     trace("BngRwReqFwVersionup(%i, %llu, %llu, %llu)\n", a, b, c, d);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqFwVersionup_Ori originalFunction = reinterpret_cast<BngRwReqFwVersionup_Ori>(GetProcAddress(bngrwOrig, "BngRwReqFwVersionup"));
+        return originalFunction(a, b, c, d);
+    }
+    
     return 1;
 }
 
 int BngRwReqLatchID(UINT a, ULONGLONG b, ULONGLONG c) {
     trace("BngRwReqLatchId(%i, %llu, %llu)\n", a, b, c);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqLatchID_Ori originalFunction = reinterpret_cast<BngRwReqLatchID_Ori>(GetProcAddress(bngrwOrig, "BngRwReqLatchID"));
+        return originalFunction(a, b, c);
+    }
+    
     if (a < 8)
     {
         return -100;
@@ -290,6 +447,12 @@ int BngRwReqSendUrlTo(UINT a, int b, UINT c, int* d,
 
 int BngRwReqWaitTouch(UINT a, int maxIntSomehow, UINT c, void (*callback)(int, int, void*, void*), void* card_struct_ptr) {
     trace("BngRwReqWaitTouch(%i, %d, %i, %p, %p)\n", a, maxIntSomehow, c, callback, card_struct_ptr);
+
+    if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
+    {
+        BngRwReqWaitTouch_Ori originalFunction = (BngRwReqWaitTouch_Ori) GetProcAddress(bngrwOrig, "BngRwReqWaitTouch");
+        return originalFunction(a, maxIntSomehow, c, callback, card_struct_ptr);
+    }
 
     // Hack to make sure previous threads have exited
     readerActive = false;

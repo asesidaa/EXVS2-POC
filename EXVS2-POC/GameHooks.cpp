@@ -38,7 +38,24 @@ HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
     if (const auto target = "COM"; name.find(target) != std::string::npos)
     {
         debug("CreateFileA with COM name %s", name.data());
-        return hConnection;
+        if (name == "COM3")
+        {
+            return hConnection;
+        }
+
+        if (globalConfig.UseRealCardReader == false)
+        {
+            return hConnection;
+        }
+        
+        info("%s Detected with Real Card Reader Enabled, Will use Real Card Reader", globalConfig.CardReaderComPort.c_str());
+        return CreateFileAOri(globalConfig.CardReaderComPort.c_str(),
+            dwDesiredAccess,
+            dwShareMode,
+            lpSecurityAttributes,
+            dwCreationDisposition,
+            dwFlagsAndAttributes,
+            hTemplateFile);
     }
     debug("CreateFileA with name %s", name.data());
     if (name.starts_with("G:") || name.starts_with("F:"))
