@@ -7,6 +7,11 @@
 
 #include "VirtualKeyMapping.h"
 
+struct DisplayConfig
+{
+    std::string Resolution;
+};
+
 struct StartupConfig
 {
     bool Windowed = false;
@@ -29,6 +34,8 @@ struct StartupConfig
 
     bool UseRealCardReader = false;
     std::string CardReaderComPort;
+
+    DisplayConfig Display;
 };
 
 extern StartupConfig globalConfig;
