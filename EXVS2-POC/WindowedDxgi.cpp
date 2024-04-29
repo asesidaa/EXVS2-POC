@@ -52,11 +52,24 @@ static HRESULT STDMETHODCALLTYPE SetFullscreenStateWrap(IDXGISwapChain* This, BO
 	{
 		return g_origSetFullscreenState(This, Fullscreen, pTarget);
 	}
+
+	if(globalConfig.Windowed == true && globalConfig.Display.Resolution != "1080p")
+	{
+		g_origSetFullscreenState(This, true, pTarget);
+		g_origSetFullscreenState(This, false, pTarget);
+		return S_OK;
+	}
+	
 	return S_OK;
 }
 
 static HRESULT STDMETHODCALLTYPE CreateSwapChainWrap(IDXGIFactory2* This, IUnknown* pDevice, DXGI_SWAP_CHAIN_DESC* pDesc, IDXGISwapChain** ppSwapChain)
 {
+	if(globalConfig.Windowed == true && globalConfig.BorderlessWindow == true)
+	{
+		pDesc->BufferDesc.Scaling = DXGI_MODE_SCALING_STRETCHED;
+	}
+	
 	auto hr = g_origCreateSwapChain(This, pDevice, pDesc, ppSwapChain);
 	if (*ppSwapChain)
 	{

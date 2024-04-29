@@ -165,6 +165,22 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     {
         fatal("COM3 is reserved for Controller and cannot be used as Card Reader COM Port");
     }
+
+    config->Display.Resolution = reader.Get("display", "resolution", "1080p");
+
+    if(config->Display.Resolution != "144p" && config->Display.Resolution != "240p" && config->Display.Resolution != "720p"
+        && config->Display.Resolution != "1080p" && config->Display.Resolution != "2k"
+        && config->Display.Resolution != "4k" && config->Display.Resolution != "8k")
+    {
+        fatal("Unsupported Resolution Setting %s", config->Display.Resolution.c_str());
+    }
+
+    auto isBorderless = config->Windowed == true && config->BorderlessWindow == true;
+
+    if(config->Display.Resolution == "8k" && isBorderless == false)
+    {
+        fatal("%s is supported in Borderless Window mode only!", config->Display.Resolution.c_str());
+    }
 }
 
 static void ReadInputConfig(InputConfig* config, INIReader& reader)

@@ -98,6 +98,9 @@
     <ClInclude Include="Configs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DisplayConstants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="GameHooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>

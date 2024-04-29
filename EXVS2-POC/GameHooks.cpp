@@ -13,6 +13,7 @@
 #include "INIReader.h"
 #include "Configs.h"
 #include "Version.h"
+#include "DisplayConstants.h"
 
 static constexpr auto BASE_ADDRESS = 0x140000000;
 static HANDLE hConnection = (HANDLE)0x1337;
@@ -206,6 +207,80 @@ namespace vs2
     }
 }
 
+void PatchResolution()
+{
+    if(globalConfig.Display.Resolution == "1080p")
+    {
+        return;
+    }
+
+    info("Perform Resolution Patch at %s", globalConfig.Display.Resolution.c_str());
+
+    int targetWidth = FullHdWidth;
+    int targetHeight = FullHdHeight;
+    
+    if(globalConfig.Display.Resolution == "144p")
+    {
+        targetWidth = YouTubeLowestWidth;
+        targetHeight = YouTubeLowestHeight;
+    }
+
+    if(globalConfig.Display.Resolution == "240p")
+    {
+        targetWidth = NtscWidth;
+        targetHeight = NtscHeight;
+    }
+
+    if(globalConfig.Display.Resolution == "720p")
+    {
+        targetWidth = HdWidth;
+        targetHeight = HdHeight;
+    }
+
+    if(globalConfig.Display.Resolution == "2k")
+    {
+        targetWidth = QhdWidth;
+        targetHeight = QhdHeight;
+    }
+
+    if(globalConfig.Display.Resolution == "4k")
+    {
+        targetWidth = UhdWidth;
+        targetHeight = UhdHeight;
+    }
+
+    if(globalConfig.Display.Resolution == "8k")
+    {
+        targetWidth = Uhd8KWidth;
+        targetHeight = Uhd8KHeight;
+    }
+
+    int windowWidth = targetWidth;
+    int windowHeight = targetHeight;
+
+    if(windowWidth >= FullHdWidth)
+    {
+        windowWidth = FullHdWidth;
+        windowHeight = FullHdHeight;
+    }
+
+    auto exeBase = reinterpret_cast<uintptr_t>(GetModuleHandle(nullptr));
+    auto offset = VS2_XB(0x140106232, 0x140109912) - BASE_ADDRESS;
+    injector::WriteMemory(exeBase + offset, windowWidth, true);
+    injector::WriteMemory(exeBase + offset + 0xA, windowHeight, true);
+
+    offset = VS2_XB(0x14068DF60, 0x1406DFE80) - BASE_ADDRESS;
+    injector::WriteMemory(exeBase + offset, targetWidth, true);
+    injector::WriteMemory(exeBase + offset + 0x9, targetHeight, true);
+    
+    offset = VS2_XB(0x140106246, 0x140109926) - BASE_ADDRESS;
+    injector::WriteMemory(exeBase + offset, targetWidth, true);
+    injector::WriteMemory(exeBase + offset + 0xA, targetHeight, true);
+    
+    offset = VS2_XB(0x14010625A, 0x14010993A) - BASE_ADDRESS;
+    injector::WriteMemory(exeBase + offset, targetWidth, true);
+    injector::WriteMemory(exeBase + offset + 0xA, targetHeight, true);
+}
 
 void InitializeHooks(std::filesystem::path&& basePath)
 {
@@ -275,6 +350,9 @@ void InitializeHooks(std::filesystem::path&& basePath)
     // A Hook to handle Performance Meter / ALL.NET Server Connection after 1AM / LM PCB 1 + 2 Checking
     offset = VS2_XB(0x14064C320, 0x140695E60) - BASE_ADDRESS;
     MH_CreateHook(reinterpret_cast<void**>(exeBase + offset), dev_menu_options_hook, reinterpret_cast<void**>(&dev_menu_options_orig));
+
+    // Perform Resolution Patch
+    PatchResolution();
     
     // Disable XINPUT in LM
     if(globalConfig.Mode == 2 || globalConfig.Mode == 4)

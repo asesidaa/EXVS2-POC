@@ -202,6 +202,7 @@
     <ClInclude Include="banapass.h" />
     <ClInclude Include="COMHooks.h" />
     <ClInclude Include="Configs.h" />
+    <ClInclude Include="DisplayConstants.h" />
     <ClInclude Include="GameHooks.h" />
     <ClInclude Include="INIReader.h" />
     <ClInclude Include="Input.h" />
