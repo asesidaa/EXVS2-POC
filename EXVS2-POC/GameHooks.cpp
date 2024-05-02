@@ -231,6 +231,12 @@ void PatchResolution()
         targetHeight = NtscHeight;
     }
 
+    if(globalConfig.Display.Resolution == "480p")
+    {
+        targetWidth = DvdWideWidth;
+        targetHeight = DvdWideHeight;
+    }
+
     if(globalConfig.Display.Resolution == "720p")
     {
         targetWidth = HdWidth;

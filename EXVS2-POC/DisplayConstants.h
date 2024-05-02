@@ -6,6 +6,8 @@ enum DisplayConstants
     YouTubeLowestHeight = 144,
     NtscWidth = 426,
     NtscHeight = 240,
+    DvdWideWidth = 854,
+    DvdWideHeight = 480,
     HdWidth = 1280,
     HdHeight = 720,
     FullHdWidth = 1920,
