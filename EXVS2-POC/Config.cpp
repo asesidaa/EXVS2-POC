@@ -168,7 +168,8 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
 
     config->Display.Resolution = reader.Get("display", "resolution", "1080p");
 
-    if(config->Display.Resolution != "144p" && config->Display.Resolution != "240p" && config->Display.Resolution != "720p"
+    if(config->Display.Resolution != "144p" && config->Display.Resolution != "240p"
+        && config->Display.Resolution != "480p" && config->Display.Resolution != "720p"
         && config->Display.Resolution != "1080p" && config->Display.Resolution != "2k"
         && config->Display.Resolution != "4k" && config->Display.Resolution != "8k")
     {
