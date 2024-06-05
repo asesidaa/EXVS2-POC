@@ -288,6 +288,37 @@ void PatchResolution()
     injector::WriteMemory(exeBase + offset + 0xA, targetHeight, true);
 }
 
+void SkipOpeningScreen()
+{
+    auto exeBase = reinterpret_cast<uintptr_t>(GetModuleHandle(nullptr));
+    auto offset = VS2_XB(0x1408AEC37, 0x140926497) - BASE_ADDRESS;
+    auto openingScreenBypass = exeBase + offset;
+
+    if(globalConfig.OpeningScreenSkip == "None")
+    {
+        injector::WriteMemoryRaw(openingScreenBypass + 0x5, (void*)"\x74\x67", 2, true); // 67 -> 67
+        injector::WriteMemoryRaw(openingScreenBypass + 0xA, (void*)"\x74\x62", 2, true);  // 4D -> 67
+        return;
+    }
+
+    if(globalConfig.OpeningScreenSkip == "SkipReminder")
+    {
+        injector::WriteMemoryRaw(openingScreenBypass + 0x5, (void*)"\x74\x52", 2, true); // 67 -> 52
+        injector::WriteMemoryRaw(openingScreenBypass + 0xA, (void*)"\x74\x4D", 2, true);  // 4D -> 4D
+        return;
+    }
+
+    if(globalConfig.OpeningScreenSkip == "SkipBrand")
+    {
+        injector::WriteMemoryRaw(openingScreenBypass + 0x5, (void*)"\x74\x3D", 2, true); // 67 -> 3D
+        injector::WriteMemoryRaw(openingScreenBypass + 0xA, (void*)"\x74\x38", 2, true);  // 4D -> 38
+        return;
+    }
+
+    injector::WriteMemoryRaw(openingScreenBypass + 0x5, (void*)"\x74\x28", 2, true); // 67 -> 28
+    injector::WriteMemoryRaw(openingScreenBypass + 0xA, (void*)"\x74\x23", 2, true);  // 4D -> 38
+}
+
 void InitializeHooks(std::filesystem::path&& basePath)
 {
     g_storageDirectory = std::move(basePath);
@@ -357,6 +388,9 @@ void InitializeHooks(std::filesystem::path&& basePath)
     offset = VS2_XB(0x14064C320, 0x140695E60) - BASE_ADDRESS;
     MH_CreateHook(reinterpret_cast<void**>(exeBase + offset), dev_menu_options_hook, reinterpret_cast<void**>(&dev_menu_options_orig));
 
+    // Opening Screen Skip
+    SkipOpeningScreen();
+    
     // Perform Resolution Patch
     PatchResolution();
     
