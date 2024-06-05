@@ -31,6 +31,7 @@ struct StartupConfig
     std::optional<std::string> PrimaryDNS;
     std::string ServerAddress;
     std::string RegionCode;
+    std::string OpeningScreenSkip;
 
     bool UseRealCardReader = false;
     std::string CardReaderComPort;

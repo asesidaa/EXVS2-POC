@@ -86,11 +86,11 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     std::string modeString = reader.Get("config", "mode", "LM");
     if (modeString == "1" || _stricmp("client", modeString.c_str()) == 0)
     {
-        config->Mode = 3;
+        config->Mode = 1;
     }
     else if (modeString == "2" || _stricmp("lm", modeString.c_str()) == 0)
     {
-        config->Mode = 4;
+        config->Mode = 2;
     }
     else
     {
@@ -127,19 +127,19 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
 
     if (config->Serial.size() == 4)
     {
-        config->Serial = (config->Mode == 3 ? serialPrefixClient : serialPrefixLM) + config->Serial;
+        config->Serial = (config->Mode == 1 ? serialPrefixClient : serialPrefixLM) + config->Serial;
     }
 
     bool validLength = config->Serial.size() == 12;
     bool validClientPrefix =
         config->Serial.starts_with(serialPrefixClient) || config->Serial.starts_with(serialPrefixClientAlter);
     bool validLMPrefix = config->Serial.starts_with(serialPrefixLM);
-    if (config->Mode == 3 && (!validLength || !validClientPrefix))
+    if (config->Mode == 1 && (!validLength || !validClientPrefix))
     {
         fatal("invalid serial: expected serial of format %sXXXX/%sXXXX for client", serialPrefixClient,
               serialPrefixClientAlter);
     }
-    else if (config->Mode == 4 && (!validLength || !validLMPrefix))
+    else if (config->Mode == 2 && (!validLength || !validLMPrefix))
     {
         fatal("invalid serial: expected serial of format %sXXXX for LM", serialPrefixLM);
     }
@@ -158,9 +158,27 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     config->ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config->RegionCode = reader.Get("config", "Region", "1");
 
+    if(config->RegionCode.empty())
+    {
+        config->RegionCode = "1"; 
+    }
+
+    try
+    {
+        auto regionCode = std::stod(config->RegionCode);
+
+        if(regionCode > 47 || regionCode <= 0)
+        {
+            config->RegionCode = "1";
+        }
+    }
+    catch(std::invalid_argument &e) {
+        config->RegionCode = "1";
+    }
+    
     config->UseRealCardReader = reader.GetBoolean("config", "userealcardreader", false);
     config->CardReaderComPort = reader.Get("config", "cardreadercomport", "COM4");
-
+    
     if(config->UseRealCardReader == true && config->CardReaderComPort == "COM3")
     {
         fatal("COM3 is reserved for Controller and cannot be used as Card Reader COM Port");
@@ -181,6 +199,14 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     if(config->Display.Resolution == "8k" && isBorderless == false)
     {
         fatal("%s is supported in Borderless Window mode only!", config->Display.Resolution.c_str());
+    }
+
+    config->OpeningScreenSkip = reader.Get("config", "OpeningScreenSkip", "SkipReminder");
+
+    if(config->OpeningScreenSkip != "None" && config->OpeningScreenSkip != "SkipReminder" &&
+        config->OpeningScreenSkip != "SkipBrand" && config->OpeningScreenSkip != "SkipAll")
+    {
+        fatal("%s is an unsupported Opening Screen Skip Mode", config->OpeningScreenSkip.c_str());
     }
 }
 
