@@ -18,6 +18,8 @@
 static constexpr auto BASE_ADDRESS = 0x140000000;
 static HANDLE hConnection = (HANDLE)0x1337;
 static std::filesystem::path g_storageDirectory;
+static std::string normalized_storage_directory;
+static std::string normalized_shortcut_directory;
 
 HANDLE(__stdcall *CreateFileAOri)(LPCSTR lpFileName,
     DWORD dwDesiredAccess,
@@ -58,7 +60,39 @@ HANDLE __stdcall CreateFileAHook(LPCSTR lpFileName,
             dwFlagsAndAttributes,
             hTemplateFile);
     }
+    
     debug("CreateFileA with name %s", name.data());
+
+    if (name.starts_with(normalized_storage_directory) || name.starts_with(normalized_shortcut_directory))
+    {
+        // info("%s, Do Nothing", name.data());
+        return CreateFileAOri(lpFileName,
+            dwDesiredAccess,
+            dwShareMode,
+            lpSecurityAttributes,
+            dwCreationDisposition,
+            dwFlagsAndAttributes,
+            hTemplateFile);
+    }
+    
+    auto normalizedLoadingFile = std::string(name.data());
+    std::ranges::replace(normalizedLoadingFile.begin(), normalizedLoadingFile.end(), '\\', '/');
+
+    if(normalizedLoadingFile.starts_with(normalized_storage_directory) || normalizedLoadingFile.starts_with(normalized_shortcut_directory))
+    {
+        return CreateFileAOri(lpFileName,
+            dwDesiredAccess,
+            dwShareMode,
+            lpSecurityAttributes,
+            dwCreationDisposition,
+            dwFlagsAndAttributes,
+            hTemplateFile);
+    }
+
+    debug("Normalized Directory name %s", normalized_storage_directory.c_str());
+    debug("Normalized Directory 2 name %s", normalized_shortcut_directory.c_str());
+    debug("CreateFileA with name %s", name.data());
+    
     if (name.starts_with("G:") || name.starts_with("F:"))
     {
         std::filesystem::path tail(name.substr(3));
@@ -322,6 +356,12 @@ void SkipOpeningScreen()
 void InitializeHooks(std::filesystem::path&& basePath)
 {
     g_storageDirectory = std::move(basePath);
+
+    normalized_storage_directory = g_storageDirectory.string();
+    std::ranges::replace(normalized_storage_directory.begin(), normalized_storage_directory.end(), '\\', '/');
+
+    normalized_shortcut_directory = std::filesystem::current_path().string();
+    std::ranges::replace(normalized_shortcut_directory.begin(), normalized_shortcut_directory.end(), '\\', '/');
 
     MH_CreateHookApi(L"kernel32.dll", "CreateFileW", CreateFileWHook, reinterpret_cast<void**>(&CreateFileWOri));
     MH_CreateHookApi(L"kernel32.dll", "CreateFileA", CreateFileAHook, reinterpret_cast<void**>(&CreateFileAOri));
