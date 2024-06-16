@@ -29312,5 +29312,197 @@
     "Category": "キャンペーン",
     "Clues": "特殊",
     "Clues2": "JAEPO2023 OVER BOOST 試遊イベント"
+  },
+  {
+    "Id": 6001,
+    "Value": "超吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6002,
+    "Value": "大吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6003,
+    "Value": "中吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6004,
+    "Value": "吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6005,
+    "Value": "凶",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6006,
+    "Value": "大強",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6007,
+    "Value": "N-EXG EXPLOSION",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第1弾"
+  },
+  {
+    "Id": 6008,
+    "Value": "N-EXG XANADU",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第1弾"
+  },
+  {
+    "Id": 6009,
+    "Value": "サイ＆チカゲ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第1弾"
+  },
+  {
+    "Id": 6010,
+    "Value": "G-ガーディアンズ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第1弾"
+  },
+  {
+    "Id": 6011,
+    "Value": "メリーナ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第1弾"
+  },
+  {
+    "Id": 6012,
+    "Value": "チームAA",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第1弾"
+  },
+  {
+    "Id": 6013,
+    "Value": "N-EXG VICIOUS",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "Id": 6014,
+    "Value": "N-EXG SUPREMACY",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "Id": 6015,
+    "Value": "ニル＆ダンデ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "Id": 6016,
+    "Value": "G-ガーディアンズ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "Id": 6017,
+    "Value": "カノ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "Id": 6018,
+    "Value": "チームIX",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX",
+    "Clues2": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "Id": 6019,
+    "Value": "超吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6020,
+    "Value": "大吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6021,
+    "Value": "中吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6022,
+    "Value": "吉",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6023,
+    "Value": "凶",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6024,
+    "Value": "大凶",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)",
+    "Clues2": "おみくじ称号プレゼントキャンペーン"
   }
 ]

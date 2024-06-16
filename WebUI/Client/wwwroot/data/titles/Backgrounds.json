@@ -3370,5 +3370,138 @@
     "Id": 513,
     "Value": "DUMMY PREMIUM DOGFIGHT 2022",
     "Existence": "XB"
+  },
+  {
+    "Id": 6001,
+    "Value": "おみくじ(2022) 1",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)"
+  },
+  {
+    "Id": 6002,
+    "Value": "おみくじ(2022) 2",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)"
+  },
+  {
+    "Id": 6003,
+    "Value": "おみくじ(2022) 3",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)"
+  },
+  {
+    "Id": 6004,
+    "Value": "N-EXG EXPLOSION",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6005,
+    "Value": "N-EXG XANADU",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6006,
+    "Value": "サイ＆チカゲ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6007,
+    "Value": "G-ガーディアンズ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6008,
+    "Value": "メリーナ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6009,
+    "Value": "チームAA",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6010,
+    "Value": "N-EXG VICIOUS",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6011,
+    "Value": "N-EXG SUPREMACY",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6012,
+    "Value": "ニル＆ダンデ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6013,
+    "Value": "G-ガーディアンズ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6014,
+    "Value": "カノ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6015,
+    "Value": "チームIX",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6016,
+    "Value": "おみくじ(2023) 1",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6017,
+    "Value": "おみくじ(2023) 2",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6018,
+    "Value": "おみくじ(2023) 3",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6019,
+    "Value": "おみくじ(2023) 4",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
   }
 ]
