@@ -1,6 +1,6 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_UseX64=y
-#AutoIt3Wrapper_Res_Fileversion=1.4.0.3
+#AutoIt3Wrapper_Res_Fileversion=1.4.0.5
 #AutoIt3Wrapper_Res_Fileversion_AutoIncrement=p
 #AutoIt3Wrapper_Run_After=mkdir "%scriptdir%\verau3"
 #AutoIt3Wrapper_Run_After=mkdir "%scriptdir%\verexe"
@@ -85,8 +85,7 @@ Global $defaultKeyBT = "F1" ; Variable for Default Value of Test in Config.ini f
 Global $defaultKeyCard = "F3" ; Variable for Default Value of Card in Config.ini for Keyboard
 Global $defaultKeyKill = "Esc" ; Variable for the Default Value of Kill in Config.ini for Keyboard
 Global $Clicked = False ; Boolean Variable for confirming if Switch Language button is pressed
-Global $Version = "Version 1.4.0.3" ; Version Number
-Global $borderless = False ; Borderless Window Flag
+Global $Version = "Version 1.4.0.5" ; Version Number
 Global Const $COLOR_DEEPRED = 0xe10000 ; Color used for DeepRed
 Global $joyb1 = "1" ; Variable for joystick button 1
 Global $joyb2 = "2" ; Variable for joystick button 2
@@ -121,7 +120,7 @@ Global $keyboardGUI[$GUI_keyboardElements] ; Create Array KeyboardGUI
 Global $baseGUILang[$GUI_baseElements][2] = [["XBoost Single Instance Launcher", "XBoost 单实例 启动器"], ["Start Server.exe", "开始 Server.exe"], ["Start LM Mode", "启动 LM"], ["Start Client Mode", "启动 Client"], ["Open Config.ini", "打开Config.ini"], ["Card Webpage", "卡片网页"], ["Switch Language", "改变语言"], ["Exit", "退出"]]
 
 #Below Creates Array configGUILang with 2 values per Element
-Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"], ["IP Address", "IP 地址"], ["InterfaceName", "网卡名称"], ["Server.exe Address", "Server.exe 地址"], ["Display Mode", "显示模式"], ["Run ipconfig.bat", "运行 ipconfig.bat"], ["Initialize iauthdll.bat", "初始化 iauthdll.bat"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"], ["Your Current Card Data", "您当前的卡数据"]]
+Global $configGUILang[$GUI_configElements][2] = [["", ""], ["Config", "配置"], ["IP Address", "IP 地址"], ["InterfaceName", "网卡名称"], ["Server.exe Address", "Server.exe 地址"], ["Resolution", "解决"], ["Windowed", "窗口化"], ["Borderless Windowed", "无边框窗口模式"], ["Skip Opening Video(s)", "跳过开场视频"], ["Run ipconfig.bat", "运行 ipconfig.bat"], ["Initialize iauthdll.bat", "初始化 iauthdll.bat"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"], ["Your Current Card Data", "您当前的卡数据"]]
 
 #Below Creates Array controllerGUILang with 2 values per Element
 Global $controllerGUILang[$GUI_controllerElements][2] = [["", ""], ["Controller Settings", "按键 设置"], ["DirectInput", "DirectInput"], ["Windows USB Game Controller Options", "Windows USB 按键设置"], ["Device ID Detection Tool", "Device ID检测工具"], ["Button A (Shoot)", "按钮 A (射击)"], ["Button B (Melee)", "按钮 B (近战)"], ["Button C (Jump)", "按钮 C (跳)"], ["Button D (Target)", "按钮 D (目标)"], ["Start (Communication)", "启动 (通讯)"], ["Coin", "硬币"], ["Card", "卡片"], ["Device ID", "设备 ID"], ["Test (Optional)", "测试 (自选)"], ["Exit Program (Optional)", "退出程序 (自选)"], ["Save", "保存"], ["Restore defaults", "恢复默认选项"], ["How To Setup", "如何设置"]]
@@ -134,16 +133,17 @@ Global $ENconfigHowTo = "Click the 'initialize iauthdll.bat' button first as it 
 			"Click the 'Run ipconfig.bat' button to run the ipconfig batch script and it will then open the output values in a text document." &@CRLF&@CRLF& _
 			"Use this document to fill in the fields properly for the Internet Network Adapter used." &@CRLF&@CRLF& _
 			"Please select IpAddress or InterfaceName Radio Button for your Network settings, and enter the IP Address of computer running Server.exe in the Server field, if you run it on this, leave it as 127.0.0.1" &@CRLF&@CRLF& _
-			"Each time you open the Launcher, you will need to select Borderless Fullscreen in Display Mode, if you wish to run it FullScreen"
+			"Choose Windowed and/or Borderless Windowed checkbox, as well as Resolution, if you use 8k; Windowed and Borderless Windowed checkboxes will be auto checked as it is required."  &@CRLF&@CRLF& _
+			"Skip Opening Video(s) is meant to skip the specific Videos at start; Skip Reminder will skip the 10 second Notice video, Skip Brand will skip the company logos video, None will skip nothing, Skip All will skip everything."
 
 #Below Variable to store ENG HowTow for Controller Section
 Global $ENcontrollerHowTo = "If using DirectInput, please plug in your Gamepad/Arcadestick and click the 'Windows USB Game Controller Options' Button." &@CRLF&@CRLF& _
 			"This will bring up the Game Controllers control panel, select your Gamepad/Arcadestick and choose properties." &@CRLF &@CRLF& _
-			"Press the buttons you wish to use and remember the buttons number to enter in the right field." &@CRLF&@CRLF& _
+			"Press the buttons you wish to use and remember the buttons number on the ." &@CRLF&@CRLF& _
 			"You can use a comma ',' in between mappings to have each command map to more than 1 input."  &@CRLF&@CRLF& _
 			"Example: A----1,3 & B----4,3 - This means that when you press button 3 on controller it will press both A and B." &@CRLF&@CRLF& _
 			"Or" &@CRLF&@CRLF& _
-			"You can now select the button and press the button on Gamepad/Arcadestick you want to use and it will automatically detect the button press without using 'Windows USB Game Controller Options'" &@CRLF&@CRLF& _
+			"You can now press the button you want to use and it will automatically detect the button press." &@CRLF&@CRLF& _
 			"If you wish to use a specific DeviceID for your Gamepad/Arcadestick, click the 'Joystick Detection Tool' Button and press a button to find 'Joystick ID = #' "
 
 #Below Variable to store ENG HowTow for Config Section
@@ -160,7 +160,8 @@ Global $CNconfigHowTo = "如果是第一次运行，请按下‘初始化iauthdl
 			"完成后，请别忘记填入卡片服务器地址。" &@CRLF&@CRLF& _
 			"如果你不知道卡片服务器地址，请使用‘开始 Server.exe’开启自己的本地服务器，本地开启的服务器地址都默认为 '127.0.0.1'" &@CRLF&@CRLF& _
 			"请记得按下‘保存’按键以保存你修改的信息" &@CRLF&@CRLF& _
-			"每次打开启动器时，如果您希望全屏运行，则需要在显示模式中选择 Borderless Fullscreen"
+			"如果您使用 8k，请选择窗口和/或无边框窗口复选框以及分辨率；窗口和无边框窗口复选框将根据需要自动选中。" &@CRLF&@CRLF& _
+			"跳过开场视频是指在开始时跳过特定的视频；跳过提醒将跳过 10 秒的通知视频；跳过品牌将跳过公司徽标视频；无将不跳过任何内容；跳过全部将跳过所有内容。"
 
 #Below Variable to store CN HowTow for Controller Section
 Global $CNcontrollerHowTo = "如果不确定设备使用的是 DirectInput 还是 XInput，请尝试在游戏中启用'GAME PAD'选项、 如果能正常运行，则无需启用此选项" &@CRLF&@CRLF& _
@@ -221,21 +222,27 @@ $configGUI[3] = GUICtrlCreateLabel($configGUILang[3][$currentLang], 56, 121, 166
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 $configGUI[4]= GUICtrlCreateLabel($configGUILang[4][$currentLang], 56, 161, 166, 24) ; Server.exe Address
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$configGUI[5] = GUICtrlCreateLabel($configGUILang[5][$currentLang], 56, 201, 146, 24) ; Display Mode
+$configGUI[5] = GUICtrlCreateLabel($configGUILang[5][$currentLang], 56, 203, 146, 24) ; Resolution
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$configGUI[6]= GUICtrlCreateButton($configGUILang[6][$currentLang], 50, 300, 180, 40) ; ipconfig
-GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$configGUI[7] = GUICtrlCreateButton($configGUILang[7][$currentLang], 50, 250, 180, 40) ; iauthdll
-GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$configGUI[8] = GUICtrlCreateButton($configGUILang[8][$currentLang], 50, 650, 150, 40) ; Save; Setup for Multilanguage array
-GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$configGUI[9] = GUICtrlCreateButton($configGUILang[9][$currentLang], 400, 650, 150, 40) ; Restore defaults
-GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$configGUI[10] = GUICtrlCreateButton($configGUILang[10][$currentLang], 590, 70, 150, 50) ; How to setup
-GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
-$configGUI[11] = GUICtrlCreateLabel($configGUILang[11][$currentLang], 205, 400, 170, 30) ; Card Data Label
+$configGUI[6] = GUICtrlCreateLabel($configGUILang[6][$currentLang], 56, 241, 146, 24) ; Windowed Mode
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-$CardEdit = GUICtrlCreateEdit("", 95, 430, 400, 40, $ES_READONLY, 0) ; Card Data Edit Box
+$configGUI[7] = GUICtrlCreateLabel($configGUILang[7][$currentLang], 56, 281, 166, 24) ; Borderless Windowed Mode
+GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
+$configGUI[8] = GUICtrlCreateLabel($configGUILang[8][$currentLang], 56, 323, 166, 24) ; Skipping Opening Video(s)
+GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
+$configGUI[9]= GUICtrlCreateButton($configGUILang[9][$currentLang], 50, 420, 180, 40) ; ipconfig
+GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
+$configGUI[10] = GUICtrlCreateButton($configGUILang[10][$currentLang], 50, 370, 180, 40) ; iauthdll
+GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
+$configGUI[11] = GUICtrlCreateButton($configGUILang[11][$currentLang], 50, 650, 150, 40) ; Save; Setup for Multilanguage array
+GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
+$configGUI[12] = GUICtrlCreateButton($configGUILang[12][$currentLang], 400, 650, 150, 40) ; Restore defaults
+GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
+$configGUI[13] = GUICtrlCreateButton($configGUILang[13][$currentLang], 590, 70, 150, 50) ; How to setup
+GUICtrlSetFont(-1, 10, 400, 0, "MS Sans Serif")
+$configGUI[14] = GUICtrlCreateLabel($configGUILang[14][$currentLang], 205, 480, 170, 30) ; Card Data Label
+GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
+$CardEdit = GUICtrlCreateEdit("", 95, 510, 400, 40, $ES_READONLY, 0) ; Card Data Edit Box
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 Global $IPRadio = GUICtrlCreateRadio("", 35, 81, 17, 17) ; Radio for IP Address
 Global $InterfaceRadio = GUICtrlCreateRadio("", 35, 121, 17, 17) ; Radio for InterfaceName
@@ -245,9 +252,14 @@ Global $combo = GUICtrlCreateCombo("", 248, 121, 193, 120, $CBS_DROPDOWNLIST) ; 
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 Global $iServer = GUICtrlCreateInput($currentServer, 248, 161, 193, 28) ; Input for Server.exe Address
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-Global $displaymode = GUICtrlCreateCombo("", 248, 201, 193, 28, $CBS_DROPDOWNLIST)
+Global $Resolution = GUICtrlCreateCombo("", 248, 201, 193, 28, $CBS_DROPDOWNLIST)
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
-GUICtrlSetData($displaymode, "Windowed" & "|" & "Borderless Fullscreen")
+GUICtrlSetData($Resolution, "144p" & "|" & "240p" & "|" & "720p" & "|" & "1080p" & "|" & "2k" & "|" & "4k" & "|" & "8k")
+Global $Windowed = GUICtrlCreateCheckbox("", 248, 244, 17, 17) ; Windowed mode checkbox
+Global $BorderlessWindowed = GUICtrlCreateCheckbox("", 248, 284, 17, 17) ; Borderless Windowed Mode checkbox
+Global $SkipVideo = GUICtrlCreateCombo("", 248, 321, 193, 28, $CBS_DROPDOWNLIST) ;
+GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
+GUICtrlSetData($SkipVideo, "None" & "|" & "Skip Reminder" & "|" & "Skip Brand" & "|" & "Skip All")
 
 
 #EndRegion
@@ -381,6 +393,72 @@ Global $KeyKill = GUICtrlCreateInput($currentKill, 312, 595, 180, 28) ;Input for
 GUICtrlSetFont(-1, 12, 400, 0, "MS Sans Serif")
 GUICtrlCreateTabItem("")
 GUISetState(@SW_SHOW)
+
+#EndRegion
+
+#Region Tool Tips Default
+If $currentLang = 0 Then
+	GUICtrlSetTip($baseGUI[1], "Starts Server.exe application")
+	GUICtrlSetTip($baseGUI[2], "Starts Live Monitor Host Server")
+	GUICtrlSetTip($baseGUI[3], "Starts Client Mode")
+	GUICtrlSetTip($baseGUI[4], "Opens current Config.ini in Game Directory")
+	GUICtrlSetTip($baseGUI[5], "Opens the current Card Webpage set in Config.ini")
+	GUICtrlSetTip($baseGUI[6], "Switches the Language to Chinese")
+	GUICtrlSetTip($baseGUI[7], "Exits the Launcher")
+	GUICtrlSetTip($configGUI[9], "Runs Ipconfig and opens text file with information")
+	GUICtrlSetTip($configGUI[10], "Runs Iauthdll.bat as Administrator, Required on first run or if files are moved")
+	GUICtrlSetTip($configGUI[11], "Saves all Settings in Config Tab")
+	GUICtrlSetTip($configGUI[12], "Restore all fields in Config Tab back to Default Value")
+	GUICtrlSetTip($configGUI[13], "Brief how to setup for Config Tab")
+	GUICtrlSetTip($CardEdit, "Card.ini data of current game directory")
+	GUICtrlSetTip($combo, "Dropdown box with Interface Names on computer")
+	GUICtrlSetTip($iIPAddress, "Enter IP Address you wish to use")
+	GUICtrlSetTip($iServer, "Enter IP Address of computer running Server.exe you want to connect to")
+	GUICtrlSetTip($Resolution, "Select a resolution from list, 8k requires Windowed and BorderlessWindowed set to true")
+	GUICtrlSetTip($Windowed, "Checkbox to enable Windowed Mode")
+	GUICtrlSetTip($BorderlessWindowed, "Checkbox to enable Borderless Windowed Mode")
+	GUIctrlSetTip($SkipVideo, "Select option to skip specific videos, Skip Reminder=Skips 10 Sec Notice video, Skip Brand=Skips Company Logos, None or Skip All.")
+	GUICtrlSetTip($controllerGUI[3], "Opens up Windows USB Game Controller applet to do button configuration")
+	GUICtrlSetTip($controllerGUI[4], "Opens up the Device ID Detection Tool")
+	GUICtrlSetTip($controllerGUI[15], "Saves all Settings in Controller Tab")
+	GUICtrlSetTip($controllerGUI[16], "Restore all fields in Controller Tab back to Default Value")
+	GUICtrlSetTip($controllerGUI[17], "Brief how to setup for Controller Tab")
+	GUICtrlSetTip($DIcheck, "Checkbox to Enable/Disable DirectInput Mode")
+	GUICtrlSetTip($TestCheck, "Checkbox to Enable/Disable Test Button")
+	GUICtrlSetTip($KillCheck, "Checkbox to Enable/Disable Exit Program Button")
+	GUICtrlSetTip($AB1, "Press the button or enter ID you wish to use for Button 1")
+	GUICtrlSetTip($AB2, "Press the button or enter ID you wish to use for Button 2")
+	GUICtrlSetTip($AB3, "Press the button or enter ID you wish to use for Button 3")
+	GUICtrlSetTip($AB4, "Press the button or enter ID you wish to use for Button 4")
+	GUICtrlSetTip($ABSt, "Press the button or enter ID you wish to use for Start Button")
+	GUICtrlSetTip($ABCoin, "Press the button or enter ID you wish to use for Coin Button")
+	GUICtrlSetTip($ABCard, "Press the button or enter ID you wish to use for Card Button")
+	GUICtrlSetTip($ABTest, "Press the button or enter ID you wish to use for Test Button")
+	GUICtrlSetTip($ABKill, "Press the button or enter ID you wish to use for Exit Program Button")
+	GUICtrlSetTip($DeviceID, "Enter the Device ID of your gamepad/arcadestick")
+	GUICtrlSetTip($keyboardGUI[3], "Opens up the webpage with naming for Input Mappings for Keyboard")
+	GUICtrlSetTip($keyboardGUI[17], "Saves all Settings in Keyboard Tab")
+	GUICtrlSetTip($keyboardGUI[18], "Restore all fields in Keyboard Tab back to Default Value")
+	GUICtrlSetTip($keyboardGUI[19], "Brief how to setup for Keyboard Tab")
+	GUICtrlSetTip($Keycheck, "Checkbox to Enable/Disable Keyboard Mode")
+	GUICtrlSetTip($Up, "Enter the input mapping for Up")
+	GUICtrlSetTip($Down, "Enter the input mapping for Down")
+	GUICtrlSetTip($Left, "Enter the input mapping for Left")
+	GUICtrlSetTip($Right, "Enter the input mapping for Right")
+	GUICtrlSetTip($KeyB1, "Enter the input mapping for Button 1")
+	GUICtrlSetTip($KeyB2, "Enter the input mapping for Button 2")
+	GUICtrlSetTip($KeyB3, "Enter the input mapping for Button 3")
+	GUICtrlSetTip($KeyB4, "Enter the input mapping for Button 4")
+	GUICtrlSetTip($KeyStart, "Enter the input mapping for Start Button")
+	GUICtrlSetTip($KeyCoin, "Enter the input mapping for Coin Button")
+	GUICtrlSetTip($KeyTest, "Enter the input mapping for Test Button")
+	GUICtrlSetTip($KeyCard, "Enter the input mapping for Card Button")
+	GUICtrlSetTip($KeyKill, "Enter the input mapping for Exit Program Button")
+
+	If Not $CardExists Then
+		GUICtrlSetData($CardEdit, "card.ini not found, you need to play at least 1 game to create the card.ini file")
+	EndIf
+EndIf
 
 #EndRegion
 
@@ -522,10 +600,13 @@ EndIf
 
 #EndRegion
 
-#Region ### DirectInput Keyboard Checkbox Confirm ###
+#Region ### Checkbox and Combobox Value Confirmation ###
 Local $DItrue = IniRead($filedir, "controller", "Enabled", "default")
 Local $keytrue = IniRead($filedir, "keyboard", "Enabled", "default")
 Local $Wtrue = IniRead($filedir, "Config", "windowed", "default"); Variable use to read value of windowed in config.ini
+Local $BWtrue = IniRead($filedir, "Config", "borderlesswindow", "default") ; Variable used to read BorderlessWindowed in config.ini
+Local $ResValue = IniRead($filedir, "Display", "Resolution", "default") ; Variable used to read Resolution in Config.ini
+Local $SkipValue = IniRead($filedir, "Config", "OpeningScreenSkip", "default");
 
 If GUICtrlRead($TestCheck) = $GUI_CHECKED Then
 	GUICtrlSetState($ABTest, $GUI_ENABLE)
@@ -552,7 +633,43 @@ Else
 EndIf
 
 If $Wtrue = "true" Then
-	GUICtrlSetData($displaymode, "Windowed")
+	GUICtrlSetState($Windowed, $GUI_CHECKED)
+Else
+	GUICtrlSetState($Windowed, $GUI_UNCHECKED)
+EndIf
+
+If $BWtrue = "true" Then
+	GUICtrlSetState($BorderlessWindowed, $GUI_CHECKED)
+Else
+	GUICtrlSetState($BorderlessWindowed, $GUI_UNCHECKED)
+EndIf
+
+If $ResValue = "144p" Then
+	GUICtrlSetData($Resolution, "144p")
+ElseIf $ResValue = "240p" Then
+	GUICtrlSetData($Resolution, "240p")
+ElseIf $ResValue = "720p" Then
+	GUICtrlSetData($Resolution, "720p")
+ElseIf $ResValue = "1080p" Then
+	GUICtrlSetData($Resolution, "1080p")
+ElseIf $ResValue = "2k" Then
+	GUICtrlSetData($Resolution, "2k")
+ElseIf $ResValue = "4k" Then
+	GUICtrlSetData($Resolution, "4k")
+ElseIf $ResValue = "8k" Then
+	GUICtrlSetData($Resolution, "8k")
+	GUICtrlSetState($Windowed, $GUI_CHECKED)
+	GUICtrlSetState($BorderlessWindowed, $GUI_CHECKED)
+EndIf
+
+If $SkipValue = "None" Then
+	GUICtrlSetData($SkipVideo, "None")
+ElseIf $SkipValue = "SkipReminder" Then
+	GUICtrlSetData($SkipVideo, "Skip Reminder")
+ElseIf $SkipValue = "SkipBrand" Then
+	GUICtrlSetData($SkipVideo, "Skip Brand")
+ElseIf $SkipValue = "SkipAll" Then
+	GUICtrlSetData($SkipVideo, "Skip All")
 EndIf
 
 #EndRegion
@@ -632,11 +749,48 @@ Func _SaveConfig()
 
 	IniWrite($Filename, "Config", "Server", " " & GUICtrlRead($iServer))
 
-	If GUICtrlRead($displaymode) = "Borderless Fullscreen" Then
-		$borderless = True
-	ElseIf GUICtrlRead($displaymode) = "Windowed" Then
-		IniWrite($Filename, "Config", "windowed", " " & "true")
-		$borderless = False
+	If GUICtrlRead($Windowed) = $GUI_CHECKED Then
+		IniWrite($Filename, "Config", "Windowed", " true")
+	Else
+		IniWrite($Filename, "Config", "Windowed", " false")
+	EndIf
+
+	If GuiCtrlRead($BorderlessWindowed) = $GUI_CHECKED Then
+		IniWrite($Filename, "Config", "Borderlesswindow", " true")
+		GUICtrlSetData($Windowed, $GUI_CHECKED)
+		IniWrite($Filename, "Config", "Windowed", " true")
+	Else
+		IniWrite($Filename, "Config", "Borderlesswindow", " false")
+	EndIf
+
+	If GUICtrlRead($Resolution) = "144p" Then
+		IniWrite($Filename, "Display", "Resolution", " 144p")
+	ElseIf GUICtrlRead($Resolution) = "240p" Then
+		IniWrite($Filename, "Display", "Resolution", " 240p")
+	ElseIf GUICtrlRead($Resolution) = "720p" Then
+		IniWrite($Filename, "Display", "Resolution", " 720p")
+	ElseIf GUICtrlRead($Resolution) = "1080p" Then
+		IniWrite($Filename, "Display", "Resolution", " 1080p")
+	ElseIf GUICtrlRead($Resolution) = "2k" Then
+		IniWrite($Filename, "Display", "Resolution", " 2k")
+	ElseIf GUICtrlRead($Resolution) = "4k" Then
+		IniWrite($Filename, "Display", "Resolution", " 4k")
+	ElseIf GUICtrlRead($Resolution) = "8k" Then
+		GUICtrlSetState($Windowed, $GUI_CHECKED)
+		GUICtrlSetState($BorderlessWindowed, $GUI_CHECKED)
+		IniWrite($Filename, "Display", "Resolution", " 8k")
+		IniWrite($Filename, "Config", "Windowed", " true")
+		IniWrite($Filename, "Config", "Borderlesswindow", " true")
+	EndIf
+
+	If GUICtrlRead($SkipVideo) = "None" Then
+		IniWrite($Filename, "Config", "OpeningScreenSkip", " None")
+	ElseIf GUICtrlRead($SkipVideo) = "Skip Reminder" Then
+		IniWrite($Filename, "Config", "OpeningScreenSkip", " SkipReminder")
+	ElseIf GUICtrlRead($SkipVideo) = "Skip Brand" Then
+		IniWrite($Filename, "Config", "OpeningScreenSkip", " SkipBrand")
+	ElseIf GUICtrlRead($SkipVideo) = "Skip All" Then
+		IniWrite($Filename, "Config", "OpeningScreenSkip", " SkipAll")
 	EndIf
 
 EndFunc
@@ -837,80 +991,6 @@ EndFunc
 
 #EndRegion
 
-#Region ### Windowed/Borderless Windowed Function ### Code from AsukaXVB
-
-Func _Borderless()
-
-	Opt("WinTitleMatchMode", 2)
-	Opt("TrayIconHide", 1)
-
-	If $Wtrue = "false" Then
-		$borderless = False
-	EndIf
-
-	$gameexe = "vsac25_Release.exe"
-	$migameexe = "vsac25_Release_client.exe"
-
-	Sleep (5000)
-	If ProcessExists($gameexe) Then
-		If Not ProcessExists($migameexe) Then
-			$processid = ProcessWait($gameexe)
-			$GameWindow = GetWindowFromPID($processid)
-			$GameTitle = WinGetTitle($GameWindow)
-			If $borderless = True Then
-				$hWin = WinGetHandle($GameTitle)
-				$iStyle = _WinAPI_GetWindowLong($hWin, $GWL_STYLE)
-				If WinExists($GameTitle) Then
-					If BitAND($iStyle, $WS_CAPTION) = $WS_CAPTION Then
-						_WinAPI_ShowWindow($hWin,@SW_HIDE)
-						_WinAPI_SetWindowLong($hWin, $GWL_STYLE, BitXOR($iStyle, $WS_CAPTION))
-						$winPos = WinGetPos($GameTitle)
-						WinMove($GameTitle,"",0,0,@DesktopWidth,@DesktopHeight)
-						_WinAPI_ShowWindow($hWin,@SW_SHOW)
-					EndIf
-				EndIf
-			EndIf
-		ElseIf ProcessExists($migameexe) Then
-			$processid = ProcessWait($migameexe)
-			$GameWindow = GetWindowFromPID($processid)
-			$GameTitle = WinGetTitle($GameWindow)
-			If $borderless = True Then
-				$hWin = WinGetHandle($GameTitle)
-				$iStyle = _WinAPI_GetWindowLong($hWin, $GWL_STYLE)
-				If WinExists($GameTitle) Then
-					If BitAND($iStyle, $WS_CAPTION) = $WS_CAPTION Then
-						_WinAPI_ShowWindow($hWin,@SW_HIDE)
-						_WinAPI_SetWindowLong($hWin, $GWL_STYLE, BitXOR($iStyle, $WS_CAPTION))
-						$winPos = WinGetPos($GameTitle)
-						WinMove($GameTitle,"",0,0,@DesktopWidth,@DesktopHeight)
-						_WinAPI_ShowWindow($hWin,@SW_SHOW)
-					EndIf
-				EndIf
-			EndIf
-		EndIf
-	ElseIf ProcessExists($migameexe) Then
-		If Not ProcessExists($gameexe) Then
-			$processid = ProcessWait($migameexe)
-			$GameWindow = GetWindowFromPID($processid)
-			$GameTitle = WinGetTitle($GameWindow)
-			If $borderless = True Then
-				$hWin = WinGetHandle($GameTitle)
-				$iStyle = _WinAPI_GetWindowLong($hWin, $GWL_STYLE)
-				If WinExists($GameTitle) Then
-					If BitAND($iStyle, $WS_CAPTION) = $WS_CAPTION Then
-						_WinAPI_ShowWindow($hWin,@SW_HIDE)
-						_WinAPI_SetWindowLong($hWin, $GWL_STYLE, BitXOR($iStyle, $WS_CAPTION))
-						$winPos = WinGetPos($GameTitle)
-						WinMove($GameTitle,"",0,0,@DesktopWidth,@DesktopHeight)
-						_WinAPI_ShowWindow($hWin,@SW_SHOW)
-					EndIf
-				EndIf
-			EndIf
-		EndIf
-	EndIf
-EndFunc
-
-#EndRegion
 
 #Region ### When GUI buttons/radios/checkboxes are used ###
 
@@ -1234,7 +1314,7 @@ While 1
 				MsgBox (16, "Error", "The file run_xboost_LM_mode_v4.exe is not found. Please make sure you copied the files over to Game Directory")
 			EndIf
 
-			_Borderless()
+
 
 		Case $nMsg = $baseGUI[3] ; Case structure for the Start Client Mode button, verifies the file is there before booting.
 			If FileExists("run_xboost_CLIENT_mode_v4.exe") Then
@@ -1247,7 +1327,7 @@ While 1
 				MsgBox (16, "Error", "The file run_xboost_CLIENT_mode_v4.exe is not found. Please make sure you copied the files over to Game Directory")
 			EndIf
 
-			_Borderless()
+
 
 		Case $nMsg = $baseGUI[4] ; Case structure for the Open Config.ini button
 			Run("notepad.exe " & $filedir, @WindowsDir)
@@ -1264,16 +1344,19 @@ While 1
 				GUICtrlSetTip($baseGUI[5], "打开 Config.ini 中设置的当前卡网页")
 				GUICtrlSetTip($baseGUI[6], "将语言切换为英语")
 				GUICtrlSetTip($baseGUI[7], "退出启动器")
-				GUICtrlSetTip($configGUI[6], "运行 Ipconfig 并打开包含信息的文本文件")
-				GUICtrlSetTip($configGUI[7], "以管理员身份运行 Iauthdll.bat，首次运行或移动文件时需要")
-				GUICtrlSetTip($configGUI[8], "保存“配置”选项卡中的所有设置")
-				GUICtrlSetTip($configGUI[9], "将“配置”选项卡中的所有字段恢复为默认值")
-				GUICtrlSetTip($configGUI[10], "简要说明如何设置“配置”选项卡")
+				GUICtrlSetTip($configGUI[9], "运行 Ipconfig 并打开包含信息的文本文件")
+				GUICtrlSetTip($configGUI[10], "以管理员身份运行 Iauthdll.bat，首次运行或移动文件时需要")
+				GUICtrlSetTip($configGUI[11], "保存“配置”选项卡中的所有设置")
+				GUICtrlSetTip($configGUI[12], "将“配置”选项卡中的所有字段恢复为默认值")
+				GUICtrlSetTip($configGUI[13], "简要说明如何设置“配置”选项卡")
 				GUICtrlSetTip($CardEdit, "当前游戏目录的Card.ini数据")
 				GUICtrlSetTip($combo, "计算机上带有接口名称的下拉框")
 				GUICtrlSetTip($iIPAddress, "输入您要使用的 IP 地址")
 				GUICtrlSetTip($iServer, "输入要连接的运行 Server.exe 的计算机的 IP 地址")
-				GUICtrlSetTip($displaymode, "具有窗口或无边框窗口模式的下拉框")
+				GUICtrlSetTip($Resolution, "从列表中选择分辨率，8k 需要将 Windowed 和 BorderlessWindow 设置为 true")
+				GUICtrlSetTip($Windowed, "复选框以启用窗口模式")
+				GUICtrlSetTip($BorderlessWindowed, "勾选以启用无边框窗口模式")
+				GUICtrlSetTip($SkipVideo, "选择选项跳过特定视频，跳过提醒=跳过 10 秒通知视频，跳过品牌=跳过公司徽标，无或全部跳过。")
 				GUICtrlSetTip($controllerGUI[3], "打开 Windows USB 游戏控制器小程序进行按钮配置")
 				GUICtrlSetTip($controllerGUI[4], "打开设备ID检测工具")
 				GUICtrlSetTip($controllerGUI[15], "保存控制器选项卡中的所有设置")
@@ -1323,16 +1406,19 @@ While 1
 				GUICtrlSetTip($baseGUI[5], "Opens the current Card Webpage set in Config.ini")
 				GUICtrlSetTip($baseGUI[6], "Switches the Language to Chinese")
 				GUICtrlSetTip($baseGUI[7], "Exits the Launcher")
-				GUICtrlSetTip($configGUI[6], "Runs Ipconfig and opens text file with information")
-				GUICtrlSetTip($configGUI[7], "Runs Iauthdll.bat as Administrator, Required on first run or if files are moved")
-				GUICtrlSetTip($configGUI[8], "Saves all Settings in Config Tab")
-				GUICtrlSetTip($configGUI[9], "Restore all fields in Config Tab back to Default Value")
-				GUICtrlSetTip($configGUI[10], "Brief how to setup for Config Tab")
+				GUICtrlSetTip($configGUI[9], "Runs Ipconfig and opens text file with information")
+				GUICtrlSetTip($configGUI[10], "Runs Iauthdll.bat as Administrator, Required on first run or if files are moved")
+				GUICtrlSetTip($configGUI[11], "Saves all Settings in Config Tab")
+				GUICtrlSetTip($configGUI[12], "Restore all fields in Config Tab back to Default Value")
+				GUICtrlSetTip($configGUI[13], "Brief how to setup for Config Tab")
 				GUICtrlSetTip($CardEdit, "Card.ini data of current game directory")
 				GUICtrlSetTip($combo, "Dropdown box with Interface Names on computer")
 				GUICtrlSetTip($iIPAddress, "Enter IP Address you wish to use")
 				GUICtrlSetTip($iServer, "Enter IP Address of computer running Server.exe you want to connect to")
-				GUICtrlSetTip($displaymode, "Dropdown box with Windowed or Borderless Windowed Mode")
+				GUICtrlSetTip($Resolution, "Select a resolution from list, 8k requires Windowed and BorderlessWindowed set to true")
+				GUICtrlSetTip($Windowed, "Checkbox to enable Windowed Mode")
+				GUICtrlSetTip($BorderlessWindowed, "Checkbox to enable Borderless Windowed Mode")
+				GUIctrlSetTip($SkipVideo, "Select option to skip specific videos, Skip Reminder=Skips 10 Sec Notice video, Skip Brand=Skips Company Logos, None or Skip All.")
 				GUICtrlSetTip($controllerGUI[3], "Opens up Windows USB Game Controller applet to do button configuration")
 				GUICtrlSetTip($controllerGUI[4], "Opens up the Device ID Detection Tool")
 				GUICtrlSetTip($controllerGUI[15], "Saves all Settings in Controller Tab")
@@ -1385,7 +1471,7 @@ While 1
 		Case $nMsg = $baseGUI[7] ; Case structure for Exit Button in GUI
 			Exit
 
-		Case $nMsg = $configGUI[6] ; Case structure for the IPCONFIG button in the Config Tab to run the ipconfig batch file and open the outputfile.
+		Case $nMsg = $configGUI[9] ; Case structure for the IPCONFIG button in the Config Tab to run the ipconfig batch file and open the outputfile.
 			If FileExists(".\Tools\ipconfig.bat") Then
 			Run(".\Tools\ipconfig.bat")
 			Sleep(1000)
@@ -1394,22 +1480,25 @@ While 1
 			MsgBox (16, "Error", "The file ipconfig.bat is not found. Please make sure you copied the files over to the Game Directory")
 			EndIf
 
-		Case $nMsg = $configGUI[7] ; Case structure for running the iauthdll.bat button
+		Case $nMsg = $configGUI[10] ; Case structure for running the iauthdll.bat button
 			If FileExists(".\AMCUS\iauthdll.bat") Then
 				ShellExecute(".\AMCUS\iauthdll.bat","","","runas")
 			EndIf
 
-		Case $nMsg = $configGUI[8] ; Case structure for Save button on Config Tab, takes all of the data in Input fields and saves to config.ini
+		Case $nMsg = $configGUI[11] ; Case structure for Save button on Config Tab, takes all of the data in Input fields and saves to config.ini
 			_SaveConfig()
 			MsgBox (64, "Success", "Settings Saved",2)
 
-		Case $nMsg = $configGUI[9] ; Case structure for Default button on Config Tab, resets all current data in Input fields to default value
+		Case $nMsg = $configGUI[12] ; Case structure for Default button on Config Tab, resets all current data in Input fields to default value
    			GUICtrlSetData($iIPAddress, $defaultIP)
 			GUICtrlSetData($combo, $defaultInterfaceName)
 			GUICtrlSetData($iServer, $defaultServer)
-			GuiCtrlSetData($displaymode, "Windowed")
+			GUICtrlSetState($Windowed, $GUI_CHECKED)
+			GUICtrlSetState($BorderlessWindowed, $GUI_CHECKED)
+			GuiCtrlSetData($Resolution, "1080p")
+			GUICtrlSetData($SkipVideo, "Skip Reminder")
 
-		Case $nMsg = $configGUI[10] ; Case structure for the How To button in the Config Tab
+		Case $nMsg = $configGUI[13] ; Case structure for the How To button in the Config Tab
 
 			If $currentLang = 1 Then
 			MsgBox(32, "How To", $CNconfigHowTo)
