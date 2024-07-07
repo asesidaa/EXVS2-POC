@@ -30,19 +30,7 @@ jobs:
       run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
     - name: dotnet publish
       run: |
-        dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
-
-    - name: Restore dependencies
-      run: dotnet restore
-      working-directory: ./WebUI/Client
-    - name: Build
-      run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
-      working-directory: ./WebUI/Client
-    - name: dotnet publish
-      run: |
-        dotnet publish -r win-x64 -o "../../Server/publish" -c ${{env.BUILD_CONFIGURATION}} --self-contained
-      working-directory: ./WebUI/Client
-
+        dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}}
     - uses: actions/upload-artifact@v3
       with:
         name: exvs2-poc-server
@@ -65,19 +53,7 @@ jobs:
         run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
       - name: dotnet publish
         run: |
-          dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained
-
-      - name: Restore dependencies
-        run: dotnet restore
-        working-directory: ./WebUIVanilla/Client
-      - name: Build
-        run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
-        working-directory: ./WebUIVanilla/Client
-      - name: dotnet publish
-        run: |
-          dotnet publish -r win-x64 -o "../../Server-Vanilla/publish" -c ${{env.BUILD_CONFIGURATION}} --self-contained
-        working-directory: ./WebUIVanilla/Client
-
+          dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}}
       - uses: actions/upload-artifact@v3
         with:
           name: exvs2-poc-server-vanilla
