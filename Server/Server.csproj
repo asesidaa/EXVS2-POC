@@ -4,6 +4,9 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     </PropertyGroup>
 
     <ItemGroup>
@@ -55,12 +58,9 @@
     <ItemGroup>
       <Folder Include="Migrations" />
     </ItemGroup>
-
-	<ItemGroup Condition="'$(Configuration)'=='Debug'">
-		<ProjectReference Include="..\WebUI\Client\WebUI.Client.csproj" />
-	</ItemGroup>
-	
+    
 	<ItemGroup>
+        <ProjectReference Include="..\WebUI\Client\WebUI.Client.csproj" />
 		<ProjectReference Include="..\WebUI\Shared\WebUI.Shared.csproj" />
 	</ItemGroup>
 
