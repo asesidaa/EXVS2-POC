@@ -4,7 +4,7 @@ using Server.Models.Cards;
 using Server.Persistence;
 using WebUI.Shared.Dto.Enum;
 
-namespace Server.Command.SaveBattle;
+namespace Server.Commands.SaveBattle;
 
 public class SaveEchelonCommand : ISaveBattleCommand
 {

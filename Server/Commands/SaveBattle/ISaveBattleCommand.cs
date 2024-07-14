@@ -2,7 +2,7 @@
 using Server.Context.Battle;
 using Server.Models.Cards;
 
-namespace Server.Command.SaveBattle;
+namespace Server.Commands.SaveBattle;
 
 public interface ISaveBattleCommand
 {
