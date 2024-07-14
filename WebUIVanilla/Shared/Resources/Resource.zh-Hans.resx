@@ -882,4 +882,41 @@
   <data name="team_leaderboard_partner_rank" xml:space="preserve">
     <value>队友段位</value>
   </data>
+
+  <data name="echelon_info" xml:space="preserve">
+    <value>军阶情报</value>
+  </data>
+  <data name="test_progress" xml:space="preserve">
+    <value>升格试验进度</value>
+  </data>
+  <data name="cancel_test" xml:space="preserve">
+    <value>退出特别升格试验</value>
+  </data>
+  <data name="join_test" xml:space="preserve">
+    <value>参加特别升格试验</value>
+  </data>
+  <data name="participate_in_echelon_test" xml:space="preserve">
+    <value>确定参加特别升格试验? 即使参加了，你也可以在任何时间退出。</value>
+  </data>
+  <data name="quit_echelon_test" xml:space="preserve">
+    <value>确定退出特别升格试验? 所有特别升格试验进度将会被重设。</value>
+  </data>
+  <data name="echelon_test_dialog_cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="echelon_test_dialog_proceed" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="update_echelon_test_setting_failed" xml:space="preserve">
+    <value>更新特别升格试验设定失败</value>
+  </data>
+  <data name="update_echelon_test_setting_success" xml:space="preserve">
+    <value>更新特别升格试验设定成功</value>
+  </data>
+  <data name="test_progress_prefix" xml:space="preserve">
+    <value>需要3次</value>
+  </data>
+  <data name="test_progress_suffix" xml:space="preserve">
+    <value>连胜以通过特别升格试验。</value>
+  </data>
 </root>

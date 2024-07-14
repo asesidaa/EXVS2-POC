@@ -32,7 +32,7 @@
             </MudCardHeader>
             <MudCardContent>
                 <MudStack>
-                    <MudItem xs="8">
+                    <MudItem xs="12">
                         <MudForm>
                             <MudTextField @bind-Value="BasicProfile.UserName"
                                           Immediate="true"
@@ -43,7 +43,17 @@
                                           Validation="NameValidator.ValidatePlayerName" />
                         </MudForm>
                     </MudItem>
-                    <MudItem xs="8">
+                    <MudItem xs="12">
+                        <MudItem xs="12">
+                            <WebUIVanilla.Client.Pages.Components.Customize.Inner.EchelonComponent
+                                EchelonProfile="@EchelonProfile"
+                                EnableImagePreview="@EnableImagePreview"
+                                ChipId="@ChipId"
+                                AccessCode="@AccessCode"
+                                OnChanged="@(() => StateHasChanged())" />
+                        </MudItem>
+                    </MudItem>
+                    <MudItem xs="12">
                         <MudSelect @bind-Value="BasicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
                                    Label="@localizer["bgmplaytype"]" Variant="Variant.Outlined" ToStringFunc="@converter">
                             @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
@@ -52,9 +62,9 @@
                             }
                         </MudSelect>
                     </MudItem>
-                    <MudItem xs="10">
+                    <MudItem xs="12">
                         <MudGrid Class="align-center">
-                            <MudItem xs="10">
+                            <MudItem xs="10" sm="11">
                                 <MudExpansionPanels>
                                     <MudExpansionPanel Text="@localizer["bgmlistorder"]">
                                         <MudSimpleTable Style="overflow-x: auto;">
@@ -80,20 +90,20 @@
                                     </MudExpansionPanel>
                                 </MudExpansionPanels>
                             </MudItem>
-                            <MudItem xs="2">
+                            <MudItem xs="2" sm="1">
                                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                                                OnClick="() => OpenProfileChangeBgmOrderDialog()" />
                             </MudItem>
                         </MudGrid>
                     </MudItem>
-                    <MudItem xs="10">
+                    <MudItem xs="12">
                         <MudGrid Class="align-center">
-                            <MudItem xs="10">
+                            <MudItem xs="10" sm="11">
                                 <MudField Label="@localizer["gauge"]" Variant="Variant.Outlined">
                                     <MudText Align="Align.Center">@NameService.GetGaugeName(BasicProfile.DefaultGaugeDesignId)</MudText>
                                 </MudField>
                             </MudItem>
-                            <MudItem xs="2">
+                            <MudItem xs="2" sm="1">
                                 <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
                                                OnClick="() => OpenProfileChangeGaugeDialog()" />
                             </MudItem>
@@ -145,6 +155,9 @@
 @code{
     [Parameter]
     public BasicProfile BasicProfile { get; set; } = new();
+    
+    [Parameter]
+    public EchelonProfile EchelonProfile { get; set; } = new();
 
     [Parameter]
     public bool EnableImagePreview { get; set; } = false;

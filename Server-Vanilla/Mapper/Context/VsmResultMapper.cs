@@ -20,6 +20,14 @@ public static partial class VsmResultMapper
         new[] { nameof(BattleResultContext.EchelonDomain), nameof(BattleResultContext.EchelonDomain.EchelonExp) }
     )]
     [MapProperty(
+        new[] { nameof(Request.SaveVsmResult.PlayResultGroup.SEchelonFlag) },
+        new[] { nameof(BattleResultContext.EchelonDomain), nameof(BattleResultContext.EchelonDomain.SEchelonFlag) }
+    )]
+    [MapProperty(
+        new[] { nameof(Request.SaveVsmResult.PlayResultGroup.SEchelonProgress) },
+        new[] { nameof(BattleResultContext.EchelonDomain), nameof(BattleResultContext.EchelonDomain.SEchelonProgress) }
+    )]
+    [MapProperty(
         new[] { nameof(Request.SaveVsmResult.PlayResultGroup.GuestNavId) },
         new[] { nameof(BattleResultContext.NaviDomain), nameof(BattleResultContext.NaviDomain.GuestNavId) }
     )]

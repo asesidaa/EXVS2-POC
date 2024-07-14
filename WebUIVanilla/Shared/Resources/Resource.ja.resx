@@ -690,4 +690,41 @@
   <data name="team_leaderboard_partner_rank" xml:space="preserve">
     <value>Partner Tier</value>
   </data>
+
+  <data name="echelon_info" xml:space="preserve">
+    <value>Echelon Info</value>
+  </data>
+  <data name="test_progress" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="cancel_test" xml:space="preserve">
+    <value>Quit Special Promotion Exam</value>
+  </data>
+  <data name="join_test" xml:space="preserve">
+    <value>Take Special Promotion Exam</value>
+  </data>
+  <data name="participate_in_echelon_test" xml:space="preserve">
+    <value>Are you sure to take Special Promotion Exam? You can quit the Exam anytime you like even after taking the Exam.</value>
+  </data>
+  <data name="quit_echelon_test" xml:space="preserve">
+    <value>Are you sure to quit Special Promotion Exam? All progress of Exam will be cleared.</value>
+  </data>
+  <data name="echelon_test_dialog_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="echelon_test_dialog_proceed" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="update_echelon_test_setting_failed" xml:space="preserve">
+    <value>Update Special Promotion Exam setting failed</value>
+  </data>
+  <data name="update_echelon_test_setting_success" xml:space="preserve">
+    <value>Update Special Promotion Exam setting successful</value>
+  </data>
+  <data name="test_progress_prefix" xml:space="preserve">
+    <value>3 times of </value>
+  </data>
+  <data name="test_progress_suffix" xml:space="preserve">
+    <value> Consecutive Wins are required in order to pass Special Promotion Exam.</value>
+  </data>
 </root>

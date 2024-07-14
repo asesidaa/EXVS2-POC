@@ -1,0 +1,73 @@
+﻿@using WebUIVanilla.Shared.Dto.Common
+@using WebUIVanilla.Shared.Dto.Request
+@using WebUIVanilla.Shared.Dto.Response
+
+@inject ISnackbar Snackbar
+@inject HttpClient Http
+
+<MudDialog>
+    <DialogContent>
+        <MudText>@DialogText</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">@localizer["echelon_test_dialog_cancel"]</MudButton>
+        @{
+            var color = Color.Primary;
+
+            if (!ParticipateInTest)
+            {
+                color = Color.Error;
+            }
+        }
+        <MudButton Color="@color" Variant="Variant.Filled" OnClick="Submit">@localizer["echelon_test_dialog_proceed"]</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    [CascadingParameter] 
+    MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter] 
+    public string DialogText { get; set; } = string.Empty;
+    
+    [Parameter] 
+    public bool ParticipateInTest { get; set; } = false;
+
+    [Parameter] 
+    public EchelonProfile EchelonProfile { get; set; } = new();
+    
+    [Parameter]
+    public string ChipId { get; set; } = string.Empty;
+
+    [Parameter]
+    public string AccessCode { get; set; } = string.Empty;
+
+    [Parameter]
+    public EventCallback CallBackAfterSubmit { get; set; }
+    
+    void Cancel() => MudDialog.Cancel();
+    
+    private async void Submit()
+    {
+        var updateRequest = new UpdateEchelonTestSettingRequest()
+        {
+            AccessCode = AccessCode,
+            ChipId = ChipId,
+            ParticipateInTest = ParticipateInTest
+        };
+        
+        var updateHttpCall = await Http.PostAsJsonAsync("/card/updateEchelonTestSetting", updateRequest);
+        var updateResult = await updateHttpCall.Content.ReadFromJsonAsync<BasicResponse>();
+        
+        if (updateResult is null)
+        {
+            Snackbar.Add($"{localizer["update_echelon_test_setting_failed"]}", Severity.Warning);
+            return;
+        }
+
+        EchelonProfile.AppliedForSpecialEchelonTest = ParticipateInTest;
+        Snackbar.Add($"{localizer["update_echelon_test_setting_success"]}", Severity.Success);
+        
+        await CallBackAfterSubmit.InvokeAsync();
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+}
