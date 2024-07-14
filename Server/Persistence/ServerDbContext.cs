@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Server.Models.Cards;
+using Server.Models.Common;
 
 namespace Server.Persistence
 {
@@ -11,6 +12,7 @@ namespace Server.Persistence
             
         }
 
+        public DbSet<EchelonSetting> EchelonSettings { get; set; }
         public DbSet<CardProfile> CardProfiles { get; set; }
         public DbSet<OfflinePvpBattleResult> OfflinePvpBattleResults { get; set; }
         public DbSet<Snapshot> Snapshots { get; set; }
