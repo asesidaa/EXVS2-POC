@@ -28,7 +28,8 @@ public class DataService : IDataService
     private Dictionary<uint, GeneralPreview> teamEffects = new();
     private Dictionary<uint, GeneralPreview> teamEmblems = new();
     private Dictionary<uint, TagTeamMastery> tagTeamMasteries = new();
-
+    private Dictionary<uint, EchelonData> echelonDatas = new();
+    
     private List<IdValuePair> sortedDisplayOptionList = new();
     private List<IdValuePair> sortedEchelonDisplayOptionList = new();
     private List<MobileSuit> sortedMobileSuitList = new();
@@ -52,6 +53,7 @@ public class DataService : IDataService
     private List<GeneralPreview> sortedTeamEffectList = new();
     private List<GeneralPreview> sortedTeamEmblemList = new();
     private List<TagTeamMastery> sortedTagTeamMasteryList = new();
+    private List<EchelonData> sortedEchelonDataList = new();
 
     private readonly HttpClient client;
     private readonly ILogger<DataService> logger;
@@ -68,6 +70,11 @@ public class DataService : IDataService
         displayOptionList.ThrowIfNull();
         displayOptions = displayOptionList.ToDictionary(pair => pair.Id);
         sortedDisplayOptionList = displayOptionList.OrderBy(title => title.Id).ToList();
+
+        var echelonDataList = await client.GetFromJsonAsync<List<EchelonData>>("data/EchelonData.json");
+        echelonDataList.ThrowIfNull();
+        echelonDatas = echelonDataList.ToDictionary(echelon => echelon.Id);
+        sortedEchelonDataList = echelonDataList.OrderBy(echelon => echelon.Id).ToList();
         
         var echelonDisplayOptionList = await client.GetFromJsonAsync<List<IdValuePair>>("data/EchelonDisplayOptions.json");
         echelonDisplayOptionList.ThrowIfNull();
@@ -404,5 +411,10 @@ public class DataService : IDataService
     public IReadOnlyList<TagTeamMastery> GetTagTeamMasterySortedById()
     {
         return sortedTagTeamMasteryList;
+    }
+    
+    public EchelonData? GetEchelonDataById(uint id)
+    {
+        return echelonDatas.GetValueOrDefault(id);
     }
 }
