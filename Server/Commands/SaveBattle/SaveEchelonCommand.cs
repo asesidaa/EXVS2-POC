@@ -82,12 +82,16 @@ public class SaveEchelonCommand : ISaveBattleCommand
 
         if (loadPlayer.EchelonId == SCaptainEchelon)
         {
+            loadPlayer.SEchelonProgress = 0;
+            loadPlayer.SEchelonFlag = true;
             loadPlayer.SCaptainFlag = true;
             return;
         }
 
         if (loadPlayer.EchelonId == SBrigadierEchelon)
         {
+            loadPlayer.SEchelonProgress = 0;
+            loadPlayer.SEchelonFlag = true;
             loadPlayer.SBrigadierFlag = true;
         }
     }
