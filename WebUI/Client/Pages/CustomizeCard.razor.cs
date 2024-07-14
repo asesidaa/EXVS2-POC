@@ -32,6 +32,7 @@ public partial class CustomizeCard
     private bool EnableImagePreview { get; set; } = false;
 
     private BasicProfile _basicProfile = null!;
+    private EchelonProfile _echelonProfile = null!;
     private NaviProfile _naviProfile  = null!;
     private ObservableCollection<FavouriteMs> _favouriteMs  = new();
     private ObservableCollection<MobileSuitWithSkillGroup> _mobileSuitsSkillGroups = new();
@@ -109,6 +110,9 @@ public partial class CustomizeCard
         {
             var profileResult = await Http.GetFromJsonAsync<BasicProfile>($"/card/getBasicDisplayProfile/{AccessCode}/{ChipId}");
             profileResult.ThrowIfNull();
+            
+            var echelonResult = await Http.GetFromJsonAsync<EchelonProfile>($"/card/getEchelonProfile/{AccessCode}/{ChipId}");
+            echelonResult.ThrowIfNull();
 
             var naviResult = await Http.GetFromJsonAsync<NaviProfile>($"/card/getNaviProfile/{AccessCode}/{ChipId}");
             naviResult.ThrowIfNull();
@@ -238,6 +242,7 @@ public partial class CustomizeCard
                 .ToList();
 
             _basicProfile = profileResult;
+            _echelonProfile = echelonResult;
             _naviProfile = naviResult;
             _favouriteMs = new ObservableCollection<FavouriteMs>(favouriteResult);
             _mobileSuitsSkillGroups = new ObservableCollection<MobileSuitWithSkillGroup>(msWithAltCostumes);

@@ -49,7 +49,9 @@
 <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
 <MudTabPanel Text="@localizer["generalcardinfo"]">
     <WebUI.Client.Pages.Components.Customize.CustomizeGeneralInfo 
-        BasicProfile="@_basicProfile" HideProgress="@HideProfileProgress" 
+        BasicProfile="@_basicProfile" HideProgress="@HideProfileProgress"
+        EchelonProfile="@_echelonProfile"
+        AccessCode="@AccessCode" ChipId="@ChipId"
         SaveTask="SaveBasicProfile" EnableImagePreview="@EnableImagePreview" />
 </MudTabPanel>
 <MudTabPanel Text="@localizer["navisetting"]">
