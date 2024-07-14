@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Commands.SaveBattle;
+using Server.Mappers.Context;
 using Server.Models.Cards;
 using Server.Persistence;
 using WebUI.Shared.Dto.Enum;
@@ -61,6 +63,10 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         
         
         var resultFromRequest = request.Request.save_vsm_result.Result;
+        
+        var battleResultContext = resultFromRequest.ToBattleResultContext();
+        battleResultContext.CommonDomain.BattleMode = request.Request.save_vsm_result.ShuffleFlag ? BattleModeConstant.OfflineSolo : BattleModeConstant.OfflineTeam;
+        
         var favouriteMsList = user.FavoriteMobileSuits;
         
         var oldEchelonId = loadPlayer.EchelonId;
@@ -85,33 +91,6 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         };
 
         SavePartnerAndFoeData(resultFromRequest, pvpBattleResult);
-
-        if (loadPlayer.EchelonId is 22 or 37)
-        {
-            if (resultFromRequest.EchelonId is 23 or 38)
-            {
-                loadPlayer.SEchelonMissionFlag = true;
-            }
-        }
-        
-        loadPlayer.EchelonId = resultFromRequest.EchelonId;
-        loadPlayer.EchelonExp += resultFromRequest.EchelonExp;
-        loadPlayer.SEchelonFlag = resultFromRequest.SEchelonFlag;
-        loadPlayer.SEchelonProgress = resultFromRequest.SEchelonProgress;
-
-        if (resultFromRequest.SEchelonProgress == 3)
-        {
-            loadPlayer.SEchelonMissionFlag = false;
-            switch(resultFromRequest.EchelonId) 
-            {
-                case 23:
-                    loadPlayer.SCaptainFlag = true;
-                    break;
-                case 38:
-                    loadPlayer.SBrigadierFlag = true;
-                    break;
-            }
-        }
         
         user.Gp += resultFromRequest.Gp;
 
@@ -120,6 +99,13 @@ public class SaveVsmResultCommandHandler : IRequestHandler<SaveVsmResultCommand,
         UpsertMsUsedNum(resultFromRequest, pilotData, favouriteMsList);
         
         UpdateTagTeam(resultFromRequest, pilotId);
+        
+        var saveBattleDataCommands = new List<ISaveBattleCommand>()
+        {
+            new SaveEchelonCommand(_context)
+        };
+        
+        saveBattleDataCommands.ForEach(command => command.Save(cardProfile, loadPlayer, user, pilotData, mobileUser, battleResultContext));
         
         cardProfile.OfflinePvpBattleResults.Add(pvpBattleResult);
         cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
