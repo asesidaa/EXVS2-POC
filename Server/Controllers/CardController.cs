@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Server.Handlers.Card;
+using Server.Handlers.Card.Echelon;
 using Server.Handlers.Card.Gamepad;
 using Server.Handlers.Card.Message;
 using Server.Handlers.Card.MobileSuit;
@@ -67,6 +68,13 @@ public class CardController : BaseController<CardController>
         return response;
     }
 
+    [HttpPost("updateEchelonTestSetting")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateEchelonTestSetting([FromBody] UpdateEchelonTestSettingRequest request)
+    {
+        var response = await mediator.Send(new UpdateEchelonTestSettingCommand(request));
+        return response;
+    }
 
     [HttpGet("getNaviProfile/{accessCode}/{chipId}")]
     [Produces("application/json")]

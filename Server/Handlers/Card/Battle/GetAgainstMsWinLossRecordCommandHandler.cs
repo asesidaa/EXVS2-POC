@@ -13,10 +13,12 @@ public record GetAgainstMsWinLossRecordCommand(string AccessCode, string ChipId,
 public class GetAgainstMsWinLossRecordCommandHandler : IRequestHandler<GetAgainstMsWinLossRecordCommand, List<MsBattleRecord>>
 {
     private readonly ServerDbContext context;
+    private readonly ILogger<GetAgainstMsWinLossRecordCommand> _logger;
     
-    public GetAgainstMsWinLossRecordCommandHandler(ServerDbContext context)
+    public GetAgainstMsWinLossRecordCommandHandler(ServerDbContext context, ILogger<GetAgainstMsWinLossRecordCommand> logger)
     {
         this.context = context;
+        _logger = logger;
     }
 
     public Task<List<MsBattleRecord>> Handle(GetAgainstMsWinLossRecordCommand request, CancellationToken cancellationToken)
@@ -57,6 +59,7 @@ public class GetAgainstMsWinLossRecordCommandHandler : IRequestHandler<GetAgains
                     return;
                 }
                 
+                var foesSize = detailResult.Foes.Count;
                 if (detailResult.Foes[0].CpuFlag == 1)
                 {
                     return;
@@ -66,6 +69,11 @@ public class GetAgainstMsWinLossRecordCommandHandler : IRequestHandler<GetAgains
 
                 UpsertMsBattleRecord(battleRecords, msId1, result);
 
+                if (foesSize == 1)
+                {
+                    return;
+                }
+                
                 if (detailResult.Foes[1].CpuFlag == 1)
                 {
                     return;

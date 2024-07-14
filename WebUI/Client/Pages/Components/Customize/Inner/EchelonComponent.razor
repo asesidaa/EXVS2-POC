@@ -1,0 +1,172 @@
+﻿@using WebUI.Client.Validator
+@using WebUI.Shared.Dto.Common
+@using WebUI.Client.Pages.Dialogs
+@using WebUI.Client.Services
+@inject INameValidator NameValidator
+@inject IDataService DataService
+@inject IDialogService DialogService
+
+<MudCard Outlined="true" Class="my-2" Elevation="5">
+    <MudCardHeader>
+        <MudText>@localizer["echelon_info"]</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudGrid>
+            @{
+                var echelonData = DataService.GetEchelonDataById(EchelonProfile.EchelonId);
+                
+                var echelonString = EchelonProfile.EchelonId.ToString();
+                var showCaptain = EchelonProfile.EchelonId == 23 && EchelonProfile.SCaptainFlag;
+                var showBrigadier = EchelonProfile.EchelonId == 38 && EchelonProfile.SBrigadierFlag;
+                
+                if (EchelonProfile.SpecialEchelonFlag)
+                {
+                    if (showCaptain || showBrigadier)
+                    {
+                        echelonString += "_SP";
+                    }
+                }
+                
+                var imagePath = $"images/echelons/{echelonString}.png";
+
+                var minExp = 0;
+                var maxExp = 0;
+                var targetExp = 0;
+                var displayExp = EchelonProfile.EchelonExp;
+                
+                if (echelonData is not null)
+                {
+                    minExp = echelonData.DownThreshold;
+                    maxExp = echelonData.ExpWidth;
+                    targetExp = echelonData.ExpWidth;
+                }
+
+                if (displayExp > targetExp)
+                {
+                    displayExp = targetExp;
+                }
+
+                var gradeForTest = EchelonProfile.EchelonId is 23 or 38;
+                var canJoinTest = false;
+                var canCancelTest = false;
+                var consecutiveWinRequirement = 0;
+                if (gradeForTest)
+                {
+                    if (EchelonProfile.EchelonId == 23)
+                    {
+                        consecutiveWinRequirement = 5;
+                        canJoinTest = !showCaptain && !EchelonProfile.AppliedForSpecialEchelonTest;
+                        canCancelTest = !showCaptain && EchelonProfile.AppliedForSpecialEchelonTest;
+                    }
+                    
+                    if (EchelonProfile.EchelonId == 38)
+                    {
+                        consecutiveWinRequirement = 7;
+                        canJoinTest = !showBrigadier && !EchelonProfile.AppliedForSpecialEchelonTest;
+                        canCancelTest = !showBrigadier && EchelonProfile.AppliedForSpecialEchelonTest;
+                    }
+                }
+            }
+            <MudItem xs="12" sm="3" Class="my-auto">
+                <div class="d-flex justify-center">
+                    <MudImage Src="@imagePath" ObjectPosition="ObjectPosition.Center" Class="my-auto" Fluid="true" Width="120" ObjectFit="ObjectFit.Cover"/>
+                </div>
+            </MudItem>
+            <MudItem xs="12" sm="9" Class="mx-auto my-auto">
+                <MudProgressLinear Rounded="true" Color="Color.Tertiary" Striped="true" Size="Size.Large"
+                                   Min="@minExp" Max="@maxExp"
+                                   Value="@displayExp" Class="my-2">
+                </MudProgressLinear>
+                <MudText Typo="Typo.subtitle2" Align="Align.Center">
+                    <b>EXP: @displayExp / @targetExp</b>
+                </MudText>
+            </MudItem>
+            @{
+                if (gradeForTest)
+                {
+                    if (EchelonProfile.AppliedForSpecialEchelonTest)
+                    {
+                        <MudItem xs="12" Class="mx-auto my-auto">
+                            <MudProgressLinear Rounded="true" Color="Color.Tertiary" Striped="true" Size="Size.Large"
+                                               Min="0" Max="3"
+                                               Value="@EchelonProfile.SpecialEchelonTestProgress" Class="my-2">
+                            </MudProgressLinear>
+                            <MudText Typo="Typo.subtitle2" Align="Align.Center">
+                                <b>@localizer["test_progress"]: @EchelonProfile.SpecialEchelonTestProgress / 3</b>
+                            </MudText>
+                        </MudItem>
+                        <MudItem xs="12">
+                            @localizer["test_progress_prefix"]@consecutiveWinRequirement@localizer["test_progress_suffix"] 
+                        </MudItem>
+                    }
+                    
+                    <MudItem xs="12" sm="6" Class="my-auto">
+                        <MudButton Variant="Variant.Filled" Color="Color.Warning" FullWidth="true"
+                                   Disabled="@(!canCancelTest)" OnClick="() => TriggerParticipateTestDialog(false)">
+                            @localizer["cancel_test"]
+                        </MudButton>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" Class="my-auto">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true"
+                                   Disabled="@(!canJoinTest)" OnClick="() => TriggerParticipateTestDialog(true)">
+                            @localizer["join_test"]
+                        </MudButton>
+                    </MudItem>
+                }
+            }
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+@code{
+    [Parameter]
+    public EchelonProfile EchelonProfile { get; set; } = new();
+    
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+    
+    [Parameter]
+    public string ChipId { get; set; } = string.Empty;
+
+    [Parameter]
+    public string AccessCode { get; set; } = string.Empty;
+    
+    [Parameter]
+    public EventCallback OnChanged { get; set; }
+    
+    public const bool ForDataCollection = false;
+    
+    private void TriggerParticipateTestDialog(bool participateInTest)
+    {
+        var parameters = new DialogParameters<EchelonTestDialog>();
+        var headline = localizer["join_test"];
+
+        if (participateInTest)
+        {
+            parameters.Add(x => x.DialogText, localizer["participate_in_echelon_test"]);
+        }
+        else
+        {
+            parameters.Add(x => x.DialogText, localizer["quit_echelon_test"]);
+            headline = localizer["cancel_test"];
+        }
+        
+        parameters.Add(x => x.ParticipateInTest, participateInTest);
+        parameters.Add(x => x.EchelonProfile, EchelonProfile);
+        parameters.Add(x => x.ChipId, ChipId);
+        parameters.Add(x => x.AccessCode, AccessCode);
+        parameters.Add(x => x.CallBackAfterSubmit, OnChanged);
+
+        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+        DialogService.Show<EchelonTestDialog>(headline, parameters, options);
+    }
+    
+    private static readonly DialogOptions DialogOptions = new()
+    {
+        CloseOnEscapeKey = false,
+        DisableBackdropClick = true,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}

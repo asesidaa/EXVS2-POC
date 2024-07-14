@@ -8,7 +8,7 @@
         <SelfContained>true</SelfContained>
         <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     </PropertyGroup>
-
+    
     <ItemGroup>
       <Compile Remove="Extensions\**" />
       <Compile Remove="Services\**" />

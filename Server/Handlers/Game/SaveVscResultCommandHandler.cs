@@ -2,8 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using nue.protocol.exvs;
+using Server.Commands.SaveBattle;
+using Server.Mappers.Context;
 using Server.Models.Cards;
 using Server.Persistence;
+using WebUI.Shared.Dto.Enum;
 
 namespace Server.Handlers.Game;
 
@@ -78,11 +81,11 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
             FullBattleResultJson = JsonConvert.SerializeObject(resultFromRequest)
         };
         
+        var battleResultContext = resultFromRequest.ToBattleResultContext();
+        battleResultContext.CommonDomain.BattleMode = BattleModeConstant.Triad;
+        
         var favouriteMsList = user.FavoriteMobileSuits;
         
-        loadPlayer.EchelonId = resultFromRequest.EchelonId;
-        loadPlayer.EchelonExp += resultFromRequest.EchelonExp;
-        loadPlayer.SEchelonFlag = resultFromRequest.SEchelonFlag;
         user.Gp += resultFromRequest.Gp;
         
         UpdateNaviFamiliarity(resultFromRequest, user);
@@ -99,6 +102,15 @@ public class SaveVscResultCommandHandler : IRequestHandler<SaveVscResultCommand,
         UpsertRankData(resultFromRequest, loadPlayer, pilotData);
         
         UpdateTagTeam(resultFromRequest, pilotId);
+        
+        var saveBattleDataCommands = new List<ISaveBattleCommand>()
+        {
+            new SaveEchelonCommand(_context)
+        };
+        
+        saveBattleDataCommands.ForEach(command => command.Save(cardProfile, loadPlayer, user, pilotData, mobileUser, battleResultContext));
+
+        triadBattleResult.EchelonIdAfterBattle = loadPlayer.EchelonId;
         
         cardProfile.TriadBattleResults.Add(triadBattleResult);
         
