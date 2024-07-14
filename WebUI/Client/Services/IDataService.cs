@@ -58,4 +58,5 @@ public interface IDataService
     public IReadOnlyList<GeneralPreview> GetTeamBackgroundsSortedById();
     public TagTeamMastery? GetTagTeamMasteryById(uint id);
     public IReadOnlyList<TagTeamMastery> GetTagTeamMasterySortedById();
+    public EchelonData? GetEchelonDataById(uint id);
 }

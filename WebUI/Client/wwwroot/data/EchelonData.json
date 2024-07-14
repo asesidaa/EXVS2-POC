@@ -1,0 +1,338 @@
+﻿[
+  {
+    "Id": 0,
+    "Name": "民間人",
+    "ExpWidth": 1,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 1,
+    "Name": "新兵",
+    "ExpWidth": 100,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 2,
+    "Name": "二等兵",
+    "ExpWidth": 100,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 3,
+    "Name": "一等兵",
+    "ExpWidth": 150,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 4,
+    "Name": "上等兵",
+    "ExpWidth": 300,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 5,
+    "Name": "伍長",
+    "ExpWidth": 300,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 6,
+    "Name": "軍曹",
+    "ExpWidth": 500,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 7,
+    "Name": "曹長",
+    "ExpWidth": 750,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 8,
+    "Name": "准尉",
+    "ExpWidth": 500,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 9,
+    "Name": "少尉1",
+    "ExpWidth": 500,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 10,
+    "Name": "少尉2",
+    "ExpWidth": 500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 11,
+    "Name": "少尉3",
+    "ExpWidth": 500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 12,
+    "Name": "少尉4",
+    "ExpWidth": 500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 13,
+    "Name": "少尉5",
+    "ExpWidth": 1000,
+    "DownThreshold": -450
+  },
+  {
+    "Id": 14,
+    "Name": "中尉1",
+    "ExpWidth": 1000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 15,
+    "Name": "中尉2",
+    "ExpWidth": 1000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 16,
+    "Name": "中尉3",
+    "ExpWidth": 1000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 17,
+    "Name": "中尉4",
+    "ExpWidth": 1000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 18,
+    "Name": "中尉5",
+    "ExpWidth": 3000,
+    "DownThreshold": -400
+  },
+  {
+    "Id": 19,
+    "Name": "大尉1",
+    "ExpWidth": 1500,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 20,
+    "Name": "大尉2",
+    "ExpWidth": 1500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 21,
+    "Name": "大尉3",
+    "ExpWidth": 1500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 22,
+    "Name": "大尉4",
+    "ExpWidth": 1500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 23,
+    "Name": "大尉5",
+    "ExpWidth": 4000,
+    "DownThreshold": -400
+  },
+  {
+    "Id": 24,
+    "Name": "少佐1",
+    "ExpWidth": 2000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 25,
+    "Name": "少佐2",
+    "ExpWidth": 2500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 26,
+    "Name": "少佐3",
+    "ExpWidth": 2500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 27,
+    "Name": "少佐4",
+    "ExpWidth": 2500,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 28,
+    "Name": "少佐5",
+    "ExpWidth": 6000,
+    "DownThreshold": -400
+  },
+  {
+    "Id": 29,
+    "Name": "中佐1",
+    "ExpWidth": 10000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 30,
+    "Name": "中佐2",
+    "ExpWidth": 10000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 31,
+    "Name": "中佐3",
+    "ExpWidth": 10000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 32,
+    "Name": "中佐4",
+    "ExpWidth": 10000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 33,
+    "Name": "中佐5",
+    "ExpWidth": 20000,
+    "DownThreshold": -350
+  },
+  {
+    "Id": 34,
+    "Name": "大佐1",
+    "ExpWidth": 15000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 35,
+    "Name": "大佐2",
+    "ExpWidth": 15000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 36,
+    "Name": "大佐3",
+    "ExpWidth": 15000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 37,
+    "Name": "大佐4",
+    "ExpWidth": 15000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 38,
+    "Name": "大佐5",
+    "ExpWidth": 30000,
+    "DownThreshold": -350
+  },
+  {
+    "Id": 39,
+    "Name": "少将1",
+    "ExpWidth": 18000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 40,
+    "Name": "少将2",
+    "ExpWidth": 18000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 41,
+    "Name": "少将3",
+    "ExpWidth": 18000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 42,
+    "Name": "少将4",
+    "ExpWidth": 18000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 43,
+    "Name": "少将5",
+    "ExpWidth": 30000,
+    "DownThreshold": -350
+  },
+  {
+    "Id": 44,
+    "Name": "中将1",
+    "ExpWidth": 20000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 45,
+    "Name": "中将2",
+    "ExpWidth": 20000,
+    "DownThreshold": -250
+  },
+  {
+    "Id": 46,
+    "Name": "中将3",
+    "ExpWidth": 20000,
+    "DownThreshold": -250
+  },
+  {
+    "Id": 47,
+    "Name": "中将4",
+    "ExpWidth": 20000,
+    "DownThreshold": -250
+  },
+  {
+    "Id": 48,
+    "Name": "中将5",
+    "ExpWidth": 35000,
+    "DownThreshold": -350
+  },
+  {
+    "Id": 49,
+    "Name": "大将1",
+    "ExpWidth": 25000,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 50,
+    "Name": "大将2",
+    "ExpWidth": 25000,
+    "DownThreshold": -200
+  },
+  {
+    "Id": 51,
+    "Name": "大将3",
+    "ExpWidth": 25000,
+    "DownThreshold": -200
+  },
+  {
+    "Id": 52,
+    "Name": "大将4",
+    "ExpWidth": 25000,
+    "DownThreshold": -200
+  },
+  {
+    "Id": 53,
+    "Name": "大将5",
+    "ExpWidth": 50000,
+    "DownThreshold": -300
+  },
+  {
+    "Id": 54,
+    "Name": "元帥",
+    "ExpWidth": 500,
+    "DownThreshold": 0
+  },
+  {
+    "Id": 55,
+    "Name": "大元帥",
+    "ExpWidth": 0,
+    "DownThreshold": 0
+  }
+]
