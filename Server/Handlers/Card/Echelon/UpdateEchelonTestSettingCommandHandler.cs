@@ -62,6 +62,7 @@ public class UpdateEchelonTestSettingCommandHandler : IRequestHandler<UpdateEche
                 break;
         }
 
+        cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
         context.SaveChanges();
         
         return Task.FromResult(new BasicResponse
