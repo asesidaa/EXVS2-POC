@@ -9,7 +9,7 @@ namespace ServerVanilla.Handlers.Card.Echelon;
 
 public record UpdateEchelonTestSettingCommand(UpdateEchelonTestSettingRequest Request) : IRequest<BasicResponse>;
 
-public class UpdateEchelonTestSettingCommandHandler
+public class UpdateEchelonTestSettingCommandHandler : IRequestHandler<UpdateEchelonTestSettingCommand, BasicResponse>
 {
     private readonly ServerDbContext _context;
     
