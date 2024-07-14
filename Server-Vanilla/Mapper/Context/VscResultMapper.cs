@@ -20,6 +20,14 @@ public static partial class VscResultMapper
         new[] { nameof(BattleResultContext.EchelonDomain), nameof(BattleResultContext.EchelonDomain.EchelonExp) }
     )]
     [MapProperty(
+        new[] { nameof(Request.SaveVscResult.PlayResultGroup.SEchelonFlag) },
+        new[] { nameof(BattleResultContext.EchelonDomain), nameof(BattleResultContext.EchelonDomain.SEchelonFlag) }
+    )]
+    [MapProperty(
+        new[] { nameof(Request.SaveVscResult.PlayResultGroup.SEchelonProgress) },
+        new[] { nameof(BattleResultContext.EchelonDomain), nameof(BattleResultContext.EchelonDomain.SEchelonProgress) }
+    )]
+    [MapProperty(
         new[] { nameof(Request.SaveVscResult.PlayResultGroup.GuestNavId) },
         new[] { nameof(BattleResultContext.NaviDomain), nameof(BattleResultContext.NaviDomain.GuestNavId) }
     )]
