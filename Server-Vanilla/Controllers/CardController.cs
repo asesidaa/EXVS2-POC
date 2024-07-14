@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ServerVanilla.Handlers.Card;
+using ServerVanilla.Handlers.Card.Echelon;
 using ServerVanilla.Handlers.Card.Gamepad;
 using ServerVanilla.Handlers.Card.Message;
 using ServerVanilla.Handlers.Card.MobileSuit;
@@ -57,15 +58,22 @@ public class CardController : BaseController<CardController>
         var response = await _mediator.Send(new UpdateBasicProfileCommand(request));
         return response;
     }
-    //
-    // [HttpGet("getEchelonProfile/{accessCode}/{chipId}")]
-    // [Produces("application/json")]
-    // public async Task<ActionResult<EchelonProfile>> GetEchelonProfile(String accessCode, String chipId)
-    // {
-    //     var response = await _mediator.Send(new GetEchelonProfileCommand(accessCode, chipId));
-    //     return response;
-    // }
-    //
+    
+    [HttpGet("getEchelonProfile/{accessCode}/{chipId}")]
+    [Produces("application/json")]
+    public async Task<ActionResult<EchelonProfile>> GetEchelonProfile(String accessCode, String chipId)
+    {
+        var response = await _mediator.Send(new GetEchelonProfileCommand(accessCode, chipId));
+        return response;
+    }
+    
+    [HttpPost("updateEchelonTestSetting")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BasicResponse>> UpdateEchelonTestSetting([FromBody] UpdateEchelonTestSettingRequest request)
+    {
+        var response = await _mediator.Send(new UpdateEchelonTestSettingCommand(request));
+        return response;
+    }
     
     [HttpGet("getNaviProfile/{accessCode}/{chipId}")]
     [Produces("application/json")]
