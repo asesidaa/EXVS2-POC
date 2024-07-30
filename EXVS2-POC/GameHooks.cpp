@@ -330,8 +330,7 @@ void SkipOpeningScreen()
 
     if(globalConfig.OpeningScreenSkip == "None")
     {
-        injector::WriteMemoryRaw(openingScreenBypass + 0x5, (void*)"\x74\x67", 2, true); // 67 -> 67
-        injector::WriteMemoryRaw(openingScreenBypass + 0xA, (void*)"\x74\x62", 2, true);  // 4D -> 67
+        // Do Nothing
         return;
     }
 
