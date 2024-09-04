@@ -25,7 +25,6 @@ DEFINE_GUID(IID_IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81, 0xf1, 0xb9, 0x48, 0
 
 static WrappedDevice* selectedAudioDevice;
 static std::wstring selectedAudioDeviceId;
-static bool foundOverrideAudioDevice = false;
 
 static bool convertLPWToString(std::string& s, const LPWSTR pw, UINT codepage = CP_ACP)
 {
@@ -101,6 +100,16 @@ static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
         return nullptr;
     }
 
+    if (!expectedDeviceId)
+    {
+        rc = enumerator->GetDefaultAudioEndpoint(eRender, eConsole, &result);
+        if (rc != S_OK)
+        {
+            err("GetDefaultAudioEndpoint failed: %#x", rc);
+        }
+        return result;
+    }
+
     IMMDeviceCollection* devices;
     rc = enumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &devices);
     if (rc != S_OK)
@@ -171,12 +180,6 @@ void WrappedDeviceRegistry::InitializeOnce()
         {
             selectedAudioDevice = FromOriginal(device);
             selectedAudioDeviceId = *deviceId;
-            foundOverrideAudioDevice = true;
-        }
-        else
-        {
-            info("No Audio Device specified");
-            foundOverrideAudioDevice = false;
         }
     });
 }
@@ -360,12 +363,6 @@ static HRESULT CreateIMMDeviceEnumerator(REFCLSID clsid, LPUNKNOWN outer, DWORD 
         return result;
     }
 
-    if (!foundOverrideAudioDevice)
-    {
-        *ppv = original;
-        return S_OK;
-    }
-    
     WrappedDeviceEnumerator* enumerator = new WrappedDeviceEnumerator(original);
     *ppv = enumerator;
     return S_OK;
