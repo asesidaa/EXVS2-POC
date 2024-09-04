@@ -142,7 +142,7 @@ static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
             err("failed to get audio device %u id: %#x", i, rc);
         }
 
-        bool selected = expectedDeviceId == deviceId;
+        bool selected = _wcsicmp(deviceId, expectedDeviceId->c_str()) == 0;
         DumpDevice(i, deviceId, device, selected);
 
         if (selected)
