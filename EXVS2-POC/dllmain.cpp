@@ -92,7 +92,10 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             InitializeJvs();
             InitDXGIWindowHook();
 
-            InitializeAudioHooks();
+            if (!globalConfig.Audio.DisableHook)
+            {
+                InitializeAudioHooks();
+            }
             InitializeCOMHooks();
             MH_EnableHook(MH_ALL_HOOKS);
 

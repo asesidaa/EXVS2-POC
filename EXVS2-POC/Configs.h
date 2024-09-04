@@ -7,14 +7,15 @@
 
 #include "VirtualKeyMapping.h"
 
+struct AudioConfig
+{
+    bool DisableHook = false;
+    std::optional<std::string> Device;
+};
+
 struct DisplayConfig
 {
     std::string Resolution;
-};
-
-struct AudioConfig
-{
-    std::optional<std::string> Device;
 };
 
 struct StartupConfig

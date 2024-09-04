@@ -373,12 +373,6 @@ static HRESULT CreateIMMDeviceEnumerator(REFCLSID clsid, LPUNKNOWN outer, DWORD 
 
 void InitializeAudioHooks()
 {
-    if(!globalConfig.Audio.Device.has_value())
-    {
-        info("Skip Audio Hook, as Audio Device not specified...");
-        return;
-    }
-    
     RegisterCOMHook("IMMDeviceEnumerator", CLSID_MMDeviceEnumerator, IID_IMMDeviceEnumerator,
                     CreateIMMDeviceEnumerator);
 }
