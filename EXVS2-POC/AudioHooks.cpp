@@ -22,6 +22,7 @@ static const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
 static const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
 
 static const IID IID_IMMDeviceCollection = __uuidof(IMMDeviceCollection);
+static const IID IID_IAudioClient = __uuidof(IAudioClient);
 
 DEFINE_GUID(IID_IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81, 0xf1, 0xb9, 0x48, 0xe8, 0x07, 0x36, 0x3f);
 
@@ -241,7 +242,26 @@ STDMETHODIMP WrappedDevice::QueryInterface(REFIID riid, LPVOID* ppvObj)
 
 HRESULT WrappedDevice::Activate(REFIID iid, DWORD dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface)
 {
-    auto result = original_->Activate(iid, dwClsCtx, pActivationParams, ppInterface);
+    if (!ppInterface)
+        return E_POINTER;
+
+    HRESULT result;
+    if (iid == IID_IAudioClient)
+    {
+        IAudioClient *audioClient = nullptr;
+        result = original_->Activate(iid, dwClsCtx, pActivationParams, reinterpret_cast<void **>(&audioClient));
+        if (result != 0)
+        {
+            err("IMMDevice(%p)::Activate(IAudioClient, %#x) failed: %#x", this, dwClsCtx, result);
+            return result;
+        }
+
+        debug("IMMDevice(%p)::Activate(IAudioClient, %#x) returning WrappedAudioClient");
+        *ppInterface = new WrappedAudioClient(retain_ptr<IAudioClient>::AlreadyRetained(audioClient));
+        return S_OK;
+    }
+
+    result = original_->Activate(iid, dwClsCtx, pActivationParams, ppInterface);
     debug("IMMDevice(%p)::Activate(iid=%S) = %#x", this, to_string(iid).c_str(), result);
     return result;
 }
@@ -401,7 +421,7 @@ STDMETHODIMP WrappedDeviceCollection::QueryInterface(REFIID riid, LPVOID *ppvObj
         return 0;
     }
 
-    err("WrappedDeviceCollection::QueryInterface for unsupported interface: %s", to_string(riid).c_str());
+    err("WrappedDeviceCollection::QueryInterface for unsupported interface: %S", to_string(riid).c_str());
     *ppvObj = nullptr;
     return E_NOINTERFACE;
 }
@@ -425,6 +445,114 @@ HRESULT WrappedDeviceCollection::Item(UINT nDevice, IMMDevice **ppDevice)
     result->AddRef();
     *ppDevice = result;
     return S_OK;
+}
+
+STDMETHODIMP WrappedAudioClient::QueryInterface(REFIID riid, LPVOID *ppvObj)
+{
+    if (!ppvObj)
+        return E_POINTER;
+
+    if (riid == IID_IUnknown || riid == IID_IAudioClient)
+    {
+        *ppvObj = this;
+        return 0;
+    }
+
+    err("WrappedAudioClient::QueryInterface for unsupported interface: %S", to_string(riid).c_str());
+    *ppvObj = nullptr;
+    return E_NOINTERFACE;
+}
+
+HRESULT WrappedAudioClient::Initialize(AUDCLNT_SHAREMODE ShareMode, DWORD StreamFlags, REFERENCE_TIME hnsBufferDuration,
+                                       REFERENCE_TIME hnsPeriodicity, const WAVEFORMATEX *pFormat,
+                                       LPCGUID AudioSessionGuid)
+{
+    HRESULT result =
+        original_->Initialize(ShareMode, StreamFlags, hnsBufferDuration, hnsPeriodicity, pFormat, AudioSessionGuid);
+    debug("WrappedAudioClient::Initialize = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::GetBufferSize(UINT32 *pNumBufferFrames)
+{
+    HRESULT result = original_->GetBufferSize(pNumBufferFrames);
+    debug("WrappedAudioClient::GetBufferSize = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::GetStreamLatency(REFERENCE_TIME *phnsLatency)
+{
+    HRESULT result = original_->GetStreamLatency(phnsLatency);
+    debug("WrappedAudioClient::GetStreamLatency = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::GetCurrentPadding(UINT32 *pNumPaddingFrames)
+{
+    HRESULT result = original_->GetCurrentPadding(pNumPaddingFrames);
+    debug("WrappedAudioClient::GetCurrentPadding = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::IsFormatSupported(AUDCLNT_SHAREMODE ShareMode, const WAVEFORMATEX *pFormat,
+                                              WAVEFORMATEX **ppClosestMatch)
+{
+    HRESULT result = original_->IsFormatSupported(ShareMode, pFormat, ppClosestMatch);
+    debug("WrappedAudioClient::IsFormatSupported = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::GetMixFormat(WAVEFORMATEX **ppDeviceFormat)
+{
+    if (!ppDeviceFormat)
+        return E_POINTER;
+
+    HRESULT result = original_->GetMixFormat(ppDeviceFormat);
+    debug("WrappedAudioClient::GetMixFormat = %#x", result);
+    info("IAudioClient::GetMixFormat reported %d audio channels", (*ppDeviceFormat)->nChannels);
+    return result;
+}
+
+HRESULT WrappedAudioClient::GetDevicePeriod(REFERENCE_TIME *phnsDefaultDevicePeriod,
+                                            REFERENCE_TIME *phnsMinimumDevicePeriod)
+{
+    HRESULT result = original_->GetDevicePeriod(phnsDefaultDevicePeriod, phnsMinimumDevicePeriod);
+    debug("WrappedAudioClient::GetDevicePeriod = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::Start()
+{
+    HRESULT result = original_->Start();
+    debug("WrappedAudioClient::Start = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::Stop()
+{
+    HRESULT result = original_->Stop();
+    debug("WrappedAudioClient::Stop = %#x", result);
+    return result;
+}
+HRESULT WrappedAudioClient::Reset()
+{
+    HRESULT result = original_->Reset();
+    debug("WrappedAudioClient::Reset = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::SetEventHandle(HANDLE eventHandle)
+{
+    HRESULT result = original_->SetEventHandle(eventHandle);
+    debug("WrappedAudioClient::SetEventHandle = %#x", result);
+    return result;
+}
+
+HRESULT WrappedAudioClient::GetService(REFIID riid, void **ppv)
+{
+    HRESULT result = original_->GetService(riid, ppv);
+    debug("WrappedAudioClient::GetService = %#x", result);
+    return result;
 }
 
 void InitializeAudioHooks()
