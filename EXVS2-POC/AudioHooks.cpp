@@ -223,6 +223,9 @@ WrappedDevice::~WrappedDevice()
 
 STDMETHODIMP WrappedDevice::QueryInterface(REFIID riid, LPVOID* ppvObj)
 {
+    if (!ppvObj)
+        return E_POINTER;
+
     if (riid == IID_IUnknown || riid == IID_IMMDevice)
     {
         *ppvObj = this;
@@ -261,6 +264,9 @@ WrappedDeviceEnumerator::WrappedDeviceEnumerator(IMMDeviceEnumerator* original) 
 
 STDMETHODIMP WrappedDeviceEnumerator::QueryInterface(REFIID riid, LPVOID* ppvObj)
 {
+    if (!ppvObj)
+        return E_POINTER;
+
     if (riid == IID_IUnknown || riid == IID_IMMDeviceEnumerator)
     {
         *ppvObj = this;
