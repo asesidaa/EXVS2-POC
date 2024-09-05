@@ -72,7 +72,11 @@ struct WrappedDevice final : public IMMDevice
 
 struct WrappedDeviceEnumerator final : public IMMDeviceEnumerator
 {
-    explicit WrappedDeviceEnumerator(IMMDeviceEnumerator* original);
+    explicit WrappedDeviceEnumerator(retain_ptr<IMMDeviceEnumerator> original)
+        : refcount_(1), original_(std::move(original))
+    {
+    }
+
     virtual ~WrappedDeviceEnumerator() = default;
 
     STDMETHODIMP_(ULONG) AddRef() final
@@ -99,7 +103,7 @@ struct WrappedDeviceEnumerator final : public IMMDeviceEnumerator
 
   private:
     std::atomic<int> refcount_;
-    IMMDeviceEnumerator* original_;
+    retain_ptr<IMMDeviceEnumerator> original_;
 };
 
 struct WrappedDeviceCollection final : public IMMDeviceCollection

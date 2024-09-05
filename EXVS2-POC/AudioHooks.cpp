@@ -260,9 +260,6 @@ HRESULT WrappedDevice::OpenPropertyStore(DWORD stgmAccess, IPropertyStore** ppPr
     return original_->OpenPropertyStore(stgmAccess, ppProperties);
 }
 
-WrappedDeviceEnumerator::WrappedDeviceEnumerator(IMMDeviceEnumerator* original) : refcount_(1), original_(original)
-{
-}
 
 STDMETHODIMP WrappedDeviceEnumerator::QueryInterface(REFIID riid, LPVOID* ppvObj)
 {
@@ -385,7 +382,8 @@ static HRESULT CreateIMMDeviceEnumerator(REFCLSID clsid, LPUNKNOWN outer, DWORD 
         return result;
     }
 
-    WrappedDeviceEnumerator* enumerator = new WrappedDeviceEnumerator(original);
+    WrappedDeviceEnumerator *enumerator =
+        new WrappedDeviceEnumerator(retain_ptr<IMMDeviceEnumerator>::AlreadyRetained(original));
     *ppv = enumerator;
     return S_OK;
 }
