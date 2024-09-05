@@ -7,6 +7,9 @@
 #include <mutex>
 #include <thread>
 #include <unordered_map>
+#include <vector>
+
+#include "COMHooks.h"
 
 void InitializeAudioHooks();
 
@@ -97,4 +100,37 @@ struct WrappedDeviceEnumerator final : public IMMDeviceEnumerator
   private:
     std::atomic<int> refcount_;
     IMMDeviceEnumerator* original_;
+};
+
+struct WrappedDeviceCollection final : public IMMDeviceCollection
+{
+    explicit WrappedDeviceCollection(std::vector<retain_ptr<IMMDevice>> devices)
+        : refcount_(1), devices_(std::move(devices))
+    {
+    }
+    virtual ~WrappedDeviceCollection() = default;
+
+    STDMETHODIMP_(ULONG) AddRef() final
+    {
+        return ++refcount_;
+    }
+
+    STDMETHODIMP_(ULONG) Release() final
+    {
+        auto newRefcount = --refcount_;
+        if (newRefcount == 0)
+        {
+            delete this;
+        }
+        return newRefcount;
+    }
+
+    STDMETHODIMP QueryInterface(REFIID riid, LPVOID *ppvObj) final;
+
+    HRESULT GetCount(UINT *pcDevices) final;
+    HRESULT Item(UINT nDevice, IMMDevice **ppDevice) final;
+
+  private:
+    std::atomic<int> refcount_;
+    std::vector<retain_ptr<IMMDevice>> devices_;
 };

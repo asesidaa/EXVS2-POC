@@ -21,6 +21,8 @@ struct WrappedDevice;
 static const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
 static const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
 
+static const IID IID_IMMDeviceCollection = __uuidof(IMMDeviceCollection);
+
 DEFINE_GUID(IID_IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81, 0xf1, 0xb9, 0x48, 0xe8, 0x07, 0x36, 0x3f);
 
 static WrappedDevice* selectedAudioDevice;
@@ -280,7 +282,21 @@ STDMETHODIMP WrappedDeviceEnumerator::QueryInterface(REFIID riid, LPVOID* ppvObj
 HRESULT WrappedDeviceEnumerator::EnumAudioEndpoints(EDataFlow dataFlow, DWORD dwStateMask,
                                                     IMMDeviceCollection** ppDevices)
 {
-    unimplemented();
+    if (!ppDevices)
+        return E_POINTER;
+
+    std::vector<retain_ptr<IMMDevice>> collection;
+
+    if ((dataFlow == eRender || dataFlow == eAll) && (dwStateMask & DEVICE_STATE_ACTIVE))
+    {
+        if (selectedAudioDevice)
+        {
+            collection.emplace_back(retain_ptr<IMMDevice>::AddRef(selectedAudioDevice));
+        }
+    }
+
+    *ppDevices = new WrappedDeviceCollection(std::move(collection));
+    return S_OK;
 }
 
 HRESULT WrappedDeviceEnumerator::GetDefaultAudioEndpoint(EDataFlow dataFlow, ERole role, IMMDevice** ppEndpoint)
@@ -371,6 +387,42 @@ static HRESULT CreateIMMDeviceEnumerator(REFCLSID clsid, LPUNKNOWN outer, DWORD 
 
     WrappedDeviceEnumerator* enumerator = new WrappedDeviceEnumerator(original);
     *ppv = enumerator;
+    return S_OK;
+}
+
+STDMETHODIMP WrappedDeviceCollection::QueryInterface(REFIID riid, LPVOID *ppvObj)
+{
+    if (!ppvObj)
+        return E_POINTER;
+
+    if (riid == IID_IUnknown || riid == IID_IMMDeviceCollection)
+    {
+        *ppvObj = this;
+        return 0;
+    }
+
+    *ppvObj = nullptr;
+    return E_NOINTERFACE;
+}
+
+HRESULT WrappedDeviceCollection::GetCount(UINT *pcDevices)
+{
+    if (!pcDevices)
+        return E_POINTER;
+    *pcDevices = devices_.size();
+    return S_OK;
+}
+
+HRESULT WrappedDeviceCollection::Item(UINT nDevice, IMMDevice **ppDevice)
+{
+    if (!ppDevice)
+        return E_POINTER;
+    if (nDevice >= devices_.size())
+        return E_INVALIDARG;
+
+    IMMDevice *result = devices_[nDevice].get();
+    result->AddRef();
+    *ppDevice = result;
     return S_OK;
 }
 
