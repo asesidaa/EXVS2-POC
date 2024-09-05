@@ -234,6 +234,7 @@ STDMETHODIMP WrappedDevice::QueryInterface(REFIID riid, LPVOID* ppvObj)
         return 0;
     }
 
+    err("WrappedDevice::QueryInterface for unsupported interface: %S", to_string(riid).c_str());
     *ppvObj = nullptr;
     return E_NOINTERFACE;
 }
@@ -272,6 +273,7 @@ STDMETHODIMP WrappedDeviceEnumerator::QueryInterface(REFIID riid, LPVOID* ppvObj
         return 0;
     }
 
+    err("WrappedDeviceEnumerator::QueryInterface for unsupported interface: %S", to_string(riid).c_str());
     *ppvObj = nullptr;
     return E_NOINTERFACE;
 }
@@ -399,6 +401,7 @@ STDMETHODIMP WrappedDeviceCollection::QueryInterface(REFIID riid, LPVOID *ppvObj
         return 0;
     }
 
+    err("WrappedDeviceCollection::QueryInterface for unsupported interface: %s", to_string(riid).c_str());
     *ppvObj = nullptr;
     return E_NOINTERFACE;
 }
