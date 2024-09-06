@@ -615,6 +615,12 @@ HRESULT WrappedAudioClient::Initialize(AUDCLNT_SHAREMODE ShareMode, DWORD Stream
                                        REFERENCE_TIME hnsPeriodicity, const WAVEFORMATEX *pFormat,
                                        LPCGUID AudioSessionGuid)
 {
+    if (pFormat->cbSize == 0)
+    {
+        info("Received an overridden audio format, enabling PCM autoconversion");
+        StreamFlags |= AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM;
+    }
+
     HRESULT result =
         original_->Initialize(ShareMode, StreamFlags, hnsBufferDuration, hnsPeriodicity, pFormat, AudioSessionGuid);
     info("WrappedAudioClient::Initialize = %s", AudioErrorToString(result));
@@ -665,7 +671,28 @@ HRESULT WrappedAudioClient::GetMixFormat(WAVEFORMATEX **ppDeviceFormat)
     HRESULT result = original_->GetMixFormat(ppDeviceFormat);
     info("WrappedAudioClient::GetMixFormat = %#x", result);
     auto pDeviceFormat = *ppDeviceFormat;
-    DumpWaveFormat(pDeviceFormat);
+
+    if (pDeviceFormat->nChannels != 2)
+    {
+        info("Selected audio device has %d channels, overriding audio format", pDeviceFormat->nChannels);
+        info("Original format:");
+        DumpWaveFormat(pDeviceFormat);
+
+        pDeviceFormat->wFormatTag = WAVE_FORMAT_IEEE_FLOAT;
+        pDeviceFormat->nChannels = 2;
+        pDeviceFormat->nSamplesPerSec = pDeviceFormat->nSamplesPerSec;
+        pDeviceFormat->wBitsPerSample = 32;
+        pDeviceFormat->nBlockAlign = pDeviceFormat->nChannels * pDeviceFormat->wBitsPerSample / 8;
+        pDeviceFormat->nAvgBytesPerSec = pDeviceFormat->nBlockAlign * pDeviceFormat->nSamplesPerSec;
+        pDeviceFormat->cbSize = 0;
+
+        info("Overridden format:");
+        DumpWaveFormat(pDeviceFormat);
+    }
+    else
+    {
+        DumpWaveFormat(pDeviceFormat);
+    }
     return result;
 }
 
