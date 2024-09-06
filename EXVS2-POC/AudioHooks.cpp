@@ -87,39 +87,25 @@ static void DumpDevice(unsigned int index, LPWSTR id, IMMDevice* device, bool se
     propstore->Release();
 }
 
-// This runs upon the first call to IMMDeviceEnumerator instead of at startup, because we're not
-// CoInitialize'd in dllmain.
-static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
+static void DumpAudioDevices()
 {
-    IMMDevice* result = nullptr;
-    IMMDeviceEnumerator* enumerator;
     HRESULT rc;
+    IMMDeviceEnumerator* enumerator;
 
     rc = OrigCoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_ALL, IID_IMMDeviceEnumerator,
                               reinterpret_cast<void**>(&enumerator));
     if (rc != S_OK)
     {
-        err("failed to create IMMDeviceEnumerator: %#x", rc);
-        return nullptr;
+        fatal("failed to create IMMDeviceEnumerator: %#x", rc);
     }
 
-    if (!expectedDeviceId)
-    {
-        rc = enumerator->GetDefaultAudioEndpoint(eRender, eConsole, &result);
-        if (rc != S_OK)
-        {
-            err("GetDefaultAudioEndpoint failed: %#x", rc);
-        }
-        return result;
-    }
-
-    IMMDeviceCollection* devices;
-    rc = enumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &devices);
+    IMMDeviceCollection *rawDevices;
+    rc = enumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &rawDevices);
     if (rc != S_OK)
     {
-        err("failed to enumerate audio endpoints: %#x", rc);
-        return nullptr;
+        fatal("failed to enumerate audio endpoints: %#x", rc);
     }
+    auto devices = retain_ptr<IMMDeviceCollection>::AlreadyRetained(rawDevices);
 
     unsigned int count;
     rc = devices->GetCount(&count);
@@ -130,7 +116,7 @@ static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
 
     for (unsigned int i = 0; i < count; ++i)
     {
-        IMMDevice* device;
+        IMMDevice *device;
         rc = devices->Item(i, &device);
         if (rc != S_OK)
         {
@@ -145,8 +131,64 @@ static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
             err("failed to get audio device %u id: %#x", i, rc);
         }
 
-        bool selected = _wcsicmp(deviceId, expectedDeviceId->c_str()) == 0;
+        bool selected = selectedAudioDeviceId == deviceId;
+        CoTaskMemFree(deviceId);
+
         DumpDevice(i, deviceId, device, selected);
+        device->Release();
+    }
+}
+
+// This runs upon the first call to IMMDeviceEnumerator instead of at startup, because we're not
+// CoInitialize'd in dllmain.
+static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
+{
+    IMMDevice* result = nullptr;
+    IMMDeviceEnumerator* enumerator;
+    HRESULT rc;
+
+    rc = OrigCoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_ALL, IID_IMMDeviceEnumerator,
+                              reinterpret_cast<void**>(&enumerator));
+    if (rc != S_OK)
+    {
+        fatal("failed to create IMMDeviceEnumerator: %#x", rc);
+    }
+
+    IMMDeviceCollection *rawDevices;
+    rc = enumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &rawDevices);
+    if (rc != S_OK)
+    {
+        fatal("failed to enumerate audio endpoints: %#x", rc);
+    }
+
+    auto devices = retain_ptr<IMMDeviceCollection>::AlreadyRetained(rawDevices);
+
+    unsigned int count;
+    rc = devices->GetCount(&count);
+    if (rc != S_OK)
+    {
+        fatal("failed to get audio device count: %#x", rc);
+    }
+
+    for (unsigned int i = 0; i < count; ++i)
+    {
+        IMMDevice *device;
+        rc = devices->Item(i, &device);
+        if (rc != S_OK)
+        {
+            err("failed to get audio device %u: %#x", i, rc);
+            continue;
+        }
+
+        LPWSTR deviceId;
+        rc = device->GetId(&deviceId);
+        if (rc != S_OK)
+        {
+            err("failed to get audio device %u id: %#x", i, rc);
+        }
+
+        bool selected = expectedDeviceId ? _wcsicmp(deviceId, expectedDeviceId->c_str()) == 0 : false;
+        CoTaskMemFree(deviceId);
 
         if (selected)
         {
@@ -158,7 +200,24 @@ static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
         }
     }
 
-    devices->Release();
+    if (!result)
+    {
+        if (expectedDeviceId)
+        {
+            warn("Failed to find audio device, returning default audio endpoint");
+        }
+        else
+        {
+            info("No device specified, returning default audio endpoint");
+        }
+
+        rc = enumerator->GetDefaultAudioEndpoint(eRender, eConsole, &result);
+        if (rc != S_OK)
+        {
+            err("GetDefaultAudioEndpoint failed: %#x", rc);
+        }
+    }
+
     enumerator->Release();
 
     return result;
@@ -174,16 +233,21 @@ void WrappedDeviceRegistry::InitializeOnce()
                 *globalConfig.Audio.Device);
             info("Looking for audio device %S", deviceId->c_str());
         }
-        else
-        {
-            info("No audio device specified, using default");
-        }
 
         if (IMMDevice* device = FindAudioDevice(deviceId))
         {
             selectedAudioDevice = FromOriginal(device);
-            selectedAudioDeviceId = *deviceId;
+
+            LPWSTR retrievedDeviceId;
+            if (device->GetId(&retrievedDeviceId) != S_OK)
+            {
+                fatal("failed to get IMMDevice id");
+            }
+            selectedAudioDeviceId = retrievedDeviceId;
+            CoTaskMemFree(retrievedDeviceId);
         }
+
+        DumpAudioDevices();
     });
 }
 
