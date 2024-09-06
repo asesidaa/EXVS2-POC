@@ -191,3 +191,38 @@ struct WrappedAudioClient final : public IAudioClient
     std::atomic<int> refcount_;
     retain_ptr<IAudioClient> original_;
 };
+
+struct WrappedAudioRenderClient : public IAudioRenderClient
+{
+    WrappedAudioRenderClient(int id, size_t frameLength, retain_ptr<IAudioRenderClient> original);
+    virtual ~WrappedAudioRenderClient() final;
+
+    STDMETHODIMP_(ULONG) AddRef() final
+    {
+        return ++refcount_;
+    }
+
+    STDMETHODIMP_(ULONG) Release() final
+    {
+        auto newRefcount = --refcount_;
+        if (newRefcount == 0)
+        {
+            delete this;
+        }
+        return newRefcount;
+    }
+
+    STDMETHODIMP QueryInterface(REFIID riid, LPVOID *ppvObj) final;
+
+    HRESULT GetBuffer(UINT32 NumFramesRequested, BYTE **ppData) final;
+    HRESULT ReleaseBuffer(UINT32 NumFramesWritten, DWORD dwFlags) final;
+
+  private:
+    int id_;
+    size_t frameLength_;
+    HANDLE file_ = nullptr;
+    BYTE *lastBuffer = nullptr;
+
+    std::atomic<int> refcount_;
+    retain_ptr<IAudioRenderClient> original_;
+};

@@ -23,6 +23,7 @@ static const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
 
 static const IID IID_IMMDeviceCollection = __uuidof(IMMDeviceCollection);
 static const IID IID_IAudioClient = __uuidof(IAudioClient);
+static const IID IID_IAudioRenderClient = __uuidof(IAudioRenderClient);
 
 DEFINE_GUID(IID_IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81, 0xf1, 0xb9, 0x48, 0xe8, 0x07, 0x36, 0x3f);
 
@@ -707,7 +708,79 @@ HRESULT WrappedAudioClient::GetService(REFIID riid, void **ppv)
 {
     HRESULT result = original_->GetService(riid, ppv);
     debug("WrappedAudioClient::GetService = %#x", result);
+
+#if defined(DUMP_AUDIO_TO_FILE)
+    if (riid == IID_IAudioRenderClient && result == S_OK)
+    {
+        // TODO: Do we need a registry to make sure we don't create multiple wrappers for one object?
+        debug("WrappedAudioClient::GetService: returning new WrappedAudioRenderClient");
+        auto original = static_cast<IAudioRenderClient *>(*ppv);
+        static int id = 0;
+        *ppv = new WrappedAudioRenderClient(id++, /*nBlockAlign*/ 8,
+                                            retain_ptr<IAudioRenderClient>::AlreadyRetained(original));
+    }
+#endif
     return result;
+}
+
+WrappedAudioRenderClient::WrappedAudioRenderClient(int id, size_t frameLength, retain_ptr<IAudioRenderClient> original)
+    : id_(id), frameLength_(frameLength), refcount_(1), original_(std::move(original))
+{
+#if defined(DUMP_AUDIO_TO_FILE)
+    std::string filename = std::to_string(id_) + ".raw";
+    file_ = CreateFileA(filename.c_str(), GENERIC_WRITE, FILE_SHARE_READ, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL,
+                        nullptr);
+    if (file_ == INVALID_HANDLE_VALUE)
+    {
+        fatal("Failed to create %s for audio dumping: %#X", filename.c_str(), GetLastError());
+    }
+#endif
+}
+
+WrappedAudioRenderClient::~WrappedAudioRenderClient()
+{
+#if defined(DUMP_AUDIO_TO_FILE)
+    CloseHandle(file_);
+#endif
+}
+
+STDMETHODIMP WrappedAudioRenderClient::QueryInterface(REFIID riid, LPVOID *ppvObj)
+{
+    if (!ppvObj)
+        return E_POINTER;
+
+    if (riid == IID_IUnknown || riid == IID_IAudioRenderClient)
+    {
+        *ppvObj = this;
+        return 0;
+    }
+
+    err("WrappedAudioRenderClient::QueryInterface for unsupported interface: %S", to_string(riid).c_str());
+    *ppvObj = nullptr;
+    return E_NOINTERFACE;
+}
+
+HRESULT WrappedAudioRenderClient::GetBuffer(UINT32 NumFramesRequested, BYTE **ppData)
+{
+    HRESULT rc = original_->GetBuffer(NumFramesRequested, ppData);
+    if (rc != S_OK)
+    {
+        fatal("IAudioRenderClient::GetBuffer failed: %#x", rc);
+    }
+    lastBuffer = *ppData;
+    return rc;
+}
+
+HRESULT WrappedAudioRenderClient::ReleaseBuffer(UINT32 NumFramesWritten, DWORD dwFlags)
+{
+#if defined(DUMP_AUDIO_TO_FILE)
+    if (!WriteFile(file_, lastBuffer, frameLength_ * NumFramesWritten, nullptr, nullptr))
+    {
+        fatal("WriteFile failed while dumping audio: %#x", GetLastError());
+    }
+#endif
+
+    return original_->ReleaseBuffer(NumFramesWritten, dwFlags);
 }
 
 void InitializeAudioHooks()
