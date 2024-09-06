@@ -231,7 +231,7 @@ public:
         {
             ss << std::format("{:02X} ", srcbuffer[i]);
         }
-        trace(ss.str().c_str());
+        trace("%s", ss.str().c_str());
     }
 };
 

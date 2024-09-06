@@ -169,11 +169,11 @@ typedef ULONGLONG (*BngRwReqSetLedPower_Ori)();
 extern "C" {
 
 ULONGLONG BngRwAttach(UINT a1, char* a2, int a3, int a4, long (*callback)(long, long, long*), long* some_struct_ptr) {
-    trace("BngRwAttach(%i, %s, %d, %d, %p, %p)\n", a1, a2, a3, a4, callback, some_struct_ptr);
+    trace("BngRwAttach(%i, %s, %d, %d, %p, %p)", a1, a2, a3, a4, callback, some_struct_ptr);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
-        info("Real Card Reader Attach with COM Port %s Specified\n", globalConfig.CardReaderComPort.data());
+        info("Real Card Reader Attach with COM Port %s Specified", globalConfig.CardReaderComPort.data());
         BngRwAttach_Ori originalFunction = reinterpret_cast<BngRwAttach_Ori>(GetProcAddress(bngrwOrig, "BngRwAttach"));
         return originalFunction(a1, globalConfig.CardReaderComPort.data(), a3, a4, callback, some_struct_ptr);
     }
@@ -186,7 +186,7 @@ ULONGLONG BngRwAttach(UINT a1, char* a2, int a3, int a4, long (*callback)(long, 
 }
 
 long BngRwInit() {
-    trace("BngRwInit()\n");
+    trace("BngRwInit()");
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -198,7 +198,7 @@ long BngRwInit() {
 }
 
 ULONGLONG BngRwReqSetLedPower() {
-    trace("BngRwReqSetLedPower()\n");
+    trace("BngRwReqSetLedPower()");
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -210,7 +210,7 @@ ULONGLONG BngRwReqSetLedPower() {
 }
 
 int BngRwDevReset(UINT a, long (*callback)(int, int, long*), long* some_struct_ptr) {
-    trace("BngRwDevReset(%i, %p, %p)\n", a, callback, some_struct_ptr);
+    trace("BngRwDevReset(%i, %p, %p)", a, callback, some_struct_ptr);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -224,7 +224,7 @@ int BngRwDevReset(UINT a, long (*callback)(int, int, long*), long* some_struct_p
 }
 
 ULONGLONG BngRwExReadMifareAllBlock() {
-    trace("BngRwExReadMifareAllBlock()\n");
+    trace("BngRwExReadMifareAllBlock()");
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -237,7 +237,7 @@ ULONGLONG BngRwExReadMifareAllBlock() {
 
 // Finalise?
 void BngRwFin() {
-    trace("BngRwFin()\n");
+    trace("BngRwFin()");
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -247,7 +247,7 @@ void BngRwFin() {
 }
 
 UINT BngRwGetFwVersion(UINT a) {
-    trace("BngRwGetFwVersion(%i)\n", a);
+    trace("BngRwGetFwVersion(%i)", a);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -259,7 +259,7 @@ UINT BngRwGetFwVersion(UINT a) {
 }
 
 UINT BngRwGetStationID(UINT a) {
-    trace("BngRwGetStationID(%i)\n", a);
+    trace("BngRwGetStationID(%i)", a);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -271,7 +271,7 @@ UINT BngRwGetStationID(UINT a) {
 }
 
 const char* BngRwGetVersion() {
-    trace("BngRwGetVersion()\n");
+    trace("BngRwGetVersion()");
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -283,7 +283,7 @@ const char* BngRwGetVersion() {
 }
 
 ULONGLONG BngRwIsCmdExec(UINT a) {
-    trace("BngRwIsCmdExec(%i)\n", a);
+    trace("BngRwIsCmdExec(%i)", a);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -296,7 +296,7 @@ ULONGLONG BngRwIsCmdExec(UINT a) {
 }
 
 UINT BngRwGetTotalRetryCount(UINT a) {
-    trace("BngRwGetTotalRetryCount(%i)\n", a);
+    trace("BngRwGetTotalRetryCount(%i)", a);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -308,7 +308,7 @@ UINT BngRwGetTotalRetryCount(UINT a) {
 }
 
 int BngRwReqLed(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
-    trace("BngRwReqLed(%i, %i, %llu, %llu)\n", a, b, c, d);
+    trace("BngRwReqLed(%i, %i, %llu, %llu)", a, b, c, d);
     
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -320,7 +320,7 @@ int BngRwReqLed(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
 }
 
 int BngRwReqAction(UINT a, UINT b, void (*callback)(long, int, long*), long* some_struct_ptr) {
-    trace("BngRwReqAction(%i, %i, %p, %p)\n", a, b, callback, some_struct_ptr);
+    trace("BngRwReqAction(%i, %i, %p, %p)", a, b, callback, some_struct_ptr);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -338,7 +338,7 @@ int BngRwReqAction(UINT a, UINT b, void (*callback)(long, int, long*), long* som
 }
 
 int BngRwReqAiccAuth(UINT a, int b, UINT c, int* d, ULONGLONG e, ULONGLONG f, ULONGLONG* g) {
-    trace("BngRwReqAiccAuth(%i, %d, %i, %p, %llu, %llu, %p)\n", a, b, c, d, e, f, g);
+    trace("BngRwReqAiccAuth(%i, %d, %i, %p, %llu, %llu, %p)", a, b, c, d, e, f, g);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -350,7 +350,7 @@ int BngRwReqAiccAuth(UINT a, int b, UINT c, int* d, ULONGLONG e, ULONGLONG f, UL
 }
 
 int BngRwReqBeep(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
-    trace("BngRwReqBeep(%i, %i, %llu, %llu)\n", a, b, c, d);
+    trace("BngRwReqBeep(%i, %i, %llu, %llu)", a, b, c, d);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -362,7 +362,7 @@ int BngRwReqBeep(UINT a, UINT b, ULONGLONG c, ULONGLONG d) {
 }
 
 int BngRwReqCancel(UINT a) {
-    trace("BngRwReqCancel(%i)\n", a);
+    trace("BngRwReqCancel(%i)", a);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -378,7 +378,7 @@ int BngRwReqCancel(UINT a) {
 }
 
 int BngRwReqFwCleanup(UINT a, ULONGLONG b, ULONGLONG c) {
-    trace("BngRwReqFwCleanup(%i, %llu, %llu)\n", a, b, c);
+    trace("BngRwReqFwCleanup(%i, %llu, %llu)", a, b, c);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -390,7 +390,7 @@ int BngRwReqFwCleanup(UINT a, ULONGLONG b, ULONGLONG c) {
 }
 
 int BngRwReqFwVersionup(UINT a, ULONGLONG b, ULONGLONG c, ULONGLONG d) {
-    trace("BngRwReqFwVersionup(%i, %llu, %llu, %llu)\n", a, b, c, d);
+    trace("BngRwReqFwVersionup(%i, %llu, %llu, %llu)", a, b, c, d);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -402,7 +402,7 @@ int BngRwReqFwVersionup(UINT a, ULONGLONG b, ULONGLONG c, ULONGLONG d) {
 }
 
 int BngRwReqLatchID(UINT a, ULONGLONG b, ULONGLONG c) {
-    trace("BngRwReqLatchId(%i, %llu, %llu)\n", a, b, c);
+    trace("BngRwReqLatchId(%i, %llu, %llu)", a, b, c);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {
@@ -419,7 +419,7 @@ int BngRwReqLatchID(UINT a, ULONGLONG b, ULONGLONG c) {
 
 int BngRwReqSendMailTo(UINT a, int b, UINT c, int* d,
                        char* e, char* f, char* g, char* h, ULONGLONG i, ULONGLONG j) {
-    trace("BngRwReqSendMailTo(%i, %d, %i, %p, %s, %s, %s, %s, %llu, %llu)\n", a, b, c, d, e, f, g, h, i, j);
+    trace("BngRwReqSendMailTo(%i, %d, %i, %p, %s, %s, %s, %s, %llu, %llu)", a, b, c, d, e, f, g, h, i, j);
     if (7 < a)
     {
         return -100;
@@ -433,7 +433,7 @@ int BngRwReqSendMailTo(UINT a, int b, UINT c, int* d,
 
 int BngRwReqSendUrlTo(UINT a, int b, UINT c, int* d,
                       char* e, char* f, ULONGLONG g, ULONGLONG h) {
-    trace("BngRwReqSendUrlTo(%i, %d, %i, %p, %s, %s, %llu, %llu)\n", a, b, c, d, e, f, g, h);
+    trace("BngRwReqSendUrlTo(%i, %d, %i, %p, %s, %s, %llu, %llu)", a, b, c, d, e, f, g, h);
     if (7 < a)
     {
         return -100;
@@ -446,7 +446,7 @@ int BngRwReqSendUrlTo(UINT a, int b, UINT c, int* d,
 }
 
 int BngRwReqWaitTouch(UINT a, int maxIntSomehow, UINT c, void (*callback)(int, int, void*, void*), void* card_struct_ptr) {
-    trace("BngRwReqWaitTouch(%i, %d, %i, %p, %p)\n", a, maxIntSomehow, c, callback, card_struct_ptr);
+    trace("BngRwReqWaitTouch(%i, %d, %i, %p, %p)", a, maxIntSomehow, c, callback, card_struct_ptr);
 
     if(globalConfig.UseRealCardReader == true && bngrwOrig != nullptr)
     {

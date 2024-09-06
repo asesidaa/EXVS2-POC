@@ -21,5 +21,5 @@ inline LogLevel g_logLevel = LogLevel::NONE;
 
 #define unimplemented() fatal("Unimplemented function: " __FUNCTION__)
 
-void log(LogLevel level, _Printf_format_string_ const char* format, ...);
-void fatal [[noreturn]] (_Printf_format_string_ const char* format, ...);
+void log(LogLevel level, _Printf_format_string_ const char *format, ...);
+void fatal [[noreturn]] (_Printf_format_string_ const char *format, ...);

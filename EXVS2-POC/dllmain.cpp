@@ -2,6 +2,10 @@
 #include <Windows.h>
 #include <shellapi.h>
 #include <psapi.h>
+
+#include <stdio.h>
+#include <io.h>
+#include <fcntl.h>
 #include <inttypes.h>
 
 #include <algorithm>
@@ -110,9 +114,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
             determinize::Determinize(std::move(patch_targets), base);
             auto after = std::chrono::steady_clock::now();
 
-            printf(
+            info(
                 "Patched %zu floating point approximations with deterministic "
-                "implementations in %dms\n",
+                "implementations in %dms",
                 TARGETS.size(),
                 static_cast<int>((after - before) / 1.0ms));
         }
