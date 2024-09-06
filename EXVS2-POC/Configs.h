@@ -10,7 +10,8 @@
 struct AudioConfig
 {
     bool DisableHook = false;
-    std::optional<std::string> Device;
+    std::optional<std::string> DeviceId;
+    std::optional<std::string> DeviceName;
 };
 
 struct DisplayConfig

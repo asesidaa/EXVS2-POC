@@ -185,7 +185,14 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     }
 
     config->Audio.DisableHook = reader.GetBoolean("audio", "DisableHook", false);
-    config->Audio.Device = reader.GetOptional("audio", "Device");
+
+    config->Audio.DeviceId = reader.GetOptional("audio", "DeviceId");
+    if (!config->Audio.DeviceId)
+    {
+        config->Audio.DeviceId = reader.GetOptional("audio", "Device");
+    }
+
+    config->Audio.DeviceName = reader.GetOptional("audio", "DeviceName");
 
     config->Display.Resolution = reader.Get("display", "resolution", "1080p");
 

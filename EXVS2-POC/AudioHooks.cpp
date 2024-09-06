@@ -182,7 +182,8 @@ static void DumpWaveFormat(const WAVEFORMATEX *format)
 
 // This runs upon the first call to IMMDeviceEnumerator instead of at startup, because we're not
 // CoInitialize'd in dllmain.
-static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
+static IMMDevice *FindAudioDevice(std::optional<std::wstring> expectedDeviceId,
+                                  std::optional<std::wstring> expectedDeviceName)
 {
     IMMDevice* result = nullptr;
     IMMDeviceEnumerator* enumerator;
@@ -228,12 +229,19 @@ static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
             err("failed to get audio device %u id: %#x", i, rc);
         }
 
-        bool selected = expectedDeviceId ? _wcsicmp(deviceId, expectedDeviceId->c_str()) == 0 : false;
+        std::optional<std::wstring> deviceName = ReadDeviceName(device);
+
+        bool idMatches = expectedDeviceId ? _wcsicmp(deviceId, expectedDeviceId->c_str()) == 0 : false;
+        bool nameMatches = (expectedDeviceName && deviceName)
+                               ? wcsstr(deviceName->c_str(), expectedDeviceName->c_str()) != nullptr
+                               : false;
+        bool selected = idMatches || nameMatches;
         CoTaskMemFree(deviceId);
 
         if (selected)
         {
             result = device;
+            break;
         }
         else
         {
@@ -268,14 +276,28 @@ void WrappedDeviceRegistry::InitializeOnce()
 {
     std::call_once(once_, [this]() {
         std::optional<std::wstring> deviceId;
-        if (globalConfig.Audio.Device)
+        std::optional<std::wstring> deviceName;
+
+        if (globalConfig.Audio.DeviceId)
         {
             deviceId = std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t>{}.from_bytes(
-                *globalConfig.Audio.Device);
-            info("Looking for audio device %S", deviceId->c_str());
+                *globalConfig.Audio.DeviceId);
+            info("Looking for audio device id %S", deviceId->c_str());
         }
 
-        if (IMMDevice* device = FindAudioDevice(deviceId))
+        if (globalConfig.Audio.DeviceName)
+        {
+            deviceName = std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t>{}.from_bytes(
+                *globalConfig.Audio.DeviceName);
+            info("Looking for audio device name %S", deviceName->c_str());
+        }
+
+        if (deviceId && deviceName)
+        {
+            fatal("Only one of audio device id and name can be specified");
+        }
+
+        if (IMMDevice *device = FindAudioDevice(deviceId, deviceName))
         {
             selectedAudioDevice = FromOriginal(device);
 
