@@ -139,6 +139,52 @@ static void DumpAudioDevices()
     }
 }
 
+static void DumpWaveFormat(const WAVEFORMATEX *format)
+{
+    switch (format->wFormatTag)
+    {
+    case WAVE_FORMAT_PCM:
+        info("Format: PCM");
+        break;
+
+    case WAVE_FORMAT_IEEE_FLOAT:
+        info("Format: IEEE Float");
+        break;
+
+    case WAVE_FORMAT_EXTENSIBLE:
+        info("Format: Extensible");
+        break;
+
+    default:
+        info("Format: unknown (%#x)", format->wFormatTag);
+        break;
+    }
+
+    info("Channels: %d", format->nChannels);
+    info("Samples/sec: %d", format->nSamplesPerSec);
+    info("Average bytes/sec: %d", format->nAvgBytesPerSec);
+    info("Block alignment: %d", format->nBlockAlign);
+    info("Bits per sample: %d", format->wBitsPerSample);
+    info("Extra format size: %d", format->cbSize);
+
+    if (format->wFormatTag == WAVE_FORMAT_EXTENSIBLE)
+    {
+        const auto *formatExtensible = reinterpret_cast<const WAVEFORMATEXTENSIBLE *>(format);
+        if (formatExtensible->SubFormat == KSDATAFORMAT_SUBTYPE_PCM)
+        {
+            info("Subformat: PCM");
+        }
+        else if (formatExtensible->SubFormat == KSDATAFORMAT_SUBTYPE_IEEE_FLOAT)
+        {
+            info("Subformat: IEEE Float");
+        }
+        else
+        {
+            info("Subformat: unknown");
+        }
+    }
+}
+
 // This runs upon the first call to IMMDeviceEnumerator instead of at startup, because we're not
 // CoInitialize'd in dllmain.
 static IMMDevice* FindAudioDevice(std::optional<std::wstring> expectedDeviceId)
@@ -527,13 +573,57 @@ STDMETHODIMP WrappedAudioClient::QueryInterface(REFIID riid, LPVOID *ppvObj)
     return E_NOINTERFACE;
 }
 
+static const char *AudioErrorToString(HRESULT rc)
+{
+    switch (rc)
+    {
+    case AUDCLNT_E_ALREADY_INITIALIZED:
+        return "AUDCLNT_E_ALREADY_INITIALIZED";
+    case AUDCLNT_E_WRONG_ENDPOINT_TYPE:
+        return "AUDCLNT_E_WRONG_ENDPOINT_TYPE";
+    case AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED:
+        return "AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED";
+    case AUDCLNT_E_BUFFER_SIZE_ERROR:
+        return "AUDCLNT_E_BUFFER_SIZE_ERROR";
+    case AUDCLNT_E_CPUUSAGE_EXCEEDED:
+        return "AUDCLNT_E_CPUUSAGE_EXCEEDED";
+    case AUDCLNT_E_DEVICE_INVALIDATED:
+        return "AUDCLNT_E_DEVICE_INVALIDATED";
+    case AUDCLNT_E_DEVICE_IN_USE:
+        return "AUDCLNT_E_DEVICE_IN_USE";
+    case AUDCLNT_E_ENDPOINT_CREATE_FAILED:
+        return "AUDCLNT_E_ENDPOINT_CREATE_FAILED";
+    case AUDCLNT_E_INVALID_DEVICE_PERIOD:
+        return "AUDCLNT_E_INVALID_DEVICE_PERIOD";
+    case AUDCLNT_E_UNSUPPORTED_FORMAT:
+        return "AUDCLNT_E_UNSUPPORTED_FORMAT";
+    case AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED:
+        return "AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED";
+    case AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL:
+        return "AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL";
+    case AUDCLNT_E_SERVICE_NOT_RUNNING:
+        return "AUDCLNT_E_SERVICE_NOT_RUNNING";
+    case S_OK:
+        return "S_OK";
+    default:
+        return "<unknown>";
+    }
+}
+
 HRESULT WrappedAudioClient::Initialize(AUDCLNT_SHAREMODE ShareMode, DWORD StreamFlags, REFERENCE_TIME hnsBufferDuration,
                                        REFERENCE_TIME hnsPeriodicity, const WAVEFORMATEX *pFormat,
                                        LPCGUID AudioSessionGuid)
 {
     HRESULT result =
         original_->Initialize(ShareMode, StreamFlags, hnsBufferDuration, hnsPeriodicity, pFormat, AudioSessionGuid);
-    debug("WrappedAudioClient::Initialize = %#x", result);
+    info("WrappedAudioClient::Initialize = %s", AudioErrorToString(result));
+    info("  Share mode = %s", ShareMode == AUDCLNT_SHAREMODE_EXCLUSIVE ? "exclusive"
+                              : ShareMode == AUDCLNT_SHAREMODE_SHARED  ? "shared"
+                                                                       : "invalid");
+    info("  Stream flags = %#x", StreamFlags);
+    info("  Buffer duration: %d", hnsBufferDuration);
+    info("  Periodicity: %d", hnsPeriodicity);
+    DumpWaveFormat(pFormat);
     return result;
 }
 
@@ -572,8 +662,9 @@ HRESULT WrappedAudioClient::GetMixFormat(WAVEFORMATEX **ppDeviceFormat)
         return E_POINTER;
 
     HRESULT result = original_->GetMixFormat(ppDeviceFormat);
-    debug("WrappedAudioClient::GetMixFormat = %#x", result);
-    info("IAudioClient::GetMixFormat reported %d audio channels", (*ppDeviceFormat)->nChannels);
+    info("WrappedAudioClient::GetMixFormat = %#x", result);
+    auto pDeviceFormat = *ppDeviceFormat;
+    DumpWaveFormat(pDeviceFormat);
     return result;
 }
 
