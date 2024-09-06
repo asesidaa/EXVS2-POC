@@ -557,7 +557,7 @@ HRESULT WrappedDeviceCollection::GetCount(UINT *pcDevices)
 {
     if (!pcDevices)
         return E_POINTER;
-    *pcDevices = devices_.size();
+    *pcDevices = static_cast<UINT>(devices_.size());
     return S_OK;
 }
 
