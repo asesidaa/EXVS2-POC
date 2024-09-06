@@ -30,34 +30,15 @@ DEFINE_GUID(IID_IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81, 0xf1, 0xb9, 0x48, 0
 static WrappedDevice* selectedAudioDevice;
 static std::wstring selectedAudioDeviceId;
 
-static bool convertLPWToString(std::string& s, const LPWSTR pw, UINT codepage = CP_ACP)
+static std::optional<std::wstring> ReadDeviceName(IMMDevice *device)
 {
-    bool res = false;
-    char* p = 0;
-    int bsz;
-
-    bsz = WideCharToMultiByte(codepage, 0, pw,-1, 0,0,0,0);
-    if (bsz > 0) {
-        p = new char[bsz];
-        int rc = WideCharToMultiByte(codepage,0,pw,-1,p,bsz,0,0);
-        if (rc != 0) {
-            p[bsz-1] = 0;
-            s = p;
-            res = true;
-        }
-    }
-    delete [] p;
-    return res;
-}
-
-static void DumpDevice(unsigned int index, LPWSTR id, IMMDevice* device, bool selected)
-{
+    std::optional<std::wstring> result;
     IPropertyStore* propstore;
 
     if (device->OpenPropertyStore(STGM_READ, &propstore) != S_OK)
     {
-        err("failed to open property store for audio device %u", index);
-        return;
+        err("failed to open property store for audio device");
+        return {};
     }
 
     PROPVARIANT property;
@@ -65,27 +46,40 @@ static void DumpDevice(unsigned int index, LPWSTR id, IMMDevice* device, bool se
 
     if (propstore->GetValue(PKEY_Device_FriendlyName, &property) != S_OK)
     {
-        err("failed to get friendly name for audio device %u", index);
+        err("failed to get friendly name for audio device");
         propstore->Release();
-        return;
+        return {};
     }
 
     if (property.vt == VT_EMPTY)
+    {
+        propstore->Release();
+        return {};
+    }
+
+    result = property.pwszVal;
+
+    PropVariantClear(&property);
+    propstore->Release();
+    return result;
+}
+
+static void DumpDevice(unsigned int index, LPWSTR id, IMMDevice *device, bool selected)
+{
+    std::optional<std::wstring> deviceName = ReadDeviceName(device);
+
+    if (!deviceName)
     {
         warn("%s Audio device #%u: <no name> (%S)%s", selected ? "[>>>]" : "[   ]", index, id);
     }
     else
     {
-        std::string nameString = "";
-        std::string idString = "";
-        convertLPWToString(nameString, property.pwszVal);
-        convertLPWToString(idString, id);
-
+        // The console mangles wstrings printed with %S, but not UTF-8 strings printed with %s for some reason??
+        std::string nameString =
+            std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t>{}.to_bytes(*deviceName);
+        std::string idString = std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t>{}.to_bytes(id);
         info("%s Audio device #%u: %s (%s)", selected ? "[>>>]" : "[   ]", index, nameString.c_str(), idString.c_str());
     }
-
-    PropVariantClear(&property);
-    propstore->Release();
 }
 
 static void DumpAudioDevices()
