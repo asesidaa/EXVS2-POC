@@ -176,6 +176,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AmAuthEmu.cpp" />
+    <ClCompile Include="AudioHooks.cpp" />
     <ClCompile Include="banapass.cpp" />
     <ClCompile Include="COMHooks.cpp" />
     <ClCompile Include="Config.cpp" />
@@ -199,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AmAuthEmu.h" />
+    <ClInclude Include="AudioHooks.h" />
     <ClInclude Include="banapass.h" />
     <ClInclude Include="COMHooks.h" />
     <ClInclude Include="Configs.h" />

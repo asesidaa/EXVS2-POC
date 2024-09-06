@@ -7,6 +7,13 @@
 
 #include "VirtualKeyMapping.h"
 
+struct AudioConfig
+{
+    bool DisableHook = false;
+    std::optional<std::string> DeviceId;
+    std::optional<std::string> DeviceName;
+};
+
 struct DisplayConfig
 {
     std::string Resolution;
@@ -36,6 +43,7 @@ struct StartupConfig
     bool UseRealCardReader = false;
     std::string CardReaderComPort;
 
+    AudioConfig Audio;
     DisplayConfig Display;
 };
 

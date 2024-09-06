@@ -144,7 +144,7 @@ static BOOL WINAPI SetWindowPosHook(HWND hWnd, HWND hWndInsertAfter, int X, int 
 		HRESULT rc = g_swapChain->lpVtbl->GetDesc(g_swapChain, &desc);
 		if (rc != S_OK)
 		{
-			printf("DXGISwapChain::GetDesc failed: %x", rc);
+			err("DXGISwapChain::GetDesc failed: %x", rc);
 		}
 		else if (desc.Windowed)
 		{

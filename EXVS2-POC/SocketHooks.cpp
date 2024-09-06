@@ -138,7 +138,7 @@ std::string Ipv4PrefixLengthToMask(int prefix)
 	}
 	buf.pop_back();
 
-	printf("Subnet mask: %s\n", buf.c_str());
+	info("Subnet mask: %s", buf.c_str());
 	return buf;
 }
 
@@ -177,7 +177,7 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 		LPSOCKADDR addr = gateway->Address.lpSockaddr;
 		if (addr->sa_family != AF_INET)
 		{
-			printf("Skipping non-ipv4 gateway\n");
+			info("Skipping non-ipv4 gateway");
 			continue;
 		}
 
@@ -210,7 +210,7 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 		LPSOCKADDR addr = prefix->Address.lpSockaddr;
 		if (addr->sa_family != AF_INET)
 		{
-			printf("Skipping non-ipv4 prefix\n");
+			info("Skipping non-ipv4 prefix");
 			continue;
 		}
 
@@ -228,11 +228,11 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 		BAIL("Failed to find subnet mask for interface %s", interfaceName.c_str());
 #undef BAIL
 
-	printf("Selected interface %s:\n", interfaceName.c_str());
-	printf("  Address: %s\n", v4AddrString->c_str());
-	printf("  Gateway: %s\n", v4GatewayString.c_str());
-	printf("  Subnet mask: %s\n", subnetMask->c_str());
-	printf("  Description: %S\n", adapter->Description);
+	info("Selected interface %s:", interfaceName.c_str());
+	info("  Address: %s", v4AddrString->c_str());
+	info("  Gateway: %s", v4GatewayString.c_str());
+	info("  Subnet mask: %s", subnetMask->c_str());
+	info("  Description: %S", adapter->Description);
 
 	selected.name = interfaceName;
 	selected.guid = adapter->AdapterName;
@@ -241,7 +241,7 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 	selected.gateway = v4GatewayString;
 	selected.subnetMask = *subnetMask;
 
-#define SET_IF_UNSET(lhs, rhs) do { if (!(lhs)) { printf("Setting %s to %s\n", #lhs, (rhs).c_str()); lhs.emplace(rhs); } else { printf("Skipping %s, already set to %s\n", #lhs, lhs->c_str()); } } while (0)
+#define SET_IF_UNSET(lhs, rhs) do { if (!(lhs)) { info("Setting %s to %s", #lhs, (rhs).c_str()); lhs.emplace(rhs); } else { info("Skipping %s, already set to %s", #lhs, lhs->c_str()); } } while (0)
 	SET_IF_UNSET(globalConfig.InterfaceName, std::move(interfaceName));
 	SET_IF_UNSET(globalConfig.IpAddress, std::move(*v4AddrString));
 	SET_IF_UNSET(globalConfig.Gateway, v4GatewayString);
@@ -255,12 +255,12 @@ static bool SelectInterface(std::string* error, PIP_ADAPTER_ADDRESSES adapter, s
 
 static bool FindInterfaceByName(const std::string& interfaceName)
 {
-	printf("Selecting interface by name: %s\n", interfaceName.c_str());
+	info("Selecting interface by name: %s", interfaceName.c_str());
 	return IterateInterfaces(
 		[&](std::string&& currentInterfaceName, PIP_ADAPTER_ADDRESSES adapter)
 		{
 			std::string error;
-			printf("Current interface: %s\n", currentInterfaceName.c_str());
+			info("Current interface: %s", currentInterfaceName.c_str());
 
 			if (interfaceName == currentInterfaceName)
 			{
@@ -284,7 +284,7 @@ static bool FindInterfaceByName(const std::string& interfaceName)
 
 static bool FindInterfaceByAddress(const std::string& ipAddress)
 {
-	printf("Selecting interface by address: %s\n", ipAddress.c_str());
+	info("Selecting interface by address: %s", ipAddress.c_str());
 	return IterateInterfaces(
 		[&](std::string&& currentInterfaceName, PIP_ADAPTER_ADDRESSES adapter)
 		{
@@ -327,7 +327,7 @@ static SOCKET(WSAAPI* orig_WSASocketW)(int af, int type, int protocol, LPWSAPROT
 static SOCKET WSAAPI WSASocketWHook(int af, int type, int protocol, LPWSAPROTOCOL_INFOW lpProtocolInfo, GROUP g, DWORD dwFlags)
 {
 	SOCKET result = orig_WSASocketW(af, type, protocol, lpProtocolInfo, g, dwFlags);
-	printf("WSASocketW(%d, %s, %d, ?, ?, %d) = %lld\n", af, SocketTypeToString(type), protocol, dwFlags, result);
+	info("WSASocketW(%d, %s, %d, ?, ?, %d) = %lld", af, SocketTypeToString(type), protocol, dwFlags, result);
 	return result;
 }
 
@@ -338,7 +338,7 @@ static int bindHook(SOCKET s, const struct sockaddr* name, int namelen)
 	{
 		int rc = orig_bind(s, name, namelen);
 		const struct sockaddr_in6* origAddr = reinterpret_cast<const struct sockaddr_in6*>(name);
-		printf("bind(%lld, %s) = %d\n", s, SockaddrToString(name, true)->c_str(), rc);
+		info("bind(%lld, %s) = %d", s, SockaddrToString(name, true)->c_str(), rc);
 		return rc;
 	}
 
@@ -350,7 +350,7 @@ static int bindHook(SOCKET s, const struct sockaddr* name, int namelen)
 	addr->sin_port = port;
 
 	int rc = orig_bind(s, reinterpret_cast<sockaddr*>(addrBuf.data()), static_cast<int>(addrBuf.size()));
-	printf("bind(%lld): %s -> %s = %d\n", s, SockaddrToString(name, true)->c_str(), SockaddrToString(reinterpret_cast<sockaddr*>(addr), true)->c_str(), rc);
+	info("bind(%lld): %s -> %s = %d", s, SockaddrToString(name, true)->c_str(), SockaddrToString(reinterpret_cast<sockaddr*>(addr), true)->c_str(), rc);
 	return rc;
 }
 
@@ -506,9 +506,8 @@ void InitializeSocketHooks()
 	FindInterface();
 	MH_CreateHookApi(L"WS2_32.dll", "WSASocketW", WSASocketWHook, reinterpret_cast<void**>(&orig_WSASocketW));
 	
-	if(!globalConfig.DisableSocketHook)
+	if (!globalConfig.DisableSocketHook)
 	{
-		printf("Socket Bind Enabled\n");
 		MH_CreateHookApi(L"WS2_32.dll", "bind", bindHook, reinterpret_cast<void**>(&orig_bind));
 	}
 	
