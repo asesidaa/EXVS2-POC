@@ -86,7 +86,7 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild EXVS2-POC/EXVS2-POC.vcxproj /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.DLLPLATFORM}}
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: exvs2-poc-dll
         path: D:\a\EXVS2-POC\EXVS2-POC\EXVS2-POC\x64\Release
