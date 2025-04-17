@@ -129,6 +129,9 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
         ));
         
         AppendMessages(mobileUserGroup, cardProfile);
+        
+        cardProfile.LastPlayedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds();
+        _context.SaveChanges();
 
         var loadCard = new Response.LoadCard()
         {

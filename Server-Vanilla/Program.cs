@@ -7,6 +7,14 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
 
+Log.Information("+=====================================+");
+Log.Information("+              EXVS2-POC              +");
+Log.Information("+                                     +");
+Log.Information("+ Disclaimer:                         +");
+Log.Information("+ FREE SOFTWARE, BEWARE OF SCAMMERS!  +");
+Log.Information("+ IF YOU PAID, YOU ARE BEING SCAMMED! +");
+Log.Information("+=====================================+");
+
 Log.Information("Server starting...");
 
 try
@@ -91,6 +99,7 @@ try
 
         return Task.CompletedTask;
     });
+    
     app.Run();
 }
 catch (Exception ex) when (

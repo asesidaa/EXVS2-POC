@@ -85,6 +85,15 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
             AppendTagTeams(cardProfile, pilotDataGroup);
         }
 
+        var loadPlayer =
+            JsonConvert.DeserializeObject<Response.PreLoadCard.LoadPlayer>(cardProfile.PilotDomain.LoadPlayerJson);
+
+        if (loadPlayer is not null)
+        {
+            loadPlayer.LastPlayedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds();
+            _context.SaveChanges();
+        }
+
         response.load_card = new Response.LoadCard
         {
             pilot_data_group = pilotDataGroup,
