@@ -91,6 +91,7 @@ public class LoadCardQueryHandler : IRequestHandler<LoadCardQuery, Response>
         if (loadPlayer is not null)
         {
             loadPlayer.LastPlayedAt = (ulong) DateTimeOffset.Now.ToUnixTimeSeconds();
+            cardProfile.PilotDomain.LoadPlayerJson = JsonConvert.SerializeObject(loadPlayer);
             _context.SaveChanges();
         }
 
