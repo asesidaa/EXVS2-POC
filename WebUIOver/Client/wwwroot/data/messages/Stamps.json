@@ -1,0 +1,2454 @@
+﻿[
+  {
+    "ID": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 1,
+    "Value": "よろしくお願いします！",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 2,
+    "Value": "頑張ります！",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 3,
+    "Value": "楽しみましょう！",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 4,
+    "Value": "初心者です",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 5,
+    "Value": "ありがとうございました！",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 6,
+    "Value": "すみませんでした．．．",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 7,
+    "Value": "リターンマッチやりましょう！",
+    "Existence": "VS2",
+    "Clues": "ショップ"
+  },
+  {
+    "ID": 8,
+    "Value": "アムロ、いきまーす！",
+    "Existence": "VS2",
+    "Clues": "ガンダム"
+  },
+  {
+    "ID": 9,
+    "Value": "勝利の栄光を君に！",
+    "Existence": "VS2",
+    "Clues": "シャア専用ゲルググ"
+  },
+  {
+    "ID": 10,
+    "Value": "任務完了まで気を抜くなよ！",
+    "Existence": "VS2",
+    "Clues": "アッガイ"
+  },
+  {
+    "ID": 11,
+    "Value": "見えるぞ…私にも敵が見える！",
+    "Existence": "VS2",
+    "Clues": "ジオング"
+  },
+  {
+    "ID": 12,
+    "Value": "あと10年は戦える！",
+    "Existence": "VS2",
+    "Clues": "ギャン"
+  },
+  {
+    "ID": 13,
+    "Value": "エンジン全開！",
+    "Existence": "VS2",
+    "Clues": "ガンダム(Gメカ)"
+  },
+  {
+    "ID": 14,
+    "Value": "ええい！奴は化け物か！",
+    "Existence": "VS2",
+    "Clues": "シャア専用ザクII"
+  },
+  {
+    "ID": 15,
+    "Value": "俺の身体をみんあに貸すぞ！",
+    "Existence": "VS2",
+    "Clues": "Zガンダム"
+  },
+  {
+    "ID": 16,
+    "Value": "幸運を祈る",
+    "Existence": "VS2",
+    "Clues": "百式"
+  },
+  {
+    "ID": 17,
+    "Value": "その力、私の為に役立ててくれると嬉しい",
+    "Existence": "VS2",
+    "Clues": "メッサーラ"
+  },
+  {
+    "ID": 18,
+    "Value": "君のことが好きになれそうだ",
+    "Existence": "VS2",
+    "Clues": "ジ・O"
+  },
+  {
+    "ID": 19,
+    "Value": "私の命を吸って…そして、勝つのよ！",
+    "Existence": "VS2",
+    "Clues": "ガンダムMk-II"
+  },
+  {
+    "ID": 20,
+    "Value": "なかなか楽しませてもらったぞォ！",
+    "Existence": "VS2",
+    "Clues": "ハンブラビ"
+  },
+  {
+    "ID": 21,
+    "Value": "挟み撃ちと行くぞ！",
+    "Existence": "VS2",
+    "Clues": "マラサイ"
+  },
+  {
+    "ID": 22,
+    "Value": "ツキはオレにある！",
+    "Existence": "VS2",
+    "Clues": "ガブスレイ"
+  },
+  {
+    "ID": 23,
+    "Value": "近づく奴はみんな灰にしてやる！",
+    "Existence": "VS2",
+    "Clues": "バウンド・ドック"
+  },
+  {
+    "ID": 24,
+    "Value": "自分のできることを最大限にやる！",
+    "Existence": "VS2",
+    "Clues": "フルアーマーZZガンダム"
+  },
+  {
+    "ID": 25,
+    "Value": "戦功をあげたいんだろ? あたしは協力する",
+    "Existence": "VS2",
+    "Clues": "キュベレイMk-II(プルツー)"
+  },
+  {
+    "ID": 26,
+    "Value": "ここが奴等の墓場となる!",
+    "Existence": "VS2",
+    "Clues": "キュベレイ"
+  },
+  {
+    "ID": 27,
+    "Value": "ハマーン様！バンザァァーイ！",
+    "Existence": "VS2",
+    "Clues": "ザクIII改"
+  },
+  {
+    "ID": 28,
+    "Value": "凄い！感動の嵐！",
+    "Existence": "VS2",
+    "Clues": "ZZガンダム"
+  },
+  {
+    "ID": 29,
+    "Value": "プルプルプル プルプルプル〜!",
+    "Existence": "VS2",
+    "Clues": "キュベレイMk-II(プル)"
+  },
+  {
+    "ID": 30,
+    "Value": "νガンダムは伊達じゃない！",
+    "Existence": "VS2",
+    "Clues": "νガンダム"
+  },
+  {
+    "ID": 31,
+    "Value": "君のような支えが要る…",
+    "Existence": "VS2",
+    "Clues": "サザビー"
+  },
+  {
+    "ID": 32,
+    "Value": "少しでも 力になれれば…",
+    "Existence": "VS2",
+    "Clues": "リ・ガズィ"
+  },
+  {
+    "ID": 33,
+    "Value": "そいつは手ごわいぞ！",
+    "Existence": "VS2",
+    "Clues": "ヤクト・ドーガ"
+  },
+  {
+    "ID": 34,
+    "Value": "逃げまわりゃ、死にはしない!",
+    "Existence": "VS2",
+    "Clues": "ガンダムF91"
+  },
+  {
+    "ID": 35,
+    "Value": "貴族主義社会の為に！",
+    "Existence": "VS2",
+    "Clues": "ベルガ・ギロス"
+  },
+  {
+    "ID": 36,
+    "Value": "死ぬもんか! あなたも死なないで!",
+    "Existence": "VS2",
+    "Clues": "V2ガンダム"
+  },
+  {
+    "ID": 37,
+    "Value": "いい返事だ！",
+    "Existence": "VS2",
+    "Clues": "ガンイージ"
+  },
+  {
+    "ID": 38,
+    "Value": "私の手の中で 戦いなさい",
+    "Existence": "VS2",
+    "Clues": "ゴトラタン"
+  },
+  {
+    "ID": 39,
+    "Value": "パーツをどんどんぶつけていきます！",
+    "Existence": "VS2",
+    "Clues": "ヴィクトリーガンダム"
+  },
+  {
+    "ID": 40,
+    "Value": "すり身にしてやれ！",
+    "Existence": "VS2",
+    "Clues": "ゲドラフ"
+  },
+  {
+    "ID": 41,
+    "Value": "我が心明鏡止水",
+    "Existence": "VS2",
+    "Clues": "ゴッドガンダム"
+  },
+  {
+    "ID": 42,
+    "Value": "目に物見せてやるぜ！",
+    "Existence": "VS2",
+    "Clues": "ドラゴンガンダム"
+  },
+  {
+    "ID": 43,
+    "Value": "貴様の力はその程度のものかっ！",
+    "Existence": "VS2",
+    "Clues": "マスターガンダム"
+  },
+  {
+    "ID": 44,
+    "Value": "そんなことはどうでもいい！",
+    "Existence": "VS2",
+    "Clues": "ガンダムシュピーゲル"
+  },
+  {
+    "ID": 45,
+    "Value": "さ、あたしと ファイトしよ!",
+    "Existence": "VS2",
+    "Clues": "ノーベルガンダム"
+  },
+  {
+    "ID": 46,
+    "Value": "ガンダムファイト！レディーゴーッ！！",
+    "Existence": "VS2",
+    "Clues": "シャイニングガンダム"
+  },
+  {
+    "ID": 47,
+    "Value": "もう黙って見てるなんてできない!",
+    "Existence": "VS2",
+    "Clues": "ライジングガンダム"
+  },
+  {
+    "ID": 48,
+    "Value": "I'll never give up!!",
+    "Existence": "VS2",
+    "Clues": "ガンダムマックスター"
+  },
+  {
+    "ID": 49,
+    "Value": "任務、了解",
+    "Existence": "VS2",
+    "Clues": "ウイングガンダムゼロ"
+  },
+  {
+    "ID": 50,
+    "Value": "私はまだ、自分を弱者と認めてない！！",
+    "Existence": "VS2",
+    "Clues": "ガンダムエピオン"
+  },
+  {
+    "ID": 51,
+    "Value": "攻撃こそが最大の防御だ！",
+    "Existence": "VS2",
+    "Clues": "アルトロンガンダム"
+  },
+  {
+    "ID": 52,
+    "Value": "フォーメーションを組もう！",
+    "Existence": "VS2",
+    "Clues": "ガンダムサンドロック改"
+  },
+  {
+    "ID": 53,
+    "Value": "事は全てエレガントに…",
+    "Existence": "VS2",
+    "Clues": "トールギスII"
+  },
+  {
+    "ID": 54,
+    "Value": "いま楽にしてやる",
+    "Existence": "VS2",
+    "Clues": "ウイングガンダムゼロ(EW版)"
+  },
+  {
+    "ID": 55,
+    "Value": "的確な判断だ",
+    "Existence": "VS2",
+    "Clues": "ガンダムヘビーアームズ改(EW版)"
+  },
+  {
+    "ID": 56,
+    "Value": "大人しく棺桶で眠るわけにはいかん！",
+    "Existence": "VS2",
+    "Clues": "トールギスIII"
+  },
+  {
+    "ID": 57,
+    "Value": "まぁ、そんなに気にすんなよ",
+    "Existence": "VS2",
+    "Clues": "ガンダムデスサイズヘル(EW版)"
+  },
+  {
+    "ID": 58,
+    "Value": "過ちは繰り返させない！",
+    "Existence": "VS2",
+    "Clues": "ガンダムDX"
+  },
+  {
+    "ID": 59,
+    "Value": "私の愛馬は狂暴です",
+    "Existence": "VS2",
+    "Clues": "ガンダムガンダムヴァサーゴ・チェストブレイク"
+  },
+  {
+    "ID": 60,
+    "Value": "君は私の頼もしいパートナーだ",
+    "Existence": "VS2",
+    "Clues": "ガンダムXディバイダー"
+  },
+  {
+    "ID": 61,
+    "Value": "ホワイトドールのご加護を！",
+    "Existence": "VS2",
+    "Clues": "∀ガンダム"
+  },
+  {
+    "ID": 62,
+    "Value": "我が世の春が来た！",
+    "Existence": "VS2",
+    "Clues": "ターンX"
+  },
+  {
+    "ID": 63,
+    "Value": "ユニバース！",
+    "Existence": "VS2",
+    "Clues": "ゴールドスモー"
+  },
+  {
+    "ID": 64,
+    "Value": "あたしはまだ 戦うんですからね!",
+    "Existence": "VS2",
+    "Clues": "カプル"
+  },
+  {
+    "ID": 65,
+    "Value": "その股座にロケットパァーンチィ!!",
+    "Existence": "VS2",
+    "Clues": "コレンカプル"
+  },
+  {
+    "ID": 66,
+    "Value": "もう、逃げない 決めたんだ",
+    "Existence": "VS2",
+    "Clues": "ストライクガンダム"
+  },
+  {
+    "ID": 67,
+    "Value": "あいつら…うざ～い",
+    "Existence": "VS2",
+    "Clues": "フォビドゥンガンダム"
+  },
+  {
+    "ID": 68,
+    "Value": "奴等にはそろそろ退場してもらおうか…",
+    "Existence": "VS2",
+    "Clues": "プロヴィデンスガンダム"
+  },
+  {
+    "ID": 69,
+    "Value": "さぁ、戦争をしに行くぞ",
+    "Existence": "VS2",
+    "Clues": "ラゴゥ"
+  },
+  {
+    "ID": 70,
+    "Value": "大丈夫、もう泣かないって決めたから!",
+    "Existence": "VS2",
+    "Clues": "フリーダムガンダム"
+  },
+  {
+    "ID": 71,
+    "Value": "奴に屈辱を晴らす!",
+    "Existence": "VS2",
+    "Clues": "デュエルガンダムアサルトシュラウド"
+  },
+  {
+    "ID": 72,
+    "Value": "俺は不可能を可能にする男ってね",
+    "Existence": "VS2",
+    "Clues": "パーフェクトストライクガンダム"
+  },
+  {
+    "ID": 73,
+    "Value": "大丈夫ですよ 僕は貴方を信じてます",
+    "Existence": "VS2",
+    "Clues": "ブリッツガンダム"
+  },
+  {
+    "ID": 74,
+    "Value": "滅殺！！",
+    "Existence": "VS2",
+    "Clues": "レイダーガンダム"
+  },
+  {
+    "ID": 75,
+    "Value": "グゥレイトォ!!",
+    "Existence": "VS2",
+    "Clues": "バスターガンダム"
+  },
+  {
+    "ID": 76,
+    "Value": "覚悟はある。僕は戦う",
+    "Existence": "VS2",
+    "Clues": "ストライクフリーダムガンダム"
+  },
+  {
+    "ID": 77,
+    "Value": "お前がエースだ 頼んだぞ!",
+    "Existence": "VS2",
+    "Clues": "インフィニットジャスティスガンダム"
+  },
+  {
+    "ID": 78,
+    "Value": "どんな敵とでも戦ってやるさ！",
+    "Existence": "VS2",
+    "Clues": "デスティニーガンダム"
+  },
+  {
+    "ID": 79,
+    "Value": "射撃は苦手で…",
+    "Existence": "VS2",
+    "Clues": "ガナーザクウォーリア"
+  },
+  {
+    "ID": 80,
+    "Value": "アンタは俺が討つんだ! 今日、ここで!",
+    "Existence": "VS2",
+    "Clues": "インパルスガンダム"
+  },
+  {
+    "ID": 81,
+    "Value": "絶対負けない！",
+    "Existence": "VS2",
+    "Clues": "ガイアガンダム"
+  },
+  {
+    "ID": 82,
+    "Value": "この処分は 後程、必ず!",
+    "Existence": "VS2",
+    "Clues": "レジェンドガンダム"
+  },
+  {
+    "ID": 83,
+    "Value": "ザクとは違うんだよ！ザクとは！",
+    "Existence": "VS2",
+    "Clues": "グフイグナイテッド"
+  },
+  {
+    "ID": 84,
+    "Value": "諦めるな! 押し返せば道も開ける!",
+    "Existence": "VS2",
+    "Clues": "ストライクルージュ(オオトリ装備)"
+  },
+  {
+    "ID": 85,
+    "Value": "さーて 気張っていきますか!",
+    "Existence": "VS2",
+    "Clues": "アカツキ"
+  },
+  {
+    "ID": 86,
+    "Value": "目標を駆逐する",
+    "Existence": "VS2",
+    "Clues": "ガンダムエクシア"
+  },
+  {
+    "ID": 87,
+    "Value": "俺がバックアップに回る！",
+    "Existence": "VS2",
+    "Clues": "ダブルオーガンダム"
+  },
+  {
+    "ID": 88,
+    "Value": "そうだ…これとやりたかった！",
+    "Existence": "VS2",
+    "Clues": "スサノオ"
+  },
+  {
+    "ID": 89,
+    "Value": "オーライ！",
+    "Existence": "VS2",
+    "Clues": "ケルディムガンダム"
+  },
+  {
+    "ID": 90,
+    "Value": "やっぱ戦争は白兵でねぇとなぁ!",
+    "Existence": "VS2",
+    "Clues": "アルケーガンダム"
+  },
+  {
+    "ID": 91,
+    "Value": "目標を狙い撃つぜ！",
+    "Existence": "VS2",
+    "Clues": "ガンダムデュナメス"
+  },
+  {
+    "ID": 92,
+    "Value": "遂に本気を出すべき相手が来たかな？",
+    "Existence": "VS2",
+    "Clues": "リボーンズガンダム"
+  },
+  {
+    "ID": 93,
+    "Value": "もぉ～たまんなぁ～い！",
+    "Existence": "VS2",
+    "Clues": "ガンダムスローネドライ"
+  },
+  {
+    "ID": 94,
+    "Value": "俺達に勝てるわけがねぇよなぁ！",
+    "Existence": "VS2",
+    "Clues": "アリオスガンダム"
+  },
+  {
+    "ID": 95,
+    "Value": "懐に飛び込み 直接攻撃を仕掛ける!",
+    "Existence": "VS2",
+    "Clues": "アヴァランチエクシア"
+  },
+  {
+    "ID": 96,
+    "Value": "飛翔する！",
+    "Existence": "VS2",
+    "Clues": "ダブルオーガンダムセブンソード\/G"
+  },
+  {
+    "ID": 97,
+    "Value": "この戦いで決着を付ける！",
+    "Existence": "VS2",
+    "Clues": "ティエレンタオツー"
+  },
+  {
+    "ID": 98,
+    "Value": "今度は 私が君を守る!",
+    "Existence": "VS2",
+    "Clues": "ガンダムヴァーチェ"
+  },
+  {
+    "ID": 99,
+    "Value": "トランザムで突破する！",
+    "Existence": "VS2",
+    "Clues": "ダブルオークアンタ"
+  },
+  {
+    "ID": 100,
+    "Value": "敵の力は未知数だ！フルパワーで行く！",
+    "Existence": "VS2",
+    "Clues": "ラファエルガンダム"
+  },
+  {
+    "ID": 101,
+    "Value": "あえて言おう! …死ぬなよ!",
+    "Existence": "VS2",
+    "Clues": "ブレイヴ指揮官用試験機"
+  },
+  {
+    "ID": 102,
+    "Value": "俺のことは気にするな 自分のための戦いをしろ",
+    "Existence": "VS2",
+    "Clues": "ダブルオークアンタフルセイバー"
+  },
+  {
+    "ID": 103,
+    "Value": "狙い撃たねぇ、だからさ…乱れ撃つぜぇ！",
+    "Existence": "VS2",
+    "Clues": "ガンダムサバーニャ"
+  },
+  {
+    "ID": 104,
+    "Value": "ウダウダしてる暇はねぇ！速攻で決めるぜ相棒！",
+    "Existence": "VS2",
+    "Clues": "ガンダムハルート"
+  },
+  {
+    "ID": 105,
+    "Value": "男と見込んだ よろしく頼みます!",
+    "Existence": "VS2",
+    "Clues": "ユニコーンガンダム"
+  },
+  {
+    "ID": 106,
+    "Value": "了解、 マスター",
+    "Existence": "VS2",
+    "Clues": "クシャトリヤ"
+  },
+  {
+    "ID": 107,
+    "Value": "この力、示させてもらう！",
+    "Existence": "VS2",
+    "Clues": "シナンジュ"
+  },
+  {
+    "ID": 108,
+    "Value": "同時攻撃による一点突破で行くぞ！",
+    "Existence": "VS2",
+    "Clues": "デルタプラス"
+  },
+  {
+    "ID": 109,
+    "Value": "奴等は敵! 倒すべき敵!",
+    "Existence": "VS2",
+    "Clues": "バンシィ"
+  },
+  {
+    "ID": 110,
+    "Value": "露払いをさせていただきます!",
+    "Existence": "VS2",
+    "Clues": "ローゼン・ズール"
+  },
+  {
+    "ID": 111,
+    "Value": "自分の意思で！迷わず進む！",
+    "Existence": "VS2",
+    "Clues": "フルアーマー・ユニコーンガンダム"
+  },
+  {
+    "ID": 112,
+    "Value": "みんなで…みんなでおれを否定するのか…!",
+    "Existence": "VS2",
+    "Clues": "バンシィ・ノルン"
+  },
+  {
+    "ID": 113,
+    "Value": "私じゃこの機体を使いこなせない…",
+    "Existence": "VS2",
+    "Clues": "アレックス"
+  },
+  {
+    "ID": 114,
+    "Value": "お互いツイてないね…",
+    "Existence": "VS2",
+    "Clues": "ザクII改"
+  },
+  {
+    "ID": 115,
+    "Value": "さぁ来い、戦い方を教えてやる",
+    "Existence": "VS2",
+    "Clues": "ケンプファー"
+  },
+  {
+    "ID": 116,
+    "Value": "吶喊します",
+    "Existence": "VS2",
+    "Clues": "ガンダム試作1号機フルバーニアン"
+  },
+  {
+    "ID": 117,
+    "Value": "私は帰ってきた！",
+    "Existence": "VS2",
+    "Clues": "ガンダム試作2号機"
+  },
+  {
+    "ID": 118,
+    "Value": "この戦いは楽させてあげるよ",
+    "Existence": "VS2",
+    "Clues": "ガーベラ・テトラ"
+  },
+  {
+    "ID": 119,
+    "Value": "この戦場は…地獄だ",
+    "Existence": "VS2",
+    "Clues": "ガンダム試作3号機"
+  },
+  {
+    "ID": 120,
+    "Value": "守ったら負ける! 攻めろ!",
+    "Existence": "VS2",
+    "Clues": "ガンダムEz8"
+  },
+  {
+    "ID": 121,
+    "Value": "自分は、死に場所を 見つけました",
+    "Existence": "VS2",
+    "Clues": "グフ・カスタム"
+  },
+  {
+    "ID": 122,
+    "Value": "諸君! ヅダを信じたまえっ",
+    "Existence": "VS2",
+    "Clues": "ヅダ"
+  },
+  {
+    "ID": 123,
+    "Value": "先手を打たなきゃ 袋叩きに遭うぞ!",
+    "Existence": "VS2",
+    "Clues": "ヒルドルブ"
+  },
+  {
+    "ID": 124,
+    "Value": "俺達の奇跡を見せてやろうじゃないか！",
+    "Existence": "VS2",
+    "Clues": "クロスボーン・ガンダムX1改"
+  },
+  {
+    "ID": 125,
+    "Value": "何とぞ我が力ぞんぶんにお使いください！",
+    "Existence": "VS2",
+    "Clues": "クロスボーン・ガンダムX2改"
+  },
+  {
+    "ID": 126,
+    "Value": "向こうも人間、チャンスはあるはずだ！",
+    "Existence": "VS2",
+    "Clues": "クロスボーン・ガンダムX3"
+  },
+  {
+    "ID": 127,
+    "Value": "俺はこの時を！この瞬間を待っていたんだーっ",
+    "Existence": "VS2",
+    "Clues": "クロスボーン・ガンダムX1フルクロス"
+  },
+  {
+    "ID": 128,
+    "Value": "オタクをなめるな!",
+    "Existence": "VS2",
+    "Clues": "ファントムガンダム"
+  },
+  {
+    "ID": 129,
+    "Value": "………",
+    "Existence": "VS2",
+    "Clues": "ブルーディスティニー1号機"
+  },
+  {
+    "ID": 130,
+    "Value": "マシンの性能差か…！",
+    "Existence": "VS2",
+    "Clues": "イフリート改"
+  },
+  {
+    "ID": 131,
+    "Value": "エゴだよ！それはっ！",
+    "Existence": "VS2",
+    "Clues": "Hi-νガンダム"
+  },
+  {
+    "ID": 132,
+    "Value": "我々の勝ちだな",
+    "Existence": "VS2",
+    "Clues": "ナイチンゲール"
+  },
+  {
+    "ID": 133,
+    "Value": "どうだい最強だろ、俺の悪運は",
+    "Existence": "VS2",
+    "Clues": "アストレイレッドフレーム"
+  },
+  {
+    "ID": 134,
+    "Value": "任務完了（ミッションコンプリート）",
+    "Existence": "VS2",
+    "Clues": "アストレイブルーフレームセカンドL"
+  },
+  {
+    "ID": 135,
+    "Value": "最後に勝つのは私だ！",
+    "Existence": "VS2",
+    "Clues": "アストレイゴールドフレーム天"
+  },
+  {
+    "ID": 136,
+    "Value": "あなたを死なせはしません！",
+    "Existence": "VS2",
+    "Clues": "ドレッドノートガンダム(Xアストレイ)"
+  },
+  {
+    "ID": 137,
+    "Value": "失敗作のオレに…相応しい負け方だ",
+    "Existence": "VS2",
+    "Clues": "ハイペリオンガンダム"
+  },
+  {
+    "ID": 138,
+    "Value": "根性を見せてやる！",
+    "Existence": "VS2",
+    "Clues": "アストレイレッドフレーム改"
+  },
+  {
+    "ID": 139,
+    "Value": "合点承知",
+    "Existence": "VS2",
+    "Clues": "アストレイレッドフレーム(レッドドラゴン)"
+  },
+  {
+    "ID": 140,
+    "Value": "流石だな",
+    "Existence": "VS2",
+    "Clues": "アストレイブルーフレームD"
+  },
+  {
+    "ID": 141,
+    "Value": "了解",
+    "Existence": "VS2",
+    "Clues": "ストライクノワール"
+  },
+  {
+    "ID": 142,
+    "Value": "女って厄介でしょ？",
+    "Existence": "VS2",
+    "Clues": "スターゲイザー"
+  },
+  {
+    "ID": 143,
+    "Value": "Dummy",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 144,
+    "Value": "…これからが地獄だぞ",
+    "Existence": "VS2",
+    "Clues": "Ξガンダム"
+  },
+  {
+    "ID": 145,
+    "Value": "この戦いは 理屈ではない!",
+    "Existence": "VS2",
+    "Clues": "ペーネロペー"
+  },
+  {
+    "ID": 146,
+    "Value": "僕が 救世主になる!",
+    "Existence": "VS2",
+    "Clues": "ガンダムAGE-1"
+  },
+  {
+    "ID": 147,
+    "Value": "心を強く持てば どんな強敵も倒せる!",
+    "Existence": "VS2",
+    "Clues": "ガンダムAGE-2"
+  },
+  {
+    "ID": 148,
+    "Value": "突破口を開く！",
+    "Existence": "VS2",
+    "Clues": "ガンダムAGE-3"
+  },
+  {
+    "ID": 149,
+    "Value": "僕ならあいつを止められる！",
+    "Existence": "VS2",
+    "Clues": "ガンダムAGE-FX"
+  },
+  {
+    "ID": 150,
+    "Value": "敵の弱点を徹底的に突くぞ",
+    "Existence": "VS2",
+    "Clues": "ゼイドラ"
+  },
+  {
+    "ID": 151,
+    "Value": "生きるのって…難しいね…",
+    "Existence": "VS2",
+    "Clues": "ファルシア"
+  },
+  {
+    "ID": 152,
+    "Value": "これがガンダムか",
+    "Existence": "VS2",
+    "Clues": "ガンダムレギルス"
+  },
+  {
+    "ID": 153,
+    "Value": "自分を信じて 戦い抜け!",
+    "Existence": "VS2",
+    "Clues": "ガンダムAGE-2 ダークハウンド"
+  },
+  {
+    "ID": 154,
+    "Value": "根絶やしにするのだ！",
+    "Existence": "VS2",
+    "Clues": "ガンダムAGE-1 フルグランサ"
+  },
+  {
+    "ID": 155,
+    "Value": "全てを知る俺に勝てぬ敵などない…!",
+    "Existence": "VS2",
+    "Clues": "エクストリームガンダム エクリプス-F"
+  },
+  {
+    "ID": 156,
+    "Value": "極!!限!!全!!力!!",
+    "Existence": "VS2",
+    "Clues": "エクストリームガンダム ゼノン-F"
+  },
+  {
+    "ID": 157,
+    "Value": "早く帰って セシアの笑顔を見たい…",
+    "Existence": "VS2",
+    "Clues": "エクストリームガンダム アイオス-F"
+  },
+  {
+    "ID": 158,
+    "Value": "君の心は絶対に俺が取り戻す!",
+    "Existence": "VS2",
+    "Clues": "エクストリームガンダム type-レオスII Vs."
+  },
+  {
+    "ID": 159,
+    "Value": "私のこの手が希望に輝く!",
+    "Existence": "VS2",
+    "Clues": "エクストリームガンダム エクセリア"
+  },
+  {
+    "ID": 160,
+    "Value": "ありあとしたー!",
+    "Existence": "VS2",
+    "Clues": "G-セルフ"
+  },
+  {
+    "ID": 161,
+    "Value": "連敗の汚名はそそぐ覚悟であります！",
+    "Existence": "VS2",
+    "Clues": "マックナイフ"
+  },
+  {
+    "ID": 162,
+    "Value": "もう僕は攻撃はしません!　その意味は分かりますよね?",
+    "Existence": "VS2",
+    "Clues": "G-セルフ(パーフェクトパック)"
+  },
+  {
+    "ID": 163,
+    "Value": "役立たずな私…！",
+    "Existence": "VS2",
+    "Clues": "G-アルケイン(フルドレス)"
+  },
+  {
+    "ID": 164,
+    "Value": "援護ありがとうね！",
+    "Existence": "VS2",
+    "Clues": "モンテーロ"
+  },
+  {
+    "ID": 165,
+    "Value": "ねぇ、次はどうすればいい？",
+    "Existence": "VS2",
+    "Clues": "ガンダム・バルバトス"
+  },
+  {
+    "ID": 166,
+    "Value": "貴様！何者だ！？",
+    "Existence": "VS2",
+    "Clues": "ガンダム・キマリストルーパー"
+  },
+  {
+    "ID": 167,
+    "Value": "あいつ…邪魔だ…！",
+    "Existence": "VS2",
+    "Clues": "ガンダム・バルバトスルプス"
+  },
+  {
+    "ID": 168,
+    "Value": "体張るぞ！",
+    "Existence": "VS2",
+    "Clues": "ガンダム・グシオンリベイクフルシティ"
+  },
+  {
+    "ID": 169,
+    "Value": "皆、バエルのもとへ集え！",
+    "Existence": "VS2",
+    "Clues": "ガンダム・バエル"
+  },
+  {
+    "ID": 170,
+    "Value": "まだ、止まれない",
+    "Existence": "VS2",
+    "Clues": "ガンダム・バルバトスルプスレクス"
+  },
+  {
+    "ID": 171,
+    "Value": "この戦場にはやっぱフリージャズだ！",
+    "Existence": "VS2",
+    "Clues": "フルアーマー・ガンダム"
+  },
+  {
+    "ID": 172,
+    "Value": "生き残ろう 生き残って いつか心から笑おう",
+    "Existence": "VS2",
+    "Clues": "サイコ・ザク"
+  },
+  {
+    "ID": 173,
+    "Value": "悪ノリする客には退場してもらおうか！",
+    "Existence": "VS2",
+    "Clues": "アトラスガンダム"
+  },
+  {
+    "ID": 174,
+    "Value": "遊びだからこそ!本気になれる!",
+    "Existence": "VS2",
+    "Clues": "ビルドストライクガンダム(フルパッケージ)"
+  },
+  {
+    "ID": 175,
+    "Value": "私の本気で応えよう!",
+    "Existence": "VS2",
+    "Clues": "ザクアメイジング"
+  },
+  {
+    "ID": 176,
+    "Value": "アメイジングだ！",
+    "Existence": "VS2",
+    "Clues": "ホットスクランブルガンダム"
+  },
+  {
+    "ID": 177,
+    "Value": "ガンプラバトルは楽しく真剣にやるもんだろ！",
+    "Existence": "VS2",
+    "Clues": "トライバーニングガンダム"
+  },
+  {
+    "ID": 178,
+    "Value": "ハロハロハロハロハロハロ",
+    "Existence": "VS2",
+    "Clues": "ハロ"
+  },
+  {
+    "ID": 179,
+    "Value": "大佐どいてください、邪魔です",
+    "Existence": "VS2",
+    "Clues": "ララァ・スン"
+  },
+  {
+    "ID": 180,
+    "Value": "ジーク、ジオンッッ！",
+    "Existence": "VS2",
+    "Clues": "ギレン・ザビ"
+  },
+  {
+    "ID": 181,
+    "Value": "あまり無茶しないでね",
+    "Existence": "VS2",
+    "Clues": "ファ・ユイリィ"
+  },
+  {
+    "ID": 182,
+    "Value": "お前はものの頼み方を知らないようだ",
+    "Existence": "VS2",
+    "Clues": "ハマーン・カーン"
+  },
+  {
+    "ID": 183,
+    "Value": "胸がキュンキュンする…",
+    "Existence": "VS2",
+    "Clues": "エルピー・プル"
+  },
+  {
+    "ID": 184,
+    "Value": "私は賭けの対象じゃないわ",
+    "Existence": "VS2",
+    "Clues": "セシリー・フェアチャイルド"
+  },
+  {
+    "ID": 185,
+    "Value": "真の強さを　あたしに見せて欲しいのよ",
+    "Existence": "VS2",
+    "Clues": "カテジナ・ルース"
+  },
+  {
+    "ID": 186,
+    "Value": "あなたに、力を…",
+    "Existence": "VS2",
+    "Clues": "ティファ・アディール"
+  },
+  {
+    "ID": 187,
+    "Value": "これが私の戦争です",
+    "Existence": "VS2",
+    "Clues": "アイナ・サハリン"
+  },
+  {
+    "ID": 188,
+    "Value": "私、なんてはしたないことを！",
+    "Existence": "VS2",
+    "Clues": "ソシエ・ハイム"
+  },
+  {
+    "ID": 189,
+    "Value": "よしなに",
+    "Existence": "VS2",
+    "Clues": "ディアナ・ソレル"
+  },
+  {
+    "ID": 190,
+    "Value": "気を抜いちゃだめよ",
+    "Existence": "VS2",
+    "Clues": "フェルト・グレイス"
+  },
+  {
+    "ID": 191,
+    "Value": "守ってみせる、今度こそ！",
+    "Existence": "VS2",
+    "Clues": "スメラギ・李・ノリエガ"
+  },
+  {
+    "ID": 192,
+    "Value": "そーゆートコ…凄く好みね！",
+    "Existence": "VS2",
+    "Clues": "ネーナ・トリニティ"
+  },
+  {
+    "ID": 193,
+    "Value": "作戦完遂に全力を尽くします。",
+    "Existence": "VS2",
+    "Clues": "ソーマ・ピーリス"
+  },
+  {
+    "ID": 194,
+    "Value": "わかってますけど　ブーブーですー",
+    "Existence": "VS2",
+    "Clues": "ミレイナ・ヴァスティ"
+  },
+  {
+    "ID": 195,
+    "Value": "俺と来い！俺を独りにするなー！",
+    "Existence": "VS2",
+    "Clues": "スベロア・ジンネマン"
+  },
+  {
+    "ID": 196,
+    "Value": "自信があるでしょう？やってみせなさい",
+    "Existence": "VS2",
+    "Clues": "オードリー・バーン"
+  },
+  {
+    "ID": 197,
+    "Value": "あきらめるなよ　君の目には力がある",
+    "Existence": "VS2",
+    "Clues": "ブライト・ノア"
+  },
+  {
+    "ID": 198,
+    "Value": "もう終わりにしましょう　復讐も、戦いも…",
+    "Existence": "VS2",
+    "Clues": "リリーナ・ドーリアン"
+  },
+  {
+    "ID": 199,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist",
+    "Clues": "ストーカー"
+  },
+  {
+    "ID": 200,
+    "Value": "…うん、あたし達の仲間　大事な友達よ",
+    "Existence": "VS2",
+    "Clues": "ミリアリア・ハウ"
+  },
+  {
+    "ID": 201,
+    "Value": "私も歌いますから　平和の歌を",
+    "Existence": "VS2",
+    "Clues": "ラクス・クライン"
+  },
+  {
+    "ID": 202,
+    "Value": "また、会えるといいわね　戦場でないどこかで",
+    "Existence": "VS2",
+    "Clues": "マリュー・ラミアス"
+  },
+  {
+    "ID": 203,
+    "Value": "本当の私の想いが　あなたを護るから",
+    "Existence": "VS2",
+    "Clues": "フレイ・アルスター"
+  },
+  {
+    "ID": 204,
+    "Value": "大丈夫ですから、あたし大丈夫ですから",
+    "Existence": "VS2",
+    "Clues": "メイリン・ホーク"
+  },
+  {
+    "ID": 205,
+    "Value": "どうか私の声を聞いて！",
+    "Existence": "VS2",
+    "Clues": "ミーア・キャンベル"
+  },
+  {
+    "ID": 206,
+    "Value": "射撃の腕もかなりのものと聞いてますけど？",
+    "Existence": "VS2",
+    "Clues": "ルナマリア・ホーク"
+  },
+  {
+    "ID": 207,
+    "Value": "私、信じてる",
+    "Existence": "VS2",
+    "Clues": "エミリー・アモンド"
+  },
+  {
+    "ID": 208,
+    "Value": "いいんだよ、許してあげて",
+    "Existence": "VS2",
+    "Clues": "ユリン・ルシェル"
+  },
+  {
+    "ID": 209,
+    "Value": "私、ずっと…ずっと会いたかった！",
+    "Existence": "VS2",
+    "Clues": "ロマリー・ストーン"
+  },
+  {
+    "ID": 210,
+    "Value": "頼りにしていますからね！",
+    "Existence": "VS2",
+    "Clues": "セシア・アウェア"
+  },
+  {
+    "ID": 211,
+    "Value": "オマエの背中はアタシが守る！",
+    "Existence": "VS2",
+    "Clues": "セシア・アウェア・アハト"
+  },
+  {
+    "ID": 212,
+    "Value": "極限の純愛を奏でましょう",
+    "Existence": "VS2",
+    "Clues": "セシア・アウェア・セスト"
+  },
+  {
+    "ID": 213,
+    "Value": "快楽の時間を始めましょう",
+    "Existence": "VS2",
+    "Clues": "セシア・アウェア・ノーノ"
+  },
+  {
+    "ID": 214,
+    "Value": "遊びの時間の始まりだ～！",
+    "Existence": "VS2",
+    "Clues": "セシア・アウェア・プリモ"
+  },
+  {
+    "ID": 215,
+    "Value": "私はパイロットとして補欠ですか！？",
+    "Existence": "VS2",
+    "Clues": "アイーダ・スルガン"
+  },
+  {
+    "ID": 216,
+    "Value": "わたしはこの目ですべてを見届けたいんです",
+    "Existence": "VS2",
+    "Clues": "クーデリア・藍那・バーンスタイン"
+  },
+  {
+    "ID": 217,
+    "Value": "一生懸命頑張りますっ！",
+    "Existence": "VS2",
+    "Clues": "アトラ・ミクスタ"
+  },
+  {
+    "ID": 218,
+    "Value": "お手伝いしましょうか？",
+    "Existence": "VS2",
+    "Clues": "フミタン・アドモス"
+  },
+  {
+    "ID": 219,
+    "Value": "さっきはありがとう…",
+    "Existence": "VS2",
+    "Clues": "アイラ・ユルキアイネン"
+  },
+  {
+    "ID": 220,
+    "Value": "ねぇ、ガンプラ好き？",
+    "Existence": "VS2",
+    "Clues": "ホシノ・フミナ"
+  },
+  {
+    "ID": 221,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 222,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 223,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 224,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 225,
+    "Value": "今日もがんばるぞ！",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年記念 コラボキャンペーン"
+  },
+  {
+    "ID": 226,
+    "Value": "うぉ～っ！もえてきたぜ！",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年記念 コラボキャンペーン"
+  },
+  {
+    "ID": 227,
+    "Value": "かつぞ～っ！おーっ！！",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年記念 コラボキャンペーン"
+  },
+  {
+    "ID": 228,
+    "Value": "ワッショイ　ワッショイ！",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年記念 コラボキャンペーン"
+  },
+  {
+    "ID": 229,
+    "Value": "くやしぃ～っ！！！",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年記念 コラボキャンペーン"
+  },
+  {
+    "ID": 230,
+    "Value": "えらい　えらい",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年記念 コラボキャンペーン"
+  },
+  {
+    "ID": 231,
+    "Value": "俺を見ろー！",
+    "Existence": "VS2",
+    "Clues": "ガンダム・キマリスヴィダール"
+  },
+  {
+    "ID": 232,
+    "Value": "ガンダム 売るよ！",
+    "Existence": "VS2",
+    "Clues": "ガンダムX"
+  },
+  {
+    "ID": 233,
+    "Value": "プランB! プランBだ!",
+    "Existence": "VS2",
+    "Clues": "アッガイ（ダリル搭乗）"
+  },
+  {
+    "ID": 234,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 235,
+    "Value": "もう一度挑戦するんだ！",
+    "Existence": "VS2",
+    "Clues": "ライトニングガンダムフルバーニアン"
+  },
+  {
+    "ID": 236,
+    "Value": "お、俺だって！俺だってー！",
+    "Existence": "VS2",
+    "Clues": "ガンキャノン"
+  },
+  {
+    "ID": 237,
+    "Value": "見ていてください私の力を！",
+    "Existence": "VS2",
+    "Clues": "フォーンファルシア"
+  },
+  {
+    "ID": 238,
+    "Value": "一撃離脱で行く！",
+    "Existence": "VS2",
+    "Clues": "高機動型ザクII後期型(ジョニー・ライデン機)"
+  },
+  {
+    "ID": 239,
+    "Value": "2人で勝利をつかもう！",
+    "Existence": "VS2",
+    "Clues": "SPRING BATTLE 2019"
+  },
+  {
+    "ID": 240,
+    "Value": "とびきり痛いのいきますよぉー！",
+    "Existence": "VS2",
+    "Clues": "ガンダムX魔王"
+  },
+  {
+    "ID": 241,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 242,
+    "Value": "さよならは言わないでね…？",
+    "Existence": "VS2",
+    "Clues": "ペイルライダー(陸戦重装仕様)"
+  },
+  {
+    "ID": 243,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 244,
+    "Value": "そうです! アタシがついてる!",
+    "Existence": "VS2",
+    "Clues": "G-ルシファー"
+  },
+  {
+    "ID": 245,
+    "Value": "どんまい",
+    "Existence": "VS2",
+    "Clues": "ガンダムキュリオス"
+  },
+  {
+    "ID": 246,
+    "Value": "次も勝つぞ！",
+    "Existence": "VS2",
+    "Clues": "SUMMER BATTLE 2019"
+  },
+  {
+    "ID": 247,
+    "Value": "勝利の道を作って見せる！",
+    "Existence": "VS2",
+    "Clues": "スターウイニングガンダム"
+  },
+  {
+    "ID": 248,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 249,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 250,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 251,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 252,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 253,
+    "Value": "生き抜いてみせる…！",
+    "Existence": "VS2",
+    "Clues": "ベルティゴ"
+  },
+  {
+    "ID": 254,
+    "Value": "我は応えねばならぬ",
+    "Existence": "VS2",
+    "Clues": "ガンダムアストレイ ゴールドフレーム 天ミナ"
+  },
+  {
+    "ID": 255,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 256,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 257,
+    "Value": "行くぜ、相棒！",
+    "Existence": "VS2",
+    "Clues": "AUTUMN BATTLE 2019"
+  },
+  {
+    "ID": 258,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 259,
+    "Value": "極限感謝！",
+    "Existence": "VS2",
+    "Clues": "極限感謝祭2018"
+  },
+  {
+    "ID": 260,
+    "Value": "剣の勝負ならば負けん！",
+    "Existence": "VS2",
+    "Clues": "「METAL ROBOT魂 ＜SIDE MS＞"
+  },
+  {
+    "ID": 261,
+    "Value": "戦闘、お疲れ様でした！",
+    "Existence": "VS2",
+    "Clues": "プライズアイテム「パスケース」獲得特典"
+  },
+  {
+    "ID": 262,
+    "Value": "また、一緒に戦えてうれしいです",
+    "Existence": "VS2",
+    "Clues": "プライズアイテム「パスケース」獲得特典"
+  },
+  {
+    "ID": 263,
+    "Value": "援護なら任せて下さい！",
+    "Existence": "VS2",
+    "Clues": "プライズアイテム「ヘッドフォン」獲得特典"
+  },
+  {
+    "ID": 264,
+    "Value": "正義は勝つ!",
+    "Existence": "VS2",
+    "Clues": "騎士ガンダム"
+  },
+  {
+    "ID": 265,
+    "Value": "がんばろうね！",
+    "Existence": "VS2",
+    "Clues": "SDガンダム30周年記念　コラボキャンペーン"
+  },
+  {
+    "ID": 266,
+    "Value": "さあ、いこう！！",
+    "Existence": "VS2",
+    "Clues": "SDガンダム30周年記念　コラボキャンペーン"
+  },
+  {
+    "ID": 267,
+    "Value": "オレたちは最高のコンビだ！",
+    "Existence": "VS2",
+    "Clues": "WINTER BATTLE 2020"
+  },
+  {
+    "ID": 268,
+    "Value": "俺は優勝者だぜ？",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」優勝"
+  },
+  {
+    "ID": 269,
+    "Value": "準優勝者じゃ力不足かい？",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」準優勝"
+  },
+  {
+    "ID": 270,
+    "Value": "今日はいい日だ！",
+    "Existence": "VS2",
+    "Clues": "ドーベン・ウルフ"
+  },
+  {
+    "ID": 271,
+    "Value": "君が鳥になるなら俺は…俺も鳥になる！",
+    "Existence": "VS2",
+    "Clues": "ナラティブガンダム"
+  },
+  {
+    "ID": 272,
+    "Value": "ところがぎっちょん！",
+    "Existence": "VS2",
+    "Clues": "ヤークトアルケーガンダム"
+  },
+  {
+    "ID": 273,
+    "Value": "俺が…奴を討つ！",
+    "Existence": "VS2",
+    "Clues": "イージスガンダム"
+  },
+  {
+    "ID": 274,
+    "Value": "さぁて…口説かせてもらおうか",
+    "Existence": "VS2",
+    "Clues": "ウイングガンダムフェニーチェ"
+  },
+  {
+    "ID": 275,
+    "Value": "この勝利を閣下と祖国に！",
+    "Existence": "VS2",
+    "Clues": "高機動型ザクII改(シン・マツナガ機)"
+  },
+  {
+    "ID": 276,
+    "Value": "今の言葉は…取り消して！",
+    "Existence": "VS2",
+    "Clues": "ガンダムダブルオーダイバーエース"
+  },
+  {
+    "ID": 277,
+    "Value": "MSの格闘技というのを見せてやる！",
+    "Existence": "VS2",
+    "Clues": "ザクII(ドアン機)"
+  },
+  {
+    "ID": 278,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 279,
+    "Value": "やってみなければわからん!",
+    "Existence": "VS2",
+    "Clues": "カバカーリー"
+  },
+  {
+    "ID": 280,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 281,
+    "Value": "撃っちゃうんだなぁ これが！",
+    "Existence": "VS2",
+    "Clues": "シナンジュ・スタイン"
+  },
+  {
+    "ID": 282,
+    "Value": "Deleted Stamp in XB",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 283,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 284,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 285,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 286,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 287,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 288,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 289,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 290,
+    "Value": "こんばんは！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 291,
+    "Value": "前衛やります",
+    "Existence": "XB"
+  },
+  {
+    "ID": 292,
+    "Value": "後衛やります",
+    "Existence": "XB"
+  },
+  {
+    "ID": 293,
+    "Value": "チーム出撃しましょう！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 294,
+    "Value": "了解しました！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 295,
+    "Value": "これだからやめられない！",
+    "Existence": "XB",
+    "Clues": "スタービルドストライクガンダム"
+  },
+  {
+    "ID": 296,
+    "Value": "手伝って・・・",
+    "Existence": "XB",
+    "Clues": "ユニコーンガンダム3号機フェネクス"
+  },
+  {
+    "ID": 297,
+    "Value": "よっしゃ！ぶちかましてやろうぜ！",
+    "Existence": "XB",
+    "Clues": "ガンダム・フラウロス"
+  },
+  {
+    "ID": 298,
+    "Value": "いい仕事だ！",
+    "Existence": "XB",
+    "Clues": "オルガ・イツカ"
+  },
+  {
+    "ID": 299,
+    "Value": "あたしだって、負けない！",
+    "Existence": "XB",
+    "Clues": "マニィ・アンバサダ"
+  },
+  {
+    "ID": 300,
+    "Value": "ピンチを切り抜け僚機と勝利！",
+    "Existence": "XB",
+    "Clues": "プレシーズンレベルスタンプ"
+  },
+  {
+    "ID": 301,
+    "Value": "猛烈な近接格闘で敵を殲滅！",
+    "Existence": "XB",
+    "Clues": "シーズン1レベルスタンプ"
+  },
+  {
+    "ID": 302,
+    "Value": "怒涛の連続射撃で敵を一掃！",
+    "Existence": "XB",
+    "Clues": "シーズン2レベルスタンプ"
+  },
+  {
+    "ID": 303,
+    "Value": "圧倒的な機動力で追い詰めろ！",
+    "Existence": "XB",
+    "Clues": "シーズン3レベルスタンプ"
+  },
+  {
+    "ID": 304,
+    "Value": "強靭な攻撃でねじ伏せろ！",
+    "Existence": "XB",
+    "Clues": "シーズン4レベルスタンプ"
+  },
+  {
+    "ID": 305,
+    "Value": "オレたちの連携技をくらえ！",
+    "Existence": "XB",
+    "Clues": "シーズン5レベルスタンプ"
+  },
+  {
+    "ID": 306,
+    "Value": "これがオレたちのとっておきだ！！",
+    "Existence": "XB",
+    "Clues": "シーズン6レベルスタンプ"
+  },
+  {
+    "ID": 307,
+    "Value": "蹴散らすぞ!",
+    "Existence": "XB",
+    "Clues": "ジャスティスガンダム"
+  },
+  {
+    "ID": 308,
+    "Value": "斬って斬って斬りまくるぅ！",
+    "Existence": "XB",
+    "Clues": "ガンダムデスサイズヘル"
+  },
+  {
+    "ID": 309,
+    "Value": "迷う事はないはずだ",
+    "Existence": "XB",
+    "Clues": "ディジェ"
+  },
+  {
+    "ID": 310,
+    "Value": "このバーストで勝負を決める！",
+    "Existence": "XB",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 311,
+    "Value": "この戦場は俺が支配する！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 312,
+    "Value": "この一撃をねじ込んでやる！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 313,
+    "Value": "ここから勝利を掴み取る！",
+    "Existence": "XB",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 314,
+    "Value": "敵も！勝利も！逃がさない！！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 315,
+    "Value": "行くぜ！BURST X",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 316,
+    "Value": "畳み掛けるなら今しかないっ！！",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 317,
+    "Value": "資金はまだある！",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 318,
+    "Value": "俺たちの勝利だッ！",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2021」各大会の参加者"
+  },
+  {
+    "ID": 319,
+    "Value": "テンションあげてこー！",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2021」各大会の参加者"
+  },
+  {
+    "ID": 320,
+    "Value": "勝鬨をあげろー！",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2022」各大会の参加者"
+  },
+  {
+    "ID": 321,
+    "Value": "開幕即デスなんて冗談じゃない…！",
+    "Existence": "XB",
+    "Clues": "オーヴェロン"
+  },
+  {
+    "ID": 322,
+    "Value": "私に失望させるな",
+    "Existence": "XB",
+    "Clues": "アッガイ(ハマーン搭乗)"
+  },
+  {
+    "ID": 323,
+    "Value": "借りは返させてもらうよ!",
+    "Existence": "XB",
+    "Clues": "ガラッゾ(ヒリング・ケア機)"
+  },
+  {
+    "ID": 324,
+    "Value": "私にやられに来たんだよなぁ！",
+    "Existence": "XB",
+    "Clues": "ダハック"
+  },
+  {
+    "ID": 325,
+    "Value": "主導権を握らせるな!",
+    "Existence": "XB",
+    "Clues": "高機動型ゲルググ(ヴィンセント機)"
+  },
+  {
+    "ID": 326,
+    "Value": "推して参る!",
+    "Existence": "XB",
+    "Clues": "RX-零丸"
+  },
+  {
+    "ID": 327,
+    "Value": "私たちは勝ちに行く",
+    "Existence": "OB",
+    "Clues": "アヤメ"
+  },
+  {
+    "ID": 328,
+    "Value": "忘れてた?　私も赤なのよ!",
+    "Existence": "XB",
+    "Clues": "インパルスガンダム(ルナマリア搭乗)"
+  },
+  {
+    "ID": 329,
+    "Value": "さぁ!惜しみなく称賛しろ!",
+    "Existence": "XB",
+    "Clues": "ビギナ・ギナII(木星決戦仕様)"
+  },
+  {
+    "ID": 330,
+    "Value": "馬鹿は来る!",
+    "Existence": "XB",
+    "Clues": "トールギス"
+  },
+  {
+    "ID": 331,
+    "Value": "即席チーム組みませんか？",
+    "Existence": "XB",
+    "Clues": "即席チーム結成応援キャンペーン報酬"
+  },
+  {
+    "ID": 332,
+    "Value": "即席チームOKです！！",
+    "Existence": "XB",
+    "Clues": "即席チーム結成応援キャンペーン報酬"
+  },
+  {
+    "ID": 333,
+    "Value": "あなたの力を貸してください！",
+    "Existence": "XB",
+    "Clues": "即席チーム結成応援キャンペーン報酬"
+  },
+  {
+    "ID": 334,
+    "Value": "一緒に戦いましょう！",
+    "Existence": "XB",
+    "Clues": "即席チーム結成応援キャンペーン報酬"
+  },
+  {
+    "ID": 335,
+    "Value": "ここが俺の家だ！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 336,
+    "Value": "オレたちの速さについてこれるかな！？",
+    "Existence": "XB",
+    "Clues": "シーズン7レベルスタンプ"
+  },
+  {
+    "ID": 337,
+    "Value": "もう誰にもオレたちは止められない！",
+    "Existence": "XB",
+    "Clues": "シーズン8レベルスタンプ"
+  },
+  {
+    "ID": 338,
+    "Value": "刮目しろ！これがオレたちの連携だ！",
+    "Existence": "XB",
+    "Clues": "シーズン9レベルスタンプ"
+  },
+  {
+    "ID": 339,
+    "Value": "NEXCITING!!! NEXTREME!!!",
+    "Existence": "XB",
+    "Clues": "シーズン10レベルスタンプ"
+  },
+  {
+    "ID": 340,
+    "Value": "例のアレやりますよ！",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 341,
+    "Value": "ゴメンっ",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 342,
+    "Value": "GG!",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 343,
+    "Value": "2人なら不可能はない！",
+    "Existence": "XB",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の参加者"
+  },
+  {
+    "ID": 344,
+    "Value": "俺たちの勝利だッ！",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の参加者"
+  },
+  {
+    "ID": 345,
+    "Value": "テンションあげてこー！",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の参加者"
+  },
+  {
+    "ID": 346,
+    "Value": "その無邪気さは気に入らんな！",
+    "Existence": "XB",
+    "Clues": "イフリート(シュナイド機)"
+  },
+  {
+    "ID": 347,
+    "Value": "やりますねぇ!",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 348,
+    "Value": "援護武装を使います！",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 349,
+    "Value": "感謝感激！",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 350,
+    "Value": "クロブ愛(LOVE)",
+    "Existence": "XB",
+    "Clues": "クロブ交流会参加賞"
+  },
+  {
+    "ID": 351,
+    "Value": "趣味はゲーセン通いです",
+    "Existence": "XB",
+    "Clues": "クロブ交流会参加賞"
+  },
+  {
+    "ID": 352,
+    "Value": "明日もゲーセンで会いましょう",
+    "Existence": "XB",
+    "Clues": "クロブ交流会参加賞"
+  },
+  {
+    "ID": 353,
+    "Value": "一緒に突っ走ろうぜ！",
+    "Existence": "XB",
+    "Clues": "Project N-EXTREMEバンダイナムコパスポート第1弾アクセスコード入力"
+  },
+  {
+    "ID": 354,
+    "Value": "これは俺達の意思だ",
+    "Existence": "XB",
+    "Clues": "Project N-EXTREMEバンダイナムコパスポート第2弾アクセスコード入力"
+  },
+  {
+    "ID": 355,
+    "Value": "さぁっ、行きましょー！",
+    "Existence": "XB",
+    "Clues": "Project N-EXTREMEバンダイナムコパスポート第1弾アクセスコード入力"
+  },
+  {
+    "ID": 356,
+    "Value": "私も万全を尽くします",
+    "Existence": "XB",
+    "Clues": "Project N-EXTREMEバンダイナムコパスポート第2弾アクセスコード入力"
+  },
+  {
+    "ID": 357,
+    "Value": "いつでも全力!",
+    "Existence": "XB",
+    "Clues": "N-EXTREMEガンダム エクスプロージョン"
+  },
+  {
+    "ID": 358,
+    "Value": "ボクが活路を開くんだ!",
+    "Existence": "XB",
+    "Clues": "N-EXTREMEガンダム ザナドゥ"
+  },
+  {
+    "ID": 359,
+    "Value": "えい、えい、おー！",
+    "Existence": "XB",
+    "Clues": "メリーナ・マーロンフィッツ"
+  },
+  {
+    "ID": 360,
+    "Value": "退け ここからは俺がやる",
+    "Existence": "XB",
+    "Clues": "N-EXTREMEガンダム ヴィシャス"
+  },
+  {
+    "ID": 361,
+    "Value": "……ご自由に",
+    "Existence": "XB",
+    "Clues": "N-EXTREMEガンダム スプレマシー"
+  },
+  {
+    "ID": 362,
+    "Value": "褒めたりなんてしませんから",
+    "Existence": "XB",
+    "Clues": "カノ・クランズ"
+  },
+  {
+    "ID": 363,
+    "Value": "敵部隊に穴を開ける！",
+    "Existence": "XB",
+    "Clues": "RX-93ff νガンダム"
+  },
+  {
+    "ID": 364,
+    "Value": "極限連携",
+    "Existence": "XB",
+    "Clues": "チーム出撃キャンペーン 500pts"
+  },
+  {
+    "ID": 365,
+    "Value": "友情バースト発生！",
+    "Existence": "XB"
+  },
+  {
+    "ID": 366,
+    "Value": "マチありでした！",
+    "Existence": "XB",
+    "Clues": "チーム出撃キャンペーン 250pts"
+  },
+  {
+    "ID": 367,
+    "Value": "Invalid Stamp",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 368,
+    "Value": "目移りしちまうぜぇ！",
+    "Existence": "XB",
+    "Clues": "カラミティガンダム"
+  },
+  {
+    "ID": 369,
+    "Value": "道を開けなさい！",
+    "Existence": "XB",
+    "Clues": "インフィニットジャスティスガンダム(ラクス搭乗)"
+  },
+  {
+    "ID": 370,
+    "Value": "NICE",
+    "Existence": "XB",
+    "Clues": "スペシャルショップ"
+  },
+  {
+    "ID": 371,
+    "Value": "礼には及びません",
+    "Existence": "XB",
+    "Clues": "戦国アストレイ頑駄無"
+  },
+  {
+    "ID": 372,
+    "Value": "これくらいで落ち込んでたら!",
+    "Existence": "XB",
+    "Clues": "Zガンダム(ルー搭乗)"
+  },
+  {
+    "ID": 373,
+    "Value": "方法はあるはずだ！",
+    "Existence": "XB",
+    "Clues": "νガンダムHWS"
+  },
+  {
+    "ID": 374,
+    "Value": "初めましてだなぁガンダム！",
+    "Existence": "XB",
+    "Clues": "グラハム専用ユニオンフラッグカスタム"
+  },
+  {
+    "ID": 375,
+    "Value": "次もやれる！俺たちなら！！",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の参加者"
+  },
+  {
+    "ID": 376,
+    "Value": "PDF2022絶対王者ここに君臨",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」優勝"
+  },
+  {
+    "ID": 377,
+    "Value": "玉座への挑戦は終わらない！",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」準優勝"
+  },
+  {
+    "ID": 378,
+    "Value": "もう、繰り返さない",
+    "Existence": "OB",
+    "Clues": "アースリィガンダム"
+  },
+  {
+    "ID": 379,
+    "Value": "逃げたら一つ、進めば二つ",
+    "Existence": "OB",
+    "Clues": "ガンダム・エアリアル"
+  },
+  {
+    "ID": 380,
+    "Value": "自らの力の無さを知れ",
+    "Existence": "OB",
+    "Clues": "ドレッドノートイータ"
+  },
+  {
+    "ID": 381,
+    "Value": "絶対勝って！",
+    "Existence": "OB",
+    "Clues": "ミオリネ・レンブラン"
+  },
+  {
+    "ID": 382,
+    "Value": "次も勝利しかあり得ません",
+    "Existence": "OB",
+    "Clues": "ネイア・e・ピケ"
+  },
+  {
+    "ID": 383,
+    "Value": "虹の輝きで道を照らせ！",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 384,
+    "Value": "あの頃の思い出、忘れないよ…",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:70"
+  },
+  {
+    "ID": 385,
+    "Value": "理想に辿り着く為に、戦い続けるだけだ！",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:70"
+  },
+  {
+    "ID": 386,
+    "Value": "困った時は俺を呼べ！！",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:70"
+  },
+  {
+    "ID": 387,
+    "Value": "限界を超える・・・！",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:70"
+  },
+  {
+    "ID": 388,
+    "Value": "可能に賭けてみるさ",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:70"
+  },
+  {
+    "ID": 389,
+    "Value": "可能性はゼロじゃない！",
+    "Existence": "OB",
+    "Clues": "ガンダムダブルオースカイ"
+  },
+  {
+    "ID": 390,
+    "Value": "ご命令とあれば。",
+    "Existence": "OB",
+    "Clues": "ガンダム・ファラクト"
+  },
+  {
+    "ID": 391,
+    "Value": "終わらせる！ここでっ！！",
+    "Existence": "OB",
+    "Clues": "ライジングフリーダムガンダム"
+  },
+  {
+    "ID": 392,
+    "Value": "ヘカテーは使えるじゃないか！",
+    "Existence": "OB",
+    "Clues": "ヘカテー"
+  },
+  {
+    "ID": 393,
+    "Value": "あとは俺が引き継ぐ",
+    "Existence": "OB",
+    "Clues": "ダリルバルデ"
+  },
+  {
+    "ID": 394,
+    "Value": "制圧を開始する。",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 395,
+    "Value": "サイノウバクハツ！！",
+    "Existence": "OBv18",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 396,
+    "Value": "チカラ　ヲ　カイホウ　セヨ",
+    "Existence": "OBv19",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 397,
+    "Value": "この戦場で誰よりも自由だ！！",
+    "Existence": "OBv24",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 398,
+    "Value": "ご無事なお帰りをお待ちしております",
+    "Existence": "OB",
+    "Clues": "ラクス・クライン（SEED FREEDOM版）"
+  },
+  {
+    "ID": 399,
+    "Value": "ついにこの時が来たよ…",
+    "Existence": "OB",
+    "Clues": "アヘッド脳量子波対応型 (スマルトロン)"
+  },
+  {
+    "ID": 400,
+    "Value": "本気にさせてくれる！",
+    "Existence": "OBv24",
+    "Clues": "トランジェントガンダム"
+  },
+  {
+    "ID": 401,
+    "Value": "お前の強さには敬服する",
+    "Existence": "OB",
+    "Clues": "ガンダムヘビーアームズ改"
+  },
+  {
+    "ID": 402,
+    "Value": "全てが分かった！",
+    "Existence": "OB",
+    "Clues": "リグ・コンティオ"
+  },
+  {
+    "ID": 404,
+    "Value": "私達なら、きっといいチームになりますよ！",
+    "Existence": "OB",
+    "Clues": "EXVS.トークライブ in 両国国技館"
+  },
+  {
+    "ID": 405,
+    "Value": "私とも、上手く嚙み合ってきてるのかな・・・",
+    "Existence": "OB",
+    "Clues": "EXVS.トークライブ in 両国国技館"
+  },
+  {
+    "ID": 406,
+    "Value": "わたくしの胸が高鳴ってまいりました",
+    "Existence": "OB",
+    "Clues": "EXVS.トークライブ in 両国国技館"
+  },
+  {
+    "ID": 407,
+    "Value": "どうも、職人です。",
+    "Existence": "OBv18",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 408,
+    "Value": "リロード中",
+    "Existence": "OBv18",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 409,
+    "Value": "下剋上だよなぁ！？",
+    "Existence": "OBv18",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 410,
+    "Value": "キミが全一だよ",
+    "Existence": "OBv18",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 411,
+    "Value": "めっちゃ良かったのでリプレイ保存しちゃいます！！",
+    "Existence": "OBv18",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 412,
+    "Value": "大逆転勝利！！",
+    "Existence": "OBv18",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 413,
+    "Value": "オバブ最強はこの俺だ",
+    "Existence": "OBv24",
+    "Clues": "「PREMIUM DOGFIGHT 2025」優勝"
+  },
+  {
+    "ID": 414,
+    "Value": "銀色の輝きはここにある",
+    "Existence": "OBv24",
+    "Clues": "「PREMIUM DOGFIGHT 2025」準優勝"
+  },
+  {
+    "ID": 415,
+    "Value": "少しくらい遊ばせてくれよ！",
+    "Existence": "OBv22",
+    "Clues": "ガンダムスローネツヴァイ"
+  }
+]

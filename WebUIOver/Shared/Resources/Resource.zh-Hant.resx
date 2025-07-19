@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="index_update" xml:space="preserve">
+		<value>最新更新：</value>
+	</data>
+    <data name="index_warn" xml:space="preserve">
+		<value>本項目爲開放源代碼，將永遠保持免費開放。請將任何試圖進行盈利的行爲都列爲非官方行爲，並應該立即通過指定平台進行舉報。</value>
+	</data>
+    <data name="accesscode" xml:space="preserve">
+		<value>訪問碼</value>
+	</data>
+    <data name="cardid" xml:space="preserve">
+		<value>卡 ID</value>
+	</data>
+    <data name="cards" xml:space="preserve">
+		<value>卡組列表</value>
+	</data>
+    <data name="darktheme" xml:space="preserve">
+		<value>切換至暗色模式</value>
+	</data>
+    <data name="enteraccesscode" xml:space="preserve">
+		<value>輸入訪問碼</value>
+	</data>
+    <data name="fromcardini" xml:space="preserve">
+		<value>來自 card.ini</value>
+	</data>
+    <data name="home" xml:space="preserve">
+		<value>主頁</value>
+	</data>
+    <data name="id" xml:space="preserve">
+		<value>編號</value>
+	</data>
+    <data name="lighttheme" xml:space="preserve">
+		<value>切換至亮色模式</value>
+	</data>
+    <data name="cardseditoptions" xml:space="preserve">
+		<value>修改卡信息</value>
+	</data>
+    <data name="customizationheader" xml:space="preserve">
+		<value>自定義信息</value>
+	</data>
+    <data name="saveall" xml:space="preserve">
+		<value>全體保存</value>
+	</data>
+
+    <!-- Title Domain -->
+    <data name="titles" xml:space="preserve">
+		<value>稱號</value>
+	</data>
+    <data name="titles_textid" xml:space="preserve">
+		<value>文字 ID</value>
+	</data>
+    <data name="titles_backgroundid" xml:space="preserve">
+		<value>背景 ID</value>
+	</data>
+    <data name="titles_effectid" xml:space="preserve">
+		<value>特效 ID</value>
+	</data>
+    <data name="titles_ornamentid" xml:space="preserve">
+		<value>稱號 ID</value>
+	</data>
+    <data name="titles_hint" xml:space="preserve">
+		<value>詳細請瀏覽：</value>
+	</data>
+    <data name="titles_hintbackground" xml:space="preserve">
+		<value>背景</value>
+	</data>
+    <data name="titles_hinteffect" xml:space="preserve">
+		<value>特效</value>
+	</data>
+    <data name="titles_hintornament" xml:space="preserve">
+		<value>稱號</value>
+	</data>
+    <data name="titles_hinttext" xml:space="preserve">
+		<value>文字</value>
+	</data>
+    <data name="default_titles" xml:space="preserve">
+		<value>默認稱號</value>
+	</data>
+    <data name="triad_titles" xml:space="preserve">
+		<value>街機模式稱號</value>
+	</data>
+    <data name="class_match_titles" xml:space="preserve">
+		<value>排位稱號</value>
+	</data>
+    <data name="titles_title" xml:space="preserve">
+		<value>稱號文字</value>
+	</data>
+    <data name="titles_background" xml:space="preserve">
+		<value>稱號背景</value>
+	</data>
+    <data name="titles_effect" xml:space="preserve">
+		<value>稱號特效</value>
+	</data>
+    <data name="titles_ornament" xml:space="preserve">
+		<value>稱號裝飾品</value>
+	</data>
+    <data name="title_custom_text" xml:space="preserve">
+		<value>自定義稱號文字</value>
+	</data>
+    <data name="dialogtitle_changetitle" xml:space="preserve">
+		<value>修改稱號文字</value>
+	</data>
+    <data name="dialogtitle_changebackground" xml:space="preserve">
+		<value>修改稱號背景</value>
+	</data>
+    <data name="dialogtitle_changeeffect" xml:space="preserve">
+		<value>修改稱號特效</value>
+	</data>
+    <data name="dialogtitle_changeornament" xml:space="preserve">
+		<value>修改稱號裝飾品</value>
+	</data>
+    <data name="unknown_title" xml:space="preserve">
+		<value>不明稱號文字</value>
+	</data>
+    <data name="unknown_background" xml:space="preserve">
+		<value>不明稱號背景</value>
+	</data>
+    <data name="unknown_effect" xml:space="preserve">
+		<value>不明稱號特效</value>
+	</data>
+    <data name="unknown_ornament" xml:space="preserve">
+		<value>不明稱號裝飾品</value>
+	</data>
+
+    <!-- Validation Domain -->
+    <data name="validateplayername" xml:space="preserve">
+		<value>用戶名字</value>
+	</data>
+    <data name="validate_custom_title" xml:space="preserve">
+		<value>自定義稱號文字</value>
+	</data>
+    <data name="validation_invalidchar" xml:space="preserve">
+		<value>含有無效字符！</value>
+	</data>
+    <data name="validation_length_1" xml:space="preserve">
+		<value> 不可以長過</value>
+	</data>
+    <data name="validation_length_2" xml:space="preserve">
+		<value>字符串！</value>
+	</data>
+    <data name="validation_required" xml:space="preserve">
+		<value>不能爲空！</value>
+	</data>
+
+    <!-- BGM Dialog -->
+    <data name="bgm_dialog_name" xml:space="preserve">
+		<value>名稱</value>
+	</data>
+    <data name="bgm_dialog_series" xml:space="preserve">
+		<value>作品</value>
+	</data>
+
+    <!-- General Info UI -->
+    <data name="generalcardinfo" xml:space="preserve">
+		<value>基本卡片資料</value>
+	</data>
+    <data name="playername" xml:space="preserve">
+		<value>用戶名</value>
+	</data>
+    <data name="playerrecorddisplay" xml:space="preserve">
+		<value>遊玩記錄顯示選項</value>
+	</data>
+    <data name="playerleveldisplay" xml:space="preserve">
+		<value>玩家等級顯示選項</value>
+	</data>
+    <data name="bgmlistorder" xml:space="preserve">
+		<value>BGM列表 / 順序</value>
+	</data>
+    <data name="bgmplaytype" xml:space="preserve">
+		<value>BGM播放形式</value>
+	</data>
+    <data name="is_fixed_radar_angle" xml:space="preserve">
+		<value>固定雷達角度</value>
+	</data>
+    <data name="gauge" xml:space="preserve">
+		<value>戰鬥界面UI</value>
+	</data>
+
+    <!-- Save Hint -->
+    <data name="save_hint_update" xml:space="preserve">
+		<value>保存</value>
+	</data>
+    <data name="save_hint_successful" xml:space="preserve">
+		<value>成功！</value>
+	</data>
+    <data name="save_hint_failed" xml:space="preserve">
+		<value>失敗！</value>
+	</data>
+    <data name="save_hint_cardinfo" xml:space="preserve">
+		<value>卡組信息</value>
+	</data>
+    <data name="save_hint_navcostume" xml:space="preserve">
+		<value>領航員服裝信息</value>
+	</data>
+    <data name="save_hint_navinfo" xml:space="preserve">
+		<value>領航員信息</value>
+	</data>
+    <data name="save_hint_favms" xml:space="preserve">
+		<value>自定義機體信息</value>
+	</data>
+    <data name="save_hint_mscostume" xml:space="preserve">
+		<value>機師服裝信息</value>
+	</data>
+    <data name="save_hint_msskin" xml:space="preserve">
+		<value>機體換色信息</value>
+	</data>
+    <data name="save_hint_commconfig" xml:space="preserve">
+		<value>自定義通訊信息</value>
+	</data>
+    <data name="save_hint_default_sticker" xml:space="preserve">
+		<value>預設貼紙</value>
+	</data>
+    <data name="save_hint_ms_sticker" xml:space="preserve">
+		<value>機體貼紙</value>
+	</data>
+    <data name="save_hint_cpulimit" xml:space="preserve">
+		<value>CPU等級不能超過500！</value>
+	</data>
+    <data name="save_hint_triadcpupartner" xml:space="preserve">
+		<value>CPU隊友信息</value>
+	</data>
+	<data name="save_hint_gamepadconfig" xml:space="preserve">
+		<value>自定義按鍵信息</value>
+	</data>
+
+    <!-- Gauge Dialog -->
+    <data name="dialogtitle_gauge" xml:space="preserve">
+		<value>修改戰鬥界面UI</value>
+	</data>
+
+    <!-- Navi UI-->
+    <data name="navisetting" xml:space="preserve">
+		<value>領航員設定</value>
+	</data>
+    <data name="navisetting_uinavigator" xml:space="preserve">
+		<value>介面領航員</value>
+	</data>
+    <data name="navisetting_battlenavigator" xml:space="preserve">
+		<value>戰鬥領航員</value>
+	</data>
+    <data name="navigator_battle_advise" xml:space="preserve">
+		<value>戰鬥中給予建議</value>
+	</data>
+    <data name="navigator_battle_notify" xml:space="preserve">
+		<value>戰鬥中給予提醒</value>
+	</data>
+    <data name="navisetting_navicostume" xml:space="preserve">
+		<value>領航員換裝</value>
+	</data>
+    <data name="navisetting_navicostumehint" xml:space="preserve">
+		<value>表中不含無換裝領航員</value>
+	</data>
+    <data name="search" xml:space="preserve">
+		<value>搜索</value>
+	</data>
+    <data name="navisetting_navi" xml:space="preserve">
+		<value>領航員</value>
+	</data>
+    <data name="navisetting_costume" xml:space="preserve">
+		<value>衣服</value>
+	</data>
+    <data name="navidialog_navi" xml:space="preserve">
+		<value>領航員</value>
+	</data>
+    <data name="navidialog_series" xml:space="preserve">
+		<value>作品</value>
+	</data>
+    <data name="navidialog_seiyuu" xml:space="preserve">
+		<value>聲優</value>
+	</data>
+    <data name="navidialog_closeness" xml:space="preserve">
+		<value>親密度</value>
+	</data>
+    <data name="navisetting_navi_series" xml:space="preserve">
+		<value>作品</value>
+	</data>
+    <data name="navisetting_navi_seiyuu" xml:space="preserve">
+		<value>聲優</value>
+	</data>
+    <data name="dialogtitle_navibattle" xml:space="preserve">
+		<value>修改戰鬥中領航員</value>
+	</data>
+    <data name="dialogtitle_navimenu" xml:space="preserve">
+		<value>修改主頁領航員</value>
+	</data>
+
+    <!-- Favourite MS Setting -->
+    <data name="favmssetting" xml:space="preserve">
+		<value>偏好機體</value>
+	</data>
+    <data name="additem" xml:space="preserve">
+		<value>添加</value>
+	</data>
+    <data name="favmsdialog_mstitle" xml:space="preserve">
+		<value>機體</value>
+	</data>
+    <data name="favmsdialog_pilottitle" xml:space="preserve">
+		<value>駕駛員</value>
+	</data>
+    <data name="unknownms" xml:space="preserve">
+		<value>不明機體</value>
+	</data>
+    <data name="unknownnavi" xml:space="preserve">
+		<value>不明領航員</value>
+	</data>
+    <data name="favmsdialog_bursttype" xml:space="preserve">
+		<value>覺醒種類</value>
+	</data>
+    <data name="favmsdialog_inbattlenavi" xml:space="preserve">
+		<value>戰鬥領航員</value>
+	</data>
+    <data name="validate_addrow_1" xml:space="preserve">
+		<value>不可以加入超過</value>
+	</data>
+    <data name="validate_addrow_2" xml:space="preserve">
+		<value>行！</value>
+	</data>
+    <data name="dialogtitle_favms" xml:space="preserve">
+		<value>修改自定義機體信息</value>
+	</data>
+    <data name="favmsdialog_gauge" xml:space="preserve">
+		<value>戰鬥界面UI</value>
+	</data>
+    <data name="favmsdialog_bgmreplaytype" xml:space="preserve">
+		<value>BGM播放形式</value>
+	</data>
+    <data name="favmsdialog_bgmlistorder" xml:space="preserve">
+		<value>BGM列表 / 順序</value>
+	</data>
+    <data name="bgmtype_None" xml:space="preserve">
+		<value>無</value>
+	</data>
+    <data name="bgmtype_Sequential" xml:space="preserve">
+		<value>順序</value>
+	</data>
+    <data name="bgmtype_Random" xml:space="preserve">
+		<value>隨機</value>
+	</data>
+
+    <!-- MS Dialog -->
+    <data name="msdialog_ms" xml:space="preserve">
+		<value>機體</value>
+	</data>
+    <data name="msdialog_pilot" xml:space="preserve">
+		<value>駕駛員</value>
+	</data>
+    <data name="msdialog_series" xml:space="preserve">
+		<value>作品</value>
+	</data>
+    <data name="msdialog_pilot_seiyuu" xml:space="preserve">
+		<value>聲優</value>
+	</data>
+    <data name="msdialog_mastery" xml:space="preserve">
+		<value>熟練度</value>
+	</data>
+    <data name="random_ms_selected" xml:space="preserve">
+		<value>不能選取隨機機體!</value>
+	</data>
+
+    <!-- MS Costume and Skin -->
+    <data name="mscostumesetting" xml:space="preserve">
+		<value>駕駛員換裝</value>
+	</data>
+    <data name="mscostumehint" xml:space="preserve">
+		<value>表中不含無換裝駕駛員</value>
+	</data>
+    <data name="mscostumemsheader" xml:space="preserve">
+		<value>機體</value>
+	</data>
+    <data name="mscostumecostumeheader" xml:space="preserve">
+		<value>衣服</value>
+	</data>
+    <data name="mscostumepilotheader" xml:space="preserve">
+		<value>駕駛員</value>
+	</data>
+    <data name="msskinsetting" xml:space="preserve">
+		<value>機體換色</value>
+	</data>
+    <data name="msskinhint" xml:space="preserve">
+		<value>表中不含無換色機體</value>
+	</data>
+    <data name="msskinmsheader" xml:space="preserve">
+		<value>機體</value>
+	</data>
+    <data name="msskinskinheader" xml:space="preserve">
+		<value>換色</value>
+	</data>
+    <data name="msskinpilotheader" xml:space="preserve">
+		<value>駕駛員</value>
+	</data>
+
+    <!-- Communication Message -->
+    <data name="communicationmessage" xml:space="preserve">
+		<value>通訊設置</value>
+	</data>
+    <data name="communicationmessage_position" xml:space="preserve">
+		<value>通訊信息位置</value>
+	</data>
+    <data name="communicationmessage_position_type_center" xml:space="preserve">
+		<value>中間</value>
+	</data>
+    <data name="communicationmessage_position_type_left_bottom" xml:space="preserve">
+		<value>左下角</value>
+	</data>
+    <data name="communicationmessage_allow_receive_message" xml:space="preserve">
+		<value>允許戰鬥中接收信息</value>
+	</data>
+    <data name="communicationmessage_inbattle" xml:space="preserve">
+		<value>戰鬥中通訊</value>
+	</data>
+    <data name="communicationmessage_postbattle" xml:space="preserve">
+		<value>戰後通訊</value>
+	</data>
+    <data name="communicationmessage_prebattle" xml:space="preserve">
+		<value>戰前通訊</value>
+	</data>
+    <data name="communicationmessage_online_shuffle_inbattle" xml:space="preserve">
+		<value>線上單人戰鬥中通訊</value>
+	</data>
+    <data name="communicationmessage_online_shuffle_postbattle" xml:space="preserve">
+		<value>線上單人戰後通訊</value>
+	</data>
+    <data name="communicationmessage_online_shuffle_prebattle" xml:space="preserve">
+		<value>線上單人戰前通訊</value>
+	</data>
+    <data name="communicationmessage_hint" xml:space="preserve">
+		<value>如果想要自定義通訊信息，請把通訊貼紙ID設定爲 0</value>
+	</data>
+    <data name="communicationmessage_verbalmessagedown" xml:space="preserve">
+		<value>自定義通訊 (下)</value>
+	</data>
+    <data name="communicationmessage_verbalmessageleft" xml:space="preserve">
+		<value>自定義通訊 (左)</value>
+	</data>
+    <data name="communicationmessage_verbalmessageright" xml:space="preserve">
+		<value>自定義通訊 (右)</value>
+	</data>
+    <data name="communicationmessage_verbalmessageup" xml:space="preserve">
+		<value>自定義通訊 (上)</value>
+	</data>
+    <data name="communicationmessage_stampiddown" xml:space="preserve">
+		<value>通訊貼紙ID（下）</value>
+	</data>
+    <data name="communicationmessage_stampidleft" xml:space="preserve">
+		<value>通訊貼紙ID（左）</value>
+	</data>
+    <data name="communicationmessage_stampidright" xml:space="preserve">
+		<value>通訊貼紙ID（右）</value>
+	</data>
+    <data name="communicationmessage_stampidup" xml:space="preserve">
+		<value>通訊貼紙ID（上）</value>
+	</data>
+    <data name="dialogtitle_changestamp" xml:space="preserve">
+		<value>修改通訊貼紙</value>
+	</data>
+    <data name="unknown_stamp" xml:space="preserve">
+		<value>不明通訊貼紙</value>
+	</data>
+    <data name="using_customize_message" xml:space="preserve">
+		<value>自定義通訊信息</value>
+	</data>
+    <data name="validatemessage" xml:space="preserve">
+		<value>通訊</value>
+	</data>
+
+    <!-- Sticker Domain -->
+    <data name="default_sticker" xml:space="preserve">
+		<value>預設貼紙</value>
+	</data>
+    <data name="sticker_background" xml:space="preserve">
+		<value>貼紙背景</value>
+	</data>
+    <data name="sticker_effect" xml:space="preserve">
+		<value>貼紙特效</value>
+	</data>
+    <data name="unknown_sticker_background" xml:space="preserve">
+		<value>不明貼紙特效</value>
+	</data>
+    <data name="unknown_sticker_effect" xml:space="preserve">
+		<value>不明貼紙特效</value>
+	</data>
+    <data name="tracker_1" xml:space="preserve">
+		<value>貼紙標籤1</value>
+	</data>
+    <data name="tracker_2" xml:space="preserve">
+		<value>貼紙標籤2</value>
+	</data>
+    <data name="tracker_3" xml:space="preserve">
+		<value>貼紙標籤3</value>
+	</data>
+    <data name="dialogtitle_change_sticker_background" xml:space="preserve">
+		<value>修改貼紙背景</value>
+	</data>
+    <data name="dialogtitle_change_sticker_effect" xml:space="preserve">
+		<value>修改貼紙特效</value>
+	</data>
+    <data name="comment_hint" xml:space="preserve">
+		<value>詳細請瀏覽：</value>
+	</data>
+    <data name="comment_wiki" xml:space="preserve">
+		<value>維基</value>
+	</data>
+    <data name="comment_part1id" xml:space="preserve">
+		<value>備件ID 1</value>
+	</data>
+    <data name="comment_part2id" xml:space="preserve">
+		<value>備件ID 2</value>
+	</data>
+    <data name="comment_parts_example" xml:space="preserve">
+		<value>句子備件列子：</value>
+	</data>
+    <data name="comment_sentenceid" xml:space="preserve">
+		<value>句子ID</value>
+	</data>
+    <data name="comment_sentence_example" xml:space="preserve">
+		<value>句子列子：</value>
+	</data>
+    <data name="dialogtitle_customizecommentsentence" xml:space="preserve">
+		<value>修改句子</value>
+	</data>
+    <data name="dialogtitle_customizecommentphrase" xml:space="preserve">
+		<value>修改備件1</value>
+	</data>
+    <data name="dialogtitle_customizecommentphrase2" xml:space="preserve">
+		<value>修改備件2</value>
+	</data>
+    <data name="customizecommentpreview" xml:space="preserve">
+		<value>預覽句子</value>
+	</data>
+    <data name="mobile_suit_sticker" xml:space="preserve">
+		<value>機體貼紙</value>
+	</data>
+    <data name="sticker_ms_selected" xml:space="preserve">
+		<value>修改貼紙的機體</value>
+	</data>
+    <data name="dialogtitle_sticker_ms" xml:space="preserve">
+		<value>選擇想修改貼紙的機體</value>
+	</data>
+    <data name="has_ms_sticker_pose_title" xml:space="preserve">
+		<value>額外貼紙姿勢</value>
+	</data>
+	<data name="ms_sticker_pose_reminder" xml:space="preserve">
+		<value>提醒: 在套用貼紙姿勢之前，請把機體顏色重設為預設。它們並不能同時生效。</value>
+	</data>
+    <data name="has_no_pose" xml:space="preserve">
+		<value>沒有</value>
+	</data>
+    <data name="has_pose" xml:space="preserve">
+		<value>有</value>
+  	</data>
+
+    <!-- Triad Partner -->
+    <data name="cputriadpartner" xml:space="preserve">
+		<value>街機模式CPU隊友</value>
+	</data>
+    <data name="triad_ai" xml:space="preserve">
+		<value>AI</value>
+	</data>
+    <data name="triad_armor" xml:space="preserve">
+		<value>裝甲</value>
+	</data>
+    <data name="triad_boost" xml:space="preserve">
+		<value>氣槽</value>
+	</data>
+    <data name="triad_bursttype" xml:space="preserve">
+		<value>覺醒種類</value>
+	</data>
+    <data name="triad_cpums" xml:space="preserve">
+		<value>CPU 隊友機體</value>
+	</data>
+    <data name="triad_cpuskill1" xml:space="preserve">
+		<value>CPU 技能 1</value>
+	</data>
+    <data name="triad_cpuskill2" xml:space="preserve">
+		<value>CPU 技能 2</value>
+	</data>
+    <data name="triad_exgauge" xml:space="preserve">
+		<value>覺醒槽</value>
+	</data>
+    <data name="triad_infight" xml:space="preserve">
+		<value>格鬥</value>
+	</data>
+    <data name="triad_shooting" xml:space="preserve">
+		<value>射擊</value>
+	</data>
+    <data name="triad_teambanner" xml:space="preserve">
+		<value>CPU隊伍橫幅</value>
+	</data>
+    <data name="triad_teamname" xml:space="preserve">
+		<value>CPU隊伍名字</value>
+	</data>
+
+    <!-- Team Formation -->
+    <data name="teamtag" xml:space="preserve">
+    	<value>隊伍</value>
+  	</data>
+    <data name="teamtag_yourinfo" xml:space="preserve">
+    	<value>您的個人資料</value>
+  	</data>
+    <data name="teamtag_youruserid" xml:space="preserve">
+    	<value>您的用戶ID</value>
+  	</data>
+    <data name="teamtag_yourinvit" xml:space="preserve">
+    	<value>您的好友碼</value>
+  	</data>
+	<data name="teamtag_addteam" xml:space="preserve">
+    	<value>添加隊伍</value>
+  	</data>
+	<data name="teamtag_frienduserid" xml:space="preserve">
+    	<value>隊友的用戶ID</value>
+  	</data>
+	<data name="teamtag_friendinvit" xml:space="preserve">
+    	<value>隊友的好友碼</value>
+  	</data>
+	<data name="add_team_button" xml:space="preserve">
+		<value>添加</value>
+	</data>
+    <data name="teamtag_edit_team" xml:space="preserve">
+    	<value>修改隊伍細節</value>
+ 	 </data>
+    <data name="add_team_warning_blank_friend_user_id" xml:space="preserve">
+    	<value>隊友的用戶ID不能爲空值!</value>
+ 	 </data>
+    <data name="add_team_warning_self_user_id" xml:space="preserve">
+    	<value>隊友的用戶ID不能是您本人的ID!</value>
+  	</data>
+    <data name="add_team_warning_already_form_team" xml:space="preserve">
+    	<value>您已經跟這個隊友組了隊!</value>
+  	</data>
+    <data name="add_team_warning_blank_friend_invitation_code" xml:space="preserve">
+    	<value>隊友的好友碼不能爲空值!</value>
+  	</data>
+    <data name="add_team_warning_invalid_player_profile" xml:space="preserve">
+    	<value>您提供的隊友ID和好友碼並不正確!</value>
+  	</data>
+    <data name="teamtag_team_name" xml:space="preserve">
+    	<value>隊伍名稱</value>
+  	</data>
+    <data name="teamtag_team_online_team" xml:space="preserve">
+    	<value>店外隊伍</value>
+  	</data>
+    <data name="teamtag_team_bgm" xml:space="preserve">
+    	<value>隊伍BGM</value>
+  	</data>
+    <data name="teamtag_name_color" xml:space="preserve">
+    	<value>隊伍名稱顏色</value>
+  	</data>
+    <data name="teamtag_background" xml:space="preserve">
+    	<value>隊伍背景</value>
+  	</data>
+    <data name="teamtag_effect" xml:space="preserve">
+    	<value>隊伍特效</value>
+  	</data>
+    <data name="teamtag_emblem" xml:space="preserve">
+    	<value>隊伍徽章</value>
+  	</data>
+    <data name="remove_team_button" xml:space="preserve">
+    	<value>刪除隊伍</value>
+  	</data>
+    <data name="validatepvpteamname" xml:space="preserve">
+    	<value>隊伍名稱</value>
+ 	 </data>
+    <data name="dialogtitle_singlebgm" xml:space="preserve">
+    	<value>選擇BGM</value>
+  	</data>
+    <data name="team_delete_dialog_text" xml:space="preserve">
+    	<value>刪除了之後，此隊伍的設定和等級都不能復原。</value>
+  	</data>
+    <data name="team_delete_dialog_cancel" xml:space="preserve">
+    	<value>再想想</value>
+  	</data>
+    <data name="team_delete_dialog_proceed" xml:space="preserve">
+    	<value>繼續</value>
+  	</data>
+    <data name="save_hint_team" xml:space="preserve">
+    	<value>隊伍</value>
+  	</data>
+    <data name="save_hint_team_online" xml:space="preserve">
+    	<value>店外隊伍最多隻能5隊</value>
+  	</data>
+    <data name="unknown_team_name_color" xml:space="preserve">
+    	<value>不明隊伍名稱顏色</value>
+  	</data>
+    <data name="unknown_team_background" xml:space="preserve">
+    	<value>不明隊伍背景</value>
+  	</data>
+    <data name="unknown_team_effect" xml:space="preserve">
+    	<value>不明隊伍特效</value>
+  	</data>
+    <data name="unknown_team_emblem" xml:space="preserve">
+    	<value>不明隊伍徽章</value>
+  	</data>
+
+	<!-- Gamepad -->
+	<data name="gamepadconfig" xml:space="preserve">
+    	<value>手柄鍵位設置</value>
+	</data>
+	<data name="gamepadhint1" xml:space="preserve">
+		<value>鍵位是基於Xbox及PS手柄</value>
+	</data>
+	<data name="gamepadhint2" xml:space="preserve">
+		<value>對於部分支持XInput / PC模式的街機搖桿也適用 (如Victrix Pro FS)</value>
+	</data>
+	<data name="gamepadsquare" xml:space="preserve">
+		<value>X / □ 鍵</value>
+	</data>
+	<data name="gamepadtriangle" xml:space="preserve">
+		<value>Y / △ 鍵</value>
+	</data>
+	<data name="gamepadcross" xml:space="preserve">
+		<value>A / × 鍵</value>
+	</data>
+	<data name="gamepadcircle" xml:space="preserve">
+		<value>B / ○ 鍵</value>
+	</data>
+	<data name="gamepadl1" xml:space="preserve">
+		<value>LB / L1 鍵</value>
+	</data>
+	<data name="gamepadr1" xml:space="preserve">
+		<value>RB / R1 鍵</value>
+	</data>
+	<data name="gamepadl2" xml:space="preserve">
+		<value>LT / L2 鍵</value>
+	</data>
+	<data name="gamepadr2" xml:space="preserve">
+		<value>RT / R2 鍵</value>
+	</data>
+	<data name="gamepadl3" xml:space="preserve">
+		<value>LSB / L3 鍵</value>
+	</data>
+	<data name="gamepadr3" xml:space="preserve">
+		<value>RSB / R3 鍵</value>
+	</data>
+    
+	<!-- Player Level -->
+	<data name="player_level_info" xml:space="preserve">
+		<value>玩家等級情報</value>
+	</data>
+	<data name="player_level_next_round" xml:space="preserve">
+		<value>進入下一玩家等級周目!</value>
+	</data>
+	<data name="player_level_next_round_success" xml:space="preserve">
+		<value>成功進入下一玩家等級周目!</value>
+	</data>
+
+	<data name="viewcarddetailtitle" xml:space="preserve">
+		<value>顯示玩家資料</value>
+	</data>
+	<data name="cardviewdetail" xml:space="preserve">
+		<value>顯示玩家資料</value>
+	</data>
+	<data name="triadcoursescores" xml:space="preserve">
+		<value>街機模式關卡記錄</value>
+	</data>
+	<data name="triad_high_score" xml:space="preserve">
+		<value>個人最高得分</value>
+	</data>
+	<!-- Stage -->
+	<data name="random_stage_setting" xml:space="preserve">
+		<value>偏好隨機對戰場地</value>
+	</data>
+	<data name="dialogtitle_stage" xml:space="preserve">
+		<value>對戰場地</value>
+	</data>
+	<data name="stage" xml:space="preserve">
+		<value>對戰場地</value>
+	</data>
+	<data name="unknown_stage" xml:space="preserve">
+		<value>不明對戰場地</value>
+	</data>
+	<!-- Player Level Rank -->
+	<data name="server_player_level_ranks" xml:space="preserve">
+		<value>玩家等級排名</value>
+	</data>
+	<data name="server_player_level_ranks_note" xml:space="preserve">
+		<value>顯示了以玩家等級和經驗值排名的前100名玩家</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_ranking" xml:space="preserve">
+		<value>排名</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_name" xml:space="preserve">
+		<value>玩家名字</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_level" xml:space="preserve">
+		<value>玩家等級</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_exp" xml:space="preserve">
+		<value>經驗值</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_total_battles" xml:space="preserve">
+		<value>總對戰場次</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_win" xml:space="preserve">
+		<value>勝場</value>
+	</data>
+	<data name="server_player_level_ranks_leaderboard_win_rate" xml:space="preserve">
+		<value>勝率</value>
+	</data>
+	<!-- MS Usage View -->
+	<data name="server_mobile_suit_usages" xml:space="preserve">
+		<value>機體使用率</value>
+	</data>
+	<data name="server_mobile_suit_usages_table_ms" xml:space="preserve">
+    	<value>機體</value>
+  	</data>
+	<data name="server_mobile_suit_usages_table_cost" xml:space="preserve">
+    	<value>Cost</value>
+  	</data>
+	<data name="server_mobile_suit_usages_table_total_battles" xml:space="preserve">
+    	<value>總對戰場次</value>
+  	</data>
+	<data name="server_mobile_suit_usages_table_win" xml:space="preserve">
+    	<value>勝場</value>
+  	</data>
+	<data name="server_mobile_suit_usages_table_win_rate" xml:space="preserve">
+    	<value>勝率</value>
+  	</data>
+	<data name="server_mobile_suit_usages_cost" xml:space="preserve">
+    	<value>Cost</value>
+  	</data>
+	<data name="server_mobile_suit_usages_cost_usage_rate" xml:space="preserve">
+    	<value>使用率</value>
+  	</data>
+	<data name="server_mobile_suit_usages_cost_win_rate" xml:space="preserve">
+    	<value>勝率</value>
+  	</data>
+	<data name="server_mobile_suit_usages_burst_type" xml:space="preserve">
+    	<value>覺醒種類</value>
+  	</data>
+	<data name="server_mobile_suit_usages_burst_type_usage_rate" xml:space="preserve">
+    	<value>使用率</value>
+  	</data>
+	<data name="server_mobile_suit_usages_burst_type_win_rate" xml:space="preserve">
+    	<value>勝率</value>
+  	</data>
+
+	<!-- Battle History -->
+	<data name="battle_history_action_log_show_details" xml:space="preserve">
+    	<value>展示詳細記錄</value>
+  	</data>
+	<data name="battle_history_action_log_hide_details" xml:space="preserve">
+    	<value>隱藏詳細記錄</value>
+  	</data>
+	<data name="battle_histories" xml:space="preserve">
+    	<value>對戰紀錄</value>
+  	</data>
+	<data name="battle_time_line" xml:space="preserve">
+    	<value>對戰時間線</value>
+  	</data>
+	<data name="battle_history_action_log_1" xml:space="preserve">
+    	<value>被擊落</value>
+  	</data>
+	<data name="battle_history_action_log_2" xml:space="preserve">
+    	<value>EX覺醒已可使用</value>
+  	</data>
+	<data name="battle_history_action_log_3" xml:space="preserve">
+    	<value>EX覺醒開始</value>
+  	</data>
+	<data name="battle_history_action_log_4" xml:space="preserve">
+    	<value>EX覺醒結束</value>
+  	</data>
+	<data name="battle_statistics" xml:space="preserve">
+		<value>戰鬥數據</value>
+	</data>
+	<data name="battle_history_basic_detail" xml:space="preserve">
+		<value>基本數據</value>
+	</data>
+	<data name="battle_history_score" xml:space="preserve">
+		<value>分數</value>
+	</data>
+	<data name="battle_history_score_rank" xml:space="preserve">
+		<value>分數排名</value>
+	</data>
+	<data name="battle_history_time_elapsed" xml:space="preserve">
+		<value>時間</value>
+	</data>
+	<data name="battle_history_overheat" xml:space="preserve">
+		<value>過熱次數</value>
+	</data>
+	<data name="battle_history_damage" xml:space="preserve">
+		<value>傷害數據</value>
+	</data>
+	<data name="battle_history_given_damage" xml:space="preserve">
+		<value>總輸出</value>
+	</data>
+	<data name="battle_history_taken_damage" xml:space="preserve">
+		<value>總受傷</value>
+	</data>
+	<data name="battle_history_combo_damage" xml:space="preserve">
+		<value>最大連段輸出</value>
+	</data>
+	<data name="battle_history_burst" xml:space="preserve">
+		<value>EX覺醒</value>
+	</data>
+	<data name="battle_history_burst_count" xml:space="preserve">
+		<value>EX覺醒次數</value>
+	</data>
+	<data name="battle_history_total_ex_burst_damage" xml:space="preserve">
+		<value>總覺醒輸出</value>
+	</data>
+    <!-- Training -->
+    <data name="training_profile" xml:space="preserve">
+		<value>訓練設定</value>
+	</data>
+    <data name="training_profile_ms" xml:space="preserve">
+		<value>CPU機體</value>
+	</data>
+    <data name="dialogtitle_training_ms" xml:space="preserve">
+		<value>CPU機體</value>
+	</data>
+    <data name="training_profile_bursttype" xml:space="preserve">
+		<value>EX覺醒</value>
+	</data>
+    <data name="training_cpu_levels" xml:space="preserve">
+		<value>CPU等級</value>
+	</data>
+    <data name="training_ex_burst_levels" xml:space="preserve">
+		<value>EX覺醒等級</value>
+	</data>
+    <data name="training_profile_damage_display" xml:space="preserve">
+		<value>顯示傷害</value>
+	</data>
+    <data name="training_profile_cpu_auto_guard" xml:space="preserve">
+		<value>CPU自動格擋</value>
+	</data>
+    <data name="training_profile_command_hint" xml:space="preserve">
+		<value>指令提示</value>
+	</data>
+    <data name="save_hint_training_profile" xml:space="preserve">
+		<value>訓練設定</value>
+	</data>
+    
+    <!-- New Login UI -->
+    <data name="login" xml:space="preserve">
+		<value>登入</value>
+	</data>
+    <data name="login_hint" xml:space="preserve">
+		<value>登入提示</value>
+	</data>
+    <data name="access_code_can_be_found_from" xml:space="preserve">
+		<value>登入碼(Access Code) 可以在以下地方找到</value>
+	</data>
+    <data name="access_code_source_1" xml:space="preserve">
+		<value>1. 萬代通行證 (Bana Passport)的背面</value>
+	</data>
+    <data name="access_code_or" xml:space="preserve">
+		<value>或</value>
+	</data>
+    <data name="access_code_source_2" xml:space="preserve">
+		<value>2. card.ini</value>
+	</data>
+    <data name="invalid_user_login" xml:space="preserve">
+		<value>登入失敗</value>
+	</data>
+</root>

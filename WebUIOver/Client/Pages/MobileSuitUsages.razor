@@ -1,0 +1,194 @@
+﻿@page "/ServerMobileSuitUsages"
+@using WebUIOver.Client.Services.MS
+@using WebUIOver.Shared.Dto.Common
+
+@inject HttpClient Http
+@inject IMobileSuitDataService MobileSuitDataService
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["server_mobile_suit_usages"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["server_mobile_suit_usages"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+@if (_loading)
+{
+    <MudOverlay Visible="true" DarkBackground="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </MudOverlay>
+}
+else
+{
+    <MudStack Class="mt-2">
+        <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+            <MudTabPanel Text="@localizer["server_mobile_suit_usages_table_ms"]">
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudTable Elevation="5" Items="@_mobileSuitUsageContext.AggregetedMobileSuits"
+                                  LoadingProgressColor="Color.Info" T="MobileSuit" Loading="@_loading" Hover="true" FixedHeader="true">
+                            <HeaderContent>
+                                <MudTh>
+                                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Id))">
+                                        @localizer["server_mobile_suit_usages_table_ms"]
+                                    </MudTableSortLabel>
+                                </MudTh>
+                                <MudTh Style="text-align:center">
+                                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.Cost))">
+                                        @localizer["server_mobile_suit_usages_table_cost"]
+                                    </MudTableSortLabel>
+                                </MudTh>
+                                <MudTh Style="text-align:center">
+                                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.TotalBattleCount))"
+                                                       InitialDirection="SortDirection.Descending" >
+                                        @localizer["server_mobile_suit_usages_table_total_battles"]
+                                    </MudTableSortLabel>
+                                </MudTh>
+                                <MudTh Style="text-align:center">
+                                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.WinCount))">
+                                        @localizer["server_mobile_suit_usages_table_win"]
+                                    </MudTableSortLabel>
+                                </MudTh>
+                                <MudTh Style="text-align:center">
+                                    <MudTableSortLabel SortBy="@(new Func<MobileSuit, object>(x => x.WinRate))">
+                                        @localizer["server_mobile_suit_usages_table_win_rate"]
+                                    </MudTableSortLabel>
+                                </MudTh>
+                            </HeaderContent>
+                            <RowTemplate>
+                                @{
+#pragma warning disable CS8602
+                                }
+                                @{
+                                    var mobileSuitImagePath = $"images/mobile_suits/{context.Id}.webp";
+
+                                    var lang = Thread.CurrentThread.CurrentCulture.Name;
+
+                                    var msName = context.Value;
+
+                                    if (lang == "ja")
+                                    {
+                                        msName = context.ValueJP;
+                                    }
+
+                                    if (lang == "zh-Hans")
+                                    {
+                                        msName = context.ValueCN;
+                                    }
+
+                                    if (lang == "zh-Hant")
+                                    {
+                                        msName = context.ValueTC;
+                                    }
+
+                                    if (lang == "zh-Hant-TW")
+                                    {
+                                        msName = context.ValueTC2;
+                                    }
+                                    
+                                    var winRateString = String.Format("{0:0.00}", context.WinRate) + "%";
+                                }
+                                <MudTd DataLabel="@localizer["server_mobile_suit_usages_table_ms"]" Class="cursor-pointer">
+                                    @if (mobileSuitImagePath is not null)
+                                    {
+                                        <div class="d-flex flex-grow-1 gap-4">
+                                            <div class="d-flex flex-none my-auto">
+                                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@mobileSuitImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                            </div>
+                                            <div class="d-flex flex-none my-auto">
+                                                @msName
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        @msName
+                                    }
+                                </MudTd>
+                                <MudTd DataLabel="@localizer["server_mobile_suit_usages_table_cost"]" Style="text-align: center;" Class="cursor-pointer my-auto">
+                                    @if (context.Id > 0)
+                                    {
+                                        var costPath = $"images/cost/{context.Cost}.webp";
+                                        <div class="d-flex flex-grow-1 gap-4">
+                                            <div class="d-flex flex-none my-auto mx-auto">
+                                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@costPath" Fluid="true" Width="85" ObjectFit="ObjectFit.Cover"/>
+                                            </div>
+                                        </div>
+                                    }
+                                </MudTd>
+                                <MudTd DataLabel="@localizer["server_mobile_suit_usages_table_total_battles"]" Class="cursor-pointer" Style="text-align:center">@context.TotalBattleCount</MudTd>
+                                <MudTd DataLabel="@localizer["server_mobile_suit_usages_table_win"]" Class="cursor-pointer" Style="text-align:center">@context.WinCount</MudTd>
+                                <MudTd DataLabel="@localizer["server_mobile_suit_usages_table_win_rate"]" Class="cursor-pointer" Style="text-align:center">@winRateString</MudTd>
+                            </RowTemplate>
+                            <PagerContent>
+                                <MudTablePager PageSizeOptions="@_mobileSuitUsageContext.TablePageSizeOptions" />
+                            </PagerContent>
+                        </MudTable>
+                    </MudItem>
+                </MudGrid>
+            </MudTabPanel>
+            <MudTabPanel Text="@localizer["server_mobile_suit_usages_cost"]">
+                <MudGrid>
+                    <MudItem xs="12" sm="6" Style="text-align: center;">
+                        <MudGrid>
+                            <MudItem xs="12" Style="font-weight: bold;">@localizer["server_mobile_suit_usages_cost_usage_rate"]</MudItem>
+                            <MudItem xs="12">
+                                <MudChart ChartType="ChartType.Donut"
+                                          ChartOptions="@_mobileSuitUsageContext.CostPieChartOptions"
+                                          InputData="@_mobileSuitUsageContext.CostChartData"
+                                          @bind-SelectedIndex="_costPieChartIndex"
+                                          InputLabels="@_mobileSuitUsageContext.CostChartLabels" Width="300px" Height="300px"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" Style="text-align: center;">
+                        <MudGrid>
+                            <MudItem xs="12" Style="font-weight: bold;">@localizer["server_mobile_suit_usages_cost_win_rate"]</MudItem>
+                            <MudItem xs="12">
+                                <MudChart ChartType="ChartType.StackedBar"
+                                          ChartOptions="@_mobileSuitUsageContext.CostBarChartOptions"
+                                          ChartSeries="@_mobileSuitUsageContext.CostBarChartData"
+                                          XAxisLabels="@_mobileSuitUsageContext.CostBarChartXAxisLabels"
+                                          Width="100%" Height="350px"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudGrid>
+            </MudTabPanel>
+            <MudTabPanel Text="@localizer["server_mobile_suit_usages_burst_type"]">
+                <MudGrid>
+                    <MudItem xs="12" sm="6" Style="text-align: center;">
+                        <MudGrid>
+                            <MudItem xs="12" Style="font-weight: bold;">@localizer["server_mobile_suit_usages_burst_type_usage_rate"]</MudItem>
+                            <MudItem xs="12">
+                                <MudChart ChartType="ChartType.Donut" 
+                                          ChartOptions="@_mobileSuitUsageContext.BurstPieChartOptions" 
+                                          InputData="@_mobileSuitUsageContext.BurstPieChartData"
+                                          @bind-SelectedIndex="_burstTypePieChartIndex" 
+                                          InputLabels="@_mobileSuitUsageContext.BurstChartLabels" Width="300px" Height="300px"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" Style="text-align: center;">
+                        <MudGrid>
+                            <MudItem xs="12" Style="font-weight: bold;">@localizer["server_mobile_suit_usages_burst_type_win_rate"]</MudItem>
+                            <MudItem xs="12">
+                                <MudChart ChartType="ChartType.StackedBar"
+                                          ChartOptions="@_mobileSuitUsageContext.BurstBarChartOptions"
+                                          ChartSeries="@_mobileSuitUsageContext.BurstBarChartData"
+                                          XAxisLabels="@_mobileSuitUsageContext.BurstBarChartXAxisLabels"
+                                          Width="100%" Height="350px"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudGrid>
+            </MudTabPanel>
+        </MudTabs>
+        
+    </MudStack>
+}

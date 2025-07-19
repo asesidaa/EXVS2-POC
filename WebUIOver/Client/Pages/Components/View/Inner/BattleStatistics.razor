@@ -1,0 +1,75 @@
+﻿@using Blazorise.Icons.FontAwesome
+@using WebUIOver.Shared.Dto.History
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudText><Icon Name="@FontAwesomeIcons.MagnifyingGlassChart"/> @localizer["battle_history_basic_detail"]</MudText>
+    </MudItem>
+    <MudItem xs="12">
+        <MudGrid>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_score"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_score_rank"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_time_elapsed"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_overheat"]</MudItem>
+        </MudGrid>
+        <MudDivider />
+        <MudGrid>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.MiscStats.Score</MudItem>
+            @{
+                var scoreRank = BattleHistorySummary.MiscStats.ScoreRank;
+
+                if (BattleHistorySummary.Teammate == null && !BattleHistorySummary.IsWin)
+                {
+                    scoreRank = 2;
+                }
+            }
+            <MudItem xs="3" Style="text-align: center;">@scoreRank</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.ElapsedSeconds</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.MiscStats.OverheatCount</MudItem>
+        </MudGrid>
+    </MudItem>
+    
+    <MudItem xs="12">
+        <MudText><Icon Name="@FontAwesomeIcons.Explosion"/> @localizer["battle_history_damage"]</MudText>
+    </MudItem>
+    <MudItem xs="12">
+        <MudGrid>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_given_damage"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_taken_damage"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_combo_damage"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;"></MudItem>
+        </MudGrid>
+        <MudDivider />
+        <MudGrid>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.DamageStats.GivenDamage</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.DamageStats.TakenDamage</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.DamageStats.ComboGivenDamage</MudItem>
+            <MudItem xs="3" Style="text-align: center;"></MudItem>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="12">
+        <MudText><Icon Name="@FontAwesomeIcons.Burst"/> @localizer["battle_history_burst"]</MudText>
+    </MudItem>
+    <MudItem xs="12">
+        <MudGrid>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_burst_count"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@localizer["battle_history_total_ex_burst_damage"]</MudItem>
+            <MudItem xs="3" Style="text-align: center;"></MudItem>
+            <MudItem xs="3" Style="text-align: center;"></MudItem>
+        </MudGrid>
+        <MudDivider />
+        <MudGrid>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.BurstStats.BurstCount</MudItem>
+            <MudItem xs="3" Style="text-align: center;">@BattleHistorySummary.BurstStats.TotalExBurstDamage</MudItem>
+            <MudItem xs="3" Style="text-align: center;"></MudItem>
+            <MudItem xs="3" Style="text-align: center;"></MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+
+@code {
+    [Parameter] 
+    public required BattleHistorySummary BattleHistorySummary { get; set; }
+}

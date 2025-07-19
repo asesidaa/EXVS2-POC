@@ -1,0 +1,258 @@
+﻿@using WebUIOver.Shared.Dto.Group
+@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Client.Services.Name
+@using WebUIOver.Client.Services.Selector
+@using WebUIOver.Client.Pages.Dialogs
+@inherits BasicCustomizeComponent
+
+@inject IDialogService DialogService
+@inject INameService NameService
+@inject ISelectorService SelectorService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["navisetting"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideNaviProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    @{
+                        var defaultUiNaviPath = $"images/navis/{CustomizeCardContext.NaviProfile.DefaultUiNaviId}.webp";
+                        var defaultBattleNaviPath = $"images/navis/{CustomizeCardContext.NaviProfile.DefaultBattleNaviId}.webp";
+                    }
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10" sm="5" Class="my-auto">
+                                <MudField Label="@localizer["navisetting_uinavigator"]" Variant="Variant.Outlined">
+                                    <MudGrid>
+                                        <MudItem xs="12" sm="12" Style="text-align: center;">
+                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@defaultUiNaviPath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                        </MudItem>
+                                        <MudItem xs="12" sm="12" Style="padding-top: 0;">
+                                            <MudText Align="Align.Center" Typo="Typo.body2">@NameService.GetNavigatorName(CustomizeCardContext.NaviProfile.DefaultUiNaviId)</MudText>
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2" sm="1" Class="my-auto">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenNaviChangeUiDialog()"/>
+                            </MudItem>
+                            <MudItem xs="10" sm="5" Class="my-auto">
+                                <MudField Label="@localizer["navisetting_battlenavigator"]" Variant="Variant.Outlined">
+                                    <MudGrid>
+                                        <MudItem xs="12" sm="12" Style="text-align: center;">
+                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@defaultBattleNaviPath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                        </MudItem>
+                                        <MudItem xs="12" sm="12" Style="padding-top: 0;">
+                                            <MudText Align="Align.Center" Typo="Typo.body2">@NameService.GetNavigatorName(CustomizeCardContext.NaviProfile.DefaultBattleNaviId)</MudText>
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2" sm="1" Class="my-auto">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenNaviChangeBattleDialog()"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                @localizer["navigator_battle_advise"]
+                            </MudItem>
+                            <MudItem xs="6" Class="my-auto">
+                                <MudSwitch @bind-Value="@CustomizeCardContext.NaviProfile.BattleNavAdviseFlag" Color="Color.Primary"
+                                           Label=""
+                                           LabelPlacement="Placement.Start"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                @localizer["navigator_battle_notify"]
+                            </MudItem>
+                            <MudItem xs="6" Class="my-auto">
+                                <MudSwitch @bind-Value="@CustomizeCardContext.NaviProfile.BattleNavNotifyFlag" Color="Color.Primary"
+                                           Label=""
+                                           LabelPlacement="Placement.Start"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["navisetting_navicostume"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideNaviCostumeProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveNaviCostumeTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudDataGrid Elevation="5"
+                                 Items="@CustomizeCardContext.NaviObservableCollection"
+                                 ReadOnly="false"
+                                 EditMode="@(DataGridEditMode.Cell)"
+                                 EditTrigger="@(DataGridEditTrigger.OnRowClick)"
+                                 SortMode="@SortMode.None"
+                                 Filterable="false" 
+                                 QuickFilter="@NaviQuickFilter"
+                                 ColumnResizeMode="ResizeMode.None"
+                                 Groupable="false">
+                        <ToolBarContent>
+                            <MudTextField @bind-Value="NaviCostumeSearchString" Placeholder="@localizer["search"]" Adornment="Adornment.Start" Immediate="false"
+                                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-4" Variant="Variant.Outlined">
+                            </MudTextField>
+                            <MudTooltip Text="@localizer["navisetting_navicostumehint"]">
+                                <MudIconButton Class="mx-2" Icon="@Icons.Material.Outlined.Info" />
+                            </MudTooltip>
+                        </ToolBarContent>
+                        <Columns>
+                            <PropertyColumn Property="x => x.Navigator.Id" Editable="true" Title="@localizer["navisetting_navi"]">
+                                <EditTemplate>
+                                    <MudText Typo="Typo.body2">@NameService.GetNavigatorName(context.Item.Navigator.Id)</MudText>
+                                </EditTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="SelectorService.GetNaviSeriesSelector()" Editable="true" Title="@localizer["navisetting_navi_series"]">
+                                <EditTemplate>
+                                    <MudText Typo="Typo.body2">@NameService.GetNavigatorSeriesName(context.Item.Navigator.Id)</MudText>
+                                </EditTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="SelectorService.GetNaviSeiyuuSelector()" Editable="true" Title="@localizer["navisetting_navi_seiyuu"]">
+                                <EditTemplate>
+                                    <MudText Typo="Typo.body2">@NameService.GetNavigatorSeiyuuName(context.Item.Navigator.Id)</MudText>
+                                </EditTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x.Navi" Title="@localizer["navisetting_costume"]">
+                                <EditTemplate>
+                                    @if (context.Item.Navi != null)
+                                    {
+                                        <MudChipSet T="uint" @bind-SelectedValue="context.Item.Navi.CostumeId" SelectionMode="SelectionMode.SingleSelection" Style="width: 100%; max-width: 520px;">
+                                            <MudGrid>
+                                                @foreach (var costume in context.Item.Navigator.Costumes)
+                                                {
+                                                    <MudItem xs="12" sm="4">
+                                                        <MudChip Text="purple" Variant="Variant.Text" Color="Color.Primary" Value="costume.Id" Style="width: 100%; height: 130px;">
+                                                            <MudGrid>
+                                                                <MudItem xs="12">
+                                                                    @{
+                                                                        uint costumeId = costume.Id;
+
+                                                                        var naviImagePath = $"images/navis/{context.Item.Navigator.Id}_{costumeId}.webp";
+                                                                    }
+                                                                    <MudImage ObjectPosition="ObjectPosition.Center" Src="@naviImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                                                </MudItem>
+                                                                <MudItem xs="12" Style="padding-top: 0px">
+                                                                    <MudText Typo="Typo.caption" Style="white-space: pre-line; font-size: 0.75em;">@costume.ValueJP</MudText>
+                                                                </MudItem>
+                                                            </MudGrid>
+                                                        </MudChip>
+                                                    </MudItem>
+                                                }
+                                            </MudGrid>
+                                        </MudChipSet>
+                                    }
+                                </EditTemplate>
+                            </PropertyColumn>
+                        </Columns>
+                        <PagerContent>
+                            <MudDataGridPager PageSizeOptions="@_pageSizeOptions" />
+                        </PagerContent>
+                    </MudDataGrid>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public EventCallback<MouseEventArgs> SaveNaviCostumeTask { get; set; }
+    
+    private readonly int[] _pageSizeOptions = { 5, 10, 25, 50, 100 };
+
+    private string NaviCostumeSearchString { get; set; } = string.Empty;
+    
+    private async Task OpenNaviChangeUiDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { CustomizeCardContext.NaviProfile.DefaultUiNaviId } } };
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>(localizer["dialogtitle_navimenu"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeCardContext.NaviProfile.DefaultUiNaviId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenNaviChangeBattleDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { CustomizeCardContext.NaviProfile.DefaultBattleNaviId } } };
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>(localizer["dialogtitle_navibattle"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeCardContext.NaviProfile.DefaultBattleNaviId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private Func<NaviWithNavigatorGroup, bool> NaviQuickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(NaviCostumeSearchString))
+            return true;
+
+        if (x.Navigator.Value.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.ValueJP.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.ValueCN.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (x.Navigator.Series.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeriesJP.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeriesCN.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (x.Navigator.Seiyuu.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeiyuuJP.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Navigator.SeiyuuCN.Contains(NaviCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    };
+
+}

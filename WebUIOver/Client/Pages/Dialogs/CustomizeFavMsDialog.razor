@@ -1,0 +1,270 @@
+﻿@inject IDialogService DialogService
+@inject ICommonDataService CommonDataService
+@inject INameService NameService
+@inject ISnackbar Snackbar
+
+@using WebUIOver.Shared.Dto.Enum;
+@using WebUIOver.Client.Services.Common
+@using WebUIOver.Client.Services.Name
+@using WebUIOver.Shared.Dto.Common
+@using WebUIOVer.Shared.Dto.Common
+
+<MudDialog>
+    <DialogContent>
+        <MudStack>
+            <MudGrid Class="align-center">
+                <MudItem xs="10" sm="11">
+                    <MudField Label="@localizer["favmsdialog_mstitle"]" Variant="Variant.Outlined">
+                        @{
+                            var mobileSuitImagePath = $"images/mobile_suits/{Data.MsId}.webp";
+                        }
+                        <div class="d-flex flex-grow-1 gap-4">
+                            <div class="d-flex flex-none my-auto">
+                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@mobileSuitImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                            </div>
+                            <div class="d-flex my-auto">
+                                <MudText>@NameService.GetMobileSuitName(Data.MsId) / @NameService.GetMobileSuitPilotName(Data.MsId)</MudText>
+                            </div>
+                        </div>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2" sm="1" Style="text-align: right">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenMobileSuitUiDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="12">
+                    <MudField Label="@localizer["favmsdialog_bursttype"]" Variant="Variant.Outlined">
+                        <MudItem xs="12">
+                            <MudChipSet T="BurstType" @bind-SelectedValue="Data.BurstType" SelectionMode="SelectionMode.SingleSelection" Style="width: 100%;">
+                                <MudGrid>
+                                    @foreach (var burstType in Enum.GetValues<BurstType>())
+                                    {
+                                        <MudItem xs="6" sm="3">
+                                            <MudChip Text="purple" Variant="Variant.Text" Color="Color.Primary" Value="burstType" Style="width: 100%; height: 130px;">
+                                                <MudGrid>
+                                                    <MudItem xs="12">
+                                                        @{
+                                                            var naviImagePath = $"images/bursts/{(int)burstType}.webp";
+                                                        }
+                                                        <MudImage ObjectPosition="ObjectPosition.Center" Src="@naviImagePath" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+                                                    </MudItem>
+                                                    <MudItem xs="12" Style="padding-top: 0;">
+                                                        <MudText Typo="Typo.caption" Style="white-space: pre-line;">@burstType</MudText>
+                                                    </MudItem>
+                                                </MudGrid>
+                                            </MudChip>
+                                        </MudItem>
+                                    }
+                                </MudGrid>
+                            </MudChipSet>
+                        </MudItem>
+                    </MudField>
+                    @* <MudSelect Label="@localizer["favmsdialog_bursttype"]" @bind-Value="Data.BurstType" T="BurstType" Variant="Variant.Outlined"> *@
+                    @*     @foreach (var item in Enum.GetValues<BurstType>()) *@
+                    @*     { *@
+                    @*         <MudSelectItem Value="@(item)"> *@
+                    @*             <div class="d-flex flex-grow-1 gap-4"> *@
+                    @*                 @{ *@
+                    @*                     var burstImagePath = $"images/bursts/{(int)item}.webp"; *@
+                    @*                 } *@
+                    @*                 <div class="d-flex flex-none my-auto"> *@
+                    @*                     <MudImage ObjectPosition="ObjectPosition.Center" Src="@burstImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="55"/> *@
+                    @*                 </div> *@
+                    @*                 <div class="d-flex my-auto"> *@
+                    @*                     <MudText>@item</MudText> *@
+                    @*                 </div> *@
+                    @*             </div> *@
+                    @*         </MudSelectItem> *@
+                    @*     } *@
+                    @* </MudSelect> *@
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10" sm="11">
+                    <MudField Label="@localizer["favmsdialog_inbattlenavi"]" Variant="Variant.Outlined">
+                        @{
+                            var naviImagePath = $"images/navis/{Data.BattleNaviId}.webp";
+                        }
+                        <div class="d-flex flex-grow-1 gap-4">
+                            <div class="d-flex flex-none my-auto">
+                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@naviImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                            </div>
+                            <div class="d-flex my-auto">
+                                <MudText>@NameService.GetNavigatorName(Data.BattleNaviId)</MudText>
+                            </div>
+                        </div>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2" sm="1" Style="text-align: right">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit"
+                                    OnClick="() => OpenNaviChangeBattleDialog()" />
+                </MudItem>
+		    </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="12">
+                    <MudItem xs="12">
+                        <WebUIOver.Client.Pages.Components.Customize.Inner.GaugeComponent
+                            Type="Basic"
+                            FavouriteMs="@Data"
+                            DisplayLabel="@localizer["favmsdialog_gauge"]"
+                            EnableImagePreview="@EnableImagePreview" />
+                    </MudItem>
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="12">
+                    <MudSelect Label="@localizer["favmsdialog_bgmreplaytype"]" @bind-Value="Data.BgmPlayingMethod" T="BgmPlayingMethod" Variant="Variant.Outlined">
+                        @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
+                        {
+                            var bgmTypeDisplayStr = localizer["bgmtype_" + item];
+                            <MudSelectItem Value="item">@bgmTypeDisplayStr</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="10" sm="11">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="@localizer["favmsdialog_bgmlistorder"]">
+                            <MudSimpleTable Style="overflow-x: auto;">
+                                <tbody>
+                                    @if (Data.BgmList != null && Data.BgmList.Count() > 0)
+                                    {
+                                        foreach (var x in Data.BgmList)
+                                        {
+                                            <tr>
+                                                <td>@CommonDataService.GetBgmById(x)?.ValueJP</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Data.BgmList = Array.Empty<uint>();
+                                        <tr>
+                                            <td>No Entries</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </MudSimpleTable>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudItem>
+                <MudItem xs="2" sm="1" Style="text-align: right">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                    OnClick="() => OpenFavMsChangeBgmOrderDialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Titles">
+                            <MudStack>
+                                <MudStack Row>
+                                    <MudText>@localizer["titles_hint"]</MudText>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/379.html" Target="_blank">@localizer["titles_hinttext"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/444.html" Target="_blank">@localizer["titles_hintbackground"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/445.html" Target="_blank">@localizer["titles_hintornament"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2xb/pages/505.html" Target="_blank">@localizer["titles_hinteffect"]</MudLink>
+                                </MudStack>
+                                <MudDivider />
+                                <WebUIOver.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@Data.DefaultTitle" 
+                                    DisplayLabel="@localizer["default_titles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                                
+                                <WebUIOver.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@Data.TriadTitle" 
+                                    DisplayLabel="@localizer["triad_titles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                                
+                                <WebUIOver.Client.Pages.Components.Customize.Inner.TitleComponent 
+                                    Title="@Data.ClassMatchTitle" 
+                                    DisplayLabel="@localizer["class_match_titles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                            </MudStack>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudItem>
+            </MudGrid>
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    IMudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public FavouriteMs Data { get; set; } = null!;
+    
+    [Parameter]
+    public List<MobileSuit> AggregatedMobileSuits { get; set; } = null!;
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+
+    private static readonly DialogOptions OPTIONS = new()
+        {
+            CloseOnEscapeKey = false,
+            BackdropClick = false,
+            FullWidth = true,
+            MaxWidth = MaxWidth.ExtraExtraLarge
+        };
+
+    private void Submit()
+    {
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private async Task OpenMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", Data.MsId },
+            { "AggregatedMobileSuits", AggregatedMobileSuits },
+        };
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>("Change mobile suit", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.MsId = (uint)result.Data;
+            StateHasChanged();
+        }
+    }
+
+    private async Task OpenNaviChangeBattleDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { Data.BattleNaviId } } };
+        var dialog = await DialogService.ShowAsync<ChangeNavigatorDialog>("Change in battle navigator", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.BattleNaviId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenFavMsChangeBgmOrderDialog()
+    {
+        var parameters = new DialogParameters { { "Data", Data.BgmList } };
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>("Add / Change bgm order", parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            Data.BgmList = (result.Data as uint[])!;
+            StateHasChanged();
+        }
+    }
+}

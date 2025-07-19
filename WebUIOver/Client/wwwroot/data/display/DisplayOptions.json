@@ -1,0 +1,57 @@
+﻿[
+  {
+    "Id": 0,
+    "ValueJP": "【総合】○戦○勝（○%）",
+    "Value": "Total, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 1,
+    "ValueJP": "【総合】○戦",
+    "Value": "Total, No. Matches"
+  },
+  {
+    "Id": 2,
+    "ValueJP": "【ソロ】○戦○勝（○%）",
+    "Value": "Solo, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 3,
+    "ValueJP": "【ソロ】○戦",
+    "Value": "Solo, No. Matches"
+  },
+  {
+    "Id": 4,
+    "ValueJP": "【チーム】○戦○勝（○%）",
+    "Value": "Team, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 5,
+    "ValueJP": "【チーム】○戦",
+    "Value": "Team, No. Matches"
+  },
+  {
+    "Id": 6,
+    "ValueJP": "非公開にする",
+    "Value": "Private/Hide"
+  },
+  {
+    "Id": 7,
+    "ValueJP": "【クラスマッチ・ソロ】○戦○勝（○％）",
+    "Value": "Class Match Solo, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 8,
+    "ValueJP": "【クラスマッチ・チーム】○戦○勝（○％）",
+    "Value": "Class Match Team, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 9,
+    "ValueJP": "【カジュアル・ソロ】○戦○勝（○％）",
+    "Value": "Casual Solo, No. Matches, No. Win (Win %)"
+  },
+  {
+    "Id": 10,
+    "ValueJP": "【カジュアル・チーム】○戦○勝（○％）",
+    "Value": "Casual Team, No. Matches, No. Win (Win %)"
+  }
+]

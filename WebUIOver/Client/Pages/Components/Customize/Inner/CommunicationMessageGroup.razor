@@ -1,0 +1,55 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Shared.Dto.Message
+
+<MudGrid>
+    <MudItem xs="12">
+        @localizer["communicationmessage_hint"]
+    </MudItem>
+</MudGrid>
+<MudGrid>
+    <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.UpMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessageup"]"
+        StampLabel="@localizer["communicationmessage_stampidup"]"
+        Templates = "@Templates"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+<MudGrid>
+    <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.DownMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessagedown"]"
+        StampLabel="@localizer["communicationmessage_stampiddown"]"
+        Templates = "@Templates"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+<MudGrid>
+    <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.LeftMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessageleft"]"
+        StampLabel="@localizer["communicationmessage_stampidleft"]"
+        Templates = "@Templates"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+<MudGrid>
+    <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessage 
+        CustomMessage="@CustomMessageGroup.RightMessage"
+        DisplayLabel="@localizer["communicationmessage_verbalmessageright"]"
+        StampLabel="@localizer["communicationmessage_stampidright"]"
+        Templates = "@Templates"
+        EnableImagePreview="@EnableImagePreview"
+    />
+</MudGrid>
+
+@code{
+    [Parameter]
+    public CustomMessageGroup CustomMessageGroup { get; set; } = new();
+    
+    [Parameter]
+    public string[] Templates { get; set; } = Array.Empty<string>();
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+}

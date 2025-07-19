@@ -1,0 +1,112 @@
+﻿@using Blazorise.Icons.FontAwesome
+@using WebUIOver.Shared.Dto.History
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudTable Elevation="5" Items="@BattleHistorySummaries"
+                  LoadingProgressColor="Color.Info" T="BattleHistorySummary" Loading="@_loading" Hover="true" FixedHeader="true">
+            <RowTemplate>
+                <MudTd>
+                    <MudGrid>
+                        <MudItem xs="2" Style="text-align: center"></MudItem>
+                        <MudItem xs="8" Style="text-align: center">
+                            @{
+                                var utcMatchDateTime = DateTimeOffset.FromUnixTimeSeconds((long)context.PlayedAt);
+                                var convertedMatchDateTime = utcMatchDateTime.ToLocalTime();
+                            }
+                            <MudText>@convertedMatchDateTime.ToString("G")</MudText>
+                        </MudItem>
+                        <MudItem xs="2" Style="text-align: right">
+                            @{
+                                var currentWin = context.IsWin ? 1 : 0;
+                                var totalConsecutiveWins = context.SelfPlayer.ConsecutiveWinCount + currentWin;
+
+                                if (context.IsWin)
+                                {
+                                    if (totalConsecutiveWins >= 10)
+                                    {
+                                        var winLabel = $"{totalConsecutiveWins} WINS";
+                                        <MudText Color="Color.Info"><MudIcon Icon="@FontAwesomeIcons.WebAwesome"/> @winLabel</MudText>
+                                    }
+                                    else if (totalConsecutiveWins > 1 && totalConsecutiveWins < 10)
+                                    {
+                                        <MudText Color="Color.Info">@totalConsecutiveWins WINS</MudText>
+                                    }
+                                    else if (totalConsecutiveWins == 1)
+                                    {
+                                        <MudText Color="Color.Info">@totalConsecutiveWins WIN</MudText>
+                                    }
+                                }
+                            }
+                        </MudItem>
+                        <MudItem xs="12" sm="5">
+                            <MudGrid>
+                                @if (context.Teammate is not null)
+                                {
+                                    <WebUIOver.Client.Pages.Components.View.Inner.SelfTeammateGrid BattleHistoryPlayer="@context.Teammate"/>
+                                }
+
+                                <WebUIOver.Client.Pages.Components.View.Inner.SelfTeammateGrid BattleHistoryPlayer="@context.SelfPlayer"/>
+                            </MudGrid>
+                        </MudItem>
+                        <MudItem sm="2" Style="text-align: center;" Class="my-auto d-none d-sm-inline-block">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="images/history/vs.webp" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+                            @if (context.IsWin)
+                            {
+                                <MudText Color="Color.Info">WIN</MudText>
+                            }
+                            else
+                            {
+                                <MudText Color="Color.Error">LOSE</MudText>
+                            }
+                            <br/>
+                            @{
+                                var stageImagePath = $"images/stages/mini/{context.StageId}.webp";
+                            }
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@stageImagePath" Fluid="true"
+                                      ObjectFit="ObjectFit.Cover" Class="rounded-lg"/>
+                        </MudItem>
+                        <MudItem xs="12" sm="5">
+                            <MudGrid>
+                                @if (context.Opponents.Count == 2)
+                                {
+                                    <WebUIOver.Client.Pages.Components.View.Inner.OpponentGrid BattleHistoryPlayer="@context.Opponents[1]"/>
+                                }
+                                <WebUIOver.Client.Pages.Components.View.Inner.OpponentGrid BattleHistoryPlayer="@context.Opponents[0]"/>
+                            </MudGrid>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <WebUIOver.Client.Pages.Components.View.Inner.BattleDetailComponent BattleHistorySummary="context"/>
+                        </MudItem>
+                    </MudGrid>
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="@(new []{ 10 })" />
+            </PagerContent>
+        </MudTable>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public List<BattleHistorySummary> BattleHistorySummaries { get; set; } = new ();
+    
+    private bool _loading = true;
+
+    protected override void OnInitialized()
+    {
+        _loading = true;
+    }
+    
+    protected override void OnParametersSet()
+    {
+        if (BattleHistorySummaries == default)
+        {
+            _loading = true;
+            return;
+        }
+
+        _loading = false;
+    }
+}

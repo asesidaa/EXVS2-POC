@@ -1,0 +1,149 @@
+﻿@inherits BasicCustomizeComponent
+
+@using WebUIOver.Shared.Dto.Common
+@using System.Text.RegularExpressions
+@using WebUIOver.Client.Pages.Dialogs.CustomizeComment
+@using WebUIOver.Client.Services.CustomizeComment
+
+@inject ILogger<CustomizeCard> Logger
+@inject ICustomizeCommentService CustomizeCommentService
+@inject IDialogService DialogService
+
+<MudItem xs="12">
+    <MudGrid>
+        <MudItem xs="12">
+            @if (IsForDataCollection)
+            {
+                <MudStack>
+                    <MudItem xs="12">
+                        @localizer["comment_hint"] <MudLink Href="https://w.atwiki.jp/exvs2ob/pages/45.html" Target="_blank">@localizer["comment_wiki"]</MudLink>
+                    </MudItem>
+                    <MudItem xs="12">@localizer["comment_sentence_example"] そんな[]、修正してやる！</MudItem>
+                    <MudItem xs="12">@localizer["comment_parts_example"] [Sフリーダム], [キラ], [天然]</MudItem>
+                </MudStack>
+            }
+            <MudGrid Class="align-center">
+                <MudItem xs="10" sm="11">
+                    <MudField Label="@localizer["dialogtitle_customizecommentsentence"]" Variant="Variant.Outlined">
+                        <MudText Align="Align.Center">@((MarkupString)CustomizeCommentService.GetCustomizeCommentSentenceName(StickerDto.BasePanelId))</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2" sm="1">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                   OnClick="() => OpenChangeCustomizeCommentSentenceDialog()" />
+                </MudItem>
+                <MudItem xs="4" sm="5">
+                    <MudField Label="@localizer["dialogtitle_customizecommentphrase"]" Variant="Variant.Outlined">
+                        <MudText Align="Align.Center">@CustomizeCommentService.GetCustomizeCommentPhraseName(StickerDto.CommentPartsAId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2" sm="1">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                   OnClick="() => OpenChangeCustomizeCommentPhrase1Dialog()" />
+                </MudItem>
+                <MudItem xs="4" sm="5">
+                    <MudField Label="@localizer["dialogtitle_customizecommentphrase2"]" Variant="Variant.Outlined">
+                        <MudText Align="Align.Center">@CustomizeCommentService.GetCustomizeCommentPhraseName(StickerDto.CommentPartsBId)</MudText>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2" sm="1">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                   OnClick="() => OpenChangeCustomizeCommentPhrase2Dialog()" />
+                </MudItem>
+            </MudGrid>
+            <MudGrid Class="align-center">
+                <MudItem xs="12">
+                    <MudField Label="@localizer["customizecommentpreview"]" Variant="Variant.Outlined">
+                        <MudText Align="Align.Center">@((MarkupString)GetPreviewSentence())</MudText>
+                    </MudField>
+                </MudItem>
+            </MudGrid>
+            @if (IsForDataCollection)
+            {
+                <MudGrid>
+                    <MudItem xs="4">
+                        <MudNumericField T="uint" @bind-Value="StickerDto.BasePanelId" Label="@localizer["comment_sentenceid"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudNumericField T="uint" @bind-Value="StickerDto.CommentPartsAId" Label="@localizer["comment_part1id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000" />
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudNumericField T="uint" @bind-Value="StickerDto.CommentPartsBId" Label="@localizer["comment_part2id"]" Variant="Variant.Text" Min="0" Max="10000" HelperText="0-10000"/>
+                    </MudItem>
+                </MudGrid>
+            }
+        </MudItem>
+    </MudGrid>
+</MudItem>
+
+@code
+{
+    [Parameter]
+    public StickerDto StickerDto { get; set; } = new();
+
+    private bool IsForDataCollection { get; set; } = false;
+
+    private async Task OpenChangeCustomizeCommentSentenceDialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { StickerDto.BasePanelId } } };
+        var dialog = await DialogService.ShowAsync<ChangeCustomizeCommentDialog>(localizer["dialogtitle_customizecommentsentence"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            StickerDto.BasePanelId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeCustomizeCommentPhrase1Dialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { StickerDto.CommentPartsAId } } };
+        var dialog = await DialogService.ShowAsync<ChangeCustomizeCommentPhraseDialog>(localizer["dialogtitle_customizecommentphrase"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            StickerDto.CommentPartsAId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeCustomizeCommentPhrase2Dialog()
+    {
+        var parameters = new DialogParameters { { "Data", new[] { StickerDto.CommentPartsBId } } };
+        var dialog = await DialogService.ShowAsync<ChangeCustomizeCommentPhraseDialog>(localizer["dialogtitle_customizecommentphrase2"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            StickerDto.CommentPartsBId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private string GetPreviewSentence()
+    {
+        var sentence = CustomizeCommentService.GetCustomizeCommentSentenceName(StickerDto.BasePanelId);
+
+        if (sentence == "Unknown Sentence")
+        {
+            return sentence;
+        }
+
+        Regex regex = new Regex(@"\[.*?\]");
+        MatchCollection matches = regex.Matches(sentence);
+
+        if (matches.Count >= 1)
+        {
+            sentence = sentence.Replace(matches[0].Value, CustomizeCommentService.GetCustomizeCommentPhraseName(StickerDto.CommentPartsAId));
+        }
+        
+        if (matches.Count >= 2)
+        {
+            sentence = sentence.Replace(matches[1].Value, CustomizeCommentService.GetCustomizeCommentPhraseName(StickerDto.CommentPartsBId));
+        }
+
+        return sentence;
+    }
+}

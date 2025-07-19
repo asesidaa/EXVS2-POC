@@ -1,0 +1,1510 @@
+[
+  {
+    "Id": 0,
+    "Value": "-",
+    "ValueJP": "-",
+    "ValueCN": "-",
+    "ValueTC": "-",
+    "ValueTC2": "-",
+    "Series": "-",
+    "SeriesJP": "-",
+    "SeriesCN": "-",
+    "SeriesTC": "-",
+    "SeriesTC2": "-",
+    "Seiyuu": "-",
+    "SeiyuuJP": "-",
+    "SeiyuuCN": "-",
+    "SeiyuuTC": "-",
+    "SeiyuuTC2": "-"
+  },
+  {
+    "Id": 1,
+    "Value": "Haro",
+    "ValueJP": "ハロ",
+    "ValueCN": "哈罗",
+    "ValueTC": "哈囉",
+    "ValueTC2": "哈囉",
+    "Series": "Mobile Suit Gundam",
+    "SeriesJP": "機動戦士ガンダム",
+    "SeriesCN": "机动战士高达",
+    "SeriesTC": "機動戰士高達",
+    "SeriesTC2": "機動戰士鋼彈",
+    "Seiyuu": "Arai Satomi",
+    "SeiyuuJP": "新井里美",
+    "SeiyuuCN": "新井里美",
+    "SeiyuuTC": "新井里美",
+    "SeiyuuTC2": "新井里美"
+  },
+  {
+    "Id": 2,
+    "Value": "Lalah Sune",
+    "ValueJP": "ララァ・スン",
+    "ValueCN": "拉拉·辛",
+    "ValueTC": "娜娜·絲",
+    "ValueTC2": "拉拉·遜",
+    "Series": "Mobile Suit Gundam",
+    "SeriesJP": "機動戦士ガンダム",
+    "SeriesCN": "机动战士高达",
+    "SeriesTC": "機動戰士高達",
+    "SeriesTC2": "機動戰士鋼彈",
+    "Seiyuu": "Han Keiko",
+    "SeiyuuJP": "潘恵子",
+    "SeiyuuCN": "潘惠子",
+    "SeiyuuTC": "潘惠子",
+    "SeiyuuTC2": "潘惠子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Dress",
+        "ValueJP": "ジオン公国軍軍服[劇場版]"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Value": "Gihren Zabi",
+    "ValueJP": "ギレン・ザビ",
+    "ValueCN": "基连·扎比",
+    "ValueTC": "基連·薩比",
+    "ValueTC2": "基連·薩比",
+    "Series": "Mobile Suit Gundam",
+    "SeriesJP": "機動戦士ガンダム",
+    "SeriesCN": "机动战士高达",
+    "SeriesTC": "機動戰士高達",
+    "SeriesTC2": "機動戰士鋼彈",
+    "Seiyuu": "Ginga Banjō",
+    "SeiyuuJP": "銀河万丈",
+    "SeiyuuCN": "银河万丈",
+    "SeiyuuTC": "銀河萬丈",
+    "SeiyuuTC2": "銀河萬丈"
+  },
+  {
+    "Id": 4,
+    "Value": "Haman Karn",
+    "ValueJP": "ハマーン・カーン",
+    "ValueCN": "哈曼·卡恩",
+    "ValueTC": "哈曼·嘉",
+    "ValueTC2": "哈曼·坎恩",
+    "Series": "Mobile Suit Gundam ZZ",
+    "SeriesJP": "機動戦士ガンダムZZ",
+    "SeriesCN": "机动战士高达ZZ",
+    "SeriesTC": "機動戰士高達ZZ",
+    "SeriesTC2": "機動戰士鋼彈ZZ",
+    "Seiyuu": "Sakakibara Yoshiko",
+    "SeiyuuJP": "榊原良子",
+    "SeiyuuCN": "榊原良子",
+    "SeiyuuTC": "榊原良子",
+    "SeiyuuTC2": "榊原良子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Dress",
+        "ValueJP": "ドレス[ZZ]"
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Value": "Cecily Fairchild",
+    "ValueJP": "セシリー・フェアチャイルド",
+    "ValueCN": "塞西莉·费亚查尔德",
+    "ValueTC": "茜茜莉·費查特",
+    "ValueTC2": "賽西莉·菲亞查德",
+    "Series": "Mobile Suit Gundam F91",
+    "SeriesJP": "機動戦士ガンダムF91",
+    "SeriesCN": "机动战士高达F91",
+    "SeriesTC": "機動戰士高達F91",
+    "SeriesTC2": "機動戰士鋼彈F91",
+    "Seiyuu": "Tōma Yumi",
+    "SeiyuuJP": "冬馬由美",
+    "SeiyuuCN": "冬马由美",
+    "SeiyuuTC": "冬馬由美",
+    "SeiyuuTC2": "冬馬由美",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Short Hair",
+        "ValueJP": "ショートカット"
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Value": "Katejina Loos",
+    "ValueJP": "カテジナ・ルース",
+    "ValueCN": "卡提珍娜·露丝",
+    "ValueTC": "卡迪珍娜·路殊",
+    "ValueTC2": "卡提吉娜·路斯",
+    "Series": "Mobile Suit Victory Gundam",
+    "SeriesJP": "機動戦士Vガンダム",
+    "SeriesCN": "机动战士V高达",
+    "SeriesTC": "機動戰士V高達",
+    "SeriesTC2": "機動戰士V鋼彈",
+    "Seiyuu": "Watanabe Kumiko",
+    "SeiyuuJP": "渡辺久美子",
+    "SeiyuuCN": "渡边久美子",
+    "SeiyuuTC": "渡邊久美子",
+    "SeiyuuTC2": "渡邊久美子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Value": "Tiffa Adill",
+    "ValueJP": "ティファ・アディール",
+    "ValueCN": "蒂法·亚迪尔",
+    "ValueTC": "荻花·艾迪洛",
+    "ValueTC2": "蒂法·安迪爾",
+    "Series": "After War Gundam X",
+    "SeriesJP": "機動新世紀ガンダムX",
+    "SeriesCN": "机动新世纪高达X",
+    "SeriesTC": "機動新世紀高達X",
+    "SeriesTC2": "機動新世紀鋼彈X",
+    "Seiyuu": "Kanai Mika",
+    "SeiyuuJP": "かないみか",
+    "SeiyuuCN": "金井美香",
+    "SeiyuuTC": "金井美香",
+    "SeiyuuTC2": "金井美香",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Untied Hair",
+        "ValueJP": "髪をほどく"
+      },
+      {
+        "Id": 2,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "Value": "Aina Sahalin",
+    "ValueJP": "アイナ・サハリン",
+    "ValueCN": "爱娜·萨哈林",
+    "ValueTC": "愛娜·沙哈連",
+    "ValueTC2": "艾娜·薩哈林",
+    "Series": "Mobile Suit Gundam: The 08th MS Team",
+    "SeriesJP": "機動戦士ガンダム 第08MS小隊",
+    "SeriesCN": "机动战士高达 第08MS小队",
+    "SeriesTC": "機動戰士高達 第08MS小隊",
+    "SeriesTC2": "機動戰士鋼彈 第08MS小隊",
+    "Seiyuu": "Inoue Kikuko",
+    "SeiyuuJP": "井上喜久子",
+    "SeiyuuCN": "井上喜久子",
+    "SeiyuuTC": "井上喜久子",
+    "SeiyuuTC2": "井上喜久子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 9,
+    "Value": "Dianna Soreil",
+    "ValueJP": "ディアナ・ソレル",
+    "ValueCN": "迪安娜·索雷尔",
+    "ValueTC": "迪亞娜·梳尼爾",
+    "ValueTC2": "迪亞娜·梳尼爾",
+    "Series": "Turn A Gundam",
+    "SeriesJP": "∀ガンダム",
+    "SeriesCN": "∀高达",
+    "SeriesTC": "∀高達",
+    "SeriesTC2": "∀鋼彈",
+    "Seiyuu": "Takahashi Rieko",
+    "SeiyuuJP": "高橋理恵子",
+    "SeiyuuCN": "高桥理惠子",
+    "SeiyuuTC": "高橋理惠子",
+    "SeiyuuTC2": "高橋理惠子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Disguised",
+        "ValueJP": "キエルに変装"
+      },
+      {
+        "Id": 2,
+        "Value": "Nurse",
+        "ValueJP": "看護師服"
+      }
+    ]
+  },
+  {
+    "Id": 10,
+    "Value": "Feldt Grace",
+    "ValueJP": "フェルト・グレイス",
+    "ValueCN": "菲露特·古蕾斯",
+    "ValueTC": "菲特·古莉絲",
+    "ValueTC2": "菲特·葛瑞斯",
+    "Series": "Mobile Suit Gundam 00",
+    "SeriesJP": "機動戦士ガンダム00",
+    "SeriesCN": "机动战士高达00",
+    "SeriesTC": "機動戰士高達00",
+    "SeriesTC2": "機動戰士鋼彈00",
+    "Seiyuu": "Takagaki Ayahi",
+    "SeiyuuJP": "高垣彩陽",
+    "SeiyuuCN": "高垣彩阳",
+    "SeiyuuTC": "高垣彩陽",
+    "SeiyuuTC2": "高垣彩陽",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Normal Suit",
+        "ValueJP": "ノーマルスーツ"
+      }
+    ]
+  },
+  {
+    "Id": 11,
+    "Value": "Sumeragi Noriega",
+    "ValueJP": "スメラギ・李・ノリエガ",
+    "ValueCN": "皇·李·诺瑞加",
+    "ValueTC": "皇·李·洛尼嘉",
+    "ValueTC2": "皇·李·諾瑞加",
+    "Series": "Mobile Suit Gundam 00",
+    "SeriesJP": "機動戦士ガンダム00",
+    "SeriesCN": "机动战士高达00",
+    "SeriesTC": "機動戰士高達00",
+    "SeriesTC2": "機動戰士鋼彈00",
+    "Seiyuu": "Honna Yōko",
+    "SeiyuuJP": "本名陽子",
+    "SeiyuuCN": "本名阳子",
+    "SeiyuuTC": "本名陽子",
+    "SeiyuuTC2": "本名陽子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 12,
+    "Value": "Nena Trinity",
+    "ValueJP": "ネーナ・トリニティ",
+    "ValueCN": "妮娜·崔尼蒂",
+    "ValueTC": "妮娜·東尼迪",
+    "ValueTC2": "妮娜·崔尼提",
+    "Series": "Mobile Suit Gundam 00",
+    "SeriesJP": "機動戦士ガンダム00",
+    "SeriesCN": "机动战士高达00",
+    "SeriesTC": "機動戰士高達00",
+    "SeriesTC2": "機動戰士鋼彈00",
+    "Seiyuu": "Kugimiya Rie",
+    "SeiyuuJP": "釘宮理恵",
+    "SeiyuuCN": "钉宫理惠",
+    "SeiyuuTC": "釘宮理惠",
+    "SeiyuuTC2": "釘宮理惠",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Pilot Suit",
+        "ValueJP": "パイロットスーツ"
+      }
+    ]
+  },
+  {
+    "Id": 13,
+    "Value": "Soma Peries",
+    "ValueJP": "ソーマ・ピーリス",
+    "ValueCN": "索玛·皮里斯",
+    "ValueTC": "索瑪·皮里斯",
+    "ValueTC2": "索瑪·皮利斯",
+    "Series": "Mobile Suit Gundam 00",
+    "SeriesJP": "機動戦士ガンダム00",
+    "SeriesCN": "机动战士高达00",
+    "SeriesTC": "機動戰士高達00",
+    "SeriesTC2": "機動戰士鋼彈00",
+    "Seiyuu": "Ogasawara Arisa",
+    "SeiyuuJP": "小笠原亜里沙",
+    "SeiyuuCN": "小笠原亚理沙",
+    "SeiyuuTC": "小笠原亞里沙",
+    "SeiyuuTC2": "小笠原亞里沙",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Pilot Suit",
+        "ValueJP": "パイロットスーツ"
+      }
+    ]
+  },
+  {
+    "Id": 14,
+    "Value": "Mileina Vashti",
+    "ValueJP": "ミレイナ・ヴァスティ",
+    "ValueCN": "米蕾娜·瓦斯提",
+    "ValueTC": "妙麗娜·華斯迪",
+    "ValueTC2": "蜜蕾娜·瓦斯提",
+    "Series": "Mobile Suit Gundam 00",
+    "SeriesJP": "機動戦士ガンダム00",
+    "SeriesCN": "机动战士高达00",
+    "SeriesTC": "機動戰士高達00",
+    "SeriesTC2": "機動戰士鋼彈00",
+    "Seiyuu": "Tomatsu Haruka",
+    "SeiyuuJP": "戸松遥",
+    "SeiyuuCN": "户松遥",
+    "SeiyuuTC": "戶松遙",
+    "SeiyuuTC2": "戶松遙",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Normal Suit",
+        "ValueJP": "ノーマルスーツ"
+      }
+    ]
+  },
+  {
+    "Id": 15,
+    "Value": "Suberoa Zinnerman",
+    "ValueJP": "スベロア・ジンネマン",
+    "ValueCN": "斯贝洛亚·辛尼曼",
+    "ValueTC": "斯貝洛亞·辛尼曼",
+    "ValueTC2": "斯貝洛亞·辛尼曼",
+    "Series": "Mobile Suit Gundam Unicorn",
+    "SeriesJP": "機動戦士ガンダムUC",
+    "SeriesCN": "机动战士高达UC",
+    "SeriesTC": "機動戰士高達UC",
+    "SeriesTC2": "機動戰士鋼彈UC",
+    "Seiyuu": "Tezuka Hideaki",
+    "SeiyuuJP": "手塚秀彰",
+    "SeiyuuCN": "手冢秀彰",
+    "SeiyuuTC": "手塚秀彰",
+    "SeiyuuTC2": "手塚秀彰"
+  },
+  {
+    "Id": 16,
+    "Value": "Audrey Burne",
+    "ValueJP": "オードリー・バーン",
+    "ValueCN": "奥黛丽·伯恩",
+    "ValueTC": "奧黛莉·伯恩",
+    "ValueTC2": "奧黛莉·伯恩",
+    "Series": "Mobile Suit Gundam Unicorn",
+    "SeriesJP": "機動戦士ガンダムUC",
+    "SeriesCN": "机动战士高达UC",
+    "SeriesTC": "機動戰士高達UC",
+    "SeriesTC2": "機動戰士鋼彈UC",
+    "Seiyuu": "Fujimura Ayumi",
+    "SeiyuuJP": "藤村歩",
+    "SeiyuuCN": "藤村步",
+    "SeiyuuTC": "藤村步",
+    "SeiyuuTC2": "藤村步",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 17,
+    "Value": "Noah Bright",
+    "ValueJP": "ブライト・ノア",
+    "ValueCN": "布莱德·诺亚",
+    "ValueTC": "布拉度·諾亞",
+    "ValueTC2": "布萊特·諾亞",
+    "Series": "Mobile Suit Gundam Unicorn",
+    "SeriesJP": "機動戦士ガンダムUC",
+    "SeriesCN": "机动战士高达UC",
+    "SeriesTC": "機動戰士高達UC",
+    "SeriesTC2": "機動戰士鋼彈UC",
+    "Seiyuu": "Narita Ken",
+    "SeiyuuJP": "成田剣",
+    "SeiyuuCN": "成田剑",
+    "SeiyuuTC": "成田劍",
+    "SeiyuuTC2": "成田劍"
+  },
+  {
+    "Id": 18,
+    "Value": "Relena Darlian",
+    "ValueJP": "リリーナ・ドーリアン",
+    "ValueCN": "莉莉娜·多利安",
+    "ValueTC": "莉莉娜·德利安",
+    "ValueTC2": "莉莉娜·德利安",
+    "Series": "Mobile Suit Gundam Wing",
+    "SeriesJP": "新機動戦記ガンダムW",
+    "SeriesCN": "新机动战记高达W",
+    "SeriesTC": "新機動戰記高達W",
+    "SeriesTC2": "新機動戰記鋼彈W",
+    "Seiyuu": "Yajima Akiko",
+    "SeiyuuJP": "矢島晶子",
+    "SeiyuuCN": "矢岛晶子",
+    "SeiyuuTC": "矢島晶子",
+    "SeiyuuTC2": "矢島晶子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Peacecraft Uniform",
+        "ValueJP": "礼服"
+      }
+    ]
+  },
+  {
+    "Id": 20,
+    "Value": "Miriallia Haw",
+    "ValueJP": "ミリアリア・ハウ",
+    "ValueCN": "米丽雅莉亚·哈乌",
+    "ValueTC": "美莉亞·賀",
+    "ValueTC2": "米蕾莉亞·哈烏",
+    "Series": "Mobile Suit Gundam SEED",
+    "SeriesJP": "機動戦士ガンダムSEED",
+    "SeriesCN": "机动战士高达SEED",
+    "SeriesTC": "機動戰士高達SEED",
+    "SeriesTC2": "機動戰士鋼彈SEED",
+    "Seiyuu": "Toyoguchi Megumi",
+    "SeiyuuJP": "豊口めぐみ",
+    "SeiyuuCN": "丰口惠美",
+    "SeiyuuTC": "豐口惠",
+    "SeiyuuTC2": "豐口惠",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 21,
+    "Value": "Lacus Clyne",
+    "ValueJP": "ラクス・クライン",
+    "ValueCN": "拉克丝·克莱茵",
+    "ValueTC": "莉古絲·古蘭爾",
+    "ValueTC2": "拉克絲·克萊因",
+    "Series": "Mobile Suit Gundam SEED",
+    "SeriesJP": "機動戦士ガンダムSEED",
+    "SeriesCN": "机动战士高达SEED",
+    "SeriesTC": "機動戰士高達SEED",
+    "SeriesTC2": "機動戰士鋼彈SEED",
+    "Seiyuu": "Tanaka Rie",
+    "SeiyuuJP": "田中理恵",
+    "SeiyuuCN": "田中理惠",
+    "SeiyuuTC": "田中理惠",
+    "SeiyuuTC2": "田中理惠",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Dress",
+        "ValueJP": "ドレス"
+      },
+      {
+        "Id": 2,
+        "Value": "Stage Costume",
+        "ValueJP": "ステージ衣装"
+      }
+    ]
+  },
+  {
+    "Id": 22,
+    "Value": "Flay Allster",
+    "ValueJP": "フレイ・アルスター",
+    "ValueCN": "芙蕾·阿尔斯达",
+    "ValueTC": "佩莉·阿斯達",
+    "ValueTC2": "芙蕾·阿斯達",
+    "Series": "Mobile Suit Gundam SEED",
+    "SeriesJP": "機動戦士ガンダムSEED",
+    "SeriesCN": "机动战士高达SEED",
+    "SeriesTC": "機動戰士高達SEED",
+    "SeriesTC2": "機動戰士鋼彈SEED",
+    "Seiyuu": "Kuwashima Hōko",
+    "SeiyuuJP": "桑島法子",
+    "SeiyuuCN": "桑岛法子",
+    "SeiyuuTC": "桑島法子",
+    "SeiyuuTC2": "桑島法子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 23,
+    "Value": "Murrue Ramius",
+    "ValueJP": "マリュー・ラミアス",
+    "ValueCN": "玛琉·拉米亚斯",
+    "ValueTC": "瑪露·拉美雅斯",
+    "ValueTC2": "瑪琉·雷明斯",
+    "Series": "Mobile Suit Gundam SEED",
+    "SeriesJP": "機動戦士ガンダムSEED",
+    "SeriesCN": "机动战士高达SEED",
+    "SeriesTC": "機動戰士高達SEED",
+    "SeriesTC2": "機動戰士鋼彈SEED",
+    "Seiyuu": "Mitsuishi Kotono",
+    "SeiyuuJP": "三石琴乃",
+    "SeiyuuCN": "三石琴乃",
+    "SeiyuuTC": "三石琴乃",
+    "SeiyuuTC2": "三石琴乃"
+  },
+  {
+    "Id": 24,
+    "Value": "Meyrin Hawke",
+    "ValueJP": "メイリン・ホーク",
+    "ValueCN": "美玲·霍克",
+    "ValueTC": "美鈴·賀古",
+    "ValueTC2": "美玲·霍克",
+    "Series": "Mobile Suit Gundam SEED Destiny",
+    "SeriesJP": "機動戦士ガンダムSEED DESTINY",
+    "SeriesCN": "机动战士高达SEED DESTINY",
+    "SeriesTC": "機動戰士高達SEED DESTINY",
+    "SeriesTC2": "機動戰士鋼彈SEED DESTINY",
+    "Seiyuu": "Orikasa Fumiko",
+    "SeiyuuJP": "折笠富美子",
+    "SeiyuuCN": "折笠富美子",
+    "SeiyuuTC": "折笠富美子",
+    "SeiyuuTC2": "折笠富美子",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Orb Jacket",
+        "ValueJP": "オーブジャケット"
+      }
+    ]
+  },
+  {
+    "Id": 25,
+    "Value": "Meer Campbell",
+    "ValueJP": "ミーア・キャンベル",
+    "ValueCN": "米娅·坎贝尔",
+    "ValueTC": "美雅·甘寶",
+    "ValueTC2": "蜜雅·坎貝爾",
+    "Series": "Mobile Suit Gundam SEED Destiny",
+    "SeriesJP": "機動戦士ガンダムSEED DESTINY",
+    "SeriesCN": "机动战士高达SEED DESTINY",
+    "SeriesTC": "機動戰士高達SEED DESTINY",
+    "SeriesTC2": "機動戰士鋼彈SEED DESTINY",
+    "Seiyuu": "Tanaka Rie",
+    "SeiyuuJP": "田中理恵",
+    "SeiyuuCN": "田中理惠",
+    "SeiyuuTC": "田中理惠",
+    "SeiyuuTC2": "田中理惠",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 26,
+    "Value": "Lunamaria Hawke",
+    "ValueJP": "ルナマリア・ホーク",
+    "ValueCN": "露娜玛莉亚·霍克",
+    "ValueTC": "露娜瑪利亞·賀古",
+    "ValueTC2": "露娜瑪莉亞·霍克",
+    "Series": "Mobile Suit Gundam SEED Destiny",
+    "SeriesJP": "機動戦士ガンダムSEED DESTINY",
+    "SeriesCN": "机动战士高达SEED DESTINY",
+    "SeriesTC": "機動戰士高達SEED DESTINY",
+    "SeriesTC2": "機動戰士鋼彈SEED DESTINY",
+    "Seiyuu": "Sakamoto Maaya",
+    "SeiyuuJP": "坂本真綾",
+    "SeiyuuCN": "坂本真绫",
+    "SeiyuuTC": "坂本真綾",
+    "SeiyuuTC2": "坂本真綾",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 27,
+    "Value": "Emily Asuno",
+    "ValueJP": "エミリー・アモンド",
+    "ValueCN": "艾蜜莉·阿蒙德",
+    "ValueTC": "艾蜜莉·阿蒙德",
+    "ValueTC2": "艾蜜莉·阿蒙德",
+    "Series": "Mobile Suit Gundam AGE",
+    "SeriesJP": "機動戦士ガンダムAGE",
+    "SeriesCN": "机动战士高达AGE",
+    "SeriesTC": "機動戰士高達AGE",
+    "SeriesTC2": "機動戰士鋼彈AGE",
+    "Seiyuu": "Endō Aya",
+    "SeiyuuJP": "遠藤綾",
+    "SeiyuuCN": "远藤绫",
+    "SeiyuuTC": "遠藤綾",
+    "SeiyuuTC2": "遠藤綾",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Normal Suit",
+        "ValueJP": "ノーマルスーツ"
+      }
+    ]
+  },
+  {
+    "Id": 28,
+    "Value": "Yurin L'Ciel",
+    "ValueJP": "ユリン・ルシェル",
+    "ValueCN": "尤琳·露歇尔",
+    "ValueTC": "尤琳·魯修魯",
+    "ValueTC2": "尤琳·路歇爾",
+    "Series": "Mobile Suit Gundam AGE",
+    "SeriesJP": "機動戦士ガンダムAGE",
+    "SeriesCN": "机动战士高达AGE",
+    "SeriesTC": "機動戰士高達AGE",
+    "SeriesTC2": "機動戰士鋼彈AGE",
+    "Seiyuu": "Hayami Saori",
+    "SeiyuuJP": "早見沙織",
+    "SeiyuuCN": "早见沙织",
+    "SeiyuuTC": "早見沙織",
+    "SeiyuuTC2": "早見沙織",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "No Ribbon",
+        "ValueJP": "リボンなし"
+      }
+    ]
+  },
+  {
+    "Id": 29,
+    "Value": "Romary Stone",
+    "ValueJP": "ロマリー・ストーン",
+    "ValueCN": "罗玛莉·斯通",
+    "ValueTC": "羅瑪妮·史東",
+    "ValueTC2": "蘿瑪莉·史東",
+    "Series": "Mobile Suit Gundam AGE",
+    "SeriesJP": "機動戦士ガンダムAGE",
+    "SeriesCN": "机动战士高达AGE",
+    "SeriesTC": "機動戰士高達AGE",
+    "SeriesTC2": "機動戰士鋼彈AGE",
+    "Seiyuu": "Hanazawa Kana",
+    "SeiyuuJP": "花澤香菜",
+    "SeiyuuCN": "花泽香菜",
+    "SeiyuuTC": "花澤香菜",
+    "SeiyuuTC2": "花澤香菜",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Plain Clothes",
+        "ValueJP": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 30,
+    "Value": "Sthesia Awar",
+    "ValueJP": "セシア・アウェア",
+    "ValueCN": "赛西娅·阿维亚",
+    "ValueTC": "賽西亞·艾維亞",
+    "ValueTC2": "賽西亞·艾維亞",
+    "Series": "Gundam EXA",
+    "SeriesJP": "ガンダムEXA",
+    "SeriesCN": "高达EXA",
+    "SeriesTC": "高達EXA",
+    "SeriesTC2": "鋼彈EXA",
+    "Seiyuu": "Taketatsu Ayana",
+    "SeiyuuJP": "竹達彩奈",
+    "SeiyuuCN": "竹达彩奈",
+    "SeiyuuTC": "竹達彩奈",
+    "SeiyuuTC2": "竹達彩奈",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 3,
+        "Value": "Poolside",
+        "ValueJP": "プールサイド"
+      },
+      {
+        "Id": 6,
+        "Value": "Sailor Suit",
+        "ValueJP": "セーラー服[シルキーブルー]"
+      },
+      {
+        "Id": 7,
+        "Value": "Seaside",
+        "ValueJP": "シーサイドモデル"
+      },
+      {
+        "Id": 8,
+        "Value": "Princess",
+        "ValueJP": "プリンセスルートモデル"
+      }
+    ]
+  },
+  {
+    "Id": 31,
+    "Value": "Sthesia Awar Acht",
+    "ValueJP": "セシア・アウェア・アハト",
+    "ValueCN": "赛西娅·阿维亚·亚哈特",
+    "ValueTC": "賽西亞·艾維亞·亞哈特",
+    "ValueTC2": "賽西亞·艾維亞·亞哈特",
+    "Series": "Gundam EXA VS",
+    "SeriesJP": "ガンダムEXA VS",
+    "SeriesCN": "高达EXA VS",
+    "SeriesTC": "高達EXA VS",
+    "SeriesTC2": "鋼彈EXA VS",
+    "Seiyuu": "Taketatsu Ayana",
+    "SeiyuuJP": "竹達彩奈",
+    "SeiyuuCN": "竹达彩奈",
+    "SeiyuuTC": "竹達彩奈",
+    "SeiyuuTC2": "竹達彩奈",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Jupiter Color",
+        "ValueJP": "ジュピターカラー"
+      },
+      {
+        "Id": 2,
+        "Value": "Swimsuit",
+        "ValueJP": "ビーチモデル"
+      },
+      {
+        "Id": 8,
+        "Value": "Princess",
+        "ValueJP": "プリンセスルートモデル"
+      }
+    ]
+  },
+  {
+    "Id": 32,
+    "Value": "Sthesia Awar Sesto",
+    "ValueJP": "セシア・アウェア・セスト",
+    "ValueCN": "赛西娅·阿维亚·赛斯特",
+    "ValueTC": "賽西亞·艾維亞·賽斯特",
+    "ValueTC2": "賽西亞·艾維亞·賽斯特",
+    "Series": "Gundam EXA VS",
+    "SeriesJP": "ガンダムEXA VS",
+    "SeriesCN": "高达EXA VS",
+    "SeriesTC": "高達EXA VS",
+    "SeriesTC2": "鋼彈EXA VS",
+    "Seiyuu": "Taketatsu Ayana",
+    "SeiyuuJP": "竹達彩奈",
+    "SeiyuuCN": "竹达彩奈",
+    "SeiyuuTC": "竹達彩奈",
+    "SeiyuuTC2": "竹達彩奈",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Jupiter Color",
+        "ValueJP": "ジュピターカラー"
+      },
+      {
+        "Id": 2,
+        "Value": "Swimsuit",
+        "ValueJP": "ビーチモデル"
+      },
+      {
+        "Id": 8,
+        "Value": "Princess",
+        "ValueJP": "プリンセスルートモデル"
+      }
+    ]
+  },
+  {
+    "Id": 33,
+    "Value": "Sthesia Awar Nono",
+    "ValueJP": "セシア・アウェア・ノーノ",
+    "ValueCN": "赛西娅·阿维亚·诺诺",
+    "ValueTC": "賽西亞·艾維亞·諾諾",
+    "ValueTC2": "賽西亞·艾維亞·諾諾",
+    "Series": "Gundam EXA VS",
+    "SeriesJP": "ガンダムEXA VS",
+    "SeriesCN": "高达EXA VS",
+    "SeriesTC": "高達EXA VS",
+    "SeriesTC2": "鋼彈EXA VS",
+    "Seiyuu": "Taketatsu Ayana",
+    "SeiyuuJP": "竹達彩奈",
+    "SeiyuuCN": "竹达彩奈",
+    "SeiyuuTC": "竹達彩奈",
+    "SeiyuuTC2": "竹達彩奈",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Jupiter Color",
+        "ValueJP": "ジュピターカラー"
+      },
+      {
+        "Id": 2,
+        "Value": "Swimsuit",
+        "ValueJP": "ビーチモデル"
+      },
+      {
+        "Id": 8,
+        "Value": "Princess",
+        "ValueJP": "プリンセスルートモデル"
+      }
+    ]
+  },
+  {
+    "Id": 34,
+    "Value": "Sthesia Awar Primo",
+    "ValueJP": "セシア・アウェア・プリモ",
+    "ValueCN": "赛西娅·阿维亚·普利摩",
+    "ValueTC": "賽西亞·艾維亞·普利摩",
+    "ValueTC2": "賽西亞·艾維亞·普利摩",
+    "Series": "Gundam EXA VS",
+    "SeriesJP": "ガンダムEXA VS",
+    "SeriesCN": "高达EXA VS",
+    "SeriesTC": "高達EXA VS",
+    "SeriesTC2": "鋼彈EXA VS",
+    "Seiyuu": "Taketatsu Ayana",
+    "SeiyuuJP": "竹達彩奈",
+    "SeiyuuCN": "竹达彩奈",
+    "SeiyuuTC": "竹達彩奈",
+    "SeiyuuTC2": "竹達彩奈",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Jupiter Color",
+        "ValueJP": "ジュピターカラー"
+      },
+      {
+        "Id": 2,
+        "Value": "Swimsuit",
+        "ValueJP": "ビーチモデル"
+      },
+      {
+        "Id": 8,
+        "Value": "Princess",
+        "ValueJP": "プリンセスルートモデル"
+      }
+    ]
+  },
+  {
+    "Id": 35,
+    "Value": "Aida Surugan",
+    "ValueJP": "アイーダ・スルガン",
+    "ValueCN": "阿依达·休冈",
+    "ValueTC": "艾達·蘇露甘",
+    "ValueTC2": "艾達·休岡",
+    "Series": "Gundam Reconguista in G",
+    "SeriesJP": "ガンダム Gのレコンギスタ",
+    "SeriesCN": "高达G之复国运动",
+    "SeriesTC": "高達 Reconguista in G",
+    "SeriesTC2": "鋼彈 Reconguista in G",
+    "Seiyuu": "Shimamura Yū",
+    "SeiyuuJP": "嶋村侑",
+    "SeiyuuCN": "嶋村侑",
+    "SeiyuuTC": "嵨村侑",
+    "SeiyuuTC2": "嵨村侑",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Dress",
+        "ValueJP": "ドレス"
+      }
+    ]
+  },
+  {
+    "Id": 36,
+    "Value": "Aila Jyrkiainen",
+    "ValueJP": "アイラ・ユルキアイネン",
+    "ValueCN": "艾拉·尤基艾宁",
+    "ValueTC": "雅娜·尤洛基艾寧",
+    "ValueTC2": "艾拉·尤基艾寧",
+    "Series": "Gundam Build Fighters",
+    "SeriesJP": "ガンダムビルドファイターズ",
+    "SeriesCN": "高达创战者",
+    "SeriesTC": "高達創戰者",
+    "SeriesTC2": "鋼彈創鬥者",
+    "Seiyuu": "Hayami Saori",
+    "SeiyuuJP": "早見沙織",
+    "SeiyuuCN": "早见沙织",
+    "SeiyuuTC": "早見沙織",
+    "SeiyuuTC2": "早見沙織",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Indoor Wear",
+        "ValueJP": "室内着"
+      }
+    ]
+  },
+  {
+    "Id": 37,
+    "Value": "Hoshino Fumina",
+    "ValueJP": "ホシノ・フミナ",
+    "ValueCN": "星野文奈",
+    "ValueTC": "星野文奈",
+    "ValueTC2": "星野文奈",
+    "Series": "Gundam Build Fighters Try",
+    "SeriesJP": "ガンダムビルドファイターズトライ",
+    "SeriesCN": "高达创斗者TRY",
+    "SeriesTC": "高達創戰者TRY",
+    "SeriesTC2": "鋼彈創鬥者TRY",
+    "Seiyuu": "Makino Yui",
+    "SeiyuuJP": "牧野由依",
+    "SeiyuuCN": "牧野由依",
+    "SeiyuuTC": "牧野由依",
+    "SeiyuuTC2": "牧野由依",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Seiho Gakuen Uniform",
+        "ValueJP": "聖鳳学園制服"
+      }
+    ]
+  },
+  {
+    "Id": 38,
+    "Value": "Kudelia Aina Bernstein",
+    "ValueJP": "クーデリア・藍那・バーンスタイン",
+    "ValueCN": "古狄莉娅·蓝那·伯恩斯坦",
+    "ValueTC": "古荻利亞·藍那·伯恩斯坦",
+    "ValueTC2": "庫德莉雅·藍那·伯恩斯坦",
+    "Series": "Mobile Suit Gundam: Iron-Blooded Orphans",
+    "SeriesJP": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "SeriesCN": "机动战士高达 铁血的奥尔芬斯",
+    "SeriesTC": "機動戰士高達 鐵血的孤兒",
+    "SeriesTC2": "機動戰士鋼彈 鐵血孤兒",
+    "Seiyuu": "Terasaki Yuka",
+    "SeiyuuJP": "寺崎裕香",
+    "SeiyuuCN": "寺崎裕香",
+    "SeiyuuTC": "寺崎裕香",
+    "SeiyuuTC2": "寺崎裕香"
+  },
+  {
+    "Id": 39,
+    "Value": "Atra Mixta",
+    "ValueJP": "アトラ・ミクスタ",
+    "ValueCN": "阿特拉·米库斯塔",
+    "ValueTC": "亞多娜·米古斯達",
+    "ValueTC2": "雅朵拉·米克斯塔",
+    "Series": "Mobile Suit Gundam: Iron-Blooded Orphans",
+    "SeriesJP": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "SeriesCN": "机动战士高达 铁血的奥尔芬斯",
+    "SeriesTC": "機動戰士高達 鐵血的孤兒",
+    "SeriesTC2": "機動戰士鋼彈 鐵血孤兒",
+    "Seiyuu": "Kanemoto Hisako",
+    "SeiyuuJP": "金元寿子",
+    "SeiyuuCN": "金元寿子",
+    "SeiyuuTC": "金元壽子",
+    "SeiyuuTC2": "金元壽子"
+  },
+  {
+    "Id": 40,
+    "Value": "Fumitan Admoss",
+    "ValueJP": "フミタン・アドモス",
+    "ValueCN": "芙米塔·阿德莫斯",
+    "ValueTC": "芙美頓·亞多莫斯",
+    "ValueTC2": "芙米妲·阿德莫斯",
+    "Series": "Mobile Suit Gundam: Iron-Blooded Orphans",
+    "SeriesJP": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "SeriesCN": "机动战士高达 铁血的奥尔芬斯",
+    "SeriesTC": "機動戰士高達 鐵血的孤兒",
+    "SeriesTC2": "機動戰士鋼彈 鐵血孤兒",
+    "Seiyuu": "Uchiyama Yumi",
+    "SeiyuuJP": "内山夕実",
+    "SeiyuuCN": "内山夕实",
+    "SeiyuuTC": "內山夕實",
+    "SeiyuuTC2": "內山夕實"
+  },
+  {
+    "Id": 41,
+    "Value": "Fa Yuiry",
+    "ValueJP": "ファ・ユイリィ",
+    "ValueCN": "花园丽",
+    "ValueTC": "花·園麗",
+    "ValueTC2": "花·園麗",
+    "Series": "Mobile Suit Z Gundam",
+    "SeriesJP": "機動戦士Zガンダム",
+    "SeriesCN": "机动战士Z高达",
+    "SeriesTC": "機動戰士Z高達",
+    "SeriesTC2": "機動戰士Z鋼彈",
+    "Seiyuu": "Arai Satomi",
+    "SeiyuuJP": "新井里美",
+    "SeiyuuCN": "新井里美",
+    "SeiyuuTC": "新井里美",
+    "SeiyuuTC2": "新井里美"
+  },
+  {
+    "Id": 42,
+    "Value": "Elpeo Ple",
+    "ValueJP": "エルピー・プル",
+    "ValueCN": "艾露比·普露",
+    "ValueTC": "愛羅比·普露",
+    "ValueTC2": "愛羅比·普露",
+    "Series": "Mobile Suit Gundam ZZ",
+    "SeriesJP": "機動戦士ガンダムZZ",
+    "SeriesCN": "机动战士高达ZZ",
+    "SeriesTC": "機動戰士高達ZZ",
+    "SeriesTC2": "機動戰士鋼彈ZZ",
+    "Seiyuu": "Honda Yōko",
+    "SeiyuuJP": "本多陽子",
+    "SeiyuuCN": "本多阳子",
+    "SeiyuuTC": "本多陽子",
+    "SeiyuuTC2": "本多陽子"
+  },
+  {
+    "Id": 43,
+    "Value": "Sochie Heim",
+    "ValueJP": "ソシエ・ハイム",
+    "ValueCN": "苏茜娅·海姆",
+    "ValueTC": "蘇茜亞·海姆",
+    "ValueTC2": "蘇絲亞·海姆",
+    "Series": "Turn A Gundam",
+    "SeriesJP": "∀ガンダム",
+    "SeriesCN": "∀高达",
+    "SeriesTC": "∀高達",
+    "SeriesTC2": "∀鋼彈",
+    "Seiyuu": "Murata Akino",
+    "SeiyuuJP": "村田秋乃",
+    "SeiyuuCN": "村田秋乃",
+    "SeiyuuTC": "村田秋乃",
+    "SeiyuuTC2": "村田秋乃"
+  },
+  {
+    "Id": 44,
+    "Value": "Orga Itsuka",
+    "ValueJP": "オルガ・イツカ",
+    "ValueCN": "奥尔加·伊兹卡",
+    "ValueTC": "澳加·伊祖卡",
+    "ValueTC2": "歐格·伊茲卡",
+    "Series": "Mobile Suit Gundam: Iron-Blooded Orphans",
+    "SeriesJP": "機動戦士ガンダム 鉄血のオルフェンズ",
+    "SeriesCN": "机动战士高达 铁血的奥尔芬斯",
+    "SeriesTC": "機動戰士高達 鐵血的孤兒",
+    "SeriesTC2": "機動戰士鋼彈 鐵血孤兒",
+    "Seiyuu": "Hosoya Yoshimasa",
+    "SeiyuuJP": "細谷佳正",
+    "SeiyuuCN": "细谷佳正",
+    "SeiyuuTC": "細谷佳正",
+    "SeiyuuTC2": "細谷佳正",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Tekkadan Jacket",
+        "ValueJP": "鉄華団ジャケット"
+      }
+    ]
+  },
+  {
+    "Id": 45,
+    "Value": "Manny Ambassador",
+    "ValueJP": "マニィ・アンバサダ",
+    "ValueCN": "玛尼·安巴塞达",
+    "ValueTC": "馬妮·安巴薩達",
+    "ValueTC2": "馬妮·安巴薩達",
+    "Series": "Gundam Reconguista in G",
+    "SeriesJP": "ガンダム Gのレコンギスタ",
+    "SeriesCN": "高达G之复国运动",
+    "SeriesTC": "高達 Reconguista in G",
+    "SeriesTC2": "鋼彈 Reconguista in G",
+    "Seiyuu": "Takagaki Ayahi",
+    "SeiyuuJP": "高垣彩陽",
+    "SeiyuuCN": "高垣彩阳",
+    "SeiyuuTC": "高垣彩陽",
+    "SeiyuuTC2": "高垣彩陽",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Cheerleader",
+        "ValueJP": "チアユニフォーム"
+      }
+    ]
+  },
+  {
+    "Id": 46,
+    "Value": "Melina Marlon Fitz",
+    "ValueJP": "メリーナ・マーロンフィッツ",
+    "ValueCN": "梅莉娜·玛洛菲兹",
+    "ValueTC": "梅莉娜·馬隆費茲",
+    "ValueTC2": "梅莉娜·馬隆費茲",
+    "Series": "Project N-EXTREME",
+    "SeriesJP": "Project N-EXTREME",
+    "SeriesCN": "Project N-EXTREME",
+    "SeriesTC": "Project N-EXTREME",
+    "SeriesTC2": "Project N-EXTREME",
+    "Seiyuu": "Haruno Anzu",
+    "SeiyuuJP": "春野杏",
+    "SeiyuuCN": "春野杏",
+    "SeiyuuTC": "春野杏",
+    "SeiyuuTC2": "春野杏",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Fluffy Flapper",
+        "ValueJP": "フラッフィーフラッパー"
+      },
+      {
+        "Id": 2,
+        "Value": "Cermonal",
+        "ValueJP": "チェルモナル"
+      },
+      {
+        "Id": 3,
+        "Value": "Rackezina",
+        "ValueJP": "ラッケジーナ"
+      },
+      {
+        "Id": 4,
+        "Value": "Fluffy Flapper（クリーシム）",
+        "ValueJP": "フラッフィーフラッパー（クリーシム）"
+      },
+      {
+        "Id": 5,
+        "Value": "Gakuen Uniform",
+        "ValueJP": "学園制服"
+      },
+      {
+        "Id": 6,
+        "Value": "GGGP XBOOST 東西対抗戦",
+        "ValueJP": "GGGP XBOOST 東西対抗戦"
+      },
+      {
+        "Id": 7,
+        "Value": "チェルモナル シータ",
+        "ValueJP": "チェルモナル シータ"
+      },
+      {
+        "Id": 8,
+        "Value": "メノウバッハ",
+        "ValueJP": "メノウバッハ"
+      }
+    ]
+  },
+  {
+    "Id": 47,
+    "Value": "Kano Clans",
+    "ValueJP": "カノ・クランズ",
+    "ValueCN": "卡诺·克兰兹",
+    "ValueTC": "卡諾·克蘭茲",
+    "ValueTC2": "卡諾·克蘭茲",
+    "Series": "Project N-EXTREME",
+    "SeriesJP": "Project N-EXTREME",
+    "SeriesCN": "Project N-EXTREME",
+    "SeriesTC": "Project N-EXTREME",
+    "SeriesTC2": "Project N-EXTREME",
+    "Seiyuu": "Tsukishiro Rina",
+    "SeiyuuJP": "月城莉奈",
+    "SeiyuuCN": "月城莉奈",
+    "SeiyuuTC": "月城莉奈",
+    "SeiyuuTC2": "月城莉奈",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Fluffy Flapper",
+        "ValueJP": "フラッフィーフラッパー"
+      },
+      {
+        "Id": 2,
+        "Value": "Cermonal",
+        "ValueJP": "チェルモナル"
+      },
+      {
+        "Id": 3,
+        "Value": "Rackezina",
+        "ValueJP": "ラッケジーナ"
+      },
+      {
+        "Id": 4,
+        "Value": "Fluffy Flapper（クリーシム）",
+        "ValueJP": "フラッフィーフラッパー（クリーシム）"
+      },
+      {
+        "Id": 5,
+        "Value": "Gakuen Uniform",
+        "ValueJP": "学園制服"
+      },
+      {
+        "Id": 6,
+        "Value": "GGGP XBOOST 東西対抗戦",
+        "ValueJP": "GGGP XBOOST 東西対抗戦"
+      },
+      {
+        "Id": 7,
+        "Value": "チェルモナル シータ",
+        "ValueJP": "チェルモナル シータ"
+      },
+      {
+        "Id": 8,
+        "Value": "メノウバッハ",
+        "ValueJP": "メノウバッハ"
+      }
+    ]
+  },
+  {
+    "Id": 48,
+    "Value": "Ayame",
+    "ValueJP": "アヤメ",
+    "ValueCN": "菖蒲",
+    "ValueTC": "菖蒲",
+    "ValueTC2": "菖蒲",
+    "Series": "Gundam Build Divers",
+    "SeriesJP": "ガンダムビルドダイバーズ",
+    "SeriesCN": "高达创形者",
+    "SeriesTC": "高達創戰潛行者",
+    "SeriesTC2": "鋼彈創鬥者 潛網大戰",
+    "Seiyuu": "Numakura Manami",
+    "SeiyuuJP": "沼倉愛美",
+    "SeiyuuCN": "沼仓爱美",
+    "SeiyuuTC": "沼倉愛美",
+    "SeiyuuTC2": "沼倉愛美",
+    "Costumes": []
+  },
+  {
+    "Id": 49,
+    "Value": "Neia E Pique",
+    "ValueJP": "ネイア・e・ピケ",
+    "ValueCN": "ネイア・e・ピケ",
+    "ValueTC": "ネイア・e・ピケ",
+    "ValueTC2": "ネイア・e・ピケ",
+    "Series": "Project N-EXTREME",
+    "SeriesJP": "Project N-EXTREME",
+    "SeriesCN": "Project N-EXTREME",
+    "SeriesTC": "Project N-EXTREME",
+    "SeriesTC2": "Project N-EXTREME",
+    "Seiyuu": "Uesaka Sumire",
+    "SeiyuuJP": "上坂すみれ",
+    "SeiyuuCN": "上坂堇",
+    "SeiyuuTC": "上坂堇",
+    "SeiyuuTC2": "上坂堇",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "信奉者正装",
+        "ValueJP": "信奉者正装"
+      },
+      {
+        "Id": 2,
+        "Value": "八染華 -Hachisenka-",
+        "ValueJP": "八染華 -Hachisenka-"
+      }
+    ]
+  },
+  {
+    "Id": 50,
+    "Value": "Miorine Rembran",
+    "ValueJP": "ミオリネ・レンブラン",
+    "ValueCN": "米奥莉奈·伦布兰",
+    "ValueTC": "米奧莉奈·連布蘭",
+    "ValueTC2": "米奧琳涅·連布蘭",
+    "Series": "Mobile Suit Gundam: The Witch from Mercury",
+    "SeriesJP": "機動戦士ガンダム 水星の魔女",
+    "SeriesCN": "机动战士高达 水星的魔女",
+    "SeriesTC": "機動戰士高達 水星的魔女",
+    "SeriesTC2": "機動戰士鋼彈 水星的魔女",
+    "Seiyuu": "Lynn",
+    "SeiyuuJP": "Lynn",
+    "SeiyuuCN": "Lynn",
+    "SeiyuuTC": "Lynn",
+    "SeiyuuTC2": "Lynn",
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "Default",
+        "ValueJP": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "Dress",
+        "ValueJP": "ドレス"
+      }
+    ]
+  },
+  {
+    "Id": 51,
+    "Value": "Lacus Clyne",
+    "ValueJP": "ラクス・クライン",
+    "ValueCN": "拉克丝·克莱茵",
+    "ValueTC": "莉古絲·古蘭爾",
+    "ValueTC2": "拉克絲·克萊因",
+    "Series": "Mobile Suit Gundam SEED Freedom",
+    "SeriesJP": "機動戦士ガンダムSEED FREEDOM",
+    "SeriesCN": "机动战士高达SEED FREEDOM",
+    "SeriesTC": "機動戰士高達SEED FREEDOM",
+    "SeriesTC2": "機動戰士鋼彈SEED FREEDOM",
+    "Seiyuu": "Tanaka Rie",
+    "SeiyuuJP": "田中理恵",
+    "SeiyuuCN": "田中理惠",
+    "SeiyuuTC": "田中理惠",
+    "SeiyuuTC2": "田中理惠"
+  }
+]

@@ -1,0 +1,2460 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "プラモランナー（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 2,
+    "Value": "プラモランナー（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 3,
+    "Value": "プラモランナー（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 4,
+    "Value": "プラモランナー（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 5,
+    "Value": "プラモランナー（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 6,
+    "Value": "プラモランナー（ホワイト）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 7,
+    "Value": "ブラシ（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 8,
+    "Value": "ブラシ（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 9,
+    "Value": "ブラシ（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 10,
+    "Value": "ブラシ（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 11,
+    "Value": "ブラシ（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 12,
+    "Value": "ブラシ（ブラック）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 13,
+    "Value": "ブラシ（シルバー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 14,
+    "Value": "ブラシ（ゴールド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 15,
+    "Value": "螺旋（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 16,
+    "Value": "螺旋（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 17,
+    "Value": "螺旋（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 18,
+    "Value": "螺旋（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 19,
+    "Value": "螺旋（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 20,
+    "Value": "Wings White",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 21,
+    "Value": "Wings Red",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 22,
+    "Value": "Wings Silver",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 23,
+    "Value": "Wings Gold",
+    "Existence": "VS2",
+    "Clues": "タッグレベル"
+  },
+  {
+    "Id": 24,
+    "Value": "トライバル（レッド）",
+    "Existence": "VS2",
+    "Clues": "「大将Lv5」へ到達する"
+  },
+  {
+    "Id": 25,
+    "Value": "トライバル（ブルー）",
+    "Existence": "VS2",
+    "Clues": "「上級大尉」へ到達する"
+  },
+  {
+    "Id": 26,
+    "Value": "トライバル（イエロー）",
+    "Existence": "VS2",
+    "Clues": "「准尉」へ到達する"
+  },
+  {
+    "Id": 27,
+    "Value": "ビームサーベル（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 28,
+    "Value": "ビームサーベル（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 29,
+    "Value": "ビームサーベル（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 30,
+    "Value": "ビームサーベル（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 31,
+    "Value": "ビームサーベル（ピンク）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 32,
+    "Value": "ビームサーベル（オレンジ）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 33,
+    "Value": "アクティブクローク",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 34,
+    "Value": "SPRING BATTLE優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 35,
+    "Value": "SPRING BATTLE準優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 36,
+    "Value": "ノワールストライカー",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 37,
+    "Value": "SUMMER BATTLE優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 38,
+    "Value": "SUMMER BATTLE準優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 39,
+    "Value": "AUTUMN BATTLE優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 40,
+    "Value": "AUTUMN BATTLE準優勝(2019)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 41,
+    "Value": "WINTER BATTLE優勝(2020)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 42,
+    "Value": "WINTER BATTLE準優勝(2020)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 43,
+    "Value": "PREMIUM DOGFIGHT 2019 優勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 44,
+    "Value": "PREMIUM DOGFIGHT 2019 準優勝",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 45,
+    "Value": "PREMIUM DOGFIGHT 2019 ベスト8",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 46,
+    "Value": "ビーム・プレーン",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 47,
+    "Value": "SPRING BATTLE優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 48,
+    "Value": "SPRING BATTLE準優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 49,
+    "Value": "SUMMER BATTLE優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 50,
+    "Value": "SUMMER BATTLE準優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 51,
+    "Value": "エクスカリバー",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 52,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 53,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 54,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 55,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 56,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 57,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 58,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 59,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 60,
+    "Value": "プレシーズンレベルオーナメント",
+    "Existence": "XB",
+    "Clues": "プレシーズンでレベル70"
+  },
+  {
+    "Id": 61,
+    "Value": "月間EXランキング報酬ソロ1位 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 62,
+    "Value": "月間EXランキング報酬ソロ2位 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 63,
+    "Value": "月間EXランキング報酬ソロ3位 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 64,
+    "Value": "月間EXランキング報酬ソロ20位以内 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 65,
+    "Value": "月間EXランキングチーム1位 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 66,
+    "Value": "月間EXランキングチーム2位 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 67,
+    "Value": "月間EXランキングチーム3位 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 68,
+    "Value": "月間EXランキングチーム20位以内 (1)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 69,
+    "Value": "月間EXランキング報酬ソロ1位 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 70,
+    "Value": "月間EXランキング報酬ソロ2位 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 71,
+    "Value": "月間EXランキング報酬ソロ3位 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 72,
+    "Value": "月間EXランキング報酬ソロ20位以内 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 73,
+    "Value": "月間EXランキングチーム1位 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 74,
+    "Value": "月間EXランキングチーム2位 (2",
+    "Existence": "XB"
+  },
+  {
+    "Id": 75,
+    "Value": "月間EXランキングチーム3位 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 76,
+    "Value": "月間EXランキングチーム20位以内 (2)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 77,
+    "Value": "シーズン1レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン1でレベル70"
+  },
+  {
+    "Id": 78,
+    "Value": "シーズン2レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン2でレベル70"
+  },
+  {
+    "Id": 79,
+    "Value": "シーズン3レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン3でレベル70"
+  },
+  {
+    "Id": 80,
+    "Value": "シーズン4レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン4でレベル70"
+  },
+  {
+    "Id": 81,
+    "Value": "シーズン5レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン5でレベル70"
+  },
+  {
+    "Id": 82,
+    "Value": "月間EXランキング報酬ソロ1位 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 83,
+    "Value": "月間EXランキング報酬ソロ2位 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 84,
+    "Value": "月間EXランキング報酬ソロ3位 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 85,
+    "Value": "月間EXランキング報酬ソロ20位以内 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 86,
+    "Value": "月間EXランキングチーム1位 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 87,
+    "Value": "月間EXランキングチーム2位 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 88,
+    "Value": "月間EXランキングチーム3位 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 89,
+    "Value": "月間EXランキングチーム20位以内 (3)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 90,
+    "Value": "月間EXランキング報酬ソロ1位 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 91,
+    "Value": "月間EXランキング報酬ソロ2位 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 92,
+    "Value": "月間EXランキング報酬ソロ3位 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 93,
+    "Value": "月間EXランキング報酬ソロ20位以内 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 94,
+    "Value": "月間EXランキングチーム1位 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 95,
+    "Value": "月間EXランキングチーム2位 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 96,
+    "Value": "月間EXランキングチーム3位 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 97,
+    "Value": "月間EXランキングチーム20位以内 (4)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 98,
+    "Value": "月間EXランキング報酬ソロ1位 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 99,
+    "Value": "月間EXランキング報酬ソロ2位 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 100,
+    "Value": "月間EXランキング報酬ソロ3位 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 101,
+    "Value": "月間EXランキング報酬ソロ20位以内 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 102,
+    "Value": "月間EXランキングチーム1位 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 103,
+    "Value": "月間EXランキングチーム2位 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 104,
+    "Value": "月間EXランキングチーム3位 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 105,
+    "Value": "月間EXランキングチーム20位以内 (5)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 106,
+    "Value": "月間EXランキング報酬ソロ1位 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 107,
+    "Value": "月間EXランキング報酬ソロ2位 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 108,
+    "Value": "月間EXランキング報酬ソロ3位 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 109,
+    "Value": "月間EXランキング報酬ソロ20位以内 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 110,
+    "Value": "月間EXランキングチーム1位 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 111,
+    "Value": "月間EXランキングチーム2位 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 112,
+    "Value": "月間EXランキングチーム3位 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 113,
+    "Value": "月間EXランキングチーム20位以内 (6)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 114,
+    "Value": "月間EXランキング報酬ソロ1位 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 115,
+    "Value": "月間EXランキング報酬ソロ2位 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 116,
+    "Value": "月間EXランキング報酬ソロ3位 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 117,
+    "Value": "月間EXランキング報酬ソロ20位以内 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 118,
+    "Value": "月間EXランキングチーム1位 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 119,
+    "Value": "月間EXランキングチーム2位 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 120,
+    "Value": "月間EXランキングチーム3位 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 121,
+    "Value": "月間EXランキングチーム20位以内 (7)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 122,
+    "Value": "月間EXランキング報酬ソロ1位 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 123,
+    "Value": "月間EXランキング報酬ソロ2位 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 124,
+    "Value": "月間EXランキング報酬ソロ3位 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 125,
+    "Value": "月間EXランキング報酬ソロ20位以内 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 126,
+    "Value": "月間EXランキングチーム1位 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 127,
+    "Value": "月間EXランキングチーム2位 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 128,
+    "Value": "月間EXランキングチーム3位 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 129,
+    "Value": "月間EXランキングチーム20位以内 (8)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 130,
+    "Value": "月間EXランキング報酬ソロ1位 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 131,
+    "Value": "月間EXランキング報酬ソロ2位 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 132,
+    "Value": "月間EXランキング報酬ソロ3位 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 133,
+    "Value": "月間EXランキング報酬ソロ20位以内 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 134,
+    "Value": "月間EXランキングチーム1位 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 135,
+    "Value": "月間EXランキングチーム2位 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 136,
+    "Value": "月間EXランキングチーム3位 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 137,
+    "Value": "月間EXランキングチーム20位以内 (9)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 138,
+    "Value": "月間EXランキング報酬ソロ1位 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 139,
+    "Value": "月間EXランキング報酬ソロ2位 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 140,
+    "Value": "月間EXランキング報酬ソロ3位 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 141,
+    "Value": "月間EXランキング報酬ソロ20位以内 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 142,
+    "Value": "月間EXランキングチーム1位 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 143,
+    "Value": "月間EXランキングチーム2位 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 144,
+    "Value": "月間EXランキングチーム3位 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 145,
+    "Value": "月間EXランキングチーム20位以内 (10)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 146,
+    "Value": "ファトゥム-01",
+    "Existence": "XB"
+  },
+  {
+    "Id": 147,
+    "Value": "SUMMER BATTLE優勝(2022)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 148,
+    "Value": "SUMMER BATTLE準優勝(2022)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 149,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 150,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 151,
+    "Value": "WINTER BATTLE優勝(2022)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 152,
+    "Value": "WINTER BATTLE準優勝(2022)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 153,
+    "Value": "集中線",
+    "Existence": "XB",
+    "Clues": "クロブフェス10thで5回対戦する"
+  },
+  {
+    "Id": 154,
+    "Value": "丸型",
+    "Existence": "XB",
+    "Clues": "クロブフェス1stで5回対戦する"
+  },
+  {
+    "Id": 155,
+    "Value": "とげとげ",
+    "Existence": "XB",
+    "Clues": "クロブフェス2ndで5回対戦する"
+  },
+  {
+    "Id": 156,
+    "Value": "心の声",
+    "Existence": "XB",
+    "Clues": "クロブフェス3rdで5回対戦する"
+  },
+  {
+    "Id": 157,
+    "Value": "キラキラ",
+    "Existence": "XB",
+    "Clues": "クロブフェス4thで5回対戦する"
+  },
+  {
+    "Id": 158,
+    "Value": "おばけ",
+    "Existence": "XB",
+    "Clues": "クロブフェス5thで5回対戦する"
+  },
+  {
+    "Id": 159,
+    "Value": "ドット",
+    "Existence": "XB",
+    "Clues": "クロブフェス6thで5回対戦する"
+  },
+  {
+    "Id": 160,
+    "Value": "ラフ",
+    "Existence": "XB",
+    "Clues": "クロブフェス7thで5回対戦する"
+  },
+  {
+    "Id": 161,
+    "Value": "雲",
+    "Existence": "XB",
+    "Clues": "クロブフェス8thで5回対戦する"
+  },
+  {
+    "Id": 162,
+    "Value": "ギザギザ",
+    "Existence": "XB",
+    "Clues": "クロブフェス9thで5回対戦する"
+  },
+  {
+    "Id": 163,
+    "Value": "集中線（レッド）",
+    "Existence": "XB",
+    "Clues": "クロブフェス13thで5回対戦する"
+  },
+  {
+    "Id": 164,
+    "Value": "丸型（レッド）",
+    "Existence": "XB",
+    "Clues": "クロブフェス13thで10回対戦する"
+  },
+  {
+    "Id": 165,
+    "Value": "とげとげ（ピンク）",
+    "Existence": "XB",
+    "Clues": "クロブフェス17thで5回対戦する"
+  },
+  {
+    "Id": 166,
+    "Value": "心の声（ピンク）",
+    "Existence": "XB",
+    "Clues": "クロブフェス17thで10回対戦する"
+  },
+  {
+    "Id": 167,
+    "Value": "キラキラ（ピンク）",
+    "Existence": "XB",
+    "Clues": "エクバフェス2ndで3回対戦する"
+  },
+  {
+    "Id": 168,
+    "Value": "おばけ（ピンク）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 169,
+    "Value": "ドット（ピンク）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 170,
+    "Value": "ラフ（ピンク）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 171,
+    "Value": "雲（ピンク）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 172,
+    "Value": "ギザギザ（ピンク）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 173,
+    "Value": "集中線（ブルー）",
+    "Existence": "XB",
+    "Clues": "クロブフェス14thで5回対戦する"
+  },
+  {
+    "Id": 174,
+    "Value": "丸型（ブルー）",
+    "Existence": "XB",
+    "Clues": "クロブフェス14thで10回対戦する"
+  },
+  {
+    "Id": 175,
+    "Value": "とげとげ（ブルー）",
+    "Existence": "XB",
+    "Clues": "クロブフェス19thで10回対戦する"
+  },
+  {
+    "Id": 176,
+    "Value": "心の声（ブルー）",
+    "Existence": "XB",
+    "Clues": "エクバフェス7thで3回対戦する"
+  },
+  {
+    "Id": 177,
+    "Value": "キラキラ（ブルー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 178,
+    "Value": "おばけ（ブルー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 179,
+    "Value": "ドット（ブルー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 180,
+    "Value": "ラフ（ブルー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 181,
+    "Value": "雲（ブルー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 182,
+    "Value": "ギザギザ（ブルー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 183,
+    "Value": "集中線（グリーン）",
+    "Existence": "XB",
+    "Clues": "クロブフェス16thで5回対戦する"
+  },
+  {
+    "Id": 184,
+    "Value": "丸型（グリーン）",
+    "Existence": "XB",
+    "Clues": "エクバフェス4thで3回対戦する"
+  },
+  {
+    "Id": 185,
+    "Value": "とげとげ（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 186,
+    "Value": "心の声（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 187,
+    "Value": "キラキラ（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 188,
+    "Value": "おばけ（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 189,
+    "Value": "ドット（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 190,
+    "Value": "ラフ（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 191,
+    "Value": "雲（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 192,
+    "Value": "ギザギザ（グリーン）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 193,
+    "Value": "集中線（カラフル）",
+    "Existence": "XB",
+    "Clues": "クロブフェス12thで5回対戦する"
+  },
+  {
+    "Id": 194,
+    "Value": "丸形（カラフル）",
+    "Existence": "XB",
+    "Clues": "クロブフェス19thで5回対戦する"
+  },
+  {
+    "Id": 195,
+    "Value": "とげとげ（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 196,
+    "Value": "心の声（カラフル）",
+    "Existence": "XB",
+    "Clues": "エクバフェス11thで3回対戦"
+  },
+  {
+    "Id": 197,
+    "Value": "キラキラ（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 198,
+    "Value": "おばけ（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 199,
+    "Value": "ドット（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 200,
+    "Value": "ラフ（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 201,
+    "Value": "雲（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 202,
+    "Value": "ギザギザ（カラフル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 203,
+    "Value": "月間EXランキング報酬ソロ1位 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 204,
+    "Value": "月間EXランキング報酬ソロ2位 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 205,
+    "Value": "月間EXランキング報酬ソロ3位 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 206,
+    "Value": "月間EXランキング報酬ソロ20位以内 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 207,
+    "Value": "月間EXランキングチーム1位 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 208,
+    "Value": "月間EXランキングチーム2位 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 209,
+    "Value": "月間EXランキングチーム3位 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 210,
+    "Value": "月間EXランキングチーム20位以内 (11)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 211,
+    "Value": "シーズン6レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン6でレベル70"
+  },
+  {
+    "Id": 212,
+    "Value": "シーズン7レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン7でレベル70"
+  },
+  {
+    "Id": 213,
+    "Value": "シーズン8レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン8でレベル70"
+  },
+  {
+    "Id": 214,
+    "Value": "シーズン9レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン9でレベル70"
+  },
+  {
+    "Id": 215,
+    "Value": "シーズン10レベルオーナメント",
+    "Existence": "XB",
+    "Clues": "シーズン10でレベル70"
+  },
+  {
+    "Id": 216,
+    "Value": "月間EXランキング報酬ソロ1位 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 217,
+    "Value": "月間EXランキング報酬ソロ2位 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 218,
+    "Value": "月間EXランキング報酬ソロ3位 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 219,
+    "Value": "月間EXランキング報酬ソロ20位以内 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 220,
+    "Value": "月間EXランキングチーム1位 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 221,
+    "Value": "月間EXランキングチーム2位 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 222,
+    "Value": "月間EXランキングチーム3位 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 223,
+    "Value": "月間EXランキングチーム20位以内 (12)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 224,
+    "Value": "月間EXランキング報酬ソロ1位 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 225,
+    "Value": "月間EXランキング報酬ソロ2位 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 226,
+    "Value": "月間EXランキング報酬ソロ3位 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 227,
+    "Value": "月間EXランキング報酬ソロ20位以内 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 228,
+    "Value": "月間EXランキングチーム1位 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 229,
+    "Value": "月間EXランキングチーム2位 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 230,
+    "Value": "月間EXランキングチーム3位 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 231,
+    "Value": "月間EXランキングチーム20位以内 (13)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 232,
+    "Value": "月間EXランキング報酬ソロ1位 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 233,
+    "Value": "月間EXランキング報酬ソロ2位 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 234,
+    "Value": "月間EXランキング報酬ソロ3位 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 235,
+    "Value": "月間EXランキング報酬ソロ20位以内 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 236,
+    "Value": "月間EXランキングチーム1位 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 237,
+    "Value": "月間EXランキングチーム2位 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 238,
+    "Value": "月間EXランキングチーム3位 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 239,
+    "Value": "月間EXランキングチーム20位以内 (14)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 240,
+    "Value": "月間EXランキング報酬ソロ1位 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 241,
+    "Value": "月間EXランキング報酬ソロ2位 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 242,
+    "Value": "月間EXランキング報酬ソロ3位 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 243,
+    "Value": "月間EXランキング報酬ソロ20位以内 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 244,
+    "Value": "月間EXランキングチーム1位 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 245,
+    "Value": "月間EXランキングチーム2位 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 246,
+    "Value": "月間EXランキングチーム3位 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 247,
+    "Value": "月間EXランキングチーム20位以内 (15)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 248,
+    "Value": "月間EXランキング報酬ソロ1位 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 249,
+    "Value": "月間EXランキング報酬ソロ2位 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 250,
+    "Value": "月間EXランキング報酬ソロ3位 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 251,
+    "Value": "月間EXランキング報酬ソロ20位以内 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 252,
+    "Value": "月間EXランキングチーム1位 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 253,
+    "Value": "月間EXランキングチーム2位 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 254,
+    "Value": "月間EXランキングチーム3位 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 255,
+    "Value": "月間EXランキングチーム20位以内 (16)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 256,
+    "Value": "月間EXランキング報酬ソロ1位 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 257,
+    "Value": "月間EXランキング報酬ソロ2位 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 258,
+    "Value": "月間EXランキング報酬ソロ3位 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 259,
+    "Value": "月間EXランキング報酬ソロ20位以内 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 260,
+    "Value": "月間EXランキングチーム1位 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 261,
+    "Value": "月間EXランキングチーム2位 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 262,
+    "Value": "月間EXランキングチーム3位 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 263,
+    "Value": "月間EXランキングチーム20位以内 (17)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 264,
+    "Value": "月間EXランキング報酬ソロ1位 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 265,
+    "Value": "月間EXランキング報酬ソロ2位 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 266,
+    "Value": "月間EXランキング報酬ソロ3位 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 267,
+    "Value": "月間EXランキング報酬ソロ20位以内 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 268,
+    "Value": "月間EXランキングチーム1位 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 269,
+    "Value": "月間EXランキングチーム2位 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 270,
+    "Value": "月間EXランキングチーム3位 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 271,
+    "Value": "月間EXランキングチーム20位以内 (18)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 272,
+    "Value": "月間EXランキング報酬ソロ1位 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 273,
+    "Value": "月間EXランキング報酬ソロ2位 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 274,
+    "Value": "月間EXランキング報酬ソロ3位 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 275,
+    "Value": "月間EXランキング報酬ソロ20位以内 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 276,
+    "Value": "月間EXランキングチーム1位 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 277,
+    "Value": "月間EXランキングチーム2位 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 278,
+    "Value": "月間EXランキングチーム3位 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 279,
+    "Value": "月間EXランキングチーム20位以内 (19)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 280,
+    "Value": "月間EXランキング報酬ソロ1位 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 281,
+    "Value": "月間EXランキング報酬ソロ2位 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 282,
+    "Value": "月間EXランキング報酬ソロ3位 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 283,
+    "Value": "月間EXランキング報酬ソロ20位以内 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 284,
+    "Value": "月間EXランキングチーム1位 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 285,
+    "Value": "月間EXランキングチーム2位 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 286,
+    "Value": "月間EXランキングチーム3位 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 287,
+    "Value": "月間EXランキングチーム20位以内 (20)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 288,
+    "Value": "月間EXランキング報酬ソロ1位 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 289,
+    "Value": "月間EXランキング報酬ソロ2位 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 290,
+    "Value": "月間EXランキング報酬ソロ3位 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 291,
+    "Value": "月間EXランキング報酬ソロ20位以内 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 292,
+    "Value": "月間EXランキングチーム1位 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 293,
+    "Value": "月間EXランキングチーム2位 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 294,
+    "Value": "月間EXランキングチーム3位 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 295,
+    "Value": "月間EXランキングチーム20位以内 (21)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 296,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 297,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 298,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 299,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 300,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 301,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 302,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 303,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 304,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 305,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 306,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 307,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 308,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 309,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 310,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 311,
+    "Value": "Invalid Ornament",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 312,
+    "Value": "SPRING BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 313,
+    "Value": "SPRING BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 314,
+    "Value": "SUMMER BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 315,
+    "Value": "SUMMER BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 316,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 317,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 318,
+    "Value": "月間EXランキング報酬ソロ1位 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 319,
+    "Value": "月間EXランキング報酬ソロ2位 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 320,
+    "Value": "月間EXランキング報酬ソロ3位 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 321,
+    "Value": "月間EXランキング報酬ソロ20位以内 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 322,
+    "Value": "月間EXランキングチーム1位 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 323,
+    "Value": "月間EXランキングチーム2位 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 324,
+    "Value": "月間EXランキングチーム3位 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 325,
+    "Value": "月間EXランキングチーム20位以内 (22)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 326,
+    "Value": "月間EXランキング報酬ソロ1位 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 327,
+    "Value": "月間EXランキング報酬ソロ2位 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 328,
+    "Value": "月間EXランキング報酬ソロ3位 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 329,
+    "Value": "月間EXランキング報酬ソロ20位以内 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 330,
+    "Value": "月間EXランキングチーム1位 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 331,
+    "Value": "月間EXランキングチーム2位 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 332,
+    "Value": "月間EXランキングチーム3位 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 333,
+    "Value": "月間EXランキングチーム20位以内 (23)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 334,
+    "Value": "月間EXランキング報酬ソロ1位 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 335,
+    "Value": "月間EXランキング報酬ソロ2位 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 336,
+    "Value": "月間EXランキング報酬ソロ3位 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 337,
+    "Value": "月間EXランキング報酬ソロ20位以内 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 338,
+    "Value": "月間EXランキングチーム1位 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 339,
+    "Value": "月間EXランキングチーム2位 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 340,
+    "Value": "月間EXランキングチーム3位 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 341,
+    "Value": "月間EXランキングチーム20位以内 (24)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 342,
+    "Value": "月間EXランキング報酬ソロ1位 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 343,
+    "Value": "月間EXランキング報酬ソロ2位 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 344,
+    "Value": "月間EXランキング報酬ソロ3位 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 345,
+    "Value": "月間EXランキング報酬ソロ20位以内 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 346,
+    "Value": "月間EXランキングチーム1位 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 347,
+    "Value": "月間EXランキングチーム2位 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 348,
+    "Value": "月間EXランキングチーム3位 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 349,
+    "Value": "月間EXランキングチーム20位以内 (25)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 350,
+    "Value": "LRFF",
+    "Existence": "XB"
+  },
+  {
+    "Id": 351,
+    "Value": "集中線（イエロー）",
+    "Existence": "XB",
+    "Clues": "クロブフェス11thで5回対戦する"
+  },
+  {
+    "Id": 352,
+    "Value": "丸型（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 353,
+    "Value": "とげとげ（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 354,
+    "Value": "心の声（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 355,
+    "Value": "キラキラ（イエロー）",
+    "Existence": "XB",
+    "Clues": "エクバフェス5thで3回対戦する"
+  },
+  {
+    "Id": 356,
+    "Value": "おばけ（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 357,
+    "Value": "ドット（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 358,
+    "Value": "ラフ（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 359,
+    "Value": "雲（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 360,
+    "Value": "ギザギザ（イエロー）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 361,
+    "Value": "月間EXランキング報酬ソロ1位 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 362,
+    "Value": "月間EXランキング報酬ソロ2位 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 363,
+    "Value": "月間EXランキング報酬ソロ3位 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 364,
+    "Value": "月間EXランキング報酬ソロ20位以内 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 365,
+    "Value": "月間EXランキングチーム1位 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 366,
+    "Value": "月間EXランキングチーム2位 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 367,
+    "Value": "月間EXランキングチーム3位 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 368,
+    "Value": "月間EXランキングチーム20位以内 (26)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 369,
+    "Value": "月間EXランキング報酬ソロ1位 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 370,
+    "Value": "月間EXランキング報酬ソロ2位 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 371,
+    "Value": "月間EXランキング報酬ソロ3位 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 372,
+    "Value": "月間EXランキング報酬ソロ20位以内 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 373,
+    "Value": "月間EXランキングチーム1位 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 374,
+    "Value": "月間EXランキングチーム2位 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 375,
+    "Value": "月間EXランキングチーム3位 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 376,
+    "Value": "月間EXランキングチーム20位以内 (27)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 377,
+    "Value": "WINTER BATTLE優勝(2023)",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 378,
+    "Value": "WINTER BATTLE準優勝(2023)",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 379,
+    "Value": "PREMIUM DOGFIGHT 2022 優勝",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」優勝チーム（2名）"
+  },
+  {
+    "Id": 380,
+    "Value": "PREMIUM DOGFIGHT 2022 準優勝",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」準優勝チーム（2名）"
+  },
+  {
+    "Id": 381,
+    "Value": "PREMIUM DOGFIGHT 2022 ベスト8",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」ベスト8チーム（12名）"
+  },
+  {
+    "Id": 382,
+    "Value": "集中線（パープル）",
+    "Existence": "XB",
+    "Clues": "クロブフェス15thで5回対戦する"
+  },
+  {
+    "Id": 383,
+    "Value": "丸型（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 384,
+    "Value": "とげとげ（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 385,
+    "Value": "心の声（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 386,
+    "Value": "キラキラ（パープル）",
+    "Existence": "XB",
+    "Clues": "エクバフェス3rdで3回対戦する"
+  },
+  {
+    "Id": 387,
+    "Value": "おばけ（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 388,
+    "Value": "ドット（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 389,
+    "Value": "ラフ（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 390,
+    "Value": "雲（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 391,
+    "Value": "ギザギザ（パープル）",
+    "Existence": "XB"
+  },
+  {
+    "Id": 392,
+    "Value": "月間EXランキング報酬ソロ1位 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 393,
+    "Value": "月間EXランキング報酬ソロ2位 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 394,
+    "Value": "月間EXランキング報酬ソロ3位 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 395,
+    "Value": "月間EXランキング報酬ソロ20位以内 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 396,
+    "Value": "月間EXランキングチーム1位 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 397,
+    "Value": "月間EXランキングチーム2位 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 398,
+    "Value": "月間EXランキングチーム3位 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 399,
+    "Value": "月間EXランキングチーム20位以内 (28)",
+    "Existence": "XB"
+  },
+  {
+    "Id": 400,
+    "Value": "プレイヤーレベル1st-stepオーナメント",
+    "Existence": "OBv7",
+    "Clues": "プレイヤーレベル1周目Lv.140"
+  },
+  {
+    "Id": 401,
+    "Value": "プレイヤーレベル2nd-stepオーナメント",
+    "Existence": "OBv7",
+    "Clues": "プレイヤーレベル2周目Lv.140"
+  },
+  {
+    "Id": 402,
+    "Value": "プレイヤーレベル3rd-stepオーナメント",
+    "Existence": "OBv7",
+    "Clues": "プレイヤーレベル3周目Lv.140"
+  },
+  {
+    "Id": 403,
+    "Value": "オーバーブーストパスVol:1オーナメント",
+    "Existence": "OBv7",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 404,
+    "Value": "オーバーブーストパスVol:2オーナメント",
+    "Existence": "OBv7",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 405,
+    "Value": "オーバーブーストパスVol:3オーナメント",
+    "Existence": "OBv7",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 406,
+    "Value": "オーバーブーストパスVol:4オーナメント",
+    "Existence": "OBv9",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 407,
+    "Value": "オーバーブーストパスVol:5オーナメント",
+    "Existence": "OBv13",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 408,
+    "Value": "オーバーブーストパスVol:6オーナメント",
+    "Existence": "OBv13",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 409,
+    "Value": "集中線（アンリミテッドEXバースト）",
+    "Existence": "OBv7",
+    "Clues": "エクバフェス1stで3回対戦する"
+  },
+  {
+    "Id": 410,
+    "Value": "丸型（アンリミテッドEXバースト）",
+    "Existence": "OBv7",
+    "Clues": "エクバフェス6thで3回対戦する"
+  },
+  {
+    "Id": 411,
+    "Value": "とげとげ（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 412,
+    "Value": "心の声（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 413,
+    "Value": "キラキラ（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 414,
+    "Value": "おばけ（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 415,
+    "Value": "ドット（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 416,
+    "Value": "ラフ（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 417,
+    "Value": "雲（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 418,
+    "Value": "ギザギザ（アンリミテッドEXバースト）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 419,
+    "Value": "AUTUMN BATTLE優勝(2023)",
+    "Existence": "OBv7",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 420,
+    "Value": "AUTUMN BATTLE準優勝(2023)",
+    "Existence": "OBv7",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 421,
+    "Value": "WINTER BATTLE優勝(2024)",
+    "Existence": "OBv9",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 422,
+    "Value": "WINTER BATTLE準優勝(2024)",
+    "Existence": "OBv9",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 423,
+    "Value": "オーバーブーストパスVol:7オーナメント",
+    "Existence": "OBv16",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 424,
+    "Value": "オーバーブーストパスVol:8オーナメント",
+    "Existence": "OBv18",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 425,
+    "Value": "オーバーブーストパスVol:9オーナメント",
+    "Existence": "OBv19",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 426,
+    "Value": "オーバーブーストパスVol:10オーナメント",
+    "Existence": "OBv24",
+    "Clues": "オーバーブーストパスでstage:40"
+  },
+  {
+    "Id": 427,
+    "Value": "集中線（EXMUGENシューティング）",
+    "Existence": "OBv13",
+    "Clues": "エクバフェス9thで3回対戦"
+  },
+  {
+    "Id": 428,
+    "Value": "丸型（EXMUGENシューティング）",
+    "Existence": "OBv13",
+    "Clues": "エクバフェス10thGWスペシャルで3回対戦"
+  },
+  {
+    "Id": 429,
+    "Value": "とげとげ（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 430,
+    "Value": "心の声（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 431,
+    "Value": "キラキラ（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 432,
+    "Value": "おばけ（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 433,
+    "Value": "ドット（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 434,
+    "Value": "ラフ（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 435,
+    "Value": "雲（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 436,
+    "Value": "ギザギザ（EXMUGENシューティング）",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 437,
+    "Value": "SPRING BATTLE優勝(2024)",
+    "Existence": "OBv13",
+    "Clues": "店舗大会「SPRING BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 438,
+    "Value": "SPRING BATTLE準優勝(2024)",
+    "Existence": "OBv13",
+    "Clues": "店舗大会「SPRING BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 439,
+    "Value": "SUMMER BATTLE優勝(2024)",
+    "Existence": "OBv16",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 440,
+    "Value": "SUMMER BATTLE準優勝(2024)",
+    "Existence": "OBv16",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 441,
+    "Value": "AUTUMN BATTLE優勝(2024)",
+    "Existence": "OBv19",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 442,
+    "Value": "AUTUMN BATTLE準優勝(2024)",
+    "Existence": "OBv19",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 445,
+    "Value": "Exround_PLv.50",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.50"
+  },
+  {
+    "Id": 446,
+    "Value": "Exround_PLv.150",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.150"
+  },
+  {
+    "Id": 447,
+    "Value": "Exround_PLv.250",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.250"
+  },
+  {
+    "Id": 448,
+    "Value": "Exround_PLv.350",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.350"
+  },
+  {
+    "Id": 449,
+    "Value": "Exround_PLv.450",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.450"
+  },
+  {
+    "Id": 450,
+    "Value": "Exround_PLv.550",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.550"
+  },
+  {
+    "Id": 451,
+    "Value": "Exround_PLv.650",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.650"
+  },
+  {
+    "Id": 452,
+    "Value": "Exround_PLv.750",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.750"
+  },
+  {
+    "Id": 453,
+    "Value": "Exround_PLv.850",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.850"
+  },
+  {
+    "Id": 454,
+    "Value": "Exround_PLv.950",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.950"
+  },
+  {
+    "Id": 455,
+    "Value": "Exround_PLv.999",
+    "Existence": "OBv15",
+    "Clues": "プレイヤーレベルEXラウンドLv.999"
+  },
+  {
+    "Id": 456,
+    "Value": "2024 OB PLAY CP Vol.2",
+    "Existence": "OBv15",
+    "Clues": "2024 OVER BOOST PLAY CAMPAIGN Vol.2 F賞"
+  },
+  {
+    "Id": 457,
+    "Value": "集中線（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16",
+    "Clues": "エクバフェス12thで3回対戦"
+  },
+  {
+    "Id": 458,
+    "Value": "丸型（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 459,
+    "Value": "とげとげ（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 460,
+    "Value": "心の声（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 461,
+    "Value": "キラキラ（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 462,
+    "Value": "おばけ（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 463,
+    "Value": "ドット（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 464,
+    "Value": "ラフ（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 465,
+    "Value": "雲（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 466,
+    "Value": "ギザギザ（1ON1×アンリミテッドEXバースト）",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 467,
+    "Value": "インコム",
+    "Existence": "OBv19",
+    "Clues": "ドーベン・ウルフ[EX]"
+  },
+  {
+    "Id": 6001,
+    "Value": "おみくじ(2022)",
+    "Existence": "XB",
+    "Clues": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6002,
+    "Value": "おみくじ(2023) 超吉 大吉",
+    "Existence": "XB",
+    "Clues": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6003,
+    "Value": "おみくじ(2023) 中吉 吉",
+    "Existence": "XB",
+    "Clues": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6004,
+    "Value": "おみくじ(2023) 凶 大凶",
+    "Existence": "XB",
+    "Clues": "おみくじ称号プレゼントキャンペーン"
+  },
+  {
+    "Id": 6005,
+    "Value": "おみくじ(2024)",
+    "Existence": "OBv13",
+    "Clues": "おみくじ称号プレゼントキャンペーン"
+  }
+]
