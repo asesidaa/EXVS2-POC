@@ -270,12 +270,12 @@ static bool FindInterfaceByName(const std::string& interfaceName)
 
 				return true;
 			}
-			else if (currentInterfaceName.starts_with(interfaceName))
-			{
-				// Fuzzy match, let failures go by.
-				if (SelectInterface(nullptr, adapter, std::move(currentInterfaceName)))
-					return true;
-			}
+			// else if (currentInterfaceName.starts_with(interfaceName))
+			// {
+			// 	// Fuzzy match, let failures go by.
+			// 	if (SelectInterface(nullptr, adapter, std::move(currentInterfaceName)))
+			// 		return true;
+			// }
 
 			return false;
 		}
@@ -506,8 +506,9 @@ void InitializeSocketHooks()
 	FindInterface();
 	MH_CreateHookApi(L"WS2_32.dll", "WSASocketW", WSASocketWHook, reinterpret_cast<void**>(&orig_WSASocketW));
 	
-	if (!globalConfig.DisableSocketHook)
+	if(!globalConfig.DisableSocketHook)
 	{
+		printf("Socket Bind Enabled\n");
 		MH_CreateHookApi(L"WS2_32.dll", "bind", bindHook, reinterpret_cast<void**>(&orig_bind));
 	}
 	

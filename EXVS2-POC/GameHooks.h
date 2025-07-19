@@ -1,5 +1,4 @@
 ﻿#pragma once
+#include "Version.h"
 
-#include <filesystem>
-
-void InitializeHooks(std::filesystem::path&& basePath);
+void InitializeHooks(GameVersion game_version);
