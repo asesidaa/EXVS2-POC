@@ -487,6 +487,10 @@ Server-Vanilla/wwwroot/uploadimage/
 Server-Vanilla/wwwroot/replay/
 Server-Vanilla/wwwroot/images/
 WebUIVanilla/Client/wwwroot/images/
+Server-Over/wwwroot/uploadimage/
+Server-Over/wwwroot/replay/
+Server-Over/wwwroot/images/
+WebUIOver/Client/wwwroot/images/
 
 # HTTP Request Sample
 *.http
