@@ -1,0 +1,121 @@
+@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Client.Services.Sticker
+@using WebUIOver.Shared.Dto.Group
+@using WebUIOver.Client.Services.Common
+@using WebUIOver.Client.Services.MS
+@using WebUIOver.Client.Services.Name
+@using WebUIOver.Client.Services.Selector
+@using System.Linq.Expressions
+@using WebUIOver.Client.Pages.Dialogs
+@inherits BasicCustomizeComponent
+
+@inject IStickerService StickerService
+@inject INameService NameService
+@inject IMobileSuitDataService MobileSuitDataService
+@inject IDialogService DialogService
+<style>
+    .selected {
+        background-color: #1E88E5 !important;
+    }
+
+        .selected > td {
+            color: white !important;
+        }
+
+            .selected > td .mud-input {
+                color: white !important;
+            }
+</style>
+
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["mobile_suit_sticker"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideMobileSuitStickerProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10" sm="11">
+                                <MudField Label="@localizer["sticker_ms_selected"]" Variant="Variant.Outlined">
+                                    <MudText Align="Align.Center">@NameService.GetMobileSuitName(CustomizeCardContext.SelectedStickerMs) / @NameService.GetMobileSuitPilotName(CustomizeCardContext.SelectedStickerMs)</MudText>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2" sm="1">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenMobileSuitUiDialog()" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudField Label="@NameService.GetMobileSuitName(CustomizeCardContext.SelectedStickerMs)" Variant="Variant.Outlined">
+                        <WebUIOver.Client.Pages.Components.Customize.Inner.StickerComponent
+                            StickerDto="@SelectMobileSuitStickerDto()"
+                            EnableImagePreview="@EnableImagePreview"
+                            Scope="MobileSuit"/>
+                    </MudField>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+    
+    private async Task OpenMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", CustomizeCardContext.SelectedStickerMs },
+            { "AggregatedMobileSuits", GetAggregatedMobileSuits() },
+            { "Mode", "IncludePose" }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>(localizer["dialogtitle_sticker_ms"], parameters, OPTIONS);
+        var result = await dialog.Result;
+        
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeCardContext.SelectedStickerMs = (uint) result.Data;
+            StateHasChanged();
+        }
+    }
+
+    private IReadOnlyList<MobileSuit> GetAggregatedMobileSuits()
+    {
+        return CustomizeCardContext.AggregetedMobileSuits
+            .Where(ms => ms.Id > 0 && ms.Id < 50001)
+            .ToList();
+    }
+
+    private StickerDto SelectMobileSuitStickerDto()
+    {
+        var targetStickerDto = CustomizeCardContext.MobileSuitStickerSettings
+            .FirstOrDefault(sticker => sticker.MobileSuitId == CustomizeCardContext.SelectedStickerMs);
+
+        if (targetStickerDto is not null)
+        {
+            return targetStickerDto;
+        }
+
+        targetStickerDto = new StickerDto()
+        {
+            MobileSuitId = CustomizeCardContext.SelectedStickerMs
+        };
+        
+        CustomizeCardContext.MobileSuitStickerSettings.Add(targetStickerDto);
+
+        return targetStickerDto;
+    }
+}

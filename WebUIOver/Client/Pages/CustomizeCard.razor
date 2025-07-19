@@ -1,0 +1,127 @@
+﻿@page "/Cards/Customize/{ChipId}"
+
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+
+<MudBreadcrumbs Items="_breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>Customize</PageTitle>
+
+@if (_errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@_errorMessage</MudText>
+    return;
+}
+
+@if (_loading)
+{
+    <MudOverlay Visible="true" DarkBackground="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </MudOverlay>
+}
+else
+{
+    <MudStack Row Class="flex-column">
+        <h1>@localizer["customizationheader"]</h1>
+
+        <MudStack Row Class="align-self-end">
+            <MudProgressCircular @bind-Class="@_progressContext.HideSaveAllProgress" Color="Color.Default" Indeterminate="true" />
+            <MudButton Disabled="@_buttonStatusContext.SaveAllButtonDisabled" OnClick="@SaveAll" Variant="Variant.Filled" Color="@Color.Primary">@localizer["saveall"]</MudButton>
+        </MudStack>
+    </MudStack>
+    <MudStack Class="mt-2">
+        <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+            <MudTabPanel Text="@localizer["generalcardinfo"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeGeneralInfo
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _basicProfileSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+            
+            <MudTabPanel Text="@localizer["navisetting"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeNaviInfo
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _naviProfileSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    SaveNaviCostumeTask="() => _naviCostumeSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["favmssetting"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeFavouriteMsInfo
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _favouriteMobileSuitSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["mscostumesetting"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeMsCostume
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _msCostumeSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["msskinsetting"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeMsSkin
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _msSkinSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["communicationmessage"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeCommunicationMessageTab
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _customMessageGroupSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["default_sticker"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeDefaultSticker
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _defaultStickerSettingSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["mobile_suit_sticker"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeMobileSuitSticker
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _mobileSuitStickerSettingsSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["cputriadpartner"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeCpuTriadPartner
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _cpuTriadPartnerSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["teamtag"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeTeamTagsTab
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _teamSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"
+                    EnableImagePreview="@EnableImagePreview"/>
+            </MudTabPanel>
+            
+            <MudTabPanel Text="@localizer["gamepadconfig"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeGamepad
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _gamepadConfigSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"/>
+            </MudTabPanel>
+
+            <MudTabPanel Text="@localizer["training_profile"]">
+                <WebUIOver.Client.Pages.Components.Customize.CustomizeTrainingProfile
+                    CustomizeCardContext="@_customizeCardContext"
+                    ProgressContext="@_progressContext"
+                    SaveTask="() => _TrainingProfileSaver.Save(_customizeCardContext, _progressContext, Snackbar, StateHasChanged)"/>
+            </MudTabPanel>
+        </MudTabs>
+    </MudStack>
+}

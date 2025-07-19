@@ -12,6 +12,7 @@
 #include "INIReader.h"
 #include "log.h"
 #include "Version.h"
+#include "util.h"
 
 using namespace std::chrono_literals;
 
@@ -78,31 +79,39 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
         freopen_s(&dummy, "CONOUT$", "w", stdout);
     }
 
+    config->BootToken = reader.Get("config", "BootToken", "");
+    config->UseIoBoard = reader.GetBoolean("config", "useioboard", false);
     config->Windowed = reader.GetBoolean("config", "windowed", false);
     config->BorderlessWindow = reader.GetBoolean("config", "borderlesswindow", false);
+    config->EnableDebugInPcb = reader.GetBoolean("config", "enabledebuginpcb", false);
     config->EnableInGamePerformanceMeter = reader.GetBoolean("config", "enableingameperformancemeter", false);
+    config->EnableQuickSkinChange = reader.GetBoolean("config", "enablequickskinChange", false);
     config->DisableSocketHook = reader.GetBoolean("config", "disablesockethook", false);
 
     std::string modeString = reader.Get("config", "mode", "LM");
+    
+    uint8_t pcbMode = 1;
+    uint8_t lmMode = 2;
+    
     if (modeString == "1" || _stricmp("client", modeString.c_str()) == 0)
     {
-        config->Mode = 1;
+        config->Mode = pcbMode;
     }
     else if (modeString == "2" || _stricmp("lm", modeString.c_str()) == 0)
     {
-        config->Mode = 2;
+        config->Mode = lmMode;
     }
     else
     {
         fatal("invalid mode: %s", modeString.c_str());
     }
-
+    
     config->Serial = reader.Get("config", "serial", "0001");
     if (config->Serial.size() != 4 && config->Serial.size() != 12)
     {
         fatal("invalid serial: expected 4 or 12 digit serial number");
     }
-    
+
     const char* serialPrefixLM = nullptr;
     const char* serialPrefixClient = nullptr;
     const char* serialPrefixClientAlter = nullptr;
@@ -121,25 +130,41 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
             serialPrefixClientAlter = "28431311";
             pcbIdPrefix = "ABLN";
             break;
+        case Overboost_480:
+            serialPrefixLM = "28681123";
+            serialPrefixClient = "28681423";
+            serialPrefixClientAlter = "28681323";
+            pcbIdPrefix = "ABLN";
+            break;
         default:
             fatal("Unknown game version: %d", GetGameVersion());
     }
 
+    bool isPcb = config->Mode == pcbMode;
+    bool isLM = config->Mode == lmMode;
+
     if (config->Serial.size() == 4)
     {
-        config->Serial = (config->Mode == 1 ? serialPrefixClient : serialPrefixLM) + config->Serial;
+        if(isPcb)
+        {
+            config->Serial = serialPrefixClient + config->Serial;
+        }
+        else
+        {
+            config->Serial = serialPrefixLM + config->Serial;
+        }
     }
 
     bool validLength = config->Serial.size() == 12;
-    bool validClientPrefix =
-        config->Serial.starts_with(serialPrefixClient) || config->Serial.starts_with(serialPrefixClientAlter);
+    bool validClientPrefix = config->Serial.starts_with(serialPrefixClient) || config->Serial.starts_with(serialPrefixClientAlter);
     bool validLMPrefix = config->Serial.starts_with(serialPrefixLM);
-    if (config->Mode == 1 && (!validLength || !validClientPrefix))
+    
+    if (isPcb && (!validLength || !validClientPrefix))
     {
         fatal("invalid serial: expected serial of format %sXXXX/%sXXXX for client", serialPrefixClient,
               serialPrefixClientAlter);
     }
-    else if (config->Mode == 2 && (!validLength || !validLMPrefix))
+    else if (isLM && (!validLength || !validLMPrefix))
     {
         fatal("invalid serial: expected serial of format %sXXXX for LM", serialPrefixLM);
     }
@@ -157,28 +182,17 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
     config->AuthServerIp = reader.Get("config", "AuthIP", "127.0.0.1");
     config->ServerAddress = reader.Get("config", "Server", "127.0.0.1");
     config->RegionCode = reader.Get("config", "Region", "1");
+    config->ShopName = reader.Get("config", "ShopName", "NEXTREME");
+    config->ShopNickname = reader.Get("config", "ShopNickname", "NEXTREME");
 
-    if(config->RegionCode.empty())
-    {
-        config->RegionCode = "1"; 
-    }
-
-    try
-    {
-        auto regionCode = std::stod(config->RegionCode);
-
-        if(regionCode > 47 || regionCode <= 0)
-        {
-            config->RegionCode = "1";
-        }
-    }
-    catch(std::invalid_argument &e) {
-        config->RegionCode = "1";
-    }
-    
     config->UseRealCardReader = reader.GetBoolean("config", "userealcardreader", false);
-    config->CardReaderComPort = reader.Get("config", "cardreadercomport", "COM4");
+    config->UsePyBanapassReader = reader.GetBoolean("config", "UsePyBanapassReader", false);
+    config->SkipAutoCreateForPyBanapassReader = reader.GetBoolean("config", "SkipAutoCreateForPyBanapassReader", true);
+    config->AutomaticCardButton = reader.GetBoolean("config", "AutomaticCardButton", false);
     
+    config->CardReaderComPort = reader.Get("config", "cardreadercomport", "COM4");
+    config->CardFileBasePath = reader.Get("config", "CardFileBasePath", "");
+
     if(config->UseRealCardReader == true && config->CardReaderComPort == "COM3")
     {
         fatal("COM3 is reserved for Controller and cannot be used as Card Reader COM Port");
@@ -198,10 +212,20 @@ static void ReadStartupConfig(StartupConfig* config, INIReader& reader)
 
     if(config->Display.Resolution != "144p" && config->Display.Resolution != "240p"
         && config->Display.Resolution != "480p" && config->Display.Resolution != "720p"
+        && config->Display.Resolution != "900p"
         && config->Display.Resolution != "1080p" && config->Display.Resolution != "2k"
         && config->Display.Resolution != "4k" && config->Display.Resolution != "8k")
     {
         fatal("Unsupported Resolution Setting %s", config->Display.Resolution.c_str());
+    }
+    
+    if (!config->Windowed)
+    {
+        config->Display.FramerateLimit = false;
+    }
+    else
+    {
+        config->Display.FramerateLimit = reader.GetBoolean("display", "FramerateLimit", false);
     }
 
     auto isBorderless = config->Windowed == true && config->BorderlessWindow == true;
@@ -239,41 +263,78 @@ static void ReadInputConfig(InputConfig* config, INIReader& reader)
     KEYBINDS()
 #undef KEYBIND
 
-    KeyBinds dinput;
-#define KEYBIND(name, kb_default, dinput_default)                                                                      \
-    {                                                                                                                  \
-        std::vector<std::string> keys = Split(reader.Get("controller", #name, dinput_default), ',');                   \
-        for (const auto& key : keys)                                                                                   \
-        {                                                                                                              \
-            dinput.name.push_back(atoi(key.c_str()));                                                                  \
-        }                                                                                                              \
-    }
-    KEYBINDS()
-#undef KEYBIND
-
     config->KeyboardEnabled = reader.GetBoolean("keyboard", "Enabled", true);
     config->KeyboardBindings = keyboard;
 
-    config->ControllerEnabled = reader.GetBoolean("controller", "Enabled", true);
-    // TODO: This should take a GUID instead of an index.
-    config->ControllerDeviceId = reader.GetInteger("controller", "DeviceId", 16);
-    config->ControllerPath = reader.GetOptional("controller", "Path");
-    config->ControllerBindings = dinput;
-}
+    config->EmulatedXInputEnabled = reader.GetBoolean("xinput", "EmulatedXInputEnabled", false);
 
-static std::string Join(const std::string& delimiter, const std::vector<int>& vec)
-{
-    std::string result;
-    for (size_t i = 0; i < vec.size(); ++i)
+    for (const std::string& section : reader.Sections())
     {
-        if (i != 0)
-            result += ", ";
-        result += std::to_string(vec[i]);
+        if (section != "controller" && !section.starts_with("controller-"))
+        {
+            continue;
+        }
+
+        ControllerConfig controllerConfig;
+        controllerConfig.Enabled = reader.GetBoolean(section, "Enabled", true);
+        controllerConfig.Connected = false;
+        controllerConfig.DeviceId = reader.GetInteger(section, "DeviceId", 16);
+        controllerConfig.DevicePath = reader.GetOptional(section, "Path");
+        controllerConfig.DeviceName = reader.GetOptional(section, "Name");
+
+        if (reader.Get(section, "Mode", "directinput") == "xinput-native")
+        {
+            controllerConfig.Mode = "xinput-native";
+            config->Controllers.emplace(std::move(section), controllerConfig);
+            continue;
+        }
+        
+        if (reader.Get(section, "Mode", "directinput") == "xinput" && config->EmulatedXInputEnabled == false)
+        {
+            controllerConfig.Mode = "xinput-native";
+            config->Controllers.emplace(std::move(section), controllerConfig);
+            continue;
+        }
+
+        if (reader.Get(section, "Mode", "directinput") == "xinput")
+        {
+            controllerConfig.Mode = "xinput";
+            XInputKeyBinds xinput;
+#define XINPUT_KEYBIND(name, xinput_button, xinput_trigger, default_bind)          \
+            {                                                                      \
+                std::vector<std::string> keys =                                    \
+                    Split(reader.Get(section, #name, default_bind), ',');          \
+                for (const auto &key : keys)                                       \
+                {                                                                  \
+                  xinput.name.push_back(atoi(key.c_str()));                        \
+                }                                                                  \
+            }
+            XINPUT_KEYBINDS()
+#undef XINPUT_KEYBIND
+            controllerConfig.Bindings = xinput;
+        }
+        else
+        {
+            controllerConfig.Mode = "directinput";
+            KeyBinds dinput;
+#define KEYBIND(name, kb_default, dinput_default)                               \
+            {                                                                      \
+                std::vector<std::string> keys =                                    \
+                    Split(reader.Get(section, #name, dinput_default), ',');        \
+                for (const auto &key : keys)                                       \
+                {                                                                  \
+                  dinput.name.push_back(atoi(key.c_str()));                        \
+                }                                                                  \
+            }
+            KEYBINDS()
+#undef KEYBIND
+            controllerConfig.Bindings = dinput;
+        }
+        config->Controllers.emplace(std::move(section), controllerConfig);
     }
-    return result;
 }
 
-std::string KeyBinds::Dump(const std::string& prefix)
+std::string KeyBinds::Dump(const std::string& prefix) const
 {
     std::string result;
 #define KEYBIND(name, keyboard, dinput)                                                                                \
@@ -286,10 +347,78 @@ std::string KeyBinds::Dump(const std::string& prefix)
         result += "\n";                                                                                                \
     }
     KEYBINDS();
+#undef KEYBIND
     return result;
 }
 
-std::string InputConfig::Dump(const std::string& prefix)
+std::string XInputKeyBinds::Dump(const std::string& prefix) const
+{
+    std::string result;
+#define XINPUT_KEYBIND(name, xinput_button, xinput_trigger, default_bind)                                              \
+    if (!name.empty())                                                                                                 \
+    {                                                                                                                  \
+        result += prefix;                                                                                              \
+        result += #name;                                                                                               \
+        result += " = ";                                                                                               \
+        result += Join(", ", name);                                                                                    \
+        result += "\n";                                                                                                \
+    }
+    XINPUT_KEYBINDS();
+#undef XINPUT_KEYBIND
+    return result;
+}
+
+std::string ControllerConfig::Dump(const std::string& name, const std::string& prefix) const
+{
+    std::string result;
+    result += prefix + "[" + name + "]\n";
+    result += prefix + "Enabled = ";
+    result += Enabled ? "true" : "false";
+    result += "\n";
+
+    if (DevicePath)
+    {
+        result += prefix;
+        result += "Path = ";
+        result += *DevicePath;
+        result += "\n";
+    }
+
+    if (DeviceName)
+    {
+        result += prefix;
+        result += "Name = ";
+        result += *DeviceName;
+        result += "\n";
+    }
+
+    result += prefix;
+    result += "DeviceId = ";
+    result += std::to_string(DeviceId);
+    result += "\n";
+    
+    if (const KeyBinds* binds = std::get_if<KeyBinds>(&Bindings))
+    {
+        result += prefix;
+        result += "Mode = directinput\n";
+        result += binds->Dump(prefix);
+    }
+    else if (const XInputKeyBinds* binds = std::get_if<XInputKeyBinds>(&Bindings))
+    {
+        result += prefix;
+        result += "Mode = xinput\n";
+        result += binds->Dump(prefix);
+    }
+    else
+    {
+        result += prefix;
+        result += "<ERROR: no bindings>";
+    }
+
+    return result;
+}
+
+std::string InputConfig::Dump(const std::string& prefix) const
 {
     std::string result;
     result += prefix + "[keyboard]\n";
@@ -297,33 +426,25 @@ std::string InputConfig::Dump(const std::string& prefix)
     result += prefix + "Enabled = ";
     result += KeyboardEnabled ? "true" : "false";
     result += "\n";
-
+    
     result += KeyboardBindings.Dump(prefix);
     result += "\n";
 
     result += "\n";
 
-    result += prefix;
-    result += "[controller]\n";
+    result += prefix + "[xinput]\n";
 
-    result += prefix + "Enabled = ";
-    result += ControllerEnabled ? "true" : "false";
+    result += prefix + "EmulatedXInputEnabled = ";
+    result += EmulatedXInputEnabled ? "true" : "false";
+    result += "\n";
     result += "\n";
 
-    if (ControllerPath)
-    {
-        result += prefix;
-        result += "Path = ";
-        result += *ControllerPath;
+    for (const auto& it : Controllers) {
+        result += it.second.Dump(it.first, prefix);
+        result += "\n";
         result += "\n";
     }
 
-    result += prefix;
-    result += "DeviceId = ";
-    result += std::to_string(ControllerDeviceId);
-    result += "\n";
-
-    result += ControllerBindings.Dump(prefix);
     return result;
 }
 
@@ -413,6 +534,10 @@ void InitializeConfig()
     }
 
     ReadStartupConfig(&globalConfig, reader);
+
+    InputConfig inputConfig;
+    ReadInputConfig(&inputConfig, reader);
+    UpdateInputConfig(std::move(inputConfig));
 
     std::thread(ConfigMonitorThread).detach();
 }

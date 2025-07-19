@@ -1,0 +1,188 @@
+﻿@inject ICustomizeCommentService CustomizeCommentService
+@inject ILogger<ChangeCustomizeCommentPhraseDialog> Logger
+@inject ISnackbar Snackbar
+
+@using WebUIOver.Shared.Dto.Common;
+@using WebUIOver.Client.Services.CustomizeComment
+
+<style>
+    .selected {
+        background-color: #1E88E5 !important;
+    }
+
+        .selected > td {
+            color: white !important;
+        }
+
+            .selected > td .mud-input {
+                color: white !important;
+            }
+</style>
+
+<MudDialog>
+    <DialogContent>
+        <MudTable Elevation="5" Items="@list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="IdValuePair" Hover="true" FixedHeader="true">
+            <ColGroup>
+                <col style="width: 50px;" />
+                <col />
+            </ColGroup>
+            <ToolBarContent>
+                <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0">
+                </MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<IdValuePair, object>(x => x.Id))">
+                        Id
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<IdValuePair, object>(x => x.Value))">
+                        Name
+                    </MudTableSortLabel>
+                </MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                @{
+#pragma warning disable CS8602
+                }
+                <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
+                <MudTd DataLabel="Name" Class="cursor-pointer">@context.Value</MudTd>
+                @{
+#pragma warning restore CS8602
+                }
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="@pageSizeOptions" />
+            </PagerContent>
+        </MudTable>
+        <MudText Class="mt-4 d-block" Typo="Typo.caption">
+            <b>Selected Customize Comment Phrase:</b>
+            @foreach (var selectItem in selectedItems)
+            {
+                <b> @selectItem.Value | </b>
+            }
+        </MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    IMudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public uint[] Data { get; set; } = null!;
+
+    [Parameter]
+    public int MultiSelectCountLimit { get; set; } = 1;
+
+    private HashSet<IdValuePair> selectedItems = new();
+
+    private int selectedPage;
+
+    private IReadOnlyList<IdValuePair> list = new List<IdValuePair>();
+
+    private string searchString = string.Empty;
+
+    private readonly int[] pageSizeOptions = { 10, 25, 50, 100 };
+
+    private MudTable<IdValuePair> mudTable = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        list = CustomizeCommentService.GetCustomizeCommentPhraseSortedById();
+        foreach (var selectData in Data)
+        {
+            var data = CustomizeCommentService.GetCustomizeCommentPhraseById(selectData);
+            if (data != null) selectedItems.Add(data);
+        }
+        var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
+        selectedPage = CalculateCurrentPage(list, selectedItems.FirstOrDefault(), firstPageOption);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+            mudTable.CurrentPage = selectedPage;
+    }
+
+    private int CalculateCurrentPage<T>(IEnumerable<T> items, T selectedItem, int rowsPerPage)
+    {
+        // Convert the IEnumerable to a list for better performance (if it's not already a list).
+        var itemList = items.ToList();
+
+        // Find the index of the selected item in the list.
+        var selectedIndex = itemList.IndexOf(selectedItem);
+
+        if (selectedIndex < 0)
+        {
+            // The selected item is not found in the list.
+            Logger.LogError("Selected item is not part of the provided items list");
+        }
+
+        // Calculate the current page using integer division.
+        var currentPage = selectedIndex / rowsPerPage;
+
+        return currentPage;
+    }
+
+    private bool Filter(IdValuePair? item)
+    {
+        if (item is null)
+        {
+            return false;
+        }
+        var aggregate = $"{item.Value}{item.ValueJP}{item.ValueCN}";
+        return string.IsNullOrEmpty(searchString) ||
+               aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void Submit()
+    {
+        Data = selectedItems.Select(x => x.Id).ToArray();
+
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private string SelectedRowClassFunc(IdValuePair element, int rowNumber)
+    {
+        return selectedItems.Contains(element) ? "selected" : string.Empty;
+    }
+
+    private void OnRowClick(TableRowClickEventArgs<IdValuePair> args)
+    {
+        if (selectedItems.Any(x => x.Id == args.Item.Id))
+        {
+            selectedItems.RemoveWhere(x => x.Id == args.Item.Id);
+        }
+        else
+        {
+            if (selectedItems.Count() >= MultiSelectCountLimit)
+            {
+                if (MultiSelectCountLimit == 1)
+                {
+                    selectedItems.Clear();
+                    selectedItems.Add(args.Item);
+                    StateHasChanged();
+                }
+                else
+                {
+                    Snackbar.Add($"Cannot select more than {MultiSelectCountLimit} entries! \r\n Please de-select existing entries before you select a new entry.", Severity.Warning);
+                    return;
+                }
+            }
+            selectedItems.Add(args.Item);
+        }
+
+        StateHasChanged();
+    }
+}

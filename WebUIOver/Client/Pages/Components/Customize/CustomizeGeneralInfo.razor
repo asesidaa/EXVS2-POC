@@ -1,0 +1,211 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Shared.Dto.Enum
+@using WebUIOver.Client.Validator
+@using WebUIOver.Client.Constants
+@using WebUIOver.Client.Pages.Dialogs
+@using WebUIOver.Client.Services.Common
+@using WebUIOver.Client.Services.Display
+@using WebUIOver.Client.Services.Name
+@inherits BasicCustomizeComponent
+
+@inject HttpClient Http
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+@inject INameValidator NameValidator
+@inject IDisplayOptionDataService DisplayOptionDataService
+@inject ICommonDataService CommonDataService
+@inject INameService NameService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["generalcardinfo"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideProfileProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudForm>
+                            <MudTextField @bind-Value="CustomizeCardContext.BasicProfile.UserName"
+                                          Immediate="true"
+                                          Variant="Variant.Outlined"
+                                          Counter="@((int) NameLength.PlayerNameMaxLength)"
+                                          MaxLength="@((int) NameLength.PlayerNameMaxLength)"
+                                          Label="@localizer["playername"]"
+                                          Validation="NameValidator.ValidatePlayerName" />
+                        </MudForm>
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="6">
+                                <MudSelect Label="@localizer["playerrecorddisplay"]" @bind-Value="CustomizeCardContext.BasicProfile.OpenRecord" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenRecordChanged(selectedIds, CustomizeCardContext.BasicProfile)" Variant="Variant.Outlined">
+                                    @foreach (var openRecord in DisplayOptionDataService.GetDisplayOptionsSortedById())
+                                    {
+                                        <MudSelectItem Value="openRecord.Id">@openRecord.Value</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudSelect Label="@localizer["playerleveldisplay"]" @bind-Value="CustomizeCardContext.BasicProfile.OpenEchelon" T="uint" SelectedValuesChanged="(selectedIds) => OnOpenPlayerLevelChanged(selectedIds, CustomizeCardContext.BasicProfile)" Variant="Variant.Outlined">
+                                    @foreach (var openPlayerLevel in DisplayOptionDataService.GetPlayerLevelDisplayOptionsSortedById())
+                                    {
+                                        <MudSelectItem Value="openPlayerLevel.Id">@openPlayerLevel.Value</MudSelectItem>
+                                    }</MudSelect>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <WebUIOver.Client.Pages.Components.Customize.Inner.PlayerLevelComponent
+                            CustomizeCardContext="@CustomizeCardContext"
+                            EnableImagePreview="@EnableImagePreview"
+                            OnChanged="@(() => StateHasChanged())" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                @localizer["is_fixed_radar_angle"]
+                            </MudItem>
+                            <MudItem xs="6" Class="my-auto">
+                                <MudSwitch @bind-Value="@CustomizeCardContext.BasicProfile.IsFixedRadar" Color="Color.Primary"
+                                           Label=""
+                                           LabelPlacement="Placement.Start"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudSelect @bind-Value="CustomizeCardContext.BasicProfile.DefaultBgmPlayingMethod" Margin="Margin.Normal" T="BgmPlayingMethod"
+                                   Label="@localizer["bgmplaytype"]" Variant="Variant.Outlined" ToStringFunc="@converter">
+                            @foreach (var item in Enum.GetValues<BgmPlayingMethod>())
+                            {
+                                <MudSelectItem Value="@(item)" />
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10" sm="11">
+                                <MudExpansionPanels>
+                                    <MudExpansionPanel Text="@localizer["bgmlistorder"]">
+                                        <MudSimpleTable Style="overflow-x: auto;">
+                                            <tbody>
+                                            @if(CustomizeCardContext.BasicProfile.DefaultBgmList.Any())
+                                            {
+                                                foreach (var x in CustomizeCardContext.BasicProfile.DefaultBgmList)
+                                                {
+                                                    <tr>
+                                                        <td>@CommonDataService.GetBgmById(x)?.ValueJP</td>
+                                                    </tr>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                CustomizeCardContext.BasicProfile.DefaultBgmList = Array.Empty<uint>();
+                                                <tr>
+                                                    <td>No Entries</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </MudSimpleTable>
+                                    </MudExpansionPanel>
+                                </MudExpansionPanels>
+                            </MudItem>
+                            <MudItem xs="2" sm="1">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenProfileChangeBgmOrderDialog()" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <WebUIOver.Client.Pages.Components.Customize.Inner.GaugeComponent
+                            Type="Basic"
+                            BasicProfile="@CustomizeCardContext.BasicProfile"
+                            DisplayLabel="@localizer["gauge"]"
+                            EnableImagePreview="@EnableImagePreview" />
+                    </MudItem>
+                    
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="@localizer["titles"]">
+                            <MudStack>
+                                <MudStack Row>
+                                    <MudText>@localizer["titles_hint"]</MudText>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2ob/pages/49.html" Target="_blank">@localizer["titles_hinttext"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2ob/pages/40.html" Target="_blank">@localizer["titles_hintbackground"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2ob/pages/48.html" Target="_blank">@localizer["titles_hintornament"]</MudLink>
+                                    <MudLink Href="https://w.atwiki.jp/exvs2ob/pages/47.html" Target="_blank">@localizer["titles_hinteffect"]</MudLink>
+                                </MudStack>
+                                <MudDivider />
+                                <WebUIOver.Client.Pages.Components.Customize.Inner.TitleComponent
+                                    Title="@CustomizeCardContext.BasicProfile.DefaultTitle"
+                                    DisplayLabel="@localizer["default_titles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                            
+                                <WebUIOver.Client.Pages.Components.Customize.Inner.TitleComponent
+                                    Title="@CustomizeCardContext.BasicProfile.TriadTitle"
+                                    DisplayLabel="@localizer["triad_titles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                
+                                <WebUIOver.Client.Pages.Components.Customize.Inner.TitleComponent
+                                    Title="@CustomizeCardContext.BasicProfile.ClassMatchTitle"
+                                    DisplayLabel="@localizer["class_match_titles"]"
+                                    EnableImagePreview="@EnableImagePreview" />
+                            </MudStack>
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                    
+                    <MudItem xs="12">
+                        <WebUIOver.Client.Pages.Components.Customize.Inner.StageComponent
+                            Type="Basic"
+                            BasicProfile="@CustomizeCardContext.BasicProfile"
+                            DisplayLabel="@localizer["random_stage_setting"]"
+                            EnableImagePreview="@EnableImagePreview" />
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+    
+    Func<BgmPlayingMethod, string> converter = p => p.ToString();
+
+    private async Task OpenProfileChangeBgmOrderDialog()
+    {
+        var parameters = new DialogParameters { { "Data", CustomizeCardContext.BasicProfile.DefaultBgmList } };
+        var dialog = await DialogService.ShowAsync<ChangeBgmOrderDialog>(localizer["dialogtitle_bgmorder"], parameters, OPTIONS);
+        var result = await dialog.Result;
+    
+        if (!result.Canceled)
+        {
+            CustomizeCardContext.BasicProfile.DefaultBgmList = (result.Data as uint[])!;
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OnOpenRecordChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
+    {
+        basicProfile.OpenRecord = selectedIds.FirstOrDefault();
+    }
+    
+    private async Task OnOpenPlayerLevelChanged(IEnumerable<uint> selectedIds, BasicProfile basicProfile)
+    {
+        basicProfile.OpenEchelon = selectedIds.FirstOrDefault();
+    }
+}

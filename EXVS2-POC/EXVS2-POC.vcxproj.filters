@@ -21,6 +21,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AMActivatorHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AmAuthEmu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -87,9 +90,51 @@
     <ClCompile Include="WindowedDxgi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="amauth\v3\AmAuthEmuV3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FramerateLimiter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="file\RentalModeFileCleaner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFileSystemHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ClientTypePatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ContentRouterPatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\DevMenuSubOptionsEnabler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\NetworkAdapterCheckPatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\OpeningScreenSkipper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\PcCheckPatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ResolutionPatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\safehook\safetyhook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NbamUsbFinderHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AmAuthEmu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AMActivatorHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AudioHooks.h">
@@ -104,7 +149,40 @@
     <ClInclude Include="Configs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cpu\over\ObV25.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cpu\vs2\Vs2V29.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cpu\xb\XbV27.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="DisplayConstants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file\RentalModeFileCleaner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ClientTypePatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ContentRouterPatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\DevMenuSubOptionsEnabler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\NetworkAdapterCheckPatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\OpeningScreenSkipper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="game\PcCheckPatcher.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClInclude Include="game\ResolutionPatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameHooks.h">
@@ -177,6 +255,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VirtualKeyMapping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amauth\v3\AmAuthEmuV3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFileSystemHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\safehook\safetyhook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NbamUsbFinderHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

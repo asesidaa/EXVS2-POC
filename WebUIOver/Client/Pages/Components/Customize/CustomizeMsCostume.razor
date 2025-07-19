@@ -1,0 +1,156 @@
+﻿@using WebUIOver.Client.Services.Name
+@using WebUIOver.Client.Services.Selector
+@using WebUIOver.Shared.Dto.Group
+@using WebUIOver.Shared.Dto.Response
+@inherits BasicCustomizeComponent
+
+@inject ILogger<CustomizeCard> Logger
+@inject INameService NameService
+@inject ISelectorService SelectorService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["mscostumesetting"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideMsCostumeProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudDataGrid Elevation="5"
+                                 Items="@CustomizeCardContext.AlternativeCostumeMobileSuitsSkillGroups"
+                                 ReadOnly="false"
+                                 EditMode="@(DataGridEditMode.Cell)"
+                                 EditTrigger="@(DataGridEditTrigger.OnRowClick)"
+                                 SortMode="@SortMode.None"
+                                 Filterable="true" 
+                                 QuickFilter="@QuickFilter"
+                                 ColumnResizeMode="ResizeMode.None"
+                                 Groupable="false">
+                        <ToolBarContent>
+                            <MudTextField @bind-Value="MsCostumeSearchString" Placeholder="@localizer["search"]" Adornment="Adornment.Start" Immediate="false"
+                                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-4" Variant="Variant.Outlined">
+                            </MudTextField>
+                            <MudTooltip Text="@localizer["mscostumehint"]">
+                                <MudIconButton Class="mx-2" Icon="@Icons.Material.Outlined.Info" />
+                            </MudTooltip>
+                        </ToolBarContent>
+                        <Columns>
+                            <PropertyColumn Property="x => x.MobileSuit.Id" Editable="true" Title="@localizer["mscostumemsheader"]">
+                                <EditTemplate>
+                                    <MudText Typo="Typo.body2">@NameService.GetMobileSuitName(context.Item.MobileSuit.Id)</MudText>
+                                </EditTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="SelectorService.GetMsPilotSelector()" Editable="true" Title="@localizer["mscostumepilotheader"]">
+                                <EditTemplate>
+                                    <MudText Typo="Typo.body2">@NameService.GetMobileSuitPilotName(context.Item.MobileSuit.Id)</MudText>
+                                </EditTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x.SkillGroup" Title="@localizer["mscostumecostumeheader"]">
+                                <EditTemplate>
+                                    @if(context.Item.SkillGroup != null)
+                                    {
+                                        <MudChipSet T="uint" @bind-SelectedValue="context.Item.SkillGroup.CostumeId" SelectionMode="SelectionMode.SingleSelection" Style="max-width: 570px;">
+                                            <MudGrid>
+                                                @foreach (var costume in context.Item.MobileSuit.Costumes)
+                                                {
+                                                    <MudItem xs="12" sm="6">
+                                                        <MudChip Text="purple" Variant="Variant.Text" Color="Color.Primary" Value="costume.Id" Style="width: 100%; height: 190px;">
+                                                            <MudGrid>
+                                                                <MudItem xs="12">
+                                                                    @{
+                                                                        uint costumeId = costume.Id;
+                                                                        uint msId = context.Item.MobileSuit.Id;
+                                                                        var pilotImagePath = $"images/pilots/{msId}_{costumeId}.webp";
+                                                                    }
+                                                                    <MudImage ObjectPosition="ObjectPosition.Center" Src="@pilotImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="260"/>
+                                                                </MudItem>
+                                                                <MudItem xs="12" Style="padding-top: 0">
+                                                                    <MudText Typo="Typo.caption" Style="white-space: pre-line; font-size: 0.75em;">@costume.Value</MudText>
+                                                                </MudItem>
+                                                            </MudGrid>
+                                                        </MudChip>
+                                                    </MudItem>
+                                                }
+                                            </MudGrid>
+                                        </MudChipSet>
+                                    }
+                                </EditTemplate>
+                            </PropertyColumn>
+                        </Columns>
+                        <PagerContent>
+                            <MudDataGridPager PageSizeOptions="@_pageSizeOptions" />
+                        </PagerContent>
+                    </MudDataGrid>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    private string MsCostumeSearchString { get; set; } = string.Empty;
+    private readonly int[] _pageSizeOptions = { 5, 10, 25, 50, 100 };
+    
+    private async Task OnCostumeSelectChanged(IEnumerable<uint> selectedIds, MobileSuitWithSkillGroup context)
+    {
+        if (context.SkillGroup == null)
+        {
+            context.SkillGroup = new MsSkillGroup()
+            {
+                MstMobileSuitId = context.MobileSuit.Id,
+                MsUsedNum = 0,
+                CostumeId = selectedIds.FirstOrDefault(),
+                SkinId = 0,
+                TriadBuddyPoint = 0
+            };
+        }
+        else
+        {
+            context.SkillGroup.CostumeId = selectedIds.FirstOrDefault();
+        }
+    }
+    
+    private Func<MobileSuitWithSkillGroup, bool> QuickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(MsCostumeSearchString))
+            return true;
+
+        if (x.MobileSuit.Value.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.ValueJP.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.ValueCN.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (x.MobileSuit.Pilot.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.PilotJP.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.PilotCN.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (x.MobileSuit.Series.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.SeriesJP.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.MobileSuit.SeriesCN.Contains(MsCostumeSearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    };
+}

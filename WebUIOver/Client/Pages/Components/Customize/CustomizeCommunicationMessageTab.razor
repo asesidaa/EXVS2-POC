@@ -1,0 +1,108 @@
+﻿@inherits BasicCustomizeComponent
+@using WebUIOver.Shared.Dto.Enum
+@using WebUIOver.Client.Services.CustomMessage
+
+@inject ICustomMessageTemplateService CustomMessageTemplateService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["communicationmessage"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideCommunicationMessageProgress" Color="Color.Default" Indeterminate="true"/>
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save">
+                        </MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudSelect @bind-Value="CustomizeCardContext.CustomMessageGroupSetting.MessagePosition" Margin="Margin.Normal" T="MessagePosition"
+                                   Label="@localizer["communicationmessage_position"]" Variant="Variant.Outlined" ToStringFunc="@ConvertMessagePosition">
+                            @foreach (var item in Enum.GetValues<MessagePosition>())
+                            {
+                                <MudSelectItem Value="@(item)" />
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                @localizer["communicationmessage_allow_receive_message"]
+                            </MudItem>
+                            <MudItem xs="6" Class="my-auto">
+                                <MudSwitch @bind-Value="@CustomizeCardContext.CustomMessageGroupSetting.AllowReceiveMessage" Color="Color.Primary"
+                                           Label=""
+                                           LabelPlacement="Placement.Start"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="12">
+                                <MudExpansionPanels>
+                                    <MudForm @ref="_messageForm">
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_prebattle"]">
+                                            <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup 
+                                                CustomMessageGroup="@CustomizeCardContext.CustomMessageGroupSetting.StartGroup" 
+                                                EnableImagePreview="@EnableImagePreview" 
+                                                Templates="@CustomMessageTemplateService.GetMessageTemplates().OpenTemplates"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_inbattle"]">
+                                            <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup 
+                                                CustomMessageGroup="@CustomizeCardContext.CustomMessageGroupSetting.InBattleGroup" 
+                                                EnableImagePreview="@EnableImagePreview"
+                                                Templates="@CustomMessageTemplateService.GetMessageTemplates().BattleTemplates"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_postbattle"]">
+                                            <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup 
+                                                CustomMessageGroup="@CustomizeCardContext.CustomMessageGroupSetting.ResultGroup" 
+                                                EnableImagePreview="@EnableImagePreview"
+                                                Templates="@CustomMessageTemplateService.GetMessageTemplates().ResultTemplates"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_online_shuffle_prebattle"]">
+                                            <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup 
+                                                CustomMessageGroup="@CustomizeCardContext.CustomMessageGroupSetting.OnlineShuffleStartGroup" 
+                                                EnableImagePreview="@EnableImagePreview"
+                                                Templates="@CustomMessageTemplateService.GetMessageTemplates().OpenTemplates"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_online_shuffle_inbattle"]">
+                                            <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup 
+                                                CustomMessageGroup="@CustomizeCardContext.CustomMessageGroupSetting.OnlineShuffleInBattleGroup" 
+                                                EnableImagePreview="@EnableImagePreview"
+                                                Templates="@CustomMessageTemplateService.GetMessageTemplates().BattleTemplates"/>
+                                        </MudExpansionPanel>
+                                        <MudExpansionPanel Text="@localizer["communicationmessage_online_shuffle_postbattle"]">
+                                            <WebUIOver.Client.Pages.Components.Customize.Inner.CommunicationMessageGroup 
+                                                CustomMessageGroup="@CustomizeCardContext.CustomMessageGroupSetting.OnlineShuffleResultGroup" 
+                                                EnableImagePreview="@EnableImagePreview"
+                                                Templates="@CustomMessageTemplateService.GetMessageTemplates().ResultTemplates"/>
+                                        </MudExpansionPanel>
+                                    </MudForm>
+                                </MudExpansionPanels>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+
+    MudForm _messageForm;
+
+    string ConvertMessagePosition(MessagePosition messagePosition)
+    {
+        return messagePosition == MessagePosition.Center ? localizer["communicationmessage_position_type_center"] : localizer["communicationmessage_position_type_left_bottom"];
+    }
+}

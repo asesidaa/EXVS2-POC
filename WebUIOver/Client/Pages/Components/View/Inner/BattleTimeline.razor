@@ -1,0 +1,81 @@
+﻿@using Blazorise.Icons.FontAwesome
+@using WebUIOver.Shared.Dto.History
+<MudGrid>
+    <MudItem xs="12">
+        @{
+            var identificationMap = new Dictionary<string, string>();
+            identificationMap.Add(BattleHistorySummary.SelfPlayer.PlayerName, _selfQualifier);
+
+            if (BattleHistorySummary.Teammate is not null)
+            {
+                identificationMap.Add(BattleHistorySummary.Teammate.PlayerName, _teammateQualifier);
+            }
+
+            BattleHistorySummary.Opponents.ForEach(x => { identificationMap.Add(x.PlayerName, _opponentQualifier); });
+        }
+
+        <MudTimeline>
+            @foreach (var actionItem in BattleHistorySummary.ActionItems)
+            {
+                var color = Color.Info;
+                var severity = Severity.Info;
+                var qualifier = identificationMap.GetValueOrDefault(actionItem.PlayerName);
+
+                if (qualifier == _teammateQualifier)
+                {
+                    color = Color.Success;
+                    severity = Severity.Success;
+                }
+                else if (qualifier == _opponentQualifier)
+                {
+                    color = Color.Error;
+                    severity = Severity.Error;
+                }
+
+                var time = (double)actionItem.FrameTime / 60;
+                var timeString = String.Format("{0:0.00}", time);
+
+                <MudTimelineItem Color="@color" Variant="Variant.Filled">
+                    <ItemOpposite>
+                        <MudText Color="@color">@timeString</MudText >
+                    </ItemOpposite>
+                    <ItemContent>
+                        @{
+                            var messageIcon = FontAwesomeIcons.Explosion;
+                            var message = localizer["battle_history_action_log_" + actionItem.ActionType];
+
+                            if (actionItem.ActionType == 2)
+                            {
+                                messageIcon = FontAwesomeIcons.BatteryFull;
+                            }
+
+                            if (actionItem.ActionType == 3)
+                            {
+                                messageIcon = FontAwesomeIcons.PersonBurst;
+                            }
+
+                            if (actionItem.ActionType == 4)
+                            {
+                                messageIcon = FontAwesomeIcons.BatteryEmpty;
+                            }
+                        }
+                        <MudAlert Severity="@severity" NoIcon="true" Class="mb-2 mt-3">
+                            @actionItem.PlayerName
+                            <br/>
+                            <Icon Name="@messageIcon"/> @message
+                        </MudAlert>
+                    </ItemContent>
+                </MudTimelineItem>
+            }
+        </MudTimeline>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter] 
+    public required BattleHistorySummary BattleHistorySummary { get; set; }
+    
+    private readonly string _selfQualifier = "Self";
+    private readonly string _teammateQualifier = "Teammate";
+    private readonly string _opponentQualifier = "Opponent";
+}

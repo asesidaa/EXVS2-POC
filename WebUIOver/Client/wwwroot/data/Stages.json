@@ -1,0 +1,110 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2",
+    "Clues": ""
+  },
+  {
+    "Id": 1,
+    "Value": "サイド7",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダム"
+  },
+  {
+    "Id": 5,
+    "Value": "アフリカ砂漠",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダムSEED"
+  },
+  {
+    "Id": 8,
+    "Value": "ニュータイプ研究所",
+    "Existence": "VS2",
+    "Clues": "機動新世紀ガンダムX"
+  },
+  {
+    "Id": 15,
+    "Value": "REBIRTH",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダム00"
+  },
+  {
+    "Id": 23,
+    "Value": "トリントン基地周辺",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダムUC"
+  },
+  {
+    "Id": 24,
+    "Value": "ニューホンコン",
+    "Existence": "VS2",
+    "Clues": "機動戦士Zガンダム"
+  },
+  {
+    "Id": 25,
+    "Value": "ギガフロート",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダムSEED ASTRAY"
+  },
+  {
+    "Id": 27,
+    "Value": "ランタオ島",
+    "Existence": "VS2",
+    "Clues": "機動武闘伝Gガンダム"
+  },
+  {
+    "Id": 31,
+    "Value": "廃棄コロニー (地球周辺)",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダム EXTREME VS.2 OVERBOOST"
+  },
+  {
+    "Id": 33,
+    "Value": "ミンスリー",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダムAGE"
+  },
+  {
+    "Id": 34,
+    "Value": "アーモリー・ワン",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダムSEED DESTINY"
+  },
+  {
+    "Id": 64,
+    "Value": "キャピタル・テリトリィ",
+    "Existence": "VS2",
+    "Clues": "ガンダム Gのレコンギスタ"
+  },
+  {
+    "Id": 67,
+    "Value": "農業プラント",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダム 鉄血のオルフェンズ"
+  },
+  {
+    "Id": 68,
+    "Value": "アクシズ",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダム 逆襲のシャア"
+  },
+  {
+    "Id": 69,
+    "Value": "丘陵地帯",
+    "Existence": "VS2",
+    "Clues": "機動戦士ガンダム EXTREME VS.2 OVERBOOST"
+  },
+  {
+    "Id": 71,
+    "Value": "学園都市メーティス",
+    "Existence": "XB",
+    "Clues": "機動戦士ガンダムNT"
+  },
+  {
+    "Id": 72,
+    "Value": "ギアナ高地",
+    "Existence": "XB",
+    "Clues": "ガンダム Gのレコンギスタ"
+  }
+]

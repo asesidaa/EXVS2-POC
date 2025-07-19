@@ -1,0 +1,105 @@
+@page "/ServerPlayerLevelRanks"
+@using WebUIOver.Shared.Dto.Rank
+@using Blazorise.Icons.FontAwesome
+
+@inject HttpClient Http
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["server_player_level_ranks"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["server_player_level_ranks"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+@if (_loading)
+{
+    <MudOverlay Visible="true" DarkBackground="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </MudOverlay>
+}
+else
+{
+    <MudStack Class="mt-2">
+        <MudGrid>
+            <MudItem xs="12" Style="font-weight: bold;">
+                @localizer["server_player_level_ranks_note"]
+            </MudItem>
+            <MudItem xs="12">
+                <MudTable Elevation="5" Items="@_playerLevelRankData.PlayerLevelRanks"
+                          LoadingProgressColor="Color.Info" T="PlayerLevelRankDto" Loading="@_loading" Hover="true" FixedHeader="true">
+                    <HeaderContent>
+                        <MudTh Style="text-align:center">@localizer["server_player_level_ranks_leaderboard_ranking"]</MudTh>
+                        <MudTh>@localizer["server_player_level_ranks_leaderboard_name"]</MudTh>
+                        <MudTh Style="text-align:center; min-width:80px">@localizer["server_player_level_ranks_leaderboard_level"]</MudTh>
+                        <MudTh Style="text-align:center">@localizer["server_player_level_ranks_leaderboard_exp"]</MudTh>
+                        <MudTh Style="text-align:center">@localizer["server_player_level_ranks_leaderboard_total_battles"]</MudTh>
+                        <MudTh Style="text-align:center">@localizer["server_player_level_ranks_leaderboard_win"]</MudTh>
+                        <MudTh Style="text-align:center">@localizer["server_player_level_ranks_leaderboard_win_rate"]</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        @{
+                            var targetExp = GetTargetExp(context);
+                            var playerLevelClass = GetPlayerLevelClass(context);
+
+                            var styleClass = $"player-level {playerLevelClass}";
+
+                            var totalBattles = context.TotalWin + context.TotalLose;
+                            double winRate = 0;
+
+                            if (totalBattles > 0)
+                            {
+                                winRate = 100 * ((double)context.TotalWin / totalBattles);
+                            }
+                            
+                            var winRateString = String.Format("{0:0.00}", winRate) + "%";
+                        }
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_ranking"]" Class="cursor-pointer" Style="text-align:center">
+                            @if (context.Rank == 1)
+                            {
+                                <Icon Name="FontAwesomeIcons.Crown" Style="color: #cb0;"/>@((MarkupString) " 1")
+                            }
+                            else if (context.Rank == 2)
+                            {
+                                <Icon Name="FontAwesomeIcons.Crown" Style="color: #bbc;"/>@((MarkupString) " 2")
+                            }
+                            else if (context.Rank == 3)
+                            {
+                                <Icon Name="FontAwesomeIcons.Crown" Style="color: #d63;"/>@((MarkupString) " 3")
+                            }
+                            else
+                            {
+                                @context.Rank
+                            }
+                        </MudTd>
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_name"]" Class="cursor-pointer">@context.UserName</MudTd>
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_level"]" Class="cursor-pointer" Style="text-align:center; min-width:80px">
+                            <MudItem xs="12" Class="my-auto">
+                                @{
+                                    var levelImage = $"images/player_level/{context.PrestigeId}/{context.PlayerLevelId}.webp";
+                                }
+                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@levelImage" Width="90" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+                            </MudItem>
+                        </MudTd>
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_level"]" Class="cursor-pointer" Style="text-align:center">
+                            <MudProgressLinear Rounded="true" Color="Color.Tertiary" Striped="true" Size="Size.Large"
+                                               Min="0" Max="@targetExp"
+                                               Value="@context.PlayerExp" Class="my-2">
+                            </MudProgressLinear>
+                            <MudText Typo="Typo.subtitle2" Align="Align.Center">
+                                <b>EXP: @context.PlayerExp / @targetExp</b>
+                            </MudText>
+                        </MudTd>
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_total_battles"]" Class="cursor-pointer" Style="text-align:center">@totalBattles</MudTd>
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_win"]" Class="cursor-pointer" Style="text-align:center">@context.TotalWin</MudTd>
+                        <MudTd DataLabel="@localizer["server_player_level_ranks_leaderboard_win_rate"]" Class="cursor-pointer" Style="text-align:center">@winRateString</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </MudItem>
+        </MudGrid>
+    </MudStack>
+}

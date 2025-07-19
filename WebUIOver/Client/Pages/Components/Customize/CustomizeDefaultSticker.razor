@@ -1,0 +1,39 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Client.Services.Sticker
+@inherits BasicCustomizeComponent
+
+@inject IStickerService StickerService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["default_sticker"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideDefaultStickerProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <WebUIOver.Client.Pages.Components.Customize.Inner.StickerComponent 
+                        StickerDto="@CustomizeCardContext.DefaultStickerSetting"
+                        EnableImagePreview="@EnableImagePreview" 
+                        Scope="DefaultSticker" />
+                    <WebUIOver.Client.Pages.Components.Customize.Inner.CustomizeCommentTab 
+                        StickerDto="@CustomizeCardContext.DefaultStickerSetting" />
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+}

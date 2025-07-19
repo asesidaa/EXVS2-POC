@@ -1,0 +1,116 @@
+﻿@using WebUIOver.Client.Services.Name
+@using WebUIOver.Client.Services.Selector
+@using WebUIOver.Client.Services.Gamepad
+@inherits BasicCustomizeComponent
+
+@inject ILogger<CustomizeCard> Logger
+@inject IGamepadDataService GamepadDataService
+@inject INameService NameService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["gamepadconfig"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideGamepadConfigProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">@localizer["gamepadhint1"]</MudItem>
+                    <MudItem xs="12">@localizer["gamepadhint2"]</MudItem>
+                    <MudItem xs="12"></MudItem>
+                </MudStack>
+                <MudGrid>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadsquare"]" @bind-Value="CustomizeCardContext.GamepadConfig.XKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadtriangle"]" @bind-Value="CustomizeCardContext.GamepadConfig.YKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadcross"]" @bind-Value="CustomizeCardContext.GamepadConfig.AKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadcircle"]" @bind-Value="CustomizeCardContext.GamepadConfig.BKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadl1"]" @bind-Value="CustomizeCardContext.GamepadConfig.LbKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadr1"]" @bind-Value="CustomizeCardContext.GamepadConfig.RbKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadl2"]" @bind-Value="CustomizeCardContext.GamepadConfig.LtKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadr2"]" @bind-Value="CustomizeCardContext.GamepadConfig.RtKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadl3"]" @bind-Value="CustomizeCardContext.GamepadConfig.LsbKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect Label="@localizer["gamepadr3"]" @bind-Value="CustomizeCardContext.GamepadConfig.RsbKey" T="uint" Variant="Variant.Outlined">
+                            @foreach (var button in GamepadDataService.GetSortedGamepadOptionList())
+                            {
+                                <MudSelectItem Value="button.Id">@NameService.GetLocalizedName(button)</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                </MudGrid>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>

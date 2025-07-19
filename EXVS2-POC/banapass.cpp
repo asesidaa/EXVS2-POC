@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <string>
 #include <thread>
+#include <fstream>
 
 #include <Windows.h>
 #include <joystickapi.h>
@@ -17,6 +18,7 @@
 constexpr auto BANA_API_VERSION = "Ver 1.6.1";
 
 char hex_characters[] = {'0', '1' , '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E' ,'F'};
+static char OPEN_BANAPASS_DELIMITER = ';';
 
 bool readerActive = false;
 
@@ -45,32 +47,109 @@ std::string getProfileString(LPCSTR name, LPCSTR key, LPCSTR def, LPCSTR filenam
     return std::string(temp, result);
 }
 
+static const std::filesystem::path& GetCardPathForCreate()
+{
+    static std::filesystem::path result = GetBasePath() / "card.ini";
+    static std::filesystem::path pyreader_result = GetBasePath() / "card.txt";
+    
+    if (globalConfig.UsePyBanapassReader)
+    {
+        static std::filesystem::path alternative_py_path = std::filesystem::path::path(globalConfig.CardFileBasePath + "card.txt");
+        if (!globalConfig.CardFileBasePath.empty() && std::filesystem::exists(globalConfig.CardFileBasePath))
+        {
+            return alternative_py_path;
+        }
+
+        if (!globalConfig.CardFileBasePath.empty() && std::filesystem::exists(globalConfig.CardFileBasePath))
+        {
+            return alternative_py_path;
+        }
+        
+        return pyreader_result;
+    }
+    
+    if (!globalConfig.CardFileBasePath.empty() && std::filesystem::exists(globalConfig.CardFileBasePath))
+    {
+        result = globalConfig.CardFileBasePath + "card.ini";
+        return result;
+    }
+    
+    return result;
+}
+
 static const std::filesystem::path& GetCardPath()
 {
     static std::filesystem::path result = GetBasePath() / "card.ini";
+    static std::filesystem::path pyreader_result = GetBasePath() / "card.txt";
+
+    if (globalConfig.UsePyBanapassReader)
+    {
+        static std::filesystem::path alternative_py_path = std::filesystem::path::path(globalConfig.CardFileBasePath + "card.txt");
+        if (!globalConfig.CardFileBasePath.empty() && std::filesystem::exists(alternative_py_path))
+        {
+            return alternative_py_path;
+        }
+
+        return pyreader_result;
+    }
+    
+    if (!globalConfig.CardFileBasePath.empty() && std::filesystem::exists(globalConfig.CardFileBasePath + "card.ini"))
+    {
+        result = globalConfig.CardFileBasePath + "card.ini";
+        return result;
+    }
     
     return result;
 }
 
 void createCard()
 {
-    std::string cardPath = GetCardPath().string();
-    if (std::filesystem::exists(GetCardPath()))
+    std::string cardPath = GetCardPathForCreate().string();
+    
+    if (std::filesystem::exists(GetCardPathForCreate()))
     {
-        info("Card.ini found at %s", cardPath.c_str());
+        info("Card.ini or Card.txt found at %s", cardPath.c_str());
+        return;
     }
-    else
+
+    info("New target card.ini or card.txt at %s", cardPath.c_str());
+    if (globalConfig.UsePyBanapassReader)
     {
-        char generatedAccessCode[21] = "00000000000000000000";
-        randomNumberString(generatedAccessCode, 20);
-        WritePrivateProfileStringA("card", "accessCode", generatedAccessCode, cardPath.c_str());
+        if (globalConfig.SkipAutoCreateForPyBanapassReader)
+        {
+            return;
+        }
+        
+        char generatedAccessCodePy[21] = "00000000000000000000";
+        randomNumberString(generatedAccessCodePy, 20);
 
-        char generatedChipId[33] = "00000000000000000000000000000000";
-        randomHex(generatedChipId, 32);
-        WritePrivateProfileStringA("card", "chipId", generatedChipId, cardPath.c_str());
+        char generatedChipIdPy[33] = "00000000000000000000000000000000";
+        randomHex(generatedChipIdPy, 32);
 
-        info("New card generated at %s", cardPath.c_str());
+        std::ofstream outputFileStream;
+        outputFileStream.open(cardPath.c_str());
+        
+        if (!outputFileStream.is_open()) {
+            info("[PyBanapass] card.txt is never created due to file cannot open...");
+            return;
+        }
+
+        outputFileStream << generatedChipIdPy << OPEN_BANAPASS_DELIMITER << generatedAccessCodePy;
+        outputFileStream.close();
+
+        info("[PyBanapass] New card generated at %s", cardPath.c_str());
+        return;
     }
+    
+    char generatedAccessCode[21] = "00000000000000000000";
+    randomNumberString(generatedAccessCode, 20);
+    WritePrivateProfileStringA("card", "accessCode", generatedAccessCode, cardPath.c_str());
+
+    char generatedChipId[33] = "00000000000000000000000000000000";
+    randomHex(generatedChipId, 32);
+    WritePrivateProfileStringA("card", "chipId", generatedChipId, cardPath.c_str());
+
+    info("[POC] New card generated at %s", cardPath.c_str());
 }
 
 void StartAttachThread(long (*callback)(long, long, long*), long* someStructPtr) {
@@ -103,7 +182,7 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
         using namespace std::chrono_literals;
         std::this_thread::sleep_for(100ms);
 
-        if (InputState::Get().Card)
+        if (globalConfig.AutomaticCardButton || InputState::Get().Card)
         {
             // Raw card data and some other stuff, who cares
             unsigned char rawCardData[168] = {
@@ -122,10 +201,42 @@ void StartReadThread(void (*callback)(int, int, void*, void*), void* cardStuctPt
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
             };
-
-            INIReader reader(GetCardPath().string());
+            
             std::string accessCode = "30764352518498791337";
             std::string chipId = "7F5C9744F111111143262C3300040610";
+
+            if (globalConfig.UsePyBanapassReader)
+            {
+                if (!std::filesystem::exists(GetCardPath()))
+                {
+                    continue;
+                }
+                
+                std::ifstream stream;
+                stream.open(GetCardPath().string(), std::ifstream::in);
+                std::string rawCard;
+                stream >> rawCard;
+                
+                int index = rawCard.find_first_of(OPEN_BANAPASS_DELIMITER);
+
+                if (index != std::string::npos)
+                {
+                    chipId = rawCard.substr(0, index).c_str();
+                    accessCode = rawCard.substr(index + 1, rawCard.length() - 1);
+                    
+                    memcpy(rawCardData + 0x50, accessCode.c_str(), accessCode.size() + 1);
+                    memcpy(rawCardData + 0x2C, chipId.c_str(), chipId.size() + 1);
+
+                    stream.close();
+                    callback(0, 0, rawCardData, cardStuctPtr);
+                    continue;
+                }
+
+                stream.close();
+                continue;
+            }
+            
+            INIReader reader(GetCardPath().string());
             if (reader.ParseError() == 0)
             {
                 accessCode = reader.Get("card", "accessCode", "30764352518498791337");

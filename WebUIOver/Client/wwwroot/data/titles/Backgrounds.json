@@ -1,0 +1,5953 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "デフォルトプレート（ブルー）",
+    "Existence": "VS2",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 2,
+    "Value": "デフォルトプレート（レッド）",
+    "Existence": "VS2",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 3,
+    "Value": "デフォルトプレート（イエロー）",
+    "Existence": "VS2",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 4,
+    "Value": "プレート(ゴールド)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 5,
+    "Value": "プレート(シルバー)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 6,
+    "Value": "プレート(ブラック)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 7,
+    "Value": "プレート(レッド)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 8,
+    "Value": "プレート(ホワイト)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 9,
+    "Value": "プレート(ブルー)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 10,
+    "Value": "プレート(グリーン)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 11,
+    "Value": "プレート(オレンジ)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 12,
+    "Value": "プレート(ピンク)",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 13,
+    "Value": "木の看板",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 14,
+    "Value": "コンクリートの壁",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 15,
+    "Value": "装甲板（白）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が10回へ到達"
+  },
+  {
+    "Id": 16,
+    "Value": "装甲板（赤）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が10回へ到達"
+  },
+  {
+    "Id": 17,
+    "Value": "割れたガラス",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1500回へ到達"
+  },
+  {
+    "Id": 18,
+    "Value": "ゴージャスバナー",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1250回へ到達"
+  },
+  {
+    "Id": 19,
+    "Value": "ウッドランド迷彩",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が25回へ到達"
+  },
+  {
+    "Id": 20,
+    "Value": "オレンジ迷彩",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が25回へ到達"
+  },
+  {
+    "Id": 21,
+    "Value": "デジタル空間（レッド）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が50回へ到達"
+  },
+  {
+    "Id": 22,
+    "Value": "デジタル空間（グリーン）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が50回へ到達"
+  },
+  {
+    "Id": 23,
+    "Value": "KEEP OUT",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 24,
+    "Value": "地球",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が4000回へ到達"
+  },
+  {
+    "Id": 25,
+    "Value": "火星",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が4000回へ到達"
+  },
+  {
+    "Id": 26,
+    "Value": "暁",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が4000回へ到達"
+  },
+  {
+    "Id": 27,
+    "Value": "風神雷神",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "Gスクラッチ エクストラ機体再取得キャンペーン"
+  },
+  {
+    "Id": 28,
+    "Value": "死神(髑髏)",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1500回へ到達"
+  },
+  {
+    "Id": 29,
+    "Value": "トライバル　龍",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が100回へ到達"
+  },
+  {
+    "Id": 30,
+    "Value": "トライバル　虎",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が100回へ到達"
+  },
+  {
+    "Id": 31,
+    "Value": "金紋表装",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1250回へ到達"
+  },
+  {
+    "Id": 32,
+    "Value": "銅紋表装",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1250回へ到達"
+  },
+  {
+    "Id": 33,
+    "Value": "赤銀河",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1500回へ到達"
+  },
+  {
+    "Id": 34,
+    "Value": "対戦開始ジングル",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が750回へ到達"
+  },
+  {
+    "Id": 35,
+    "Value": "乱入ジングル",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が750回へ到達"
+  },
+  {
+    "Id": 36,
+    "Value": "VS画面",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が2500回へ到達"
+  },
+  {
+    "Id": 37,
+    "Value": "セレクトフェーズ",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が2500回へ到達"
+  },
+  {
+    "Id": 38,
+    "Value": "春",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 39,
+    "Value": "夏",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 40,
+    "Value": "秋",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 41,
+    "Value": "冬",
+    "Existence": "VS2",
+    "Category": "ショップ"
+  },
+  {
+    "Id": 42,
+    "Value": "紅炎",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3500回へ到達"
+  },
+  {
+    "Id": 43,
+    "Value": "蒼炎",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3500回へ到達"
+  },
+  {
+    "Id": 44,
+    "Value": "ソースコード1",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1000回へ到達"
+  },
+  {
+    "Id": 45,
+    "Value": "ソースコード2",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が1000回へ到達"
+  },
+  {
+    "Id": 46,
+    "Value": "スポットライト",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が500回へ到達"
+  },
+  {
+    "Id": 47,
+    "Value": "ピンクスポットライト",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が2000回へ到達"
+  },
+  {
+    "Id": 48,
+    "Value": "雷（ブルーグリーン）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3000回へ到達"
+  },
+  {
+    "Id": 49,
+    "Value": "雷（イエロー）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が3000回へ到達"
+  },
+  {
+    "Id": 50,
+    "Value": "闘気",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が10000回へ到達"
+  },
+  {
+    "Id": 51,
+    "Value": "地上戦",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が6000回へ到達"
+  },
+  {
+    "Id": 52,
+    "Value": "宇宙戦",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が6000回へ到達"
+  },
+  {
+    "Id": 53,
+    "Value": "流星（レッド）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が9000回へ到達"
+  },
+  {
+    "Id": 54,
+    "Value": "流星（ブルー）",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が9000回へ到達"
+  },
+  {
+    "Id": 55,
+    "Value": "スパーク",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が7000回へ到達"
+  },
+  {
+    "Id": 56,
+    "Value": "レインボー花火",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が7000回へ到達"
+  },
+  {
+    "Id": 57,
+    "Value": "後光",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が8000回へ到達"
+  },
+  {
+    "Id": 58,
+    "Value": "嵐の予兆",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が8000回へ到達"
+  },
+  {
+    "Id": 59,
+    "Value": "パンパカパン",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が5000回へ到達"
+  },
+  {
+    "Id": 60,
+    "Value": "スター",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "親密度が♥5以上のナビが10人になる"
+  },
+  {
+    "Id": 61,
+    "Value": "ハート",
+    "Existence": "VS2",
+    "Category": "アワード",
+    "Clues": "親密度がMASTERのナビが10人になる"
+  },
+  {
+    "Id": 62,
+    "Value": "プレート(パープル)",
+    "Existence": "VS2",
+    "Category": "アワード"
+  },
+  {
+    "Id": 63,
+    "Value": "Valentine",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ アナザーシーズン"
+  },
+  {
+    "Id": 64,
+    "Value": "キマイラ（MSV）",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "高機動型ザクⅡ 後期型（ジョニー・ライデン機）[EX]"
+  },
+  {
+    "Id": 65,
+    "Value": "SPRING BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 66,
+    "Value": "SPRING BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 67,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 68,
+    "Value": "闘神祭2018-19優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「闘神祭2018-19」優勝チーム（2名）"
+  },
+  {
+    "Id": 69,
+    "Value": "闘神祭2018-19準優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「闘神祭2018-19」準優勝チーム（2名）"
+  },
+  {
+    "Id": 70,
+    "Value": "闘神祭2018-19ベスト4",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「闘神祭2018-19」ベスト4チーム（4名）"
+  },
+  {
+    "Id": 71,
+    "Value": "袖付き",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "シナンジュ[EX]"
+  },
+  {
+    "Id": 72,
+    "Value": "ムラマサ・ブラスター",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "クロスボーン・ガンダムX1フルクロス[EX]"
+  },
+  {
+    "Id": 73,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 74,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 75,
+    "Value": "青空",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "Gスクラッチ エクストラ機体再取得キャンペーン"
+  },
+  {
+    "Id": 76,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 77,
+    "Value": "SUMMER BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 78,
+    "Value": "SUMMER BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 79,
+    "Value": "AUTUMN BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 80,
+    "Value": "AUTUMN BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 81,
+    "Value": "WINTER BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 82,
+    "Value": "WINTER BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 83,
+    "Value": "PREMIUM DOGFIGHT 2019 優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」優勝チーム（2名）"
+  },
+  {
+    "Id": 84,
+    "Value": "PREMIUM DOGFIGHT 2019 準優勝",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」準優勝チーム（2名）"
+  },
+  {
+    "Id": 85,
+    "Value": "PDF2019_参加賞",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」エリア予選大会参加賞"
+  },
+  {
+    "Id": 86,
+    "Value": "Mechanical",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 87,
+    "Value": "PREMIUM DOGFIGHT 2019 ベスト8",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」3～8位チーム（12名）"
+  },
+  {
+    "Id": 88,
+    "Value": "PREMIUM DOGFIGHT 2019 全国決勝出場",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」全国決勝出場チーム"
+  },
+  {
+    "Id": 89,
+    "Value": "EXTREME Frame Yellow",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」"
+  },
+  {
+    "Id": 90,
+    "Value": "EXTREME Frame Blue",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「第3回開発チームと交流マッチ！」で開発チームとマッチング"
+  },
+  {
+    "Id": 91,
+    "Value": "EXTREME Frame Green",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2019」"
+  },
+  {
+    "Id": 92,
+    "Value": "SPRING BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 93,
+    "Value": "SPRING BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 94,
+    "Value": "SUMMER BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 95,
+    "Value": "SUMMER BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 96,
+    "Value": "ガンダムF91",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "ガンダムF91[EX]"
+  },
+  {
+    "Id": 97,
+    "Value": "AUTUMN BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2020」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 98,
+    "Value": "AUTUMN BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2020」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 99,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 100,
+    "Value": "EXVS.",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 101,
+    "Value": "EXVS.FB",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 102,
+    "Value": "EXVS.MB",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 103,
+    "Value": "EXVS.MBON",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "Id": 104,
+    "Value": "キュベレイMk-II",
+    "Existence": "VS2",
+    "Category": "チャレンジミッション",
+    "Clues": "キュベレイMk-II（プルツー）[EX]"
+  },
+  {
+    "Id": 105,
+    "Value": "2周年記念（ガンダム）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン ガンダムVS.モバイル無料登録"
+  },
+  {
+    "Id": 106,
+    "Value": "2周年記念（ガンダム・バルバトスルプスレクス）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 20回プレイする"
+  },
+  {
+    "Id": 107,
+    "Value": "2周年記念（トライバーニングガンダム）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 10回プレイする"
+  },
+  {
+    "Id": 108,
+    "Value": "2周年記念（モンテーロ）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 10回プレイする"
+  },
+  {
+    "Id": 109,
+    "Value": "2周年記念（ガンダムAGE-1 フルグランサ）",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "EXVS.2稼働2周年キャンペーン 20回プレイする"
+  },
+  {
+    "Id": 110,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 111,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "VS2",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 112,
+    "Value": "セシア・アウェア＆セシア・アウェア・アハト",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 113,
+    "Value": "セシア・アウェア＆セシア・アウェア・プリモ",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 114,
+    "Value": "セシア・アウェア＆セシア・アウェア・セスト",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 115,
+    "Value": "セシア・アウェア＆セシア・アウェア・ノーノ",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 116,
+    "Value": "セシア・アウェア＆ハロ",
+    "Existence": "VS2",
+    "Category": "その他",
+    "Clues": "アクリルバナパスデザイン称号背景プレゼント"
+  },
+  {
+    "Id": 117,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 118,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 119,
+    "Value": "Deleted Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 120,
+    "Value": "デフォルトプレート（ピンク）",
+    "Existence": "XB",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 121,
+    "Value": "デフォルトプレート（ネイビーブルー）",
+    "Existence": "XB",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 122,
+    "Value": "デフォルトプレート（グリーン）",
+    "Existence": "XB",
+    "Category": "デフォルト"
+  },
+  {
+    "Id": 123,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 124,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 125,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 126,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 127,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 128,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 129,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 130,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 131,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 132,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 133,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 134,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 135,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 136,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 137,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 138,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 139,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 140,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 141,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 142,
+    "Value": "ガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 143,
+    "Value": "シャア専用ゲルググ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 144,
+    "Value": "アッガイ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 145,
+    "Value": "ジオング",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 146,
+    "Value": "ギャン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 147,
+    "Value": "ガンダム(Gメカ)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 148,
+    "Value": "ザクII",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 149,
+    "Value": "シャア専用ザクII",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 150,
+    "Value": "ガンキャノン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 151,
+    "Value": "Zガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 152,
+    "Value": "百式",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 153,
+    "Value": "メッサーラ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 154,
+    "Value": "ジ・O",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 155,
+    "Value": "ガンダムMk-II",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 156,
+    "Value": "ハンブラビ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 157,
+    "Value": "マラサイ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 158,
+    "Value": "ガブスレイ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 159,
+    "Value": "バウンド・ドック",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 160,
+    "Value": "フルアーマーZZガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 161,
+    "Value": "キュベレイMk-II(プルツー)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 162,
+    "Value": "キュベレイ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 163,
+    "Value": "ザクIII改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 164,
+    "Value": "ZZガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 165,
+    "Value": "キュベレイMk-II(プル)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 166,
+    "Value": "ドーベン・ウルフ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 167,
+    "Value": "νガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 168,
+    "Value": "サザビー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 169,
+    "Value": "リ・ガズィ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 170,
+    "Value": "ヤクト・ドーガ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 171,
+    "Value": "ガンダムF91",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 172,
+    "Value": "ベルガ・ギロス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 173,
+    "Value": "V2ガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 174,
+    "Value": "ガンイージ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 175,
+    "Value": "ゴトラタン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 176,
+    "Value": "ヴィクトリーガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 177,
+    "Value": "ゲドラフ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 178,
+    "Value": "ゴッドガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 179,
+    "Value": "ドラゴンガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 180,
+    "Value": "マスターガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 181,
+    "Value": "ガンダムシュピーゲル",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 182,
+    "Value": "ノーベルガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 183,
+    "Value": "シャイニングガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 184,
+    "Value": "ライジングガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 185,
+    "Value": "ガンダムマックスター",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 186,
+    "Value": "ウイングガンダムゼロ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 187,
+    "Value": "ガンダムエピオン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 188,
+    "Value": "アルトロンガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 189,
+    "Value": "ガンダムサンドロック改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 190,
+    "Value": "トールギスII",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 191,
+    "Value": "ウイングガンダムゼロ(EW版)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 192,
+    "Value": "ガンダムヘビーアームズ改(EW版)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 193,
+    "Value": "トールギスIII",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 194,
+    "Value": "ガンダムデスサイズヘル(EW版)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 195,
+    "Value": "ガンダムDX",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 196,
+    "Value": "ガンダムガンダムヴァサーゴ・チェストブレイク",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 197,
+    "Value": "ガンダムXディバイダー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 198,
+    "Value": "ガンダムX",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 199,
+    "Value": "∀ガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 200,
+    "Value": "ターンX",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 201,
+    "Value": "ゴールドスモー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 202,
+    "Value": "カプル",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 203,
+    "Value": "コレンカプル",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 204,
+    "Value": "ストライクガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 205,
+    "Value": "フォビドゥンガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 206,
+    "Value": "プロヴィデンスガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 207,
+    "Value": "ラゴゥ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 208,
+    "Value": "フリーダムガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 209,
+    "Value": "デュエルガンダムアサルトシュラウド",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 210,
+    "Value": "パーフェクトストライクガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 211,
+    "Value": "ブリッツガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 212,
+    "Value": "レイダーガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 213,
+    "Value": "バスターガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 214,
+    "Value": "イージスガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 215,
+    "Value": "ストライクフリーダムガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 216,
+    "Value": "インフィニットジャスティスガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 217,
+    "Value": "デスティニーガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 218,
+    "Value": "ガナーザクウォーリア",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 219,
+    "Value": "インパルスガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 220,
+    "Value": "ガイアガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 221,
+    "Value": "レジェンドガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 222,
+    "Value": "グフイグナイテッド",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 223,
+    "Value": "ストライクルージュ(オオトリ装備)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 224,
+    "Value": "アカツキ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 225,
+    "Value": "ガンダムエクシア",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 226,
+    "Value": "ダブルオーガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 227,
+    "Value": "スサノオ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 228,
+    "Value": "ケルディムガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 229,
+    "Value": "アルケーガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 230,
+    "Value": "ガンダムデュナメス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 231,
+    "Value": "リボーンズガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 232,
+    "Value": "ガンダムスローネドライ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 233,
+    "Value": "アリオスガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 234,
+    "Value": "アヴァランチエクシア",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 235,
+    "Value": "ダブルオーガンダムセブンソード\/G",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 236,
+    "Value": "ティエレンタオツー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 237,
+    "Value": "ヤークトアルケーガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 238,
+    "Value": "ガンダムキュリオス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 239,
+    "Value": "ガンダムヴァーチェ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 240,
+    "Value": "ダブルオークアンタ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 241,
+    "Value": "ラファエルガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 242,
+    "Value": "ブレイヴ指揮官用試験機",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 243,
+    "Value": "ダブルオークアンタ フルセイバー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 244,
+    "Value": "ガンダムサバーニャ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 245,
+    "Value": "ガンダムハルート",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 246,
+    "Value": "ユニコーンガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 247,
+    "Value": "クシャトリヤ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 248,
+    "Value": "シナンジュ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 249,
+    "Value": "デルタプラス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 250,
+    "Value": "バンシィ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 251,
+    "Value": "ローゼン・ズール",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 252,
+    "Value": "フルアーマー・ユニコーンガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 253,
+    "Value": "バンシィ・ノルン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 254,
+    "Value": "アレックス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 255,
+    "Value": "ザクII改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 256,
+    "Value": "ケンプファー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 257,
+    "Value": "ガンダム試作1号機フルバーニアン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 258,
+    "Value": "ガンダム試作2号機",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 259,
+    "Value": "ガーベラ・テトラ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 260,
+    "Value": "ガンダム試作3号機",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 261,
+    "Value": "ガンダムEz8",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 262,
+    "Value": "グフ・カスタム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 263,
+    "Value": "ヅダ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 264,
+    "Value": "ヒルドルブ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 265,
+    "Value": "高機動型ザクII後期型(ジョニー・ライデン機)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 266,
+    "Value": "高機動型ザクII改(シン・マツナガ機)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 267,
+    "Value": "クロスボーン・ガンダムX1改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 268,
+    "Value": "クロスボーン・ガンダムX2改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 269,
+    "Value": "クロスボーン・ガンダムX3",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 270,
+    "Value": "クロスボーン・ガンダムX1フルクロス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 271,
+    "Value": "ファントムガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 272,
+    "Value": "ブルーディスティニー1号機",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 273,
+    "Value": "イフリート改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 274,
+    "Value": "Hi-νガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 275,
+    "Value": "ナイチンゲール",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 276,
+    "Value": "アストレイレッドフレーム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 277,
+    "Value": "アストレイブルーフレームセカンドL",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 278,
+    "Value": "アストレイゴールドフレーム天",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 279,
+    "Value": "アストレイゴールドフレーム天ミナ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 280,
+    "Value": "ドレッドノートガンダム(Xアストレイ)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 281,
+    "Value": "ハイペリオンガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 282,
+    "Value": "アストレイレッドフレーム改",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 283,
+    "Value": "アストレイレッドフレーム(レッドドラゴン)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 284,
+    "Value": "アストレイブルーフレームD",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 285,
+    "Value": "ストライクノワール",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 286,
+    "Value": "スターゲイザー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 287,
+    "Value": "Ex-Sガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 288,
+    "Value": "Ξガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 289,
+    "Value": "ペーネロペー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 290,
+    "Value": "ガンダムAGE-1",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 291,
+    "Value": "ガンダムAGE-2",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 292,
+    "Value": "ガンダムAGE-3",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 293,
+    "Value": "ガンダムAGE-FX",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 294,
+    "Value": "ゼイドラ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 295,
+    "Value": "ファルシア",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 296,
+    "Value": "ガンダムレギルス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 297,
+    "Value": "ガンダムAGE-2 ダークハウンド",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 298,
+    "Value": "ガンダムAGE-1 フルグランサ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 299,
+    "Value": "フォーンファルシア",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 300,
+    "Value": "エクストリームガンダム エクリプス-F",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 301,
+    "Value": "エクストリームガンダム ゼノン-F",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 302,
+    "Value": "エクストリームガンダム アイオス-F",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 303,
+    "Value": "エクストリームガンダム type-レオスII Vs.",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 304,
+    "Value": "エクストリームガンダム エクセリア",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 305,
+    "Value": "G-セルフ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 306,
+    "Value": "マックナイフ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 307,
+    "Value": "G-セルフ(パーフェクトパック)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 308,
+    "Value": "G-アルケイン(フルドレス)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 309,
+    "Value": "モンテーロ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 310,
+    "Value": "ガンダム・バルバトス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 311,
+    "Value": "ガンダム・キマリストルーパー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 312,
+    "Value": "ガンダム・バルバトスルプス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 313,
+    "Value": "ガンダム・グシオンリベイクフルシティ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 314,
+    "Value": "ガンダム・バエル",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 315,
+    "Value": "ガンダム・バルバトスルプスレクス",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 316,
+    "Value": "ガンダム・キマリスヴィダール",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 317,
+    "Value": "ペイルライダー(陸戦重装仕様)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 318,
+    "Value": "フルアーマー・ガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 319,
+    "Value": "サイコ・ザク",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 320,
+    "Value": "アトラスガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 321,
+    "Value": "アッガイ（ダリル搭乗）",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 322,
+    "Value": "ビルドストライクガンダム(フルパッケージ)",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 323,
+    "Value": "ザクアメイジング",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 324,
+    "Value": "ホットスクランブルガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 325,
+    "Value": "トライバーニングガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 326,
+    "Value": "ライトニングガンダムフルバーニアン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 327,
+    "Value": "スターウイニングガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 328,
+    "Value": "ガンダムX魔王",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 329,
+    "Value": "G-ルシファー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 330,
+    "Value": "騎士ガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 331,
+    "Value": "ベルティゴ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 332,
+    "Value": "ナラティブガンダム",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 333,
+    "Value": "カバカーリー",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 334,
+    "Value": "ウイングガンダムフェニーチェ",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 335,
+    "Value": "シナンジュ・スタイン",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 336,
+    "Value": "ガンダムダブルオーダイバーエース",
+    "Existence": "XB",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2で機体熟練度5以上"
+  },
+  {
+    "Id": 337,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 338,
+    "Value": "月間ランキング入賞回数5回",
+    "Existence": "XB",
+    "Category": "アワード"
+  },
+  {
+    "Id": 339,
+    "Value": "月間ランキング入賞回数3回",
+    "Existence": "XB",
+    "Category": "アワード"
+  },
+  {
+    "Id": 340,
+    "Value": "月間ランキング入賞回数1回",
+    "Existence": "XB",
+    "Category": "アワード"
+  },
+  {
+    "Id": 341,
+    "Value": "プレシーズン レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 342,
+    "Value": "プレシーズン 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 343,
+    "Value": "プレシーズン 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 344,
+    "Value": "プレシーズン 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 345,
+    "Value": "プレシーズン 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 346,
+    "Value": "シーズン1 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 347,
+    "Value": "シーズン1 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 348,
+    "Value": "シーズン1 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 349,
+    "Value": "シーズン1 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 350,
+    "Value": "シーズン1 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 351,
+    "Value": "シーズン1 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 352,
+    "Value": "シーズン2 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 353,
+    "Value": "シーズン2 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 354,
+    "Value": "シーズン2 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 355,
+    "Value": "シーズン2 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 356,
+    "Value": "シーズン2 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 357,
+    "Value": "シーズン2 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 358,
+    "Value": "シーズン3 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 359,
+    "Value": "シーズン3 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 360,
+    "Value": "シーズン3 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 361,
+    "Value": "シーズン3 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 362,
+    "Value": "シーズン3 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 363,
+    "Value": "シーズン3 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 364,
+    "Value": "シーズン4 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 365,
+    "Value": "シーズン4 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 366,
+    "Value": "シーズン4 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 367,
+    "Value": "シーズン4 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 368,
+    "Value": "シーズン4 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 369,
+    "Value": "シーズン4 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 370,
+    "Value": "シーズン5 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 371,
+    "Value": "シーズン5 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 372,
+    "Value": "シーズン5 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 373,
+    "Value": "シーズン5 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 374,
+    "Value": "シーズン5 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 375,
+    "Value": "シーズン5 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 376,
+    "Value": "シーズン6 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 377,
+    "Value": "シーズン6 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 378,
+    "Value": "シーズン6 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 379,
+    "Value": "シーズン6 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 380,
+    "Value": "シーズン6 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 381,
+    "Value": "シーズン6 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 382,
+    "Value": "青プレート",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬",
+    "Clues": "EXVS.2で伍長以上に到達"
+  },
+  {
+    "Id": 383,
+    "Value": "銅プレート",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬",
+    "Clues": "EXVS.2で准尉以上に到達"
+  },
+  {
+    "Id": 384,
+    "Value": "銀プレート",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬",
+    "Clues": "EXVS.2で少佐1以上に到達"
+  },
+  {
+    "Id": 385,
+    "Value": "金プレート",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬",
+    "Clues": "EXVS.2で准将以上に到達"
+  },
+  {
+    "Id": 386,
+    "Value": "？？？",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬",
+    "Clues": "EXVS.2で元帥以上に到達"
+  },
+  {
+    "Id": 387,
+    "Value": "？？？",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬",
+    "Clues": "EXVS.2で大元帥に到達"
+  },
+  {
+    "Id": 388,
+    "Value": "トライアドバトル勲章 金",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬"
+  },
+  {
+    "Id": 389,
+    "Value": "トライアドバトル勲章 銀",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬"
+  },
+  {
+    "Id": 390,
+    "Value": "トライアドバトル勲章 銅",
+    "Existence": "XB",
+    "Category": "EXVS.2引き継ぎキャンペーン報酬"
+  },
+  {
+    "Id": 391,
+    "Value": "青い燐光",
+    "Existence": "XB",
+    "Category": "チャレンジミッション",
+    "Clues": "ユニコーンガンダム3号機フェネクス[EX]"
+  },
+  {
+    "Id": 392,
+    "Value": "ガンダム・フラウロス",
+    "Existence": "XB"
+  },
+  {
+    "Id": 393,
+    "Value": "ユニコーンガンダム3号機フェネクス",
+    "Existence": "XB"
+  },
+  {
+    "Id": 394,
+    "Value": "ガンダム",
+    "Existence": "XB"
+  },
+  {
+    "Id": 395,
+    "Value": "スタービルドストライクガンダム",
+    "Existence": "XB"
+  },
+  {
+    "Id": 396,
+    "Value": "カバカーリー",
+    "Existence": "XB"
+  },
+  {
+    "Id": 397,
+    "Value": "閃光のハサウェイコラボ",
+    "Existence": "XB",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 398,
+    "Value": "EXVS2XB (パープル)",
+    "Existence": "XB",
+    "Clues": "XB Gauge Purple"
+  },
+  {
+    "Id": 399,
+    "Value": "EXVS2XB (ブルー)",
+    "Existence": "XB",
+    "Clues": "XB Gauge Blue"
+  },
+  {
+    "Id": 400,
+    "Value": "EXVS2XB (グリーン)",
+    "Existence": "XB",
+    "Clues": "XB Gauge Green"
+  },
+  {
+    "Id": 401,
+    "Value": "プレシーズン 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 402,
+    "Value": "？？？",
+    "Existence": "XB",
+    "Clues": "White + Bubble"
+  },
+  {
+    "Id": 403,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 404,
+    "Value": "鍵盤",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 405,
+    "Value": "庭園",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 406,
+    "Value": "メインヴィジュアル_オレンジ",
+    "Existence": "XB",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 407,
+    "Value": "メインヴィジュアル_パープル",
+    "Existence": "XB",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 408,
+    "Value": "メインヴィジュアル_グリーン",
+    "Existence": "XB",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 409,
+    "Value": "SUMMER BATTLE優勝(2021)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2021」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 410,
+    "Value": "SUMMER BATTLE準優勝(2021)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2021」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 411,
+    "Value": "AUTUMN BATTLE優勝(2021)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2021」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 412,
+    "Value": "AUTUMN BATTLE準優勝(2021)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2021」各大会の準優勝チーム（2名"
+  },
+  {
+    "Id": 413,
+    "Value": "WINTER BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 414,
+    "Value": "WINTER BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 415,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 416,
+    "Value": "クロブフェス（イエロー）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス1stで10回対戦する"
+  },
+  {
+    "Id": 417,
+    "Value": "クロブフェス（レッド）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス3rdで10回対戦する"
+  },
+  {
+    "Id": 418,
+    "Value": "クロブフェス（ピンク）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス4thで10回対戦する"
+  },
+  {
+    "Id": 419,
+    "Value": "クロブフェス（グリーン）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス2ndで10回対戦する"
+  },
+  {
+    "Id": 420,
+    "Value": "ミッシングリンク",
+    "Existence": "XB",
+    "Category": "チャレンジミッション",
+    "Clues": "高機動型ゲルググ（ヴィンセント機）[EX]"
+  },
+  {
+    "Id": 421,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 422,
+    "Value": "？？？",
+    "Existence": "XB"
+  },
+  {
+    "Id": 423,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 424,
+    "Value": "シーズン7 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 425,
+    "Value": "シーズン7 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 426,
+    "Value": "シーズン7 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 427,
+    "Value": "シーズン7 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 428,
+    "Value": "シーズン7 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 429,
+    "Value": "シーズン7 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 430,
+    "Value": "シーズン8 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 431,
+    "Value": "シーズン8 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 432,
+    "Value": "シーズン8 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 433,
+    "Value": "シーズン8 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 434,
+    "Value": "シーズン8 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 435,
+    "Value": "シーズン8 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 436,
+    "Value": "シーズン9 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 437,
+    "Value": "シーズン9 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 438,
+    "Value": "シーズン9 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 439,
+    "Value": "シーズン9 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 440,
+    "Value": "シーズン9 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 441,
+    "Value": "シーズン9 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 442,
+    "Value": "シーズン10 レベル50",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 443,
+    "Value": "シーズン10 最終ランクEXX",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 444,
+    "Value": "シーズン10 最終ランクEX以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 445,
+    "Value": "シーズン10 最終ランクS以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 446,
+    "Value": "シーズン10 最終ランクA以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 447,
+    "Value": "シーズン10 最終ランクB以上",
+    "Existence": "XB",
+    "Category": "ランクマッチ"
+  },
+  {
+    "Id": 448,
+    "Value": "電撃",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 449,
+    "Value": "天国",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 450,
+    "Value": "和風",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 451,
+    "Value": "エアメール",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 452,
+    "Value": "トールギス",
+    "Existence": "XB",
+    "Category": "チャレンジミッション",
+    "Clues": "トールギス[EX]"
+  },
+  {
+    "Id": 453,
+    "Value": "選ばれた未来",
+    "Existence": "XB",
+    "Category": "チャレンジミッション",
+    "Clues": "ガナーザクウォーリア[EX]"
+  },
+  {
+    "Id": 454,
+    "Value": "クロブフェス（イエロー２）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス5thで10回対戦する"
+  },
+  {
+    "Id": 455,
+    "Value": "クロブフェス（レッド２）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス7thで10回対戦する"
+  },
+  {
+    "Id": 456,
+    "Value": "クロブフェス（ピンク２）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス8thで10回対戦する"
+  },
+  {
+    "Id": 457,
+    "Value": "クロブフェス（グリーン２）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス6thで10回対戦する"
+  },
+  {
+    "Id": 458,
+    "Value": "クロブフェス（イエロー３）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス9thで10回対戦する"
+  },
+  {
+    "Id": 459,
+    "Value": "クロブフェス（レッド３）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "クロブフェス10thで10回対戦する"
+  },
+  {
+    "Id": 460,
+    "Value": "クロブフェス（ピンク３）",
+    "Existence": "XB",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 461,
+    "Value": "クロブフェス（グリーン３）",
+    "Existence": "XB",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 462,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 463,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 464,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 465,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 466,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 467,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 468,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 469,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 470,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 471,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 472,
+    "Value": "マルコシアス隊",
+    "Existence": "XB",
+    "Category": "チャレンジミッション",
+    "Clues": "イフリート（シュナイド機）[EX]"
+  },
+  {
+    "Id": 473,
+    "Value": "SPRING BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 474,
+    "Value": "SPRING BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 475,
+    "Value": "SUMMER BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 476,
+    "Value": "SUMMER BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 477,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 478,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の準優勝チーム（2名"
+  },
+  {
+    "Id": 479,
+    "Value": "凍結",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 480,
+    "Value": "N-EXTREMEガンダム エクスプロージョン",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ　Project N-EXTREME 新機体リリース記念キャンペーン 第１弾"
+  },
+  {
+    "Id": 481,
+    "Value": "N-EXTREMEガンダム ザナドゥ",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ　Project N-EXTREME 新機体リリース記念キャンペーン 第１弾"
+  },
+  {
+    "Id": 482,
+    "Value": "N-EXTREMEガンダム ヴィシャス",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ　Project N-EXTREME 新機体リリース記念キャンペーン 第２弾"
+  },
+  {
+    "Id": 483,
+    "Value": "N-EXTREMEガンダム スプレマシー",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ　Project N-EXTREME 新機体リリース記念キャンペーン 第２弾"
+  },
+  {
+    "Id": 484,
+    "Value": "N-ExtremeGundam　Red",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "Id": 485,
+    "Value": "N-ExtremeGundam　Yellow",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "Id": 486,
+    "Value": "N-ExtremeGundam　Pink",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "Id": 487,
+    "Value": "N-ExtremeGundam　Navy",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "Id": 488,
+    "Value": "N-ExtremeGundam　Purple",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "Id": 489,
+    "Value": "N-ExtremeGundam　Aqua Blue",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "Id": 490,
+    "Value": "RX-93ff νガンダム（アナザー）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ　RX-93ff νガンダムキャンペーン"
+  },
+  {
+    "Id": 491,
+    "Value": "νガンダム（アナザー）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ　RX-93ff νガンダムキャンペーン"
+  },
+  {
+    "Id": 492,
+    "Value": "チーム出撃プレート1",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "チーム出撃キャンペーン 100pts"
+  },
+  {
+    "Id": 493,
+    "Value": "チーム出撃プレート2",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "チーム出撃キャンペーン 100pts"
+  },
+  {
+    "Id": 494,
+    "Value": "チーム出撃プレート3",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "チーム出撃キャンペーン 100pts"
+  },
+  {
+    "Id": 495,
+    "Value": "ククルス・ドアンの島",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "『機動戦士ガンダム ククルス・ドアンの島』公開記念キャンペーン 5クレジット分プレイ"
+  },
+  {
+    "Id": 496,
+    "Value": "ハロ（カラフル）",
+    "Existence": "XB",
+    "Category": "キャンペーン",
+    "Clues": "エクストラGスクラッチ"
+  },
+  {
+    "Id": 497,
+    "Value": "マジックスター",
+    "Existence": "XB",
+    "Category": "スペシャルショップ"
+  },
+  {
+    "Id": 498,
+    "Value": "WINTER BATTLE優勝(2023)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 499,
+    "Value": "WINTER BATTLE準優勝(2023)",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 500,
+    "Value": "Black",
+    "Existence": "XB"
+  },
+  {
+    "Id": 501,
+    "Value": "White",
+    "Existence": "XB"
+  },
+  {
+    "Id": 502,
+    "Value": "VSTG with Black Background",
+    "Existence": "XB"
+  },
+  {
+    "Id": 503,
+    "Value": "VSTG with White Background",
+    "Existence": "XB"
+  },
+  {
+    "Id": 504,
+    "Value": "木の看板",
+    "Existence": "XB",
+    "Category": "アワード",
+    "Clues": "「出撃回数」が250回へ到達"
+  },
+  {
+    "Id": 505,
+    "Value": "PDF2022_参加賞",
+    "Existence": "XB",
+    "Category": "大会"
+  },
+  {
+    "Id": 506,
+    "Value": "PREMIUM DOGFIGHT 2022 優勝",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2022」優勝チーム（2名）"
+  },
+  {
+    "Id": 507,
+    "Value": "PREMIUM DOGFIGHT 2022 準優勝",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2022」準優勝チーム（2名）"
+  },
+  {
+    "Id": 508,
+    "Value": "PREMIUM DOGFIGHT 2022 ベスト8",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2022」ベスト8チーム（12名）"
+  },
+  {
+    "Id": 509,
+    "Value": "PREMIUM DOGFIGHT 2022 全国決勝出場",
+    "Existence": "XB",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2022」全国決勝出場チーム"
+  },
+  {
+    "Id": 510,
+    "Value": "PREMIUM DOGFIGHT 2022",
+    "Existence": "XB",
+    "Category": "大会"
+  },
+  {
+    "Id": 511,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 512,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 513,
+    "Value": "DUMMY PREMIUM DOGFIGHT 2022",
+    "Existence": "XB"
+  },
+  {
+    "Id": 600,
+    "Value": "Background 600",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 601,
+    "Value": "ガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 602,
+    "Value": "ガンダム(Gメカ)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 603,
+    "Value": "アッガイ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 604,
+    "Value": "ギャン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 605,
+    "Value": "ジオング",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 606,
+    "Value": "シャア専用ゲルググ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 607,
+    "Value": "シャア専用ザクII",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 608,
+    "Value": "ガンキャノン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 609,
+    "Value": "ザクII(ドアン機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 610,
+    "Value": "Zガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 611,
+    "Value": "百式",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 612,
+    "Value": "ガンダムMk-II",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 613,
+    "Value": "ハンブラビ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 614,
+    "Value": "ジ・O",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 615,
+    "Value": "メッサーラ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 616,
+    "Value": "ガブスレイ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 617,
+    "Value": "マラサイ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 618,
+    "Value": "バウンド・ドック",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 619,
+    "Value": "ディジェ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 620,
+    "Value": "フルアーマーZZガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 621,
+    "Value": "ZZガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 622,
+    "Value": "キュベレイMk-II(プル)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 623,
+    "Value": "キュベレイMk-II(プルツー)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 624,
+    "Value": "キュベレイ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 625,
+    "Value": "ザクIII改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 626,
+    "Value": "ドーベン・ウルフ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 627,
+    "Value": "アッガイ(ハマーン搭乗)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 628,
+    "Value": "Zガンダム(ルー搭乗)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 629,
+    "Value": "νガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 630,
+    "Value": "リ・ガズィ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 631,
+    "Value": "サザビー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 632,
+    "Value": "ヤクト・ドーガ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 633,
+    "Value": "ガンダムF91",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 634,
+    "Value": "ベルガ・ギロス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 635,
+    "Value": "V2ガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 636,
+    "Value": "ヴィクトリーガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 637,
+    "Value": "ガンイージ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 638,
+    "Value": "ゴトラタン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 639,
+    "Value": "ゲドラフ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 640,
+    "Value": "ゴッドガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 641,
+    "Value": "シャイニングガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 642,
+    "Value": "ドラゴンガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 643,
+    "Value": "ガンダムマックスター",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 644,
+    "Value": "マスターガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 645,
+    "Value": "ガンダムシュピーゲル",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 646,
+    "Value": "ノーベルガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 647,
+    "Value": "ライジングガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 648,
+    "Value": "ウイングガンダムゼロ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 649,
+    "Value": "アルトロンガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 650,
+    "Value": "ガンダムサンドロック改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 651,
+    "Value": "トールギスII",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 652,
+    "Value": "ガンダムエピオン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 653,
+    "Value": "ガンダムデスサイズヘル",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 654,
+    "Value": "トールギス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 655,
+    "Value": "ウイングガンダムゼロ(EW版)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 656,
+    "Value": "ガンダムデスサイズヘル(EW版)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 657,
+    "Value": "ガンダムヘビーアームズ改(EW版)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 658,
+    "Value": "トールギスIII",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 659,
+    "Value": "ガンダムDX",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 660,
+    "Value": "ガンダムXディバイダー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 661,
+    "Value": "ベルティゴ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 662,
+    "Value": "ガンダムガンダムヴァサーゴ・チェストブレイク",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 663,
+    "Value": "ガンダムX",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 664,
+    "Value": "∀ガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 665,
+    "Value": "カプル",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 666,
+    "Value": "コレンカプル",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 667,
+    "Value": "ゴールドスモー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 668,
+    "Value": "ターンX",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 669,
+    "Value": "フリーダムガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 670,
+    "Value": "パーフェクトストライクガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 671,
+    "Value": "ストライクガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 672,
+    "Value": "ラゴゥ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 673,
+    "Value": "プロヴィデンスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 674,
+    "Value": "ブリッツガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 675,
+    "Value": "バスターガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 676,
+    "Value": "デュエルガンダムアサルトシュラウド",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 677,
+    "Value": "フォビドゥンガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 678,
+    "Value": "レイダーガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 679,
+    "Value": "イージスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 680,
+    "Value": "ジャスティスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 681,
+    "Value": "カラミティガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 682,
+    "Value": "デスティニーガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 683,
+    "Value": "レジェンドガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 684,
+    "Value": "ガナーザクウォーリア",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 685,
+    "Value": "グフイグナイテッド",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 686,
+    "Value": "ストライクフリーダムガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 687,
+    "Value": "インフィニットジャスティスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 688,
+    "Value": "アカツキ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 689,
+    "Value": "ストライクルージュ(オオトリ装備)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 690,
+    "Value": "インパルスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 691,
+    "Value": "ガイアガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 692,
+    "Value": "インパルスガンダム(ルナマリア搭乗)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 693,
+    "Value": "インフィニットジャスティスガンダム(ラクス搭乗)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 694,
+    "Value": "スターゲイザー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 695,
+    "Value": "ストライクノワール",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 696,
+    "Value": "ダブルオーガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 697,
+    "Value": "ケルディムガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 698,
+    "Value": "アリオスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 699,
+    "Value": "ガンダムスローネドライ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 700,
+    "Value": "ガンダムエクシア",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 701,
+    "Value": "ガンダムデュナメス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 702,
+    "Value": "スサノオ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 703,
+    "Value": "ティエレンタオツー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 704,
+    "Value": "リボーンズガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 705,
+    "Value": "アルケーガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 706,
+    "Value": "ガンダムヴァーチェ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 707,
+    "Value": "ガンダムキュリオス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 708,
+    "Value": "ガラッゾ(ヒリング・ケア機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 709,
+    "Value": "グラハム専用ユニオンフラッグカスタム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 710,
+    "Value": "ダブルオークアンタ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 711,
+    "Value": "ガンダムサバーニャ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 712,
+    "Value": "ガンダムハルート",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 713,
+    "Value": "ラファエルガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 714,
+    "Value": "ブレイヴ指揮官用試験機",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 715,
+    "Value": "フルアーマー・ユニコーンガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 716,
+    "Value": "ユニコーンガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 717,
+    "Value": "デルタプラス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 718,
+    "Value": "クシャトリヤ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 719,
+    "Value": "バンシィ・ノルン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 720,
+    "Value": "バンシィ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 721,
+    "Value": "シナンジュ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 722,
+    "Value": "ローゼン・ズール",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 723,
+    "Value": "ガンダムAGE-1",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 724,
+    "Value": "ガンダムAGE-2",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 725,
+    "Value": "ガンダムAGE-3",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 726,
+    "Value": "ガンダムAGE-FX",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 727,
+    "Value": "ガンダムAGE-1 フルグランサ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 728,
+    "Value": "ガンダムAGE-2 ダークハウンド",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 729,
+    "Value": "ガンダムレギルス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 730,
+    "Value": "ゼイドラ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 731,
+    "Value": "ファルシア",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 732,
+    "Value": "フォーンファルシア",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 733,
+    "Value": "G-セルフ(パーフェクトパック)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 734,
+    "Value": "G-アルケイン(フルドレス)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 735,
+    "Value": "G-ルシファー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 736,
+    "Value": "G-セルフ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 737,
+    "Value": "カバカーリー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 738,
+    "Value": "マックナイフ(マスク機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 739,
+    "Value": "モンテーロ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 740,
+    "Value": "ダハック",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 741,
+    "Value": "ガンダム・バルバトスルプスレクス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 742,
+    "Value": "ガンダム・グシオンリベイクフルシティ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 743,
+    "Value": "ガンダム・バルバトスルプス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 744,
+    "Value": "ガンダム・バルバトス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 745,
+    "Value": "ガンダム・バエル",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 746,
+    "Value": "ガンダム・キマリストルーパー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 747,
+    "Value": "ガンダム・キマリスヴィダール",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 748,
+    "Value": "ガンダム・フラウロス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 749,
+    "Value": "ナラティブガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 750,
+    "Value": "ユニコーンガンダム3号機フェネクス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 751,
+    "Value": "シナンジュ・スタイン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 752,
+    "Value": "アレックス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 753,
+    "Value": "ザクII改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 754,
+    "Value": "ケンプファー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 755,
+    "Value": "ガンダム試作3号機",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 756,
+    "Value": "ガンダム試作1号機フルバーニアン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 757,
+    "Value": "ガンダム試作2号機",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 758,
+    "Value": "ガーベラ・テトラ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 759,
+    "Value": "ガンダムEz8",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 760,
+    "Value": "グフ・カスタム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 761,
+    "Value": "ヅダ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 762,
+    "Value": "ヒルドルブ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 763,
+    "Value": "アトラスガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 764,
+    "Value": "フルアーマー・ガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 765,
+    "Value": "サイコ・ザク",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 766,
+    "Value": "アッガイ（ダリル搭乗）",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 767,
+    "Value": "ブルーディスティニー1号機",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 768,
+    "Value": "イフリート改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 769,
+    "Value": "ペイルライダー(陸戦重装仕様)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 770,
+    "Value": "高機動型ゲルググ(ヴィンセント機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 771,
+    "Value": "イフリート(シュナイド機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 772,
+    "Value": "Ex-Sガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 773,
+    "Value": "Hi-νガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 774,
+    "Value": "ナイチンゲール",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 775,
+    "Value": "Ξガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 776,
+    "Value": "ペーネロペー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 777,
+    "Value": "クロスボーン・ガンダムX1フルクロス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 778,
+    "Value": "クロスボーン・ガンダムX3",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 779,
+    "Value": "クロスボーン・ガンダムX1改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 780,
+    "Value": "クロスボーン・ガンダムX2改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 781,
+    "Value": "ファントムガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 782,
+    "Value": "ビギナ・ギナII(木星決戦仕様)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 783,
+    "Value": "アストレイレッドフレーム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 784,
+    "Value": "アストレイレッドフレーム改",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 785,
+    "Value": "アストレイレッドフレーム(レッドドラゴン)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 786,
+    "Value": "ドレッドノートガンダム(Xアストレイ)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 787,
+    "Value": "アストレイブルーフレームセカンドL",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 788,
+    "Value": "アストレイブルーフレームD",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 789,
+    "Value": "アストレイゴールドフレーム天",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 790,
+    "Value": "ハイペリオンガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 791,
+    "Value": "アストレイゴールドフレーム天ミナ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 792,
+    "Value": "オーヴェロン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 793,
+    "Value": "スタービルドストライクガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 794,
+    "Value": "ビルドストライクガンダム(フルパッケージ)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 795,
+    "Value": "ガンダムX魔王",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 796,
+    "Value": "ウイングガンダムフェニーチェ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 797,
+    "Value": "ザクアメイジング",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 798,
+    "Value": "戦国アストレイ頑駄無",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 799,
+    "Value": "トライバーニングガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 800,
+    "Value": "スターウイニングガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 801,
+    "Value": "ライトニングガンダムフルバーニアン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 802,
+    "Value": "ホットスクランブルガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 803,
+    "Value": "ガンダムダブルオーダイバーエース",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 804,
+    "Value": "RX-零丸",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 805,
+    "Value": "νガンダムHWS",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 806,
+    "Value": "高機動型ザクII後期型(ジョニー・ライデン機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 807,
+    "Value": "高機動型ザクII改(シン・マツナガ機)",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 808,
+    "Value": "ダブルオークアンタ フルセイバー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 809,
+    "Value": "ダブルオーガンダムセブンソード\/G",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 810,
+    "Value": "アヴァランチエクシア",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 811,
+    "Value": "ヤークトアルケーガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 812,
+    "Value": "騎士ガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 813,
+    "Value": "RX-93ff νガンダム",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 814,
+    "Value": "エクストリームガンダム type-レオスII Vs.",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 815,
+    "Value": "エクストリームガンダム エクリプス-F",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 816,
+    "Value": "エクストリームガンダム ゼノン-F",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 817,
+    "Value": "エクストリームガンダム アイオス-F",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 818,
+    "Value": "エクストリームガンダム エクセリア",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 819,
+    "Value": "N-EXTREMEガンダム エクスプロージョン",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 820,
+    "Value": "N-EXTREMEガンダム ザナドゥ",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 821,
+    "Value": "N-EXTREMEガンダム ヴィシャス",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 822,
+    "Value": "N-EXTREMEガンダム スプレマシー",
+    "Existence": "OBv7",
+    "Category": "機体熟練度",
+    "Clues": "EXVS.2XBで熟練度5以上で獲得"
+  },
+  {
+    "Id": 823,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 824,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 825,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 826,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 827,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 828,
+    "Value": "Class Match Entrance",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 829,
+    "Value": "Match Selection OB Pass",
+    "Existence": "OBv7",
+    "Clues": "2024年1月1日（月）「オーバーブーストパス Vol.4」- Same as sticker background from OB Pass."
+  },
+  {
+    "Id": 830,
+    "Value": "プレイヤーレベル1st-stepプレートA",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル1周目Lv.40"
+  },
+  {
+    "Id": 831,
+    "Value": "プレイヤーレベル2nd-stepプレートA",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル2周目Lv.40"
+  },
+  {
+    "Id": 832,
+    "Value": "プレイヤーレベルlast-stepプレートA",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル3周目Lv.40"
+  },
+  {
+    "Id": 833,
+    "Value": "プレイヤーレベル1st-stepプレートB",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル1周目Lv.90"
+  },
+  {
+    "Id": 834,
+    "Value": "プレイヤーレベル2nd-stepプレートB",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル2周目Lv.90"
+  },
+  {
+    "Id": 835,
+    "Value": "プレイヤーレベルlast-stepプレートB",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル3周目Lv.90"
+  },
+  {
+    "Id": 836,
+    "Value": "プレイヤーレベル1st-stepプレートC",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル1周目Lv.160"
+  },
+  {
+    "Id": 837,
+    "Value": "プレイヤーレベルlast-stepプレートC",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル2周目Lv.160"
+  },
+  {
+    "Id": 838,
+    "Value": "プレイヤーレベル3rd-stepプレートC",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル3周目Lv.160"
+  },
+  {
+    "Id": 839,
+    "Value": "Background 839",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 840,
+    "Value": "Background 840",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 841,
+    "Value": "Background 841",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 842,
+    "Value": "Star Variation Pink ID:60",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 843,
+    "Value": "Star Variation Blue ID:60",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 844,
+    "Value": "Star Variation Violet ID:60",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 845,
+    "Value": "Background 845",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 846,
+    "Value": "Background 846",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 847,
+    "Value": "Background 847",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 848,
+    "Value": "Background 848",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 849,
+    "Value": "Background 849",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 850,
+    "Value": "Background 850",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 851,
+    "Value": "Background 851",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 852,
+    "Value": "Background 852",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 853,
+    "Value": "Background 853",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 854,
+    "Value": "GGGP2023称号背景（紫）",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "「GGGP2023」勝利陣営参加選手＆観客"
+  },
+  {
+    "Id": 855,
+    "Value": "オーバーブーストパスVol:1プレート",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:1プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 856,
+    "Value": "オーバーブーストパスVol:2プレート",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:2プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 857,
+    "Value": "オーバーブーストパスVol:3プレート",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:3プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 858,
+    "Value": "オーバーブーストパスVol:4プレート",
+    "Existence": "OBv9",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:4プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 859,
+    "Value": "オーバーブーストパスVol:5プレート",
+    "Existence": "OBv13",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:5プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 860,
+    "Value": "オーバーブーストパスVol:6プレート",
+    "Existence": "OBv13",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:6プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 861,
+    "Value": "GGGP2023称号背景（赤）",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "「GGGP2023」西会場参加選手＆観客"
+  },
+  {
+    "Id": 862,
+    "Value": "GGGP2023称号背景（青）",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "「GGGP2023」東会場参加選手＆観客"
+  },
+  {
+    "Id": 863,
+    "Value": "1500 Random",
+    "Existence": "OBv7",
+    "Clues": "I think it is either 15 matches with 1500 Random or 30 matches"
+  },
+  {
+    "Id": 864,
+    "Value": "2000 Random",
+    "Existence": "OBv7",
+    "Clues": "I think it is either 15 matches with 2000 Random or 30 matches"
+  },
+  {
+    "Id": 865,
+    "Value": "2500 Random",
+    "Existence": "OBv7",
+    "Clues": "I think it is either 15 matches with 2500 Random or 30 matches"
+  },
+  {
+    "Id": 866,
+    "Value": "3000 Random",
+    "Existence": "OBv7",
+    "Clues": "I think it is either 15 matches with 3000 Random or 30 matches"
+  },
+  {
+    "Id": 867,
+    "Value": "All Random",
+    "Existence": "OBv7",
+    "Clues": "I think it is either 15 matches with All Random or 30 matches"
+  },
+  {
+    "Id": 868,
+    "Value": "Background 868",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 869,
+    "Value": "アーセナルベースコラボプレートC",
+    "Existence": "OBv7",
+    "Clues": "X-Over キャンペーン シーンクリアor対戦15回"
+  },
+  {
+    "Id": 870,
+    "Value": "アーセナルベースコラボプレートA",
+    "Existence": "OBv7",
+    "Clues": "X-Over キャンペーン"
+  },
+  {
+    "Id": 871,
+    "Value": "アーセナルベースコラボプレートD",
+    "Existence": "OBv7",
+    "Clues": "X-Over キャンペーン シーンクリアor対戦15回"
+  },
+  {
+    "Id": 872,
+    "Value": "アーセナルベースコラボプレートB",
+    "Existence": "OBv7",
+    "Clues": "X-Over キャンペーン"
+  },
+  {
+    "Id": 873,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 874,
+    "Value": "エクバフェス（マッチング選択画面風）1ON1",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス6thで5回対戦する"
+  },
+  {
+    "Id": 875,
+    "Value": "エクバフェス (壁紙) 1ON1",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 876,
+    "Value": "エクバフェス (タイトル) 1ON1",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 877,
+    "Value": "エクバフェス (背景) 1ON1",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 878,
+    "Value": "エクバフェス（マッチング選択画面風）DUAL SELECT",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 879,
+    "Value": "エクバフェス (壁紙) DUAL SELECT",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 880,
+    "Value": "エクバフェス (タイトル) DUAL SELECT",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 881,
+    "Value": "エクバフェス (背景) DUAL SELECT",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 882,
+    "Value": "エクバフェス（マッチング選択画面風）SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 883,
+    "Value": "エクバフェス (壁紙) SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 884,
+    "Value": "エクバフェス (タイトル) SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 885,
+    "Value": "エクバフェス (背景) SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 886,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 887,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 888,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 889,
+    "Value": "Invalid Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 890,
+    "Value": "エクバフェス（マッチング選択画面風）ATTACK SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 891,
+    "Value": "エクバフェス (壁紙) ATTACK SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 892,
+    "Value": "エクバフェス (タイトル) ATTACK SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 893,
+    "Value": "エクバフェス (背景) ATTACK SCORE BATTLE",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 894,
+    "Value": "エクバフェス（マッチング選択画面風）ATTACK BOOST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 895,
+    "Value": "エクバフェス (壁紙) ATTACK BOOST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 896,
+    "Value": "エクバフェス (タイトル) ATTACK BOOST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 897,
+    "Value": "エクバフェス (背景) ATTACK BOOST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 898,
+    "Value": "エクバフェス（マッチング選択画面風）UNLIMITED EX BURST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 899,
+    "Value": "エクバフェス (壁紙) UNLIMITED EX BURST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 900,
+    "Value": "エクバフェス (タイトル) UNLIMITED EX BURST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 901,
+    "Value": "エクバフェス (背景) UNLIMITED EX BURST",
+    "Existence": "OBv7",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 902,
+    "Value": "AUTUMN BATTLE優勝(2023)",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 903,
+    "Value": "AUTUMN BATTLE準優勝(2023)",
+    "Existence": "OBv7",
+    "Category": "イベント",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 904,
+    "Value": "WINTER BATTLE優勝(2024)",
+    "Existence": "OBv9",
+    "Category": "イベント",
+    "Clues": "店舗大会「WINTER BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 905,
+    "Value": "WINTER BATTLE準優勝(2024)",
+    "Existence": "OBv9",
+    "Category": "イベント",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 906,
+    "Value": "オーバーブーストパスVol:7プレート",
+    "Existence": "OBv16",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:7プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 907,
+    "Value": "オーバーブーストパスVol:8プレート",
+    "Existence": "OBv18",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:8プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 908,
+    "Value": "オーバーブーストパスVol:9プレート",
+    "Existence": "OBv19",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:9プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 909,
+    "Value": "オーバーブーストパスVol:10プレート",
+    "Existence": "OBv24",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:10プレート - オーバーブーストパスでstage:30"
+  },
+  {
+    "Id": 910,
+    "Value": "SEED FREEDOM",
+    "Existence": "OBv13",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 911,
+    "Value": "劇場版SEED FREEDOM公開記念プレート",
+    "Existence": "OBv13",
+    "Category": "キャンペーン",
+    "Clues": "『機動戦士ガンダムSEED FREEDOM』公開記念キャンペーン 5クレジットプレイ"
+  },
+  {
+    "Id": 912,
+    "Value": "エクバフェス（マッチング選択画面風）EX MUGEN SHOOTING",
+    "Existence": "OBv13",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 913,
+    "Value": "エクバフェス (壁紙) EX MUGEN SHOOTING",
+    "Existence": "OBv13",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 914,
+    "Value": "エクバフェス (タイトル) EX MUGEN SHOOTING",
+    "Existence": "OBv13",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 915,
+    "Value": "エクバフェス (背景) EX MUGEN SHOOTING",
+    "Existence": "OBv13",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 916,
+    "Value": "SPRING BATTLE優勝(2024)",
+    "Existence": "OBv13",
+    "Category": "イベント",
+    "Clues": "店舗大会「SPRING BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 917,
+    "Value": "SPRING BATTLE準優勝(2024)",
+    "Existence": "OBv13",
+    "Category": "イベント",
+    "Clues": "店舗大会「SPRING BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 918,
+    "Value": "SUMMER BATTLE優勝(2024)",
+    "Existence": "OBv16",
+    "Category": "イベント",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 919,
+    "Value": "SUMMER BATTLE準優勝(2024)",
+    "Existence": "OBv16",
+    "Category": "イベント",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 920,
+    "Value": "AUTUMN BATTLE優勝(2024)",
+    "Existence": "OBv19",
+    "Category": "イベント",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "Id": 921,
+    "Value": "AUTUMN BATTLE準優勝(2024)",
+    "Existence": "OBv19",
+    "Category": "イベント",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "Id": 924,
+    "Value": "Exround_PLv.50",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.50"
+  },
+  {
+    "Id": 925,
+    "Value": "Exround_PLv.150",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.150"
+  },
+  {
+    "Id": 926,
+    "Value": "Exround_PLv.250",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.250"
+  },
+  {
+    "Id": 927,
+    "Value": "Exround_PLv.350",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.350"
+  },
+  {
+    "Id": 928,
+    "Value": "Exround_PLv.450",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.450"
+  },
+  {
+    "Id": 929,
+    "Value": "Exround_PLv.550",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.550"
+  },
+  {
+    "Id": 930,
+    "Value": "Exround_PLv.650",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.650"
+  },
+  {
+    "Id": 931,
+    "Value": "Exround_PLv.750",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.750"
+  },
+  {
+    "Id": 932,
+    "Value": "Exround_PLv.850",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.850"
+  },
+  {
+    "Id": 933,
+    "Value": "Exround_PLv.950",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.950"
+  },
+  {
+    "Id": 934,
+    "Value": "Exround_PLv.999",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.999"
+  },
+  {
+    "Id": 935,
+    "Value": "2024 OB PLAY CP Vol.2",
+    "Existence": "OBv15",
+    "Category": "キャンペーン",
+    "Clues": "2024 OVER BOOST PLAY CAMPAIGN Vol.2 F賞"
+  },
+  {
+    "Id": 936,
+    "Value": "エクバフェス（マッチング選択画面風）1ON1×アンリミテッドEXバースト",
+    "Existence": "OBv16",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 937,
+    "Value": "エクバフェス (壁紙) 1ON1×アンリミテッドEXバースト",
+    "Existence": "OBv16",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 938,
+    "Value": "エクバフェス (タイトル) 1ON1×アンリミテッドEXバースト",
+    "Existence": "OBv16",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 939,
+    "Value": "エクバフェス (背景) 1ON1×アンリミテッドEXバースト",
+    "Existence": "OBv16",
+    "Category": "フェス",
+    "Clues": "エクバフェス"
+  },
+  {
+    "Id": 941,
+    "Value": "PDF2025店舗予選参加賞",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」エリア予選大会参加賞"
+  },
+  {
+    "Id": 942,
+    "Value": "PDF2025優勝",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」優勝チーム（2名）"
+  },
+  {
+    "Id": 943,
+    "Value": "PDF2025準優勝",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」準優勝チーム（2名）"
+  },
+  {
+    "Id": 944,
+    "Value": "PDF2025ベスト8",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」ベスト8チーム（12名）"
+  },
+  {
+    "Id": 945,
+    "Value": "PDF2025本戦出場",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」本戦出場チーム（104名）"
+  },
+  {
+    "Id": 946,
+    "Value": "PDF2025特別賞",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」テクニカルパイロット賞/PDFキャスターセレクト賞/スーパーマイスター賞/仲良しコーデ賞/匠賞/敢闘賞/OverthePRIDE!!賞（14名）"
+  },
+  {
+    "Id": 947,
+    "Value": "PDF2025特別賞",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」植田佳奈賞/月城莉奈賞（4名）"
+  },
+  {
+    "Id": 948,
+    "Value": "ターンX",
+    "Existence": "OBv20",
+    "Category": "チャレンジミッション",
+    "Clues": "ターンX [EX]"
+  },
+  {
+    "Id": 949,
+    "Value": "PDF2025_開催記念 1",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "オバブ情報局 ～PDF2025 全国決勝大会直前SP～ キーワード入力「MOBILESUIT」"
+  },
+  {
+    "Id": 950,
+    "Value": "PDF2025_開催記念 2",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "オバブ情報局 ～PDF2025 全国決勝大会直前SP～ キーワード入力「GUNDAM」"
+  },
+  {
+    "Id": 951,
+    "Value": "PDF2025_開催記念 3",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」全国決勝大会ライブ配信 キーワード入力「EXTREME」"
+  },
+  {
+    "Id": 952,
+    "Value": "PDF2025_開催記念 4",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」全国決勝大会ライブ配信 キーワード入力「VERSUS2」"
+  },
+  {
+    "Id": 953,
+    "Value": "PDF2025_開催記念 5",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」全国決勝大会ライブ配信 キーワード入力「INFINITEBOOST」"
+  },
+  {
+    "Id": 955,
+    "Value": "APFSDS装填",
+    "Existence": "OBv24",
+    "Category": "チャレンジミッション",
+    "Clues": "ヒルドルブ[EX]"
+  },
+  {
+    "Id": 6001,
+    "Value": "おみくじ(2022) 1",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)"
+  },
+  {
+    "Id": 6002,
+    "Value": "おみくじ(2022) 2",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)"
+  },
+  {
+    "Id": 6003,
+    "Value": "おみくじ(2022) 3",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2022)"
+  },
+  {
+    "Id": 6004,
+    "Value": "N-EXG EXPLOSION",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6005,
+    "Value": "N-EXG XANADU",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6006,
+    "Value": "サイ＆チカゲ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6007,
+    "Value": "G-ガーディアンズ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6008,
+    "Value": "メリーナ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6009,
+    "Value": "チームAA",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームAA"
+  },
+  {
+    "Id": 6010,
+    "Value": "N-EXG VICIOUS",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6011,
+    "Value": "N-EXG SUPREMACY",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6012,
+    "Value": "ニル＆ダンデ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6013,
+    "Value": "G-ガーディアンズ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6014,
+    "Value": "カノ",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6015,
+    "Value": "チームIX",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "チームIX"
+  },
+  {
+    "Id": 6016,
+    "Value": "おみくじ(2023) 1",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6017,
+    "Value": "おみくじ(2023) 2",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6018,
+    "Value": "おみくじ(2023) 3",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6019,
+    "Value": "おみくじ(2023) 4",
+    "Existence": "XB",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2023)"
+  },
+  {
+    "Id": 6020,
+    "Value": "超吉",
+    "Existence": "OBv13",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2024)"
+  },
+  {
+    "Id": 6021,
+    "Value": "大吉",
+    "Existence": "OBv13",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2024)"
+  },
+  {
+    "Id": 6022,
+    "Value": "中吉",
+    "Existence": "OBv13",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2024)"
+  },
+  {
+    "Id": 6023,
+    "Value": "吉",
+    "Existence": "OBv13",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2024)"
+  },
+  {
+    "Id": 6024,
+    "Value": "凶",
+    "Existence": "OBv13",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2024)"
+  },
+  {
+    "Id": 6025,
+    "Value": "大凶",
+    "Existence": "OBv13",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2024)"
+  },
+  {
+    "Id": 6026,
+    "Value": "極吉",
+    "Existence": "OBv24",
+    "Category": "ランダム称号",
+    "Clues": "おみくじ(2025)"
+  }
+]

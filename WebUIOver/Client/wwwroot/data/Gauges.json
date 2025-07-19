@@ -1,0 +1,2116 @@
+[
+  {
+    "ID": 0,
+    "Value": "OB_グリーン",
+    "Existence": "OB",
+    "Clues": "最初から所持"
+  },
+  {
+    "ID": 1,
+    "Value": "アムロ・レイ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『νガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 2,
+    "Value": "アナハイム・エレクトロニクス",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 3,
+    "Value": "ユニコーン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『バナージ・リンクス搭乗機[EX]』でL.10達成"
+  },
+  {
+    "ID": 4,
+    "Value": "ペーネロペー",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 5,
+    "Value": "ネオジャパン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ドモン・カッシュ搭乗機[EX]』でL.10達成"
+  },
+  {
+    "ID": 6,
+    "Value": "東方不敗",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『マスターガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 7,
+    "Value": "ウイングゼロ（EW版）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ウイングガンダムゼロ（EW版）[EX]』でL.10達成"
+  },
+  {
+    "ID": 8,
+    "Value": "ガンダムエピオン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムエピオン[EX]』でL.10達成"
+  },
+  {
+    "ID": 9,
+    "Value": "ガーベラストレート",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第4回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 10,
+    "Value": "ザフト軍",
+    "Existence": "VS2",
+    "Clues": "総出撃回数アワード『「出撃回数」が25回へ到達』"
+  },
+  {
+    "ID": 11,
+    "Value": "フリーダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ストライクフリーダムガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 12,
+    "Value": "ダブルオー",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『刹那・Ｆ・セイエイ搭乗機[EX]』でL.10達成"
+  },
+  {
+    "ID": 13,
+    "Value": "ソレスタルビーイング2",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 14,
+    "Value": "ソレスタルビーイング3",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムサバーニャ[EX]』でL.10達成"
+  },
+  {
+    "ID": 15,
+    "Value": "ヴェーダ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『リボーンズガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 16,
+    "Value": "アロウズ",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第3回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 17,
+    "Value": "地球連邦軍（ダブルオー）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ブレイヴ指揮官用試験機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 18,
+    "Value": "AGE",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ ガンダムAGE10周年記念キャンペーン"
+  },
+  {
+    "ID": 19,
+    "Value": "エクストリームガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『レオス・アロイ搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 20,
+    "Value": "TYPE-レオス",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『エクストリームガンダム type-レオスⅡ Vs.[EX]』でL.10達成"
+  },
+  {
+    "ID": 21,
+    "Value": "FA・ユニコーンガンダム",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第3回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 22,
+    "Value": "ダブルオークアンタ フルセイバー",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 23,
+    "Value": "ガンダムAGE-FX バースト",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『キオ・アスノ搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 24,
+    "Value": "魔方陣",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『エクストリームガンダムエクセリア[EX]』でL.10達成"
+  },
+  {
+    "ID": 25,
+    "Value": "ナイチンゲール",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『シャア・アズナブル搭乗機[EX]』でL.10達成"
+  },
+  {
+    "ID": 26,
+    "Value": "ファルシア",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　ガンダムAGE10周年記念キャンペーン"
+  },
+  {
+    "ID": 27,
+    "Value": "ガンダムヴァーチェ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムヴァーチェ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 28,
+    "Value": "ソレスタルビーイング1",
+    "Existence": "VS2",
+    "Clues": "総出撃回数アワード『「出撃回数」が5000回へ到達』"
+  },
+  {
+    "ID": 29,
+    "Value": "コックピット（AGE-1）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムAGE-1』でLv.10達成"
+  },
+  {
+    "ID": 30,
+    "Value": "コックピット（NT-D）",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第4回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 31,
+    "Value": "海賊部隊",
+    "Existence": "VS2",
+    "Clues": "総出撃回数アワード『「出撃回数」が500回へ到達』"
+  },
+  {
+    "ID": 32,
+    "Value": "Akatsuki",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 33,
+    "Value": "鉄華団",
+    "Existence": "VS2",
+    "Clues": "総出撃回数アワード『「出撃回数」が2000回へ到達』を達成後"
+  },
+  {
+    "ID": 34,
+    "Value": "G-アルケイン（フルドレス）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『G-アルケイン（フルドレス）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 35,
+    "Value": "フルアーマー・ガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『フルアーマー・ガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 36,
+    "Value": "Moore's Brotherhood",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 37,
+    "Value": "ガンダム・キマリストルーパー",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 38,
+    "Value": "ギャラルホルン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダム・バエル[EX]』でL.10達成"
+  },
+  {
+    "ID": 39,
+    "Value": "サイコ・ザク",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『サイコ・ザク[EX]』でLv.10達成"
+  },
+  {
+    "ID": 40,
+    "Value": "Living Dead Division",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 41,
+    "Value": "ホットスクランブルガンダム",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 42,
+    "Value": "ガンプラバトル",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 43,
+    "Value": "ガンダム・バルバトスルプス",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第4回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 44,
+    "Value": "Birdy",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 45,
+    "Value": "Space Probe",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 46,
+    "Value": "地球連邦軍",
+    "Existence": "VS2",
+    "Clues": "チュートリアルアワード『「称号」を初めて設定する』"
+  },
+  {
+    "ID": 47,
+    "Value": "Spartan",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 48,
+    "Value": "アトラスガンダム",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 49,
+    "Value": "ジオン軍",
+    "Existence": "VS2",
+    "Clues": "チュートリアルアワード『「称号」を初めて設定する』"
+  },
+  {
+    "ID": 50,
+    "Value": "イオリ模型店",
+    "Existence": "VS2",
+    "Clues": "総出撃回数アワード『「出撃回数」が50回へ到達』"
+  },
+  {
+    "ID": 51,
+    "Value": "ビルドストライクガンダム",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 52,
+    "Value": "ラストリワードゲージ（金）",
+    "Existence": "VS2",
+    "Clues": "「マキシブーストON」最高到達階級が少将1以上"
+  },
+  {
+    "ID": 53,
+    "Value": "ラストリワードゲージ（銀）",
+    "Existence": "VS2",
+    "Clues": "「マキシブーストON」最高到達階級が少佐1～大佐5"
+  },
+  {
+    "ID": 54,
+    "Value": "ラストリワードゲージ（銅）",
+    "Existence": "VS2",
+    "Clues": "「マキシブーストON」最高到達階級が少尉1～大尉5"
+  },
+  {
+    "ID": 55,
+    "Value": "トライ・ファイターズ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『トライバーニングガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 56,
+    "Value": "ガンプラ・イブ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ザクアメイジング[EX]』でL.10達成"
+  },
+  {
+    "ID": 57,
+    "Value": "ガンダムマックスター",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムマックスター[EX]』でLv.10達成"
+  },
+  {
+    "ID": 58,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 59,
+    "Value": "ガンダム・バルバトスルプスレクス",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『三日月・オーガス搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 60,
+    "Value": "アストレイブルーフレームD",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『叢雲劾搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 61,
+    "Value": "ガンダムAGE-1 フルグランサ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムAGE-1 フルグランサ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 62,
+    "Value": "モンテーロ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『モンテーロ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 63,
+    "Value": "Last One Standing",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 64,
+    "Value": "ヤークトアルケーガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『アリー・アル・サーシェス搭乗機[EX]』でL.10達成"
+  },
+  {
+    "ID": 65,
+    "Value": "ガンダム・キマリスヴィダール",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 66,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 67,
+    "Value": "アッガイ（ダリル搭乗）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『アッガイ（ダリル搭乗）[EX]』でL.10達成"
+  },
+  {
+    "ID": 68,
+    "Value": "ガルヴァリア B34M3R",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ EXVS.2稼働1周年記念キャンペーン"
+  },
+  {
+    "ID": 69,
+    "Value": "Valentine",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ（2019\/01\/21～2019\/02\/14）"
+  },
+  {
+    "ID": 70,
+    "Value": "ライトニングガンダムフルバーニアン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ライトニングガンダムフルバーニアン[EX]』でL.10達成"
+  },
+  {
+    "ID": 71,
+    "Value": "ガンキャノン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンキャノン[EX]』でL.10達成"
+  },
+  {
+    "ID": 72,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 73,
+    "Value": "SDガンダム30周年記念ゲージ",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ SDガンダム30周年コラボキャンペーン"
+  },
+  {
+    "ID": 74,
+    "Value": "フォーンファルシア",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『フォーンファルシア[EX]』でL.10達成"
+  },
+  {
+    "ID": 75,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 76,
+    "Value": "SPRING BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「SPRING BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 77,
+    "Value": "SPRING BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「SPRING BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 78,
+    "Value": "ガンダムX魔王",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムX魔王[EX]』でL.10達成"
+  },
+  {
+    "ID": 79,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 80,
+    "Value": "HADES",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ペイルライダー（陸戦重装仕様）[EX]』でLv.20達成"
+  },
+  {
+    "ID": 81,
+    "Value": "デスサイズヘル（EW版）",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第2回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 82,
+    "Value": "バンシィ・ノルン",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第2回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 83,
+    "Value": "ストライクルージュ",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第2回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 84,
+    "Value": "ガンダムダークハウンド",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第2回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 85,
+    "Value": "ガンダムハルート",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第2回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 86,
+    "Value": "ガンダムガルヴァリア",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ EXVS.2稼働1周年記念キャンペーン"
+  },
+  {
+    "ID": 87,
+    "Value": "G-ルシファー",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『G-ルシファー[EX]』でLv.10達成"
+  },
+  {
+    "ID": 88,
+    "Value": "SUMMER BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「SUMMER BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 89,
+    "Value": "SUMMER BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「SUMMER BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 90,
+    "Value": "スターウイニングガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『スターウイニングガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 91,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 92,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 93,
+    "Value": "ベルティゴ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ベルティゴ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 94,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 95,
+    "Value": "ガルヴァリア H4ND3R",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ EXVS.2稼働1周年記念キャンペーン"
+  },
+  {
+    "ID": 96,
+    "Value": "アストレイゴールドフレーム天ミナ",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 97,
+    "Value": "EXVS.2稼働１周年記念",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ 第2回エクストラ機体再取得キャンペーン"
+  },
+  {
+    "ID": 98,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 99,
+    "Value": "AUTUMN BATTLE優勝(2019)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「AUTUMN BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 100,
+    "Value": "AUTUMN BATTLE準優勝(2019)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「AUTUMN BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 101,
+    "Value": "ナラティブガンダム",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 102,
+    "Value": "ガルヴァリア W45P3R",
+    "Existence": "VS2",
+    "Clues": "Gスクラッチ EXVS.2稼働1周年記念キャンペーン"
+  },
+  {
+    "ID": 103,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 104,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 105,
+    "Value": "シナンジュ",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 106,
+    "Value": "Crossbone Gundam",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 107,
+    "Value": "Shuffle Club",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 108,
+    "Value": "アストレイレッドフレーム(レッドドラゴン)",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 109,
+    "Value": "ダブルオーガンダムセブンソード\/G",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 110,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 111,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 112,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 113,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 114,
+    "Value": "WINTER BATTLE優勝(2020)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「WINTER BATTLE 2019」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 115,
+    "Value": "WINTER BATTLE準優勝(2020)",
+    "Existence": "VS2",
+    "Clues": "店舗大会「WINTER BATTLE 2019」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 116,
+    "Value": "VS２_レッド",
+    "Existence": "VS2",
+    "Clues": "チュートリアルアワード『「称号」を初めて設定する』"
+  },
+  {
+    "ID": 117,
+    "Value": "VS２_ブルー",
+    "Existence": "VS2",
+    "Clues": "最初から所持"
+  },
+  {
+    "ID": 118,
+    "Value": "SDガンダム30周年 騎士ガンダム",
+    "Existence": "VS2",
+    "Clues": "イベントミッション『騎士ガンダム[SDガンダム30周年]』（2019\/03\/28~2019\/04\/07）でL.20達成"
+  },
+  {
+    "ID": 119,
+    "Value": "ガンダムキュリオス",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムキュリオス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 120,
+    "Value": "PREMIUM DOGFIGHT 2019 優勝",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」優勝チーム（2名）"
+  },
+  {
+    "ID": 121,
+    "Value": "PREMIUM DOGFIGHT 2019 準優勝",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」準優勝チーム（2名）"
+  },
+  {
+    "ID": 122,
+    "Value": "PREMIUM DOGFIGHT 2019 ベスト8",
+    "Existence": "VS2",
+    "Clues": "「PREMIUM DOGFIGHT 2019」ベスト8チーム（12名）"
+  },
+  {
+    "ID": 123,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 124,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 125,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 126,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 127,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 128,
+    "Value": "イージスガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『イージスガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 129,
+    "Value": "高機動型ザクⅡ改（シン・マツナガ機）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『高機動型ザクⅡ改（シン・マツナガ機）[EX]』でL.20達成"
+  },
+  {
+    "ID": 130,
+    "Value": "ウイングガンダムフェニーチェ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ウイングガンダムフェニーチェ[EX]』でL.10達成"
+  },
+  {
+    "ID": 131,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 132,
+    "Value": "カバカーリー",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『カバカーリー[EX]』でL.10達成"
+  },
+  {
+    "ID": 133,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 134,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 135,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 136,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 137,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 138,
+    "Value": "SUMMER BATTLE 2022 Champion",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 139,
+    "Value": "SUMMER BATTLE 2022 Runner-Up",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 140,
+    "Value": "ドーベン・ウルフ",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 141,
+    "Value": "ダブルオーダイバーエース",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムダブルオーダイバーエース[EX]』でL.10達成"
+  },
+  {
+    "ID": 142,
+    "Value": "シナンジュ・スタイン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『シナンジュ・スタイン[EX]』でL.10達成"
+  },
+  {
+    "ID": 143,
+    "Value": "ブシドー",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『スサノオ[EX]』でL.10達成"
+  },
+  {
+    "ID": 144,
+    "Value": "Zガンダムバイオセンサー",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『Zガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 145,
+    "Value": "ザクⅡ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ザクⅡ[EX]』でLv.20達成"
+  },
+  {
+    "ID": 146,
+    "Value": "スタンダード（レッド）",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 147,
+    "Value": "スタンダード（グリーン）",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 148,
+    "Value": "スタンダード（ブルー）",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 149,
+    "Value": "スタンダード（イエロー）",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 150,
+    "Value": "スタンダード（ピンク）",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 151,
+    "Value": "ガンダムシュピーゲル",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムシュピーゲル[EX]』でL.10達成"
+  },
+  {
+    "ID": 152,
+    "Value": "AGE System",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 153,
+    "Value": "レッドフレーム（全部載せ）",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ロウ・ギュール搭乗機[EX]』でL.10達成"
+  },
+  {
+    "ID": 154,
+    "Value": "チームトリニティ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ガンダムスローネドライ[EX]』でL.10達成"
+  },
+  {
+    "ID": 155,
+    "Value": "デスティニーガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『デスティニーガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 156,
+    "Value": "クシャトリヤ",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『クシャトリヤ[EX]』でL.10達成"
+  },
+  {
+    "ID": 157,
+    "Value": "Hi-νガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『Hi-νガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 158,
+    "Value": "トールギスIII",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『トールギスIII[EX]』でL.10達成"
+  },
+  {
+    "ID": 159,
+    "Value": "ケルディムガンダム",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『ケルディムガンダム[EX]』でL.10達成"
+  },
+  {
+    "ID": 160,
+    "Value": "ネオ・ジオン",
+    "Existence": "VS2",
+    "Clues": "キャラクターミッション『キュベレイ[EX]』でL.10達成"
+  },
+  {
+    "ID": 161,
+    "Value": "サザビー",
+    "Existence": "VS2"
+  },
+  {
+    "ID": 162,
+    "Value": "シャッフルマスターズ2021（金）",
+    "Existence": "VS2",
+    "Clues": "「シャッフルマスターズ2021」オンライン予選1位～8位のプレイヤー（9名）"
+  },
+  {
+    "ID": 163,
+    "Value": "シャッフルマスターズ2021（銀）",
+    "Existence": "VS2",
+    "Clues": "「シャッフルマスターズ2021」オンライン予選1位～100位のプレイヤー（100名）"
+  },
+  {
+    "ID": 164,
+    "Value": "EXVS.10周年記念ゲージ",
+    "Existence": "VS2",
+    "Clues": "家庭用【EXVS.マキシブーストON】特典受取"
+  },
+  {
+    "ID": 165,
+    "Value": "EXVS",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 166,
+    "Value": "EXVSFB.",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 167,
+    "Value": "EXVSMB.",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 168,
+    "Value": "EXVSMBON.",
+    "Existence": "VS2",
+    "Clues": "エクストラGスクラッチ　EXVS.シリーズ10周年記念キャンペーン"
+  },
+  {
+    "ID": 169,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 170,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 171,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 172,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 173,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 174,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 175,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 176,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 177,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 178,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 179,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 180,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 181,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 182,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 183,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 184,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 185,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 186,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 187,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 188,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 189,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 190,
+    "Value": "スタービルドストライクガンダム",
+    "Existence": "XB"
+  },
+  {
+    "ID": 191,
+    "Value": "ユニコーンガンダム3号機フェネクス",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ユニコーンガンダム3号機フェネクス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 192,
+    "Value": "ガンダム・フラウロス（流星号）",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ガンダム・フラウロス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 193,
+    "Value": "ヒルドルブ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ヒルドルブ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 194,
+    "Value": "Gundam Age",
+    "Existence": "XB"
+  },
+  {
+    "ID": 195,
+    "Value": "デスサイズヘル",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ガンダムデスサイズヘル[EX]』でLv.10達成"
+  },
+  {
+    "ID": 196,
+    "Value": "サイ・サイシー",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ドラゴンガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 197,
+    "Value": "インフィニットジャスティスガンダム",
+    "Existence": "XB"
+  },
+  {
+    "ID": 198,
+    "Value": "ラーディッシュ",
+    "Existence": "XB"
+  },
+  {
+    "ID": 199,
+    "Value": "ディジェ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ディジェ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 200,
+    "Value": "高機動型ゲルググ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『高機動型ゲルググ（ヴィンセント機）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 201,
+    "Value": "RXｰ零丸",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『RXｰ零丸[EX]』でLv.10達成"
+  },
+  {
+    "ID": 202,
+    "Value": "オーヴェロン",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『オーヴェロン[EX]』でLv.10達成"
+  },
+  {
+    "ID": 203,
+    "Value": "イフリート(シュナイド機)",
+    "Existence": "XB"
+  },
+  {
+    "ID": 204,
+    "Value": "プレシーズンレベルゲージ",
+    "Existence": "XB",
+    "Clues": "プレシーズンでレベル90"
+  },
+  {
+    "ID": 205,
+    "Value": "シーズン1レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン1でレベル90"
+  },
+  {
+    "ID": 206,
+    "Value": "シーズン3レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン3でレベル90"
+  },
+  {
+    "ID": 207,
+    "Value": "シーズン2レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン2でレベル90"
+  },
+  {
+    "ID": 208,
+    "Value": "シーズン4レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン4でレベル90"
+  },
+  {
+    "ID": 209,
+    "Value": "ガラッゾ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ガラッゾ （ヒリング・ケア機）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 210,
+    "Value": "ダハック",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ダハック[EX]』でLv.10達成"
+  },
+  {
+    "ID": 211,
+    "Value": "インパルスガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『インパルスガンダム（ルナマリア搭乗）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 212,
+    "Value": "ガンダム(Gメカ)",
+    "Existence": "XB"
+  },
+  {
+    "ID": 213,
+    "Value": "アークエンジェル",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『キラ・ヤマト搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 214,
+    "Value": "ガンダムAGE-2",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ガンダムAGE-2[EX]』でLv.10達成"
+  },
+  {
+    "ID": 215,
+    "Value": "ハイネ・ヴェステンフルス",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『グフイグナイテッド[EX]』でLv.10達成"
+  },
+  {
+    "ID": 216,
+    "Value": "ウイングガンダムスノーホワイトプレリュード",
+    "Existence": "XB"
+  },
+  {
+    "ID": 217,
+    "Value": "スターゲイザー",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『スターゲイザー[EX]』でLv.10達成"
+  },
+  {
+    "ID": 218,
+    "Value": "バンシィ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『バンシィ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 219,
+    "Value": "アナクロニズム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『アッガイ（ハマーン搭乗）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 220,
+    "Value": "ガイアガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ガイアガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 221,
+    "Value": "エクシア＆アヴァランチエクシア",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『刹那・Ｆ・セイエイ搭乗機(1st)[EX]』でLv.10達成"
+  },
+  {
+    "ID": 222,
+    "Value": "スタンダードゲージ（モノクロ）",
+    "Existence": "XB",
+    "Clues": "選べる！エクストラ機体再取得＋キャンペーン"
+  },
+  {
+    "ID": 223,
+    "Value": "スタンダードゲージ（グリーン&パープル）",
+    "Existence": "XB",
+    "Clues": "エクストラGスクラッチ"
+  },
+  {
+    "ID": 224,
+    "Value": "ゼイドラ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ゼイドラ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 225,
+    "Value": "N-EXTREMEガンダム エクスプロージョン",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『N-EXTREMEガンダム エクスプロージョン[EX]』でLv.10達成"
+  },
+  {
+    "ID": 226,
+    "Value": "N-EXTREMEガンダム ザナドゥ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『N-EXTREMEガンダム ザナドゥ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 227,
+    "Value": "N-EXTREMEガンダム ヴィシャス",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『N-EXTREMEガンダム ヴィシャス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 228,
+    "Value": "N-EXTREMEガンダム スプレマシー",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『N-EXTREMEガンダム スプレマシー[EX]』でLv.10達成"
+  },
+  {
+    "ID": 229,
+    "Value": "ジャスティスガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ジャスティスガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 230,
+    "Value": "カプル",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『カプル[EX]』でLv.10達成"
+  },
+  {
+    "ID": 231,
+    "Value": "トールギス",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『トールギス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 232,
+    "Value": "ウイングガンダムゼロ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ウイングガンダムゼロ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 233,
+    "Value": "V2ガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ウッソ・エヴィン搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 234,
+    "Value": "ガンダムデュナメス",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ガンダムデュナメス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 235,
+    "Value": "インフィニットジャスティスガンダム（ラクス搭乗）",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『インフィニットジャスティスガンダム（ラクス搭乗）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 236,
+    "Value": "スタンダードゲージ（クロスブースト）",
+    "Existence": "XB",
+    "Clues": "EXVS.2XB 1周年記念キャンペーン 第2弾"
+  },
+  {
+    "ID": 237,
+    "Value": "スタンダードゲージ（パープル）",
+    "Existence": "XB",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 238,
+    "Value": "SUMMER BATTLE優勝(2021)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2021」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 239,
+    "Value": "SUMMER BATTLE準優勝(2021)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2021」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 240,
+    "Value": "AUTUMN BATTLE優勝(2021)",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2021」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 241,
+    "Value": "AUTUMN BATTLE準優勝(2021)",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2021」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 242,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 243,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 244,
+    "Value": "ビギナ・ギナII（木星決戦仕様）",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ビギナ・ギナII（木星決戦仕様）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 245,
+    "Value": "グラハム専用ユニオンフラッグカスタム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『グラハム専用ユニオンフラッグカスタム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 246,
+    "Value": "カラミティガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『カラミティガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 247,
+    "Value": "フォビドゥンガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『フォビドゥンガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 248,
+    "Value": "レイダーガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『レイダーガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 249,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 250,
+    "Value": "Zガンダム（ルー搭乗）",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『Zガンダム（ルー搭乗）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 251,
+    "Value": "コアガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『アースリィガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 252,
+    "Value": "戦国アストレイ頑駄無",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『戦国アストレイ頑駄無[EX]』でLv.10達成"
+  },
+  {
+    "ID": 253,
+    "Value": "Gauge 253",
+    "Existence": "XB"
+  },
+  {
+    "ID": 254,
+    "Value": "ドレッドノートイータ",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ドレッドノートイータ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 255,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 256,
+    "Value": "ガンダム試作1号機フルバーニアン",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 257,
+    "Value": "バスターガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『バスターガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 258,
+    "Value": "デュエルガンダムアサルトシュラウド",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『デュエルガンダムアサルトシュラウド[EX]』でLv.10達成"
+  },
+  {
+    "ID": 259,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 260,
+    "Value": "RX-93ff νガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『RX-93ff νガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 261,
+    "Value": "シーズン5レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン5でレベル90"
+  },
+  {
+    "ID": 262,
+    "Value": "シーズン6レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン6でレベル90"
+  },
+  {
+    "ID": 263,
+    "Value": "シーズン7レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン7でレベル90"
+  },
+  {
+    "ID": 264,
+    "Value": "シーズン8レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン8でレベル90"
+  },
+  {
+    "ID": 265,
+    "Value": "シーズン9レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン9でレベル90"
+  },
+  {
+    "ID": 266,
+    "Value": "WINTER BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 267,
+    "Value": "WINTER BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 268,
+    "Value": "ゴールドスモー",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ゴールドスモー[EX]』でLv.10達成"
+  },
+  {
+    "ID": 269,
+    "Value": "SPRING BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 270,
+    "Value": "SPRING BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SPRING BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 271,
+    "Value": "SUMMER BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 272,
+    "Value": "SUMMER BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「SUMMER BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 273,
+    "Value": "AUTUMN BATTLE優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 274,
+    "Value": "AUTUMN BATTLE準優勝(2022)",
+    "Existence": "XB",
+    "Clues": "店舗大会「AUTUMN BATTLE 2022」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 275,
+    "Value": "スタンダードゲージ（チームAAカラー）",
+    "Existence": "XB",
+    "Clues": "エクストラGスクラッチ Project N-EXTREME 新機体リリース記念キャンペーン 第１弾"
+  },
+  {
+    "ID": 276,
+    "Value": "スタンダードゲージ（チームIXカラー）",
+    "Existence": "XB",
+    "Clues": "エクストラGスクラッチ Project N-EXTREME 新機体リリース記念キャンペーン 第２弾"
+  },
+  {
+    "ID": 277,
+    "Value": "ブリッツガンダム",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『ブリッツガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 278,
+    "Value": "νガンダムHWS",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『νガンダムHWS[EX]』でLv.10達成"
+  },
+  {
+    "ID": 279,
+    "Value": "ビギナ・ギナ",
+    "Existence": "XB"
+  },
+  {
+    "ID": 280,
+    "Value": "リグ・コンティオ",
+    "Existence": "OBv7",
+    "Clues": "キャラクターミッション『リグ・コンティオ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 281,
+    "Value": "ガンダムダブルオースカイ",
+    "Existence": "OBv7",
+    "Clues": "キャラクターミッション『ガンダムダブルオースカイ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 282,
+    "Value": "トーリスリッター",
+    "Existence": "XB",
+    "Clues": "キャラクターミッション『トーリスリッター[EX]』でLv.10達成"
+  },
+  {
+    "ID": 283,
+    "Value": "ガンダムエクシアダークマター",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 284,
+    "Value": "WINTER BATTLE優勝(2023)",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 285,
+    "Value": "WINTER BATTLE準優勝(2023)",
+    "Existence": "XB",
+    "Clues": "店舗大会「WINTER BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 286,
+    "Value": "オリジナルガンダムモチーフゲージ",
+    "Existence": "XB",
+    "Clues": "機動戦士ガンダム N-EXTREME 第１巻 購入特典"
+  },
+  {
+    "ID": 287,
+    "Value": "オリジナルガンダムモチーフゲージ2",
+    "Existence": "XB",
+    "Clues": "エクストラGスクラッチ クロブオリジナルアイテムフェア"
+  },
+  {
+    "ID": 288,
+    "Value": "Gauge 288",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 289,
+    "Value": "PREMIUM DOGFIGHT 2022 優勝",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」優勝チーム（2名）"
+  },
+  {
+    "ID": 290,
+    "Value": "PREMIUM DOGFIGHT 2022 準優勝",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」準優勝チーム（2名）"
+  },
+  {
+    "ID": 291,
+    "Value": "PREMIUM DOGFIGHT 2022 ベスト8",
+    "Existence": "XB",
+    "Clues": "「PREMIUM DOGFIGHT 2022」ベスト8チーム（12名）"
+  },
+  {
+    "ID": 292,
+    "Value": "シーズン10レベルゲージ",
+    "Existence": "XB",
+    "Clues": "シーズン10でレベル90"
+  },
+  {
+    "ID": 293,
+    "Value": "PDF2017リファイン",
+    "Existence": "XB",
+    "Clues": "エクストラGスクラッチ PREMIUM DOGFIGHT 2022 開催記念キャンペーン"
+  },
+  {
+    "ID": 294,
+    "Value": "PDF2015リファイン",
+    "Existence": "XB",
+    "Clues": "エクストラGスクラッチ PREMIUM DOGFIGHT 2022 開催記念キャンペーン"
+  },
+  {
+    "ID": 295,
+    "Value": "PDF2022 優勝者予想キャンペーン",
+    "Existence": "XB",
+    "Clues": "PREMIUM DOGFIGHT 2022 優勝チーム投票キャンペーン 予想的中"
+  },
+  {
+    "ID": 296,
+    "Value": "Bamboo Build Try",
+    "Existence": "XB"
+  },
+  {
+    "ID": 297,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 298,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 299,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 300,
+    "Value": "OB_レッド",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 301,
+    "Value": "OB_ブルー",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 302,
+    "Value": "OB_パープル",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 303,
+    "Value": "ガンダム・エアリアル",
+    "Existence": "OBv7",
+    "Clues": "キャラクターミッション『ガンダム・エアリアル[EX]』でLv.10達成"
+  },
+  {
+    "ID": 304,
+    "Value": "パーフェクトストライクガンダム",
+    "Existence": "OBv7",
+    "Clues": "キャラクターミッション『パーフェクトストライクガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 305,
+    "Value": "クロスボーン・ガンダムX3",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 306,
+    "Value": "ハイペリオンガンダム",
+    "Existence": "OBv7",
+    "Clues": "キャラクターミッション『ハイペリオンガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 307,
+    "Value": "ドレッドノートガンダム(Xアストレイ)",
+    "Existence": "OBv7"
+  },
+  {
+    "ID": 308,
+    "Value": "OB稼働記念ゲージ",
+    "Existence": "OBv7",
+    "Clues": "有料会員限定"
+  },
+  {
+    "ID": 309,
+    "Value": "最高到達ランクEXX（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Clues": "EXVS.2XBでEXXランクに到達"
+  },
+  {
+    "ID": 310,
+    "Value": "最高到達ランクEX（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Clues": "EXVS.2XBでEXランクに到達"
+  },
+  {
+    "ID": 311,
+    "Value": "最高到達ランクS（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Clues": "EXVS.2XBでSランクに到達"
+  },
+  {
+    "ID": 312,
+    "Value": "最高到達ランクA（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Clues": "EXVS.2XBでAランクに到達"
+  },
+  {
+    "ID": 313,
+    "Value": "最高到達ランクB（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Clues": "EXVS.2XBでBランクに到達"
+  },
+  {
+    "ID": 314,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 315,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 316,
+    "Value": "オーバーブーストパスVol:1ゲージ",
+    "Existence": "OBv7",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 317,
+    "Value": "オーバーブーストパスVol:2ゲージ",
+    "Existence": "OBv7",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 318,
+    "Value": "オーバーブーストパスVol:3ゲージ",
+    "Existence": "OBv7",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 319,
+    "Value": "オーバーブーストパスVol:4ゲージ",
+    "Existence": "OBv9",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 320,
+    "Value": "オーバーブーストパスVol:5ゲージ",
+    "Existence": "OBv13",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 321,
+    "Value": "オーバーブーストパスVol:6ゲージ",
+    "Existence": "OBv13",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 322,
+    "Value": "ガンダムレギルス",
+    "Existence": "OBv7",
+    "Clues": "キャラクターミッション『ガンダムレギルス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 323,
+    "Value": "ガンダム・ファラクト",
+    "Existence": "OBv9",
+    "Clues": "キャラクターミッション『ガンダム・ファラクト[EX]』でLv.10達成"
+  },
+  {
+    "ID": 324,
+    "Value": "トランザムバースト",
+    "Existence": "OBv9",
+    "Clues": "キャラクターミッション『刹那・Ｆ・セイエイ搭乗機(2nd)[EX]』でLv.10達成"
+  },
+  {
+    "ID": 325,
+    "Value": "AUTUMN BATTLE優勝(2023)",
+    "Existence": "OBv7",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 326,
+    "Value": "AUTUMN BATTLE準優勝(2023)",
+    "Existence": "OBv7",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 327,
+    "Value": "ゴトラタン",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『カテジナ・ルース搭乗機[EX]』でLv.10達成"
+  },
+  {
+    "ID": 328,
+    "Value": "アストレイゴールドフレーム天",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『アストレイゴールドフレーム天[EX]』でLv.10達成"
+  },
+  {
+    "ID": 329,
+    "Value": "ローゼン・ズール",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ローゼン・ズール[EX]』でLv.10達成"
+  },
+  {
+    "ID": 330,
+    "Value": "ヘカテー",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ヘカテー[EX]』でLv.10達成"
+  },
+  {
+    "ID": 331,
+    "Value": "ガンダムサンドロック改",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ガンダムサンドロック改[EX]』でLv.10達成"
+  },
+  {
+    "ID": 332,
+    "Value": "ダリルバルデ",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ダリルバルデ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 333,
+    "Value": "ライジングフリーダムガンダム",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ライジングフリーダムガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 334,
+    "Value": "WINTER BATTLE優勝(2024)",
+    "Existence": "OBv9",
+    "Clues": "店舗大会「WINTER BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 335,
+    "Value": "WINTER BATTLE準優勝(2024)",
+    "Existence": "OBv9",
+    "Clues": "店舗大会「WINTER BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 336,
+    "Value": "SPRING BATTLE優勝(2024)",
+    "Existence": "OBv13",
+    "Clues": "店舗大会「SPRING BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 337,
+    "Value": "SPRING BATTLE準優勝(2024)",
+    "Existence": "OBv13",
+    "Clues": "店舗大会「SPRING BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 338,
+    "Value": "ストライクルージュ(オオトリ装備)",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ストライクルージュ（オオトリ装備）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 339,
+    "Value": "インフィニットジャスティスガンダム弐式",
+    "Existence": "OBv18",
+    "Clues": "キャラクターミッション『インフィニットジャスティスガンダム弐式[EX]』でLv.10達成"
+  },
+  {
+    "ID": 340,
+    "Value": "ベルガ・ギロス",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『ベルガ・ギロス[EX]』でLv.10達成"
+  },
+  {
+    "ID": 341,
+    "Value": "クロスボーン・ガンダムX2改",
+    "Existence": "OBv13",
+    "Clues": "キャラクターミッション『クロスボーン・ガンダムX2改[EX]』でLv.10達成"
+  },
+  {
+    "ID": 342,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 343,
+    "Value": "オーバーブーストパスVol:7ゲージ",
+    "Existence": "OBv16",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 344,
+    "Value": "オーバーブーストパスVol:8ゲージ",
+    "Existence": "OBv18",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 345,
+    "Value": "オーバーブーストパスVol:9ゲージ",
+    "Existence": "OBv18",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 346,
+    "Value": "オーバーブーストパスVol:10ゲージ",
+    "Existence": "OBv24",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 347,
+    "Value": "アヘッド脳量子波対応型（スマルトロン）",
+    "Existence": "OBv16",
+    "Clues": "キャラクターミッション『アヘッド脳量子波対応型（スマルトロン）[EX]』でLv.10達成"
+  },
+  {
+    "ID": 348,
+    "Value": "EXVS.2 OB 1st ANNIVERSARY",
+    "Existence": "OBv16",
+    "Clues": "1st Anniversaryキャンペーン 1回プレイ"
+  },
+  {
+    "ID": 349,
+    "Value": "ティエレンタオツー",
+    "Existence": "OBv16",
+    "Clues": "キャラクターミッション『ティエレンタオツー[EX]』でLv.10達成"
+  },
+  {
+    "ID": 350,
+    "Value": "ラファエルガンダム",
+    "Existence": "OBv16",
+    "Clues": "キャラクターミッション『ラファエルガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 351,
+    "Value": "Invalid",
+    "Existence": "NotExist"
+  },
+  {
+    "ID": 352,
+    "Value": "トランジェントガンダム",
+    "Existence": "OBv19",
+    "Clues": "キャラクターミッション『トランジェントガンダム[EX]』でLv.10達成"
+  },
+  {
+    "ID": 353,
+    "Value": "ガンダムヘビーアームズ改",
+    "Existence": "OBv19",
+    "Clues": "キャラクターミッション『ガンダムヘビーアームズ改[EX]』でLv.10達成"
+  },
+  {
+    "ID": 354,
+    "Value": "ターンX",
+    "Existence": "OBv20",
+    "Clues": "キャラクターミッション『ターンＸ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 355,
+    "Value": "PDF2025優勝",
+    "Existence": "OBv24",
+    "Clues": "「PREMIUM DOGFIGHT 2025」優勝チーム（2名）"
+  },
+  {
+    "ID": 356,
+    "Value": "PDF2025準優勝",
+    "Existence": "OBv24",
+    "Clues": "「PREMIUM DOGFIGHT 2025」準優勝チーム（2名）"
+  },
+  {
+    "ID": 357,
+    "Value": "PDF2025ベスト8",
+    "Existence": "OBv24",
+    "Clues": "「PREMIUM DOGFIGHT 2025」ベスト8チーム（12名）"
+  },
+  {
+    "ID": 358,
+    "Value": "ガンダムスローネツヴァイ",
+    "Existence": "OBv22",
+    "Clues": "キャラクターミッション『ガンダムスローネツヴァイ[EX]』でLv.10達成"
+  },
+  {
+    "ID": 359,
+    "Value": "SUMMER BATTLE優勝(2024)",
+    "Existence": "OBv16",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 360,
+    "Value": "SUMMER BATTLE準優勝(2024)",
+    "Existence": "OBv16",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 361,
+    "Value": "AUTUMN BATTLE優勝(2024)",
+    "Existence": "OBv19",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の優勝チーム（2名）"
+  },
+  {
+    "ID": 362,
+    "Value": "AUTUMN BATTLE準優勝(2024)",
+    "Existence": "OBv19",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」各大会の準優勝チーム（2名）"
+  },
+  {
+    "ID": 365,
+    "Value": "スタンダードゲージ（パープル）",
+    "Existence": "OBv19",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 366,
+    "Value": "スタンダードゲージ（パープル）",
+    "Existence": "OBv19",
+    "Clues": "リバイバルショップ"
+  },
+  {
+    "ID": 367,
+    "Value": "バンシィ・ノルン2",
+    "Existence": "OBv20",
+    "Clues": "キャラクターミッション『バンシィ・ノルン[EX]』でLv.10達成"
+  },
+  {
+    "ID": 368,
+    "Value": "ガンダム・エアリアル（改修型）",
+    "Existence": "OBv20"
+  },
+  {
+    "ID": 369,
+    "Value": "ガンダム・キャリバーン",
+    "Existence": "OBv20"
+  },
+  {
+    "ID": 370,
+    "Value": "PDF2025本戦出場",
+    "Existence": "OBv24",
+    "Clues": "「PREMIUM DOGFIGHT 2025」本戦出場チーム（102名）"
+  },
+  {
+    "ID": 371,
+    "Value": "オーバーブーストパスVol:11ゲージ",
+    "Existence": "OBv24",
+    "Clues": "オーバーブーストパスでstage:60"
+  }
+]
