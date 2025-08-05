@@ -355,7 +355,7 @@ public:
     {
         memset(arr, 0, sizeof (*arr));
 
-        double ver_d = std::stod("25.11");
+        double ver_d = std::stod("27.22");
 
         int ver_top = (int) ver_d;
         int ver_btm = (int) (ver_d * 100);
@@ -428,7 +428,7 @@ public:
 
         strcpy_s(version->game_ver, "4.80");
         strcpy_s(version->game_cd, "GOB1");
-        strcpy_s(version->cacfg_game_ver, "25.11");
+        strcpy_s(version->cacfg_game_ver, "27.22");
 
         strcpy_s(version->game_board_type, "0");
         strcpy_s(version->game_board_id, "PCB");
