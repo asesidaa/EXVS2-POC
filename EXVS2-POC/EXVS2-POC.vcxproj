@@ -225,7 +225,7 @@
     <ClInclude Include="banapass.h" />
     <ClInclude Include="COMHooks.h" />
     <ClInclude Include="Configs.h" />
-    <ClInclude Include="cpu\over\ObV25.h" />
+    <ClInclude Include="cpu\over\ObV27.h" />
     <ClInclude Include="cpu\vs2\Vs2V29.h" />
     <ClInclude Include="cpu\xb\XbV27.h" />
     <ClInclude Include="DisplayConstants.h" />

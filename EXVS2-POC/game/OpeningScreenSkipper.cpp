@@ -7,7 +7,7 @@
 
 void skip_opening_screen(GameVersion game_version, uintptr_t exe_base_pointer, const long long base_address)
 {
-    auto opening_screen_bypass_offset = VS2_XB_OB(0x1408AEC37, 0x140926497, 0x1409901B7) - base_address;
+    auto opening_screen_bypass_offset = VS2_XB_OB(0x1408AEC37, 0x140926497, 0x140990AC7) - base_address;
 
     if(globalConfig.OpeningScreenSkip == "None")
     {

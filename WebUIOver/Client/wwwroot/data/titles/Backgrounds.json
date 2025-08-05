@@ -5762,11 +5762,32 @@
     "Clues": "「PREMIUM DOGFIGHT 2025」全国決勝大会ライブ配信 キーワード入力「INFINITEBOOST」"
   },
   {
+    "Id": 954,
+    "Value": "オーバーブーストパスVol:11プレート",
+    "Existence": "OBv26",
+    "Category": "イベント",
+    "Clues": "オーバーブーストパスVol:11プレート - オーバーブーストパスでstage:30"
+  },
+  {
     "Id": 955,
     "Value": "APFSDS装填",
     "Existence": "OBv24",
     "Category": "チャレンジミッション",
     "Clues": "ヒルドルブ[EX]"
+  },
+  {
+    "Id": 956,
+    "Value": "バンシィ・ノルン",
+    "Existence": "OBv26",
+    "Category": "チャレンジミッション",
+    "Clues": "バンシィ・ノルン[EX]"
+  },
+  {
+    "Id": 957,
+    "Value": "トーリスリッター",
+    "Existence": "OBv26",
+    "Category": "チャレンジミッション",
+    "Clues": "トーリスリッター[EX]"
   },
   {
     "Id": 6001,
@@ -5946,7 +5967,7 @@
   {
     "Id": 6026,
     "Value": "極吉",
-    "Existence": "OBv24",
+    "Existence": "OBv26",
     "Category": "ランダム称号",
     "Clues": "おみくじ(2025)"
   }

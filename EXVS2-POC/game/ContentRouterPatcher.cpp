@@ -27,7 +27,7 @@ void patch_content_router(GameVersion game_version, uintptr_t exe_base_pointer, 
         return;
     }
     
-    auto content_router_offset = XB_OB(0x14069CA90, 0x1406B5080) - base_address;
+    auto content_router_offset = XB_OB(0x14069CA90, 0x1406B5BB0) - base_address;
     injector::WriteMemoryRaw(exe_base_pointer + content_router_offset, (void*)"\x31\xC0\xFF\xC0", 4, true);
     injector::MakeNOP(exe_base_pointer + content_router_offset + 4, 0x25 - 4, true);
 }

@@ -2380,6 +2380,12 @@
     "Clues": "リグ・コンティオ"
   },
   {
+    "ID": 403,
+    "Value": "できるっ！！",
+    "Existence": "OB",
+    "Clues": "インフィニットジャスティスガンダム弐式"
+  },
+  {
     "ID": 404,
     "Value": "私達なら、きっといいチームになりますよ！",
     "Existence": "OB",
@@ -2450,5 +2456,29 @@
     "Value": "少しくらい遊ばせてくれよ！",
     "Existence": "OBv22",
     "Clues": "ガンダムスローネツヴァイ"
+  },
+  {
+    "ID": 418,
+    "Value": "この身に代えて守ってみせる！",
+    "Existence": "OB",
+    "Clues": "トーリスリッター"
+  },
+  {
+    "ID": 419,
+    "Value": "ここからがクライマックスだ！！",
+    "Existence": "OB",
+    "Clues": "オーバーブーストパスでstage:60"
+  },
+  {
+    "ID": 420,
+    "Value": "運命よ　そこをどけ　俺が通る道だ",
+    "Existence": "OB",
+    "Clues": "SEASON BATTLE THE FINAL"
+  },
+  {
+    "ID": 421,
+    "Value": "遊びでやってんじゃねぇんだ！！",
+    "Existence": "OB",
+    "Clues": "デスティニーガンダム(ハイネ機)"
   }
 ]

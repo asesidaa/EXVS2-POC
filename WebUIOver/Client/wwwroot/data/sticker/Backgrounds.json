@@ -1926,6 +1926,42 @@
     "Clues": "「PREMIUM DOGFIGHT 2025」優勝者予想キャンペーン　予想的中報酬"
   },
   {
+    "Id": 317,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 318,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 319,
+    "Value": "月間Overクラスランキング チーム100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 320,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 321,
+    "Value": "オーバーブーストパス stage:90 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 322,
+    "Value": "クラスマッチミッションを全てクリア (2025/3)",
+    "Existence": "OBv26",
+    "Category": "クラスマッチミッション"
+  },
+  {
     "Id": 323,
     "Value": "エクストリームファン投票_デスティニーガンダム",
     "Existence": "OBv24",
@@ -1966,5 +2002,41 @@
     "Existence": "OBv24",
     "Category": "大会",
     "Clues": "「PREMIUM DOGFIGHT 2025」植田佳奈賞/月城莉奈賞（4名）"
+  },
+  {
+    "Id": 329,
+    "Value": "SEASON BATTLE THE FINAL 優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 330,
+    "Value": "SEASON BATTLE THE FINAL 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 331,
+    "Value": "SEASON BATTLE THE FINAL",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 332,
+    "Value": "EVO JAPAN 2025 優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 333,
+    "Value": "EVO JAPAN 2025 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 334,
+    "Value": "EVO JAPAN 2025 ベスト8",
+    "Existence": "OBv27",
+    "Category": "大会"
   }
 ]

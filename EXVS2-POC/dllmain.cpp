@@ -35,7 +35,7 @@
 #include "log.h"
 #include "NbamUsbFinderHook.h"
 #include "amauth/v3/AmAuthEmuV3.h"
-#include "cpu/over/ObV25.h"
+#include "cpu/over/ObV27.h"
 #include "cpu/vs2/Vs2V29.h"
 #include "cpu/xb/XbV27.h"
 #include "file/RentalModeFileCleaner.h"
@@ -83,7 +83,7 @@ GameVersion GetGameVersion()
             return XBoost_450;
         }
 
-        if(entryOffset == 0x53c114)
+        if(entryOffset == 0x53c9ac)
         {
             return Overboost_480;
         }
@@ -139,7 +139,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
             
             auto base = reinterpret_cast<char*>(GetModuleHandle(nullptr));
             std::vector<void*> patch_targets;
-            const auto& TARGETS = VS2_XB_OB(PATCH_TARGETS_VS2_V29, PATCH_TARGETS_XBOOST_V27, PATCH_TARGETS_OVERBOOST_V25);
+            const auto& TARGETS = VS2_XB_OB(PATCH_TARGETS_VS2_V29, PATCH_TARGETS_XBOOST_V27, PATCH_TARGETS_OVERBOOST_V27);
             for (auto offset : TARGETS) {
                 patch_targets.push_back(base + offset);
             }

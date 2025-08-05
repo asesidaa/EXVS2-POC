@@ -363,6 +363,30 @@
     "Category": "大会"
   },
   {
+    "Id": 63,
+    "Value": "Overランキングトライアル100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 64,
+    "Value": "Overランキングトライアル1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 65,
+    "Value": "Overランキングトライアル連続100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 66,
+    "Value": "Overランキングトライアル連続1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
     "Id": 67,
     "Value": "エクストリームファン投票_デスティニーガンダム",
     "Existence": "OBv24",
@@ -396,5 +420,17 @@
     "Id": 72,
     "Value": "LEGEND OF CLASS MATCH",
     "Existence": "OBv24"
+  },
+  {
+    "Id": 73,
+    "Value": "SEASON BATTLE THE FINAL 優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 74,
+    "Value": "SEASON BATTLE THE FINAL 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
   }
 ]

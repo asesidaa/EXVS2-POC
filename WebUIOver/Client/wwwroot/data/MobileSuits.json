@@ -170,6 +170,10 @@
       {
         "Id": 1,
         "Value": "FBポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBONポーズド"
       }
     ]
   },
@@ -401,6 +405,10 @@
       {
         "Id": 1,
         "Value": "MBポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "EXVSポーズド"
       }
     ]
   },
@@ -759,6 +767,10 @@
       {
         "Id": 1,
         "Value": "EXVSポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBONポーズド"
       }
     ]
   },
@@ -1963,6 +1975,10 @@
       {
         "Id": 1,
         "Value": "MBONポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBポーズド"
       }
     ]
   },
@@ -2401,6 +2417,10 @@
       {
         "Id": 1,
         "Value": "MBポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "FBポーズド"
       }
     ]
   },
@@ -2651,6 +2671,10 @@
       {
         "Id": 1,
         "Value": "FBポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBポーズド"
       }
     ]
   },
@@ -3035,6 +3059,10 @@
       {
         "Id": 1,
         "Value": "MBONポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBポーズド"
       }
     ]
   },
@@ -3347,6 +3375,10 @@
       {
         "Id": 1,
         "Value": "MBポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "EXVSポーズド"
       }
     ]
   },
@@ -3755,6 +3787,40 @@
     ]
   },
   {
+    "Id": 135,
+    "Value": "Destiny Gundam Heine Westenfluss Custom",
+    "ValueJP": "デスティニーガンダム(ハイネ機)",
+    "ValueCN": "命运高达 (海涅机)",
+    "ValueTC": "命運高達 (海涅機)",
+    "ValueTC2": "命運鋼彈 (海涅機)",
+    "Pilot": "Heine Westtenfluss",
+    "PilotJP": "ハイネ・ヴェステンフルス",
+    "PilotCN": "海涅·威斯藤夫鲁斯",
+    "PilotTC": "海涅·威斯坦弗斯",
+    "PilotTC2": "海涅·威斯坦弗斯",
+    "PilotSeiyuu": "Nishikawa Takanori",
+    "PilotSeiyuuJP": "西川貴教",
+    "PilotSeiyuuCN": "西川贵教",
+    "PilotSeiyuuTC": "西川貴教",
+    "PilotSeiyuuTC2": "西川貴教",
+    "Series": "Mobile Suit Gundam SEED Destiny",
+    "SeriesJP": "機動戦士ガンダムSEED DESTINY",
+    "SeriesCN": "机动战士高达SEED DESTINY",
+    "SeriesTC": "機動戰士高達SEED DESTINY",
+    "SeriesTC2": "機動戰士鋼彈SEED DESTINY",
+    "Cost": 2500,
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "ザフト制服"
+      }
+    ]
+  },
+  {
     "Id": 137,
     "Value": "Akatsuki Gundam",
     "ValueJP": "アカツキ",
@@ -3891,6 +3957,10 @@
       {
         "Id": 1,
         "Value": "EXVSポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBポーズド"
       }
     ]
   },
@@ -4637,6 +4707,10 @@
       {
         "Id": 1,
         "Value": "FBポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBONポーズド"
       }
     ]
   },
@@ -4891,6 +4965,10 @@
       {
         "Id": 1,
         "Value": "EXVSポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBONポーズド"
       }
     ]
   },
@@ -5195,6 +5273,10 @@
       {
         "Id": 1,
         "Value": "EXVSポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBポーズド"
       }
     ],
     "Skins": [
@@ -6177,6 +6259,10 @@
       {
         "Id": 1,
         "Value": "MBONポーズド"
+      },
+      {
+        "Id": 2,
+        "Value": "MBポーズド"
       }
     ]
   },
@@ -6415,6 +6501,16 @@
       {
         "Id": 1,
         "Value": "ノーマルスーツ"
+      }
+    ],
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
       }
     ]
   },
@@ -6701,6 +6797,16 @@
       {
         "Id": 1,
         "Value": "MBポーズド"
+      }
+    ],
+    "Skins": [
+      {
+        "Id": 0,
+        "Value": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "特務隊仕様"
       }
     ]
   },
@@ -7033,6 +7139,16 @@
       {
         "Id": 1,
         "Value": "制服"
+      }
+    ],
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
       }
     ]
   },
@@ -7838,7 +7954,17 @@
     "SeriesCN": "机动战士高达外传 失落的节点",
     "SeriesTC": "機動戰士高達外傳 MISSING LINK",
     "SeriesTC2": "機動戰士鋼彈外傳 MISSING LINK",
-    "Cost": 2000
+    "Cost": 2000,
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
+      }
+    ]
   },
   {
     "Id": 268,
@@ -8027,6 +8153,16 @@
       {
         "Id": 1,
         "Value": "ジオン軍服"
+      }
+    ],
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
       }
     ]
   },
@@ -8594,6 +8730,16 @@
         "Id": 1,
         "Value": "ネオ・ジオン制服"
       }
+    ],
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
+      }
     ]
   },
   {
@@ -8627,6 +8773,16 @@
       {
         "Id": 1,
         "Value": "学生服"
+      }
+    ],
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
       }
     ]
   },
@@ -9288,6 +9444,16 @@
         "Id": 1,
         "Value": "リボンズ隊私服"
       }
+    ],
+    "Poses": [
+      {
+        "Id": 0,
+        "Value": "Default"
+      },
+      {
+        "Id": 1,
+        "Value": "OBポーズドB"
+      }
     ]
   },
   {
@@ -9812,6 +9978,64 @@
     "SeriesCN": "高达创斗者TRY",
     "SeriesTC": "高達創戰者TRY",
     "SeriesTC2": "鋼彈創鬥者TRY",
+    "Cost": 2500
+  },
+  {
+    "Id": 323,
+    "Value": "Infinite Justice Gundam Type II",
+    "ValueJP": "インフィニットジャスティスガンダム弐式",
+    "ValueCN": "无限正义高达二式",
+    "ValueTC": "無限正義高達二型",
+    "ValueTC2": "無限正義鋼彈貳式",
+    "Pilot": "Athrun Zala",
+    "PilotJP": "アスラン・ザラ",
+    "PilotCN": "阿斯兰·萨拉",
+    "PilotTC": "亞斯蘭·察拉",
+    "PilotTC2": "阿斯蘭·薩拉",
+    "PilotSeiyuu": "Ishida Akira",
+    "PilotSeiyuuJP": "石田彰",
+    "PilotSeiyuuCN": "石田彰",
+    "PilotSeiyuuTC": "石田彰",
+    "PilotSeiyuuTC2": "石田彰",
+    "Series": "Mobile Suit Gundam SEED Freedom",
+    "SeriesJP": "機動戦士ガンダムSEED FREEDOM",
+    "SeriesCN": "机动战士高达SEED FREEDOM",
+    "SeriesTC": "機動戰士高達SEED FREEDOM",
+    "SeriesTC2": "機動戰士鋼彈SEED FREEDOM",
+    "Cost": 3000,
+    "Costumes": [
+      {
+        "Id": 0,
+        "Value": "デフォルト"
+      },
+      {
+        "Id": 1,
+        "Value": "私服"
+      }
+    ]
+  },
+  {
+    "Id": 326,
+    "Value": "Todesritter",
+    "ValueJP": "トーリスリッター",
+    "ValueCN": "死亡骑士",
+    "ValueTC": "死亡騎士",
+    "ValueTC2": "死亡騎士",
+    "Pilot": "Chloe Croce",
+    "PilotJP": "クロエ・クローチェ",
+    "PilotCN": "克洛艾·克罗切",
+    "PilotTC": "克洛艾·克羅切",
+    "PilotTC2": "克洛艾·克羅切",
+    "PilotSeiyuu": "Noto Mamiko",
+    "PilotSeiyuuJP": "能登麻美子",
+    "PilotSeiyuuCN": "能登麻美子",
+    "PilotSeiyuuTC": "能登麻美子",
+    "PilotSeiyuuTC2": "能登麻美子",
+    "Series": "Mobile Suit Gundam Side Story: Missing Link",
+    "SeriesJP": "機動戦士ガンダム外伝 ミッシングリンク",
+    "SeriesCN": "机动战士高达外传 失落的节点",
+    "SeriesTC": "機動戰士高達外傳 MISSING LINK",
+    "SeriesTC2": "機動戰士鋼彈外傳 MISSING LINK",
     "Cost": 2500
   },
   {
@@ -10772,6 +10996,30 @@
     "SeriesCN": "机动战士高达 水星的魔女",
     "SeriesTC": "機動戰士高達 水星的魔女",
     "SeriesTC2": "機動戰士鋼彈 水星的魔女",
+    "Cost": 0
+  },
+  {
+    "Id": 50068,
+    "Value": "RANDOM",
+    "ValueJP": "ランダム",
+    "ValueCN": "随机",
+    "ValueTC": "隨機",
+    "ValueTC2": "隨機",
+    "Pilot": "/",
+    "PilotJP": "/",
+    "PilotCN": "/",
+    "PilotTC": "/",
+    "PilotTC2": "/",
+    "PilotSeiyuu": "/",
+    "PilotSeiyuuJP": "/",
+    "PilotSeiyuuCN": "/",
+    "PilotSeiyuuTC": "/",
+    "PilotSeiyuuTC2": "/",
+    "Series": "Mobile Suit Gundam SEED Freedom",
+    "SeriesJP": "機動戦士ガンダムSEED FREEDOM",
+    "SeriesCN": "机动战士高达SEED FREEDOM",
+    "SeriesTC": "機動戰士高達SEED FREEDOM",
+    "SeriesTC2": "機動戰士鋼彈SEED FREEDOM",
     "Cost": 0
   },
   {

@@ -181,6 +181,15 @@
   },
   {
     "CourseCategory": "A",
+    "CourseName": "A-21",
+    "CourseId": 252,
+    "CompleteBadgeId": 452,
+    "HighScoreBadgeId": 472,
+    "NoDamageBadgeId": 492,
+    "GoldScore": 210000
+  },
+  {
+    "CourseCategory": "A",
     "CourseName": "A-99",
     "CourseId": 100,
     "CompleteBadgeId": 511,
@@ -577,6 +586,15 @@
   },
   {
     "CourseCategory": "C",
+    "CourseName": "C-21",
+    "CourseId": 266,
+    "CompleteBadgeId": 466,
+    "HighScoreBadgeId": 486,
+    "NoDamageBadgeId": 506,
+    "GoldScore": 210000
+  },
+  {
+    "CourseCategory": "C",
     "CourseName": "C-99",
     "CourseId": 102,
     "CompleteBadgeId": 531,
@@ -699,6 +717,15 @@
     "CompleteBadgeId": 52,
     "HighScoreBadgeId": 105,
     "NoDamageBadgeId": 158,
+    "GoldScore": 140000
+  },
+  {
+    "CourseCategory": "D",
+    "CourseName": "D-14",
+    "CourseId": 59,
+    "CompleteBadgeId": 53,
+    "HighScoreBadgeId": 106,
+    "NoDamageBadgeId": 159,
     "GoldScore": 140000
   },
   {

@@ -31550,6 +31550,102 @@
     "Clues2": "Lv.15&30"
   },
   {
+    "Id": 4082,
+    "Value": "ターミナル",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★5"
+  },
+  {
+    "Id": 4083,
+    "Value": "修正してやれる友達",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★10"
+  },
+  {
+    "Id": 4084,
+    "Value": "叶えたい望み",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★15"
+  },
+  {
+    "Id": 4085,
+    "Value": "やはり最強",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★20"
+  },
+  {
+    "Id": 4086,
+    "Value": "生きる意志",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★MASTER"
+  },
+  {
+    "Id": 4087,
+    "Value": "平和を支える者達",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "Lv.15&30"
+  },
+  {
+    "Id": 4088,
+    "Value": "ターミナル (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★5"
+  },
+  {
+    "Id": 4089,
+    "Value": "修正してやれる友達 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★10"
+  },
+  {
+    "Id": 4090,
+    "Value": "叶えたい望み (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★15"
+  },
+  {
+    "Id": 4091,
+    "Value": "やはり最強 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★20"
+  },
+  {
+    "Id": 4092,
+    "Value": "生きる意志 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "★MASTER"
+  },
+  {
+    "Id": 4093,
+    "Value": "平和を支える者達 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "インフィニットジャスティスガンダム弐式",
+    "Clues2": "Lv.15&30"
+  },
+  {
     "Id": 4094,
     "Value": "プライド",
     "Existence": "OBv16",
@@ -31951,12 +32047,263 @@
     "Clues2": "Lv.15&30"
   },
   {
+    "Id": 4172,
+    "Value": "死の騎士、再び",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★5"
+  },
+  {
+    "Id": 4173,
+    "Value": "技術屋の悪ノリ",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★10"
+  },
+  {
+    "Id": 4174,
+    "Value": "諸刃の剣",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★15"
+  },
+  {
+    "Id": 4175,
+    "Value": "守る為の呪縛",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★20"
+  },
+  {
+    "Id": 4176,
+    "Value": "呪いの終焉",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★MASTER"
+  },
+  {
+    "Id": 4177,
+    "Value": "BISTRO GLEISSNER",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "Lv.15&30"
+  },
+  {
+    "Id": 4178,
+    "Value": "死の騎士、再び (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★5"
+  },
+  {
+    "Id": 4179,
+    "Value": "技術屋の悪ノリ (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★10"
+  },
+  {
+    "Id": 4180,
+    "Value": "諸刃の剣 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★15"
+  },
+  {
+    "Id": 4181,
+    "Value": "守る為の呪縛 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★20"
+  },
+  {
+    "Id": 4182,
+    "Value": "呪いの終焉 (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "★MASTER"
+  },
+  {
+    "Id": 4183,
+    "Value": "BISTRO GLEISSNER (プレミアム)",
+    "Existence": "OBv26",
+    "Category": "機体別称号",
+    "Clues": "トーリスリッター",
+    "Clues2": "Lv.15&30"
+  },
+  {
+    "Id": 4184,
+    "Value": "画竜点睛",
+    "Existence": "OBv26",
+    "Category": "アワード",
+    "Clues": "オーバーブーストパス",
+    "Clues2": "stage:10 (2025/3)"
+  },
+  {
+    "Id": 4185,
+    "Value": "CLASS MATCH LAST EMPEROR's",
+    "Existence": "OBv26",
+    "Category": "アワード",
+    "Clues": "Overランキングトライアル",
+    "Clues2": "月間Overランキング20位以内 (2025/3)"
+  },
+  {
     "Id": 4186,
     "Value": "バースト・ランサー",
     "Existence": "OBv24",
     "Category": "キャラクターミッション",
     "Clues": "トランジェントガンダム",
     "Clues2": "トランジェントガンダム[EX] Lv.20"
+  },
+  {
+    "Id": 4187,
+    "Value": "SEASON BATTLE THE FINAL 優勝",
+    "Existence": "OBv27",
+    "Category": "大会",
+    "Clues": "特殊"
+  },
+  {
+    "Id": 4188,
+    "Value": "SEASON BATTLE THE FINAL 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会",
+    "Clues": "特殊"
+  },
+  {
+    "Id": 4189,
+    "Value": "CONCLUDERS 04",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★5"
+  },
+  {
+    "Id": 4190,
+    "Value": "オレンジショルダー",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★10"
+  },
+  {
+    "Id": 4191,
+    "Value": "戦場に出れば皆同じ",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★15"
+  },
+  {
+    "Id": 4192,
+    "Value": "ザフトをなめるな!!!",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★20"
+  },
+  {
+    "Id": 4193,
+    "Value": "緋蝶",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★MASTER"
+  },
+  {
+    "Id": 4194,
+    "Value": "X42S-REVOLUTION",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "Lv.15&30"
+  },
+  {
+    "Id": 4195,
+    "Value": "CONCLUDERS 04 (プレミアム)",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★5"
+  },
+  {
+    "Id": 4196,
+    "Value": "オレンジショルダー (プレミアム)",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★10"
+  },
+  {
+    "Id": 4197,
+    "Value": "戦場に出れば皆同じ (プレミアム)",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★15"
+  },
+  {
+    "Id": 4198,
+    "Value": "ザフトをなめるな!!! (プレミアム)",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★20"
+  },
+  {
+    "Id": 4199,
+    "Value": "緋蝶 (プレミアム)",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "★MASTER"
+  },
+  {
+    "Id": 4200,
+    "Value": "X42S-REVOLUTION (プレミアム)",
+    "Existence": "OBv27",
+    "Category": "機体別称号",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "Lv.15&30"
+  },
+  {
+    "Id": 4201,
+    "Value": "夭折のエース",
+    "Existence": "OBv27",
+    "Category": "キャラクターミッション",
+    "Clues": "デスティニーガンダム(ハイネ機)",
+    "Clues2": "デスティニーガンダム(ハイネ機)[EX] Lv.20"
+  },
+  {
+    "Id": 4202,
+    "Value": "EVO JAPAN 2025 優勝",
+    "Existence": "OBv27",
+    "Category": "大会",
+    "Clues": "特殊"
+  },
+  {
+    "Id": 4203,
+    "Value": "EVO JAPAN 2025 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会",
+    "Clues": "特殊"
+  },
+  {
+    "Id": 4204,
+    "Value": "EVO JAPAN 2025 本戦出場",
+    "Existence": "OBv27",
+    "Category": "大会",
+    "Clues": "特殊"
   },
   {
     "Id": 6001,

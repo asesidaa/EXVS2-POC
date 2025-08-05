@@ -80,7 +80,7 @@ void patch_resolution(GameVersion game_version, uintptr_t exe_base_pointer, cons
     injector::WriteMemory(exe_base_pointer + full_hd_window_offset, windowWidth, true);
     injector::WriteMemory(exe_base_pointer + full_hd_window_offset + 0xA, windowHeight, true);
     
-    auto resolution_check_offset = VS2_XB_OB(0x14068DF60, 0x1406DFE80, 0x140709D50) - base_address;
+    auto resolution_check_offset = VS2_XB_OB(0x14068DF60, 0x1406DFE80, 0x14070A510) - base_address;
     injector::WriteMemory(exe_base_pointer + resolution_check_offset, targetWidth, true);
     injector::WriteMemory(exe_base_pointer + resolution_check_offset + 0x9, targetHeight, true);
     

@@ -277,7 +277,6 @@ static void ReadInputConfig(InputConfig* config, INIReader& reader)
 
         ControllerConfig controllerConfig;
         controllerConfig.Enabled = reader.GetBoolean(section, "Enabled", true);
-        controllerConfig.Connected = false;
         controllerConfig.DeviceId = reader.GetInteger(section, "DeviceId", 16);
         controllerConfig.DevicePath = reader.GetOptional(section, "Path");
         controllerConfig.DeviceName = reader.GetOptional(section, "Name");

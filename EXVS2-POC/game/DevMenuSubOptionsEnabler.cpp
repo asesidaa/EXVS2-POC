@@ -60,6 +60,6 @@ static char __fastcall dev_menu_options_hook(__int64 a1, int a2)
 
 void enable_dev_menu_sub_options(GameVersion game_version, uintptr_t exe_base_pointer, const long long base_address)
 {
-    auto dev_menu_options = VS2_XB_OB(0x14064C320, 0x140695E60, 0x1406BB3C0) - base_address;
+    auto dev_menu_options = VS2_XB_OB(0x14064C320, 0x140695E60, 0x1406BBEF0) - base_address;
     MH_CreateHook(reinterpret_cast<void**>(exe_base_pointer + dev_menu_options), dev_menu_options_hook, reinterpret_cast<void**>(&dev_menu_options_orig));
 }

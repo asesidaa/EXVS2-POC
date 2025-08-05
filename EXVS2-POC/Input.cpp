@@ -544,11 +544,11 @@ struct RawInputManager
             return true;
         }
         
-        for (const auto& it : config->ConnectedControllers)
+        for (const auto& it : config->Controllers)
         {
             const auto& controller = it.second;
 
-            if (controller.Connected && controller.Mode.value() == XINPUT_NATIVE)
+            if (controller.Mode.value() == XINPUT_NATIVE && controller.LastXInputState)
             {
                 return true;
             }
@@ -565,17 +565,11 @@ struct RawInputManager
         if (config->KeyboardEnabled)
             InputStateGetKeyboard(&result, config.get());
 
-        for (const auto& it : config->ConnectedControllers)
+        for (const auto& it : config->Controllers)
         {
             const auto& controller = it.second;
-
-            if (controller.Mode.value() == XINPUT || controller.Mode.value() == XINPUT_NATIVE)
-            {
-                continue;
-            }
-            
             std::shared_ptr<InputState> state = std::atomic_load(&controller.LastState);
-            if (state)
+            if (controller.Enabled && state)
             {
                 result.Merge(*state);
             }
@@ -593,11 +587,11 @@ struct RawInputManager
             return false;
         }
         
-        for (const auto& it : config->ConnectedControllers)
+        for (const auto& it : config->Controllers)
         {
             const auto& controller = it.second;
 
-            if (controller.Mode.value() != XINPUT)
+            if (controller.Mode.value() == XINPUT_NATIVE)
             {
                 continue;
             }
@@ -613,17 +607,17 @@ struct RawInputManager
     std::optional<XINPUT_STATE> GetXInputState()
     {
         std::shared_ptr<InputConfig> config = inputConfig_.load();
-        for (const auto& it : config->ConnectedControllers)
+        for (const auto& it : config->Controllers)
         {
             const auto& controller = it.second;
-            
+
             if (controller.Mode.value() == XINPUT_NATIVE)
             {
                 continue;
             }
             
             auto xinputState = std::atomic_load(&controller.LastXInputState);
-            if (xinputState)
+            if (controller.Enabled && xinputState)
                 return *xinputState;
         }
 
@@ -637,7 +631,7 @@ struct RawInputManager
             return;
 
         info("Device arrived: %s", device->Path().c_str());
-        
+
         std::lock_guard<std::mutex> lock(mutex_);
         devices_.insert({handle, device});
         for (size_t i = 0; i < devicesByIndex_.size(); ++i)
@@ -648,36 +642,6 @@ struct RawInputManager
                 devicesByIndex_[i] = device;
                 break;
             }
-        }
-
-        std::shared_ptr<InputConfig> config = inputConfig_.load();
-        for (auto& controllerIt : config->Controllers)
-        {
-            ControllerConfig& controllerConfig = controllerIt.second;
-
-            if (!controllerConfig.Enabled)
-            {
-                continue;
-            }
-
-            bool matched = false;
-            matched |= controllerConfig.DevicePath && controllerConfig.DevicePath == device->Path();
-            matched |= controllerConfig.DeviceName && controllerConfig.DeviceName == device->Name();
-
-            if (controllerConfig.DeviceId >= 0 && controllerConfig.DeviceId < 16)
-            {
-                matched |= devicesByIndex_[controllerConfig.DeviceId] == device;
-            }
-
-            if (!matched)
-            {
-                continue;
-            }
-
-            controllerConfig.Connected = true;
-            info("Controller %s marked Connected.", device->Name()->c_str());
-
-            config->ConnectedControllers.insert_or_assign(controllerIt.first, controllerConfig);
         }
 
         DumpDevicesLocked();
@@ -714,20 +678,10 @@ struct RawInputManager
         if (!device) return;
 
         std::shared_ptr<InputConfig> config = inputConfig_.load();
-        
-        for (auto& it : config->ConnectedControllers)
+        for (auto& it : config->Controllers)
         {
             ControllerConfig& controllerConfig = it.second;
-
-            if (controllerConfig.Mode.value() == XINPUT_NATIVE)
-            {
-                continue;
-            }
-
-            if (config->EmulatedXInputEnabled == false && controllerConfig.Mode.value() == XINPUT)
-            {
-                continue;
-            }
+            if (!controllerConfig.Enabled) continue;
 
             bool matched = false;
             matched |= controllerConfig.DevicePath && controllerConfig.DevicePath == device->Path();
@@ -739,6 +693,16 @@ struct RawInputManager
             }
 
             if (!matched) continue;
+
+            if (controllerConfig.Mode.value() == XINPUT_NATIVE)
+            {
+                continue;
+            }
+
+            if (config->EmulatedXInputEnabled == false && controllerConfig.Mode.value() == XINPUT)
+            {
+                continue;
+            }
 
             if (KeyBinds* keybinds = std::get_if<KeyBinds>(&controllerConfig.Bindings))
             {
@@ -773,15 +737,16 @@ struct RawInputManager
         auto it = devices_.find(handle);
         if (it == devices_.end())
             fatal("state corruption: failed to find device that left");
-
-        std::shared_ptr<InputConfig> config = inputConfig_.load();
+        
         for (auto& device : devicesByIndex_)
         {
             if (device == it->second)
             {
-                for (auto& controllerIt : config->ConnectedControllers)
+                std::shared_ptr<InputConfig> config = inputConfig_.load();
+                for (auto& controllerIt : config->Controllers)
                 {
                     ControllerConfig& controllerConfig = controllerIt.second;
+                    if (!controllerConfig.Enabled) continue;
 
                     bool matched = false;
                     matched |= controllerConfig.DevicePath && controllerConfig.DevicePath == device->Path();
@@ -797,17 +762,14 @@ struct RawInputManager
                         continue;
                     }
 
-                    controllerConfig.Connected = false;
-                    info("Controller %s marked Disconnected.", device->Name()->c_str());
+                    controllerConfig.LastState.reset();
+                    controllerConfig.LastXInputState.reset();
 
-                    config->ConnectedControllers.erase(controllerIt.first);
                 }
                 
                 device = nullptr;
             }
         }
-
-        
 
         devices_.erase(it);
     }

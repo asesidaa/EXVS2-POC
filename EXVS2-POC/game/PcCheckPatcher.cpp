@@ -47,7 +47,7 @@ void patch_pc_check(GameVersion game_version, uintptr_t exe_base_pointer, const 
     MH_CreateHookApi(L"user32.dll", "GetRawInputDeviceInfoW", GetRawInputDeviceInfoWHook, reinterpret_cast<void**>(&g_origGetRawInputDeviceInfoW));
     info("Disable Keyboard Checking...");
     
-    auto hardware_detection_function_offset = 0x1404528A0 - base_address;
+    auto hardware_detection_function_offset = 0x140452A60 - base_address;
     MH_CreateHook(reinterpret_cast<void**>(exe_base_pointer + hardware_detection_function_offset), hardware_detection_function_hook, reinterpret_cast<void**>(&hardware_detection_function_orig));
     info("Disable Hardware Checking...");
 }

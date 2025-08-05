@@ -139,7 +139,6 @@ struct ControllerConfig
 {
     // Config options
     bool Enabled;
-    bool Connected;
     int DeviceId;
     std::optional<std::string> DevicePath;
     std::optional<std::string> DeviceName;
@@ -162,7 +161,6 @@ struct InputConfig
     KeyBinds KeyboardBindings;
 
     std::unordered_map<std::string, ControllerConfig> Controllers;
-    std::unordered_map<std::string, ControllerConfig> ConnectedControllers;
 
     std::string Dump(const std::string& prefix = "") const;
 };
