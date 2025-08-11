@@ -23,7 +23,8 @@ std::wstring vswprintf_except_it_actually_fucking_works(const char* fmt, va_list
 
 void log(LogLevel level, _Printf_format_string_ const char *format, ...)
 {
-	if (level > g_logLevel) return;
+    if (level > g_logLevel)
+        return;
 
     va_list args;
     va_start(args, format);

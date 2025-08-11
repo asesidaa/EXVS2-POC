@@ -1,0 +1,107 @@
+﻿@using WebUIOver.Client.Context.CustomizeCard
+@using WebUIOver.Client.Pages.Dialogs
+@using WebUIOver.Client.Services.Common
+@using WebUIOver.Shared.Dto.Common
+@using WebUIOVer.Shared.Dto.Common
+
+@inject IDialogService DialogService
+@inject ICommonDataService CommonDataService
+
+<MudCard Outlined="true" Class="my-2" Elevation="5">
+    <MudCardHeader>
+        <MudText>@DisplayLabel</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudGrid Class="align-center">
+            @for (var i = 0; i < 10; i++)
+            {
+                int index = i;
+                uint stageId = 0;
+                var stageColumnLabel = $"{@localizer["stage"]} {index + 1}";
+
+                if (BasicProfile is not null)
+                {
+                    stageId = BasicProfile.StageRandoms[i];
+                }
+                
+                var stageImagePath = $"images/stages/{stageId}.webp";
+                var stage = CommonDataService.GetStageById(stageId);
+                var stageName = stage?.Value ?? localizer["unknown_stage"];
+                
+                <MudItem xs="4" sm="5">
+                    <MudField Label="@stageColumnLabel" Variant="Variant.Outlined">
+                        @if (stage is not null && EnableImagePreview)
+                        {
+                            <div class="d-flex justify-center">
+                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@stageImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="720"/>
+                            </div>
+                        }
+                        <div class="d-flex justify-center">
+                            <MudText Align="Align.Center">@((MarkupString)stageName)</MudText>
+                        </div>
+                    </MudField>
+                </MudItem>
+                <MudItem xs="2" sm="1">
+                    <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                   OnClick="() => OpenChangeStageDialog(index)"/>
+                </MudItem>
+            }
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+@code
+{
+    [Parameter] 
+    public string Type { get; set; } = "Basic";
+    
+    [Parameter] 
+    public BasicProfile? BasicProfile { get; set; }
+    
+    [Parameter] 
+    public string DisplayLabel { get; set; } = string.Empty;
+
+    [Parameter] public bool EnableImagePreview { get; set; } = true;
+
+    private const bool ForDataCollection = false;
+    
+    private async Task OpenChangeStageDialog(int index)
+    {
+        uint stageId = 0;
+
+        if (BasicProfile != null)
+        {
+            stageId = BasicProfile.StageRandoms[index];
+        }
+        
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { stageId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Stage: "},
+            { "ImagePathPrefix", "images/stages"},
+            { "Mode", "Stages" }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_stage"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            if (BasicProfile is not null)
+            {
+                BasicProfile.StageRandoms[index] = (result.Data as uint[])!.FirstOrDefault();
+            }
+            
+            StateHasChanged();
+        }
+    }
+    
+    private static readonly DialogOptions DialogOptions = new()
+    {
+        CloseOnEscapeKey = false,
+        BackdropClick = false,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}

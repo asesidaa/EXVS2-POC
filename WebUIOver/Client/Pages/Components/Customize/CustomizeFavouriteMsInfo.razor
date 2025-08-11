@@ -1,0 +1,206 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Shared.Dto.Enum
+@using WebUIOver.Client.Pages.Dialogs
+@using WebUIOver.Client.Services.Name
+@using WebUIOVer.Shared.Dto.Common
+@inherits BasicCustomizeComponent
+
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+@inject INameService NameService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["favmssetting"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideFavMsProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack Row>
+                    <MudButton OnClick="@AddFavouriteMobileSuitItem" Variant="Variant.Filled" Color="@Color.Primary" Class="mb-4 add-item-btn">@localizer["additem"]</MudButton>
+                </MudStack>
+                <MudStack>
+                    <MudDataGrid 
+                        Elevation="5"
+                        Items="@CustomizeCardContext.FavouriteMsCollection"
+                        Filterable="false"
+                        ReadOnly="true"
+                        EditMode="@(DataGridEditMode.Cell)"
+                        EditTrigger="@(DataGridEditTrigger.OnRowClick)"
+                        SortMode="@SortMode.None"
+                        Groupable="false">
+                        <Columns>
+                            <PropertyColumn Property="x => x.MsId" Editable="true" Title="@localizer["favmsdialog_mstitle"]">
+                                <CellTemplate>
+                                    @{
+                                        var mobileSuitImagePath = $"images/mobile_suits/{context.Item.MsId}.webp";
+                                    }
+                                    <div class="d-flex flex-grow-1 gap-4">
+                                        <div class="d-flex flex-none my-auto">
+                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@mobileSuitImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                        </div>
+                                        <div class="d-flex my-auto">
+                                            @NameService.GetMobileSuitName(context.Item.MsId)
+                                        </div>
+                                    </div>
+                                </CellTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x.MsId" Title="@localizer["favmsdialog_pilottitle"]">
+                                <CellTemplate>
+                                    <div style="width: 100%; text-align: center;">
+                                        @{
+                                            var pilotImagePath = $"images/pilots/{context.Item.MsId}_0.webp";
+                                            var pilotName = NameService.GetMobileSuitPilotName(context.Item.MsId);
+
+                                            if (pilotName == "-" || pilotName == "?" || pilotName == "/")
+                                            {
+                                                <MudText Typo="Typo.body2">@pilotName</MudText>
+                                            }
+                                            else
+                                            {
+                                                <MudImage ObjectPosition="ObjectPosition.Center" Src="@pilotImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="180"/>
+                                                <br/>
+                                                <MudText Typo="Typo.body2">@pilotName</MudText>
+                                            }
+                                        }
+                                    </div>
+                                </CellTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x.BurstType" Title="@localizer["favmsdialog_bursttype"]">
+                                <CellTemplate>
+                                    <div style="width: 100%; text-align: center;">
+                                        @{
+                                            var burstImagePath = $"images/bursts/{(int) context.Item.BurstType}.webp";
+                                        }
+                                        <MudImage ObjectPosition="ObjectPosition.Center" Src="@burstImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="55"/>
+                                        <br/>
+                                        <MudText Typo="Typo.body2">@context.Item.BurstType</MudText>
+                                    </div>
+                                </CellTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x.BattleNaviId" Title="@localizer["favmsdialog_inbattlenavi"]">
+                                <CellTemplate>
+                                    <div style="width: 100%; text-align: center;">
+                                        @{
+                                            var naviImagePath = $"images/navis/{context.Item.BattleNaviId}.webp";
+                                        }
+                                        <MudImage ObjectPosition="ObjectPosition.Center" Src="@naviImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                        <br/>
+                                        <MudText Typo="Typo.body2">@NameService.GetNavigatorName(context.Item.BattleNaviId)</MudText>
+                                    </div>
+                                </CellTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x">
+                                <CellTemplate>
+                                    <MudStack Row>
+                                        <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                                       OnClick="() => OpenCustomizeFavouriteMsDialog(context.Item)" />
+                                        <MudIconButton Variant="Variant.Filled" Size="Size.Small" Color="Color.Error"
+                                                       Icon="@Icons.Material.Filled.Delete" OnClick="() => RemoveFavouriteUnit(context)"></MudIconButton>
+                                    </MudStack>
+                                </CellTemplate>
+                            </PropertyColumn>
+                        </Columns>
+                    </MudDataGrid>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+    
+    private readonly int _maximumFavouriteMs = 6;
+    
+    private void AddFavouriteMobileSuitItem()
+    {
+        if (CustomizeCardContext.FavouriteMsCollection.Count >= _maximumFavouriteMs)
+        {
+            Snackbar.Add($"{localizer["validate_addrow_1"]}{_maximumFavouriteMs}{localizer["validate_addrow_2"]}", Severity.Warning);
+            return;
+        }
+
+        var newDefaultTitle = new Title
+        {
+            TextId = 0,
+            OrnamentId = 0,
+            EffectId = 0,
+            BackgroundPartsId = 0
+        };
+        
+        var newTriadTitle = new Title
+        {
+            TextId = 0,
+            OrnamentId = 0,
+            EffectId = 0,
+            BackgroundPartsId = 0
+        };
+        
+        var newClassMatchTitle = new Title
+        {
+            TextId = 0,
+            OrnamentId = 0,
+            EffectId = 0,
+            BackgroundPartsId = 0
+        };
+
+        var newItem = new FavouriteMs
+        {
+            MsId = 1,
+            GaugeDesignId = 0,
+            BgmPlayingMethod = BgmPlayingMethod.None,
+            BgmList = new uint[] { },
+            BattleNaviId = 0,
+            BurstType = BurstType.Covering,
+            DefaultTitle = newDefaultTitle,
+            TriadTitle = newTriadTitle,
+            ClassMatchTitle = newClassMatchTitle
+        };
+
+        CustomizeCardContext.FavouriteMsCollection.Add(newItem);
+    }
+    
+    private async Task OpenCustomizeFavouriteMsDialog(FavouriteMs item)
+    {
+        var index = CustomizeCardContext.FavouriteMsCollection.IndexOf(item);
+
+        if (index == -1)
+            throw new ArgumentException("Selected item is not part of the provided items list.");
+
+        var parameters = new DialogParameters
+        {
+            { "Data", item },
+            { "AggregatedMobileSuits", CustomizeCardContext.AggregetedMobileSuits },
+            { "EnableImagePreview", EnableImagePreview }
+        };
+        var dialog = await DialogService.ShowAsync<CustomizeFavMsDialog>(localizer["dialogtitle_favms"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeCardContext.FavouriteMsCollection[index] = (result.Data as FavouriteMs);
+            StateHasChanged();
+        }
+    }
+    
+    private void RemoveFavouriteUnit(CellContext<FavouriteMs> cellContext)
+    {
+        var itemHashCode = cellContext.Item.GetHashCode();
+        var item = CustomizeCardContext.FavouriteMsCollection.FirstOrDefault(x => x.GetHashCode() == itemHashCode);
+
+        if (item != null)
+            CustomizeCardContext.FavouriteMsCollection.Remove(item);
+    }
+}

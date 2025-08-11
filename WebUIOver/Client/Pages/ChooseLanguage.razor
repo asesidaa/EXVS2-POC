@@ -1,0 +1,38 @@
+﻿@using System.Globalization
+@inject ILogger<ChooseLanguage> Logger
+@inject NavigationManager NavigationManager
+@inject IConfiguration Configuration
+@inject IJSRuntime JSRuntime
+
+@if (cultures != null)
+{
+	<MudMenu Icon="@Icons.Material.Filled.Language" Color="Color.Inherit">
+		@foreach (var culture in cultures)
+		{
+			<MudMenuItem OnClick="() => RequestCultureChange(culture.Key)">@culture.Value</MudMenuItem>
+		}
+	</MudMenu>
+}
+
+@code{
+	private string selectedCulture = Thread.CurrentThread.CurrentCulture.Name;
+
+	Dictionary<CultureInfo, string> cultures = new Dictionary<CultureInfo, string>
+	{
+		{ new CultureInfo("en-US"), "English" },
+		{ new CultureInfo("zh-Hans"), "中文" },
+		{ new CultureInfo("zh-Hant"), "繁體中文1" },
+		{ new CultureInfo("zh-Hant-TW"), "繁體中文2" },
+		{ new CultureInfo("ja"), "日本語 (WIP)" }
+	};
+
+	private void RequestCultureChange(CultureInfo newCulture)
+	{
+		if (CultureInfo.CurrentCulture != newCulture)
+		{
+			var js = (IJSInProcessRuntime)JSRuntime;
+			js.InvokeVoid("blazorCulture.set", newCulture.Name);
+			NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+		}
+	}
+}

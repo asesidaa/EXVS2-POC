@@ -1,0 +1,223 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Shared.Dto.Enum
+@using WebUIOver.Client.Validator
+@using WebUIOver.Client.Constants
+@using WebUIOver.Client.Pages.Dialogs
+@using WebUIOver.Client.Services.Common
+@using WebUIOver.Client.Services.Display
+@using WebUIOver.Client.Services.Name
+@using WebUIOver.Client.Services.Triad
+@inherits BasicCustomizeComponent
+
+@inject ILogger<CustomizeCard> Logger
+@inject IDialogService DialogService
+@inject INameValidator NameValidator
+@inject ICommonDataService CommonDataService
+@inject INameService NameService
+@inject ITriadDataService TriadDataService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["cputriadpartner"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideTriadPartnerProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10" sm="11">
+                                <MudField Label="@localizer["triad_cpums"]" Variant="Variant.Outlined">
+                                    @{
+                                        var mobileSuitImagePath = $"images/mobile_suits/{CustomizeCardContext.CpuTriadPartner.MobileSuitId}.webp";
+                                    }
+                                    <div class="d-flex flex-grow-1 gap-4">
+                                        <div class="d-flex flex-none my-auto">
+                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@mobileSuitImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                        </div>
+                                        <div class="d-flex my-auto">
+                                            <MudText>@NameService.GetMobileSuitName(CustomizeCardContext.CpuTriadPartner.MobileSuitId) / @NameService.GetMobileSuitPilotName(CustomizeCardContext.CpuTriadPartner.MobileSuitId)</MudText>
+                                        </div>
+                                    </div>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2" sm="1" Style="text-align: right">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenCpuTriadMobileSuitUiDialog()" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="12" sm="6">
+                                <MudSlider @bind-Value="CustomizeCardContext.CpuTriadPartner.ArmorLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_armor"]</MudSlider>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSlider @bind-Value="CustomizeCardContext.CpuTriadPartner.ShootAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_shooting"]</MudSlider>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSlider @bind-Value="CustomizeCardContext.CpuTriadPartner.InfightAttackLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_infight"]</MudSlider>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSlider @bind-Value="CustomizeCardContext.CpuTriadPartner.BoosterLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_boost"]</MudSlider>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSlider @bind-Value="CustomizeCardContext.CpuTriadPartner.ExGaugeLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_exgauge"]</MudSlider>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSlider @bind-Value="CustomizeCardContext.CpuTriadPartner.AiLevel" ValueLabel="true" Variant="Variant.Filled" Min="0" Max="100">@localizer["triad_ai"]</MudSlider>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="12" sm="6">
+                                <MudSelect @bind-Value="CustomizeCardContext.CpuTriadPartner.Skill1" T="uint"
+                                           Label="@localizer["triad_cpuskill1"]" Variant="Variant.Outlined">
+                                    @foreach (var item in TriadDataService.GetSortedTriadSkillList())
+                                    {
+                                        <MudSelectItem Value="item.Id">@NameService.GetLocalizedName(item)</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSelect @bind-Value="CustomizeCardContext.CpuTriadPartner.Skill2" T="uint"
+                                           Label="@localizer["triad_cpuskill2"]" Variant="Variant.Outlined">
+                                    @foreach (var item in TriadDataService.GetSortedTriadSkillList())
+                                    {
+                                        <MudSelectItem Value="item.Id">@NameService.GetLocalizedName(item)</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudField Label="@localizer["triad_bursttype"]" Variant="Variant.Outlined">
+                            <MudItem xs="12">
+                                <MudChipSet T="BurstType" @bind-SelectedValue="CustomizeCardContext.CpuTriadPartner.BurstType" SelectionMode="SelectionMode.SingleSelection" Style="width: 100%;">
+                                    <MudGrid>
+                                        @foreach (var burstType in Enum.GetValues<BurstType>())
+                                        {
+                                            <MudItem xs="6" sm="3">
+                                                <MudChip Text="purple" Variant="Variant.Text" Color="Color.Primary" Value="burstType" Style="width: 100%; height: 130px;">
+                                                    <MudGrid>
+                                                        <MudItem xs="12">
+                                                            @{
+                                                                var burstImagePath = $"images/bursts/{(int)burstType}.webp";
+                                                            }
+                                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@burstImagePath" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+                                                        </MudItem>
+                                                        <MudItem xs="12" Style="padding-top: 0;">
+                                                            <MudText Typo="Typo.caption" Style="white-space: pre-line;">@burstType</MudText>
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                </MudChip>
+                                            </MudItem>
+                                        }
+                                    </MudGrid>
+                                </MudChipSet>
+                            </MudItem>
+                        </MudField>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="CustomizeCardContext.CpuTriadPartner.TriadTeamName"
+                                      Immediate="true"
+                                      Variant="Variant.Outlined"
+                                      Counter="@((int) NameLength.TeamNameMaxLength)"
+                                      MaxLength="@((int) NameLength.TeamNameMaxLength)"
+                                      Label="@localizer["triad_teamname"]"
+                                      Validation="NameValidator.ValidateTeamName" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="10" sm="11" Class="my-auto">
+                                <MudField Label="@localizer["triad_teambanner"]" Variant="Variant.Outlined">
+                                    @{
+                                        var teamBackgroundImagePath = $"images/triad/background/{CustomizeCardContext.CpuTriadPartner.TriadBackgroundPartsId}.webp";
+                                        var teamBackground = TriadDataService.GetTriadTeamBackgroundById(CustomizeCardContext.CpuTriadPartner.TriadBackgroundPartsId);
+                                        var teamBackgroundName = teamBackground?.Value ?? localizer["unknown_triad_team_background"];
+                                    }
+                                    @if (teamBackground is not null && EnableImagePreview)
+                                    {
+                                        <div class="d-flex justify-center">
+                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@teamBackgroundImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="350"/>
+                                        </div>
+                                    }
+                                    <div class="d-flex justify-center">
+                                        <MudText Align="Align.Center">@((MarkupString)teamBackgroundName)</MudText>
+                                    </div>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2" sm="1" Class="my-auto" Style="text-align: right">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenChangeTeamBackgroundsDialog(CustomizeCardContext.CpuTriadPartner)"/>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+    
+    private async Task OpenCpuTriadMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", CustomizeCardContext.CpuTriadPartner.MobileSuitId },
+            { "AggregatedMobileSuits", GetAggregatedMobileSuits() },
+        };
+        
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>(localizer["dialogtitle_triadms"], parameters, OPTIONS);
+        var result = await dialog.Result;
+        
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeCardContext.CpuTriadPartner.MobileSuitId = (uint)result.Data;
+            StateHasChanged();
+        }
+    }
+    
+    private IReadOnlyList<MobileSuit> GetAggregatedMobileSuits()
+    {
+        return CustomizeCardContext.AggregetedMobileSuits
+            .Where(ms => ms.Id < 50001)
+            .ToList();
+    }
+    
+    private async Task OpenChangeTeamBackgroundsDialog(CpuTriadPartner cpuTriadPartner)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { cpuTriadPartner.TriadBackgroundPartsId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Triad Team Background: "},
+            { "ImagePathPrefix", "images/triad/background"},
+            { "Mode", "TriadTeamBackground" },
+            { "HasClues", true },
+            { "Width", 380 }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["triad_teambanner"], parameters, OPTIONS);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            cpuTriadPartner.TriadBackgroundPartsId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+}

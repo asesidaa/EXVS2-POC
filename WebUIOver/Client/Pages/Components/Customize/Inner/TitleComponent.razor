@@ -1,0 +1,242 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Client.Pages.Dialogs
+@using WebUIOver.Client.Services.Title
+@using WebUIOver.Client.Validator
+@using WebUIOver.Client.Constants
+
+@inject IDialogService DialogService
+@inject ITitleDataService TitleDataService
+@inject INameValidator NameValidator
+
+<MudStack>
+    @if (ForDataCollection)
+    {
+        <MudField Label="@DisplayLabel" Variant="Variant.Outlined">
+            <MudGrid>
+                <MudItem xs="3">
+                    <MudNumericField T="uint" @bind-Value="Title.TextId" Label="@localizer["titles_textid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000"/>
+                </MudItem>
+                <MudItem xs="3">
+                    <MudNumericField T="uint" @bind-Value="Title.BackgroundPartsId" Label="@localizer["titles_backgroundid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000"/>
+                </MudItem>
+                <MudItem xs="3">
+                    <MudNumericField T="uint" @bind-Value="Title.OrnamentId" Label="@localizer["titles_ornamentid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000"/>
+                </MudItem>
+                <MudItem xs="3">
+                    <MudNumericField T="uint" @bind-Value="Title.EffectId" Label="@localizer["titles_effectid"]" Variant="Variant.Outlined" Min="0" Max="10000" HelperText="0-10000"/>
+                </MudItem>
+            </MudGrid>
+        </MudField>
+    }
+
+    <MudField Label="@DisplayLabel" Variant="Variant.Outlined">
+        <MudGrid Class="align-center">
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["titles_title"]" Variant="Variant.Outlined">
+                    @{
+                        var titleImagePath = $"images/titles/{Title.TextId}.webp";
+                        var title = TitleDataService.GetTitleById(Title.TextId);
+                        var titleName = title?.Value ?? localizer["unknown_title"];
+                    }
+                    @if (title is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@titleImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)titleName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeTitlesDialog(Title)"/>
+            </MudItem>
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["titles_background"]" Variant="Variant.Outlined">
+                    @{
+                        var backgroundImagePath = $"images/backgrounds/{Title.BackgroundPartsId}.webp";
+                        var background = TitleDataService.GetBackgroundById(Title.BackgroundPartsId);
+                        var backgroundName = background?.Value ?? localizer["unknown_background"];
+                    }
+                    @if (background is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@backgroundImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)backgroundName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeBackgroundsDialog(Title)"/>
+            </MudItem>
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["titles_effect"]" Variant="Variant.Outlined">
+                    @{
+                        var effectImagePath = $"images/effects/{Title.EffectId}.webp";
+                        var effect = TitleDataService.GetEffectById(Title.EffectId);
+                        var effectName = effect?.Value ?? localizer["unknown_effect"];
+                    }
+                    @if (effect is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@effectImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)effectName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeEffectDialog(Title)"/>
+            </MudItem>
+            
+            <MudItem xs="10" sm="5">
+                <MudField Label="@localizer["titles_ornament"]" Variant="Variant.Outlined">
+                    @{
+                        var ornamentImagePath = $"images/ornaments/{Title.OrnamentId}.webp";
+                        var ornament = TitleDataService.GetOrnamentById(Title.OrnamentId);
+                        var ornamentName = ornament?.Value ?? localizer["unknown_ornament"];
+                    }
+                    @if (ornament is not null && EnableImagePreview)
+                    {
+                        <div class="d-flex justify-center">
+                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@ornamentImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Class="rounded-lg" Width="250"/>
+                        </div>
+                    }
+                    <div class="d-flex justify-center">
+                        <MudText Align="Align.Center">@((MarkupString)ornamentName)</MudText>
+                    </div>
+                </MudField>
+            </MudItem>
+            <MudItem xs="2" sm="1">
+                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                               OnClick="() => OpenChangeOrnamentDialog(Title)"/>
+            </MudItem>
+            
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Title.CustomText"
+                          Immediate="true"
+                          Variant="Variant.Outlined"
+                          Counter="@((int) NameLength.TitleMaxLength)"
+                          MaxLength="@((int) NameLength.TitleMaxLength)"
+                          Label="@localizer["title_custom_text"]"
+                          Validation="NameValidator.ValidateCustomizeTitle" />
+            </MudItem>
+        </MudGrid>
+    </MudField>
+</MudStack>
+@code
+{
+    [Parameter] 
+    public Title Title { get; set; } = new ();
+    
+    [Parameter]
+    public string DisplayLabel { get; set; } = string.Empty;
+    
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+
+    private const bool ForDataCollection = false;
+    
+    private async Task OpenChangeTitlesDialog(Title title)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { title.TextId } },
+            { "EnableImagePreview", true },
+            { "HasCategory", true },
+            { "SelectedString", "Selected Title: "},
+            { "ImagePathPrefix", "images/titles"},
+            { "Mode", "Titles" }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_changetitle"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            title.TextId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeBackgroundsDialog(Title title)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { title.BackgroundPartsId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", true },
+            { "SelectedString", "Selected Background: "},
+            { "ImagePathPrefix", "images/backgrounds"},
+            { "Mode", "Backgrounds" }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_changebackground"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            title.BackgroundPartsId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeEffectDialog(Title title)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { title.EffectId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Effect: "},
+            { "ImagePathPrefix", "images/effects"},
+            { "Mode", "Effects" }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_changeeffect"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            title.EffectId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+    
+    private async Task OpenChangeOrnamentDialog(Title title)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", new[] { title.OrnamentId } },
+            { "EnableImagePreview", EnableImagePreview },
+            { "HasCategory", false },
+            { "SelectedString", "Selected Ornament: "},
+            { "ImagePathPrefix", "images/ornaments"},
+            { "Mode", "Ornaments" }
+        };
+        var dialog = await DialogService.ShowAsync<ChangeGeneralPreviewDialog>(localizer["dialogtitle_changeornament"], parameters, DialogOptions);
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data != null)
+        {
+            title.OrnamentId = (result.Data as uint[])!.FirstOrDefault();
+            StateHasChanged();
+        }
+    }
+
+    private static readonly DialogOptions DialogOptions = new()
+    {
+        CloseOnEscapeKey = false,
+        BackdropClick = false,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}

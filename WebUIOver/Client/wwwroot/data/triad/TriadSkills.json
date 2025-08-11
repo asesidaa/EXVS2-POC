@@ -1,0 +1,274 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "-",
+    "ValueJP": "-",
+    "ValueCN": "-",
+    "ValueTC": "-",
+    "ValueTC2": "-"
+  },
+  {
+    "Id": 1,
+    "Value": "Lockon Range + (Lv1)",
+    "ValueJP": "ロックオン距離＋（小）",
+    "ValueCN": "锁定距离+ (小)",
+    "ValueTC": "鎖定距離+ (小)",
+    "ValueTC2": "鎖定距離+ (小)"
+  },
+  {
+    "Id": 2,
+    "Value": "Lockon Range + (Lv2)",
+    "ValueJP": "ロックオン距離＋（中）",
+    "ValueCN": "锁定距离+ (中)",
+    "ValueTC": "鎖定距離+ (中)",
+    "ValueTC2": "鎖定距離+ (中)"
+  },
+  {
+    "Id": 3,
+    "Value": "Lockon Range + (Lv3)",
+    "ValueJP": "ロックオン距離＋（大）",
+    "ValueCN": "锁定距离+ (大)",
+    "ValueTC": "鎖定距離+ (大)",
+    "ValueTC2": "鎖定距離+ (大)"
+  },
+  {
+    "Id": 4,
+    "Value": "Boost + (Lv1)",
+    "ValueJP": "ブースト性能＋（小）",
+    "ValueCN": "喷射性能+ (小)",
+    "ValueTC": "噴射性能+ (小)",
+    "ValueTC2": "噴射性能+ (小)"
+  },
+  {
+    "Id": 5,
+    "Value": "Boost + (Lv2)",
+    "ValueJP": "ブースト性能＋（中）",
+    "ValueCN": "喷射性能+ (中)",
+    "ValueTC": "噴射性能+ (中)",
+    "ValueTC2": "噴射性能+ (中)"
+  },
+  {
+    "Id": 6,
+    "Value": "Boost + (Lv3)",
+    "ValueJP": "ブースト性能＋（大）",
+    "ValueCN": "喷射性能+ (大)",
+    "ValueTC": "噴射性能+ (大)",
+    "ValueTC2": "噴射性能+ (大)"
+  },
+  {
+    "Id": 7,
+    "Value": "Beam Defense (Lv1)",
+    "ValueJP": "ビーム防御（小）",
+    "ValueCN": "光束防御力+ (小)",
+    "ValueTC": "光束防禦力+ (小)",
+    "ValueTC2": "光束防禦力+ (小)"
+  },
+  {
+    "Id": 8,
+    "Value": "Beam Defense (Lv2)",
+    "ValueJP": "ビーム防御（中）",
+    "ValueCN": "光束防御力+ (中)",
+    "ValueTC": "光束防禦力+ (中)",
+    "ValueTC2": "光束防禦力+ (中)"
+  },
+  {
+    "Id": 9,
+    "Value": "Beam Defense (Lv3)",
+    "ValueJP": "ビーム防御（大）",
+    "ValueCN": "光束防御力+ (大)",
+    "ValueTC": "光束防禦力+ (大)",
+    "ValueTC2": "光束防禦力+ (大)"
+  },
+  {
+    "Id": 10,
+    "Value": "Live Ammo Defense (Lv1)",
+    "ValueJP": "実弾防御（小）",
+    "ValueCN": "实弹防御力+ (小)",
+    "ValueTC": "實彈防禦力+ (小)",
+    "ValueTC2": "實彈防禦力+ (小)"
+  },
+  {
+    "Id": 11,
+    "Value": "Live Ammo Defense (Lv2)",
+    "ValueJP": "実弾防御（中）",
+    "ValueCN": "实弹防御力+ (中)",
+    "ValueTC": "實彈防禦力+ (中)",
+    "ValueTC2": "實彈防禦力+ (中)"
+  },
+  {
+    "Id": 12,
+    "Value": "Live Ammo Defense (Lv3)",
+    "ValueJP": "実弾防御（大）",
+    "ValueCN": "实弹防御力+ (大)",
+    "ValueTC": "實彈防禦力+ (大)",
+    "ValueTC2": "實彈防禦力+ (大)"
+  },
+  {
+    "Id": 13,
+    "Value": "Melee Defense (Lv1)",
+    "ValueJP": "格闘防御（小）",
+    "ValueCN": "格斗防御力+ (小)",
+    "ValueTC": "格鬥防禦力+ (小)",
+    "ValueTC2": "格鬥防禦力+ (小)"
+  },
+  {
+    "Id": 14,
+    "Value": "Melee Defense (Lv2)",
+    "ValueJP": "格闘防御（中）",
+    "ValueCN": "格斗防御力+ (中)",
+    "ValueTC": "格鬥防禦力+ (中)",
+    "ValueTC2": "格鬥防禦力+ (中)"
+  },
+  {
+    "Id": 15,
+    "Value": "Melee Defense (Lv3)",
+    "ValueJP": "格闘防御（大）",
+    "ValueCN": "格斗防御力+ (大)",
+    "ValueTC": "格鬥防禦力+ (大)",
+    "ValueTC2": "格鬥防禦力+ (大)"
+  },
+  {
+    "Id": 16,
+    "Value": "HP+ (Lv1)",
+    "ValueJP": "耐久値＋（小）",
+    "ValueCN": "耐久值+ (小)",
+    "ValueTC": "耐久值+ (小)",
+    "ValueTC2": "耐久值+ (小)"
+  },
+  {
+    "Id": 17,
+    "Value": "HP+ (Lv2)",
+    "ValueJP": "耐久値＋（中）",
+    "ValueCN": "耐久值+ (中)",
+    "ValueTC": "耐久值+ (中)",
+    "ValueTC2": "耐久值+ (中)"
+  },
+  {
+    "Id": 18,
+    "Value": "HP+ (Lv3)",
+    "ValueJP": "耐久値＋（大）",
+    "ValueCN": "耐久值+ (大)",
+    "ValueTC": "耐久值+ (大)",
+    "ValueTC2": "耐久值+ (大)"
+  },
+  {
+    "Id": 19,
+    "Value": "HP Auto Repair (Lv1)",
+    "ValueJP": "耐久値リペア（小）",
+    "ValueCN": "耐久值恢复+ (小)",
+    "ValueTC": "耐久值恢復+ (小)",
+    "ValueTC2": "耐久值恢復+ (小)"
+  },
+  {
+    "Id": 20,
+    "Value": "HP Auto Repair (Lv2)",
+    "ValueJP": "耐久値リペア（中）",
+    "ValueCN": "耐久值恢复+ (中)",
+    "ValueTC": "耐久值恢復+ (中)",
+    "ValueTC2": "耐久值恢復+ (中)"
+  },
+  {
+    "Id": 21,
+    "Value": "HP Auto Repair (Lv3)",
+    "ValueJP": "耐久値リペア（大）",
+    "ValueCN": "耐久值恢复+ (大)",
+    "ValueTC": "耐久值恢復+ (大)",
+    "ValueTC2": "耐久值恢復+ (大)"
+  },
+  {
+    "Id": 22,
+    "Value": "Counter Attack (Lv1)",
+    "ValueJP": "カウンターアタック（小）",
+    "ValueCN": "逆境反击 (小)",
+    "ValueTC": "逆境反擊 (小)",
+    "ValueTC2": "逆境反擊 (小)"
+  },
+  {
+    "Id": 23,
+    "Value": "Counter Attack (Lv2)",
+    "ValueJP": "カウンターアタック（中）",
+    "ValueCN": "逆境反击 (中)",
+    "ValueTC": "逆境反擊 (中)",
+    "ValueTC2": "逆境反擊 (中)"
+  },
+  {
+    "Id": 24,
+    "Value": "Counter Attack (Lv3)",
+    "ValueJP": "カウンターアタック（大）",
+    "ValueCN": "逆境反击 (大)",
+    "ValueTC": "逆境反擊 (大)",
+    "ValueTC2": "逆境反擊 (大)"
+  },
+  {
+    "Id": 25,
+    "Value": "EX Gauge Boost (Lv1)",
+    "ValueJP": "EXゲージ＋（小）",
+    "ValueCN": "EX计量表增加量 (小)",
+    "ValueTC": "EX計量表增加量 (小)",
+    "ValueTC2": "EX計量表增加量 (小)"
+  },
+  {
+    "Id": 26,
+    "Value": "EX Gauge Boost (Lv2)",
+    "ValueJP": "EXゲージ＋（中）",
+    "ValueCN": "EX计量表增加量 (中)",
+    "ValueTC": "EX計量表增加量 (中)",
+    "ValueTC2": "EX計量表增加量 (中)"
+  },
+  {
+    "Id": 27,
+    "Value": "EX Gauge Boost (Lv3)",
+    "ValueJP": "EXゲージ＋（大）",
+    "ValueCN": "EX计量表增加量 (大)",
+    "ValueTC": "EX計量表增加量 (大)",
+    "ValueTC2": "EX計量表增加量 (大)"
+  },
+  {
+    "Id": 31,
+    "Value": "EX Gauge Time Boost (Lv1)",
+    "ValueJP": "EXバースト延長（小）",
+    "ValueCN": "EX爆发时间延长 (小)",
+    "ValueTC": "EX爆發時間延長 (小)",
+    "ValueTC2": "EX爆發時間延長 (小)"
+  },
+  {
+    "Id": 32,
+    "Value": "EX Gauge Time Boost (Lv2)",
+    "ValueJP": "EXバースト延長（中）",
+    "ValueCN": "EX爆发时间延长 (中)",
+    "ValueTC": "EX爆發時間延長 (中)",
+    "ValueTC2": "EX爆發時間延長 (中)"
+  },
+  {
+    "Id": 33,
+    "Value": "EX Gauge Time Boost (Lv3)",
+    "ValueJP": "EXバースト延長（小）",
+    "ValueCN": "EX爆发时间延长 (大)",
+    "ValueTC": "EX爆發時間延長 (大)",
+    "ValueTC2": "EX爆發時間延長 (大)"
+  },
+  {
+    "Id": 39,
+    "Value": "Boss Killer (Lv1)",
+    "ValueJP": "ボスキラー（小）",
+    "ValueCN": "对Boss特效 (小)",
+    "ValueTC": "對Boss特效 (小)",
+    "ValueTC2": "對Boss特效 (小)"
+  },
+  {
+    "Id": 40,
+    "Value": "Boss Killer (Lv2)",
+    "ValueJP": "ボスキラー（中）",
+    "ValueCN": "对Boss特效 (中)",
+    "ValueTC": "對Boss特效 (中)",
+    "ValueTC2": "對Boss特效 (中)"
+  },
+  {
+    "Id": 41,
+    "Value": "Boss Killer (Lv3)",
+    "ValueJP": "ボスキラー（大）",
+    "ValueCN": "对Boss特效 (大)",
+    "ValueTC": "對Boss特效 (大)",
+    "ValueTC2": "對Boss特效 (大)"
+  }
+]

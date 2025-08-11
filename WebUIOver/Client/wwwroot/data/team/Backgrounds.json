@@ -1,0 +1,607 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "Default",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 1,
+    "Value": "Background 1",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 2,
+    "Value": "Background 2",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 3,
+    "Value": "Background 3",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 4,
+    "Value": "Background 4",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 5,
+    "Value": "装甲板（レッド＆ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 6,
+    "Value": "装甲板（レッド＆グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 7,
+    "Value": "装甲板（レッド＆パープル）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 8,
+    "Value": "装甲板（レッド＆イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 9,
+    "Value": "装甲板（ブルー＆グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 10,
+    "Value": "装甲板（ブルー＆パープル）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 11,
+    "Value": "装甲板（ブルー＆イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 12,
+    "Value": "装甲板（グリーン＆パープル）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 13,
+    "Value": "装甲板（グリーン＆イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 14,
+    "Value": "装甲板（パープル＆イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 15,
+    "Value": "装甲板（ブラック＆ホワイト）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 16,
+    "Value": "Background 16",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 17,
+    "Value": "Background 17",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 18,
+    "Value": "風神雷神",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 19,
+    "Value": "Background 19",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 20,
+    "Value": "Background 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 21,
+    "Value": "Background 21",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 22,
+    "Value": "Background 22",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 23,
+    "Value": "Background 23",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 24,
+    "Value": "Background 24",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 25,
+    "Value": "Background 25",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 26,
+    "Value": "雷（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 27,
+    "Value": "雷（ブルー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 28,
+    "Value": "雷（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 29,
+    "Value": "雷（イエロー）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 30,
+    "Value": "雷（パープル）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 31,
+    "Value": "Background 31",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 32,
+    "Value": "Background 32",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 33,
+    "Value": "Background 33",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 34,
+    "Value": "Background 34",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 35,
+    "Value": "Background 35",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 36,
+    "Value": "Background 36",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 37,
+    "Value": "Background 37",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 38,
+    "Value": "Background 38",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 39,
+    "Value": "Background 39",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 40,
+    "Value": "地球",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 41,
+    "Value": "装甲板（白）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 42,
+    "Value": "装甲板（赤）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 43,
+    "Value": "装甲板（金）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 44,
+    "Value": "木の看板",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 45,
+    "Value": "コンクリートの壁",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 46,
+    "Value": "ウッドランド迷彩",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 47,
+    "Value": "オレンジ迷彩",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 48,
+    "Value": "デジタル空間（レッド）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 49,
+    "Value": "デジタル空間（グリーン）",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 50,
+    "Value": "割れたガラス",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 51,
+    "Value": "死神(髑髏)",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 52,
+    "Value": "トライバル　龍",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 53,
+    "Value": "トライバル　虎",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 54,
+    "Value": "ゴージャスバナー",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 55,
+    "Value": "赤銀河",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 56,
+    "Value": "Background 56",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 57,
+    "Value": "Background 57",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 58,
+    "Value": "TERM 1 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 59,
+    "Value": "TERM 1 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 60,
+    "Value": "TERM 1 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 61,
+    "Value": "TERM 1 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 62,
+    "Value": "TERM 2 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 63,
+    "Value": "TERM 2 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 64,
+    "Value": "TERM 2 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 65,
+    "Value": "TERM 2 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 66,
+    "Value": "TERM 3 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 67,
+    "Value": "TERM 3 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 68,
+    "Value": "TERM 3 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 69,
+    "Value": "TERM 3 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 70,
+    "Value": "TERM 4 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 71,
+    "Value": "TERM 4 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 72,
+    "Value": "TERM 4 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 73,
+    "Value": "TERM 4 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 74,
+    "Value": "TERM 5 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 75,
+    "Value": "TERM 5 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 76,
+    "Value": "TERM 5 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 77,
+    "Value": "TERM 5 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 78,
+    "Value": "TERM 6 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 79,
+    "Value": "TERM 6 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 80,
+    "Value": "TERM 6 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 81,
+    "Value": "TERM 6 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 82,
+    "Value": "TERM 7 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 83,
+    "Value": "TERM 7 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 84,
+    "Value": "TERM 7 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 85,
+    "Value": "TERM 7 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 86,
+    "Value": "TERM 8 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 87,
+    "Value": "TERM 8 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 88,
+    "Value": "TERM 8 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 89,
+    "Value": "TERM 8 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 90,
+    "Value": "TERM 9 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 91,
+    "Value": "TERM 9 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 92,
+    "Value": "TERM 9 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 93,
+    "Value": "TERM 9 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 94,
+    "Value": "TERM 10 TOP 5",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 95,
+    "Value": "TERM 10 TOP 20",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 96,
+    "Value": "TERM 10 TOP 50",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 97,
+    "Value": "TERM 10 TOP 100",
+    "Existence": "VS2"
+  },
+  {
+    "Id": 98,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 99,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 100,
+    "Value": "Background 100",
+    "Existence": "XB"
+  },
+  {
+    "Id": 101,
+    "Value": "Background 101",
+    "Existence": "XB"
+  },
+  {
+    "Id": 102,
+    "Value": "Background 102",
+    "Existence": "XB"
+  },
+  {
+    "Id": 103,
+    "Value": "Background 103",
+    "Existence": "XB"
+  },
+  {
+    "Id": 104,
+    "Value": "Background 104",
+    "Existence": "XB"
+  },
+  {
+    "Id": 105,
+    "Value": "Background 105",
+    "Existence": "XB"
+  },
+  {
+    "Id": 106,
+    "Value": "Background 106",
+    "Existence": "XB"
+  },
+  {
+    "Id": 107,
+    "Value": "Background 107",
+    "Existence": "XB"
+  },
+  {
+    "Id": 108,
+    "Value": "Background 108",
+    "Existence": "XB"
+  },
+  {
+    "Id": 109,
+    "Value": "Background 109",
+    "Existence": "XB"
+  },
+  {
+    "Id": 110,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 111,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 112,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 113,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 114,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 115,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 116,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 117,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 118,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 119,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 120,
+    "Value": "Dummy Background",
+    "Existence": "NotExist"
+  }
+]

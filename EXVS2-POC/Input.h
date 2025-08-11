@@ -49,3 +49,4 @@ struct InputState
 };
 
 void InitializeInput();
+void InitializeInputHooks();

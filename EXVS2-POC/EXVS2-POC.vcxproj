@@ -96,9 +96,10 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;CPPDYNAMICLIBRARYTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>libs/minhook/include;libs/httplib;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;libs/safehook;libs/nlohmann;libs/hash;</AdditionalIncludeDirectories>
+      <BuildStlModules>true</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -115,9 +116,10 @@
       <PreprocessorDefinitions>_DEBUG;CPPDYNAMICLIBRARYTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>libs/minhook/include;libs/httplib;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;libs/safehook;libs/nlohmann;libs/hash;</AdditionalIncludeDirectories>
+      <BuildStlModules>true</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -137,9 +139,10 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;CPPDYNAMICLIBRARYTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>libs/minhook/include;libs/httplib;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;libs/safehook;libs/nlohmann;libs/hash;</AdditionalIncludeDirectories>
+      <BuildStlModules>true</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -160,9 +163,10 @@
       <PreprocessorDefinitions>NDEBUG;CPPDYNAMICLIBRARYTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>libs/minhook/include;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>libs/minhook/include;libs/httplib;libs/injector;libs/inireader;libs/determinize/include;libs/determinize/vendor/zydis;libs/safehook;libs/nlohmann;libs/hash;</AdditionalIncludeDirectories>
+      <BuildStlModules>true</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,13 +179,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AMActivatorHook.cpp" />
+    <ClCompile Include="amauth\v3\AmAuthEmuV3.cpp" />
     <ClCompile Include="AmAuthEmu.cpp" />
     <ClCompile Include="AudioHooks.cpp" />
     <ClCompile Include="banapass.cpp" />
     <ClCompile Include="COMHooks.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="file\RentalModeFileCleaner.cpp" />
+    <ClCompile Include="FramerateLimiter.cpp" />
+    <ClCompile Include="GameFileSystemHook.cpp" />
     <ClCompile Include="GameHooks.cpp" />
+    <ClCompile Include="game\CardReaderHooker.cpp" />
+    <ClCompile Include="game\ClientTypePatcher.cpp" />
+    <ClCompile Include="game\ContentRouterPatcher.cpp" />
+    <ClCompile Include="game\DevMenuSubOptionsEnabler.cpp" />
+    <ClCompile Include="game\NetworkAdapterCheckPatcher.cpp" />
+    <ClCompile Include="game\OpeningScreenSkipper.cpp" />
+    <ClCompile Include="game\PcCheckPatcher.cpp" />
+    <ClCompile Include="game\ResolutionPatcher.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="JvsEmu.cpp" />
     <ClCompile Include="libs\determinize\src\determinize.cpp" />
@@ -193,19 +210,37 @@
     <ClCompile Include="libs\minhook\src\hde\hde64.c" />
     <ClCompile Include="libs\minhook\src\hook.c" />
     <ClCompile Include="libs\minhook\src\trampoline.c" />
+    <ClCompile Include="libs\safehook\safetyhook.cpp" />
     <ClCompile Include="log.cpp" />
+    <ClCompile Include="NbamUsbFinderHook.cpp" />
     <ClCompile Include="SocketHooks.cpp" />
     <ClCompile Include="VirtualKeyMapping.cpp" />
     <ClCompile Include="WindowedDxgi.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AMActivatorHook.h" />
+    <ClInclude Include="amauth\v3\AmAuthEmuV3.h" />
     <ClInclude Include="AmAuthEmu.h" />
     <ClInclude Include="AudioHooks.h" />
     <ClInclude Include="banapass.h" />
     <ClInclude Include="COMHooks.h" />
     <ClInclude Include="Configs.h" />
+    <ClInclude Include="cpu\over\ObV27.h" />
+    <ClInclude Include="cpu\vs2\Vs2V29.h" />
+    <ClInclude Include="cpu\xb\XbV27.h" />
     <ClInclude Include="DisplayConstants.h" />
+    <ClInclude Include="file\RentalModeFileCleaner.h" />
+    <ClInclude Include="FramerateLimiter.h" />
+    <ClInclude Include="GameFileSystemHook.h" />
     <ClInclude Include="GameHooks.h" />
+    <ClInclude Include="game\CardReaderHooker.h" />
+    <ClInclude Include="game\ClientTypePatcher.h" />
+    <ClInclude Include="game\ContentRouterPatcher.h" />
+    <ClInclude Include="game\DevMenuSubOptionsEnabler.h" />
+    <ClInclude Include="game\NetworkAdapterCheckPatcher.h" />
+    <ClInclude Include="game\OpeningScreenSkipper.h" />
+    <ClInclude Include="game\PcCheckPatcher.h" />
+    <ClInclude Include="game\ResolutionPatcher.h" />
     <ClInclude Include="INIReader.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="JvsEmu.h" />
@@ -224,7 +259,9 @@
     <ClInclude Include="libs\minhook\src\hde\table32.h" />
     <ClInclude Include="libs\minhook\src\hde\table64.h" />
     <ClInclude Include="libs\minhook\src\trampoline.h" />
+    <ClInclude Include="libs\safehook\safetyhook.hpp" />
     <ClInclude Include="log.h" />
+    <ClInclude Include="NbamUsbFinderHook.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="SocketHooks.h" />
     <ClInclude Include="VirtualKeyMapping.h" />

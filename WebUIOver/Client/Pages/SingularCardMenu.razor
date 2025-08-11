@@ -1,0 +1,37 @@
+﻿@page "/Cards/SingularCardMenu/{ChipId}"
+
+@inject ISnackbar Snackbar
+@inject NavigationManager NavManager
+@inject HttpClient Http
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+<MudGrid Class="my-8">
+    <MudItem xs="2" Class="my-auto"></MudItem>
+    <MudItem xs="8" Class="my-auto align-center">
+        <MudGrid>
+            <MudItem xs="12" Class="align-center">
+                <MudText Style="text-align: center">@_cardProfile.UserName</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6" Class="align-center">
+                <MudButton Color="Color.Primary" FullWidth="true" Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.DisplaySettings"
+                           OnClick="() => OnEditCardClicked()">
+                    @localizer["cardseditoptions"]
+                </MudButton>
+            </MudItem>
+            <MudItem xs="12" sm="6" Class="align-center">
+                <MudButton Color="Color.Primary" FullWidth="true" Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.Leaderboard"
+                           OnClick="() => OnViewCardClicked()">
+                    @localizer["cardviewdetail"]
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+    <MudItem xs="2" Class="my-auto"></MudItem>
+</MudGrid>

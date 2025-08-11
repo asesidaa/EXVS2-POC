@@ -1,0 +1,43 @@
+﻿@using WebUIOver.Shared.Dto.History
+<MudCard>
+    <MudButton OnClick="OnExpandCollapseClick"
+               StartIcon="@(_expanded ? Icons.Material.Filled.KeyboardDoubleArrowUp : Icons.Material.Filled.KeyboardDoubleArrowDown)"
+               Color="Color.Primary" Variant="Variant.Outlined"
+               FullWidth="true">
+        @(_expanded ? localizer["battle_history_action_log_hide_details"] : localizer["battle_history_action_log_show_details"])
+    </MudButton>
+    <MudDivider />
+    <MudCollapse Expanded="_expanded">
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+                    <MudTabPanel Text="@localizer["battle_statistics"]">
+                        <WebUIOver.Client.Pages.Components.View.Inner.BattleStatistics
+                            BattleHistorySummary="BattleHistorySummary"
+                        />
+                    </MudTabPanel>
+                    <MudTabPanel Text="@localizer["battle_time_line"]">
+                        <WebUIOver.Client.Pages.Components.View.Inner.BattleTimeline
+                            BattleHistorySummary="BattleHistorySummary"
+                        />
+                    </MudTabPanel>
+                </MudTabs>
+            </MudItem>
+        </MudGrid>
+    </MudCollapse>
+</MudCard>
+
+
+@code {
+    [Parameter] 
+    public required BattleHistorySummary BattleHistorySummary { get; set; }
+    
+    private bool _expanded = false;
+    private readonly string _selfQualifier = "Self";
+    private readonly string _teammateQualifier = "Teammate";
+    private readonly string _opponentQualifier = "Opponent";
+    
+    private void OnExpandCollapseClick() {
+        _expanded = !_expanded;
+    }
+}

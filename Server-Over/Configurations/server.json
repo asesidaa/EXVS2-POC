@@ -1,0 +1,24 @@
+﻿{
+  "CardServerConfig": {
+    "IgnoreUploadSaving": false,
+    "NeedToDataPatchOfflineData": true,
+    "MaxReplaySaveSlotPerPlayer": 5,
+    "GameConfigurations": {
+      "TrainingMinutes": 12,
+      "FesConfigurations": {
+        "MondayType": "DualSelect",
+        "TuesdayType": "ScoreBattle",
+        "WednesdayType": "AttackScoreBattle",
+        "ThursdayType": "AttackBoost",
+        "FridayType": "OneOnOneAllCost",
+        "SaturdayType": "ExMugenShooting",
+        "SundayType": "UnlimitedExBurst"
+      },
+      "TriadConfigurations": {
+        "TargetMsList": [72],
+        "TimeAttackCourse": 212,
+        "HighScoreCourse": 212
+      }
+    }
+  }
+}
