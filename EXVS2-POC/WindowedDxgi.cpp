@@ -8,6 +8,7 @@
 
 #include "dxgi1_2.h"
 #include "dxgi1_3.h"
+#include "FramerateLimiter.h"
 #include "dxgi1_4.h"
 #include "dxgi1_5.h"
 #include "dxgi1_6.h"
@@ -30,6 +31,8 @@ static HRESULT(WINAPI* g_origCreateDXGIFactory2)(UINT Flags, REFIID riid, void**
 static BOOL(WINAPI* g_origSetWindowPos)(HWND hWnd, HWND hWndInsertAfter, int  X, int  Y, int  cx, int  cy, UINT uFlags);
 static HWND(WINAPI* g_origCreateWindowExW)(DWORD dwExStyle, LPCWSTR lpClassName, LPCWSTR lpWindowName, DWORD dwStyle, int X, int Y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam);
 static BOOL(WINAPI* g_origMoveWindow)(HWND hWnd, int X, int Y, int nWidth, int nHeight, BOOL bRepaint);
+
+static HRESULT (STDMETHODCALLTYPE *g_oldPresentWrap) (IDXGISwapChain *pSwapChain, UINT SyncInterval, UINT Flags);
 
 // Functions
 template<typename T>
@@ -63,6 +66,15 @@ static HRESULT STDMETHODCALLTYPE SetFullscreenStateWrap(IDXGISwapChain* This, BO
 	return S_OK;
 }
 
+static HRESULT STDMETHODCALLTYPE PresentWrap (IDXGISwapChain *pSwapChain, const UINT SyncInterval, const UINT Flags) {
+	if (globalConfig.Display.FramerateLimit)
+	{
+		FramerateLimiter::update();
+	}
+	
+	return g_oldPresentWrap (pSwapChain, SyncInterval, Flags);
+}
+
 static HRESULT STDMETHODCALLTYPE CreateSwapChainWrap(IDXGIFactory2* This, IUnknown* pDevice, DXGI_SWAP_CHAIN_DESC* pDesc, IDXGISwapChain** ppSwapChain)
 {
 	if(globalConfig.Windowed == true && globalConfig.BorderlessWindow == true)
@@ -75,7 +87,13 @@ static HRESULT STDMETHODCALLTYPE CreateSwapChainWrap(IDXGIFactory2* This, IUnkno
 	{
 		auto old = HookVtableFunction(&(*ppSwapChain)->lpVtbl->SetFullscreenState, SetFullscreenStateWrap);
 		g_origSetFullscreenState = (old) ? old : g_origSetFullscreenState;
+
+		if (globalConfig.Display.FramerateLimit) {
+			const auto old2= HookVtableFunction(&(*ppSwapChain)->lpVtbl->Present, PresentWrap);
+			g_oldPresentWrap = old2 ? old2 : g_oldPresentWrap;
+		}
 	}
+	
 	g_swapChain = *ppSwapChain;
 	return hr;
 }
@@ -86,12 +104,11 @@ static HRESULT WINAPI CreateDXGIFactory2Wrap(UINT Flags, REFIID riid, void** ppF
 
 	if (SUCCEEDED(hr))
 	{
-		IDXGIFactory2* factory = (IDXGIFactory2*)*ppFactory;
-
-		auto old = HookVtableFunction(&factory->lpVtbl->CreateSwapChain, CreateSwapChainWrap);
+		const IDXGIFactory2* factory = static_cast<IDXGIFactory2 *> (*ppFactory);
+		const auto old = HookVtableFunction(&factory->lpVtbl->CreateSwapChain, CreateSwapChainWrap);
 		g_origCreateSwapChain = (old) ? old : g_origCreateSwapChain;
 	}
-
+	
 	return hr;
 }
 
@@ -166,4 +183,9 @@ void InitDXGIWindowHook()
 	MH_CreateHookApi(L"user32.dll", "MoveWindow", MoveWindowHook, reinterpret_cast<void**>(&g_origMoveWindow));
 	MH_CreateHookApi(L"user32.dll", "SetWindowPos", SetWindowPosHook, reinterpret_cast<void**>(&g_origSetWindowPos));
 	MH_CreateHookApi(L"dxgi.dll", "CreateDXGIFactory2", CreateDXGIFactory2Wrap, (void**)&g_origCreateDXGIFactory2);
+
+	if (globalConfig.Display.FramerateLimit)
+	{
+		FramerateLimiter::init();
+	}
 }

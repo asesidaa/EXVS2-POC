@@ -1,6 +1,6 @@
 ﻿#include "AmAuthEmu.h"
-#include "Windows.h"
-#include <format>
+
+#include <Windows.h>
 
 #include "COMHooks.h"
 #include "INIReader.h"
@@ -217,20 +217,27 @@ public:
         strcpy_s(version->auth_type, "ALL.NET");
         strcpy_s(version->game_id, "SBUZ");
 
-        switch (GetGameVersion()) {
-        case VS2_400:
-            strcpy_s(version->game_ver, "4.00");
-            strcpy_s(version->game_cd, "GX21");
-            strcpy_s(version->cacfg_game_ver, "29.31");
-            break;
-            
-        case XBoost_450:
-            strcpy_s(version->game_ver, "4.50");
-            strcpy_s(version->game_cd, "GXX1");
-            strcpy_s(version->cacfg_game_ver, "27.35");
-            break;
+        switch (GetGameVersion())
+        {
+            case VS2_400:
+                strcpy_s(version->game_ver, "4.00");
+                strcpy_s(version->game_cd, "GX21");
+                strcpy_s(version->cacfg_game_ver, "29.31");
+                break;
+                    
+            case XBoost_450:
+                strcpy_s(version->game_ver, "4.50");
+                strcpy_s(version->game_cd, "GXX1");
+                strcpy_s(version->cacfg_game_ver, "27.35");
+                break;
+
+            case Overboost_480:
+                strcpy_s(version->game_ver, "4.80");
+                strcpy_s(version->game_cd, "GOB1");
+                strcpy_s(version->cacfg_game_ver, "25.11");
+                break;
         }
-        
+
         strcpy_s(version->game_board_type, "0");
         strcpy_s(version->game_board_id, "PCB");
         strcpy_s(version->auth_url, "localhost");
@@ -261,12 +268,12 @@ public:
         strcpy_s(resp->uri, globalConfig.ServerAddress.c_str());
         strcpy_s(resp->host, globalConfig.ServerAddress.c_str());
 
-        strcpy_s(resp->shop_name, "EXVS2-POC");
-        strcpy_s(resp->shop_nickname, "EXVS2-POC");
+        strcpy_s(resp->shop_name, "NEXTREME");
+        strcpy_s(resp->shop_nickname, "NEXTREME");
 
         if (globalConfig.Mode == 3 || globalConfig.Mode == 4)
         {
-            strcpy_s(resp->region0, "01035");
+            strcpy_s(resp->region0, "1000");
         }
         else
         {

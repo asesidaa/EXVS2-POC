@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ServerOver</RootNamespace>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Extensions\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="Extensions\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Extensions\**" />
+    <None Remove="Services\**" />
+    <None Update="Certificates\cert.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\root.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ErrorOr" Version="1.2.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="MinimalApis.Extensions" Version="0.11.0" />
+    <PackageReference Include="protobuf-net" Version="3.2.45" />
+    <PackageReference Include="protobuf-net.AspNetCore" Version="3.2.12" />
+    <PackageReference Include="Quartz" Version="3.7.0" />
+    <PackageReference Include="Quartz.Extensions.Hosting" Version="3.7.0" />
+    <PackageReference Include="Riok.Mapperly" Version="4.1.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Expressions" Version="5.0.0" />
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3mc" Version="2.1.10" />
+    <PackageReference Include="Swan.Core" Version="7.0.0-beta.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
+    <PackageReference Include="System.Management" Version="9.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Certificates\root.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificates\cert.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\_content\MudBlazor\" />
+    <Folder Include="wwwroot\_framework\en-US\" />
+    <Folder Include="wwwroot\_framework\ja\" />
+    <Folder Include="wwwroot\_framework\zh-Hans\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebUIOver\Client\WebUIOver.Client.csproj" />
+    <ProjectReference Include="..\WebUIOver\Shared\WebUIOver.Shared.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2042 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 1,
+    "Value": "デフォルト（ブルー）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 2,
+    "Value": "デフォルト（レッド）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 3,
+    "Value": "デフォルト（グリーン）",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 4,
+    "Value": "プレート(ゴールド)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 5,
+    "Value": "プレート(シルバー)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 6,
+    "Value": "プレート(ブラック)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 7,
+    "Value": "プレート(レッド)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 8,
+    "Value": "プレート(ブルー)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 9,
+    "Value": "プレート(ホワイト)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 10,
+    "Value": "プレート(グリーン)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 11,
+    "Value": "プレート(オレンジ)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 12,
+    "Value": "プレート(ピンク)",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 13,
+    "Value": "オリジナルガンダムモチーフ1",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XB 引継ぎキャンペーン 10回プレイ"
+  },
+  {
+    "Id": 14,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 15,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 16,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 17,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 18,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 19,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 20,
+    "Value": "オリジナルガンダムモチーフ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 21,
+    "Value": "ブラック",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 22,
+    "Value": "ホワイト",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 23,
+    "Value": "VSTG with Black Background",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 24,
+    "Value": "VSTG with White Background",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 25,
+    "Value": "機体選択画面（OB）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 26,
+    "Value": "プレイヤーレベル1st-stepプレートA",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル1周目Lv.10"
+  },
+  {
+    "Id": 27,
+    "Value": "プレイヤーレベル1st-stepプレートB",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル1周目Lv.100"
+  },
+  {
+    "Id": 28,
+    "Value": "プレイヤーレベル1st-stepプレートC",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル1周目Lv.170"
+  },
+  {
+    "Id": 29,
+    "Value": "プレイヤーレベル2nd-stepプレートA",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル2周目Lv.10"
+  },
+  {
+    "Id": 30,
+    "Value": "プレイヤーレベル2nd-stepプレートB",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル2周目Lv.100"
+  },
+  {
+    "Id": 31,
+    "Value": "プレイヤーレベル2nd-stepプレートC",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル2周目Lv.170"
+  },
+  {
+    "Id": 32,
+    "Value": "プレイヤーレベル3rd-stepプレートA",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル3周目Lv.10"
+  },
+  {
+    "Id": 33,
+    "Value": "プレイヤーレベル3rd-stepプレートB",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル3周目Lv.100"
+  },
+  {
+    "Id": 34,
+    "Value": "プレイヤーレベル3rd-stepプレートC",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベル3周目Lv.170"
+  },
+  {
+    "Id": 35,
+    "Value": "オーバーブーストパス stage:90 (2023/7)",
+    "Existence": "OBv7",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 36,
+    "Value": "クラスマッチミッションを全てクリア (2023/7)",
+    "Existence": "OBv7",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 37,
+    "Value": "月間Aceクラスランキング ソロ100位以内 (2023/7)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 38,
+    "Value": "月間Aceクラスランキング ソロ1000位以内 (2023/7)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 39,
+    "Value": "月間Aceクラスランキング チーム100位以内 (2023/7)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 40,
+    "Value": "月間Aceクラスランキング チーム1000位以内 (2023/7)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 41,
+    "Value": "月間Aceクラスランキング ソロ100位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 42,
+    "Value": "月間Aceクラスランキング ソロ1000位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 43,
+    "Value": "月間Aceクラスランキング チーム100位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 44,
+    "Value": "月間Aceクラスランキング チーム1000位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 45,
+    "Value": "オーバーブーストパス stage:90 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 46,
+    "Value": "クラスマッチミッションを全てクリア (2023/9)",
+    "Existence": "OBv7",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 47,
+    "Value": "Background 47",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 48,
+    "Value": "木目",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 49,
+    "Value": "デジタルモニター",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 50,
+    "Value": "宇宙",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 51,
+    "Value": "青空",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 52,
+    "Value": "海",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 53,
+    "Value": "アンティーク",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 54,
+    "Value": "アンティーク2",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 55,
+    "Value": "アンティーク3",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第2弾 SP"
+  },
+  {
+    "Id": 56,
+    "Value": "爆炎",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 57,
+    "Value": "地球連邦軍",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 58,
+    "Value": "ジオン公国軍",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 59,
+    "Value": "アムロ・レイ (0079)",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 60,
+    "Value": "シャア・アズナブル (0079)",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 61,
+    "Value": "アムロ・レイ",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 62,
+    "Value": "エゥーゴ",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 63,
+    "Value": "ティターンズ",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 64,
+    "Value": "カラバ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 65,
+    "Value": "百式",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 66,
+    "Value": "アナハイム・エレクトロニクス",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 67,
+    "Value": "ネオ・ジオン(アクシズ)",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 68,
+    "Value": "ネオ・ジオン",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 69,
+    "Value": "ロンド・ベル",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 70,
+    "Value": "キャスバル・レム・ダイクン",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 71,
+    "Value": "クロスボーン・バンガード",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 72,
+    "Value": "ザビーネ・シャル",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 73,
+    "Value": "ロナ家",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 74,
+    "Value": "リガ・ミリティア",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 75,
+    "Value": "ザンスカール帝国",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 76,
+    "Value": "カテジナ・ルース",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 77,
+    "Value": "ウッソ・エヴィン",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 78,
+    "Value": "シュラク隊",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 79,
+    "Value": "キング・オブ・ハート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 80,
+    "Value": "ブラック・ジョーカー",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 81,
+    "Value": "クラブ・エース",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 82,
+    "Value": "クイーン・ザ・スペード",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 83,
+    "Value": "ジャック・イン・ダイヤ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 84,
+    "Value": "OZ",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 85,
+    "Value": "プリベンター",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 86,
+    "Value": "マリーメイア軍",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 87,
+    "Value": "宇宙革命軍",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 88,
+    "Value": "新連邦",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 89,
+    "Value": "ホワイト・ドール",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 90,
+    "Value": "イングレッサ・ミリシャ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 91,
+    "Value": "ルジャーナ・ミリシャ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 92,
+    "Value": "ディアナ・カウンター",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 93,
+    "Value": "ギンガナム家",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 94,
+    "Value": "ハイム家",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 95,
+    "Value": "Z.A.F.T",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 96,
+    "Value": "地球連合軍",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 97,
+    "Value": "オーブ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 98,
+    "Value": "フェイス",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 99,
+    "Value": "砂漠の虎",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 100,
+    "Value": "カガリ・ユラ・アスハ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 101,
+    "Value": "ソレスタルビーイング",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 102,
+    "Value": "ユニオン",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 103,
+    "Value": "人類革新連盟",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 104,
+    "Value": "AEU",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 105,
+    "Value": "地球連邦",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 106,
+    "Value": "地球連邦軍",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 107,
+    "Value": "アロウズ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 108,
+    "Value": "ロンド・ベル(UC)",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 109,
+    "Value": "ネオ・ジオン(UC)",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 110,
+    "Value": "ビスト財団",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 111,
+    "Value": "アナハイム・エレクトロニクス(UC)",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 112,
+    "Value": "エコーズ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 113,
+    "Value": "G-4実験部隊",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 114,
+    "Value": "サイクロプス隊",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 115,
+    "Value": "アルビオン隊",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 116,
+    "Value": "デラーズ・フリート",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 117,
+    "Value": "コウ・ウラキ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 118,
+    "Value": "サウス・バニング",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 119,
+    "Value": "第08MS小隊",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 120,
+    "Value": "ロウ・ギュール",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ 第1弾 SP"
+  },
+  {
+    "Id": 121,
+    "Value": "サーペント・テール",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 122,
+    "Value": "シャッフル同盟",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 123,
+    "Value": "ゼクス・マーキス",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 124,
+    "Value": "アカツキ",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 125,
+    "Value": "チームAAマーク",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 126,
+    "Value": "チームIX",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 127,
+    "Value": "G-ガーディアンズマーク",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 128,
+    "Value": "GGGP2023プレイヤーステッカー（紫）",
+    "Existence": "OBv7",
+    "Category": "大会",
+    "Clues": "「GGGP2023」勝利陣営参加選手"
+  },
+  {
+    "Id": 129,
+    "Value": "Invalid Sticker Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 130,
+    "Value": "ブループレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBで軍曹～曹長に到達"
+  },
+  {
+    "Id": 131,
+    "Value": "ブロンズプレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBで准尉～大尉Lv.5＆上級大尉に到達"
+  },
+  {
+    "Id": 132,
+    "Value": "シルバープレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBで少佐Lv.1～大佐Lv.5&准将に到達"
+  },
+  {
+    "Id": 133,
+    "Value": "ゴールドプレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBで少将Lv.1～大将Lv.5に到達"
+  },
+  {
+    "Id": 134,
+    "Value": "元帥プレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBで元帥に到達"
+  },
+  {
+    "Id": 135,
+    "Value": "大元帥プレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBで大元帥に到達"
+  },
+  {
+    "Id": 136,
+    "Value": "最高到達ランクEXXソロ（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでソロEXXランクに到達"
+  },
+  {
+    "Id": 137,
+    "Value": "最高到達ランクEXソロ（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでソロEXランクに到達"
+  },
+  {
+    "Id": 138,
+    "Value": "最高到達ランクSソロ（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでソロSランクに到達"
+  },
+  {
+    "Id": 139,
+    "Value": "最高到達ランクAソロ（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでソロAランクに到達"
+  },
+  {
+    "Id": 140,
+    "Value": "最高到達ランクBソロ（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでソロBランクに到達"
+  },
+  {
+    "Id": 141,
+    "Value": "最高到達ランクCソロ（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでソロCランクに到達"
+  },
+  {
+    "Id": 142,
+    "Value": "最高到達ランクEXXチーム（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでチームEXXランクに到達"
+  },
+  {
+    "Id": 143,
+    "Value": "最高到達ランクEXチーム（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでチームEXランクに到達"
+  },
+  {
+    "Id": 144,
+    "Value": "最高到達ランクSチーム（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでチームSランクに到達"
+  },
+  {
+    "Id": 145,
+    "Value": "最高到達ランクAチーム（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでチームAランクに到達"
+  },
+  {
+    "Id": 146,
+    "Value": "最高到達ランクBチーム（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでチームBランクに到達"
+  },
+  {
+    "Id": 147,
+    "Value": "最高到達ランクCチーム（XBランクマッチ）",
+    "Existence": "OBv7",
+    "Category": "その他イベント",
+    "Clues": "EXVS.2XBでチームCランクに到達"
+  },
+  {
+    "Id": 148,
+    "Value": "GGGP2023プレイヤーステッカー（赤）",
+    "Existence": "OBv7",
+    "Category": "大会",
+    "Clues": "「GGGP2023」西会場参加選手"
+  },
+  {
+    "Id": 149,
+    "Value": "GGGP2023プレイヤーステッカー（青）",
+    "Existence": "OBv7",
+    "Category": "大会",
+    "Clues": "「GGGP2023」東会場参加選手"
+  },
+  {
+    "Id": 150,
+    "Value": "アーセナルベースコラボプレート",
+    "Existence": "OBv7",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 151,
+    "Value": "月間Aceクラスランキング ソロ100位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 152,
+    "Value": "月間Aceクラスランキング ソロ1000位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 153,
+    "Value": "月間Aceクラスランキング チーム100位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 154,
+    "Value": "月間Aceクラスランキング チーム1000位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 155,
+    "Value": "月間Aceクラスランキング ソロ100位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 156,
+    "Value": "月間Aceクラスランキング ソロ1000位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 157,
+    "Value": "月間Aceクラスランキング チーム100位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 158,
+    "Value": "月間Aceクラスランキング チーム1000位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 159,
+    "Value": "月間Aceクラスランキング ソロ100位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 160,
+    "Value": "月間Aceクラスランキング ソロ1000位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 161,
+    "Value": "月間Aceクラスランキング チーム100位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 162,
+    "Value": "月間Aceクラスランキング チーム1000位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Aceクラスランキング"
+  },
+  {
+    "Id": 163,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 164,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 165,
+    "Value": "月間Overクラスランキング チーム100位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 166,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 167,
+    "Value": "オーバーブーストパス stage:90 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 168,
+    "Value": "クラスマッチミッションを全てクリア (2023/11)",
+    "Existence": "OBv7",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 169,
+    "Value": "オーバーブーストパス stage:90 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 170,
+    "Value": "クラスマッチミッションを全てクリア (2024/1)",
+    "Existence": "OBv9",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 171,
+    "Value": "オーバーブーストパス stage:90 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 172,
+    "Value": "クラスマッチミッションを全てクリア (2024/3)",
+    "Existence": "OBv13",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 173,
+    "Value": "オーバーブーストパス stage:90 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 174,
+    "Value": "クラスマッチミッションを全てクリア (2024/5)",
+    "Existence": "OBv13",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 175,
+    "Value": "AUTUMN BATTLE参加賞（2023）",
+    "Existence": "OBv7",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2023」出場"
+  },
+  {
+    "Id": 176,
+    "Value": "WINTER BATTLE参加賞（2024）",
+    "Existence": "OBv9",
+    "Category": "大会",
+    "Clues": "店舗大会「WINTER BATTLE 2024」出場"
+  },
+  {
+    "Id": 177,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 178,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 179,
+    "Value": "月間Overクラスランキング チーム100位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 180,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 181,
+    "Value": "オーバーブーストパス stage:90 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 182,
+    "Value": "クラスマッチミッションを全てクリア (2024/7)",
+    "Existence": "OBv16",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 183,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 184,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 185,
+    "Value": "月間Overクラスランキング チーム100位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 186,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 187,
+    "Value": "オーバーブーストパス stage:90 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 188,
+    "Value": "クラスマッチミッションを全てクリア (2024/9)",
+    "Existence": "OBv18",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 189,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 190,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 191,
+    "Value": "月間Overクラスランキング チーム100位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 192,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 193,
+    "Value": "オーバーブーストパス stage:90 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 194,
+    "Value": "クラスマッチミッションを全てクリア (2024/11)",
+    "Existence": "OBv19",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 195,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 196,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 197,
+    "Value": "月間Overクラスランキング チーム100位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 198,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 199,
+    "Value": "オーバーブーストパス stage:90 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 200,
+    "Value": "クラスマッチミッションを全てクリア (2025/1)",
+    "Existence": "OBv24",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 201,
+    "Value": "劇場版SEED FREEDOM公開記念プレート",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "『機動戦士ガンダムSEED FREEDOM』公開記念キャンペーン 10クレジットプレイ"
+  },
+  {
+    "Id": 202,
+    "Value": "劇場版SEED FREEDOM公開記念プレート (Black)",
+    "Existence": "OBv13",
+    "Category": "その他イベント"
+  },
+  {
+    "Id": 203,
+    "Value": "GGGP2024 4on4団体戦 優勝者予想キャンペーン",
+    "Existence": "OBv13",
+    "Category": "大会",
+    "Clues": "GGGP2024 4on4団体戦 優勝チーム予想キャンペーン 予想的中"
+  },
+  {
+    "Id": 204,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 205,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 206,
+    "Value": "月間Overクラスランキング チーム100位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 207,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 208,
+    "Value": "GGGP2024来場特典プレート",
+    "Existence": "OBv13",
+    "Category": "大会",
+    "Clues": "GGGP2024 4on4団体戦 本戦会場来場"
+  },
+  {
+    "Id": 209,
+    "Value": "Background 209",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 210,
+    "Value": "Background 210",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 211,
+    "Value": "Background 211",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 212,
+    "Value": "Background 212",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 213,
+    "Value": "Background 213",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 214,
+    "Value": "Background 214",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 215,
+    "Value": "機体選択画面（EXVS.）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 216,
+    "Value": "機体選択画面（FB）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 217,
+    "Value": "機体選択画面（MB）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 218,
+    "Value": "機体選択画面（MBON）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 219,
+    "Value": "機体選択画面（EXVS.2）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 220,
+    "Value": "機体選択画面（XB）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 221,
+    "Value": "カバーリングバースト",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 222,
+    "Value": "バーティカルバースト",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 223,
+    "Value": "シューティングバースト",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 224,
+    "Value": "ファイティングバースト",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 225,
+    "Value": "迷彩（緑）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 226,
+    "Value": "迷彩（青）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 227,
+    "Value": "迷彩（灰色）",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 228,
+    "Value": "Background 228",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 229,
+    "Value": "SPRING BATTLE参加賞（2024）",
+    "Existence": "OBv13",
+    "Category": "大会",
+    "Clues": "店舗大会「SPRING BATTLE 2024」出場"
+  },
+  {
+    "Id": 230,
+    "Value": "SUMMER BATTLE参加賞（2024）",
+    "Existence": "OBv16",
+    "Category": "大会",
+    "Clues": "店舗大会「SUMMER BATTLE 2024」出場"
+  },
+  {
+    "Id": 231,
+    "Value": "AUTUMN BATTLE参加賞（2024）",
+    "Existence": "OBv19",
+    "Category": "大会",
+    "Clues": "店舗大会「AUTUMN BATTLE 2024」出場"
+  },
+  {
+    "Id": 232,
+    "Value": "Invalid Sticker Background",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 233,
+    "Value": "GAME ON!",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 234,
+    "Value": "Background 234",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 235,
+    "Value": "Background 235",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 236,
+    "Value": "Background 236",
+    "Existence": "OBv13"
+  },
+  {
+    "Id": 237,
+    "Value": "CAUTION",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 238,
+    "Value": "WARNING",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 239,
+    "Value": "ABOUT ME",
+    "Existence": "OBv13",
+    "Category": "その他イベント",
+    "Clues": "プレイヤーステッカーGETガシャ第3弾"
+  },
+  {
+    "Id": 240,
+    "Value": "Exround_PLv.50",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.50"
+  },
+  {
+    "Id": 241,
+    "Value": "Exround_PLv.150",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.150"
+  },
+  {
+    "Id": 242,
+    "Value": "Exround_PLv.250",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.250"
+  },
+  {
+    "Id": 243,
+    "Value": "Exround_PLv.350",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.350"
+  },
+  {
+    "Id": 244,
+    "Value": "Exround_PLv.450",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.450"
+  },
+  {
+    "Id": 245,
+    "Value": "Exround_PLv.550",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.550"
+  },
+  {
+    "Id": 246,
+    "Value": "Exround_PLv.650",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.650"
+  },
+  {
+    "Id": 247,
+    "Value": "Exround_PLv.750",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.750"
+  },
+  {
+    "Id": 248,
+    "Value": "Exround_PLv.850",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.850"
+  },
+  {
+    "Id": 249,
+    "Value": "Exround_PLv.950",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.950"
+  },
+  {
+    "Id": 250,
+    "Value": "Exround_PLv.999",
+    "Existence": "OBv15",
+    "Category": "プレイヤーレベル",
+    "Clues": "プレイヤーレベルEXラウンドLv.999"
+  },
+  {
+    "Id": 251,
+    "Value": "2024 OB PLAY CP Vol.2",
+    "Existence": "OBv15",
+    "Category": "キャンペーン",
+    "Clues": "2024 OVER BOOST PLAY CAMPAIGN Vol.2 F賞"
+  },
+  {
+    "Id": 252,
+    "Value": "EXVS.2 OB 1st ANNIVERSARY",
+    "Existence": "OBv16",
+    "Category": "キャンペーン",
+    "Clues": "稼働1周年記念 N-EXTREMEキャンペーン 第1~4弾フルコンプリート"
+  },
+  {
+    "Id": 253,
+    "Value": "コミックス「機動戦士ガンダム N-EXTREME」3巻特典　ver.メリーナ",
+    "Existence": "OBv16",
+    "Category": "キャンペーン",
+    "Clues": "機動戦士ガンダムN-EXTREME × EXVS.2 OBコラボキャンペーン『機動戦士ガンダムN-EXTREME(3)』購入"
+  },
+  {
+    "Id": 254,
+    "Value": "コミックス「機動戦士ガンダム N-EXTREME」3巻特典　ver.カノ",
+    "Existence": "OBv16",
+    "Category": "キャンペーン",
+    "Clues": "機動戦士ガンダムN-EXTREME × EXVS.2 OBコラボキャンペーン『機動戦士ガンダムN-EXTREME(3)』購入"
+  },
+  {
+    "Id": 255,
+    "Value": "イベントKV 廃棄コロニー",
+    "Existence": "OBv16",
+    "Category": "会場イベント",
+    "Clues": "EXVS.トークライブ in 両国国技館 ～プレゼントもあるよ～"
+  },
+  {
+    "Id": 256,
+    "Value": "GGGP2024後夜祭 来場者報酬",
+    "Existence": "OBv18",
+    "Category": "会場イベント",
+    "Clues": "「GGGP2024 後夜祭」来場"
+  },
+  {
+    "Id": 257,
+    "Value": "GGGP2024後夜祭 出場報酬",
+    "Existence": "OBv18",
+    "Category": "会場イベント",
+    "Clues": "「GGGP2024 後夜祭」来場"
+  },
+  {
+    "Id": 258,
+    "Value": "サイド7 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 259,
+    "Value": "アーモリーワン (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 260,
+    "Value": "ミンスリー (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 261,
+    "Value": "キャピタル・テリトリィ (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 262,
+    "Value": "トリントン基地周辺 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 263,
+    "Value": "ニューホンコン (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 264,
+    "Value": "ランタオ島 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 265,
+    "Value": "ニュータイプ研究所 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 266,
+    "Value": "アフリカ砂漠 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 267,
+    "Value": "REBIRTH (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 268,
+    "Value": "廃棄コロニー (地球周辺) (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 269,
+    "Value": "ギガフロート (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 270,
+    "Value": "農業プラント (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 271,
+    "Value": "アクシズ (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 272,
+    "Value": "丘陵地帯 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 273,
+    "Value": "学園都市メーティス (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 274,
+    "Value": "ギアナ高地 (近)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 275,
+    "Value": "サイド7",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 276,
+    "Value": "アーモリーワン",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 277,
+    "Value": "ミンスリー",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 278,
+    "Value": "キャピタル・テリトリィ",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 279,
+    "Value": "トリントン基地周辺",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 280,
+    "Value": "ニューホンコン",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 281,
+    "Value": "ランタオ島",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 282,
+    "Value": "ニュータイプ研究所",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 283,
+    "Value": "アフリカ砂漠",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 284,
+    "Value": "REBIRTH",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 285,
+    "Value": "廃棄コロニー (地球周辺)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 286,
+    "Value": "ギガフロート",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 287,
+    "Value": "農業プラント",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 288,
+    "Value": "アクシズ",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 289,
+    "Value": "丘陵地帯",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 290,
+    "Value": "学園都市メーティス",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 291,
+    "Value": "ギアナ高地",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 292,
+    "Value": "サイド7 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 293,
+    "Value": "アーモリーワン (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 294,
+    "Value": "ミンスリー (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 295,
+    "Value": "キャピタル・テリトリィ (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 296,
+    "Value": "トリントン基地周辺 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 297,
+    "Value": "ニューホンコン (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 298,
+    "Value": "ランタオ島 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 299,
+    "Value": "ニュータイプ研究所 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 300,
+    "Value": "アフリカ砂漠 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 301,
+    "Value": "REBIRTH (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 302,
+    "Value": "廃棄コロニー (地球周辺) (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 303,
+    "Value": "ギガフロート (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 304,
+    "Value": "農業プラント (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 305,
+    "Value": "アクシズ (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 306,
+    "Value": "丘陵地帯 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 307,
+    "Value": "学園都市メーティス (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 308,
+    "Value": "ギアナ高地 (遠い)",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 309,
+    "Value": "GGGP2024後夜祭 出場勝利報酬",
+    "Existence": "OBv18",
+    "Category": "会場イベント",
+    "Clues": "「GGGP2024 後夜祭」勝利陣営参加"
+  },
+  {
+    "Id": 310,
+    "Value": "PDF2025店舗予選参加賞",
+    "Existence": "OBv20",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」エリア予選大会参加"
+  },
+  {
+    "Id": 311,
+    "Value": "PDF2025優勝",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」優勝チーム（2名）"
+  },
+  {
+    "Id": 312,
+    "Value": "PDF2025準優勝",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」準優勝チーム（2名）"
+  },
+  {
+    "Id": 313,
+    "Value": "PDF2025ベスト8",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」ベスト8チーム（12名）"
+  },
+  {
+    "Id": 314,
+    "Value": "PDF2025本戦出場",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」本戦出場チーム（104名）"
+  },
+  {
+    "Id": 315,
+    "Value": "PDF2025特別賞",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」テクニカルパイロット賞/PDFキャスターセレクト賞/スーパーマイスター賞/仲良しコーデ賞/匠賞/敢闘賞/OverthePRIDE!!賞（14名）"
+  },
+  {
+    "Id": 316,
+    "Value": "PDF2025優勝チーム予想的中報酬",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」優勝者予想キャンペーン　予想的中報酬"
+  },
+  {
+    "Id": 317,
+    "Value": "月間Overクラスランキング ソロ100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 318,
+    "Value": "月間Overクラスランキング ソロ1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 319,
+    "Value": "月間Overクラスランキング チーム100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 320,
+    "Value": "月間Overクラスランキング チーム1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "月間Overクラスランキング"
+  },
+  {
+    "Id": 321,
+    "Value": "オーバーブーストパス stage:90 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "オーバーブーストパス"
+  },
+  {
+    "Id": 322,
+    "Value": "クラスマッチミッションを全てクリア (2025/3)",
+    "Existence": "OBv26",
+    "Category": "クラスマッチミッション"
+  },
+  {
+    "Id": 323,
+    "Value": "エクストリームファン投票_デスティニーガンダム",
+    "Existence": "OBv24",
+    "Category": "キャンペーン",
+    "Clues": "エクストリームファン投票"
+  },
+  {
+    "Id": 324,
+    "Value": "エクストリームファン投票_アースリィガンダム",
+    "Existence": "OBv24",
+    "Category": "キャンペーン",
+    "Clues": "エクストリームファン投票"
+  },
+  {
+    "Id": 325,
+    "Value": "エクストリームファン投票_ガンダム・エアリアル",
+    "Existence": "OBv24",
+    "Category": "キャンペーン",
+    "Clues": "エクストリームファン投票"
+  },
+  {
+    "Id": 326,
+    "Value": "エクストリームファン投票_ザクⅡ",
+    "Existence": "OBv24",
+    "Category": "キャンペーン",
+    "Clues": "エクストリームファン投票"
+  },
+  {
+    "Id": 327,
+    "Value": "お正月2025",
+    "Existence": "OBv24",
+    "Category": "キャンペーン",
+    "Clues": "おみくじ称号＆ステッカー背景＆20,250GPプレゼント！"
+  },
+  {
+    "Id": 328,
+    "Value": "PDF2025特別賞",
+    "Existence": "OBv24",
+    "Category": "大会",
+    "Clues": "「PREMIUM DOGFIGHT 2025」植田佳奈賞/月城莉奈賞（4名）"
+  },
+  {
+    "Id": 329,
+    "Value": "SEASON BATTLE THE FINAL 優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 330,
+    "Value": "SEASON BATTLE THE FINAL 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 331,
+    "Value": "SEASON BATTLE THE FINAL",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 332,
+    "Value": "EVO JAPAN 2025 優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 333,
+    "Value": "EVO JAPAN 2025 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 334,
+    "Value": "EVO JAPAN 2025 ベスト8",
+    "Existence": "OBv27",
+    "Category": "大会"
+  }
+]

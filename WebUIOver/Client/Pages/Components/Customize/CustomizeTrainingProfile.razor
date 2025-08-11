@@ -1,0 +1,235 @@
+﻿@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Shared.Dto.Enum
+@using WebUIOver.Client.Pages.Dialogs
+@using WebUIOver.Client.Services.Name
+@inherits BasicCustomizeComponent
+
+@inject ILogger<CustomizeCard> Logger
+@inject IDialogService DialogService
+@inject INameService NameService
+
+<MudGrid xs="12">
+    <MudItem xs="12">
+        <MudCard Class="my-2" Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@localizer["training_profile"]</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudStack Row>
+                        <MudProgressCircular @bind-Class="@ProgressContext.HideTrainingProfileProgress" Color="Color.Default" Indeterminate="true" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Save" Variant="Variant.Filled" OnClick="@SaveTask"
+                                       Color="Color.Primary" Size="Size.Large" aria-label="save"></MudIconButton>
+                    </MudStack>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack>
+                    <MudItem xs="12">
+                        <MudGrid Class="align-center">
+                            <MudItem xs="10" sm="11">
+                                <MudField Label="@localizer["training_profile_ms"]" Variant="Variant.Outlined">
+                                    @{
+                                        var mobileSuitImagePath = $"images/mobile_suits/{CustomizeCardContext.TrainingProfile.MstMobileSuitId}.webp";
+                                    }
+                                    <div class="d-flex flex-grow-1 gap-4">
+                                        <div class="d-flex flex-none my-auto">
+                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@mobileSuitImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="120"/>
+                                        </div>
+                                        <div class="d-flex my-auto">
+                                            <MudText>@NameService.GetMobileSuitName(CustomizeCardContext.TrainingProfile.MstMobileSuitId) / @NameService.GetMobileSuitPilotName(CustomizeCardContext.TrainingProfile.MstMobileSuitId)</MudText>
+                                        </div>
+                                    </div>
+                                </MudField>
+                            </MudItem>
+                            <MudItem xs="2" sm="1" Style="text-align: right">
+                                <MudIconButton Variant="Variant.Filled" Size="Size.Small" Icon="@Icons.Material.Filled.Edit" aria-label="edit"
+                                               OnClick="() => OpenTrainingProfileMobileSuitUiDialog()" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudField Label="@localizer["training_profile_bursttype"]" Variant="Variant.Outlined">
+                            <MudItem xs="12">
+                                <MudChipSet T="BurstType" @bind-SelectedValue="CustomizeCardContext.TrainingProfile.BurstType" SelectionMode="SelectionMode.SingleSelection" Style="width: 100%;">
+                                    <MudGrid>
+                                        @foreach (var burstType in Enum.GetValues<BurstType>())
+                                        {
+                                            <MudItem xs="6" sm="3">
+                                                <MudChip Text="purple" Variant="Variant.Text" Color="Color.Primary" Value="burstType" Style="width: 100%; height: 130px;">
+                                                    <MudGrid>
+                                                        <MudItem xs="12">
+                                                            @{
+                                                                var burstImagePath = $"images/bursts/{(int)burstType}.webp";
+                                                            }
+                                                            <MudImage ObjectPosition="ObjectPosition.Center" Src="@burstImagePath" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+                                                        </MudItem>
+                                                        <MudItem xs="12" Style="padding-top: 0;">
+                                                            <MudText Typo="Typo.caption" Style="white-space: pre-line;">@burstType</MudText>
+                                                        </MudItem>
+                                                    </MudGrid>
+                                                </MudChip>
+                                            </MudItem>
+                                        }
+                                    </MudGrid>
+                                </MudChipSet>
+                            </MudItem>
+                        </MudField>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="12" sm="6">
+                                <MudSelect @bind-Value="CustomizeCardContext.TrainingProfile.CpuLevel" T="uint"
+                                           Label="@localizer["training_cpu_levels"]" Variant="Variant.Outlined">
+                                    @foreach (var item in CpuLevels)
+                                    {
+                                        <MudSelectItem Value="item.Id">@item.Value</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudSelect @bind-Value="CustomizeCardContext.TrainingProfile.ExBurstGauge" T="uint"
+                                           Label="@localizer["training_ex_burst_levels"]" Variant="Variant.Outlined">
+                                    @foreach (var item in ExBurstLevels)
+                                    {
+                                        <MudSelectItem Value="item.Id">@item.Value</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudGrid>
+                            <MudItem xs="12" sm="6">
+                                <MudGrid>
+                                    <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                        @localizer["training_profile_damage_display"]
+                                    </MudItem>
+                                    <MudItem xs="6" Class="my-auto">
+                                        <MudSwitch @bind-Value="@CustomizeCardContext.TrainingProfile.DamageDisplay" Color="Color.Primary"
+                                                   Label=""
+                                                   LabelPlacement="Placement.Start"/>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudGrid>
+                                    <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                        @localizer["training_profile_cpu_auto_guard"]
+                                    </MudItem>
+                                    <MudItem xs="6" Class="my-auto">
+                                        <MudSwitch @bind-Value="@CustomizeCardContext.TrainingProfile.CpuAutoGuard" Color="Color.Primary"
+                                                   Label=""
+                                                   LabelPlacement="Placement.Start"/>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudGrid>
+                                    <MudItem xs="6" Class="my-auto mud-typography mud-typography-body1">
+                                        @localizer["training_profile_command_hint"]
+                                    </MudItem>
+                                    <MudItem xs="6" Class="my-auto">
+                                        <MudSwitch @bind-Value="@CustomizeCardContext.TrainingProfile.CommandGuideDisplay" Color="Color.Primary"
+                                                   Label=""
+                                                   LabelPlacement="Placement.Start"/>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = false;
+
+    private List<IdValuePair> CpuLevels = new()
+    {
+        new () {
+            Id = 0,
+            Value = "STOP"
+        },
+        new () {
+            Id = 1,
+            Value = "EASY"
+        },
+        new () {
+            Id = 2,
+            Value = "NORMAL"
+        },
+        new () {
+            Id = 3,
+            Value = "HARD"
+        },
+        new () {
+            Id = 4,
+            Value = "EXTREME"
+        },
+        new () {
+            Id = 5,
+            Value = "WALK"
+        },
+        new () {
+            Id = 6,
+            Value = "AVOID"
+        },
+        new () {
+            Id = 7,
+            Value = "RECOVER"
+        }
+    };
+    
+    private List<IdValuePair> ExBurstLevels = new()
+    {
+        new () {
+            Id = 0,
+            Value = "0%"
+        },
+        new () {
+            Id = 1,
+            Value = "50%"
+        },
+        new () {
+            Id = 2,
+            Value = "100%"
+        },
+        new () {
+            Id = 3,
+            Value = "100%(R)"
+        },
+        new () {
+            Id = 4,
+            Value = "100%(R) EX BURST X"
+        }
+    };
+    
+    private async Task OpenTrainingProfileMobileSuitUiDialog()
+    {
+        var parameters = new DialogParameters
+        {
+            { "Data", CustomizeCardContext.TrainingProfile.MstMobileSuitId },
+            { "AggregatedMobileSuits", GetAggregatedMobileSuits() },
+        };
+        
+        var dialog = await DialogService.ShowAsync<ChangeMobileSuitDialog>(localizer["dialogtitle_training_ms"], parameters, OPTIONS);
+        var result = await dialog.Result;
+        
+        if (!result.Canceled && result.Data != null)
+        {
+            CustomizeCardContext.TrainingProfile.MstMobileSuitId = (uint)result.Data;
+            StateHasChanged();
+        }
+    }
+    
+    private IReadOnlyList<MobileSuit> GetAggregatedMobileSuits()
+    {
+        return CustomizeCardContext.AggregetedMobileSuits
+            .Where(ms => ms.Id < 50001)
+            .ToList();
+    }
+}

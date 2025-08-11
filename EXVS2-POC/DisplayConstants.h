@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+
 enum DisplayConstants
 {
     YouTubeLowestWidth = 256,
@@ -10,6 +11,8 @@ enum DisplayConstants
     DvdWideHeight = 480,
     HdWidth = 1280,
     HdHeight = 720,
+    NineHundredPWidth = 1600,
+    NineHundredPHeight = 900,
     FullHdWidth = 1920,
     FullHdHeight = 1080,
     QhdWidth = 2560,

@@ -1,0 +1,120 @@
+﻿@using Throw
+@using WebUIOver.Client.Context.CustomizeCard
+@using WebUIOver.Client.Services
+@using WebUIOver.Shared.Dto.Player
+@using WebUIOver.Shared.Dto.Response
+
+@using WebUIOver.Shared.Dto.Request
+
+@inject HttpClient Http
+@inject ISnackbar Snackbar
+@inject IResponseSnackService ResponseSnackService;
+
+<MudCard Outlined="true" Class="my-2" Elevation="5">
+    <MudCardHeader>
+        <MudText>@localizer["player_level_info"]</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudGrid>
+            @{
+                var targetExp = GetTargetExp(CustomizeCardContext.PlayerLevelProfile);
+                var currentExp = GetCurrentExp(CustomizeCardContext.PlayerLevelProfile);
+            }
+            <MudItem xs="12" sm="3" Class="my-auto">
+                @{
+                    var levelImage = $"images/player_level/{CustomizeCardContext.PlayerLevelProfile.RoundLevel}/{CustomizeCardContext.PlayerLevelProfile.PlayerLevel}.webp";
+                }
+                <MudImage ObjectPosition="ObjectPosition.Center" Src="@levelImage" Width="150" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+            </MudItem>
+            <MudItem xs="12" sm="9" Class="mx-auto my-auto">
+                <MudProgressLinear Rounded="true" Color="Color.Tertiary" Striped="true" Size="Size.Large"
+                                   Min="0" Max="@targetExp"
+                                   Value="@currentExp" Class="my-2">
+                </MudProgressLinear>
+                <MudText Typo="Typo.subtitle2" Align="Align.Center">
+                    <b>EXP: @currentExp / @targetExp</b>
+                </MudText>
+            </MudItem>
+
+            @{
+                if (CustomizeCardContext.PlayerLevelProfile.AbleToStepUpRound)
+                {
+                    <MudItem xs="12" sm="12" Class="my-auto">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true"
+                                   Disabled="@(!CustomizeCardContext.PlayerLevelProfile.AbleToStepUpRound)" OnClick="() => TriggerPlayerLevelLevelUp()">
+                            @localizer["player_level_next_round"]
+                        </MudButton>
+                    </MudItem>
+                }
+            }
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+@code{
+    [Parameter]
+    public CustomizeCardContext CustomizeCardContext { get; set; } = new();
+    
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+    
+    [Parameter]
+    public EventCallback OnChanged { get; set; }
+
+    private uint GetTargetExp(PlayerLevelProfile playerLevelProfile)
+    {
+        if (playerLevelProfile.RoundLevel == 1)
+        {
+            return playerLevelProfile.ExpRequirement.Round2Exp;
+        }
+        
+        if (playerLevelProfile.RoundLevel == 2)
+        {
+            return playerLevelProfile.ExpRequirement.Round3Exp;
+        }
+        
+        if (playerLevelProfile.RoundLevel == 3)
+        {
+            return playerLevelProfile.ExpRequirement.RoundExExp;
+        }
+        
+        return playerLevelProfile.ExpRequirement.Round1Exp;
+    }
+    
+    private uint GetCurrentExp(PlayerLevelProfile playerLevelProfile)
+    {
+        if (playerLevelProfile.AbleToStepUpRound)
+        {
+            return GetTargetExp(playerLevelProfile);
+        }
+        
+        if (playerLevelProfile.RoundLevel == 3 && playerLevelProfile.PlayerLevel == 999)
+        {
+            return playerLevelProfile.ExpRequirement.RoundExExp;
+        }
+        
+        return playerLevelProfile.CurrentExp;
+    }
+    
+    private async void TriggerPlayerLevelLevelUp()
+    {
+        var dto = new BasicCardRequest()
+        {
+            AccessCode = CustomizeCardContext.AccessCode,
+            ChipId = CustomizeCardContext.ChipId
+        };
+
+        var response = await Http.PostAsJsonAsync("/ui/player-level/updatePlayerLevelRound", dto);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        Snackbar.Add($"{localizer["player_level_next_round_success"]}", Severity.Success);
+
+        CustomizeCardContext.PlayerLevelProfile.PlayerLevel = 1;
+        CustomizeCardContext.PlayerLevelProfile.RoundLevel += 1;
+        CustomizeCardContext.PlayerLevelProfile.CurrentExp = 0;
+        CustomizeCardContext.PlayerLevelProfile.AbleToStepUpRound = false;
+        
+        await OnChanged.InvokeAsync();
+    }
+}

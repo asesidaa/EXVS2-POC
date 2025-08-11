@@ -1,0 +1,102 @@
+﻿@page "/SingularCardLogin"
+@using Throw
+@using WebUIOver.Shared.Dto.Request
+@using WebUIOver.Shared.Dto.Response
+@inject NavigationManager NavManager
+@inject HttpClient Http
+@inject ISnackbar Snackbar
+
+<PageTitle>Cards</PageTitle>
+
+<h1>@localizer["login"]</h1>
+
+<MudGrid Class="my-8">
+    <MudItem xs="12" sm="6" Class="my-auto">
+        <MudTextField @bind-Value="AccessCode" Label="Access Code" Variant="Variant.Outlined"/>
+        <br/>
+        <MudButton Color="Color.Primary" FullWidth="true" Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.Login"
+                   OnClick="() => Login()">
+            @localizer["login"]
+        </MudButton>
+    </MudItem>
+    <MudItem xs="12" sm="6" Class="my-auto">
+        <MudText Typo="Typo.h5">@localizer["login_hint"]:</MudText>
+        <br/>
+        <MudText>@localizer["access_code_can_be_found_from"]:</MudText>
+        <MudText>@localizer["access_code_source_1"]</MudText>
+        <MudImage Src="images/BanaPassAccessCode.webp" Class="my-auto" Fluid="true" 
+                  Width="350" ObjectFit="ObjectFit.Cover"></MudImage>
+        <br/>
+        <MudText>@localizer["access_code_or"]</MudText>
+        <MudText>@localizer["access_code_source_2"]</MudText>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [Inject]
+    private IJSRuntime _jsRuntime { get; set; }
+    
+    private string AccessCode { get; set; } = "";
+
+    private BareboneCardProfile _cardProfile = new BareboneCardProfile()
+    {
+        CardId = 0,
+        ChipId = "",
+        UserName = ""
+    };
+    
+    protected override async Task OnInitializedAsync()
+    {
+        AccessCode = "";
+        _cardProfile = new BareboneCardProfile()
+        {
+            CardId = 0,
+            ChipId = "",
+            UserName = ""
+        };
+        await _jsRuntime.InvokeVoidAsync("accessCode.set", AccessCode);
+    }
+
+    private async Task Login()
+    {
+        if (AccessCode == "")
+        {
+            Snackbar.Add(localizer["invalid_user_login"], Severity.Error);
+            return;
+        }
+        
+        var cardProfileResponse = await Http.GetFromJsonAsync<BareboneCardProfile>($"ui/card/getBy/{AccessCode}");
+        cardProfileResponse.ThrowIfNull();
+
+        _cardProfile = cardProfileResponse;
+
+        if (_cardProfile.CardId == 0)
+        {
+            Snackbar.Add(localizer["invalid_user_login"], Severity.Error);
+            return;
+        }
+        
+        var authRequest = new CardAuthorizationRequest
+        {
+            CardId = _cardProfile.CardId,
+            ChipId = _cardProfile.ChipId, 
+            AccessCode = AccessCode
+        };
+        
+        var response = await Http.PostAsJsonAsync($"ui/card/authorize", authRequest);
+        var result = await response.Content.ReadFromJsonAsync<BasicResponse>();
+        result.ThrowIfNull();
+
+        if (!result.Success)
+        {
+            Snackbar.Add(localizer["invalid_user_login"], Severity.Error);
+            return;
+        }
+        
+        await _jsRuntime.InvokeVoidAsync("accessCode.set", AccessCode);
+        
+        NavManager.NavigateTo($"Cards/SingularCardMenu/{_cardProfile.ChipId}"); 
+    }
+}
+

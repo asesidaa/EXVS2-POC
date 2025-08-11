@@ -1,0 +1,178 @@
+﻿[
+  {
+    "Id": 1,
+    "UseDescription": false,
+    "Description": "★0",
+    "Level": 0,
+    "ColorCode": "0",
+    "MinimumPoint": 0
+  },
+  {
+    "Id": 2,
+    "UseDescription": false,
+    "Description": "★1",
+    "Level": 1,
+    "ColorCode": "0",
+    "MinimumPoint": 1
+  },
+  {
+    "Id": 3,
+    "UseDescription": false,
+    "Description": "★2",
+    "Level": 2,
+    "ColorCode": "0",
+    "MinimumPoint": 10
+  },
+  {
+    "Id": 4,
+    "UseDescription": false,
+    "Description": "★3",
+    "Level": 3,
+    "ColorCode": "0",
+    "MinimumPoint": 50
+  },
+  {
+    "Id": 5,
+    "UseDescription": false,
+    "Description": "★4",
+    "Level": 4,
+    "ColorCode": "0",
+    "MinimumPoint": 100
+  },
+  {
+    "Id": 6,
+    "UseDescription": false,
+    "Description": "★5",
+    "Level": 5,
+    "ColorCode": "0",
+    "MinimumPoint": 200
+  },
+  {
+    "Id": 7,
+    "UseDescription": false,
+    "Description": "★6",
+    "Level": 1,
+    "ColorCode": "1",
+    "MinimumPoint": 300
+  },
+  {
+    "Id": 8,
+    "UseDescription": false,
+    "Description": "★7",
+    "Level": 2,
+    "ColorCode": "1",
+    "MinimumPoint": 400
+  },
+  {
+    "Id": 9,
+    "UseDescription": false,
+    "Description": "★8",
+    "Level": 3,
+    "ColorCode": "1",
+    "MinimumPoint": 550
+  },
+  {
+    "Id": 10,
+    "UseDescription": false,
+    "Description": "★9",
+    "Level": 4,
+    "ColorCode": "1",
+    "MinimumPoint": 750
+  },
+  {
+    "Id": 11,
+    "UseDescription": false,
+    "Description": "★10",
+    "Level": 5,
+    "ColorCode": "1",
+    "MinimumPoint": 1000
+  },
+  {
+    "Id": 12,
+    "UseDescription": false,
+    "Description": "★11",
+    "Level": 1,
+    "ColorCode": "2",
+    "MinimumPoint": 1250
+  },
+  {
+    "Id": 13,
+    "UseDescription": false,
+    "Description": "★12",
+    "Level": 2,
+    "ColorCode": "2",
+    "MinimumPoint": 1500
+  },
+  {
+    "Id": 14,
+    "UseDescription": false,
+    "Description": "★13",
+    "Level": 3,
+    "ColorCode": "2",
+    "MinimumPoint": 1800
+  },
+  {
+    "Id": 15,
+    "UseDescription": false,
+    "Description": "★14",
+    "Level": 4,
+    "ColorCode": "2",
+    "MinimumPoint": 2100
+  },
+  {
+    "Id": 16,
+    "UseDescription": false,
+    "Description": "★15",
+    "Level": 5,
+    "ColorCode": "2",
+    "MinimumPoint": 2500
+  },
+  {
+    "Id": 17,
+    "UseDescription": false,
+    "Description": "★16",
+    "Level": 1,
+    "ColorCode": "3",
+    "MinimumPoint": 3000
+  },
+  {
+    "Id": 18,
+    "UseDescription": false,
+    "Description": "★17",
+    "Level": 2,
+    "ColorCode": "3",
+    "MinimumPoint": 3500
+  },
+  {
+    "Id": 19,
+    "UseDescription": false,
+    "Description": "★18",
+    "Level": 3,
+    "ColorCode": "3",
+    "MinimumPoint": 4000
+  },
+  {
+    "Id": 20,
+    "UseDescription": false,
+    "Description": "★19",
+    "Level": 4,
+    "ColorCode": "3",
+    "MinimumPoint": 4500
+  },
+  {
+    "Id": 21,
+    "UseDescription": false,
+    "Description": "★20",
+    "Level": 5,
+    "ColorCode": "3",
+    "MinimumPoint": 5000
+  },
+  {
+    "Id": 22,
+    "UseDescription": true,
+    "Description": "MASTER",
+    "Level": 99,
+    "ColorCode": "#000000",
+    "MinimumPoint": 6000
+  }
+]

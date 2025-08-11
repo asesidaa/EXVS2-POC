@@ -69,6 +69,29 @@ jobs:
         with:
           name: exvs2-poc-server-vanilla
           path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server-Vanilla/publish/
+          
+  publish-server-over:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Server-Over
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
+      - name: dotnet publish
+        run: |
+          dotnet publish -r win-x64 -o publish -c ${{env.BUILD_CONFIGURATION}}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exvs2-poc-server-over
+          path: /home/runner/work/EXVS2-POC/EXVS2-POC/Server-Over/publish/
 
   build-dll:
     runs-on: windows-latest

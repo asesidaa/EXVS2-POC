@@ -1,0 +1,82 @@
+﻿[
+  {
+    "Id": 0,
+    "Value": "Nothing",
+    "ValueJP": "なし",
+    "ValueCN": "没有设定",
+    "ValueTC": "沒有設定",
+    "ValueTC2": "沒有設定"
+  },
+  {
+    "Id": 1,
+    "Value": "Shooting",
+    "ValueJP": "射撃",
+    "ValueCN": "射击",
+    "ValueTC": "射擊",
+    "ValueTC2": "射擊"
+  },
+  {
+    "Id": 2,
+    "Value": "Melee",
+    "ValueJP": "格闘",
+    "ValueCN": "格斗",
+    "ValueTC": "格鬥",
+    "ValueTC2": "格鬥"
+  },
+  {
+    "Id": 3,
+    "Value": "Jump",
+    "ValueJP": "ジャンプ",
+    "ValueCN": "飞行/跳跃",
+    "ValueTC": "飛行/跳躍",
+    "ValueTC2": "飛行/跳躍"
+  },
+  {
+    "Id": 4,
+    "Value": "Switch Target",
+    "ValueJP": "ターゲット切り替え",
+    "ValueCN": "切换目标",
+    "ValueTC": "切換目標",
+    "ValueTC2": "切換目標"
+  },
+  {
+    "Id": 5,
+    "Value": "Communication",
+    "ValueJP": "通信",
+    "ValueCN": "通信",
+    "ValueTC": "通信",
+    "ValueTC2": "通信"
+  },
+  {
+    "Id": 6,
+    "Value": "Sub Ranged",
+    "ValueJP": "サブ射撃",
+    "ValueCN": "副射击",
+    "ValueTC": "副射擊",
+    "ValueTC2": "副射擊"
+  },
+  {
+    "Id": 7,
+    "Value": "Special Shooting",
+    "ValueJP": "特殊射撃",
+    "ValueCN": "特殊射击",
+    "ValueTC": "特殊射擊",
+    "ValueTC2": "特殊射擊"
+  },
+  {
+    "Id": 8,
+    "Value": "Special Melee",
+    "ValueJP": "特殊格闘",
+    "ValueCN": "特殊格斗",
+    "ValueTC": "特殊格鬥",
+    "ValueTC2": "特殊格鬥"
+  },
+  {
+    "Id": 9,
+    "Value": "EX Burst",
+    "ValueJP": "EXバースト",
+    "ValueCN": "EX爆发",
+    "ValueTC": "EX爆發",
+    "ValueTC2": "EX爆發"
+  }
+]

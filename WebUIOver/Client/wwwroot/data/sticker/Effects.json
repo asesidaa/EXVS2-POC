@@ -1,0 +1,436 @@
+[
+  {
+    "Id": 0,
+    "Value": "None",
+    "Existence": "OBv7"
+  },
+  {
+    "Id": 1,
+    "Value": "プレイヤーレベル1周目Lv.200",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル"
+  },
+  {
+    "Id": 2,
+    "Value": "プレイヤーレベル2周目Lv.200",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル"
+  },
+  {
+    "Id": 3,
+    "Value": "プレイヤーレベル3周目Lv.200",
+    "Existence": "OBv7",
+    "Category": "プレイヤーレベル"
+  },
+  {
+    "Id": 4,
+    "Value": "Aceランキングトライアル100位以内",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 5,
+    "Value": "Aceランキングトライアル1000位以内",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 6,
+    "Value": "Aceランキングトライアル連続100位以内",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 7,
+    "Value": "Aceランキングトライアル連続1000位以内",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 8,
+    "Value": "Invalid Sticker Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 9,
+    "Value": "Invalid Sticker Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 10,
+    "Value": "Invalid Sticker Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 11,
+    "Value": "Invalid Sticker Effect",
+    "Existence": "NotExist"
+  },
+  {
+    "Id": 12,
+    "Value": "Aceランキングトライアル100位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 13,
+    "Value": "Aceランキングトライアル1000位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 14,
+    "Value": "Aceランキングトライアル連続100位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 15,
+    "Value": "Aceランキングトライアル連続1000位以内 (2023/9)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 16,
+    "Value": "Aceランキングトライアル100位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 17,
+    "Value": "Aceランキングトライアル1000位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 18,
+    "Value": "Aceランキングトライアル連続100位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 19,
+    "Value": "Aceランキングトライアル連続1000位以内 (2023/11)",
+    "Existence": "OBv7",
+    "Category": "イベント"
+  },
+  {
+    "Id": 20,
+    "Value": "Aceランキングトライアル100位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "イベント"
+  },
+  {
+    "Id": 21,
+    "Value": "Aceランキングトライアル1000位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "イベント"
+  },
+  {
+    "Id": 22,
+    "Value": "Aceランキングトライアル連続100位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "イベント"
+  },
+  {
+    "Id": 23,
+    "Value": "Aceランキングトライアル連続1000位以内 (2024/1)",
+    "Existence": "OBv9",
+    "Category": "イベント"
+  },
+  {
+    "Id": 24,
+    "Value": "Overランキングトライアル100位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 25,
+    "Value": "Overランキングトライアル1000位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 26,
+    "Value": "Overランキングトライアル連続100位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 27,
+    "Value": "Overランキングトライアル連続1000位以内 (2024/3)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 28,
+    "Value": "Overランキングトライアル100位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 29,
+    "Value": "Overランキングトライアル1000位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 30,
+    "Value": "Overランキングトライアル連続100位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 31,
+    "Value": "Overランキングトライアル連続1000位以内 (2024/5)",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 32,
+    "Value": "『機動戦士ガンダムSEED FREEDOM』公開記念キャンペーン 10クレジットプレイ",
+    "Existence": "OBv13",
+    "Category": "イベント"
+  },
+  {
+    "Id": 33,
+    "Value": "Overランキングトライアル100位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "イベント"
+  },
+  {
+    "Id": 34,
+    "Value": "Overランキングトライアル1000位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "イベント"
+  },
+  {
+    "Id": 35,
+    "Value": "Overランキングトライアル連続100位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "イベント"
+  },
+  {
+    "Id": 36,
+    "Value": "Overランキングトライアル連続1000位以内 (2024/7)",
+    "Existence": "OBv16",
+    "Category": "イベント"
+  },
+  {
+    "Id": 37,
+    "Value": "Overランキングトライアル100位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "イベント"
+  },
+  {
+    "Id": 38,
+    "Value": "Overランキングトライアル1000位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "イベント"
+  },
+  {
+    "Id": 39,
+    "Value": "Overランキングトライアル連続100位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "イベント"
+  },
+  {
+    "Id": 40,
+    "Value": "Overランキングトライアル連続1000位以内 (2024/9)",
+    "Existence": "OBv18",
+    "Category": "イベント"
+  },
+  {
+    "Id": 41,
+    "Value": "Overランキングトライアル100位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "イベント"
+  },
+  {
+    "Id": 42,
+    "Value": "Overランキングトライアル1000位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "イベント"
+  },
+  {
+    "Id": 43,
+    "Value": "Overランキングトライアル連続100位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "イベント"
+  },
+  {
+    "Id": 44,
+    "Value": "Overランキングトライアル連続1000位以内 (2024/11)",
+    "Existence": "OBv19",
+    "Category": "イベント"
+  },
+  {
+    "Id": 45,
+    "Value": "Overランキングトライアル100位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "イベント"
+  },
+  {
+    "Id": 46,
+    "Value": "Overランキングトライアル1000位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "イベント"
+  },
+  {
+    "Id": 47,
+    "Value": "Overランキングトライアル連続100位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "イベント"
+  },
+  {
+    "Id": 48,
+    "Value": "Overランキングトライアル連続1000位以内 (2025/1)",
+    "Existence": "OBv24",
+    "Category": "イベント"
+  },
+  {
+    "Id": 49,
+    "Value": "Sticker Effect 49",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 50,
+    "Value": "Sticker Effect 50",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 51,
+    "Value": "Sticker Effect 51",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 52,
+    "Value": "Sticker Effect 52",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 53,
+    "Value": "Sticker Effect 53",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 54,
+    "Value": "KING OF CLASS MATCH",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 55,
+    "Value": "Sticker Effect 55",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 56,
+    "Value": "Sticker Effect 56",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 57,
+    "Value": "Sticker Effect 57",
+    "Existence": "OBv16"
+  },
+  {
+    "Id": 58,
+    "Value": "「GGGP2024 後夜祭」来場",
+    "Existence": "OBv18",
+    "Category": "会場イベント"
+  },
+  {
+    "Id": 59,
+    "Value": "Sticker Effect 59",
+    "Existence": "OBv18"
+  },
+  {
+    "Id": 60,
+    "Value": "PDF2025優勝",
+    "Existence": "OBv24",
+    "Category": "大会"
+  },
+  {
+    "Id": 61,
+    "Value": "PDF2025準優勝",
+    "Existence": "OBv24",
+    "Category": "大会"
+  },
+  {
+    "Id": 62,
+    "Value": "PDF2025ベスト8",
+    "Existence": "OBv24",
+    "Category": "大会"
+  },
+  {
+    "Id": 63,
+    "Value": "Overランキングトライアル100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 64,
+    "Value": "Overランキングトライアル1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 65,
+    "Value": "Overランキングトライアル連続100位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 66,
+    "Value": "Overランキングトライアル連続1000位以内 (2025/3)",
+    "Existence": "OBv26",
+    "Category": "イベント"
+  },
+  {
+    "Id": 67,
+    "Value": "エクストリームファン投票_デスティニーガンダム",
+    "Existence": "OBv24",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 68,
+    "Value": "エクストリームファン投票_アースリィガンダム",
+    "Existence": "OBv24",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 69,
+    "Value": "エクストリームファン投票_ガンダム・エアリアル",
+    "Existence": "OBv24",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 70,
+    "Value": "エクストリームファン投票_ザクⅡ",
+    "Existence": "OBv24",
+    "Category": "キャンペーン"
+  },
+  {
+    "Id": 71,
+    "Value": "PDF2025開催記念特典",
+    "Existence": "OBv24",
+    "Category": "大会"
+  },
+  {
+    "Id": 72,
+    "Value": "LEGEND OF CLASS MATCH",
+    "Existence": "OBv24"
+  },
+  {
+    "Id": 73,
+    "Value": "SEASON BATTLE THE FINAL 優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  },
+  {
+    "Id": 74,
+    "Value": "SEASON BATTLE THE FINAL 準優勝",
+    "Existence": "OBv27",
+    "Category": "大会"
+  }
+]

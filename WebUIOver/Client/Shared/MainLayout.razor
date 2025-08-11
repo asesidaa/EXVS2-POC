@@ -1,0 +1,66 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+@inject ILogger<MainLayout> Logger
+
+<MudThemeProvider @bind-IsDarkMode="_darkTheme" />
+<MudPopoverProvider/>
+<MudDialogProvider BackdropClick="false" />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())"/>
+        <MudSpacer/>
+        <WebUIOver.Client.Pages.ChooseLanguage/>
+        <MudMenu Icon="@Icons.Material.Filled.Settings" Color="Color.Inherit">
+            <MudMenuItem OnClick="DarkThemeToggle">@_darkThemeStr</MudMenuItem>
+        </MudMenu>
+        <!-- <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="https://github.com/asesidaa/EXVS2-POC/" Target="_blank" /> -->
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6"></MudText>
+        </MudDrawerHeader>
+        <NavMenu/>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+    bool _darkTheme = false;
+    string _darkThemeStr { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var js = (IJSInProcessRuntime)JSRuntime;
+        _darkTheme = Convert.ToBoolean(await js.InvokeAsync<string>("blazorDarkTheme.get"));
+
+        if (_darkTheme)
+            _darkThemeStr = localizer["lighttheme"];
+        else
+            _darkThemeStr = localizer["darktheme"];
+    }
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    void DarkThemeToggle()
+    {
+        _darkTheme = !_darkTheme;
+
+        if (_darkTheme)
+            _darkThemeStr = localizer["lighttheme"];
+        else
+            _darkThemeStr = localizer["darktheme"];
+
+        var js = (IJSInProcessRuntime)JSRuntime;
+        js.InvokeVoid("blazorDarkTheme.set", _darkTheme);
+    }
+}

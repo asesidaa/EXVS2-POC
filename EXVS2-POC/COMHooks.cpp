@@ -1,7 +1,11 @@
-﻿#include "COMHooks.h"
+#include "COMHooks.h"
+
 #include <Windows.h>
+
 #include <string>
+
 #include "MinHook.h"
+
 #include "log.h"
 
 struct COMHook

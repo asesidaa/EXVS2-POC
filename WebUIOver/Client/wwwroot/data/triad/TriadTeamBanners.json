@@ -1,0 +1,79 @@
+[
+  {
+    "Id": 0,
+    "Value": "Disable Team Banner",
+    "Existence": "XB",
+    "Category": "最初から所持",
+    "Clues": "最初から所持"
+  },
+  {
+    "Id": 1,
+    "Value": "Default",
+    "Existence": "XB",
+    "Category": "最初から所持",
+    "Clues": "最初から所持"
+  },
+  {
+    "Id": 2,
+    "Value": "バディレベル50 (1機) A",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機1機をバディレベル50以上"
+  },
+  {
+    "Id": 3,
+    "Value": "バディレベル50 (1機) B",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機1機をバディレベル50以上"
+  },
+  {
+    "Id": 4,
+    "Value": "バディレベル50 (1機) C",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機1機をバディレベル50以上"
+  },
+  {
+    "Id": 5,
+    "Value": "バディレベル50 (1機) D",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機1機をバディレベル50以上"
+  },
+  {
+    "Id": 6,
+    "Value": "バディレベルMASTER (1機)",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機1機をバディレベルMASTER"
+  },
+  {
+    "Id": 7,
+    "Value": "バディレベルMASTER (5機) A",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機5機をバディレベルMASTER"
+  },
+  {
+    "Id": 8,
+    "Value": "バディレベルMASTER (5機) B",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機5機をバディレベルMASTER"
+  },
+  {
+    "Id": 9,
+    "Value": "バディレベルMASTER (5機) C",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機5機をバディレベルMASTER"
+  },
+  {
+    "Id": 10,
+    "Value": "バディレベルMASTER (10機)",
+    "Existence": "XB",
+    "Category": "バディレベル",
+    "Clues": "CPU僚機10機をバディレベルMASTER"
+  }
+]

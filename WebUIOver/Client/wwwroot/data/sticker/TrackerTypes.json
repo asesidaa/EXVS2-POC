@@ -1,0 +1,191 @@
+﻿[
+  {
+    "Id": 0,
+    "Category": "All",
+    "Value": "-",
+    "ValueJP": "-",
+    "ValueCN": "-",
+    "ValueTC": "-",
+    "ValueTC2": "-"
+  },
+  {
+    "Id": 1,
+    "Category": "Pilot",
+    "Value": "[Player] Total PvP Battle Count",
+    "ValueJP": "[プレイヤー] 総合対戦数",
+    "ValueCN": "[玩家] 总合对人场次",
+    "ValueTC": "[玩家] 總合對人場次",
+    "ValueTC2": "[玩家] 總合對人場次"
+  },
+  {
+    "Id": 2,
+    "Category": "Pilot",
+    "Value": "[Player] Total PvP Win Count",
+    "ValueJP": "[プレイヤー] 総合勝利数",
+    "ValueCN": "[玩家] 总合对人胜场",
+    "ValueTC": "[玩家] 總合對人勝場",
+    "ValueTC2": "[玩家] 總合對人勝場"
+  },
+  {
+    "Id": 3,
+    "Category": "Pilot",
+    "Value": "[Player] Total PvP Damage Delivered",
+    "ValueJP": "[プレイヤー] 総合与ダメージ数",
+    "ValueCN": "[玩家] 总合对人输出",
+    "ValueTC": "[玩家] 總合對人輸出",
+    "ValueTC2": "[玩家] 總合對人輸出"
+  },
+  {
+    "Id": 4,
+    "Category": "Pilot",
+    "Value": "[Player] Total PvP Foes Defeated",
+    "ValueJP": "[プレイヤー] 総合敵撃破数",
+    "ValueCN": "[玩家] 总合对人击破数",
+    "ValueTC": "[玩家] 總合對人擊破數",
+    "ValueTC2": "[玩家] 總合對人擊破數"
+  },
+  {
+    "Id": 5,
+    "Category": "Pilot",
+    "Value": "[Player] Total 10 Consecutive Wins Achived in Class Match",
+    "ValueJP": "[プレイヤー] 総合クラスマッチ10連勝達成数",
+    "ValueCN": "[玩家] 总合排位10连胜次数",
+    "ValueTC": "[玩家] 總合排位10連勝次數",
+    "ValueTC2": "[玩家] 總合排位10連勝次數"
+  },
+  {
+    "Id": 6,
+    "Category": "Pilot",
+    "Value": "[Player] Total Count on PvP No Damage Battles",
+    "ValueJP": "[プレイヤー] 総合ノーダメージバトル数",
+    "ValueCN": "[玩家] 总合对人无伤场数",
+    "ValueTC": "[玩家] 總合對人無傷場數",
+    "ValueTC2": "[玩家] 總合對人無傷場數"
+  },
+  {
+    "Id": 7,
+    "Category": "Pilot",
+    "Value": "[Player] Total EX Burst Damage Delivered in PvP",
+    "ValueJP": "[プレイヤー] 総合EXバーストダメージ数",
+    "ValueCN": "[玩家] 总合觉醒时对人输出",
+    "ValueTC": "[玩家] 總合覺醒時對人輸出",
+    "ValueTC2": "[玩家] 總合覺醒時對人輸出"
+  },
+  {
+    "Id": 8,
+    "Category": "Pilot",
+    "Value": "[Player] Total PvP Win Rate",
+    "ValueJP": "[プレイヤー] 総合勝率",
+    "ValueCN": "[玩家] 总合对人胜率",
+    "ValueTC": "[玩家] 總合對人勝率",
+    "ValueTC2": "[玩家] 總合對人勝率"
+  },
+  {
+    "Id": 9,
+    "Category": "Pilot",
+    "Value": "Player Level",
+    "ValueJP": "プレイヤーレベル",
+    "ValueCN": "玩家等级",
+    "ValueTC": "玩家等級",
+    "ValueTC2": "玩家等級"
+  },
+  {
+    "Id": 10,
+    "Category": "Pilot",
+    "Value": "Class Match (Solo) Rate",
+    "ValueJP": "クラスマッチ(ソロ)レート",
+    "ValueCN": "单人排位积分",
+    "ValueTC": "單人排位積分",
+    "ValueTC2": "單人排位積分"
+  },
+  {
+    "Id": 11,
+    "Category": "Pilot",
+    "Value": "Class Match (Team) Rate",
+    "ValueJP": "クラスマッチ(チーム)レート",
+    "ValueCN": "队伍排位积分",
+    "ValueTC": "隊伍排位積分",
+    "ValueTC2": "隊伍排位積分"
+  },
+  {
+    "Id": 12,
+    "Category": "MS",
+    "Value": "[MS] Total PvP Battle Count",
+    "ValueJP": "[機体] 総合対戦数",
+    "ValueCN": "[机体] 总合对人场次",
+    "ValueTC": "[機體] 總合對人場次",
+    "ValueTC2": "[機體] 總合對人場次"
+  },
+  {
+    "Id": 13,
+    "Category": "MS",
+    "Value": "[MS] Total PvP Win Count",
+    "ValueJP": "[機体] 総合勝利数",
+    "ValueCN": "[机体] 总合对人胜场",
+    "ValueTC": "[機體] 總合對人勝場",
+    "ValueTC2": "[機體] 總合對人勝場"
+  },
+  {
+    "Id": 14,
+    "Category": "MS",
+    "Value": "[MS] Total PvP Damage Delivered",
+    "ValueJP": "[機体] 総合与ダメージ数",
+    "ValueCN": "[机体] 总合对人输出",
+    "ValueTC": "[機體] 總合對人輸出",
+    "ValueTC2": "[機體] 總合對人輸出"
+  },
+  {
+    "Id": 15,
+    "Category": "MS",
+    "Value": "[MS] Total PvP Foes Defeated",
+    "ValueJP": "[機体] 総合敵撃破数",
+    "ValueCN": "[机体] 总合对人击破数",
+    "ValueTC": "[機體] 總合對人擊破數",
+    "ValueTC2": "[機體] 總合對人擊破數"
+  },
+  {
+    "Id": 16,
+    "Category": "MS",
+    "Value": "[MS] Total 10 Consecutive Wins Achived in Class Match",
+    "ValueJP": "[機体] 総合クラスマッチ10連勝達成数",
+    "ValueCN": "[机体] 总合排位10连胜次数",
+    "ValueTC": "[機體] 總合排位10連勝次數",
+    "ValueTC2": "[機體] 總合排位10連勝次數"
+  },
+  {
+    "Id": 17,
+    "Category": "MS",
+    "Value": "[MS] Total Count on PvP No Damage Battles",
+    "ValueJP": "[機体] 総合ノーダメージバトル数",
+    "ValueCN": "[机体] 总合对人无伤场数",
+    "ValueTC": "[機體] 總合對人無傷場數",
+    "ValueTC2": "[機體] 總合對人無傷場數"
+  },
+  {
+    "Id": 18,
+    "Category": "MS",
+    "Value": "[MS] Total EX Burst Damage Delivered in PvP",
+    "ValueJP": "[機体] 総合EXバーストダメージ数",
+    "ValueCN": "[机体] 总合觉醒时对人输出",
+    "ValueTC": "[機體] 總合覺醒時對人輸出",
+    "ValueTC2": "[機體] 總合覺醒時對人輸出"
+  },
+  {
+    "Id": 19,
+    "Category": "MS",
+    "Value": "[MS] Total PvP Win Rate",
+    "ValueJP": "[機体] 総合勝率",
+    "ValueCN": "[机体] 总合对人胜率",
+    "ValueTC": "[機體] 總合對人勝率",
+    "ValueTC2": "[機體] 總合對人勝率"
+  },
+  {
+    "Id": 21,
+    "Category": "Pilot",
+    "Value": "License Score",
+    "ValueJP": "ライセンススコア",
+    "ValueCN": "执照分数",
+    "ValueTC": "執照分數",
+    "ValueTC2": "執照分數"
+  }
+]

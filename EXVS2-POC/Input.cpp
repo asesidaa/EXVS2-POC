@@ -1,7 +1,16 @@
+#define _SILENCE_CXX20_OLD_SHARED_PTR_ATOMIC_SUPPORT_DEPRECATION_WARNING
+#define _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING
+
+// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
+// ReSharper disable CppClangTidyClangDiagnosticMicrosoftCast
+
+#include <codecvt>
+
 #include <Windows.h>
 #include <Hidclass.h>
 #include <Hidusage.h>
 #include <hidpi.h>
+#include <hidsdi.h>
 #include <sal.h>
 #include <string.h>
 
@@ -14,11 +23,17 @@
 #include <unordered_map>
 #include <utility>
 
+#include "minhook.h"
+
 #include "Configs.h"
 #include "Input.h"
 #include "log.h"
+#include "util.h"
 
 #pragma comment(lib, "hid.lib")
+
+static const std::string XINPUT_NATIVE = "xinput-native";
+static const std::string XINPUT = "xinput";
 
 static const char* HidP_strerror(NTSTATUS rc)
 {
@@ -115,6 +130,7 @@ struct InputDevice
         : handle_(handle), path_(std::move(devicePath)), preparsedData_(preparsedData)
     {
         ParseCaps();
+        name_ = FetchName();
     }
 
   public:
@@ -126,7 +142,7 @@ struct InputDevice
     InputDevice(const InputDevice& copy) = delete;
 
     InputDevice(InputDevice&& move)
-        : handle_(move.handle_), path_(std::move(move.path_)), preparsedData_(move.preparsedData_)
+        : handle_(move.handle_), path_(std::move(move.path_)), name_(std::move(move.name_)), preparsedData_(move.preparsedData_)
     {
         move.handle_ = nullptr;
         move.preparsedData_ = nullptr;
@@ -145,6 +161,7 @@ struct InputDevice
 
         this->handle_ = move.handle_;
         this->path_ = std::move(move.path_);
+        this->name_ = std::move(move.name_);
         this->preparsedData_ = move.preparsedData_;
 
         move.handle_ = nullptr;
@@ -210,6 +227,26 @@ struct InputDevice
         }
     }
 
+    std::optional<std::string> FetchName()
+    {
+        HANDLE hidHandle = CreateFileA(path_.c_str(), 0, FILE_SHARE_READ | FILE_SHARE_WRITE, nullptr, OPEN_EXISTING, 0, nullptr);
+        std::wstring buf;
+
+        buf.resize(127);
+        if (!HidD_GetProductString(hidHandle, buf.data(), static_cast<ULONG>(buf.size())))
+        {
+            warn("failed to get rawinput device name");
+            CloseHandle(hidHandle);
+            return {};
+        }
+
+        buf.resize(wcslen(buf.c_str()));
+        std::string result = std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t>{}.to_bytes(buf);
+
+        CloseHandle(hidHandle);
+        return result;
+    }
+
   public:
     static std::unique_ptr<InputDevice> FromHandle(HANDLE handle)
     {
@@ -238,8 +275,13 @@ struct InputDevice
         return path_;
     }
 
+    const std::optional<std::string>& Name() const
+    {
+        return name_;
+    }
+
   private:
-    void ParseButtons(InputState* result, InputConfig* config, char* hidReport, unsigned long hidReportLen)
+    unsigned int ReadButtons(char* hidReport, unsigned long hidReportLen)
     {
         std::array<USAGE, 64> usages;
         unsigned long len = static_cast<unsigned long>(usages.size());
@@ -248,7 +290,7 @@ struct InputDevice
         if (rc != HIDP_STATUS_SUCCESS)
         {
             err("HidP_GetUsages failed: %s", HidP_strerror(rc));
-            return;
+            return 0;
         }
 
         unsigned int buttonMask = 0;
@@ -257,15 +299,11 @@ struct InputDevice
             buttonMask |= 1u << (usages[i] - 1);
         }
 
-#define KEYBIND(name, kb_default, dinput_default)                                                                      \
-    {                                                                                                                  \
-        unsigned int bindMask = 0;                                                                                     \
-        for (int key : config->ControllerBindings.name)                                                                \
-            bindMask |= 1u << (key - 1);                                                                               \
-        if (buttonMask & bindMask)                                                                                     \
-            (Press##name)(result);                                                                                     \
+        return buttonMask;
     }
-        KEYBINDS()
+
+    void ParseButtons(InputState* result, const KeyBinds* config, char* hidReport, unsigned long hidReportLen)
+    {
     }
 
     double Scale(unsigned long value, unsigned long min, unsigned long max)
@@ -274,34 +312,9 @@ struct InputDevice
         return (static_cast<double>(value) - min) / range;
     }
 
-    void ParseDirection(InputState* result, char* hidReport, unsigned long hidReportLen)
+    std::pair<Direction, Direction> ReadDPad(char* hidReport, unsigned long hidReportLen)
     {
-        // Our coordinate system is the opposite of HID's.
-        if (xMin_ != xMax_ && yMin_ != yMax_)
-        {
-            unsigned long xValue = 0;
-            if (HidP_GetUsageValue(HidP_Input, HID_USAGE_PAGE_GENERIC, 0, HID_USAGE_GENERIC_X, &xValue, preparsedData_,
-                                   hidReport, hidReportLen) == HIDP_STATUS_SUCCESS)
-            {
-                double x = Scale(xValue, xMin_, xMax_);
-                if (x < 0.25)
-                    result->X = Direction::Negative;
-                else if (x > 0.75)
-                    result->X = Direction::Positive;
-            }
-
-            unsigned long yValue = 0;
-            if (HidP_GetUsageValue(HidP_Input, HID_USAGE_PAGE_GENERIC, 0, HID_USAGE_GENERIC_Y, &yValue, preparsedData_,
-                                   hidReport, hidReportLen) == HIDP_STATUS_SUCCESS)
-            {
-                double y = Scale(yValue, yMin_, yMax_);
-                if (y < 0.25)
-                    result->Y = Direction::Negative;
-                else if (y > 0.75)
-                    result->Y = Direction::Positive;
-            }
-        }
-
+        std::pair<Direction, Direction> result;
         if (dpadMin_ != dpadMax_)
         {
             unsigned long dpadValue = 0;
@@ -313,43 +326,43 @@ struct InputDevice
                 switch (diff)
                 {
                 case 0:
-                    result->X = Direction::Neutral;
-                    result->Y = Direction::Negative;
+                    result.first = Direction::Neutral;
+                    result.second = Direction::Negative;
                     break;
 
                 case 1:
-                    result->X = Direction::Positive;
-                    result->Y = Direction::Negative;
+                    result.first = Direction::Positive;
+                    result.second = Direction::Negative;
                     break;
 
                 case 2:
-                    result->X = Direction::Positive;
-                    result->Y = Direction::Neutral;
+                    result.first = Direction::Positive;
+                    result.second = Direction::Neutral;
                     break;
 
                 case 3:
-                    result->X = Direction::Positive;
-                    result->Y = Direction::Positive;
+                    result.first = Direction::Positive;
+                    result.second = Direction::Positive;
                     break;
 
                 case 4:
-                    result->X = Direction::Neutral;
-                    result->Y = Direction::Positive;
+                    result.first = Direction::Neutral;
+                    result.second = Direction::Positive;
                     break;
 
                 case 5:
-                    result->X = Direction::Negative;
-                    result->Y = Direction::Positive;
+                    result.first = Direction::Negative;
+                    result.second = Direction::Positive;
                     break;
 
                 case 6:
-                    result->X = Direction::Negative;
-                    result->Y = Direction::Neutral;
+                    result.first = Direction::Negative;
+                    result.second = Direction::Neutral;
                     break;
 
                 case 7:
-                    result->X = Direction::Negative;
-                    result->Y = Direction::Negative;
+                    result.first = Direction::Negative;
+                    result.second = Direction::Negative;
                     break;
 
                 default:
@@ -357,18 +370,149 @@ struct InputDevice
                 }
             }
         }
+        return result;
+    }
+
+    std::pair<double, double> ReadLStick(char* hidReport, unsigned long hidReportLen)
+    {
+        std::pair<double, double> result = { 0.5, 0.5 };
+        if (xMin_ != xMax_ && yMin_ != yMax_)
+        {
+            unsigned long xValue = 0;
+            if (HidP_GetUsageValue(HidP_Input, HID_USAGE_PAGE_GENERIC, 0, HID_USAGE_GENERIC_X, &xValue, preparsedData_,
+                                   hidReport, hidReportLen) == HIDP_STATUS_SUCCESS)
+            {
+                result.first = Scale(xValue, xMin_, xMax_);
+            }
+
+            unsigned long yValue = 0;
+            if (HidP_GetUsageValue(HidP_Input, HID_USAGE_PAGE_GENERIC, 0, HID_USAGE_GENERIC_Y, &yValue, preparsedData_,
+                                   hidReport, hidReportLen) == HIDP_STATUS_SUCCESS)
+            {
+                result.second = Scale(yValue, yMin_, yMax_);
+            }
+        }
+
+        return result;
+    }
+
+    std::pair<Direction, Direction> ReadDirection(char* hidReport, unsigned long hidReportLen)
+    {
+        std::pair<Direction, Direction> dpad = ReadDPad(hidReport, hidReportLen);
+        std::pair<double, double> stick = ReadLStick(hidReport, hidReportLen);
+
+        std::pair<Direction, Direction> result;
+        double x = stick.first;
+        double y = stick.second;
+        if (x < 0.25)
+            result.first = Direction::Negative;
+        else if (x > 0.75)
+            result.first = Direction::Positive;
+
+        if (y < 0.25)
+            result.second = Direction::Negative;
+        else if (y > 0.75)
+            result.second = Direction::Positive;
+
+        if (dpad.first != Direction::Neutral)
+            result.first = dpad.first;
+
+        if (dpad.second != Direction::Neutral)
+            result.second = dpad.second;
+
+        return result;
+    }
+
+
+    void ParseDirection(InputState* result, char* hidReport, unsigned long hidReportLen)
+    {
+        std::pair<Direction, Direction> direction = ReadDirection(hidReport, hidReportLen);
+        result->X = direction.first;
+        result->Y = direction.second;
     }
 
   public:
-    InputState Parse(InputConfig* config, RAWINPUT* input)
+    InputState Parse(const KeyBinds* config, RAWINPUT* input)
     {
-        InputState result;
+        InputState result = {};
 
-        char* p = reinterpret_cast<char*>(input->data.hid.bRawData +
-                                          (input->data.hid.dwCount - 1) * input->data.hid.dwSizeHid);
+        unsigned long hidReportLen = input->data.hid.dwSizeHid;
+        char* hidReport = reinterpret_cast<char*>(
+            input->data.hid.bRawData + (input->data.hid.dwCount - 1) * hidReportLen
+        );
 
-        ParseButtons(&result, config, p, input->data.hid.dwSizeHid);
-        ParseDirection(&result, p, input->data.hid.dwSizeHid);
+        unsigned int buttonMask = ReadButtons(hidReport, hidReportLen);
+#define KEYBIND(name, kb_default, dinput_default)                                                                      \
+        {                                                                                                              \
+            unsigned int bindMask = 0;                                                                                 \
+            for (int key : config->name)                                                                               \
+                bindMask |= 1u << (key - 1);                                                                           \
+            if (buttonMask & bindMask)                                                                                 \
+                (Press##name)(&result);                                                                                \
+        }
+        KEYBINDS()
+#undef KEYBIND
+
+        std::pair<Direction, Direction> direction = ReadDirection(hidReport, hidReportLen);
+        result.X = direction.first;
+        result.Y = direction.second;
+
+        return result;
+    }
+
+    XINPUT_GAMEPAD ParseXInput(const XInputKeyBinds* config, RAWINPUT* input)
+    {
+        XINPUT_GAMEPAD result = {};
+
+        unsigned long hidReportLen = input->data.hid.dwSizeHid;
+        char* hidReport = reinterpret_cast<char*>(
+            input->data.hid.bRawData + (input->data.hid.dwCount - 1) * hidReportLen
+        );
+
+        unsigned int buttonMask = ReadButtons(hidReport, hidReportLen);
+#define XINPUT_KEYBIND(name, xinput_button, xinput_trigger, default_bind)                       \
+        {                                                                                       \
+            unsigned int bindMask = 0;                                                          \
+            for (int key : config->name)                                                        \
+                bindMask |= 1u << (key - 1);                                                    \
+            if (buttonMask & bindMask)                                                          \
+            {                                                                                   \
+                if (xinput_button != 0)                                                         \
+                    result.wButtons |= xinput_button;                                           \
+                if (xinput_trigger != 0)                                                        \
+                    (xinput_trigger == -1 ? result.bLeftTrigger : result.bRightTrigger) = 255;  \
+            }                                                                                   \
+        }
+        XINPUT_KEYBINDS()
+#undef XINPUT_KEYBIND
+
+        std::pair<Direction, Direction> direction = ReadDPad(hidReport, hidReportLen);
+        switch (direction.first)
+        {
+            case Direction::Negative:
+                result.wButtons |= XINPUT_GAMEPAD_DPAD_LEFT;
+                break;
+            case Direction::Positive:
+                result.wButtons |= XINPUT_GAMEPAD_DPAD_RIGHT;
+                break;
+            default:
+                break;
+        }
+        switch (direction.second)
+        {
+            case Direction::Negative:
+                result.wButtons |= XINPUT_GAMEPAD_DPAD_UP;
+                break;
+            case Direction::Positive:
+                result.wButtons |= XINPUT_GAMEPAD_DPAD_DOWN;
+                break;
+            default:
+                break;
+        }
+
+        std::pair<double, double> analog = ReadLStick(hidReport, hidReportLen);
+        result.sThumbLX = static_cast<short>((analog.first * 2 - 1.0) * 32767);
+        result.sThumbLY = static_cast<short>((1.0 - analog.second * 2) * 32767);
 
         return result;
     }
@@ -376,6 +520,7 @@ struct InputDevice
   private:
     HANDLE handle_ = nullptr;
     std::string path_;
+    std::optional<std::string> name_;
     _HIDP_PREPARSED_DATA* preparsedData_ = nullptr;
 
     unsigned long dpadMin_ = 0;
@@ -390,33 +535,105 @@ struct InputDevice
 
 struct RawInputManager
 {
+    bool HasNativeXInputController()
+    {
+        std::shared_ptr<InputConfig> config = inputConfig_.load();
+
+        if (!config->EmulatedXInputEnabled)
+        {
+            return true;
+        }
+        
+        for (const auto& it : config->Controllers)
+        {
+            const auto& controller = it.second;
+
+            if (controller.Mode.value() == XINPUT_NATIVE && controller.LastXInputState)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
     InputState GetInputState()
     {
         InputState result;
         std::shared_ptr<InputConfig> config = inputConfig_.load();
-        std::shared_ptr<InputState> controllerState = lastControllerState_;
 
         if (config->KeyboardEnabled)
             InputStateGetKeyboard(&result, config.get());
 
-        if (config->ControllerEnabled && controllerState)
-            result.Merge(*controllerState);
+        for (const auto& it : config->Controllers)
+        {
+            const auto& controller = it.second;
+            std::shared_ptr<InputState> state = std::atomic_load(&controller.LastState);
+            if (controller.Enabled && state)
+            {
+                result.Merge(*state);
+            }
+        }
 
         return result;
     }
 
+    bool HasXInputController()
+    {
+        std::shared_ptr<InputConfig> config = inputConfig_.load();
+
+        if (!config->EmulatedXInputEnabled)
+        {
+            return false;
+        }
+        
+        for (const auto& it : config->Controllers)
+        {
+            const auto& controller = it.second;
+
+            if (controller.Mode.value() == XINPUT_NATIVE)
+            {
+                continue;
+            }
+            
+            if (std::get_if<XInputKeyBinds>(&controller.Bindings))
+                return true;
+        }
+
+        return false;
+    }
+
+
+    std::optional<XINPUT_STATE> GetXInputState()
+    {
+        std::shared_ptr<InputConfig> config = inputConfig_.load();
+        for (const auto& it : config->Controllers)
+        {
+            const auto& controller = it.second;
+
+            if (controller.Mode.value() == XINPUT_NATIVE)
+            {
+                continue;
+            }
+            
+            auto xinputState = std::atomic_load(&controller.LastXInputState);
+            if (controller.Enabled && xinputState)
+                return *xinputState;
+        }
+
+        return {};
+    }
+
     void DeviceArrived(HANDLE handle)
     {
-        std::lock_guard<std::mutex> lock(mutex_);
-
         std::shared_ptr<InputDevice> device = InputDevice::FromHandle(handle);
         if (!device)
             return;
 
         info("Device arrived: %s", device->Path().c_str());
 
+        std::lock_guard<std::mutex> lock(mutex_);
         devices_.insert({handle, device});
-        devicesByPath_.insert({device->Path(), device});
         for (size_t i = 0; i < devicesByIndex_.size(); ++i)
         {
             if (!devicesByIndex_[i])
@@ -427,41 +644,90 @@ struct RawInputManager
             }
         }
 
-        UpdateCurrentDeviceLocked();
+        DumpDevicesLocked();
     }
 
     void DeviceInput(HRAWINPUT hRawInput)
     {
         unsigned int len = 0;
         GetRawInputData(hRawInput, RID_INPUT, nullptr, &len, sizeof(RAWINPUTHEADER));
-        RAWINPUT* rawinput = static_cast<RAWINPUT*>(malloc(len));
+        std::unique_ptr<char[]> rawinput_buf = std::make_unique<char[]>(len);
+        RAWINPUT* rawinput = reinterpret_cast<RAWINPUT*>(rawinput_buf.get());
         unsigned int rc = GetRawInputData(hRawInput, RID_INPUT, rawinput, &len, sizeof(RAWINPUTHEADER));
         if (rc != len)
             fatal("GetRawInputData returned different length?");
 
-        std::shared_ptr<InputDevice> device;
-        {
-            std::lock_guard<std::mutex> lock(mutex_);
-            device = currentDevice_;
-        }
-
-        if (!device || device->Handle() != rawinput->header.hDevice)
-        {
-            free(rawinput);
-            return;
-        }
-
         if (rawinput->header.dwType != RIM_TYPEHID)
         {
             err("got a RawInput header that wasn't HID?");
-            free(rawinput);
             return;
         }
 
+        std::shared_ptr<InputDevice> device;
+
+        {
+            std::lock_guard<std::mutex> lock(mutex_);
+
+            {
+                auto it = devices_.find(rawinput->header.hDevice);
+                if (it == devices_.end()) return;
+                device = it->second;
+            }
+        }
+
+        if (!device) return;
+
         std::shared_ptr<InputConfig> config = inputConfig_.load();
-        InputState newState = device->Parse(config.get(), rawinput);
-        lastControllerState_.store(std::make_shared<InputState>(newState));
-        free(rawinput);
+        for (auto& it : config->Controllers)
+        {
+            ControllerConfig& controllerConfig = it.second;
+            if (!controllerConfig.Enabled) continue;
+
+            bool matched = false;
+            matched |= controllerConfig.DevicePath && controllerConfig.DevicePath == device->Path();
+            matched |= controllerConfig.DeviceName && controllerConfig.DeviceName == device->Name();
+
+            if (controllerConfig.DeviceId >= 0 && controllerConfig.DeviceId < 16)
+            {
+                matched |= devicesByIndex_[controllerConfig.DeviceId] == device;
+            }
+
+            if (!matched) continue;
+
+            if (controllerConfig.Mode.value() == XINPUT_NATIVE)
+            {
+                continue;
+            }
+
+            if (config->EmulatedXInputEnabled == false && controllerConfig.Mode.value() == XINPUT)
+            {
+                continue;
+            }
+
+            if (KeyBinds* keybinds = std::get_if<KeyBinds>(&controllerConfig.Bindings))
+            {
+                InputState newState = device->Parse(keybinds, rawinput);
+                auto inputState = std::make_shared<InputState>(newState);
+                std::atomic_store(&controllerConfig.LastState, inputState);
+            }
+            else
+            {
+                auto* xinputKeybinds = std::get_if<XInputKeyBinds>(&controllerConfig.Bindings);
+                if (!xinputKeybinds) fatal("Config::Bindings neither KeyBinds nor XInputKeyBinds?");
+                XINPUT_GAMEPAD inputs = device->ParseXInput(xinputKeybinds, rawinput);
+                DWORD id = 0;
+
+                auto oldState = std::atomic_load(&controllerConfig.LastXInputState);
+                if (oldState)
+                    id = oldState->dwPacketNumber + 1;
+
+                auto newState = std::make_shared<XINPUT_STATE>();
+                newState->dwPacketNumber = id;
+                newState->Gamepad = inputs;
+
+                std::atomic_store(&controllerConfig.LastXInputState, newState);
+            }
+        }
     }
 
     void DeviceLeft(HANDLE handle)
@@ -471,86 +737,109 @@ struct RawInputManager
         auto it = devices_.find(handle);
         if (it == devices_.end())
             fatal("state corruption: failed to find device that left");
-
+        
         for (auto& device : devicesByIndex_)
         {
             if (device == it->second)
             {
+                std::shared_ptr<InputConfig> config = inputConfig_.load();
+                for (auto& controllerIt : config->Controllers)
+                {
+                    ControllerConfig& controllerConfig = controllerIt.second;
+                    if (!controllerConfig.Enabled) continue;
+
+                    bool matched = false;
+                    matched |= controllerConfig.DevicePath && controllerConfig.DevicePath == device->Path();
+                    matched |= controllerConfig.DeviceName && controllerConfig.DeviceName == device->Name();
+
+                    if (controllerConfig.DeviceId >= 0 && controllerConfig.DeviceId < 16)
+                    {
+                        matched |= devicesByIndex_[controllerConfig.DeviceId] == device;
+                    }
+
+                    if (!matched)
+                    {
+                        continue;
+                    }
+
+                    controllerConfig.LastState.reset();
+                    controllerConfig.LastXInputState.reset();
+
+                }
+                
                 device = nullptr;
             }
         }
 
-        devicesByPath_.erase(it->second->Path());
         devices_.erase(it);
-
-        UpdateCurrentDeviceLocked();
     }
 
     void UpdateConfig(std::shared_ptr<InputConfig> newConfig)
     {
-        std::lock_guard<std::mutex> lock(mutex_);
         inputConfig_.store(newConfig);
-        UpdateCurrentDeviceLocked();
     }
 
-  private:
-    _Requires_lock_held_(mutex_) void UpdateCurrentDeviceLocked()
+    void DumpDevicesLocked() _Requires_lock_held_(mutex_)
     {
         std::shared_ptr<InputConfig> config = inputConfig_.load();
-
-        std::shared_ptr<InputDevice> oldDevice;
-        std::swap(oldDevice, currentDevice_);
-
-        if (config->ControllerPath)
+        for (const auto it : devices_)
         {
-            auto it = devicesByPath_.find(*config->ControllerPath);
-            if (it != devicesByPath_.end())
+            auto device = it.second;
+            std::optional<std::string> name = device->Name();
+            std::string path = device->Path();
+
+            info("  %s (%s)", name ? name->c_str() : "<unknown>", path.c_str());
+
+            std::vector<std::string> nameMatches;
+            std::vector<std::string> pathMatches;
+
+            for (const auto& configIt : config->Controllers)
             {
-                currentDevice_ = it->second;
-            }
-        }
-        else
-        {
-            int controllerId = config->ControllerDeviceId;
-            if (controllerId == 16)
-            {
-                // Find the first set device.
-                for (const auto& device : devicesByIndex_)
+                const auto& configName = configIt.first;
+                const auto& config = configIt.second;
+
+                if (config.DeviceName && config.DeviceName == name)
                 {
-                    if (device != nullptr)
-                    {
-                        currentDevice_ = device;
-                        break;
-                    }
+                    nameMatches.push_back(configName);
+                }
+
+                if (config.DevicePath && config.DevicePath == path)
+                {
+                    pathMatches.push_back(configName);
                 }
             }
-            else if (controllerId >= 0 && controllerId < 16)
-            {
-                currentDevice_ = devicesByIndex_[controllerId];
-            }
-        }
 
-        if (oldDevice != currentDevice_)
-        {
-            if (currentDevice_)
+            if (nameMatches.empty() && pathMatches.empty())
             {
-                info("Changed current input device: %p %s", currentDevice_->Handle(), currentDevice_->Path().c_str());
+                info("    UNSELECTED");
             }
             else
             {
-                info("Unassigned current input device");
+                info("    name: [%s], path: [%s]", Join(", ", nameMatches).c_str(), Join(", ", pathMatches).c_str());
             }
         }
     }
 
+    void DumpDevices()
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        DumpDevicesLocked();
+    }
+
+    void DumpConfig()
+    {
+        info("Config:");
+        std::shared_ptr<InputConfig> config = inputConfig_.load();
+        info("%s", config->Dump("  ").c_str());
+        info("");
+    }
+
+  private:
     std::atomic<std::shared_ptr<InputConfig>> inputConfig_ = nullptr;
     std::atomic<std::shared_ptr<InputState>> lastControllerState_ = nullptr;
 
     std::mutex mutex_;
-    _Guarded_by_(mutex_) std::shared_ptr<InputDevice> currentDevice_ = nullptr;
-
     _Guarded_by_(mutex_) std::unordered_map<HANDLE, std::shared_ptr<InputDevice>> devices_;
-    _Guarded_by_(mutex_) std::unordered_map<std::string, std::shared_ptr<InputDevice>> devicesByPath_;
     _Guarded_by_(mutex_) std::array<std::shared_ptr<InputDevice>, 16> devicesByIndex_;
 };
 
@@ -561,6 +850,8 @@ void UpdateInputConfig(InputConfig&& newConfig)
     auto config = std::make_shared<InputConfig>(std::move(newConfig));
     debug("Updating input config:\n%s", config->Dump("  ").c_str());
     g_inputManager.UpdateConfig(std::move(config));
+    g_inputManager.DumpConfig();
+    g_inputManager.DumpDevices();
 }
 
 InputState InputState::Get()
@@ -635,4 +926,94 @@ void InitializeInput()
     };
     if (!RegisterRawInputDevices(devices, 2, sizeof(RAWINPUTDEVICE)))
         fatal("failed to register for Raw Input devices");
+}
+
+DWORD (*XInputGetState_Orig)(DWORD dwUserIndex, XINPUT_STATE* pState);
+DWORD (*XInputSetState_Orig)(DWORD dwUserIndex, XINPUT_VIBRATION* pVibration);
+DWORD (*XInputGetCapabilities_Orig)(DWORD dwUserIndex, DWORD dwFlags, XINPUT_CAPABILITIES* pCapabilities);
+
+
+static DWORD XInputGetState_Hook(DWORD dwUserIndex, XINPUT_STATE* pState)
+{
+    if (globalConfig.Mode == 2 || globalConfig.Mode == 4)
+    {
+        return ERROR_DEVICE_NOT_CONNECTED;
+    }
+
+    if (g_inputManager.HasNativeXInputController())
+    {
+        return XInputGetState_Orig(dwUserIndex, pState);
+    }
+    
+    if (dwUserIndex != 0)
+    {
+        return ERROR_DEVICE_NOT_CONNECTED;
+    }
+
+    auto result = g_inputManager.GetXInputState();
+    if (!result)
+    {
+        if (g_inputManager.HasXInputController())
+        {
+            memset(pState, 0, sizeof(*pState));
+            return ERROR_SUCCESS;
+        }
+
+        return ERROR_DEVICE_NOT_CONNECTED;
+    }
+
+    *pState = *result;
+    return ERROR_SUCCESS;
+}
+
+static DWORD XInputSetState_Hook(DWORD dwUserIndex, XINPUT_VIBRATION* pVibration)
+{
+    if (globalConfig.Mode == 2 || globalConfig.Mode == 4)
+    {
+        return ERROR_DEVICE_NOT_CONNECTED;
+    }
+
+    if (g_inputManager.HasNativeXInputController())
+    {
+        return XInputSetState_Orig(dwUserIndex, pVibration);
+    }
+    
+    if (dwUserIndex != 0)
+        return ERROR_DEVICE_NOT_CONNECTED;
+    if (!g_inputManager.HasXInputController())
+        return ERROR_DEVICE_NOT_CONNECTED;
+    return ERROR_SUCCESS;
+}
+
+static DWORD XInputGetCapabilities_Hook(DWORD dwUserIndex, DWORD dwFlags, XINPUT_CAPABILITIES* pCapabilities)
+{
+    if (globalConfig.Mode == 2 || globalConfig.Mode == 4)
+    {
+        return ERROR_DEVICE_NOT_CONNECTED;
+    }
+
+    if (g_inputManager.HasNativeXInputController())
+    {
+        return XInputGetCapabilities_Orig(dwUserIndex, dwFlags, pCapabilities);
+    }
+    
+    if (dwUserIndex != 0)
+        return ERROR_DEVICE_NOT_CONNECTED;
+    if (!g_inputManager.HasXInputController())
+        return ERROR_DEVICE_NOT_CONNECTED;
+    pCapabilities->Type = XINPUT_DEVTYPE_GAMEPAD;
+    pCapabilities->SubType = XINPUT_DEVSUBTYPE_GAMEPAD;
+    pCapabilities->Flags = 0;
+    pCapabilities->Gamepad = {}; // ???
+    pCapabilities->Vibration.wLeftMotorSpeed = 0;
+    pCapabilities->Vibration.wRightMotorSpeed = 0;
+    return ERROR_SUCCESS;
+}
+
+void InitializeInputHooks()
+{
+    info("Hooking XInput functions");
+    MH_CreateHookApi(L"XINPUT9_1_0.dll", "XInputGetState", XInputGetState_Hook, reinterpret_cast<void**>(&XInputGetState_Orig));
+    MH_CreateHookApi(L"XINPUT9_1_0.dll", "XInputSetState", XInputSetState_Hook, reinterpret_cast<void**>(&XInputSetState_Orig));
+    MH_CreateHookApi(L"XINPUT9_1_0.dll", "XInputGetCapabilities", XInputGetCapabilities_Hook, reinterpret_cast<void**>(&XInputGetCapabilities_Orig));
 }

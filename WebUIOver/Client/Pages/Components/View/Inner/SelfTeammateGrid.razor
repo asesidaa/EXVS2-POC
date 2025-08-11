@@ -1,0 +1,135 @@
+﻿@using WebUIOver.Client.Services.Mastery
+@using WebUIOver.Client.Services.MS
+@using WebUIOver.Shared.Dto.Common
+@using WebUIOver.Shared.Dto.History
+@inject IMobileSuitDataService MobileSuitDataService
+@inject IFamiliarityDataService FamiliarityDataService
+
+@{
+    var mobileSuitId = BattleHistoryPlayer.MobileSuitId;
+    var skinId = BattleHistoryPlayer.SkinId;
+    var pilotImagePath = $"images/pilots/{mobileSuitId}_{BattleHistoryPlayer.CostumeId}.webp";
+    var mobileSuitPath = $"images/mobile_suits/history/self/{mobileSuitId}_{skinId}.webp";
+}
+<MudItem xs="6" Style="margin-top: auto;">
+    <MudImage ObjectPosition="ObjectPosition.Center" Src="@pilotImagePath" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+</MudItem>
+<MudItem xs="6">
+    <MudImage ObjectPosition="ObjectPosition.Center" Src="@mobileSuitPath" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+</MudItem>
+@{
+    var mobileSuit = @MobileSuitDataService.GetMobileSuitById(mobileSuitId);
+}
+<MudItem xs="8" Class="my-auto" Style="text-align: right;">
+    @{
+        var masteryLevel = FamiliarityDataService.GetMsFamiliaritySortedById()
+            .Reverse()
+            .First(msFamiliarity => BattleHistoryPlayer.Mastery >= msFamiliarity.MinimumPoint);
+
+        var masteryImagePath = $"images/mastery/mobile_suit/{masteryLevel.Id}.webp";
+
+        if (mobileSuit is not null)
+        {
+            <div>
+                <MudText Style="font-size: 0.8em">@GetMobileSuitName(mobileSuit)</MudText>
+            </div>
+            <div>
+                <MudImage ObjectPosition="ObjectPosition.Center" Src="@masteryImagePath" Width="100" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+            </div>
+        }
+    }
+</MudItem>
+<MudItem xs="4" Class="my-auto" Style="text-align: right;">
+    <MudGrid>
+        <MudItem xs="8" Class="my-auto" Style="text-align: right;">
+            @{
+                if (mobileSuit is not null)
+                {
+                    var costPath = $"images/cost/{mobileSuit.Cost}.webp";
+                    <MudImage ObjectPosition="ObjectPosition.Center" Src="@costPath" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+                }
+            }
+        </MudItem>
+        <MudItem xs="4" Class="my-auto" Style="text-align: right;">
+            @{
+                var burstImagePath = $"images/bursts/{BattleHistoryPlayer.BurstType}.webp";
+            }
+            <MudImage ObjectPosition="ObjectPosition.Center" Src="@burstImagePath" Fluid="true" ObjectFit="ObjectFit.Cover" Width="40"/>
+        </MudItem>
+    </MudGrid>
+</MudItem>
+<MudItem xs="1" Class="my-auto" Style="text-align: left;">
+    @if (BattleHistoryPlayer.HasCard)
+    {
+        <MudImage ObjectPosition="ObjectPosition.Center" Width="30" Src="images/history/card.webp" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+    }
+</MudItem>
+<MudItem xs="3" Class="my-auto" Style="text-align: left;">
+    <MudText Style="font-size: 0.9em">@BattleHistoryPlayer.PlayerName</MudText>
+</MudItem>
+<MudItem sm="3" Class="my-auto">
+    @{
+        var classImage = $"images/class/{BattleHistoryPlayer.ClassId}.webp";
+    }
+    <MudImage ObjectPosition="ObjectPosition.Center" Src="@classImage" Width="90" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+</MudItem>
+<MudItem sm="3" Class="my-auto">
+    @{
+        var levelImage = $"images/player_level/{BattleHistoryPlayer.PrestigeId}/{BattleHistoryPlayer.LevelId}.webp";
+
+        if (!BattleHistoryPlayer.HasCard)
+        {
+            levelImage = "images/player_level/NO_CARD.webp";
+        }
+    }
+    <MudImage ObjectPosition="ObjectPosition.Center" Src="@levelImage" Width="90" Fluid="true" ObjectFit="ObjectFit.Cover"/>
+</MudItem>
+<MudItem xs="2" Class="my-auto" Style="text-align: right;">
+    @if (BattleHistoryPlayer.ConsecutiveWinCount >= 2)
+    {
+        <MudText>@BattleHistoryPlayer.ConsecutiveWinCount Wins</MudText>
+    }
+    else if (BattleHistoryPlayer.ConsecutiveWinCount == 1)
+    {
+        <MudText>@BattleHistoryPlayer.ConsecutiveWinCount Win</MudText>
+    }
+</MudItem>
+
+@code {
+    [Parameter] 
+    public required BattleHistoryPlayer BattleHistoryPlayer { get; set; }
+
+    private string GetMobileSuitName(MobileSuit mobileSuit)
+    {
+        var lang = Thread.CurrentThread.CurrentCulture.Name;
+
+        var msName = mobileSuit.Value;
+
+        if (lang == "ja")
+        {
+            msName = mobileSuit.ValueJP;
+        }
+
+        if (lang == "zh-Hans")
+        {
+            msName = mobileSuit.ValueCN;
+        }
+
+        if (lang == "zh-Hant")
+        {
+            msName = mobileSuit.ValueTC;
+        }
+
+        if (lang == "zh-Hant-TW")
+        {
+            msName = mobileSuit.ValueTC2;
+        }
+
+        if (msName is null)
+        {
+            return "";
+        }
+
+        return msName;
+    }
+}

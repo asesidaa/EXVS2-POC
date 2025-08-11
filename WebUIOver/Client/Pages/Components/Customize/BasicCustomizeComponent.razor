@@ -1,0 +1,20 @@
+﻿@using WebUIOver.Client.Context.CustomizeCard
+@code
+{
+    [Parameter]
+    public CustomizeCardContext CustomizeCardContext { get; set; } = new();
+
+    [Parameter]
+    public ProgressContext ProgressContext { get; set; } = new();
+    
+    [Parameter]
+    public EventCallback<MouseEventArgs> SaveTask { get; set; }
+    
+    public static readonly DialogOptions OPTIONS = new()
+    {
+        CloseOnEscapeKey = false,
+        BackdropClick = false,
+        FullWidth = true,
+        MaxWidth = MaxWidth.ExtraExtraLarge
+    };
+}

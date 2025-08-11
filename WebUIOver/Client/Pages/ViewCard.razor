@@ -1,0 +1,44 @@
+﻿@page "/Cards/ViewDetail/{ChipId}"
+@inject ILogger<CustomizeCard> Logger
+@inject ISnackbar Snackbar
+@inject ITriadStageDataService TriadStageDataService
+
+@using WebUIOver.Client.Services.Triad
+
+<MudBreadcrumbs Items="breadcrumbs" Class="px-0"></MudBreadcrumbs>
+
+<PageTitle>@localizer["viewcarddetailtitle"]</PageTitle>
+<MudStack Row Class="flex-column">
+    <h1>@localizer["viewcarddetailtitle"]</h1>
+</MudStack>
+
+@if (errorMessage is not null)
+{
+    <MudText Color="Color.Error" Typo="Typo.h3">@errorMessage</MudText>
+    return;
+}
+
+@if (_loading)
+{
+    <MudOverlay Visible="true" DarkBackground="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </MudOverlay>
+}
+else
+{
+    <MudStack Class="mt-2">
+        <MudTabs Outlined="true" Position="Position.Top" Rounded="true" Border="true" ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+            <MudTabPanel Text="@localizer["triadcoursescores"]">
+                <WebUIOver.Client.Pages.Components.View.TriadViewComponent
+                    TriadCourseConfigs="TriadStageDataService.GetTriadCourseConfigs()"
+                    TriadCourseOverallResult="_viewCardContext.TriadCourseOverallResult"
+                />
+            </MudTabPanel>
+            <MudTabPanel Text="@localizer["battle_histories"]">
+                <WebUIOver.Client.Pages.Components.View.BattleHistoriesComponent
+                    BattleHistorySummaries="_viewCardContext.BattleHistorySummaries"
+                />
+            </MudTabPanel>
+        </MudTabs>
+    </MudStack>
+}

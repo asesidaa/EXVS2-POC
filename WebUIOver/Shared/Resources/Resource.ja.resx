@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="index_update" xml:space="preserve">
+    <value>アップデート情報はこちら: </value>
+  </data>
+  <data name="index_warn" xml:space="preserve">
+    <value>このプロジェクトはオープンソースであり、今後も永続的に無料でアクセス可能です。収益化を試みる行為は本プロジェクトの方針に反しており、専用のプラットフォームを通じて速やかに報告してください。</value>
+  </data>
+  <data name="accesscode" xml:space="preserve">
+    <value>Access Code</value>
+  </data>
+  <data name="cardid" xml:space="preserve">
+    <value>Card ID</value>
+  </data>
+  <data name="cards" xml:space="preserve">
+    <value>カード</value>
+  </data>
+  <data name="darktheme" xml:space="preserve">
+    <value>ダークテーマ</value>
+  </data>
+  <data name="enteraccesscode" xml:space="preserve">
+    <value>Enter Access Code</value>
+  </data>
+  <data name="fromcardini" xml:space="preserve">
+    <value>from card.ini</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="lighttheme" xml:space="preserve">
+    <value>ライトテーマ</value>
+  </data>
+  <data name="cardseditoptions" xml:space="preserve">
+    <value>プレイヤー設定</value>
+  </data>
+  <data name="customizationheader" xml:space="preserve">
+    <value>カスタマイズ設定</value>
+  </data>
+  <data name="saveall" xml:space="preserve">
+    <value>全て保存</value>
+  </data>
+
+  <!-- Title Domain -->
+  <data name="titles" xml:space="preserve">
+    <value>称号</value>
+  </data>
+  <data name="titles_textid" xml:space="preserve">
+     <value>文字ID</value>
+  </data>
+  <data name="titles_backgroundid" xml:space="preserve">
+    <value>背景ID</value>
+  </data>
+  <data name="titles_effectid" xml:space="preserve">
+    <value>ワンポイントエフェクトID</value>
+  </data>
+  <data name="titles_ornamentid" xml:space="preserve">
+    <value>オーナメントID</value>
+  </data>
+  <data name="titles_hint" xml:space="preserve">
+    <value>詳細は:</value>
+  </data>
+  <data name="titles_hintbackground" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="titles_hinteffect" xml:space="preserve">
+    <value>ワンポイントエフェクト</value>
+  </data>
+  <data name="titles_hintornament" xml:space="preserve">
+    <value>オーナメント</value>
+  </data>
+  <data name="titles_hinttext" xml:space="preserve">
+    <value>文字</value>
+  </data>
+  <data name="default_titles" xml:space="preserve">
+    <value>デフォルト称号</value>
+  </data>
+  <data name="triad_titles" xml:space="preserve">
+    <value>トライアドバトル称号</value>
+  </data>
+  <data name="class_match_titles" xml:space="preserve">
+    <value>クラスマッチ称号</value>
+  </data>
+  <data name="titles_title" xml:space="preserve">
+    <value>称号</value>
+  </data>
+  <data name="titles_background" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="titles_effect" xml:space="preserve">
+    <value>ワンポイントエフェクト</value>
+  </data>
+  <data name="titles_ornament" xml:space="preserve">
+    <value>オーナメント</value>
+  </data>
+  <data name="title_custom_text" xml:space="preserve">
+    <value>カスタム称号</value>
+  </data>
+  <data name="dialogtitle_changetitle" xml:space="preserve">
+    <value>称号設定</value>
+  </data>
+  <data name="dialogtitle_changebackground" xml:space="preserve">
+    <value>背景設定</value>
+  </data>
+  <data name="dialogtitle_changeeffect" xml:space="preserve">
+    <value>ワンポイントエフェクト設定</value>
+  </data>
+  <data name="dialogtitle_changeornament" xml:space="preserve">
+    <value>オーナメント設定</value>
+  </data>
+  <data name="unknown_title" xml:space="preserve">
+    <value>Unknown Title</value>
+  </data>
+  <data name="unknown_background" xml:space="preserve">
+    <value>Unknown Background</value>
+  </data>
+  <data name="unknown_effect" xml:space="preserve">
+    <value>Unknown Effect</value>
+  </data>
+  <data name="unknown_ornament" xml:space="preserve">
+    <value>Unknown Ornament</value>
+  </data>
+
+  <!-- Validation Domain -->
+  <data name="validateplayername" xml:space="preserve">
+    <value>プレイヤーネーム</value>
+  </data>
+  <data name="validate_custom_title" xml:space="preserve">
+    <value>カスタム称号</value>
+  </data>
+  <data name="validation_invalidchar" xml:space="preserve">
+    <value>に無効な文字が含まれています！</value>
+  </data>
+  <data name="validation_length_1" xml:space="preserve">
+    <value>は最大</value>
+  </data>
+  <data name="validation_length_2" xml:space="preserve">
+    <value>文字までです!</value>
+  </data>
+  <data name="validation_required" xml:space="preserve">
+    <value>は空にできません!</value>
+  </data>
+
+  <!-- BGM Dialog -->
+  <data name="bgm_dialog_name" xml:space="preserve">
+    <value>曲名</value>
+  </data>
+  <data name="bgm_dialog_series" xml:space="preserve">
+    <value>シリーズ</value>
+  </data>
+
+  <!-- General Info UI -->
+  <data name="generalcardinfo" xml:space="preserve">
+    <value>カードの基本情報</value>
+  </data>
+  <data name="playername" xml:space="preserve">
+    <value>プレイヤーネーム</value>
+  </data>
+  <data name="playerrecorddisplay" xml:space="preserve">
+    <value>戦績表示設定</value>
+  </data>
+  <data name="playerleveldisplay" xml:space="preserve">
+    <value>プレイヤーレベル表示設定</value>
+  </data>
+  <data name="bgmlistorder" xml:space="preserve">
+    <value>対戦BGM設定</value>
+  </data>
+  <data name="bgmplaytype" xml:space="preserve">
+    <value>再生設定</value>
+  </data>
+  <data name="is_fixed_radar_angle" xml:space="preserve">
+    <value>レーダー表示設定</value>
+  </data>
+  <data name="gauge" xml:space="preserve">
+    <value>ゲージデザイン</value>
+  </data>
+
+  <!-- Save Hint -->
+  <data name="save_hint_update" xml:space="preserve">
+    <value>Updating </value>
+  </data>
+  <data name="save_hint_successful" xml:space="preserve">
+    <value> successful!</value>
+  </data>
+  <data name="save_hint_failed" xml:space="preserve">
+    <value> failed!</value>
+  </data>
+  <data name="save_hint_cardinfo" xml:space="preserve">
+    <value>card infos</value>
+  </data>
+  <data name="save_hint_navcostume" xml:space="preserve">
+    <value>navigator costumes</value>
+  </data>
+  <data name="save_hint_navinfo" xml:space="preserve">
+    <value>navigatior infos</value>
+  </data>
+  <data name="save_hint_favms" xml:space="preserve">
+    <value>favourite mobile suit infos</value>
+  </data>
+  <data name="save_hint_mscostume" xml:space="preserve">
+    <value>mobile suit costume</value>
+  </data>
+  <data name="save_hint_msskin" xml:space="preserve">
+    <value>mobile suit skin</value>
+  </data>
+  <data name="save_hint_commconfig" xml:space="preserve">
+    <value>communication message config</value>
+  </data>
+  <data name="save_hint_default_sticker" xml:space="preserve">
+    <value>Default Sticker setting</value>
+  </data>
+  <data name="save_hint_ms_sticker" xml:space="preserve">
+    <value>Mobile Suit Sticker setting</value>
+  </data>
+  <data name="save_hint_cpulimit" xml:space="preserve">
+    <value>Sum of CPU Level cannot exceed 500</value>
+  </data>
+  <data name="save_hint_triadcpupartner" xml:space="preserve">
+    <value>Triad CPU Partner</value>
+  </data>
+  <data name="save_hint_gamepadconfig" xml:space="preserve">
+    <value>gamepad config</value>
+  </data>
+  
+  <!-- Gauge Dialog -->
+  <data name="dialogtitle_gauge" xml:space="preserve">
+    <value>ゲージデザイン変更</value>
+  </data>
+
+  <!-- Navi UI-->
+  <data name="navisetting" xml:space="preserve">
+    <value>サポートナビ</value>
+  </data>
+  <data name="navisetting_uinavigator" xml:space="preserve">
+    <value>プレイヤーナビ</value>
+  </data>
+  <data name="navisetting_battlenavigator" xml:space="preserve">
+    <value>バトルナビ</value>
+  </data>
+  <data name="navigator_battle_advise" xml:space="preserve">
+    <value>ゲームアドバイス</value>
+  </data>
+  <data name="navigator_battle_notify" xml:space="preserve">
+    <value>お知らせ</value>
+  </data>
+  <data name="navisetting_navicostume" xml:space="preserve">
+    <value>衣装変更</value>
+  </data>
+  <data name="navisetting_navicostumehint" xml:space="preserve">
+    <value>衣装のないナビはリストに含まれていません。</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="navisetting_navi" xml:space="preserve">
+    <value>ナビ</value>
+  </data>
+  <data name="navisetting_costume" xml:space="preserve">
+    <value>衣装</value>
+  </data>
+  <data name="navidialog_navi" xml:space="preserve">
+    <value>ナビ</value>
+  </data>
+  <data name="navidialog_series" xml:space="preserve">
+    <value>シリーズ</value>
+  </data>
+  <data name="navidialog_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="navidialog_closeness" xml:space="preserve">
+    <value>親密度</value>
+  </data>
+  <data name="navisetting_navi_series" xml:space="preserve">
+    <value>シリーズ</value>
+  </data>
+  <data name="navisetting_navi_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="dialogtitle_navibattle" xml:space="preserve">
+    <value>バトルナビの変更</value>
+  </data>
+  <data name="dialogtitle_navimenu" xml:space="preserve">
+    <value>プレイヤーナビの変更</value>
+  </data>
+
+  <!-- Favourite MS Setting -->
+  <data name="favmssetting" xml:space="preserve">
+    <value>お気に入り機体</value>
+  </data>
+  <data name="additem" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="favmsdialog_mstitle" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="favmsdialog_pilottitle" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+  <data name="unknownms" xml:space="preserve">
+    <value>Unknown Mobile Suit</value>
+  </data>
+  <data name="unknownnavi" xml:space="preserve">
+    <value>Unknown Navigator</value>
+  </data>
+  <data name="favmsdialog_bursttype" xml:space="preserve">
+    <value>EXバーストタイプ</value>
+  </data>
+  <data name="favmsdialog_inbattlenavi" xml:space="preserve">
+    <value>バトルナビ</value>
+  </data>
+  <data name="validate_addrow_1" xml:space="preserve">
+    <value>Cannot add more than </value>
+  </data>
+  <data name="validate_addrow_2" xml:space="preserve">
+    <value> entries!</value>
+  </data>
+  <data name="dialogtitle_favms" xml:space="preserve">
+    <value>お気に入り機体設定</value>
+  </data>
+  <data name="favmsdialog_gauge" xml:space="preserve">
+    <value>ゲージデザイン</value>
+  </data>
+  <data name="favmsdialog_bgmreplaytype" xml:space="preserve">
+    <value>BGM再生設定</value>
+  </data>
+  <data name="favmsdialog_bgmlistorder" xml:space="preserve">
+    <value>対戦BGM設定</value>
+  </data>
+  <data name="bgmtype_None" xml:space="preserve">
+    <value>使用しない</value>
+  </data>
+  <data name="bgmtype_Sequential" xml:space="preserve">
+    <value>リピート再生</value>
+  </data>
+  <data name="bgmtype_Random" xml:space="preserve">
+    <value>ランダム再生</value>
+  </data>
+
+  <!-- MS Dialog -->
+  <data name="msdialog_ms" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="msdialog_pilot" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+  <data name="msdialog_series" xml:space="preserve">
+    <value>シリーズ</value>
+  </data>
+  <data name="msdialog_pilot_seiyuu" xml:space="preserve">
+    <value>声優</value>
+  </data>
+  <data name="msdialog_mastery" xml:space="preserve">
+    <value>機体熟練度</value>
+  </data>
+  <data name="random_ms_selected" xml:space="preserve">
+    <value>You can't select a Random MS!</value>
+  </data>
+
+  <!-- MS Costume and Skin -->
+  <data name="mscostumesetting" xml:space="preserve">
+    <value>パイロット衣装</value>
+  </data>
+  <data name="mscostumehint" xml:space="preserve">
+    <value>Mobile Suits without alternate costumes are not in the list.</value>
+  </data>
+  <data name="mscostumemsheader" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="mscostumecostumeheader" xml:space="preserve">
+    <value>衣装</value>
+  </data>
+  <data name="mscostumepilotheader" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+  <data name="msskinsetting" xml:space="preserve">
+    <value>機体スキン</value>
+  </data>
+  <data name="msskinhint" xml:space="preserve">
+    <value>Mobile Suits without alternate skins are not in the list.</value>
+  </data>
+  <data name="msskinmsheader" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="msskinskinheader" xml:space="preserve">
+    <value>スキン</value>
+  </data>
+  <data name="msskinpilotheader" xml:space="preserve">
+    <value>パイロット</value>
+  </data>
+
+  <!-- Communication Message -->
+  <data name="communicationmessage" xml:space="preserve">
+    <value>通信メッセージ</value>
+  </data>
+  <data name="communicationmessage_position" xml:space="preserve">
+    <value>表示位置</value>
+  </data>
+  <data name="communicationmessage_position_type_center" xml:space="preserve">
+    <value>中央</value>
+  </data>
+  <data name="communicationmessage_position_type_left_bottom" xml:space="preserve">
+    <value>左</value>
+  </data>
+  <data name="communicationmessage_allow_receive_message" xml:space="preserve">
+    <value>メッセージの受信を許可する</value>
+  </data>
+  <data name="communicationmessage_inbattle" xml:space="preserve">
+    <value>戦闘中メッセージ</value>
+  </data>
+  <data name="communicationmessage_postbattle" xml:space="preserve">
+    <value>決着時メッセージ</value>
+  </data>
+  <data name="communicationmessage_prebattle" xml:space="preserve">
+    <value>開始前メッセージ</value>
+  </data>
+  <data name="communicationmessage_online_shuffle_inbattle" xml:space="preserve">
+    <value>オンラインソロ戦闘中メッセージ</value>
+  </data>
+  <data name="communicationmessage_online_shuffle_postbattle" xml:space="preserve">
+    <value>オンラインソロ決着時メッセージ</value>
+  </data>
+  <data name="communicationmessage_online_shuffle_prebattle" xml:space="preserve">
+    <value>オンラインソロ開始前メッセージ</value>
+  </data>
+  <data name="communicationmessage_hint" xml:space="preserve">
+    <value>メッセージを使用したい場合は、スタンプIDに「0」を設定してください</value>
+  </data>
+  <data name="communicationmessage_verbalmessagedown" xml:space="preserve">
+    <value>↓ メッセージ</value>
+  </data>
+  <data name="communicationmessage_verbalmessageleft" xml:space="preserve">
+    <value>← メッセージ</value>
+  </data>
+  <data name="communicationmessage_verbalmessageright" xml:space="preserve">
+    <value>→ メッセージ</value>
+  </data>
+  <data name="communicationmessage_verbalmessageup" xml:space="preserve">
+    <value>↑ メッセージ</value>
+  </data>
+  <data name="communicationmessage_stampiddown" xml:space="preserve">
+    <value>Down Stamp ID</value>
+  </data>
+  <data name="communicationmessage_stampidleft" xml:space="preserve">
+    <value>Left Stamp ID</value>
+  </data>
+  <data name="communicationmessage_stampidright" xml:space="preserve">
+    <value>Right Stamp ID</value>
+  </data>
+  <data name="communicationmessage_stampidup" xml:space="preserve">
+    <value>Up Stamp ID</value>
+  </data>
+  <data name="dialogtitle_changestamp" xml:space="preserve">
+    <value>スタンプ変更</value>
+  </data>
+  <data name="unknown_stamp" xml:space="preserve">
+    <value>Unknown Stamp</value>
+  </data>
+  <data name="using_customize_message" xml:space="preserve">
+    <value>メッセージを使用する</value>
+  </data>
+  <data name="validatemessage" xml:space="preserve">
+    <value>メッセージ</value>
+  </data>
+
+  <!-- Sticker Domain -->
+  <data name="default_sticker" xml:space="preserve">
+    <value>共通ステッカー</value>
+  </data>
+  <data name="sticker_background" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="sticker_effect" xml:space="preserve">
+    <value>エフェクト</value>
+  </data>
+  <data name="unknown_sticker_background" xml:space="preserve">
+    <value>Unknown Sticker Background</value>
+  </data>
+  <data name="unknown_sticker_effect" xml:space="preserve">
+    <value>Unknown Sticker Effect</value>
+  </data>
+  <data name="tracker_1" xml:space="preserve">
+    <value>トラッカー 1</value>
+  </data>
+  <data name="tracker_2" xml:space="preserve">
+    <value>トラッカー 2</value>
+  </data>
+  <data name="tracker_3" xml:space="preserve">
+    <value>トラッカー 3</value>
+  </data>
+  <data name="dialogtitle_change_sticker_background" xml:space="preserve">
+    <value>ステッカー背景変更</value>
+  </data>
+  <data name="dialogtitle_change_sticker_effect" xml:space="preserve">
+    <value>ステッカーエフェクト変更</value>
+  </data>
+  <data name="comment_hint" xml:space="preserve">
+    <value>Detail refer to:</value>
+  </data>
+  <data name="comment_wiki" xml:space="preserve">
+    <value>Wiki</value>
+  </data>
+  <data name="comment_part1id" xml:space="preserve">
+    <value>Part 1 ID</value>
+  </data>
+  <data name="comment_part2id" xml:space="preserve">
+    <value>Part 2 ID</value>
+  </data>
+  <data name="comment_parts_example" xml:space="preserve">
+    <value>Example of Parts include:</value>
+  </data>
+  <data name="comment_sentenceid" xml:space="preserve">
+    <value>Sentence ID</value>
+  </data>
+  <data name="comment_sentence_example" xml:space="preserve">
+    <value>Example of Sentence include:</value>
+  </data>
+  <data name="dialogtitle_customizecommentsentence" xml:space="preserve">
+    <value>カスタマイズコメントベース変更</value>
+  </data>
+  <data name="dialogtitle_customizecommentphrase" xml:space="preserve">
+    <value>カスタマイズコメントパーツ1変更</value>
+  </data>
+  <data name="dialogtitle_customizecommentphrase2" xml:space="preserve">
+    <value>カスタマイズコメントパーツ2変更</value>
+  </data>
+  <data name="customizecommentpreview" xml:space="preserve">
+    <value>カスタマイズコメントプレビュー</value>
+  </data>
+  <data name="mobile_suit_sticker" xml:space="preserve">
+    <value>機体別ステッカー</value>
+  </data>
+  <data name="sticker_ms_selected" xml:space="preserve">
+    <value>変更モビルスーツ選択</value>
+  </data>
+  <data name="dialogtitle_sticker_ms" xml:space="preserve">
+    <value>変更モビルスーツ選択</value>
+  </data>
+  <data name="has_ms_sticker_pose_title" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="ms_sticker_pose_reminder" xml:space="preserve">
+    <value>注意：MSポーズを適用する前に、MSのスキンカラーをデフォルトにしてください。</value>
+  </data>
+  <data name="has_no_pose" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="has_pose" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+
+  <!-- Triad Partner -->
+  <data name="cputriadpartner" xml:space="preserve">
+    <value>トライアドバトルCPU僚機</value>
+  </data>
+  <data name="triad_ai" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="triad_armor" xml:space="preserve">
+    <value>耐久値</value>
+  </data>
+  <data name="triad_boost" xml:space="preserve">
+    <value>ブースト</value>
+  </data>
+  <data name="triad_bursttype" xml:space="preserve">
+    <value>EXバーストタイプ</value>
+  </data>
+  <data name="triad_cpums" xml:space="preserve">
+    <value>CPU僚機</value>
+  </data>
+  <data name="triad_cpuskill1" xml:space="preserve">
+    <value>スキルスロット1</value>
+  </data>
+  <data name="triad_cpuskill2" xml:space="preserve">
+    <value>スキルスロット2</value>
+  </data>
+  <data name="triad_exgauge" xml:space="preserve">
+    <value>EXゲージ</value>
+  </data>
+  <data name="triad_infight" xml:space="preserve">
+    <value>格闘・攻</value>
+  </data>
+  <data name="triad_shooting" xml:space="preserve">
+    <value>射撃・攻</value>
+  </data>
+  <data name="triad_teambanner" xml:space="preserve">
+    <value>トライアドチームバーナー</value>
+  </data>
+  <data name="triad_teamname" xml:space="preserve">
+    <value>トライアドチームネーム</value>
+  </data>
+
+  <!-- Team Formation -->
+  <data name="teamtag" xml:space="preserve">
+    <value>タッグチーム</value>
+  </data>
+  <data name="teamtag_yourinfo" xml:space="preserve">
+    <value>あなたのID</value>
+  </data>
+  <data name="teamtag_youruserid" xml:space="preserve">
+    <value>フレンドID</value>
+  </data>
+  <data name="teamtag_yourinvit" xml:space="preserve">
+    <value>フレンドコード</value>
+  </data>
+  <data name="teamtag_addteam" xml:space="preserve">
+    <value>タッグチーム申請</value>
+  </data>
+  <data name="teamtag_frienduserid" xml:space="preserve">
+    <value>フレンドID</value>
+  </data>
+  <data name="teamtag_friendinvit" xml:space="preserve">
+    <value>フレンドコード入力</value>
+  </data>
+  <data name="add_team_button" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="teamtag_edit_team" xml:space="preserve">
+    <value>タッグチーム設定</value>
+  </data>
+  <data name="add_team_warning_blank_friend_user_id" xml:space="preserve">
+    <value>Friend's User ID can't be blank!</value>
+  </data>
+  <data name="add_team_warning_self_user_id" xml:space="preserve">
+    <value>Friend's User ID can't be your ID!</value>
+  </data>
+  <data name="add_team_warning_already_form_team" xml:space="preserve">
+    <value>You already formed Team with this User ID!</value>
+  </data>
+  <data name="add_team_warning_blank_friend_invitation_code" xml:space="preserve">
+    <value>Friend's Invitation Code can't be blank!</value>
+  </data>
+  <data name="add_team_warning_invalid_player_profile" xml:space="preserve">
+    <value>The player is invalid!</value>
+  </data>
+  <data name="teamtag_team_name" xml:space="preserve">
+    <value>チーム名</value>
+  </data>
+  <data name="teamtag_team_online_team" xml:space="preserve">
+    <value>オンラインタッグ出撃</value>
+  </data>
+  <data name="teamtag_team_bgm" xml:space="preserve">
+    <value>チームBGM</value>
+  </data>
+  <data name="teamtag_name_color" xml:space="preserve">
+    <value>チーム名カラー</value>
+  </data>
+  <data name="teamtag_background" xml:space="preserve">
+    <value>チーム背景</value>
+  </data>
+  <data name="teamtag_effect" xml:space="preserve">
+    <value>チームエフェクト</value>
+  </data>
+  <data name="teamtag_emblem" xml:space="preserve">
+    <value>チームエンブレム</value>
+  </data>
+  <data name="remove_team_button" xml:space="preserve">
+    <value>タッグ解散</value>
+  </data>
+  <data name="validatepvpteamname" xml:space="preserve">
+    <value>Team Name</value>
+  </data>
+  <data name="dialogtitle_singlebgm" xml:space="preserve">
+    <value>BGM選択</value>
+  </data>
+  <data name="team_delete_dialog_text" xml:space="preserve">
+    <value>この操作は元に戻せません。実行しますか？</value>
+  </data>
+  <data name="team_delete_dialog_cancel" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="team_delete_dialog_proceed" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="save_hint_team" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="save_hint_team_online" xml:space="preserve">
+    <value>Count of Online Team should be at most 5.</value>
+  </data>
+  <data name="unknown_team_name_color" xml:space="preserve">
+    <value>Unknown Team Name Font Color</value>
+  </data>
+  <data name="unknown_team_background" xml:space="preserve">
+    <value>Unknown Background</value>
+  </data>
+  <data name="unknown_team_effect" xml:space="preserve">
+    <value>Unknown Effect</value>
+  </data>
+  <data name="unknown_team_emblem" xml:space="preserve">
+    <value>Unknown Emblem</value>
+  </data>
+
+  <!-- Gamepad -->
+  <data name="gamepadconfig" xml:space="preserve">
+    <value>ゲームパッドキーコンフィグ</value>
+  </data>
+  <data name="gamepadhint1" xml:space="preserve">
+    <value>ラベル表示は Xbox / PS の表記に基づいています。</value>
+  </data>
+  <data name="gamepadhint2" xml:space="preserve">
+    <value>XInput や PC モードに対応したアーケードスティック（例：Victrix Pro FS）を使用する際に特に便利です。</value>
+  </data>
+  <data name="gamepadsquare" xml:space="preserve">
+    <value>X / □ ボタン</value>
+  </data>
+  <data name="gamepadtriangle" xml:space="preserve">
+    <value>Y / △ ボタン</value>
+  </data>
+  <data name="gamepadcross" xml:space="preserve">
+    <value>A / × ボタン</value>
+  </data>
+  <data name="gamepadcircle" xml:space="preserve">
+    <value>B / ○ ボタン</value>
+  </data>
+  <data name="gamepadl1" xml:space="preserve">
+    <value>LB / L1 ボタン</value>
+  </data>
+  <data name="gamepadr1" xml:space="preserve">
+    <value>RB / R1 ボタン</value>
+  </data>
+  <data name="gamepadl2" xml:space="preserve">
+    <value>LT / L2 ボタン</value>
+  </data>
+  <data name="gamepadr2" xml:space="preserve">
+    <value>RT / R2 ボタン</value>
+  </data>
+  <data name="gamepadl3" xml:space="preserve">
+    <value>LSB / L3 ボタン</value>
+  </data>
+  <data name="gamepadr3" xml:space="preserve">
+    <value>RSB / R3 ボタン</value>
+  </data>
+  
+  <!-- Player Level -->
+  <data name="player_level_info" xml:space="preserve">
+    <value>プレイヤーレベル</value>
+  </data>
+  <data name="player_level_next_round" xml:space="preserve">
+    <value>Proceed to Next Round of Player Level!</value>
+  </data>
+  <data name="player_level_next_round_success" xml:space="preserve">
+    <value>Successfully Proceed to Next Round of Player Level!</value>
+  </data>
+
+  <data name="viewcarddetailtitle" xml:space="preserve">
+    <value>戦績</value>
+  </data>
+  <data name="cardviewdetail" xml:space="preserve">
+    <value>戦績</value>
+  </data>
+  <data name="triadcoursescores" xml:space="preserve">
+    <value>トライアドコース戦績</value>
+  </data>
+  <data name="triad_high_score" xml:space="preserve">
+    <value>ハイスコア</value>
+  </data>
+  <!-- Stage -->
+  <data name="random_stage_setting" xml:space="preserve">
+    <value>ランダムステージ設定</value>
+  </data>
+  <data name="dialogtitle_stage" xml:space="preserve">
+    <value>ステージ</value>
+  </data>
+  <data name="stage" xml:space="preserve">
+    <value>ステージ</value>
+  </data>
+  <data name="unknown_stage" xml:space="preserve">
+    <value>Unknown Battle Stage</value>
+  </data>
+  <!-- Player Level Rank -->
+  <data name="server_player_level_ranks" xml:space="preserve">
+    <value>プレイヤーランキング</value>
+  </data>
+  <data name="server_player_level_ranks_note" xml:space="preserve">
+    <value>レベル・経験値順のトップ100プレイヤー一覧</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_ranking" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_name" xml:space="preserve">
+    <value>プレイヤーネーム</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_exp" xml:space="preserve">
+    <value>EXP</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_total_battles" xml:space="preserve">
+    <value>対戦回数</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_win" xml:space="preserve">
+    <value>勝利数</value>
+  </data>
+  <data name="server_player_level_ranks_leaderboard_win_rate" xml:space="preserve">
+    <value>勝率</value>
+  </data>
+  <!-- MS Usage View -->
+  <data name="server_mobile_suit_usages" xml:space="preserve">
+    <value>機体使用率</value>
+  </data>
+  <data name="server_mobile_suit_usages_table_ms" xml:space="preserve">
+    <value>機体</value>
+  </data>
+  <data name="server_mobile_suit_usages_table_cost" xml:space="preserve">
+    <value>コスト</value>
+  </data>
+  <data name="server_mobile_suit_usages_table_total_battles" xml:space="preserve">
+    <value>使用数</value>
+  </data>
+  <data name="server_mobile_suit_usages_table_win" xml:space="preserve">
+    <value>勝利数</value>
+  </data>
+  <data name="server_mobile_suit_usages_table_win_rate" xml:space="preserve">
+    <value>勝利数</value>
+  </data>
+  <data name="server_mobile_suit_usages_cost" xml:space="preserve">
+    <value>コスト</value>
+  </data>
+  <data name="server_mobile_suit_usages_cost_usage_rate" xml:space="preserve">
+    <value>使用率</value>
+  </data>
+  <data name="server_mobile_suit_usages_cost_win_rate" xml:space="preserve">
+    <value>勝率</value>
+  </data>
+  <data name="server_mobile_suit_usages_burst_type" xml:space="preserve">
+    <value>バースト</value>
+  </data>
+  <data name="server_mobile_suit_usages_burst_type_usage_rate" xml:space="preserve">
+    <value>使用率</value>
+  </data>
+  <data name="server_mobile_suit_usages_burst_type_win_rate" xml:space="preserve">
+    <value>勝率</value>
+  </data>
+
+  <!-- Battle History -->
+  <data name="battle_history_action_log_show_details" xml:space="preserve">
+    <value>詳細を開く</value>
+  </data>
+  <data name="battle_history_action_log_hide_details" xml:space="preserve">
+    <value>詳細を閉じる</value>
+  </data>
+  <data name="battle_histories" xml:space="preserve">
+    <value>対戦戦績</value>
+  </data>
+  <data name="battle_time_line" xml:space="preserve">
+    <value>タイムライン</value>
+  </data>
+  <data name="battle_history_action_log_1" xml:space="preserve">
+    <value>撃墜</value>
+  </data>
+  <data name="battle_history_action_log_2" xml:space="preserve">
+    <value>EXバースト発動可能</value>
+  </data>
+  <data name="battle_history_action_log_3" xml:space="preserve">
+    <value>EXバースト発動</value>
+  </data>
+  <data name="battle_history_action_log_4" xml:space="preserve">
+    <value>EXバースト終了</value>
+  </data>
+  <!-- Training -->
+  <data name="training_profile" xml:space="preserve">
+    <value>トレーニング</value>
+  </data>
+  <data name="training_profile_ms" xml:space="preserve">
+    <value>CPU機体</value>
+  </data>
+  <data name="dialogtitle_training_ms" xml:space="preserve">
+    <value>CPU機体</value>
+  </data>
+  <data name="training_profile_bursttype" xml:space="preserve">
+    <value>EXバースト</value>
+  </data>
+  <data name="training_cpu_levels" xml:space="preserve">
+    <value>CPUレベル</value>
+  </data>
+  <data name="training_ex_burst_levels" xml:space="preserve">
+    <value>EXバースト設定</value>
+  </data>
+  <data name="training_profile_damage_display" xml:space="preserve">
+    <value>ダメージ表示</value>
+  </data>
+  <data name="training_profile_cpu_auto_guard" xml:space="preserve">
+    <value>オートガード</value>
+  </data>
+  <data name="training_profile_command_hint" xml:space="preserve">
+    <value>コマンドヒント</value>
+  </data>
+  <data name="save_hint_training_profile" xml:space="preserve">
+    <value>training settings</value>
+  </data>
+  
+  <!-- New Login UI -->
+  <data name="login" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="login_hint" xml:space="preserve">
+    <value>ログイン方法</value>
+  </data>
+  <data name="access_code_can_be_found_from" xml:space="preserve">
+    <value>アクセスコードの確認方法</value>
+  </data>
+  <data name="access_code_source_1" xml:space="preserve">
+    <value>1. バナパスポートの裏面</value>
+  </data>
+  <data name="access_code_or" xml:space="preserve">
+    <value>もしくは</value>
+  </data>
+  <data name="access_code_source_2" xml:space="preserve">
+    <value>2. card.ini内</value>
+  </data>
+  <data name="invalid_user_login" xml:space="preserve">
+    <value>Login Failed!</value>
+  </data>
+</root>

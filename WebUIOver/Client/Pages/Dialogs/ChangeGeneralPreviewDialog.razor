@@ -1,0 +1,416 @@
+﻿@inject ICommonDataService CommonDataService
+@inject ITitleDataService TitleDataService
+@inject IStampDataService StampDataService
+@inject IStickerService StickerService
+@inject ITriadDataService TriadDataService
+@inject ITeamDataService TeamDataService
+@inject ILogger<ChangeGeneralPreviewDialog> Logger
+@inject ISnackbar Snackbar
+
+@using WebUIOver.Client.Services.Common
+@using WebUIOver.Shared.Dto.Common;
+@using WebUIOver.Client.Services.Title
+@using WebUIOver.Client.Services.Stamp
+@using WebUIOver.Client.Services.Sticker
+@using WebUIOver.Client.Services.Team
+@using WebUIOver.Client.Services.Triad
+
+<style>
+    .selected {
+        background-color: #1E88E5 !important;
+    }
+
+    .selected > td {
+        color: white !important;
+    }
+
+    .selected > td .mud-input {
+        color: white !important;
+    }
+</style>
+
+<MudDialog>
+    <DialogContent>
+        <MudTable Elevation="5" Items="@list" Filter="@Filter" @ref="mudTable" OnRowClick="@OnRowClick" RowClassFunc="@SelectedRowClassFunc" T="GeneralPreview" Hover="true" FixedHeader="true">
+            <ColGroup>
+                <col style="width: 50px;" />
+                <col />
+            </ColGroup>
+            <ToolBarContent>
+                <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="false"
+                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0">
+                </MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Id))">
+                        Id
+                    </MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Value))">
+                        Name
+                    </MudTableSortLabel>
+                </MudTh>
+                @if (HasCategory)
+                {
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Category))">
+                            Category
+                        </MudTableSortLabel>
+                    </MudTh>
+                }
+                @if (HasClues)
+                {
+                    <MudTh>
+                        <MudTableSortLabel SortBy="@(new Func<GeneralPreview, object>(x => x.Clues))">
+                            Clues
+                        </MudTableSortLabel>
+                    </MudTh>
+                }
+                @if (EnableImagePreview)
+                {
+                    <MudTh>
+                        Preview
+                    </MudTh>
+                }
+            </HeaderContent>
+            <RowTemplate>
+                @{
+#pragma warning disable CS8602
+                }
+                <MudTd DataLabel="Id" Class="cursor-pointer">@context.Id</MudTd>
+                <MudTd DataLabel="Name" Class="cursor-pointer">@((MarkupString)context.Value)</MudTd>
+                @if (HasCategory)
+                {
+                    var category = "";
+
+                    if (context.Category is not null)
+                    {
+                        category = context.Category;
+                    }
+                    
+                    <MudTd DataLabel="Name" Class="cursor-pointer">@((MarkupString)category)</MudTd>
+                }
+                @if (HasClues)
+                {
+                    var clueString = "";
+                    if (context.Clues is not null)
+                    {
+                        clueString = context.Clues;
+                    }
+
+                    if (clueString != string.Empty && context.Clues2 is not null)
+                    {
+                        clueString += "<br>" + context.Clues2;
+                    }
+                    <MudTd DataLabel="Clues" Class="cursor-pointer">@((MarkupString) clueString)</MudTd>
+                }
+                @if (EnableImagePreview)
+                {
+                    <MudTd DataLabel="Preview" Class="cursor-pointer">
+                        @{
+                            var imagePath = $"{ImagePathPrefix}/{context.Id}.webp";
+                        }
+                        <MudImage ObjectPosition="ObjectPosition.Center" Src="@imagePath" Fluid="true"
+                                  Width="Width"
+                                  ObjectFit="ObjectFit.Cover" Class="rounded-lg"/>
+                    </MudTd>
+                }
+                @{
+#pragma warning restore CS8602
+                }
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="@pageSizeOptions" />
+            </PagerContent>
+        </MudTable>
+        <MudText Class="mt-4 d-block" Typo="Typo.caption">
+            <b>@SelectedString</b>
+            @foreach (var selectItem in selectedItems)
+            {
+                <b> @((MarkupString) selectItem.Value) | </b>
+            }
+        </MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    IMudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter]
+    public uint[] Data { get; set; } = null!;
+
+    [Parameter]
+    public int MultiSelectCountLimit { get; set; } = 1;
+
+    [Parameter]
+    public bool EnableImagePreview { get; set; } = true;
+    
+    [Parameter]
+    public bool HasClues { get; set; } = true;
+
+    [Parameter]
+    public bool HasCategory { get; set; } = false;
+
+    [Parameter]
+    public string SelectedString { get; set; } = string.Empty;
+    
+    [Parameter]
+    public string ImagePathPrefix { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Mode { get; set; } = string.Empty;
+    
+    [Parameter]
+    public int Width { get; set; } = 300;
+
+    private HashSet<GeneralPreview> selectedItems = new();
+
+    private int selectedPage;
+
+    private IReadOnlyList<GeneralPreview> list = new List<GeneralPreview>();
+
+    private string searchString = string.Empty;
+
+    private readonly int[] pageSizeOptions = { 10, 25, 50, 100 };
+
+    private MudTable<GeneralPreview> mudTable = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        list = GetList();
+        foreach (var selectData in Data)
+        {
+            var data = GetDataById(selectData);
+            if (data != null) selectedItems.Add(data);
+        }
+        var firstPageOption = pageSizeOptions.ToList().FirstOrDefault();
+        selectedPage = CalculateCurrentPage(list, selectedItems.FirstOrDefault(), firstPageOption);
+    }
+
+    private IReadOnlyList<GeneralPreview> GetList()
+    {
+        if (Mode == "Gauges")
+        {
+            return CommonDataService.GetGaugesSortedById();
+        }
+        
+        if (Mode == "Titles")
+        {
+            return TitleDataService.GetTitlesSortedById();
+        }
+
+        if (Mode == "Backgrounds")
+        {
+            return TitleDataService.GetBackgroundsSortedById();
+        }
+
+        if (Mode == "Effects")
+        {
+            return TitleDataService.GetEffectsSortedById();
+        }
+
+        if (Mode == "Ornaments")
+        {
+            return TitleDataService.GetOrnamentsSortedById();
+        }
+
+        if (Mode == "StickerBackground")
+        {
+            return StickerService.GetStickerBackgroundsSortedById();
+        }
+        
+        if (Mode == "StickerEffect")
+        {
+            return StickerService.GetStickerEffectsSortedById();
+        }
+        
+        if (Mode == "TriadTeamBackground")
+        {
+            return TriadDataService.GetTriadTeamBackgroundSortedById();
+        }
+        
+        if (Mode == "TeamBackgrounds")
+        {
+            return TeamDataService.GetTeamBackgroundsSortedById();
+        }
+        
+        if (Mode == "TeamEffects")
+        {
+            return TeamDataService.GetTeamEffectsSortedById();
+        }
+        
+        if (Mode == "TeamEmblems")
+        {
+            return TeamDataService.GetTeamEmblemsSortedById();
+        }
+        
+        if (Mode == "TeamNameColors")
+        {
+            return TeamDataService.GetTeamNameFontColorsSortedById();
+        }
+        
+        if (Mode == "Stages")
+        {
+            return CommonDataService.GetStagesSortedById();
+        }
+        
+        return StampDataService.GetStampsSortedById();
+    }
+
+    private GeneralPreview? GetDataById(uint id)
+    {
+        if (Mode == "Gauges")
+        {
+            return CommonDataService.GetGaugeById(id);
+        }
+        
+        if (Mode == "Titles")
+        {
+            return TitleDataService.GetTitleById(id);
+        }
+
+        if (Mode == "Backgrounds")
+        {
+            return TitleDataService.GetBackgroundById(id);
+        }
+
+        if (Mode == "Effects")
+        {
+            return TitleDataService.GetEffectById(id);
+        }
+
+        if (Mode == "Ornaments")
+        {
+            return TitleDataService.GetOrnamentById(id);
+        }
+        
+        if (Mode == "StickerBackground")
+        {
+            return StickerService.GetStickerBackgroundById(id);
+        }
+        
+        if (Mode == "StickerEffect")
+        {
+            return StickerService.GetStickerEffectById(id);
+        }
+        
+        if (Mode == "TriadTeamBackground")
+        {
+            return TriadDataService.GetTriadTeamBackgroundById(id);
+        }
+        
+        if (Mode == "TeamBackgrounds")
+        {
+            return TeamDataService.GetTeamBackgroundById(id);
+        }
+        
+        if (Mode == "TeamEffects")
+        {
+            return TeamDataService.GetTeamEffectById(id);
+        }
+        
+        if (Mode == "TeamEmblems")
+        {
+            return TeamDataService.GetTeamEmblemById(id);
+        }
+        
+        if (Mode == "TeamNameColors")
+        {
+            return TeamDataService.GetTeamNameFontColorById(id);
+        }
+        
+        if (Mode == "Stages")
+        {
+            return CommonDataService.GetStageById(id);
+        }
+        
+        return StampDataService.GetStampById(id);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+            mudTable.CurrentPage = selectedPage;
+    }
+
+    private int CalculateCurrentPage<T>(IEnumerable<T> items, T selectedItem, int rowsPerPage)
+    {
+        // Convert the IEnumerable to a list for better performance (if it's not already a list).
+        var itemList = items.ToList();
+
+        // Find the index of the selected item in the list.
+        var selectedIndex = itemList.IndexOf(selectedItem);
+
+        if (selectedIndex < 0)
+        {
+            // The selected item is not found in the list.
+            Logger.LogError("Selected item is not part of the provided items list");
+        }
+
+        // Calculate the current page using integer division.
+        var currentPage = selectedIndex / rowsPerPage;
+
+        return currentPage;
+    }
+
+    private bool Filter(GeneralPreview? item)
+    {
+        if (item is null)
+        {
+            return false;
+        }
+        var aggregate = $"{item.Value}{item.Category}{item.Clues}{item.Clues2}";
+        return string.IsNullOrEmpty(searchString) ||
+               aggregate.Contains(searchString, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void Submit()
+    {
+        Data = selectedItems.Select(x => x.Id).ToArray();
+
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private string SelectedRowClassFunc(GeneralPreview element, int rowNumber)
+    {
+        return selectedItems.Contains(element) ? "selected" : string.Empty;
+    }
+
+    private void OnRowClick(TableRowClickEventArgs<GeneralPreview> args)
+    {
+        if (selectedItems.Any(x => x.Id == args.Item.Id))
+        {
+            selectedItems.RemoveWhere(x => x.Id == args.Item.Id);
+        }
+        else
+        {
+            if (selectedItems.Count() >= MultiSelectCountLimit)
+            {
+                if (MultiSelectCountLimit == 1)
+                {
+                    selectedItems.Clear();
+                    selectedItems.Add(args.Item);
+                    StateHasChanged();
+                }
+                else
+                {
+                    Snackbar.Add($"Cannot select more than {MultiSelectCountLimit} entries! \r\n Please de-select existing entries before you select a new entry.", Severity.Warning);
+                    return;
+                }
+            }
+            selectedItems.Add(args.Item);
+        }
+
+        StateHasChanged();
+    }
+}
